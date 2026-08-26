@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>AP Calculus BC 1.2 | Defining Limits and Using Limit Notation</title>
+  <style>
+    :root {
+      --navy: #16324f;
+      --blue: #2f5d8c;
+      --blue-2: #6f94b6;
+      --ink: #1e2a35;
+      --muted: #667585;
+      --paper: #fbfcfd;
+      --mist: #eef3f7;
+      --mist-2: #f6f8fa;
+      --line: #cdd7df;
+      --teal: #16837a;
+      --red: #b3483f;
+      --gold: #c9902f;
+      --shadow: 0 18px 55px rgba(22, 50, 79, .22);
+      --sans: "Noto Sans CJK SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      --serif: "STSong", "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+      --math: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; }
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #dfe6ec;
+      color: var(--ink);
+      font-family: var(--sans);
+    }
+    button { font: inherit; }
+    .app { width: 100%; height: 100%; position: relative; }
+    .viewport {
+      position: absolute;
+      inset: 0 0 58px;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      overflow: hidden;
+    }
+    .deck {
+      width: 1600px;
+      height: 900px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: 50% 50%;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      padding: 70px 96px 72px 112px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .slide.active { display: block; animation: enter .18s ease-out; }
+    @keyframes enter { from { opacity: .3; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 16px;
+      background: var(--blue);
+      z-index: -1;
+    }
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 16px;
+      height: 9px;
+      background: var(--navy);
+      z-index: -1;
+    }
+    .slide.soft { background: linear-gradient(112deg, #fbfcfd 0 68%, #eef3f7 68% 100%); }
+    .slide.section { background: var(--navy); color: white; }
+    .slide.section::before { background: var(--blue-2); }
+    .slide.section::after { background: white; }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 24px;
+      font-size: 78px;
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      font-weight: 820;
+    }
+    h2 {
+      margin-bottom: 22px;
+      color: var(--navy);
+      font-size: 52px;
+      line-height: 1.12;
+      letter-spacing: -.025em;
+      font-weight: 790;
+    }
+    .section h2 { color: white; }
+    h3 { margin-bottom: 12px; color: var(--navy); font-size: 31px; line-height: 1.24; }
+    p, li, td, th { font-size: 27px; line-height: 1.42; }
+    .lead { font-size: 34px; line-height: 1.4; }
+    .small { font-size: 20px; line-height: 1.38; }
+    .micro { font-size: 16px; line-height: 1.34; }
+    .subtle { color: var(--muted); }
+    .section .subtle { color: #d3e0ea; }
+    .math { font-family: var(--math); font-style: italic; }
+    .roman { font-style: normal; }
+    .nowrap { white-space: nowrap; }
+
+    .eyebrow {
+      margin: 0 0 13px;
+      color: var(--blue);
+      font-size: 22px;
+      font-weight: 760;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .section .eyebrow { color: #bcd0e2; }
+    .accent-rule { width: 88px; height: 8px; background: var(--blue); margin: 0 0 25px; }
+    .zh-title {
+      margin: -13px 0 18px;
+      color: #8a641e;
+      font-size: 22px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+    .section .zh-title { color: #e8c36f; }
+    .zh-key {
+      display: block;
+      margin-top: 5px;
+      color: #8a641e;
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 680;
+    }
+    .section .zh-key { color: #e7c56f; }
+    .zh-inline { color: #8a641e; font-size: .72em; font-weight: 720; }
+    .section .zh-inline { color: #e7c56f; }
+
+    .term-table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-top: 5px solid var(--blue);
+      background: white;
+    }
+    .term-table th, .term-table td { padding: 12px 17px; line-height: 1.26; border-bottom: 1px solid var(--line); }
+    .term-table th {
+      font-size: 18px;
+      color: var(--muted);
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      border-bottom: 2px solid var(--line);
+    }
+    .term-table td { font-size: 26px; }
+    .term-table td:nth-child(1), .term-table td:nth-child(3) { width: 31%; color: var(--blue); font-weight: 720; }
+    .term-table td:nth-child(2), .term-table td:nth-child(4) { width: 19%; color: #8a641e; font-size: 23px; font-weight: 650; }
+    .term-note { margin-top: 17px; padding-left: 21px; border-left: 6px solid var(--gold); font-size: 23px; line-height: 1.34; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 54px;
+      align-items: center;
+      min-height: 540px;
+    }
+    .split.graph-heavy { grid-template-columns: 1.14fr .86fr; align-items: start; min-height: 0; }
+    .split.text-heavy { grid-template-columns: .88fr 1.12fr; align-items: start; min-height: 0; }
+    .stack { display: flex; flex-direction: column; gap: 18px; }
+    .rule { height: 1px; background: var(--line); margin: 22px 0; }
+    .callout { border-left: 7px solid var(--blue); padding: 12px 0 12px 22px; font-size: 28px; line-height: 1.4; }
+    .callout.teal { border-left-color: var(--teal); }
+    .callout.red { border-left-color: var(--red); }
+    .callout.gold { border-left-color: var(--gold); }
+
+    .limit-expression {
+      display: flex;
+      align-items: center;
+      gap: .18em;
+      color: var(--navy);
+      font-family: var(--math);
+      font-size: 68px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .limit-expression.white { color: white; }
+    .limit-op {
+      display: inline-grid;
+      grid-template-rows: 1fr auto;
+      justify-items: center;
+      align-items: end;
+      margin-right: .06em;
+      font-style: normal;
+      line-height: .82;
+    }
+    .limit-op .op { font-size: .86em; }
+    .limit-op .sub { margin-top: .16em; font-size: .38em; font-style: italic; }
+    .limit-body { font-style: italic; }
+    .formula-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+    .notation-map {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      margin-top: 28px;
+    }
+    .notation-map > div { padding-top: 15px; border-top: 5px solid var(--blue); }
+    .notation-map > div:last-child { border-top-color: var(--teal); }
+    .notation-map b { color: var(--navy); }
+
+    .mini-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: start; }
+    .mini-graph { background: white; border-top: 5px solid var(--blue); padding: 10px 12px 14px; }
+    .mini-graph h3 { text-align: center; margin-bottom: 3px; font-size: 25px; }
+    .mini-graph p { margin: 4px 0 0; text-align: center; font-size: 21px; }
+
+    .graph-wrap { background: white; border: 1px solid var(--line); padding: 10px 12px 6px; }
+    svg.limit-graph { width: 100%; height: auto; display: block; overflow: visible; }
+    .limit-graph .grid { stroke: #d7dee4; stroke-width: 1; }
+    .limit-graph .axis { stroke: #23313e; stroke-width: 2.2; }
+    .limit-graph .curve { fill: none; stroke: #111820; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    .limit-graph .open-point { fill: white; stroke: #111820; stroke-width: 3; }
+    .limit-graph .closed-point { fill: #111820; stroke: white; stroke-width: 1.5; }
+    .limit-graph text { fill: #344454; font-family: var(--sans); font-size: 17px; }
+    .limit-graph .axis-label { font-size: 19px; font-weight: 720; }
+    .limit-graph .function-label { font-family: var(--math); font-style: italic; font-size: 24px; fill: #111820; }
+
+    .compare-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    .compare-table th { color: var(--navy); font-size: 23px; text-align: left; padding: 12px 14px; border-bottom: 3px solid var(--navy); }
+    .compare-table td { padding: 14px; border-bottom: 1px solid var(--line); font-size: 25px; vertical-align: top; }
+    .compare-table td:first-child { width: 35%; font-family: var(--math); font-size: 30px; }
+    .compare-table .answer-cell { color: var(--teal); font-weight: 800; }
+
+    .checklist { margin: 0; padding-left: 1.25em; }
+    .checklist li { margin: 11px 0; }
+    .question-list { margin: 0; padding-left: 1.2em; }
+    .question-list li { margin: 13px 0; }
+    .question-list.compact li { margin: 7px 0; font-size: 25px; }
+    .answer-emphasis { color: var(--teal); font-weight: 820; }
+    .negative { color: var(--red); }
+
+    .reveal-btn {
+      appearance: none;
+      border: 2px solid var(--blue);
+      border-radius: 0;
+      color: var(--blue);
+      background: transparent;
+      padding: 10px 18px;
+      font-size: 20px;
+      font-weight: 760;
+      cursor: pointer;
+    }
+    .reveal-btn:hover, .reveal-btn:focus-visible { background: var(--blue); color: white; outline: none; }
+    .section .reveal-btn { border-color: #bcd0e2; color: #dbe8f1; }
+    .section .reveal-btn:hover, .section .reveal-btn:focus-visible { background: white; color: var(--navy); }
+    .answer {
+      display: none;
+      margin-top: 13px;
+      padding: 12px 16px;
+      background: #e9f4f2;
+      border-left: 6px solid var(--teal);
+      font-size: 24px;
+      line-height: 1.36;
+    }
+    .section .answer { background: rgba(255,255,255,.10); color: white; }
+    .answer.show { display: block; }
+    .answer p { margin: 5px 0; font-size: inherit; }
+
+    .vs-layout { display: grid; grid-template-columns: 1fr 90px 1fr; gap: 20px; align-items: stretch; margin-top: 32px; }
+    .vs-col { padding: 25px 28px; background: white; border-top: 7px solid var(--blue); }
+    .vs-col:last-child { border-top-color: var(--teal); }
+    .vs-col h3 { font-size: 34px; }
+    .vs-mid { display: grid; place-items: center; color: var(--muted); font-weight: 820; font-size: 28px; }
+
+    .mcq { margin: 10px 0 0; padding-left: 0; list-style: none; }
+    .mcq li { margin: 10px 0; padding: 8px 12px; border-left: 4px solid var(--line); font-size: 24px; }
+
+    .hero-mark { position: absolute; right: 88px; top: 85px; width: 445px; height: 445px; opacity: .2; }
+    .title-note { position: absolute; left: 112px; bottom: 92px; display: flex; align-items: center; gap: 18px; font-size: 22px; color: #d9e5ef; }
+    .title-note .line { width: 90px; height: 2px; background: #86a7c4; }
+    .slide-footer {
+      position: absolute;
+      left: 112px;
+      right: 62px;
+      bottom: 27px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      color: #6d7a87;
+      font-size: 16px;
+    }
+    .section .slide-footer { color: #c7d6e2; }
+    .source-link { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .notes { display: none; }
+
+    .controls {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 22px;
+      background: #f7f9fb;
+      border-top: 1px solid #c5d0da;
+      color: #506171;
+      z-index: 20;
+    }
+    .controls button { border: 0; background: transparent; color: var(--navy); cursor: pointer; font-weight: 760; padding: 8px 10px; }
+    .controls button:hover, .controls button:focus-visible { background: var(--mist); outline: none; }
+    .progress-track { flex: 1; height: 4px; background: #d6dfe7; margin: 0 10px; }
+    .progress-bar { width: 0; height: 100%; background: var(--blue); transition: width .18s ease; }
+    .counter { min-width: 82px; text-align: center; font-variant-numeric: tabular-nums; }
+    .key-hint { font-size: 14px; color: #778593; white-space: nowrap; }
+
+    .notes-panel {
+      position: absolute;
+      z-index: 40;
+      right: 22px;
+      bottom: 76px;
+      width: min(540px, calc(100vw - 44px));
+      max-height: 64vh;
+      overflow: auto;
+      display: none;
+      background: #fffef7;
+      border: 1px solid #c7b876;
+      box-shadow: 0 14px 40px rgba(30, 42, 53, .25);
+      padding: 22px 24px;
+      color: #36352d;
+    }
+    .notes-panel.open { display: block; }
+    .notes-panel h3 { font-size: 22px; margin-bottom: 12px; }
+    .notes-panel p, .notes-panel li { font-size: 16px; line-height: 1.55; }
+
+    .help { position: absolute; inset: 0; z-index: 50; display: none; place-items: center; background: rgba(22,50,79,.78); }
+    .help.open { display: grid; }
+    .help-card { width: 560px; background: white; padding: 34px 40px; box-shadow: var(--shadow); }
+    .help-card h3 { font-size: 30px; }
+    .help-card p { font-size: 20px; }
+    kbd { border: 1px solid #aebbc6; padding: 2px 7px; background: #f6f8fa; font-family: ui-monospace, monospace; }
+
+    @media (max-width: 760px) {
+      .key-hint { display: none; }
+      .controls { gap: 4px; padding: 0 8px; }
+    }
+    @page { size: 16in 9in; margin: 0; }
+    @media print {
+      html, body { width: auto; height: auto; overflow: visible; background: white; }
+      .app, .viewport { position: static; display: block; padding: 0; overflow: visible; }
+      .deck { position: static; left: auto; top: auto; transform: none !important; width: 1600px; height: auto; }
+      .slide { position: relative; display: block !important; width: 1600px; height: 900px; box-shadow: none; break-after: page; page-break-after: always; animation: none !important; }
+      .controls, .notes-panel, .help, .reveal-btn { display: none !important; }
+      .answer { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="viewport" id="viewport">
+      <main class="deck" id="deck" aria-live="polite">
+
+        <section class="slide section active" data-title="Defining Limits and Using Limit Notation">
+          <p class="eyebrow">AP Calculus BC · Topic 1.2</p>
+          <div class="accent-rule" style="background:#8db0cc"></div>
+          <h1>Defining Limits and<br>Using Limit Notation</h1>
+          <p class="lead" style="color:#e7c56f">定义极限，并读懂极限记号</p>
+          <svg class="hero-mark" viewBox="0 0 445 445" aria-hidden="true">
+            <path d="M35 350 C90 285 130 226 185 192 C242 157 315 145 410 143" fill="none" stroke="white" stroke-width="15" stroke-linecap="round"/>
+            <circle cx="246" cy="165" r="18" fill="#16324f" stroke="white" stroke-width="9"/>
+            <circle cx="246" cy="86" r="15" fill="#e7c56f"/>
+            <path d="M164 235 L228 179 M328 152 L269 163" stroke="#86a7c4" stroke-width="8" stroke-linecap="round"/>
+            <path d="M221 176 l18 2 -7 17 M276 159 l-16 8 13 12" fill="none" stroke="#86a7c4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="title-note"><span class="line"></span><span>Nearby behavior can differ from the value at the point · 附近趋势不一定等于点值</span></div>
+          <div class="slide-footer"><span>Class slides · English with key Chinese · 2026–2027</span><span>1.2</span></div>
+          <aside class="notes">
+            <p><b>开场问题：</b>如果图像在一个点挖掉一个洞，但其他位置完全不变，附近的趋势会改变吗？</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/12-defining-limits-and-using-limit-notation.html<br>https://www.youtube.com/watch?v=V98KUHeyQWQ</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="Core Vocabulary I">
+          <p class="eyebrow">Language first · The idea of a limit</p>
+          <h2>Core Vocabulary I: What Is Approaching?</h2>
+          <p class="zh-title">重点中文：极限、趋近、输入与输出</p>
+          <table class="term-table" aria-label="English limit vocabulary with Chinese translations">
+            <thead><tr><th>English</th><th>重点中文</th><th>English</th><th>重点中文</th></tr></thead>
+            <tbody>
+              <tr><td>limit</td><td>极限</td><td>approach</td><td>趋近</td></tr>
+              <tr><td>limit notation</td><td>极限记号</td><td>nearby values</td><td>邻近值</td></tr>
+              <tr><td>input</td><td>输入值</td><td>output</td><td>输出值</td></tr>
+              <tr><td>x-value</td><td>x 值</td><td>y-value</td><td>y 值</td></tr>
+              <tr><td>function</td><td>函数</td><td>function value</td><td>函数值</td></tr>
+              <tr><td>as close as desired</td><td>任意接近</td><td>sufficiently close</td><td>足够接近</td></tr>
+            </tbody>
+          </table>
+          <div class="term-note"><b>Sentence frame:</b> As <span class="math">x</span> approaches ___, <span class="math">f(x)</span> approaches ___.<span class="zh-key">句型：当 x 趋近……时，f(x) 趋近……</span></div>
+          <div class="slide-footer"><span>Read the English first; use Chinese to confirm.</span><span>02</span></div>
+          <aside class="notes">
+            <p><b>词汇动作：</b>让学生把 input 指给 x，把 output 指给 f(x)。approach 读作“靠近”，不要读成“等于”。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf<br>https://www.youtube.com/watch?v=V98KUHeyQWQ</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="Core Vocabulary II">
+          <p class="eyebrow">Language first · Reading a graph</p>
+          <h2>Core Vocabulary II: The Point and the Trend</h2>
+          <p class="zh-title">重点中文：空心点、实心点与点值</p>
+          <table class="term-table" aria-label="English graph vocabulary with Chinese translations">
+            <thead><tr><th>English</th><th>重点中文</th><th>English</th><th>重点中文</th></tr></thead>
+            <tbody>
+              <tr><td>open circle</td><td>空心点</td><td>filled point</td><td>实心点</td></tr>
+              <tr><td>hole</td><td>空点；缺口</td><td>at the point</td><td>在该点处</td></tr>
+              <tr><td>defined</td><td>有定义</td><td>undefined</td><td>未定义</td></tr>
+              <tr><td>equal to (=)</td><td>等于</td><td>not equal to (≠)</td><td>不等于</td></tr>
+              <tr><td>evaluate</td><td>求值</td><td>interpret</td><td>解释含义</td></tr>
+              <tr><td>true / false</td><td>正确 / 错误</td><td>in every case</td><td>在所有情况下</td></tr>
+            </tbody>
+          </table>
+          <div class="term-note"><b>Graph rule:</b> A filled point gives the function value. Nearby graph behavior gives the limit.<span class="zh-key">实心点看函数值；附近趋势看极限。</span></div>
+          <div class="slide-footer"><span>“Undefined” describes a missing function value—not automatically a missing limit.</span><span>03</span></div>
+          <aside class="notes">
+            <p><b>易混：</b>空心点只说明那个坐标不属于函数图像；不能直接推出极限不存在。本课 function value 缺失统一说 undefined。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf<br>https://www.youtube.com/watch?v=V98KUHeyQWQ</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="Three Graphs, One Nearby Pattern">
+          <p class="eyebrow">Warm-up · Notice before calculating</p>
+          <h2>Three Graphs Share the Same Nearby Pattern</h2>
+          <p class="zh-title">先观察：曲线相同，只有 x = 2 处的点不同</p>
+          <div class="mini-trio">
+            <div class="mini-graph"><h3>Graph A</h3><svg class="limit-graph" data-graph="miniA" viewBox="0 0 440 300" role="img" aria-label="Continuous graph at x equals 2"></svg><p>What happens near <span class="math">x=2</span>?</p></div>
+            <div class="mini-graph"><h3>Graph B</h3><svg class="limit-graph" data-graph="miniB" viewBox="0 0 440 300" role="img" aria-label="Graph with a hole at x equals 2"></svg><p>What happens near <span class="math">x=2</span>?</p></div>
+            <div class="mini-graph"><h3>Graph C</h3><svg class="limit-graph" data-graph="miniC" viewBox="0 0 440 300" role="img" aria-label="Graph with a hole and a separate filled point at x equals 2"></svg><p>What happens near <span class="math">x=2</span>?</p></div>
+          </div>
+          <div style="text-align:center;margin-top:18px">
+            <button class="reveal-btn" data-reveal="warmPattern">Show the shared pattern</button>
+            <div class="answer" id="warmPattern" style="max-width:1060px;margin-left:auto;margin-right:auto">In all three graphs, values of <span class="math">f(x)</span> near <span class="math">x=2</span> are close to <b>1</b>.<span class="zh-key">三幅图的附近趋势相同：都靠近 1。</span></div>
+          </div>
+          <div class="slide-footer"><span>Ask about nearby values before reading the point.</span><span>04</span></div>
+          <aside class="notes">
+            <p><b>课堂动作：</b>先不说 limit。学生只说“x 靠近 2 时，y 靠近几”。揭晓后追问：三幅图在 x=2 处的值相同吗？</p>
+            <p>[Sources]<br>Graph structure adapted and redrawn from https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="Read the Limit Notation from Left to Right">
+          <p class="eyebrow">Build the notation</p>
+          <h2>Read the Limit Notation from Left to Right</h2>
+          <p class="zh-title">a 是输入目标；L 是输出目标</p>
+          <div class="split text-heavy" style="margin-top:34px">
+            <div>
+              <div class="limit-expression" aria-label="the limit as x approaches a of f of x equals L">
+                <span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span><span class="limit-body">f(x) = L</span>
+              </div>
+              <p class="lead" style="margin-top:38px">“The limit of <span class="math">f(x)</span> as <span class="math">x</span> approaches <span class="math">a</span> is <span class="math">L</span>.”</p>
+            </div>
+            <div class="notation-map">
+              <div><h3><span class="math">x → a</span></h3><p>The <b>input</b> moves toward <span class="math">a</span>.<span class="zh-key">输入 x 靠近 a</span></p></div>
+              <div><h3><span class="math">f(x) → L</span></h3><p>The <b>output</b> moves toward <span class="math">L</span>.<span class="zh-key">输出 f(x) 靠近 L</span></p></div>
+            </div>
+          </div>
+          <div class="callout gold" style="margin-top:32px"><b>Important:</b> <span class="math">x</span> gets close to <span class="math">a</span>; it does not need to equal <span class="math">a</span>.<span class="zh-key">趋近不要求取到该点。</span></div>
+          <div class="slide-footer"><span>The subscript tells where x is heading.</span><span>05</span></div>
+          <aside class="notes">
+            <p><b>手势：</b>先指 x→a，再指 f(x)=L。要求学生完整读一遍英文，不要把 a 与 L 颠倒。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf<br>https://www.youtube.com/watch?v=V98KUHeyQWQ</p>
+          </aside>
+        </section>
+
+        <section class="slide section" data-title="Say the Notation as a Complete Sentence">
+          <p class="eyebrow">Interpretation · Say what moves where</p>
+          <h2>Say the Notation as a Complete Sentence</h2>
+          <p class="zh-title">读极限：先输入，后输出</p>
+          <div class="split" style="min-height:430px;margin-top:24px">
+            <div>
+              <div class="limit-expression white" aria-label="the limit as x approaches 7 of f of x equals 10">
+                <span class="limit-op"><span class="op">lim</span><span class="sub">x→7</span></span><span class="limit-body">f(x) = 10</span>
+              </div>
+            </div>
+            <div>
+              <p class="lead">As <span class="math">x</span> approaches <b>7</b>, the values of <span class="math">f(x)</span> approach <b>10</b>.</p>
+              <div class="callout red" style="color:#f6dad7;margin-top:30px">This statement does <b>not</b> say that <span class="math">f(7)=10</span>.<span class="zh-key">极限式不能直接告诉我们 f(7)。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Input target: 7 · Output target: 10</span><span>06</span></div>
+          <aside class="notes">
+            <p><b>纠错：</b>原讲义的重点句更准确地应写成“A limit does not determine f(a).”极限当然描述附近的 f(x)，只是不能决定点值。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf<br>https://www.youtube.com/watch?v=V98KUHeyQWQ</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="One Limit, Three Possibilities at the Point">
+          <p class="eyebrow">The central comparison</p>
+          <h2 style="font-size:50px">One Limit, Three Possibilities at the Point</h2>
+          <p class="zh-title">同一个极限，可以对应三种点处情况</p>
+          <div class="mini-trio">
+            <div class="mini-graph"><h3>Continuous point</h3><svg class="limit-graph" data-graph="miniA" viewBox="0 0 440 275" role="img" aria-label="Continuous point example"></svg><p><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span><span class="limit-body">f(x)</span></span> = <b>1</b><br><span class="math">f(2)</span> = <b>1</b></p></div>
+            <div class="mini-graph"><h3>Hole only</h3><svg class="limit-graph" data-graph="miniB" viewBox="0 0 440 275" role="img" aria-label="Hole example"></svg><p><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span><span class="limit-body">f(x)</span></span> = <b>1</b><br><span class="math">f(2)</span> is <b>undefined</b></p></div>
+            <div class="mini-graph"><h3>Point moved</h3><svg class="limit-graph" data-graph="miniC" viewBox="0 0 440 275" role="img" aria-label="Redefined point example"></svg><p><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span><span class="limit-body">f(x)</span></span> = <b>1</b><br><span class="math">f(2)</span> = <b>3</b></p></div>
+          </div>
+          <div class="callout teal" style="max-width:1180px;margin:20px auto 0"><b>Changing one point does not change the nearby trend.</b><span class="zh-key">只改变一个点，不会改变附近趋势。</span></div>
+          <div class="slide-footer"><span>In every panel: lim as x approaches 2 of f(x) = 1.</span><span>07</span></div>
+          <aside class="notes">
+            <p><b>核心句：</b>limit 看 deleted neighborhood（去心邻域）的行为；本课不用术语，只说 nearby values。逐图问 limit，再问 f(2)。</p>
+            <p>[Sources]<br>Graph structure adapted and redrawn from https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="Nearby Behavior and Point Value Are Different">
+          <p class="eyebrow">Two questions at the same x-value</p>
+          <h2>Nearby Behavior and Point Value Are Different</h2>
+          <p class="zh-title">同一个 x 值，要分开回答两个问题</p>
+          <div class="vs-layout">
+            <div class="vs-col">
+              <h3>The limit</h3>
+              <div class="limit-expression" style="font-size:48px" aria-label="the limit as x approaches a of f of x">
+                <span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span><span class="limit-body">f(x)</span>
+              </div>
+              <ul class="checklist">
+                <li>Trace the graph <b>near</b> <span class="math">x=a</span>.</li>
+                <li>Ignore a single moved or missing point.</li>
+                <li>Ask: “What y-value is approached?”</li>
+              </ul>
+              <span class="zh-key">极限：看附近趋势</span>
+            </div>
+            <div class="vs-mid">VS.</div>
+            <div class="vs-col">
+              <h3>The function value</h3>
+              <p class="limit-expression" style="font-size:52px"><span class="limit-body">f(a)</span></p>
+              <ul class="checklist">
+                <li>Look exactly at <span class="math">x=a</span>.</li>
+                <li>Read the y-value of the <b>filled point</b>.</li>
+                <li>If there is no filled point, the value is undefined.</li>
+              </ul>
+              <span class="zh-key">函数值：看实心点</span>
+            </div>
+          </div>
+          <div class="slide-footer"><span>A limit does not determine f(a).</span><span>08</span></div>
+          <aside class="notes">
+            <p><b>板书：</b>左边写 near，右边写 at。学生每做一道题先圈出它问的是 limit 还是 function value。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf<br>https://www.youtube.com/watch?v=V98KUHeyQWQ</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="Guided Example: Read the Trend First">
+          <p class="eyebrow">Guided example · One graph, two kinds of questions</p>
+          <h2>Read the Trend First, Then Read the Point</h2>
+          <p class="zh-title">先读附近趋势，再读实心点</p>
+          <div class="split graph-heavy">
+            <div class="graph-wrap"><svg class="limit-graph" data-graph="notesGraph" viewBox="0 0 760 500" role="img" aria-label="Piecewise function graph for guided limit questions"></svg></div>
+            <div>
+              <ol class="question-list compact">
+                <li>Find the limit as <span class="math">x→1</span>.</li>
+                <li>Find <span class="math">f(−3)</span>.</li>
+                <li>Find the limit as <span class="math">x→2</span>.</li>
+                <li>Find <span class="math">f(2)</span>.</li>
+              </ol>
+              <button class="reveal-btn" data-reveal="guidedA">Show answers</button>
+              <div class="answer" id="guidedA">
+                <p>1. <b>−1</b>　 2. <b>0</b></p>
+                <p>3. <b>2</b>　 4. <b>3</b></p>
+                <span class="zh-key">x=2：极限是 2，函数值是 3。</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer"><a class="source-link" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf" target="_blank">Source structure: FlippedMath 1.2 Packet</a><span>09</span></div>
+          <aside class="notes">
+            <p><b>课堂动作：</b>每题先让学生说 near 还是 at。第 3、4 题故意连续提问，突出 limit=2 而 f(2)=3。</p>
+            <p>[Sources]<br>Graph and question structure adapted and redrawn from https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="An Open Circle Does Not Destroy a Limit">
+          <p class="eyebrow">Guided example · Keep the two questions separate</p>
+          <h2>An Open Circle Does Not Automatically Destroy a Limit</h2>
+          <p class="zh-title">空心点不等于“极限不存在”</p>
+          <div class="split graph-heavy">
+            <div class="graph-wrap"><svg class="limit-graph" data-graph="notesGraph" viewBox="0 0 760 500" role="img" aria-label="Same piecewise graph for more guided questions"></svg></div>
+            <div>
+              <ol class="question-list compact" start="5">
+                <li>Find <span class="math">f(1)</span>.</li>
+                <li>Find <span class="math">f(−2)</span>.</li>
+                <li>Find the limit as <span class="math">x→0</span>.</li>
+                <li>Find the limit as <span class="math">x→−3</span>.</li>
+              </ol>
+              <button class="reveal-btn" data-reveal="guidedB">Show answers</button>
+              <div class="answer" id="guidedB">
+                <p>5. <b>undefined</b>　 6. <b>2</b></p>
+                <p>7. <b>−2</b>　 8. <b>1</b></p>
+                <span class="zh-key">x=1 的点值未定义，但附近趋势仍清楚。</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Open circle → check the trend; no filled point → function value undefined.</span><span>10</span></div>
+          <aside class="notes">
+            <p><b>语言：</b>第 5 题说“f(1) is undefined”，不要说“the limit is undefined”。第 8 题空心点的 y=1 正是附近趋近值。</p>
+            <p>[Sources]<br>Graph and question structure adapted and redrawn from https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide section" data-title="Neither Statement Is Always True">
+          <p class="eyebrow">True or false? · Watch the words “always” and “never”</p>
+          <h2>Neither Statement Is Always True</h2>
+          <p class="zh-title">有时相等，有时不相等，也可能点值未定义</p>
+          <div class="split" style="min-height:390px;margin-top:18px">
+            <div>
+              <div class="callout gold" style="color:#f5e4bd">“The limit as <span class="math">x→a</span> always equals <span class="math">f(a)</span>.”</div>
+              <div class="callout red" style="color:#f4d7d4;margin-top:26px">“The limit as <span class="math">x→a</span> never equals <span class="math">f(a)</span>.”</div>
+            </div>
+            <div>
+              <button class="reveal-btn" data-reveal="tfAnswer">Show verdict</button>
+              <div class="answer" id="tfAnswer">
+                <p><b>Both statements are false.</b></p>
+                <p>The limit and <span class="math">f(a)</span> may be equal, different, or <span class="math">f(a)</span> may be undefined.</p>
+                <span class="zh-key">两句都不是恒真。</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>A single example cannot prove “always,” but one counterexample can disprove it.</span><span>11</span></div>
+          <aside class="notes">
+            <p><b>举例：</b>用第 7 页三幅图分别反驳 always 与 never。强调本页没有声称所有极限都存在。</p>
+            <p>[Sources]<br>True/false structure adapted from https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="Practice: Same Input, Different Questions">
+          <p class="eyebrow">Practice A · Pair each limit with its point value</p>
+          <h2>At the Same Input, Ask Two Different Questions</h2>
+          <p class="zh-title">同一个 x：分别求极限与函数值</p>
+          <div class="split graph-heavy">
+            <div class="graph-wrap"><svg class="limit-graph" data-graph="practiceA" viewBox="0 0 760 500" role="img" aria-label="Practice graph with holes and moved points"></svg></div>
+            <div>
+              <ol class="question-list compact">
+                <li>Compare the limit at <span class="math">x=−2</span> with <span class="math">f(−2)</span>.</li>
+                <li>Compare the limit at <span class="math">x=1</span> with <span class="math">f(1)</span>.</li>
+                <li>Compare the limit at <span class="math">x=4</span> with <span class="math">f(4)</span>.</li>
+              </ol>
+              <button class="reveal-btn" data-reveal="practiceAAnswer">Show answers</button>
+              <div class="answer" id="practiceAAnswer">
+                <p><span class="math">x=−2:</span> limit <b>−3</b>; value <b>1</b></p>
+                <p><span class="math">x=1:</span> limit <b>0</b>; value <b>3</b></p>
+                <p><span class="math">x=4:</span> limit <b>−1</b>; value <b>undefined</b></p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer"><a class="source-link" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_solutions.pdf" target="_blank">Answers checked against FlippedMath 1.2 Solutions</a><span>12</span></div>
+          <aside class="notes">
+            <p><b>练习：</b>给 90 秒。要求每一组答案都用“limit …; value …”说完整，防止只报一个数。</p>
+            <p>[Sources]<br>Graph/problem structure adapted and redrawn from https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf<br>Answers checked against https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_solutions.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="Practice: A Missing Point Can Still Have a Limit">
+          <p class="eyebrow">Practice B · Read every marker carefully</p>
+          <h2>A Missing Function Value Can Still Have a Limit</h2>
+          <p class="zh-title">点值未定义，极限仍可能存在</p>
+          <div class="split graph-heavy">
+            <div class="graph-wrap"><svg class="limit-graph" data-graph="practiceB" viewBox="0 0 760 500" role="img" aria-label="Practice graph with several open and filled points"></svg></div>
+            <div>
+              <ol class="question-list compact">
+                <li>At <span class="math">x=−1</span>, find the limit and the function value.</li>
+                <li>At <span class="math">x=2</span>, find the limit and the function value.</li>
+                <li>At <span class="math">x=3</span>, find the limit and the function value.</li>
+              </ol>
+              <button class="reveal-btn" data-reveal="practiceBAnswer">Show answers</button>
+              <div class="answer" id="practiceBAnswer">
+                <p><span class="math">x=−1:</span> limit <b>2</b>; value <b>−2</b></p>
+                <p><span class="math">x=2:</span> limit <b>0</b>; value <b>1</b></p>
+                <p><span class="math">x=3:</span> limit <b>−1</b>; value <b>undefined</b></p>
+                <span class="zh-key">没有实心点 → 函数值未定义。</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Trace the curve; then check for a filled point.</span><span>13</span></div>
+          <aside class="notes">
+            <p><b>易错：</b>x=3 处开放点左右接同一水平线，limit=-1；但没有实心点，所以 f(3) undefined。</p>
+            <p>[Sources]<br>Graph/problem structure adapted and redrawn from https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf<br>Answers checked against https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_solutions.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="Practice: A Filled Point Controls Only the Value">
+          <p class="eyebrow">Practice C · Do not let the filled point hijack the limit</p>
+          <h2>A Filled Point Controls the Value, Not the Limit</h2>
+          <p class="zh-title">实心点只决定函数值</p>
+          <div class="split graph-heavy">
+            <div class="graph-wrap"><svg class="limit-graph" data-graph="practiceC" viewBox="0 0 760 500" role="img" aria-label="Practice graph comparing limits and filled points"></svg></div>
+            <div>
+              <ol class="question-list compact">
+                <li>At <span class="math">x=−2</span>, find the limit and the function value.</li>
+                <li>At <span class="math">x=1</span>, find the limit and the function value.</li>
+                <li>At <span class="math">x=3</span>, find the limit and the function value.</li>
+              </ol>
+              <button class="reveal-btn" data-reveal="practiceCAnswer">Show answers</button>
+              <div class="answer" id="practiceCAnswer">
+                <p><span class="math">x=−2:</span> limit <b>1</b>; value <b>2</b></p>
+                <p><span class="math">x=1:</span> limit <b>2</b>; value <b>undefined</b></p>
+                <p><span class="math">x=3:</span> limit <b>3</b>; value <b>−1</b></p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Nearby curve → limit · Filled point → value</span><span>14</span></div>
+          <aside class="notes">
+            <p><b>检查语言：</b>学生如果看到 x=3 的实心点就报 -1，追问“题目问 near 还是 at？”</p>
+            <p>[Sources]<br>Graph/problem structure adapted and redrawn from https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf<br>Answers checked against https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_solutions.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="AP-Style: Interpret the Statement, Not the Point">
+          <p class="eyebrow">AP-style interpretation · Choose the complete meaning</p>
+          <h2>Interpret the Statement, Not the Point</h2>
+          <p class="zh-title">极限式描述趋近过程，不直接给点值</p>
+          <div class="split text-heavy" style="margin-top:22px">
+            <div>
+              <div class="limit-expression" style="font-size:60px" aria-label="the limit as x approaches 4 of f of x equals 8">
+                <span class="limit-op"><span class="op">lim</span><span class="sub">x→4</span></span><span class="limit-body">f(x) = 8</span>
+              </div>
+              <p class="lead" style="margin-top:28px">Which interpretation is correct?</p>
+            </div>
+            <div>
+              <ul class="mcq">
+                <li><b>A.</b> The function value at 4 must be 8.</li>
+                <li><b>B.</b> The function value at 8 must be 4.</li>
+                <li><b>C.</b> As <span class="math">x</span> approaches 4, <span class="math">f(x)</span> approaches 8.</li>
+                <li><b>D.</b> As <span class="math">x</span> approaches 8, <span class="math">f(x)</span> approaches 4.</li>
+              </ul>
+              <button class="reveal-btn" data-reveal="mcqAnswer">Show answer</button>
+              <div class="answer" id="mcqAnswer"><b>C</b>. The subscript gives the input target; the number on the right gives the output target.<span class="zh-key">x 靠近 4；f(x) 靠近 8。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Paraphrased from the Packet’s test-prep item.</span><span>15</span></div>
+          <aside class="notes">
+            <p><b>追问：</b>为什么 A 不一定？让学生引用第 7 页 hole 或 moved point 的图。</p>
+            <p>[Sources]<br>Question structure paraphrased from https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf<br>Answer checked against https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_solutions.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide section" data-title="Exit Ticket">
+          <p class="eyebrow">Exit ticket · 3 minutes</p>
+          <h2>Exit Ticket: Near the Point or At the Point?</h2>
+          <p class="zh-title">附近趋势 vs. 点本身</p>
+          <div class="split" style="min-height:440px;margin-top:5px">
+            <div class="graph-wrap" style="background:white"><svg class="limit-graph" data-graph="exitGraph" viewBox="0 0 620 420" role="img" aria-label="Exit ticket graph with a hole at 3 comma 4 and a filled point at 3 comma negative 1"></svg></div>
+            <div>
+              <ol class="question-list compact">
+                <li>Find the limit as <span class="math">x→3</span>.</li>
+                <li>Find <span class="math">f(3)</span>.</li>
+                <li>Write a complete sentence for:<br><span class="math">the limit as x→−2 of g(x) = 5</span>.</li>
+              </ol>
+              <button class="reveal-btn" data-reveal="exitAnswer">Show answers</button>
+              <div class="answer" id="exitAnswer">
+                <p>1. <b>4</b>　 2. <b>−1</b></p>
+                <p>3. As <span class="math">x</span> approaches −2, <span class="math">g(x)</span> approaches 5.</p>
+                <span class="zh-key">极限看附近；函数值看实心点。</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Next: determine limit values from more complicated graphs.</span><span>16</span></div>
+          <aside class="notes">
+            <p><b>收卷标准：</b>第 3 题必须是完整英文句；若写 g(-2)=5，要求改正。</p>
+            <p>[Sources]<br>Exit graph is an original classroom adaptation of the hole/redefined-point structure in https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf</p>
+          </aside>
+        </section>
+
+      </main>
+    </div>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button id="prevBtn" title="Previous slide (←)">← Prev</button>
+      <button id="nextBtn" title="Next slide (→ / Space)">Next →</button>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="counter" id="counter">01 / 16</span>
+      <span class="key-hint">← → Navigate · N Notes · F Fullscreen · P Print · H Help</span>
+      <button id="notesBtn" title="Notes (N)">Notes</button>
+      <button id="fullscreenBtn" title="Fullscreen (F)">Fullscreen</button>
+    </nav>
+
+    <aside class="notes-panel" id="notesPanel" aria-label="Teacher notes"></aside>
+    <div class="help" id="help" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+      <div class="help-card">
+        <h3>Classroom Shortcuts</h3>
+        <p><kbd>←</kbd> / <kbd>→</kbd>, <kbd>Page Up</kbd> / <kbd>Page Down</kbd>: navigate</p>
+        <p><kbd>Space</kbd>: next　<kbd>Home</kbd> / <kbd>End</kbd>: first / last</p>
+        <p><kbd>N</kbd>: notes　<kbd>F</kbd>: fullscreen　<kbd>P</kbd>: print</p>
+        <p><kbd>H</kbd> or <kbd>Esc</kbd>: close this window</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const deck = document.getElementById('deck');
+    const viewport = document.getElementById('viewport');
+    const counter = document.getElementById('counter');
+    const progressBar = document.getElementById('progressBar');
+    const notesPanel = document.getElementById('notesPanel');
+    const help = document.getElementById('help');
+    let current = 0;
+
+    slides.forEach((slide, index) => {
+      const pageMark = slide.querySelector('.slide-footer > span:last-child');
+      if (pageMark) pageMark.textContent = index === 0 ? '1.2' : String(index + 1).padStart(2, '0');
+    });
+
+    function fitDeck() {
+      const scale = Math.min((viewport.clientWidth - 12) / 1600, (viewport.clientHeight - 12) / 900);
+      deck.style.transform = `translate(-50%, -50%) scale(${Math.max(.1, scale)})`;
+    }
+    function updateNotes() {
+      const source = slides[current].querySelector('.notes');
+      notesPanel.innerHTML = `<h3>Slide ${current + 1} Notes</h3>${source ? source.innerHTML : '<p>No notes for this slide.</p>'}`;
+    }
+    function go(index) {
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+      counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+      progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
+      history.replaceState(null, '', `#${current + 1}`);
+      document.title = `${slides[current].dataset.title} | AP Calculus BC 1.2`;
+      updateNotes();
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => go(current - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => go(current + 1));
+    document.getElementById('notesBtn').addEventListener('click', () => notesPanel.classList.toggle('open'));
+    document.getElementById('fullscreenBtn').addEventListener('click', async () => {
+      if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
+      else await document.exitFullscreen?.();
+    });
+    document.addEventListener('keydown', event => {
+      const interactive = /^(INPUT|BUTTON|TEXTAREA|SELECT)$/.test(event.target.tagName);
+      if (!interactive && (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ')) { event.preventDefault(); go(current + 1); }
+      if (!interactive && (event.key === 'ArrowLeft' || event.key === 'PageUp')) { event.preventDefault(); go(current - 1); }
+      if (!interactive && event.key === 'Home') { event.preventDefault(); go(0); }
+      if (!interactive && event.key === 'End') { event.preventDefault(); go(slides.length - 1); }
+      if (!interactive && event.key.toLowerCase() === 'n') notesPanel.classList.toggle('open');
+      if (!interactive && event.key.toLowerCase() === 'f') document.getElementById('fullscreenBtn').click();
+      if (!interactive && event.key.toLowerCase() === 'p') window.print();
+      if (!interactive && event.key.toLowerCase() === 'h') help.classList.toggle('open');
+      if (event.key === 'Escape') help.classList.remove('open');
+    });
+    help.addEventListener('click', () => help.classList.remove('open'));
+    document.addEventListener('click', event => {
+      const button = event.target.closest('[data-reveal]');
+      if (!button) return;
+      const answer = document.getElementById(button.dataset.reveal);
+      const show = !answer.classList.contains('show');
+      if (!button.dataset.originalText) button.dataset.originalText = button.textContent;
+      answer.classList.toggle('show', show);
+      button.textContent = show ? 'Hide solution' : button.dataset.originalText;
+    });
+    const answersMode = new URLSearchParams(location.search).get('answers') === 'show';
+    if (answersMode) {
+      document.documentElement.dataset.answers = 'show';
+      document.querySelectorAll('[data-reveal]').forEach(button => {
+        const answer = document.getElementById(button.dataset.reveal);
+        if (!answer) return;
+        if (!button.dataset.originalText) button.dataset.originalText = button.textContent;
+        answer.classList.add('show');
+        button.textContent = 'Hide solution';
+        const chartId = button.dataset.chartToggle;
+        if (chartId) document.getElementById(chartId)?.classList.add('show');
+      });
+    }
+    window.addEventListener('resize', fitDeck);
+    window.addEventListener('fullscreenchange', fitDeck);
+
+    const graphSpecs = {
+      miniA: {
+        xMin:-1, xMax:4, yMin:-1, yMax:4, xTicks:[0,1,2,3,4], yTicks:[0,1,2,3],
+        paths:[{points:[[-1,.25],[0,0],[1,.25],[2,1],[3,2.25],[4,4]], smooth:true}], closed:[[2,1]], label:[3.25,2.8]
+      },
+      miniB: {
+        xMin:-1, xMax:4, yMin:-1, yMax:4, xTicks:[0,1,2,3,4], yTicks:[0,1,2,3],
+        paths:[{points:[[-1,.25],[0,0],[1,.25],[2,1],[3,2.25],[4,4]], smooth:true}], open:[[2,1]], label:[3.25,2.8]
+      },
+      miniC: {
+        xMin:-1, xMax:4, yMin:-1, yMax:4, xTicks:[0,1,2,3,4], yTicks:[0,1,2,3],
+        paths:[{points:[[-1,.25],[0,0],[1,.25],[2,1],[3,2.25],[4,4]], smooth:true}], open:[[2,1]], closed:[[2,3]], label:[3.25,2.8]
+      },
+      notesGraph: {
+        xMin:-5.3, xMax:5.3, yMin:-4.2, yMax:4.2, xTicks:[-5,-4,-3,-2,-1,0,1,2,3,4,5], yTicks:[-4,-3,-2,-1,0,1,2,3,4],
+        paths:[
+          {points:[[-5.3,.35],[-5,1],[-4,2],[-3,1],[-2,2]], smooth:true},
+          {points:[[-2,2],[-1.4,-.4],[0,-2],[1,-1],[2,2]], smooth:true},
+          {points:[[2,2],[2.7,1.55],[3.6,1.2],[5.3,1.02]], smooth:true}
+        ],
+        open:[[-3,1],[1,-1],[2,2]], closed:[[-3,0],[2,3]], label:[-2.95,3.25]
+      },
+      practiceA: {
+        xMin:-5, xMax:5.2, yMin:-3.6, yMax:3.6, xTicks:[-4,-3,-2,-1,0,1,2,3,4,5], yTicks:[-3,-2,-1,0,1,2,3],
+        paths:[
+          {points:[[-5,-2],[-3,-2]], straight:true},
+          {points:[[-3,-2],[-2,-3],[-1,-2.4],[0,1]], smooth:true},
+          {points:[[0,1],[.35,.55],[1,0]], smooth:true},
+          {points:[[1,0],[4,-1]], straight:true},
+          {points:[[4,-1],[5.2,1.5]], straight:true}
+        ],
+        open:[[-2,-3],[1,0],[4,-1]], closed:[[-2,1],[1,3]], label:[3.15,1.3]
+      },
+      practiceB: {
+        xMin:-4.5, xMax:4.5, yMin:-3.1, yMax:3.7, xTicks:[-4,-3,-2,-1,0,1,2,3,4], yTicks:[-3,-2,-1,0,1,2,3],
+        paths:[
+          {points:[[-4.5,.8],[-2,2]], straight:true},
+          {points:[[-2,2],[1,2]], straight:true},
+          {points:[[1,2],[1.5,.8],[2,0],[2.5,-.65],[3,-1]], smooth:true},
+          {points:[[3,-1],[4.5,-1]], straight:true}
+        ],
+        open:[[-1,2],[2,0],[3,-1]], closed:[[-1,-2],[2,1]], label:[3.25,2.55]
+      },
+      practiceC: {
+        xMin:-4.5, xMax:4.5, yMin:-3.2, yMax:3.7, xTicks:[-4,-3,-2,-1,0,1,2,3,4], yTicks:[-3,-2,-1,0,1,2,3],
+        paths:[
+          {points:[[-4.5,.2],[-3,2],[-2,1],[-1,-2]], smooth:true},
+          {points:[[-1,-2],[1,2],[1.5,3]], straight:true},
+          {points:[[1.5,3],[3,3]], straight:true},
+          {points:[[3,3],[4.5,1.5]], straight:true}
+        ],
+        open:[[-2,1],[1,2],[3,3]], closed:[[-2,2],[3,-1]], label:[-3.9,2.65]
+      },
+      exitGraph: {
+        xMin:-1, xMax:6, yMin:-2, yMax:6, xTicks:[0,1,2,3,4,5,6], yTicks:[-1,0,1,2,3,4,5],
+        paths:[{points:[[-1,1],[0,1.5],[1,2.3],[2,3.35],[3,4],[4,4.45],[5,4.7],[6,4.8]], smooth:true}],
+        open:[[3,4]], closed:[[3,-1]], label:[4.4,5.2]
+      }
+    };
+
+    const NS = 'http://www.w3.org/2000/svg';
+    function svgEl(name, attrs = {}, text = '') {
+      const el = document.createElementNS(NS, name);
+      Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+      if (text !== '') el.textContent = text;
+      return el;
+    }
+    function catmullPath(points) {
+      if (points.length < 2) return '';
+      let d = `M ${points[0][0]} ${points[0][1]}`;
+      for (let i = 0; i < points.length - 1; i++) {
+        const p0 = points[i - 1] || points[i];
+        const p1 = points[i];
+        const p2 = points[i + 1];
+        const p3 = points[i + 2] || p2;
+        const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+        const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+        const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+        const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+        d += ` C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p2[0]} ${p2[1]}`;
+      }
+      return d;
+    }
+    function renderGraph(svg, spec) {
+      const box = svg.viewBox.baseVal;
+      const W = box.width || 620, H = box.height || 420;
+      const compact = W < 500;
+      const L = compact ? 45 : 60, R = W - (compact ? 20 : 28), T = 18, B = H - (compact ? 36 : 44);
+      const x = value => L + (value - spec.xMin) / (spec.xMax - spec.xMin) * (R - L);
+      const y = value => B - (value - spec.yMin) / (spec.yMax - spec.yMin) * (B - T);
+      const xAxis = y(Math.max(spec.yMin, Math.min(spec.yMax, 0)));
+      const yAxis = x(Math.max(spec.xMin, Math.min(spec.xMax, 0)));
+
+      spec.xTicks.forEach(tick => {
+        svg.append(svgEl('line', {x1:x(tick), y1:T, x2:x(tick), y2:B, class:'grid'}));
+        if (tick !== 0) svg.append(svgEl('text', {x:x(tick), y:xAxis+22, 'text-anchor':'middle'}, String(tick)));
+      });
+      spec.yTicks.forEach(tick => {
+        svg.append(svgEl('line', {x1:L, y1:y(tick), x2:R, y2:y(tick), class:'grid'}));
+        if (tick !== 0) svg.append(svgEl('text', {x:yAxis-9, y:y(tick)+6, 'text-anchor':'end'}, String(tick)));
+      });
+      svg.append(svgEl('line', {x1:L, y1:xAxis, x2:R+7, y2:xAxis, class:'axis'}));
+      svg.append(svgEl('line', {x1:yAxis, y1:B, x2:yAxis, y2:T-7, class:'axis'}));
+      svg.append(svgEl('text', {x:R+9, y:xAxis-8, class:'axis-label'}, 'x'));
+      svg.append(svgEl('text', {x:yAxis+8, y:T+5, class:'axis-label'}, 'y'));
+
+      spec.paths.forEach(pathSpec => {
+        const points = pathSpec.points.map(([px, py]) => [x(px), y(py)]);
+        const d = pathSpec.straight
+          ? points.map((point, index) => `${index ? 'L' : 'M'} ${point[0]} ${point[1]}`).join(' ')
+          : catmullPath(points);
+        svg.append(svgEl('path', {d, class:'curve'}));
+      });
+      (spec.open || []).forEach(([px, py]) => svg.append(svgEl('circle', {cx:x(px), cy:y(py), r:compact ? 9 : 10, class:'open-point'})));
+      (spec.closed || []).forEach(([px, py]) => svg.append(svgEl('circle', {cx:x(px), cy:y(py), r:compact ? 8 : 9, class:'closed-point'})));
+      if (spec.label) svg.append(svgEl('text', {x:x(spec.label[0]), y:y(spec.label[1]), class:'function-label'}, 'f(x)'));
+    }
+    document.querySelectorAll('svg[data-graph]').forEach(svg => renderGraph(svg, graphSpecs[svg.dataset.graph]));
+
+    fitDeck();
+    const initial = parseInt(location.hash.slice(1), 10);
+    go(Number.isFinite(initial) ? initial - 1 : 0);
+  </script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AP Calculus BC 1.1 English Check — Teacher Key</title>
+  <style>
+    :root {
+      --navy: #16324f;
+      --blue: #2f5d8c;
+      --gold: #c9902f;
+      --teal: #16837a;
+      --ink: #1e2a35;
+      --muted: #596773;
+      --rule: #cbd5dd;
+      --pale: #eef3f7;
+      --teal-pale: #edf8f6;
+      --paper: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      background: #e8edf1;
+      color: var(--ink);
+      font-family: "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .sheet {
+      width: min(210mm, 100%);
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 11mm 13mm 9mm;
+      background: var(--paper);
+      box-shadow: 0 8px 28px rgba(22, 50, 79, 0.16);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .top-rule {
+      height: 5px;
+      background: linear-gradient(90deg, var(--navy) 0 72%, var(--gold) 72% 100%);
+      margin-bottom: 12px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      line-height: 1.1;
+      margin: 4px 0 3px;
+    }
+
+    .subtitle { color: var(--muted); font-size: 13px; margin: 0; }
+
+    .key-box {
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+      padding: 9px 12px 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+
+    section { margin-top: 14px; }
+
+    .section-head {
+      border-top: 1.5px solid var(--navy);
+      padding-top: 7px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .section-letter {
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    h2 { color: var(--navy); font-size: 16px; margin: 0; }
+
+    .note { color: var(--muted); font-size: 11px; margin-left: auto; }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 7px 0;
+    }
+
+    .vocab-item {
+      display: grid;
+      grid-template-columns: 1.55fr 0.75fr;
+      gap: 8px;
+      padding: 3px 5px;
+      font-size: 12.5px;
+      line-height: 1.3;
+    }
+
+    .vocab-item:nth-child(4n+1),
+    .vocab-item:nth-child(4n+2) { background: #f7f9fb; }
+
+    .vocab-item strong { color: var(--navy); font-weight: 700; }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .answer-block {
+      border-left: 4px solid var(--teal);
+      background: var(--teal-pale);
+      padding: 9px 11px;
+    }
+
+    .answer-block h3 {
+      color: var(--navy);
+      font-size: 13px;
+      margin: 0 0 6px;
+    }
+
+    .answer-block p,
+    .answer-block ol {
+      font-size: 13px;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .answer-block ol { padding-left: 21px; }
+    .answer-block li { padding: 1px 0; }
+    .answer { color: var(--teal); font-weight: 750; }
+
+    .translation-key {
+      border-left: 4px solid var(--teal);
+      padding: 3px 0 3px 11px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .translation-key .source {
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12.5px;
+      margin-bottom: 3px;
+    }
+
+    .math-key {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .solution {
+      background: var(--teal-pale);
+      border-left: 4px solid var(--teal);
+      padding: 10px 13px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .fraction {
+      display: inline-flex;
+      flex-direction: column;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 1.2;
+      margin: 0 3px;
+    }
+
+    .fraction span:first-child { border-bottom: 1px solid currentColor; padding: 0 3px 2px; }
+    .fraction span:last-child { padding-top: 2px; }
+
+    .rubric {
+      border: 1px solid var(--rule);
+      padding: 9px 11px;
+    }
+
+    .rubric h3 { color: var(--navy); font-size: 13px; margin: 0 0 6px; }
+    .rubric ul { margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.45; }
+
+    .timing {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--rule);
+    }
+
+    .timing div {
+      padding: 8px 9px;
+      text-align: center;
+      border-right: 1px solid var(--rule);
+      font-size: 11.5px;
+      line-height: 1.35;
+    }
+
+    .timing div:last-child { border-right: 0; }
+    .timing strong { color: var(--navy); display: block; }
+
+    .footer {
+      margin-top: auto;
+      border-top: 1px solid var(--rule);
+      padding-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    @page { size: A4 portrait; margin: 0; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .sheet {
+        width: 210mm;
+        height: 297mm;
+        min-height: 0;
+        margin: 0;
+        box-shadow: none;
+        overflow: hidden;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 0; }
+      .sheet { min-height: 100vh; padding: 20px; }
+      .vocab-grid, .answer-grid, .math-key { grid-template-columns: 1fr; }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <div class="top-rule"></div>
+    <header>
+      <div>
+        <div class="eyebrow">AP Calculus BC · Topic 1.1</div>
+        <h1>English Check</h1>
+        <p class="subtitle">Teacher Key · 核心词汇、答案与评分标准</p>
+      </div>
+      <div class="key-box">TEACHER<br>KEY</div>
+    </header>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">V</span>
+        <h2>Core Vocabulary / 核心词汇</h2>
+        <span class="note">本次小测重点 10 词 + 1 个情境词</span>
+      </div>
+      <div class="vocab-grid">
+        <div class="vocab-item"><strong>rate of change</strong><span>变化率</span></div>
+        <div class="vocab-item"><strong>average rate of change</strong><span>平均变化率</span></div>
+        <div class="vocab-item"><strong>instantaneous rate of change</strong><span>瞬时变化率</span></div>
+        <div class="vocab-item"><strong>interval</strong><span>区间</span></div>
+        <div class="vocab-item"><strong>secant line</strong><span>割线</span></div>
+        <div class="vocab-item"><strong>tangent line</strong><span>切线</span></div>
+        <div class="vocab-item"><strong>slope</strong><span>斜率</span></div>
+        <div class="vocab-item"><strong>difference quotient</strong><span>差商</span></div>
+        <div class="vocab-item"><strong>estimate</strong><span>估计</span></div>
+        <div class="vocab-item"><strong>approach</strong><span>趋近</span></div>
+        <div class="vocab-item"><strong>velocity</strong><span>速度</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">A–B</span>
+        <h2>Matching &amp; Word Bank / 连线与选词</h2>
+        <span class="note">5 points</span>
+      </div>
+      <div class="answer-grid">
+        <div class="answer-block">
+          <h3>A. Matching / 连线</h3>
+          <ol>
+            <li><span class="answer">B</span> — average rate of change</li>
+            <li><span class="answer">C</span> — instantaneous rate of change</li>
+            <li><span class="answer">D</span> — secant line</li>
+            <li><span class="answer">A</span> — tangent line</li>
+          </ol>
+        </div>
+        <div class="answer-block">
+          <h3>B. Word Bank / 选词</h3>
+          <ol start="5">
+            <li><span class="answer">interval</span></li>
+            <li><span class="answer">slope</span></li>
+            <li><span class="answer">approach</span></li>
+          </ol>
+          <p style="margin-top:5px;color:#596773;font-size:11px;">Unused word / 干扰词：estimate</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">C</span>
+        <h2>Translation / 英译中</h2>
+        <span class="note">2 points</span>
+      </div>
+      <div class="translation-key">
+        <div class="source">Over a short interval, the slope of a secant line can be used to estimate the instantaneous rate of change.</div>
+        <div><span class="answer">参考译文：</span>在一个很短的区间上，可以用割线的斜率来估计瞬时变化率。</div>
+        <div style="color:#596773;font-size:11px;margin-top:3px;">评分：准确表达“短区间 + 割线斜率”1 分；准确表达“估计瞬时变化率”1 分。自然同义表达均可。</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">D</span>
+        <h2>Mathematics — Answer &amp; Rubric</h2>
+        <span class="note">3 points</span>
+      </div>
+      <div class="math-key">
+        <div class="solution">
+          <span class="fraction"><span>4.41 − 3.61</span><span>2.1 − 1.9</span></span>
+          = <span class="fraction"><span>0.80</span><span>0.20</span></span>
+          = <strong class="answer">4.0 m/s</strong>
+          <div style="font-family:Arial,sans-serif;font-size:12px;color:#596773;line-height:1.4;margin-top:5px;">Estimated instantaneous velocity at <em>t</em> = 2: <strong>4.0 meters per second</strong>.</div>
+        </div>
+        <div class="rubric">
+          <h3>3-point rubric / 评分</h3>
+          <ul>
+            <li>1 pt: correct quotient</li>
+            <li>1 pt: correct value, 4.0</li>
+            <li>1 pt: correct units, m/s</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">5′</span>
+        <h2>Suggested Timing / 建议用时</h2>
+      </div>
+      <div class="timing">
+        <div><strong>A · 40 sec</strong>连线</div>
+        <div><strong>B · 60 sec</strong>选词</div>
+        <div><strong>C · 60 sec</strong>翻译</div>
+        <div><strong>D · 2 min</strong>数学题</div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>AP Calculus BC · Topic 1.1</span>
+      <span>Teacher Copy · Total: 10 points</span>
+    </div>
+  </main>
+</body>
+</html>

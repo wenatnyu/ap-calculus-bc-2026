@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AP Calculus BC 1.5 Review | Teacher Key</title>
+  <style>
+    :root { --navy:#16324f; --blue:#2f5d8c; --gold:#c9902f; --teal:#16837a; --red:#a33f38; --ink:#202a33; --muted:#5f6d79; --line:#aeb9c3; }
+    * { box-sizing: border-box; }
+    body { margin:0; padding:24px; background:#e8edf1; color:var(--ink); font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",Arial,sans-serif; }
+    .sheet { width:210mm; min-height:297mm; margin:0 auto; padding:13mm 15mm 12mm; background:white; box-shadow:0 12px 36px rgba(22,50,79,.18); }
+    .topline { height:5px; margin-bottom:10px; background:var(--navy); }
+    header { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; }
+    .kicker { color:var(--blue); font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { margin:5px 0 3px; color:var(--navy); font-size:25px; line-height:1.15; }
+    .subtitle { color:var(--gold); font-size:14px; font-weight:700; }
+    .key { min-width:110px; padding:8px 10px; background:var(--navy); color:white; font-size:13px; font-weight:800; text-align:center; }
+    .summary { margin:15px 0 10px; padding:8px 11px; border-left:4px solid var(--teal); background:#eef7f5; font-size:12.5px; line-height:1.45; }
+    .question { margin-top:12px; border-top:1px solid #c5ced6; padding-top:10px; }
+    .qhead { display:flex; justify-content:space-between; gap:20px; margin-bottom:6px; font-size:13.5px; line-height:1.35; }
+    .qnum { color:var(--navy); font-weight:800; }
+    .pts { flex:none; color:var(--muted); font-size:11px; font-weight:700; }
+    table { width:100%; border-collapse:collapse; table-layout:fixed; margin:6px 0 7px; font-family:"Cambria Math","Times New Roman",serif; }
+    td, th { border:1px solid #617181; padding:5px 6px; font-size:14px; text-align:center; }
+    th:first-child, td:first-child { width:12%; color:var(--navy); font-weight:700; }
+    .math { font-family:"Cambria Math","Times New Roman",serif; font-size:16px; }
+    .limit { display:inline-grid; grid-template-rows:1fr auto; justify-items:center; line-height:.78; vertical-align:middle; margin:0 3px; }
+    .limit .op { font-size:1em; font-style:normal; }
+    .limit .sub { margin-top:3px; font-size:.58em; white-space:nowrap; }
+    .answer { margin:7px 0 0; padding:7px 10px; border-left:4px solid var(--teal); background:#eef7f5; font-size:12.5px; line-height:1.45; }
+    .answer b { color:var(--teal); }
+    .dne { color:var(--red); font-weight:800; }
+    .rubric { margin:14px 0 0; border-top:2px solid var(--navy); padding-top:10px; }
+    .rubric h2 { margin:0 0 6px; color:var(--navy); font-size:16px; }
+    .rubric ul { display:grid; grid-template-columns:1fr 1fr; gap:3px 24px; margin:0; padding-left:18px; }
+    .rubric li { font-size:11.5px; line-height:1.4; }
+    footer { display:flex; justify-content:space-between; margin-top:13px; padding-top:7px; border-top:1px solid #aeb9c3; color:var(--muted); font-size:10px; }
+    @page { size:A4 portrait; margin:0; }
+    @media print { body{padding:0;background:white}.sheet{width:210mm;min-height:297mm;margin:0;box-shadow:none} }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <div class="topline"></div>
+    <header>
+      <div>
+        <div class="kicker">AP Calculus BC · Before Topic 1.5</div>
+        <h1>5-Minute Review: Limits from Tables</h1>
+        <div class="subtitle">教师答案与评分标准</div>
+      </div>
+      <div class="key">TEACHER KEY<br />10 points</div>
+    </header>
+
+    <p class="summary"><b>Timing:</b> about 1 minute per question, with 2 minutes available for Question 2 or 4. The quiz checks whether students read the direction of approach before using nearby output values.</p>
+
+    <section class="question">
+      <div class="qhead"><span><span class="qnum">1.</span> Estimate <span class="math"><span class="limit"><span class="op">lim</span><span class="sub">x→2</span></span>f(x)</span>.</span><span class="pts">2 points</span></div>
+      <table><tr><th>x</th><td>1.9</td><td>1.99</td><td>1.999</td><td>2.001</td><td>2.01</td><td>2.1</td></tr><tr><th>f(x)</th><td>5.72</td><td>5.972</td><td>5.997</td><td>6.003</td><td>6.028</td><td>6.28</td></tr></table>
+      <div class="answer"><b>Answer: 6.</b> Values from the left and right both approach 6. <span lang="zh-CN">左右两侧都趋近 6。</span></div>
+    </section>
+
+    <section class="question">
+      <div class="qhead"><span><span class="qnum">2.</span> Find both one-sided limits, then decide whether the two-sided limit exists.</span><span class="pts">3 points</span></div>
+      <table><tr><th>x</th><td>3.9</td><td>3.99</td><td>3.999</td><td>4.001</td><td>4.01</td><td>4.1</td></tr><tr><th>g(x)</th><td>1.80</td><td>1.980</td><td>1.998</td><td>3.001</td><td>3.010</td><td>3.10</td></tr></table>
+      <div class="answer"><b>Left-hand limit: 2. Right-hand limit: 3.</b> Therefore <span class="math"><span class="limit"><span class="op">lim</span><span class="sub">x→4</span></span>g(x)</span> is <span class="dne">DNE</span>. <span lang="zh-CN">两个单侧极限都存在，但不相等。</span></div>
+    </section>
+
+    <section class="question">
+      <div class="qhead"><span><span class="qnum">3.</span> Estimate <span class="math"><span class="limit"><span class="op">lim</span><span class="sub">x→−2<sup>+</sup></span></span>h(x)</span>.</span><span class="pts">2 points</span></div>
+      <table><tr><th>x</th><td>−2.10</td><td>−2.01</td><td>−2.001</td><td>−1.999</td><td>−1.99</td><td>−1.90</td></tr><tr><th>h(x)</th><td>7.21</td><td>7.020</td><td>7.002</td><td>6.998</td><td>6.980</td><td>6.80</td></tr></table>
+      <div class="answer"><b>Answer: 7.</b> Use only the columns where <span class="math">x&gt;−2</span>: 6.998, 6.980, 6.80. <span lang="zh-CN">右极限只看 −2 右侧。</span></div>
+    </section>
+
+    <section class="question">
+      <div class="qhead"><span><span class="qnum">4.</span> Estimate <span class="math"><span class="limit"><span class="op">lim</span><span class="sub">x→1</span></span>cos(p(x))</span>.</span><span class="pts">3 points</span></div>
+      <table><tr><th>x</th><td>0.90</td><td>0.99</td><td>0.999</td><td>1.001</td><td>1.01</td><td>1.10</td></tr><tr><th>p(x)</th><td>1.80</td><td>1.980</td><td>1.998</td><td>2.002</td><td>2.020</td><td>2.20</td></tr></table>
+      <div class="answer"><b>Answer: cos(2) ≈ −0.416.</b> First read <span class="math">p(x)→2</span>; then evaluate cosine in radians. <span lang="zh-CN">先从表格读出内层趋近 2，再计算 cos 2。</span></div>
+    </section>
+
+    <section class="rubric">
+      <h2>Scoring / 评分</h2>
+      <ul>
+        <li>Q1: 1 point for reading both sides; 1 for 6.</li>
+        <li>Q2: 1 point each for 2, 3, and DNE.</li>
+        <li>Q3: 1 point for using the right side; 1 for 7.</li>
+        <li>Q4: 1 point for <span class="math">p(x)→2</span>; 1 for <span class="math">cos 2</span>; 1 for −0.416.</li>
+      </ul>
+    </section>
+
+    <footer><span>Common issue: reading the closest entry instead of the trend.</span><span>Teacher copy</span></footer>
+  </main>
+</body>
+</html>

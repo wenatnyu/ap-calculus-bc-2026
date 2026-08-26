@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#16324f">
+  <title>AP Calculus BC · Unit 1 Course Materials</title>
+  <style>
+    :root {
+      --navy:#16324f;
+      --blue:#2f5d8c;
+      --ink:#1e2a35;
+      --muted:#607080;
+      --paper:#ffffff;
+      --soft:#f3f6f8;
+      --line:#cbd5df;
+      --gold:#c78318;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+      color:var(--ink);
+      background:#eef2f5;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:#eef2f5;line-height:1.55}
+    a{color:inherit}
+    .site-head{background:var(--navy);color:#fff;border-bottom:6px solid var(--gold)}
+    .head-inner,.main,.site-foot{width:min(1180px,calc(100% - 36px));margin:auto}
+    .head-inner{padding:32px 0 29px}
+    .eyebrow{margin:0 0 7px;color:#c9d8e6;font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+    h1{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(34px,5vw,56px);line-height:1.08;font-weight:700}
+    .subtitle{max-width:760px;margin:12px 0 0;color:#e2eaf1;font-size:16px}
+    .main{padding:32px 0 44px}
+    .intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:start;padding:20px 22px;border:1px solid var(--line);background:var(--paper)}
+    .intro p{margin:0;color:var(--muted)}
+    .legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+    .legend span{padding:4px 8px;border:1px solid var(--line);background:var(--soft);font-size:12px;white-space:nowrap}
+    .section-title{margin:34px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--navy);font-size:22px;color:var(--navy)}
+    .topic-list{display:grid;gap:18px}
+    .topic{border:1px solid var(--line);border-left:6px solid var(--blue);background:var(--paper)}
+    .topic-head{display:grid;grid-template-columns:90px minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+    .topic-number{font-family:Georgia,"Times New Roman",serif;font-size:34px;font-weight:700;color:var(--navy)}
+    .topic h2{margin:0;font-size:21px;line-height:1.25;color:var(--navy)}
+    .topic-note{margin:4px 0 0;color:var(--muted);font-size:13px}
+    .slide-count{color:var(--muted);font-size:12px;white-space:nowrap}
+    .resources{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line)}
+    .resource{display:block;min-height:94px;padding:14px 15px;background:var(--paper);text-decoration:none}
+    .resource:hover,.resource:focus-visible{background:#f7fafc}
+    .resource strong{display:block;color:var(--blue);font-size:15px}
+    .resource span{display:block;margin-top:4px;color:var(--muted);font-size:12px}
+    .resource.homework strong{color:#8b5a0b}
+    details{border-top:1px solid var(--line);background:var(--soft)}
+    summary{padding:10px 20px;cursor:pointer;color:var(--muted);font-size:13px;font-weight:700}
+    .source-links{display:flex;flex-wrap:wrap;gap:16px;padding:0 20px 13px;font-size:13px}
+    .source-links a{color:var(--blue)}
+    .privacy-note{margin-top:26px;padding:16px 18px;border-left:4px solid var(--gold);background:#fff9ed;color:#5f4b2b;font-size:13px}
+    .site-foot{padding:0 0 30px;color:var(--muted);font-size:12px}
+    @media(max-width:800px){
+      .intro{grid-template-columns:1fr}.legend{justify-content:flex-start}
+      .topic-head{grid-template-columns:68px minmax(0,1fr)}.slide-count{display:none}
+      .resources{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:480px){.resources{grid-template-columns:1fr}.topic-head{padding:16px}.resource{min-height:0}.head-inner,.main,.site-foot{width:min(100% - 24px,1180px)}}
+    @media print{body{background:#fff}.site-head{color:#000;background:#fff;border-color:#000}.subtitle,.eyebrow{color:#333}.topic,.intro{break-inside:avoid}.resource{min-height:0}.privacy-note{display:none}}
+  </style>
+</head>
+<body>
+  <header class="site-head">
+    <div class="head-inner">
+      <p class="eyebrow">2026–2027 · AP Calculus BC</p>
+      <h1>Unit 1: Limits and Continuity</h1>
+      <p class="subtitle">课堂入口：先做 5 分钟复习，再进入讲义；讲题时可直接打开答案模式，课后使用 CA #1。</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="intro" aria-label="使用说明">
+      <p><strong>Recommended order / 建议顺序：</strong> Review Quiz → Class Notes → Notes Answers → CA #1 Homework。Quiz 和讲义答案都在原页面内切换，不需要另外找教师版。</p>
+      <div class="legend" aria-label="材料类型"><span>Quiz · 5 min</span><span>Notes · 16:9</span><span>Answers · toggle</span><span>CA #1 · homework</span></div>
+    </section>
+
+    <h2 class="section-title">Current lessons / 当前课程</h2>
+    <div class="topic-list">
+      <article class="topic">
+        <header class="topic-head"><div class="topic-number">1.1</div><div><h2>Can Change Occur at an Instant?</h2><p class="topic-note">Average and instantaneous rate of change · 平均与瞬时变化率</p></div><span class="slide-count">16 slides</span></header>
+        <div class="resources">
+          <a class="resource" href="AP_Calculus_BC_1.1_English_5min_Quiz.html"><strong>English Check</strong><span>题目、答案与解析同页切换</span></a>
+          <a class="resource" href="AP_Calculus_BC_1.1_Can_Change_Occur_at_an_Instant_English_Key_CN.html"><strong>Class Notes</strong><span>英文主文＋重点中文</span></a>
+          <a class="resource" href="AP_Calculus_BC_1.1_Can_Change_Occur_at_an_Instant_English_Key_CN.html?answers=show"><strong>Notes Answers</strong><span>打开时自动揭示全部答案</span></a>
+          <a class="resource homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_ca1.pdf" target="_blank" rel="noopener"><strong>CA #1 Homework</strong><span>官方 PDF · questions + key</span></a>
+        </div>
+        <details><summary>Official source materials / 官方原始资料</summary><div class="source-links"><a href="https://calculus.flippedmath.com/11-can-change-occur-at-an-instant.html">Lesson page</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf">Packet</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_solutions.pdf">Practice Solutions</a></div></details>
+      </article>
+
+      <article class="topic">
+        <header class="topic-head"><div class="topic-number">1.2</div><div><h2>Defining Limits and Using Limit Notation</h2><p class="topic-note">What a limit says—and what it does not say · 极限与函数值</p></div><span class="slide-count">16 slides</span></header>
+        <div class="resources">
+          <a class="resource" href="AP_Calculus_BC_1.2_Review_5min_Quiz.html"><strong>Review Quiz</strong><span>复习 1.1 · 约 5 分钟</span></a>
+          <a class="resource" href="AP_Calculus_BC_1.2_Defining_Limits_and_Using_Limit_Notation_English_Key_CN.html"><strong>Class Notes</strong><span>定义、读法、附近趋势</span></a>
+          <a class="resource" href="AP_Calculus_BC_1.2_Defining_Limits_and_Using_Limit_Notation_English_Key_CN.html?answers=show"><strong>Notes Answers</strong><span>打开时自动揭示全部答案</span></a>
+          <a class="resource homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_ca1.pdf" target="_blank" rel="noopener"><strong>CA #1 Homework</strong><span>官方 PDF · graph reading</span></a>
+        </div>
+        <details><summary>Official source materials / 官方原始资料</summary><div class="source-links"><a href="https://calculus.flippedmath.com/12-defining-limits-and-using-limit-notation.html">Lesson page</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf">Packet</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_solutions.pdf">Practice Solutions</a></div></details>
+      </article>
+
+      <article class="topic">
+        <header class="topic-head"><div class="topic-number">1.3</div><div><h2>Limit Values from Graphs</h2><p class="topic-note">One-sided and two-sided limits · 单侧与双侧极限</p></div><span class="slide-count">16 slides</span></header>
+        <div class="resources">
+          <a class="resource" href="AP_Calculus_BC_1.3_Review_5min_Quiz.html"><strong>Review Quiz</strong><span>复习 1.2 · 约 5 分钟</span></a>
+          <a class="resource" href="AP_Calculus_BC_1.3_Limit_Values_from_Graphs_English_Key_CN.html"><strong>Class Notes</strong><span>读图、DNE 与 undefined</span></a>
+          <a class="resource" href="AP_Calculus_BC_1.3_Limit_Values_from_Graphs_English_Key_CN.html?answers=show"><strong>Notes Answers</strong><span>打开时自动揭示全部答案</span></a>
+          <a class="resource homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.3_ca1.pdf" target="_blank" rel="noopener"><strong>CA #1 Homework</strong><span>官方 PDF · graphs + construction</span></a>
+        </div>
+        <details><summary>Official source materials / 官方原始资料</summary><div class="source-links"><a href="https://calculus.flippedmath.com/13-limit-values-from-graphs.html">Lesson page</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.3_packet.pdf">Packet</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.3_solutions.pdf">Practice Solutions</a></div></details>
+      </article>
+
+      <article class="topic">
+        <header class="topic-head"><div class="topic-number">1.4</div><div><h2>Limit Values from Tables</h2><p class="topic-note">Estimate trends from selected values · 从表格估计极限</p></div><span class="slide-count">14 slides</span></header>
+        <div class="resources">
+          <a class="resource" href="AP_Calculus_BC_1.4_Review_5min_Quiz.html"><strong>Review Quiz</strong><span>复习 1.2–1.3 · 约 5 分钟</span></a>
+          <a class="resource" href="AP_Calculus_BC_1.4_Limit_Values_from_Tables_English_Key_CN.html"><strong>Class Notes</strong><span>表格、双侧趋势、复合极限</span></a>
+          <a class="resource" href="AP_Calculus_BC_1.4_Limit_Values_from_Tables_English_Key_CN.html?answers=show"><strong>Notes Answers</strong><span>打开时自动揭示全部答案</span></a>
+          <a class="resource homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_ca1.pdf" target="_blank" rel="noopener"><strong>CA #1 Homework</strong><span>官方 PDF · tables + composition</span></a>
+        </div>
+        <details><summary>Official source materials / 官方原始资料</summary><div class="source-links"><a href="https://calculus.flippedmath.com/14-limit-values-from-tables.html">Lesson page</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf">Packet</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_solutions.pdf">Practice Solutions</a></div></details>
+      </article>
+
+      <article class="topic">
+        <header class="topic-head"><div class="topic-number">1.5</div><div><h2>Algebraic Properties of Limits</h2><p class="topic-note">Limit laws, composition and piecewise functions · 极限定律</p></div><span class="slide-count">15 slides</span></header>
+        <div class="resources">
+          <a class="resource" href="AP_Calculus_BC_1.5_Review_5min_Quiz.html"><strong>Review Quiz</strong><span>复习 1.4 · 约 5 分钟</span></a>
+          <a class="resource" href="AP_Calculus_BC_1.5_Algebraic_Properties_of_Limits_English_Key_CN.html"><strong>Class Notes</strong><span>极限定律、输入映射、分段函数</span></a>
+          <a class="resource" href="AP_Calculus_BC_1.5_Algebraic_Properties_of_Limits_English_Key_CN.html?answers=show"><strong>Notes Answers</strong><span>打开时自动揭示全部答案</span></a>
+          <a class="resource homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_ca1.pdf" target="_blank" rel="noopener"><strong>CA #1 Homework</strong><span>官方 PDF · laws + piecewise</span></a>
+        </div>
+        <details><summary>Official source materials / 官方原始资料</summary><div class="source-links"><a href="https://calculus.flippedmath.com/15-determining-limits-using-algebraic-properties.html">Lesson page</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf">Packet</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_solutions.pdf">Practice Solutions</a></div></details>
+      </article>
+    </div>
+
+    <aside class="privacy-note"><strong>Teacher-only classroom tool:</strong> the random student picker and its WeChat roster stay local. Student names, nicknames and avatars are not published in this public course repository.</aside>
+  </main>
+
+  <footer class="site-foot">Course materials prepared for AP Calculus BC · Updated 2026-08-27. FlippedMath packets, solutions and CA files remain external links to their official source.</footer>
+</body>
+</html>

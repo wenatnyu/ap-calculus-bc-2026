@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AP Calculus BC 1.4 Review Quiz — Teacher Key</title>
+  <style>
+    :root {
+      --navy:#16324f; --blue:#2f5d8c; --gold:#c9902f; --teal:#16837a;
+      --ink:#1e2a35; --muted:#64717d; --line:#c9d2da; --pale:#f2f5f7; --answer:#edf7f5;
+    }
+    * { box-sizing:border-box; }
+    html, body { margin:0; min-height:100%; }
+    body {
+      padding:22px; background:#e7ecef; color:var(--ink);
+      font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+    }
+    .sheet {
+      width:min(210mm,100%); min-height:297mm; margin:auto; padding:10mm 13mm 8mm;
+      background:white; box-shadow:0 8px 28px rgba(22,50,79,.15); display:flex; flex-direction:column;
+    }
+    .top-rule { height:5px; margin-bottom:11px; background:linear-gradient(90deg,var(--navy) 0 78%,var(--gold) 78%); }
+    header { display:grid; grid-template-columns:1fr auto; gap:18px; align-items:start; }
+    .eyebrow { color:var(--blue); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { margin:3px 0 2px; color:var(--navy); font:700 28px/1.1 Georgia,"Times New Roman",serif; }
+    .subtitle { margin:0; color:var(--muted); font-size:12.5px; }
+    .key { border:1.5px solid var(--teal); padding:8px 11px; color:var(--teal); font-size:11px; font-weight:800; letter-spacing:.08em; text-align:center; }
+    section { margin-top:13px; }
+    .section-head { display:flex; gap:7px; align-items:baseline; border-top:1.5px solid var(--navy); padding-top:6px; margin-bottom:7px; }
+    .letter { color:var(--gold); font:700 19px/1 Georgia,"Times New Roman",serif; }
+    h2 { margin:0; color:var(--navy); font-size:14.5px; line-height:1.25; }
+    .points { margin-left:auto; color:var(--muted); font-size:10.5px; }
+    .vocab { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .vocab div { display:grid; grid-template-columns:1.35fr .7fr; gap:7px; padding:5px 7px; font-size:12px; }
+    .vocab div:nth-child(4n+1), .vocab div:nth-child(4n+2) { background:var(--pale); }
+    .vocab strong { color:var(--navy); }
+    .answer-grid { display:grid; grid-template-columns:1fr 1fr; gap:17px; }
+    .answer-block { padding:9px 11px; border-left:4px solid var(--teal); background:var(--answer); }
+    .answer-block h3 { margin:0 0 5px; color:var(--navy); font-size:13px; }
+    .answer-block p, .answer-block ol { margin:0; font-size:12.5px; line-height:1.48; }
+    .answer-block ol { padding-left:21px; }
+    .ans { color:var(--teal); font-weight:800; }
+    .graph-key { display:grid; grid-template-columns:34% 66%; gap:18px; align-items:center; }
+    svg { width:100%; height:165px; display:block; }
+    .grid { stroke:#dbe1e6; stroke-width:1; } .axis { stroke:#25333f; stroke-width:2; }
+    .curve { fill:none; stroke:#18232d; stroke-width:4; stroke-linecap:round; }
+    .open { fill:white; stroke:#18232d; stroke-width:3; } .closed { fill:#18232d; }
+    .guide { stroke:var(--teal); stroke-width:1.8; stroke-dasharray:5 4; }
+    .tick { fill:#4c5c69; font:12px Arial,sans-serif; }
+    .math-answers { display:grid; grid-template-columns:1fr 1fr; gap:7px 20px; font:15px/1.5 Georgia,"Times New Roman",serif; }
+    .reason { grid-column:1/-1; margin-top:4px; padding-top:6px; border-top:1px solid var(--line); font:12px/1.45 Arial,sans-serif; }
+    .translation { padding:8px 11px; border-left:4px solid var(--teal); background:var(--answer); font-size:12.5px; line-height:1.5; }
+    .translation p { margin:0 0 5px; }
+    .translation p:last-child { margin-bottom:0; }
+    .rubric { width:100%; border-collapse:collapse; font-size:11.5px; }
+    .rubric th, .rubric td { padding:6px 8px; border-bottom:1px solid var(--line); text-align:left; }
+    .rubric th { color:var(--navy); border-bottom:2px solid var(--navy); }
+    footer { margin-top:auto; display:flex; justify-content:space-between; border-top:1px solid var(--line); padding-top:5px; color:var(--muted); font-size:9.5px; }
+    @page { size:A4 portrait; margin:0; }
+    @media print {
+      body { padding:0; background:white; }
+      .sheet { width:210mm; height:297mm; min-height:0; box-shadow:none; overflow:hidden; }
+    }
+    @media (max-width:720px) { body{padding:0}.sheet{min-height:100vh;padding:20px}.answer-grid,.graph-key{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <div class="top-rule"></div>
+    <header>
+      <div>
+        <div class="eyebrow">AP Calculus BC · Review for Topic 1.4</div>
+        <h1>Limits: Notation &amp; Graphs</h1>
+        <p class="subtitle">Teacher Key · Topics 1.2–1.3</p>
+      </div>
+      <div class="key">TEACHER<br>KEY</div>
+    </header>
+
+    <section>
+      <div class="section-head"><span class="letter">V</span><h2>Vocabulary Focus / 重点词汇</h2></div>
+      <div class="vocab">
+        <div><strong>approach</strong><span>趋近</span></div><div><strong>limit</strong><span>极限</span></div>
+        <div><strong>one-sided limit</strong><span>单侧极限</span></div><div><strong>two-sided limit</strong><span>双侧极限</span></div>
+        <div><strong>open circle</strong><span>空心点</span></div><div><strong>filled point</strong><span>实心点</span></div>
+        <div><strong>function value</strong><span>函数值</span></div><div><strong>continuous</strong><span>连续的</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="letter">A–B</span><h2>Matching &amp; Notation / 连线与符号</h2><span class="points">4 points</span></div>
+      <div class="answer-grid">
+        <div class="answer-block">
+          <h3>A. Matching</h3>
+          <ol><li><span class="ans">B</span> — one-sided limit</li><li><span class="ans">D</span> — two-sided limit</li><li><span class="ans">C</span> — open circle</li><li><span class="ans">A</span> — function value</li></ol>
+        </div>
+        <div class="answer-block">
+          <h3>B. Read the notation</h3>
+          <p>As <em>x</em> <span class="ans">approaches</span> −1, <em>g(x)</em> <span class="ans">approaches</span> 4.</p>
+          <p style="margin-top:5px;color:var(--muted);font-size:10.5px;">每空 1 分；拼写明显错误可酌情扣分。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="letter">C</span><h2>Graph Answers / 图像答案</h2><span class="points">4 points</span></div>
+      <div class="graph-key">
+        <svg viewBox="0 0 330 230" role="img" aria-label="Answer graph at x equals two">
+          <line class="grid" x1="55" y1="25" x2="55" y2="195"/><line class="grid" x1="105" y1="25" x2="105" y2="195"/><line class="grid" x1="155" y1="25" x2="155" y2="195"/><line class="grid" x1="205" y1="25" x2="205" y2="195"/><line class="grid" x1="255" y1="25" x2="255" y2="195"/>
+          <line class="grid" x1="55" y1="195" x2="255" y2="195"/><line class="grid" x1="55" y1="161" x2="255" y2="161"/><line class="grid" x1="55" y1="127" x2="255" y2="127"/><line class="grid" x1="55" y1="93" x2="255" y2="93"/><line class="grid" x1="55" y1="59" x2="255" y2="59"/><line class="grid" x1="55" y1="25" x2="255" y2="25"/>
+          <line class="axis" x1="45" y1="195" x2="270" y2="195"/><line class="axis" x1="55" y1="205" x2="55" y2="15"/>
+          <path class="curve" d="M55 161 L150 96"/><path class="curve" d="M160 90 L255 25"/>
+          <line class="guide" x1="55" y1="93" x2="255" y2="93"/><circle class="open" cx="155" cy="93" r="7"/><circle class="closed" cx="155" cy="161" r="6"/>
+          <text class="tick" x="51" y="214">0</text><text class="tick" x="101" y="214">1</text><text class="tick" x="151" y="214">2</text><text class="tick" x="201" y="214">3</text><text class="tick" x="251" y="214">4</text>
+          <text class="tick" x="38" y="165">1</text><text class="tick" x="38" y="131">2</text><text class="tick" x="38" y="97">3</text><text class="tick" x="38" y="63">4</text><text class="tick" x="38" y="29">5</text>
+        </svg>
+        <div class="math-answers">
+          <div>5. lim<sub>x→2<sup>−</sup></sub> f(x) = <span class="ans">3</span></div>
+          <div>6. lim<sub>x→2<sup>+</sup></sub> f(x) = <span class="ans">3</span></div>
+          <div>7. lim<sub>x→2</sub> f(x) = <span class="ans">3</span></div>
+          <div>8. f(2) = <span class="ans">1</span></div>
+          <div class="reason">The curve approaches the open circle at (2, 3), while the filled point gives <em>f(2)</em> = 1. / 曲线趋近空心点，函数值由实心点决定。</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="letter">D</span><h2>Short Response / 简答</h2><span class="points">2 points</span></div>
+      <div class="translation">
+        <p><strong>9–10. Sample answer:</strong> <span class="ans">No. The limit is 3, but f(2) = 1.</span></p>
+        <p style="color:var(--muted);font-size:11px;">1 point for “No”; 1 point for comparing the limit, 3, with the function value, 1.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="letter">10</span><h2>Scoring / 评分</h2></div>
+      <table class="rubric">
+        <thead><tr><th>Part</th><th>Points</th><th>Quick criterion</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>2</td><td>0.5 point per correct match</td></tr>
+          <tr><td>B</td><td>2</td><td>1 point per correct word</td></tr>
+          <tr><td>C</td><td>4</td><td>1 point per correct value</td></tr>
+          <tr><td>D</td><td>2</td><td>Correct decision and an English reason connecting limit with function value</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer><span>AP Calculus BC · Topics 1.2–1.3 Review</span><span>Teacher Key · 10 points</span></footer>
+  </main>
+</body>
+</html>

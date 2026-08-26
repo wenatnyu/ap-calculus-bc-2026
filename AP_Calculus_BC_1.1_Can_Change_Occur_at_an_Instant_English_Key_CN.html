@@ -1,0 +1,1266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>AP Calculus BC 1.1 | Can Change Occur at an Instant?</title>
+  <style>
+    :root {
+      --navy: #16324f;
+      --blue: #2f5d8c;
+      --blue-2: #5f83aa;
+      --ink: #1e2a35;
+      --muted: #667585;
+      --paper: #fbfcfd;
+      --mist: #eef3f7;
+      --mist-2: #f6f8fa;
+      --line: #cdd7df;
+      --teal: #16837a;
+      --red: #b3483f;
+      --gold: #c9902f;
+      --shadow: 0 18px 55px rgba(22, 50, 79, .22);
+      --sans: "Noto Sans CJK SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      --serif: "STSong", "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+      --math: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; }
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #dfe6ec;
+      color: var(--ink);
+      font-family: var(--sans);
+    }
+    button, input { font: inherit; }
+
+    .app { width: 100%; height: 100%; position: relative; }
+    .viewport {
+      position: absolute;
+      inset: 0 0 58px;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      overflow: hidden;
+    }
+    .deck {
+      width: 1600px;
+      height: 900px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: 50% 50%;
+      flex: none;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      padding: 76px 96px 72px 112px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .slide.active { display: block; animation: enter .18s ease-out; }
+    @keyframes enter { from { opacity: .25; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 16px;
+      background: var(--blue);
+      z-index: -1;
+    }
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 16px;
+      height: 9px;
+      background: var(--navy);
+      z-index: -1;
+    }
+    .slide.soft { background: linear-gradient(112deg, #fbfcfd 0 67%, #eef3f7 67% 100%); }
+    .slide.section { background: var(--navy); color: white; }
+    .slide.section::before { background: #6f94b6; }
+    .slide.section::after { background: white; opacity: .95; }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--blue);
+      font-size: 23px;
+      font-weight: 760;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .section .eyebrow { color: #bcd0e2; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 24px;
+      font-size: 88px;
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      font-weight: 820;
+    }
+    h2 {
+      margin-bottom: 30px;
+      color: var(--navy);
+      font-size: 54px;
+      line-height: 1.14;
+      letter-spacing: -.025em;
+      font-weight: 790;
+    }
+    .section h2 { color: white; }
+    h3 {
+      margin-bottom: 15px;
+      font-size: 33px;
+      line-height: 1.25;
+      color: var(--navy);
+    }
+    p, li, td, th {
+      font-size: 28px;
+      line-height: 1.45;
+    }
+    .lead { font-size: 36px; line-height: 1.45; }
+    .subtle { color: var(--muted); }
+    .section .subtle { color: #d3e0ea; }
+    .small { font-size: 21px; line-height: 1.4; }
+    .micro { font-size: 17px; line-height: 1.35; }
+    .math { font-family: var(--math); font-style: italic; }
+    .roman { font-style: normal; }
+    .nowrap { white-space: nowrap; }
+    .en-title {
+      margin: -20px 0 22px;
+      color: var(--blue);
+      font-size: 23px;
+      line-height: 1.25;
+      font-weight: 650;
+      letter-spacing: .005em;
+    }
+    .section .en-title { color: #bcd0e2; }
+    .zh-title {
+      margin: -20px 0 22px;
+      color: var(--gold);
+      font-size: 22px;
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+    .section .zh-title { color: #e8c36f; }
+    .zh-key {
+      display: block;
+      margin-top: 5px;
+      color: #8a641e;
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 680;
+    }
+    .section .zh-key { color: #e7c56f; }
+    .zh-inline {
+      color: #8a641e;
+      font-size: .72em;
+      font-weight: 720;
+    }
+    .section .zh-inline { color: #e7c56f; }
+    .en {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.28;
+      font-weight: 520;
+    }
+    .section .en { color: #cbdbe7; }
+    .en-inline {
+      color: var(--muted);
+      font-size: .72em;
+      font-weight: 520;
+    }
+    .section .en-inline { color: #cbdbe7; }
+    .bi-compact { font-size: 25px; line-height: 1.32; }
+
+    .term-table {
+      table-layout: fixed;
+      border-top: 5px solid var(--blue);
+      background: white;
+    }
+    .term-table th,
+    .term-table td {
+      padding: 12px 17px;
+      font-size: 27px;
+      line-height: 1.28;
+    }
+    .term-table th {
+      font-size: 19px;
+      color: var(--muted);
+      border-bottom-width: 2px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .term-table td:nth-child(1),
+    .term-table td:nth-child(3) {
+      color: var(--blue);
+      font-weight: 700;
+    }
+    .term-table td:nth-child(2),
+    .term-table td:nth-child(4) {
+      color: #8a641e;
+      font-size: 23px;
+      font-weight: 650;
+    }
+    .term-table th:nth-child(1), .term-table td:nth-child(1),
+    .term-table th:nth-child(3), .term-table td:nth-child(3) { width: 31%; }
+    .term-table th:nth-child(2), .term-table td:nth-child(2),
+    .term-table th:nth-child(4), .term-table td:nth-child(4) { width: 19%; }
+    .term-note {
+      margin-top: 20px;
+      padding-left: 22px;
+      border-left: 6px solid var(--gold);
+      font-size: 24px;
+      line-height: 1.34;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 62px;
+      align-items: center;
+      min-height: 600px;
+    }
+    .split.equal { grid-template-columns: 1fr 1fr; }
+    .split.wide-right { grid-template-columns: .77fr 1.23fr; }
+    .bike-average-layout {
+      grid-template-columns: .9fr 1.1fr;
+      gap: 48px;
+      align-items: start;
+      min-height: 0;
+    }
+    .bike-average-layout .formula.large { font-size: 47px; }
+    .bike-average-layout .callout { font-size: 26px; line-height: 1.36; }
+    .bike-average-layout .small { font-size: 18px; line-height: 1.32; }
+    .warm-layout {
+      align-items: start;
+      min-height: 0;
+    }
+    .warm-layout .lead { font-size: 31px; line-height: 1.34; }
+    .warm-layout .callout { font-size: 26px; line-height: 1.34; }
+    .warm-layout .answer {
+      margin-top: 12px;
+      padding: 11px 15px;
+      font-size: 24px;
+      line-height: 1.34;
+    }
+    .park-layout .answer {
+      margin-top: 12px;
+      padding: 10px 15px;
+      font-size: 24px;
+      line-height: 1.32;
+    }
+    .secant-compare-layout,
+    .tangent-layout,
+    .practice-layout {
+      align-items: start;
+      min-height: 0 !important;
+    }
+    .secant-compare-layout .formula { font-size: 40px; }
+    .secant-compare-layout .bi-compact { font-size: 23px; }
+    .secant-compare-layout .en { font-size: 16px; }
+    .tangent-layout {
+      grid-template-columns: .9fr 1.1fr;
+      gap: 48px;
+    }
+    .tangent-layout .lead { font-size: 29px; line-height: 1.34; }
+    .tangent-layout .formula.large { font-size: 49px; }
+    .tangent-layout .callout { font-size: 25px; line-height: 1.3; }
+    .compact-chart svg.chart { height: 400px; }
+    .stack { display: flex; flex-direction: column; gap: 24px; }
+    .rule { height: 1px; background: var(--line); margin: 26px 0; }
+    .accent-rule { width: 88px; height: 8px; background: var(--blue); margin: 0 0 25px; }
+
+    .big-question {
+      max-width: 980px;
+      font-family: var(--serif);
+      font-size: 48px;
+      line-height: 1.38;
+    }
+    .callout {
+      border-left: 7px solid var(--blue);
+      padding: 14px 0 14px 24px;
+      font-size: 30px;
+      line-height: 1.46;
+    }
+    .callout.teal { border-left-color: var(--teal); }
+    .callout.red { border-left-color: var(--red); }
+    .callout.gold { border-left-color: var(--gold); }
+
+    .formula {
+      color: var(--navy);
+      font-family: var(--math);
+      font-size: 44px;
+      line-height: 1.34;
+    }
+    .formula.large { font-size: 58px; }
+    .fraction {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      line-height: 1.12;
+      margin: 0 .12em;
+      font-family: var(--math);
+    }
+    .fraction > span:first-child { border-bottom: 2px solid currentColor; padding: 0 .18em .07em; }
+    .fraction > span:last-child { padding-top: .07em; }
+
+    .hero-mark {
+      position: absolute;
+      right: 88px;
+      top: 92px;
+      width: 430px;
+      height: 430px;
+      opacity: .16;
+    }
+    .title-note {
+      position: absolute;
+      left: 112px;
+      bottom: 92px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 22px;
+      color: #d9e5ef;
+    }
+    .title-note .line { width: 90px; height: 2px; background: #86a7c4; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      color: var(--navy);
+      font-weight: 760;
+      text-align: left;
+      border-bottom: 3px solid var(--navy);
+      padding: 14px 18px;
+    }
+    td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .data-table { table-layout: fixed; }
+    .data-table th, .data-table td { text-align: center; font-size: 34px; padding: 18px 20px; }
+    .data-table th:first-child, .data-table td:first-child { text-align: left; width: 32%; }
+    .meaning-table th:nth-child(1) { width: 36%; }
+    .meaning-table th:nth-child(2) { width: 44%; }
+    .meaning-table th:nth-child(3) { width: 20%; }
+    .meaning-table.compact th,
+    .meaning-table.compact td { padding: 10px 16px; }
+    .meaning-table.compact td { font-size: 22px; line-height: 1.28; }
+    .meaning-table.compact .formula { font-size: 34px; }
+
+    .number-line {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--navy);
+      font-family: var(--math);
+      font-size: 48px;
+    }
+    .number-line .arrow { color: var(--blue-2); font-family: var(--sans); font-style: normal; }
+    .answer-emphasis { color: var(--teal); font-weight: 820; }
+    .negative { color: var(--red); }
+    .positive { color: var(--teal); }
+
+    .chart-wrap {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 18px 18px 8px;
+    }
+    svg.chart { width: 100%; height: auto; display: block; overflow: visible; }
+    .chart .grid { stroke: #d7dee4; stroke-width: 1; }
+    .chart .axis { stroke: #23313e; stroke-width: 2.4; }
+    .chart .curve { fill: none; stroke: #111820; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    .chart .point { fill: #111820; }
+    .chart text { fill: #344454; font-family: var(--sans); font-size: 18px; }
+    .chart .math-label { font-family: var(--math); font-style: italic; font-size: 23px; fill: #111820; }
+    .chart .solution-line { stroke: var(--red); stroke-width: 4; stroke-linecap: round; }
+    .chart .solution-helper { stroke: var(--red); stroke-width: 2; stroke-dasharray: 7 6; fill: none; }
+    .chart .solution-text { fill: var(--red); font-size: 18px; font-weight: 760; }
+    .solution-mark { opacity: 0; transition: opacity .2s ease; }
+    .solution-mark.show { opacity: 1; }
+
+    .compare-strip {
+      display: grid;
+      grid-template-columns: 1fr 70px 1fr;
+      align-items: stretch;
+      gap: 18px;
+      margin-top: 16px;
+    }
+    .compare-item { padding: 14px 20px; border-top: 5px solid var(--blue); background: var(--mist-2); }
+    .compare-item p { margin-bottom: 8px; }
+    .compare-item.red { border-top-color: var(--red); }
+    .compare-item.teal { border-top-color: var(--teal); }
+    .compare-mid { display: grid; place-items: center; color: var(--muted); font-size: 34px; }
+
+    .reveal-btn {
+      appearance: none;
+      border: 2px solid var(--blue);
+      border-radius: 0;
+      color: var(--blue);
+      background: transparent;
+      padding: 10px 18px;
+      font-size: 21px;
+      font-weight: 760;
+      cursor: pointer;
+    }
+    .reveal-btn:hover, .reveal-btn:focus-visible { background: var(--blue); color: white; outline: none; }
+    .answer {
+      display: none;
+      margin-top: 17px;
+      padding: 14px 18px;
+      background: #e9f4f2;
+      border-left: 6px solid var(--teal);
+      font-size: 27px;
+      line-height: 1.42;
+    }
+    .answer.show { display: block; }
+
+    .practice-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .practice-col + .practice-col { border-left: 1px solid var(--line); padding-left: 48px; }
+    .practice-col .chart-wrap { max-width: 500px; }
+    .practice-col h3 { font-size: 29px; }
+    .practice-col p { font-size: 24px; }
+
+    .secant-layout {
+      display: grid;
+      grid-template-columns: 800px 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+    #secantCanvas {
+      width: 800px;
+      height: 480px;
+      display: block;
+      background: white;
+      border: 1px solid var(--line);
+    }
+    .slider-line { margin: 18px 0 24px; }
+    .slider-line input { width: 100%; accent-color: var(--blue); }
+    .step-labels { display: flex; justify-content: space-between; color: var(--muted); font-size: 16px; }
+    .live-metric {
+      border-top: 4px solid var(--blue);
+      padding-top: 16px;
+      color: var(--navy);
+      font-family: var(--math);
+      font-size: 31px;
+      line-height: 1.45;
+    }
+    .live-metric strong { font-family: var(--sans); color: var(--teal); font-size: 40px; }
+
+    .prompt-list { margin: 4px 0 0; padding-left: 1.25em; }
+    .prompt-list li { margin: 13px 0; }
+
+    .slide-footer {
+      position: absolute;
+      left: 112px;
+      right: 62px;
+      bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      color: #6d7a87;
+      font-size: 16px;
+    }
+    .section .slide-footer { color: #c7d6e2; }
+    .source-link { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .notes { display: none; }
+
+    .controls {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 22px;
+      background: #f7f9fb;
+      border-top: 1px solid #c5d0da;
+      color: #506171;
+      z-index: 20;
+    }
+    .controls button {
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 760;
+      padding: 8px 10px;
+    }
+    .controls button:hover, .controls button:focus-visible { background: var(--mist); outline: none; }
+    .progress-track { flex: 1; height: 4px; background: #d6dfe7; margin: 0 10px; }
+    .progress-bar { width: 0; height: 100%; background: var(--blue); transition: width .18s ease; }
+    .counter { min-width: 82px; text-align: center; font-variant-numeric: tabular-nums; }
+    .key-hint { font-size: 14px; color: #778593; white-space: nowrap; }
+
+    .notes-panel {
+      position: absolute;
+      z-index: 40;
+      right: 22px;
+      bottom: 76px;
+      width: min(520px, calc(100vw - 44px));
+      max-height: 62vh;
+      overflow: auto;
+      display: none;
+      background: #fffef7;
+      border: 1px solid #c7b876;
+      box-shadow: 0 14px 40px rgba(30, 42, 53, .25);
+      padding: 22px 24px;
+      color: #36352d;
+    }
+    .notes-panel.open { display: block; }
+    .notes-panel h3 { font-size: 22px; margin-bottom: 12px; }
+    .notes-panel p, .notes-panel li { font-size: 16px; line-height: 1.55; }
+
+    .help {
+      position: absolute;
+      inset: 0;
+      z-index: 50;
+      display: none;
+      place-items: center;
+      background: rgba(22, 50, 79, .78);
+    }
+    .help.open { display: grid; }
+    .help-card {
+      width: 560px;
+      background: white;
+      padding: 34px 40px;
+      box-shadow: var(--shadow);
+    }
+    .help-card h3 { font-size: 30px; }
+    .help-card p { font-size: 20px; }
+    kbd { border: 1px solid #aebbc6; padding: 2px 7px; background: #f6f8fa; font-family: ui-monospace, monospace; }
+
+    @media (max-width: 760px) {
+      .key-hint { display: none; }
+      .controls { gap: 4px; padding: 0 8px; }
+    }
+
+    @page { size: 16in 9in; margin: 0; }
+    @media print {
+      html, body { width: auto; height: auto; overflow: visible; background: white; }
+      .app, .viewport { position: static; display: block; padding: 0; overflow: visible; }
+      .deck { position: static; left: auto; top: auto; transform: none !important; width: 1600px; height: auto; }
+      .slide {
+        position: relative;
+        display: block !important;
+        width: 1600px;
+        height: 900px;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+        animation: none !important;
+      }
+      .controls, .notes-panel, .help, .reveal-btn { display: none !important; }
+      .answer { display: block; }
+      .solution-mark { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="viewport" id="viewport">
+      <main class="deck" id="deck" aria-live="polite">
+
+        <section class="slide section active" data-title="Can Change Occur at an Instant?">
+          <p class="eyebrow">AP Calculus BC · Topic 1.1</p>
+          <div class="accent-rule" style="background:#8db0cc"></div>
+          <h1 style="font-size:80px">Can Change Occur<br>at an Instant?</h1>
+          <p class="lead" style="color:#e7c56f">瞬间也能谈“变化”吗？</p>
+          <svg class="hero-mark" viewBox="0 0 430 430" aria-hidden="true">
+            <path d="M25 350 C80 115 140 92 190 164 C245 242 292 276 337 178 C370 105 386 62 410 30" fill="none" stroke="white" stroke-width="16" stroke-linecap="round"/>
+            <path d="M112 284 L320 121" fill="none" stroke="#86a7c4" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="215" cy="202" r="15" fill="white"/>
+          </svg>
+          <div class="title-note"><span class="line"></span><span>From average change to instantaneous change · 从平均变化到瞬时变化</span></div>
+          <div class="slide-footer">
+            <span>Class slides · English with key Chinese · 2026–2027</span><span>1.1</span>
+          </div>
+          <aside class="notes">
+            <p><b>开场：</b>先问学生：“平均速度好算；仪表盘上某一刻的速度，怎么算出来？”不要急着给定义。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/11-can-change-occur-at-an-instant.html<br>https://www.youtube.com/watch?v=antLFMkVfXI</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="Core Vocabulary I">
+          <p class="eyebrow">Language first · Core ideas</p>
+          <h2>Core Vocabulary I: Rates of Change</h2>
+          <p class="zh-title">重点中文：变化率与图像</p>
+          <table class="term-table" aria-label="English terms with key Chinese translations for rates of change">
+            <thead><tr><th>English</th><th>重点中文</th><th>English</th><th>重点中文</th></tr></thead>
+            <tbody>
+              <tr><td>change</td><td>变化</td><td>rate of change</td><td>变化率</td></tr>
+              <tr><td>average rate of change</td><td>平均变化率</td><td>instantaneous rate of change</td><td>瞬时变化率</td></tr>
+              <tr><td>instant</td><td>瞬间；某一刻</td><td>interval</td><td>区间</td></tr>
+              <tr><td>secant line</td><td>割线</td><td>tangent line</td><td>切线</td></tr>
+              <tr><td>slope</td><td>斜率</td><td>difference quotient</td><td>差商</td></tr>
+              <tr><td>estimate</td><td>估计</td><td>approach</td><td>趋近</td></tr>
+              <tr><td>approximately equal to (≈)</td><td>约等于</td><td>undefined</td><td>无定义</td></tr>
+            </tbody>
+          </table>
+          <div class="term-note"><b>Today’s big idea:</b> Secant slopes approach the tangent slope.<span class="zh-key">割线斜率趋近切线斜率。</span></div>
+          <div class="slide-footer"><span>Read the English first; use Chinese only to confirm the meaning.</span><span>02</span></div>
+          <aside class="notes">
+            <p><b>词汇动作：</b>教师读英文，学生齐读一次；随后随机指 3 个中文，让学生说英文。重点分清 secant 与 tangent。</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="Core Vocabulary II">
+          <p class="eyebrow">Language first · Reading and calculating</p>
+          <h2>Core Vocabulary II: Reading and Units</h2>
+          <p class="zh-title">重点中文：读题、计算与单位</p>
+          <table class="term-table" aria-label="English terms with key Chinese translations for reading and units">
+            <thead><tr><th>English</th><th>重点中文</th><th>English</th><th>重点中文</th></tr></thead>
+            <tbody>
+              <tr><td>function</td><td>函数</td><td>function value</td><td>函数值</td></tr>
+              <tr><td>graph</td><td>函数图像</td><td>table</td><td>表格</td></tr>
+              <tr><td>distance</td><td>距离</td><td>time</td><td>时间</td></tr>
+              <tr><td>increase; decrease</td><td>增加；减少</td><td>positive; negative</td><td>正的；负的</td></tr>
+              <tr><td>rise</td><td>纵向变化量</td><td>run</td><td>横向变化量</td></tr>
+              <tr><td>numerator</td><td>分子</td><td>denominator</td><td>分母</td></tr>
+              <tr><td>unit</td><td>单位</td><td>per</td><td>每……</td></tr>
+            </tbody>
+          </table>
+          <div class="term-note"><b>When you see “rate” or “per,” ask:</b> What changes per what?<span class="zh-key">看到 rate 或 per：马上问“什么量 / 什么量？”</span></div>
+          <div class="slide-footer"><span>Example: meters per minute = m/min</span><span>03</span></div>
+          <aside class="notes">
+            <p><b>词汇动作：</b>板书 m/min，让学生用两种语言读单位。强调 numerator 对应变化量，denominator 对应时间间隔。</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="Core Vocabulary III">
+          <p class="eyebrow">Language first · Context and graph shape</p>
+          <h2>Core Vocabulary III: Context and Graph Shape</h2>
+          <p class="zh-title">重点中文：情境、图像形状与单位</p>
+          <table class="term-table" aria-label="English terms with key Chinese translations for context and graph shape">
+            <thead><tr><th>English</th><th>重点中文</th><th>English</th><th>重点中文</th></tr></thead>
+            <tbody>
+              <tr><td>position</td><td>位置</td><td>distance from home</td><td>离家距离</td></tr>
+              <tr><td>velocity</td><td>速度</td><td>speed</td><td>速率</td></tr>
+              <tr><td>increasing</td><td>递增</td><td>decreasing</td><td>递减</td></tr>
+              <tr><td>concave up</td><td>凹向上</td><td>flatten out</td><td>逐渐变平</td></tr>
+              <tr><td>symmetric interval</td><td>对称区间</td><td>left endpoint</td><td>左端点</td></tr>
+              <tr><td>cumulative volume</td><td>累计水量</td><td>population</td><td>种群数量</td></tr>
+              <tr><td>meters per minute</td><td>米 / 分钟</td><td>people per hour</td><td>人 / 小时</td></tr>
+            </tbody>
+          </table>
+          <div class="term-note"><b>Read the units:</b> <span class="math">m/min</span> = meters per minute.<span class="zh-key">“per” 表示两个单位相除。</span></div>
+          <div class="slide-footer"><span>These terms will reappear throughout the lesson.</span><span>04</span></div>
+          <aside class="notes">
+            <p><b>易混词：</b>velocity 可带方向，speed 非负。本页先按诊断题位置函数使用 instantaneous velocity；骑车图统一说 distance-from-home rate。</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="Back to the Diagnostic">
+          <p class="eyebrow">Warm-up · Estimate first—no formulas yet</p>
+          <h2>Back to the Diagnostic: How Fast at <span class="math">t = 2</span>?</h2>
+          <p class="zh-title">热身：<span class="math">t = 2</span> 时有多快？</p>
+          <div class="split wide-right warm-layout">
+            <div>
+              <p class="lead">Three readings of position <span class="math">s(t)</span>:<span class="zh-key">position = 位置</span></p>
+              <div class="callout gold">With only one time, there is no interval for “change ÷ time.” Start with nearby times.<span class="zh-key">关键：一个时刻没有时间区间；先看附近时刻。</span></div>
+              <div style="margin-top:18px">
+                <button class="reveal-btn" data-reveal="warmAnswer">Show estimate</button>
+                <div class="answer" id="warmAnswer">
+                  About <b>3.9 m/s</b> from the left and <b>4.1 m/s</b> from the right; both point to <b>4 m/s</b>.<span class="zh-key">左右估计都指向 4 m/s。</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <table class="data-table" aria-label="Position values at three times">
+                <thead><tr><th>Time <span class="zh-inline">时间</span><br><span class="math">t</span> (s)</th><th>1.9</th><th>2.0</th><th>2.1</th></tr></thead>
+                <tbody><tr><td>Position <span class="zh-inline">位置</span><br><span class="math">s(t)</span> (m)</td><td>3.61</td><td>4.00</td><td>4.41</td></tr></tbody>
+              </table>
+              <p class="big-question" style="font-size:36px;margin-top:28px">Which two values would you use? Why?<span class="zh-key">你会选哪两个数？为什么？</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Keep your method—we’ll check it later.</span><span>04</span></div>
+          <aside class="notes">
+            <p><b>课堂动作：</b>个人 30 秒，和同桌比较选点。允许左差、右差或中心差；此处只收集方法。</p>
+            <p>[Sources]<br>本地课程材料：/Users/wen/Downloads/AP_Calculus_BC_20min_Diagnostic_Student.pdf（Q7）</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="Average over the Whole Trip">
+          <p class="eyebrow">Mr. Brust’s bike ride</p>
+          <h2>Start Simple: Average Rate over All 8 Minutes</h2>
+          <p class="zh-title">先算整体：8 分钟内的平均变化率</p>
+          <div class="split bike-average-layout">
+            <div class="chart-wrap compact-chart">
+              <svg class="chart" data-chart="bike" viewBox="0 0 620 430" role="img" aria-label="Distance from home over time"></svg>
+              <p class="micro subtle" style="margin:3px 0 0">Redrawn for class from the FlippedMath 1.1 Packet</p>
+            </div>
+            <div>
+              <p class="formula large">
+                <span class="fraction"><span>D(8) − D(0)</span><span>8 − 0</span></span>
+                = <span class="fraction"><span>1300 − 0</span><span>8</span></span>
+              </p>
+              <p class="formula large answer-emphasis">= 162.5 m/min</p>
+              <div class="callout" style="margin-top:28px">This is the <b>average rate of change of distance from home</b> over the 8 minutes.<span class="zh-key">离家距离的平均变化率</span></div>
+              <p class="small subtle" style="margin-top:18px">The graph shows distance from home—not total distance traveled.<span class="zh-key">易错：这里不是“总路程 ÷ 总时间”。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <a class="source-link" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf" target="_blank">Source: FlippedMath 1.1 Packet</a><span>05</span>
+          </div>
+          <aside class="notes">
+            <p><b>纠正原材料措辞：</b>网页视频称 average speed，但按 D(t) 计算的是“离家距离的平均变化率”。课堂上统一这样说，避免与“总路程/总时间”混淆。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf<br>https://www.youtube.com/watch?v=antLFMkVfXI</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="Change the Interval, Change the Rate">
+          <p class="eyebrow">Secant slope</p>
+          <h2>A New Interval Gives a New Average Rate</h2>
+          <p class="zh-title">区间一变，平均变化率也变</p>
+          <div class="split equal secant-compare-layout" style="min-height:500px">
+            <div class="chart-wrap compact-chart">
+              <svg class="chart" data-chart="bikeSecants" viewBox="0 0 620 430" role="img" aria-label="Two secant lines on the bike graph"></svg>
+            </div>
+            <div>
+              <div class="compare-item red">
+                <p class="formula"><span class="fraction"><span>D(6) − D(2)</span><span>6 − 2</span></span> ≈ <b class="negative">−65</b> m/min</p>
+                <p class="bi-compact">Negative means he moved <b>closer to home</b> overall.<span class="zh-key">负号 → 总体靠近家</span></p>
+              </div>
+              <div class="compare-item teal" style="margin-top:16px">
+                <p class="formula"><span class="fraction"><span>D(3) − D(2)</span><span>3 − 2</span></span> ≈ <b class="positive">+60</b> m/min</p>
+                <p class="bi-compact">Positive means he moved <b>farther from home</b> overall.<span class="zh-key">正号 → 总体远离家</span></p>
+              </div>
+              <p class="lead" style="font-size:27px;margin-top:16px">A <b>secant line</b> joins two points on a curve. Its slope is the average rate of change over that interval.<span class="zh-key">割线斜率 = 区间平均变化率</span></p>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <a class="source-link" href="https://www.youtube.com/watch?v=antLFMkVfXI" target="_blank">Source: FlippedMath 1.1 Video</a><span>06</span>
+          </div>
+          <aside class="notes">
+            <p><b>讲法：</b>先只比较正负，再估大小。原视频列出 [2,6]、[2,3] 两个商，不强求精确读数；这里的 -65 与 +60 来自对原图的近似重绘。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf<br>https://www.youtube.com/watch?v=antLFMkVfXI</p>
+          </aside>
+        </section>
+
+        <section class="slide section" data-title="Approach, but Do Not Equal">
+          <p class="eyebrow">The key move</p>
+          <h2 style="font-size:62px;margin-top:36px">We Want “Closer and Closer,”<br>Not “Exactly Equal.”</h2>
+          <p class="zh-title">关键：趋近，但不等于</p>
+          <div class="split equal" style="min-height:390px;margin-top:8px">
+            <div>
+              <p class="formula large" style="color:white">
+                <span class="fraction"><span>D(2) − D(2)</span><span>2 − 2</span></span>
+                = <span class="fraction"><span>0</span><span>0</span></span>
+              </p>
+              <div class="callout red" style="color:#f4d7d4">The two times are the same, so the denominator is 0 and the difference quotient is undefined.<span class="zh-key">分母为 0，差商无定义。</span></div>
+            </div>
+            <div>
+              <p class="formula large" style="color:white">
+                <span class="fraction"><span>D(2) − D(1.999)</span><span>2 − 1.999</span></span>
+              </p>
+              <div class="callout teal" style="color:#d9f1ee">These are still two different times, but the interval is tiny.<span class="zh-key">仍是两个时刻，只是间隔很短。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Build the idea today; use limit notation next class.</span><span>08</span></div>
+          <aside class="notes">
+            <p><b>关键停顿：</b>让学生说清楚“1.999 不是 2”。差商仍是区间平均，只是区间很短，因此可以估计瞬时变化率。</p>
+            <p>[Sources]<br>https://www.youtube.com/watch?v=antLFMkVfXI（约 05:00–06:01）</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="As h Shrinks, the Secant Approaches a Tangent">
+          <p class="eyebrow">Drag the interval</p>
+          <h2>As <span class="math">h</span> Shrinks, the Secant Approaches a Tangent</h2>
+          <p class="zh-title">观察：<span class="math">h</span> 越小，割线越接近切线</p>
+          <div class="secant-layout">
+            <canvas id="secantCanvas" width="880" height="520" aria-label="Interactive graph of a secant approaching a tangent"></canvas>
+            <div>
+              <p class="formula"><span class="fraction"><span>D(2) − D(2 − h)</span><span>h</span></span></p>
+              <div class="slider-line">
+                <input id="hSlider" type="range" min="0" max="5" step="1" value="0" aria-label="Adjust the time interval h" />
+                <div class="step-labels"><span>2</span><span>1</span><span>0.5</span><span>0.1</span><span>0.01</span><span>0.001</span></div>
+              </div>
+              <div class="live-metric">
+                <div><span class="roman">h</span> = <span id="hValue">2</span> min</div>
+                <div>Left endpoint <span class="zh-inline">左端点</span>: <span class="roman">t</span> = <span id="leftT">0</span></div>
+                <div>Secant slope <span class="zh-inline">割线斜率</span> ≈ <strong id="secantSlope">530.0</strong> m/min</div>
+              </div>
+              <p class="small subtle" style="margin-top:20px">As <span class="math">h</span> gets smaller, which line does the secant begin to look like? What value does its slope approach?</p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Interactive graph redrawn from the Packet.</span><span>09</span></div>
+          <aside class="notes">
+            <p><b>操作：</b>从 h=2 逐档拖到 0.001。每次先让学生口头预测斜率变大/变小，再拖。最后停在约 150。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf<br>https://www.youtube.com/watch?v=antLFMkVfXI（约 06:01–07:23）</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="Tangent Slope Gives the Rate at an Instant">
+          <p class="eyebrow">What value do the slopes approach?</p>
+          <h2>Tangent Slope Gives the Rate at an Instant</h2>
+          <p class="zh-title">瞬时变化率 ≈ 切线斜率（图像估计）</p>
+          <div class="split tangent-layout">
+            <div class="chart-wrap compact-chart">
+              <svg class="chart" data-chart="bikeTangent" viewBox="0 0 620 430" role="img" aria-label="Tangent line at t equals 2"></svg>
+            </div>
+            <div>
+              <p class="lead">Near <span class="math">t = 2</span>, average rates over short intervals approach the same value.<span class="zh-key">短区间平均变化率趋近同一个数。</span></p>
+              <p class="formula large"><span class="fraction"><span>rise</span><span>run</span></span> ≈ <span class="fraction"><span>300 m</span><span>2 min</span></span></p>
+              <p class="formula large answer-emphasis">≈ 150 m/min</p>
+              <div class="callout teal"><div>On the graph: <b>slope of the tangent line</b>.<span class="zh-key">tangent line = 切线</span></div><div style="margin-top:9px">In context: how fast the distance from home is increasing at <span class="math">t=2</span>.</div></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>A rough estimate from the graph—not an exact value.</span><span>10</span></div>
+          <aside class="notes">
+            <p><b>措辞：</b>说“附近平均变化率的稳定趋势”，不写正式极限式。视频用切线上 rise≈300m、run≈2min 得到约 150m/min。</p>
+            <p>[Sources]<br>https://www.youtube.com/watch?v=antLFMkVfXI（约 07:23）</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="Left- and Right-Hand Estimates Bracket 4">
+          <p class="eyebrow">Return to the warm-up</p>
+          <h2>Left and Right Estimates Bracket 4 m/s</h2>
+          <p class="zh-title">左差 3.9，右差 4.1，中心差 4.0</p>
+          <table class="data-table" style="margin-top:24px" aria-label="Left- and right-hand average rate calculations">
+            <thead><tr><th>Interval<span class="zh-key">区间</span></th><th>Change in position<span class="zh-key">位置变化量</span></th><th>Time elapsed<span class="zh-key">经过时间</span></th><th>Average rate<span class="zh-key">平均变化率</span></th></tr></thead>
+            <tbody>
+              <tr><td>[1.9, 2.0]</td><td>4.00 − 3.61</td><td>0.1 s</td><td class="positive"><b>3.9 m/s</b></td></tr>
+              <tr><td>[2.0, 2.1]</td><td>4.41 − 4.00</td><td>0.1 s</td><td class="positive"><b>4.1 m/s</b></td></tr>
+              <tr><td>[1.9, 2.1]</td><td>4.41 − 3.61</td><td>0.2 s</td><td class="answer-emphasis"><b>4.0 m/s</b></td></tr>
+            </tbody>
+          </table>
+          <div class="number-line" style="justify-content:center;margin-top:24px">
+            <span>3.9</span><span class="arrow">→</span><span class="answer-emphasis">4.0</span><span class="arrow">←</span><span>4.1</span>
+          </div>
+          <p class="lead" style="font-size:26px;line-height:1.3;text-align:center;margin-top:10px">Using both sides gives an estimate of the instantaneous velocity: <b>4.0 m/s</b>.<span class="zh-key">对称区间 → 瞬时速度估计</span></p>
+          <div class="slide-footer"><span>Table estimate: always include units.</span><span>11</span></div>
+          <aside class="notes">
+            <p><b>检查：</b>让学生用一句完整的话作答：“t=2 时的瞬时速度约为 4 m/s，因为左右短区间的平均速度分别为 3.9 与 4.1 m/s。”</p>
+            <p>[Sources]<br>本地课程材料：/Users/wen/Downloads/AP_Calculus_BC_20min_Diagnostic_Student.pdf（Q7）及 Teacher Key</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="At Week 10: About 10 Views per Week">
+          <p class="eyebrow">Practice 1 · Draw the tangent first</p>
+          <h2>At Week 10: About 10 Views per Week</h2>
+          <p class="zh-title">重点：tangent line（切线）与 concave up（凹向上）</p>
+          <div class="split equal">
+            <div class="chart-wrap">
+              <svg class="chart" data-chart="views" viewBox="0 0 620 430" role="img" aria-label="Total channel views over time"></svg>
+              <p class="micro subtle" style="margin:3px 0 0">Total views, <span class="math">v(w)</span></p>
+            </div>
+            <div>
+              <ol class="prompt-list">
+                <li>Draw a tangent line at <span class="math">w=10</span>.</li>
+                <li>Choose two easy-to-read points on the tangent.</li>
+                <li>Calculate the slope and include units.</li>
+              </ol>
+              <button class="reveal-btn" data-reveal="viewsAnswer" data-chart-toggle="viewsTangent" style="margin-top:20px">Show tangent</button>
+              <div class="answer" id="viewsAnswer">
+                Rough estimate: <b>10 views/week</b>. The graph is concave up, so the weekly increase is getting larger.<span class="zh-key">views/week = 每周新增浏览量</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <a class="source-link" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_solutions.pdf" target="_blank">Practice Solutions</a><span>12</span>
+          </div>
+          <aside class="notes">
+            <p><b>先独立后揭晓：</b>给 60–90 秒画线。官方答案约 10 views/week。原答案册近似式误写 f，本课统一使用 v。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_solutions.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide" data-title="The Bush Is Growing, but More Slowly">
+          <p class="eyebrow">Practice 2A · Work with a partner</p>
+          <h2>The Bush Is Still Growing, but More Slowly</h2>
+          <p class="zh-title">先判断：斜率为正，但很小</p>
+          <div class="split equal">
+            <div class="chart-wrap"><svg class="chart" data-chart="bush" viewBox="0 0 620 430" role="img" aria-label="Height of a raspberry bush over time"></svg></div>
+            <div>
+              <h3>Raspberry Bush at <span class="math">t=9</span></h3>
+              <p class="lead">The curve is flattening out. Is the slope large or small?<span class="zh-key">flattening out = 逐渐变平</span></p>
+              <p class="callout gold">Draw a tangent first. Then use rise over run.<span class="zh-key">rise over run = 纵向变化量 / 横向变化量</span></p>
+              <button class="reveal-btn" data-reveal="bushAnswer" data-chart-toggle="bushTangent">Show solution A</button>
+              <div class="answer" id="bushAnswer">Very rough estimate: about <b>0.1 ft/week</b>.<span class="zh-key">斜率为正，但很小。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Height: feet · Time: weeks</span><span>13</span></div>
+          <aside class="notes">
+            <p><b>讲法：</b>先遮住数值，要求学生只判断 positive 且 small。官方给 0.1 ft/week，并标明 very rough。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_solutions.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="The Key Challenge Is Converting the Units">
+          <p class="eyebrow">Practice 2B · Convert the units</p>
+          <h2>Amusement Park: Convert the Units Carefully</h2>
+          <p class="zh-title">易错：纵轴是“千人”，最后要 ×1,000</p>
+          <div class="split equal park-layout">
+            <div class="chart-wrap"><svg class="chart" data-chart="park" viewBox="0 0 620 430" role="img" aria-label="Total visitors who have entered an amusement park over time"></svg></div>
+            <div>
+              <h3>Amusement Park at <span class="math">t=3</span></h3>
+              <p class="lead">The vertical axis is in thousands of people. Convert the final answer to people.<span class="zh-key">thousands of people = 千人</span></p>
+              <p class="callout gold">Draw a tangent first. Then use rise over run.<span class="zh-key">unit conversion = 单位换算</span></p>
+              <button class="reveal-btn" data-reveal="parkAnswer" data-chart-toggle="parkTangent">Show solution B</button>
+              <div class="answer" id="parkAnswer">About <b>1.5 thousand people/hour</b>, or <b>1,500 people/hour</b>.<span class="zh-key">最后答案：1,500 人 / 小时</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Total visitors: thousands · Time: hours</span><span>14</span></div>
+          <aside class="notes">
+            <p><b>单位检查：</b>让学生先说 1.5 thousand people/hour，再乘 1000 得 1500 people/hour。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_solutions.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide soft" data-title="Interpret Each Expression before Calculating">
+          <p class="eyebrow">Read the notation in context</p>
+          <h2>Interpret Each Expression before Calculating</h2>
+          <p class="zh-title">先解释，再计算</p>
+          <p class="lead" style="font-size:30px;margin-bottom:16px">A dam opens a spillway. <span class="math">V(t)</span> is the total volume of water released during the first <span class="math">t</span> seconds.</p>
+          <table class="meaning-table compact" aria-label="Meanings of a function value and rates of change">
+            <thead><tr><th>Expression<span class="zh-key">式子</span></th><th>Meaning<span class="zh-key">情境含义</span></th><th>Units<span class="zh-key">单位</span></th></tr></thead>
+            <tbody>
+              <tr><td class="formula">V(100)</td><td>Total volume released after 100 seconds<span class="zh-key">function value = 函数值</span></td><td>L</td></tr>
+              <tr><td class="formula"><span class="fraction"><span>V(100) − V(0)</span><span>100 − 0</span></span></td><td>Average release rate over the first 100 seconds<span class="zh-key">average rate = 平均变化率</span></td><td>L/s</td></tr>
+              <tr><td class="formula"><span class="fraction"><span>V(100) − V(99.999)</span><span>100 − 99.999</span></span></td><td>Average rate over a very short interval; an estimate of the instantaneous release rate at <span class="math">t=100</span><span class="zh-key">instantaneous-rate estimate = 瞬时变化率估计</span></td><td>L/s</td></tr>
+            </tbody>
+          </table>
+          <div class="callout gold" style="font-size:26px;margin-top:20px"><b>Unit check:</b> numerator units ÷ denominator units.<span class="zh-key">易错：函数值 ≠ 变化率；第 3 式仍是估计。</span></div>
+          <div class="slide-footer"><span>Function value ≠ rate of change. Keep the word “estimate.”</span><span>15</span></div>
+          <aside class="notes">
+            <p><b>提问顺序：</b>先遮住第二列，让学生翻译；再追问单位。强调第三个式子仍然是很短区间的平均变化率，因此是瞬时变化率的估计。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_solutions.pdf</p>
+          </aside>
+        </section>
+
+        <section class="slide section" data-title="Exit Ticket">
+          <p class="eyebrow">Exit ticket · 2 minutes</p>
+          <h2>Exit Ticket: Amount, Average, or Instantaneous?</h2>
+          <p class="zh-title">函数值 · 平均变化率 · 瞬时变化率估计</p>
+          <p class="lead subtle"><span class="math">b(t)</span> is the American bison population, where <span class="math">t</span> is the number of years after 1800.</p>
+          <div class="split equal" style="min-height:360px;margin-top:2px">
+            <div>
+              <ol class="prompt-list">
+                <li><span class="formula" style="color:white">b(90)</span></li>
+                <li><span class="formula" style="color:white"><span class="fraction"><span>b(50) − b(0)</span><span>50 − 0</span></span></span></li>
+                <li><span class="formula" style="color:white"><span class="fraction"><span>b(32) − b(31.999)</span><span>32 − 31.999</span></span></span></li>
+              </ol>
+            </div>
+            <div>
+              <div class="callout teal" style="color:#dff3ef">Explain each expression in one complete sentence. Include the year or the units.<span class="zh-key">要求：完整句子 + 年份或单位</span></div>
+              <p class="big-question" style="font-size:34px;margin-top:28px;color:white">Why is #3 only an estimate of an instantaneous rate of change?<span class="zh-key">为什么只能说是“估计”？</span></p>
+            </div>
+          </div>
+          <p class="small" style="position:absolute;left:112px;bottom:72px;color:#d6e3ed">Next, 1.2: a formal notation for approaching without reaching. <span class="zh-inline">limit = 极限</span></p>
+          <div class="slide-footer"><span>Short-interval average rates → instantaneous rate.</span><span>16</span></div>
+          <aside class="notes">
+            <p><b>参考：</b>①1890 年美国野牛数量；②1800–1850 年野牛数量的平均年变化率；③1832 年附近野牛数量的瞬时年变化率估计。第三式仍跨越 0.001 年，并非真正把间隔设为 0。</p>
+            <p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf<br>https://www.youtube.com/watch?v=antLFMkVfXI</p>
+          </aside>
+        </section>
+
+      </main>
+    </div>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button id="prevBtn" title="Previous slide (←)">← Prev</button>
+      <button id="nextBtn" title="Next slide (→ / Space)">Next →</button>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="counter" id="counter">01 / 16</span>
+      <span class="key-hint">← → Navigate · N Notes · F Fullscreen · P Print · H Help</span>
+      <button id="notesBtn" title="Notes (N)">Notes</button>
+      <button id="fullscreenBtn" title="Fullscreen (F)">Fullscreen</button>
+    </nav>
+
+    <aside class="notes-panel" id="notesPanel" aria-label="Teacher notes"></aside>
+    <div class="help" id="help" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+      <div class="help-card">
+        <h3>Classroom Shortcuts</h3>
+        <p><kbd>←</kbd> / <kbd>→</kbd>, <kbd>Page Up</kbd> / <kbd>Page Down</kbd>: navigate</p>
+        <p><kbd>Space</kbd>: next　<kbd>Home</kbd> / <kbd>End</kbd>: first / last</p>
+        <p><kbd>N</kbd>: notes　<kbd>F</kbd>: fullscreen　<kbd>P</kbd>: print</p>
+        <p><kbd>H</kbd> or <kbd>Esc</kbd>: close this window</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const deck = document.getElementById('deck');
+    const viewport = document.getElementById('viewport');
+    const counter = document.getElementById('counter');
+    const progressBar = document.getElementById('progressBar');
+    const notesPanel = document.getElementById('notesPanel');
+    const help = document.getElementById('help');
+    let current = 0;
+
+    slides.forEach((slide, index) => {
+      const pageMark = slide.querySelector('.slide-footer > span:last-child');
+      if (pageMark) pageMark.textContent = index === 0 ? '1.1' : String(index + 1).padStart(2, '0');
+    });
+
+    function fitDeck() {
+      const scale = Math.min((viewport.clientWidth - 12) / 1600, (viewport.clientHeight - 12) / 900);
+      deck.style.transform = `translate(-50%, -50%) scale(${Math.max(.1, scale)})`;
+    }
+
+    function updateNotes() {
+      const source = slides[current].querySelector('.notes');
+      notesPanel.innerHTML = `<h3>Slide ${current + 1} Notes</h3>${source ? source.innerHTML : '<p>No notes for this slide.</p>'}`;
+    }
+
+    function go(index) {
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+      counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+      progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
+      history.replaceState(null, '', `#${current + 1}`);
+      document.title = `${slides[current].dataset.title} | AP Calculus BC 1.1`;
+      updateNotes();
+      if (slides[current].querySelector('#secantCanvas')) drawSecant();
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => go(current - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => go(current + 1));
+    document.getElementById('notesBtn').addEventListener('click', () => notesPanel.classList.toggle('open'));
+    document.getElementById('fullscreenBtn').addEventListener('click', async () => {
+      if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
+      else await document.exitFullscreen?.();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      const interactive = /^(INPUT|BUTTON|TEXTAREA|SELECT)$/.test(event.target.tagName);
+      if (!interactive && (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ')) { event.preventDefault(); go(current + 1); }
+      if (!interactive && (event.key === 'ArrowLeft' || event.key === 'PageUp')) { event.preventDefault(); go(current - 1); }
+      if (!interactive && event.key === 'Home') { event.preventDefault(); go(0); }
+      if (!interactive && event.key === 'End') { event.preventDefault(); go(slides.length - 1); }
+      if (!interactive && event.key.toLowerCase() === 'n') notesPanel.classList.toggle('open');
+      if (!interactive && event.key.toLowerCase() === 'f') document.getElementById('fullscreenBtn').click();
+      if (!interactive && event.key.toLowerCase() === 'p') window.print();
+      if (!interactive && event.key.toLowerCase() === 'h') help.classList.toggle('open');
+      if (event.key === 'Escape') help.classList.remove('open');
+    });
+    help.addEventListener('click', () => help.classList.remove('open'));
+
+    document.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-reveal]');
+      if (!button) return;
+      const answer = document.getElementById(button.dataset.reveal);
+      const show = !answer.classList.contains('show');
+      if (!button.dataset.originalText) button.dataset.originalText = button.textContent;
+      answer.classList.toggle('show', show);
+      button.textContent = show ? 'Hide solution' : button.dataset.originalText;
+      const chartId = button.dataset.chartToggle;
+      if (chartId) document.getElementById(chartId)?.classList.toggle('show', show);
+    });
+
+    const answersMode = new URLSearchParams(location.search).get('answers') === 'show';
+    if (answersMode) {
+      document.documentElement.dataset.answers = 'show';
+      document.querySelectorAll('[data-reveal]').forEach(button => {
+        const answer = document.getElementById(button.dataset.reveal);
+        if (!answer) return;
+        if (!button.dataset.originalText) button.dataset.originalText = button.textContent;
+        answer.classList.add('show');
+        button.textContent = 'Hide solution';
+        const chartId = button.dataset.chartToggle;
+        if (chartId) document.getElementById(chartId)?.classList.add('show');
+      });
+    }
+
+    window.addEventListener('resize', fitDeck);
+    window.addEventListener('fullscreenchange', fitDeck);
+
+    const chartSpecs = {
+      bike: {
+        xMax: 8, yMax: 1300, xTicks: [0,2,4,6,8], yTicks: [0,300,600,900,1200],
+        xLabel: 'Time (min)', yLabel: 'Distance from home (m)', symbol: 'D(t)',
+        points: [[0,0],[.5,450],[1,750],[1.5,940],[2,1060],[2.5,1120],[3,1120],[3.5,1085],[4,1020],[4.5,950],[5,880],[5.5,830],[6,800],[6.5,825],[7,900],[7.5,1050],[8,1300]]
+      },
+      views: {
+        xMax: 27, yMax: 520, xTicks: [0,5,10,15,20,25], yTicks: [0,100,200,300,400,500],
+        xLabel: 'Time (weeks)', yLabel: 'Total views', symbol: 'v(w)',
+        points: [[0,0],[2.5,20],[5,40],[7.5,70],[10,100],[12.5,135],[15,175],[17.5,225],[20,290],[22.5,360],[25,445],[26,480]],
+        tangent: { id: 'viewsTangent', x: 10, y: 100, slope: 10, label: 'Estimate ≈ 10 views/week' }
+      },
+      bush: {
+        xMax: 12, yMax: 2.1, xTicks: [0,3,6,9,12], yTicks: [0,.5,1,1.5,2],
+        xLabel: 'Time (weeks)', yLabel: 'Height (ft)', symbol: 'h(t)',
+        points: [[0,0],[1.5,.67],[3,1],[4.5,1.22],[6,1.35],[7.5,1.47],[9,1.55],[10.5,1.63],[12,1.70]],
+        tangent: { id: 'bushTangent', x: 9, y: 1.55, slope: .08, label: 'Very rough estimate ≈ 0.1 ft/week', labelDx: -170, labelDy: -42 }
+      },
+      park: {
+        xMax: 11, yMax: 15, xTicks: [0,2,4,6,8,10], yTicks: [0,3,6,9,12,15],
+        xLabel: 'Time (hours)', yLabel: 'Total visitors who have entered (thousands)', symbol: 'E(t)',
+        points: [[0,0],[1,1.2],[2,2.7],[3,4.4],[4,6],[5,7.6],[6,8.8],[7,9.8],[8,10.5],[9,11],[10,11.35],[11,11.6]],
+        tangent: { id: 'parkTangent', x: 3, y: 4.4, slope: 1.5, label: 'Estimate ≈ 1.5 thousand/hour' }
+      }
+    };
+
+    const NS = 'http://www.w3.org/2000/svg';
+    function svgEl(name, attrs = {}, text = '') {
+      const el = document.createElementNS(NS, name);
+      Object.entries(attrs).forEach(([k,v]) => el.setAttribute(k, v));
+      if (text) el.textContent = text;
+      return el;
+    }
+    function catmullPath(points) {
+      if (points.length < 2) return '';
+      let d = `M ${points[0][0]} ${points[0][1]}`;
+      for (let i = 0; i < points.length - 1; i++) {
+        const p0 = points[i - 1] || points[i];
+        const p1 = points[i];
+        const p2 = points[i + 1];
+        const p3 = points[i + 2] || p2;
+        const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+        const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+        const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+        const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+        d += ` C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p2[0]} ${p2[1]}`;
+      }
+      return d;
+    }
+    function renderChart(svg, kind) {
+      const baseKind = kind.replace(/Secants|Tangent/, '');
+      const spec = chartSpecs[baseKind];
+      const L = 82, R = 584, T = 34, B = 366;
+      const x = v => L + (v / spec.xMax) * (R - L);
+      const y = v => B - (v / spec.yMax) * (B - T);
+
+      spec.xTicks.forEach(tick => {
+        svg.append(svgEl('line', {x1:x(tick),y1:T,x2:x(tick),y2:B,class:'grid'}));
+        if (tick !== 0) svg.append(svgEl('text', {x:x(tick),y:B+27,'text-anchor':'middle'}, String(tick)));
+      });
+      spec.yTicks.forEach(tick => {
+        svg.append(svgEl('line', {x1:L,y1:y(tick),x2:R,y2:y(tick),class:'grid'}));
+        if (tick !== 0) svg.append(svgEl('text', {x:L-12,y:y(tick)+6,'text-anchor':'end'}, String(tick)));
+      });
+      svg.append(svgEl('line', {x1:L,y1:B,x2:R+12,y2:B,class:'axis'}));
+      svg.append(svgEl('line', {x1:L,y1:B,x2:L,y2:T-10,class:'axis'}));
+      svg.append(svgEl('path', {d:`M ${R+12} ${B} l -12 -7 l 0 14 z`,fill:'#23313e'}));
+      svg.append(svgEl('path', {d:`M ${L} ${T-10} l -7 12 l 14 0 z`,fill:'#23313e'}));
+      svg.append(svgEl('text', {x:(L+R)/2,y:418,'text-anchor':'middle'}, spec.xLabel));
+      const ylabel = svgEl('text', {x:20,y:(T+B)/2,'text-anchor':'middle',transform:`rotate(-90 20 ${(T+B)/2})`}, spec.yLabel);
+      svg.append(ylabel);
+      svg.append(svgEl('text', {x:L+8,y:T+1,class:'math-label'}, spec.symbol));
+      const pts = spec.points.map(([px,py]) => [x(px),y(py)]);
+      svg.append(svgEl('path', {d:catmullPath(pts),class:'curve'}));
+
+      if (baseKind === 'bike') {
+        svg.append(svgEl('circle', {cx:x(8),cy:y(1300),r:7,class:'point'}));
+        svg.append(svgEl('text', {x:x(8)-8,y:y(1300)-12,'text-anchor':'end'}, '(8, 1300)'));
+      }
+      if (kind === 'bikeSecants') {
+        const lines = [
+          {x1:2,y1:1060,x2:6,y2:800,color:'#b3483f',label:'[2, 6]'},
+          {x1:2,y1:1060,x2:3,y2:1120,color:'#16837a',label:'[2, 3]'}
+        ];
+        lines.forEach((s,i) => {
+          svg.append(svgEl('line', {x1:x(s.x1),y1:y(s.y1),x2:x(s.x2),y2:y(s.y2),stroke:s.color,'stroke-width':5,'stroke-linecap':'round'}));
+          svg.append(svgEl('circle', {cx:x(s.x1),cy:y(s.y1),r:7,fill:s.color}));
+          svg.append(svgEl('circle', {cx:x(s.x2),cy:y(s.y2),r:7,fill:s.color}));
+          svg.append(svgEl('text', {x:i ? x(3)+14 : x(5.2),y:i ? y(1120)-14 : y(875)+28,fill:s.color,'font-weight':'760'}, s.label));
+        });
+      }
+      if (kind === 'bikeTangent') {
+        const slope = 150, x0 = 2, y0 = 1060;
+        const xa = .6, xb = 3.3;
+        svg.append(svgEl('line', {x1:x(xa),y1:y(y0+slope*(xa-x0)),x2:x(xb),y2:y(y0+slope*(xb-x0)),class:'solution-line'}));
+        svg.append(svgEl('circle', {cx:x(x0),cy:y(y0),r:8,fill:'#b3483f'}));
+        const ta = 1, tb = 3;
+        const ya = y0+slope*(ta-x0), yb = y0+slope*(tb-x0);
+        svg.append(svgEl('line', {x1:x(ta),y1:y(ya),x2:x(tb),y2:y(ya),class:'solution-helper'}));
+        svg.append(svgEl('line', {x1:x(tb),y1:y(ya),x2:x(tb),y2:y(yb),class:'solution-helper'}));
+        svg.append(svgEl('text', {x:(x(ta)+x(tb))/2,y:y(ya)+24,'text-anchor':'middle',class:'solution-text'}, '+2 min'));
+        svg.append(svgEl('text', {x:x(tb)+12,y:(y(ya)+y(yb))/2,class:'solution-text'}, '+300 m'));
+      }
+      if (spec.tangent) {
+        const g = svgEl('g', {id:spec.tangent.id,class:'solution-mark'});
+        const tx1 = Math.max(0, spec.tangent.x - spec.xMax*.18);
+        const tx2 = Math.min(spec.xMax, spec.tangent.x + spec.xMax*.18);
+        const ty1 = spec.tangent.y + spec.tangent.slope*(tx1-spec.tangent.x);
+        const ty2 = spec.tangent.y + spec.tangent.slope*(tx2-spec.tangent.x);
+        g.append(svgEl('line', {x1:x(tx1),y1:y(ty1),x2:x(tx2),y2:y(ty2),class:'solution-line'}));
+        g.append(svgEl('circle', {cx:x(spec.tangent.x),cy:y(spec.tangent.y),r:7,fill:'#b3483f'}));
+        g.append(svgEl('text', {
+          x:x(spec.tangent.x)+(spec.tangent.labelDx ?? 15),
+          y:y(spec.tangent.y)+(spec.tangent.labelDy ?? -18),
+          class:'solution-text'
+        }, spec.tangent.label));
+        svg.append(g);
+      }
+    }
+    document.querySelectorAll('svg[data-chart]').forEach(svg => renderChart(svg, svg.dataset.chart));
+
+    const hValues = [2, 1, .5, .1, .01, .001];
+    const hSlider = document.getElementById('hSlider');
+    const poly = [0,1127.8333333333,-443,91.9583333333,-11.125,.5833333333];
+    function D(t) { return poly.reduce((sum, coefficient, power) => sum + coefficient * Math.pow(t, power), 0); }
+    function drawSecant() {
+      const canvas = document.getElementById('secantCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      const L = 78, R = 835, T = 38, B = 462;
+      const sx = t => L + (t/8)*(R-L);
+      const sy = d => B - (d/1350)*(B-T);
+      ctx.clearRect(0,0,W,H);
+      ctx.fillStyle = '#fff'; ctx.fillRect(0,0,W,H);
+      ctx.strokeStyle = '#d9e0e6'; ctx.lineWidth = 1;
+      ctx.font = '16px sans-serif'; ctx.fillStyle = '#607080';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      [0,2,4,6,8].forEach(t => { ctx.beginPath();ctx.moveTo(sx(t),T);ctx.lineTo(sx(t),B);ctx.stroke(); if(t)ctx.fillText(t,sx(t),B+10); });
+      ctx.textAlign = 'right';ctx.textBaseline = 'middle';
+      [0,300,600,900,1200].forEach(d => { ctx.beginPath();ctx.moveTo(L,sy(d));ctx.lineTo(R,sy(d));ctx.stroke(); if(d)ctx.fillText(d,L-10,sy(d)); });
+      ctx.strokeStyle = '#24313d';ctx.lineWidth = 2.5;
+      ctx.beginPath();ctx.moveTo(L,B);ctx.lineTo(R+8,B);ctx.stroke();ctx.beginPath();ctx.moveTo(L,B);ctx.lineTo(L,T-8);ctx.stroke();
+      ctx.font = '18px sans-serif';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText('Time (min)',(L+R)/2,B+36);
+      ctx.save();ctx.translate(22,(T+B)/2);ctx.rotate(-Math.PI/2);ctx.fillText('Distance from home (m)',0,0);ctx.restore();
+      ctx.font='italic 24px Georgia';ctx.textAlign='left';ctx.fillText('D(t)',L+12,T+4);
+      ctx.strokeStyle='#101820';ctx.lineWidth=5;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();
+      for(let i=0;i<=200;i++){const t=8*i/200;const px=sx(t),py=sy(D(t));if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);}ctx.stroke();
+
+      const h = hValues[+hSlider.value];
+      const leftT = 2-h, yLeft=D(leftT), yRight=D(2), slope=(yRight-yLeft)/h;
+      const lineAt = t => yLeft+slope*(t-leftT);
+      const xa=Math.max(0,leftT-.4), xb=Math.min(8,2+.7);
+      ctx.strokeStyle='#b3483f';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(sx(xa),sy(lineAt(xa)));ctx.lineTo(sx(xb),sy(lineAt(xb)));ctx.stroke();
+      ctx.fillStyle='#b3483f';[ [leftT,yLeft],[2,yRight] ].forEach(([t,d])=>{ctx.beginPath();ctx.arc(sx(t),sy(d),8,0,Math.PI*2);ctx.fill();});
+      ctx.font='bold 17px sans-serif';ctx.textBaseline='bottom';
+      const leftLabel = leftT.toFixed(h<.01?3:h<1?2:1);
+      if (h <= .1) {
+        ctx.textAlign='center';
+        ctx.fillText(`t: ${leftLabel} → 2`,sx(2)+28,sy(yRight)-14);
+      } else {
+        ctx.textAlign='left';
+        ctx.fillText(`t=${leftLabel}`,sx(leftT)+10,sy(yLeft)-10);
+        ctx.fillText('t=2',sx(2)+10,sy(yRight)-10);
+      }
+      document.getElementById('hValue').textContent = String(h);
+      document.getElementById('leftT').textContent = leftT.toFixed(h < .01 ? 3 : h < 1 ? 2 : 1).replace(/\.0+$/,'');
+      document.getElementById('secantSlope').textContent = slope.toFixed(1);
+    }
+    hSlider.addEventListener('input', drawSecant);
+
+    fitDeck();
+    const initial = parseInt(location.hash.slice(1), 10);
+    go(Number.isFinite(initial) ? initial - 1 : 0);
+  </script>
+</body>
+</html>

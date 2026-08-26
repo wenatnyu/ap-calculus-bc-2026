@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 1.4 | Limit Values from Tables</title>
+  <style>
+    :root {
+      --navy:#16324f; --blue:#2f5d8c; --blue-light:#7396b5; --gold:#c9902f;
+      --teal:#16837a; --red:#b3483f; --ink:#1d2934; --muted:#667482;
+      --paper:#fcfdfe; --pale:#f2f5f7; --line:#cbd5dc; --shadow:0 18px 55px rgba(22,50,79,.20);
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+      --math:"STIX Two Math","Cambria Math","Times New Roman",serif;
+    }
+    * { box-sizing:border-box; }
+    html, body { width:100%; height:100%; }
+    body { margin:0; overflow:hidden; background:#dfe6eb; color:var(--ink); font-family:var(--sans); }
+    button { font:inherit; }
+    .app { width:100%; height:100%; position:relative; }
+    .viewport { position:absolute; inset:0 0 56px; display:grid; place-items:center; padding:20px; overflow:hidden; }
+    .deck { width:1600px; height:900px; position:absolute; left:50%; top:50%; transform-origin:50% 50%; }
+    .slide {
+      position:absolute; inset:0; display:none; overflow:hidden; isolation:isolate;
+      padding:64px 92px 68px 108px; background:var(--paper); box-shadow:var(--shadow);
+    }
+    .slide.active { display:block; animation:enter .16s ease-out; }
+    @keyframes enter { from{opacity:.3;transform:translateY(4px)} to{opacity:1;transform:none} }
+    .slide::before { content:""; position:absolute; inset:0 auto 0 0; width:14px; background:var(--blue); z-index:-1; }
+    .slide::after { content:""; position:absolute; inset:0 0 auto 14px; height:7px; background:var(--navy); z-index:-1; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin:0 0 24px; color:var(--navy); font-size:64px; line-height:1.08; letter-spacing:-.035em; font-weight:820; white-space:nowrap; }
+    h2 { margin:0 0 20px; color:var(--navy); font-size:46px; line-height:1.14; letter-spacing:-.022em; font-weight:790; white-space:nowrap; }
+    h3 { margin:0 0 10px; color:var(--navy); font-size:29px; line-height:1.24; }
+    p,li,td,th { font-size:25px; line-height:1.38; }
+    .lead { font-size:33px; line-height:1.4; }
+    .small { font-size:20px; line-height:1.4; }
+    .micro { font-size:16px; line-height:1.35; }
+    .subtle { color:var(--muted); }
+    .math { font-family:var(--math); font-style:italic; }
+    .eyebrow { margin:0 0 12px; color:var(--blue); font-size:20px; font-weight:780; letter-spacing:.12em; text-transform:uppercase; }
+    .title-rule { width:92px; height:7px; margin:0 0 23px; background:var(--gold); }
+    .zh-title { margin:-10px 0 19px; color:#8a641e; font-size:20px; line-height:1.25; font-weight:710; }
+    .zh-key { display:block; margin-top:5px; color:#8a641e; font-size:18px; line-height:1.28; font-weight:690; }
+    .zh-inline { color:#8a641e; font-size:.73em; font-weight:720; }
+
+    .hero { display:flex; height:100%; flex-direction:column; justify-content:center; padding-bottom:44px; }
+    .hero .subtitle { width:980px; margin:0; color:var(--muted); font-size:30px; line-height:1.4; }
+    .hero .chapter { position:absolute; right:90px; bottom:86px; color:var(--blue); font:700 25px/1 var(--math); }
+
+    .term-table, .data-table { width:100%; border-collapse:collapse; table-layout:fixed; background:white; }
+    .term-table { border-top:5px solid var(--blue); }
+    .term-table th,.term-table td { padding:9px 15px; border-bottom:1px solid var(--line); text-align:left; line-height:1.22; }
+    .term-table th { color:var(--muted); font-size:16px; text-transform:uppercase; letter-spacing:.06em; border-bottom:2px solid var(--navy); }
+    .term-table td { font-size:23px; }
+    .term-table td:nth-child(1),.term-table td:nth-child(3) { color:var(--blue); font-weight:740; width:31%; }
+    .term-table td:nth-child(2),.term-table td:nth-child(4) { color:#8a641e; font-size:20px; font-weight:680; width:19%; }
+    .term-note { margin-top:13px; padding-left:18px; border-left:6px solid var(--gold); font-size:21px; }
+
+    .data-table { border-top:4px solid var(--blue); margin:14px 0 20px; }
+    .data-table th,.data-table td { padding:13px 11px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); text-align:center; font-family:var(--math); font-size:27px; }
+    .data-table th { width:16%; color:var(--navy); background:var(--pale); font-style:italic; }
+    .data-table td:last-child,.data-table th:last-child { border-right:0; }
+    .data-table .target { color:var(--red); font-weight:780; background:#fbf0ee; }
+    .data-table .near { color:var(--teal); font-weight:780; background:#eef7f5; }
+    .divider-col { border-left:4px solid var(--gold)!important; }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+    .split.narrow-left { grid-template-columns:.82fr 1.18fr; }
+    .split.narrow-right { grid-template-columns:1.15fr .85fr; }
+    .vertical-rule { border-left:1px solid var(--line); padding-left:42px; }
+    .plain-list { margin:4px 0 0; padding-left:1.2em; }
+    .plain-list li { margin:10px 0; }
+    .step-list { margin:12px 0 0; padding:0; list-style:none; counter-reset:steps; }
+    .step-list li { counter-increment:steps; padding:15px 0 15px 62px; border-bottom:1px solid var(--line); position:relative; }
+    .step-list li::before { content:counter(steps); position:absolute; left:3px; top:13px; color:var(--gold); font:700 32px/1 Georgia,serif; }
+    .rule-line { margin:20px 0; height:1px; background:var(--line); }
+    .callout { padding:10px 0 10px 20px; border-left:7px solid var(--blue); font-size:27px; line-height:1.42; }
+    .callout.teal { border-left-color:var(--teal); }
+    .callout.red { border-left-color:var(--red); }
+    .callout.gold { border-left-color:var(--gold); }
+    .four-rows { display:grid; grid-template-columns:1fr 1fr; gap:0 38px; margin-top:13px; }
+    .quantity { display:flex; justify-content:space-between; align-items:center; gap:18px; padding:13px 3px; border-bottom:1px solid var(--line); font-family:var(--math); font-size:31px; }
+    .value { color:var(--teal); font-family:var(--sans); font-weight:820; }
+    .dne { color:var(--red); font-weight:820; }
+    .unknown { color:var(--muted); font-family:var(--sans); font-weight:760; }
+
+    .limit-expression { display:inline-flex; align-items:center; gap:.15em; color:var(--navy); font-family:var(--math); font-size:40px; line-height:1; white-space:nowrap; vertical-align:middle; }
+    .limit-expression.large { font-size:52px; }
+    .limit-op { display:inline-grid; grid-template-rows:1fr auto; justify-items:center; align-items:end; margin-right:.05em; font-style:normal; line-height:.82; }
+    .limit-op .op { font-size:.86em; }
+    .limit-op .sub { margin-top:.16em; font-size:.38em; font-style:italic; white-space:nowrap; }
+    .limit-op .sub sup { margin-left:.03em; font-size:.7em; vertical-align:.43em; }
+    .formula-display { margin:22px 0; color:var(--navy); font-family:var(--math); font-size:42px; line-height:1.35; }
+    .formula-step { margin:10px 0; padding:9px 0; border-bottom:1px solid var(--line); font-family:var(--math); font-size:32px; line-height:1.35; }
+
+    .reveal-btn { appearance:none; border:2px solid var(--blue); border-radius:0; padding:8px 16px; color:var(--blue); background:transparent; font-size:19px; font-weight:760; cursor:pointer; }
+    .reveal-btn:hover,.reveal-btn:focus-visible { color:white; background:var(--blue); outline:none; }
+    .answer { display:none; margin-top:12px; padding:11px 15px; border-left:6px solid var(--teal); background:#eef7f5; font-size:21px; line-height:1.4; }
+    .answer.show { display:block; }
+    .choice-list { margin:11px 0 18px; padding:0; list-style:none; display:grid; gap:8px; }
+    .choice-list li { font-size:23px; line-height:1.32; }
+    .choice-list .letter { display:inline-block; width:40px; color:var(--blue); font-weight:800; }
+    .question-list { margin:5px 0 18px; padding-left:1.2em; }
+    .question-list li { margin:8px 0; font-size:24px; }
+
+    .slide-footer { position:absolute; left:108px; right:92px; bottom:25px; display:flex; justify-content:space-between; color:var(--muted); font-size:15px; }
+    .notes { display:none; }
+    .controls { position:absolute; inset:auto 0 0; height:56px; display:flex; align-items:center; gap:12px; padding:0 18px; background:#f8fafb; border-top:1px solid #c8d1d8; }
+    .controls button { border:0; background:transparent; color:var(--navy); padding:7px 9px; font-weight:760; cursor:pointer; }
+    .progress-track { flex:1; height:5px; background:#d7dfe5; overflow:hidden; }
+    .progress-bar { height:100%; width:0; background:var(--gold); transition:width .16s ease; }
+    .counter { color:var(--navy); min-width:70px; font-size:14px; font-weight:800; text-align:center; }
+    .key-hint { color:var(--muted); font-size:12px; white-space:nowrap; }
+    .notes-panel { display:none; position:absolute; z-index:10; right:20px; bottom:72px; width:510px; max-height:62vh; overflow:auto; padding:18px 21px; background:white; border-top:6px solid var(--gold); box-shadow:0 14px 40px rgba(22,50,79,.24); }
+    .notes-panel.open { display:block; }
+    .notes-panel h3 { margin:0 0 10px; font-size:21px; }
+    .notes-panel p,.notes-panel li { font-size:15px; line-height:1.5; }
+    .help { display:none; position:absolute; inset:0; z-index:20; place-items:center; background:rgba(22,50,79,.4); }
+    .help.open { display:grid; }
+    .help-card { width:560px; padding:28px 34px; background:white; border-top:7px solid var(--gold); box-shadow:var(--shadow); }
+    .help-card p { margin:9px 0; font-size:18px; }
+    kbd { border:1px solid var(--line); padding:1px 6px; background:var(--pale); }
+
+    @page { size:16in 9in; margin:0; }
+    @media print {
+      body { overflow:visible; background:white; }
+      .viewport { position:static; display:block; padding:0; }
+      .deck { position:static; width:1600px; height:auto; transform:none!important; }
+      .slide { position:relative; display:block!important; width:1600px; height:900px; box-shadow:none; break-after:page; page-break-after:always; }
+      .controls,.notes-panel,.help,.reveal-btn { display:none!important; }
+      .answer { display:block!important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="viewport" id="viewport">
+      <main class="deck" id="deck">
+        <section class="slide active" data-title="Limit Values from Tables">
+          <div class="hero">
+            <p class="eyebrow">AP Calculus BC · Topic 1.4</p>
+            <h1>Estimating Limit Values from Tables</h1>
+            <div class="title-rule"></div>
+            <p class="subtitle">Use values close to the target, compare both directions, and keep the limit separate from the function value.</p>
+            <p class="zh-title" style="margin-top:15px">用目标附近的数据比较左右趋势；极限不等同于函数值。</p>
+            <span class="chapter">Limits &amp; Continuity</span>
+          </div>
+          <div class="slide-footer"><span>Tables show numerical trends near a point.</span><span>1.4</span></div>
+          <aside class="notes"><p>开场先问：表格里哪个数最重要？答案不是最大或最小，而是最接近目标且来自两侧的数。</p><p>[Sources]<br>https://calculus.flippedmath.com/14-limit-values-from-tables.html</p></aside>
+        </section>
+
+        <section class="slide" data-title="Vocabulary">
+          <p class="eyebrow">Language first</p>
+          <h2>Vocabulary for Reading Limit Tables</h2>
+          <p class="zh-title">本节核心词汇集中在这一页</p>
+          <table class="term-table">
+            <thead><tr><th>English</th><th>中文</th><th>English</th><th>中文</th></tr></thead>
+            <tbody>
+              <tr><td>table of values</td><td>数值表</td><td>selected values</td><td>选定的数值</td></tr>
+              <tr><td>approach from the left</td><td>从左侧趋近</td><td>approach from the right</td><td>从右侧趋近</td></tr>
+              <tr><td>left-hand limit</td><td>左极限</td><td>right-hand limit</td><td>右极限</td></tr>
+              <tr><td>two-sided limit</td><td>双侧极限</td><td>function value</td><td>函数值</td></tr>
+              <tr><td>nearest values</td><td>最接近的数值</td><td>estimate / approximate</td><td>估计 / 近似</td></tr>
+              <tr><td>does not exist (DNE)</td><td>不存在</td><td>undefined</td><td>无定义</td></tr>
+              <tr><td>continuous</td><td>连续的</td><td>composite function</td><td>复合函数</td></tr>
+              <tr><td>outer function</td><td>外层函数</td><td>round / truncate</td><td>四舍五入 / 截断</td></tr>
+            </tbody>
+          </table>
+          <p class="term-note"><strong>Sentence frame:</strong> “As <span class="math">x</span> approaches <span class="math">a</span> from the left/right, <span class="math">f(x)</span> approaches …”</p>
+          <div class="slide-footer"><span>Use the direction words before naming the limit.</span><span>02</span></div>
+          <aside class="notes"><p>全课只设这一页词汇表。可让学生先遮住中文朗读英文，再交换方向。</p><p>[Sources]<br>https://calculus.flippedmath.com/14-limit-values-from-tables.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Four Different Quantities">
+          <p class="eyebrow">Keep the questions separate</p>
+          <h2>One Table Can Describe Four Quantities</h2>
+          <p class="zh-title">左极限、右极限、双侧极限和函数值不能混为一谈</p>
+          <table class="data-table">
+            <tr><th>x</th><td>1.9</td><td class="near">1.99</td><td class="target">2</td><td class="near">2.01</td><td>2.1</td></tr>
+            <tr><th>f(x)</th><td>3.9</td><td class="near">3.99</td><td class="target">10</td><td class="near">4.01</td><td>4.1</td></tr>
+          </table>
+          <div class="four-rows">
+            <div class="quantity"><span><span class="limit-op"><span class="op">lim</span><span class="sub">x→2<sup>−</sup></span></span>f(x)</span><span class="value">≈ 4</span></div>
+            <div class="quantity"><span><span class="limit-op"><span class="op">lim</span><span class="sub">x→2<sup>+</sup></span></span>f(x)</span><span class="value">≈ 4</span></div>
+            <div class="quantity"><span><span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span>f(x)</span><span class="value">≈ 4</span></div>
+            <div class="quantity"><span>f(2)</span><span class="value">10</span></div>
+          </div>
+          <p class="callout gold" style="margin-top:25px">The table suggests that the limit is 4. The function value comes from the entry at <span class="math">x=2</span>.<span class="zh-key">有限表格用于估计趋势；函数值看目标点本身。</span></p>
+          <div class="slide-footer"><span>Nearby values can approach 4 even when f(2) = 10.</span><span>03</span></div>
+          <aside class="notes"><p>先分别读四个问题，再展示答案。强调表格有 x=2 这一列时也不能用它代替极限。</p><p>[Sources]<br>https://calculus.flippedmath.com/14-limit-values-from-tables.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="The Two Sides Must Agree">
+          <p class="eyebrow">Existence test</p>
+          <h2>The Two Sides Must Agree</h2>
+          <p class="zh-title">左右极限不同，双侧极限不存在</p>
+          <table class="data-table">
+            <tr><th>x</th><td>8.9</td><td>8.99</td><td class="near">8.999</td><td class="near divider-col">9.001</td><td>9.01</td><td>9.1</td></tr>
+            <tr><th>f(x)</th><td>0.7</td><td>0.8</td><td class="near">0.999</td><td class="near divider-col">2.001</td><td>2.01</td><td>2.3</td></tr>
+          </table>
+          <div class="split" style="margin-top:22px">
+            <div>
+              <div class="formula-step"><span class="limit-op"><span class="op">lim</span><span class="sub">x→9<sup>−</sup></span></span>f(x)≈1</div>
+              <div class="formula-step"><span class="limit-op"><span class="op">lim</span><span class="sub">x→9<sup>+</sup></span></span>f(x)≈2</div>
+            </div>
+            <div class="vertical-rule">
+              <p class="lead">The table suggests different one-sided limits, so there is no single two-sided value.</p>
+              <button class="reveal-btn" data-reveal="answer4">Show conclusion</button>
+              <div class="answer" id="answer4">Based on the data, <span class="limit-expression"><span class="limit-op"><span class="op">lim</span><span class="sub">x→9</span></span><span>f(x)</span></span> <strong class="dne">= DNE</strong>. The value <span class="math">f(9)</span> <strong>cannot be determined</strong> from this table.<span class="zh-key">表中未给 f(9)，所以函数值无法判断。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Left = right is required for a two-sided limit.</span><span>04</span></div>
+          <aside class="notes"><p>把 9 左边和右边的数据用手势分开。让学生先写两个单侧极限，再写 DNE。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Read from the Inside Out">
+          <p class="eyebrow">A reliable reading order</p>
+          <h2>Read the Table from the Inside Out</h2>
+          <p class="zh-title">先看最接近目标的两侧数值，再向外确认趋势</p>
+          <div class="split narrow-right">
+            <div>
+              <table class="data-table">
+                <tr><th>x</th><td>2.5</td><td>2.99</td><td class="near">2.999</td><td class="near divider-col">3.001</td><td>3.02</td><td>3.5</td></tr>
+                <tr><th>f(x)</th><td>7.2</td><td>7.98</td><td class="near">7.998</td><td class="near divider-col">8.002</td><td>8.04</td><td>9.2</td></tr>
+              </table>
+              <p class="callout teal">The closest pair, 7.998 and 8.002, gives the strongest estimate: <strong>8</strong>.<span class="zh-key">越接近目标，通常越有参考价值。</span></p>
+            </div>
+            <ol class="step-list vertical-rule">
+              <li>Find the target <span class="math">x=a</span>.</li>
+              <li>Read the nearest value on each side.</li>
+              <li>Move outward only to confirm the trend.</li>
+            </ol>
+          </div>
+          <div class="slide-footer"><span>Distance from the target matters more than table order.</span><span>05</span></div>
+          <aside class="notes"><p>可以故意从外侧数值 7.2 和 9.2 开始，让学生说明为什么这两个数不是最佳估计。</p><p>[Sources]<br>https://calculus.flippedmath.com/14-limit-values-from-tables.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Build a Table Around the Target">
+          <p class="eyebrow">Calculator table</p>
+          <h2>Build Values on Both Sides of the Target</h2>
+          <p class="zh-title">自建表格时，目标两侧都要取值；目标点本身可以无定义</p>
+          <p class="lead"><span class="math">f(x) = (x² − 4)/(x − 2)</span>. Estimate <span class="limit-expression"><span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span><span>f(x)</span></span>.</p>
+          <table class="data-table">
+            <tr><th>x</th><td>1.9</td><td>1.99</td><td class="near">1.999</td><td class="target">2</td><td class="near">2.001</td><td>2.01</td><td>2.1</td></tr>
+            <tr><th>f(x)</th><td>3.9</td><td>3.99</td><td class="near">3.999</td><td class="target">undefined</td><td class="near">4.001</td><td>4.01</td><td>4.1</td></tr>
+          </table>
+          <div class="split" style="margin-top:17px">
+            <p class="callout gold">Good choices: <span class="math">a±0.1</span>, <span class="math">a±0.01</span>, <span class="math">a±0.001</span>.</p>
+            <div class="vertical-rule">
+              <button class="reveal-btn" data-reveal="answer6">Show estimate</button>
+              <div class="answer" id="answer6">The table suggests <span class="limit-expression"><span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span><span>f(x)</span></span> <strong class="value">≈ 4</strong>. The undefined entry at <span class="math">x=2</span> does not stop the limit.<span class="zh-key">目标点无定义，不代表极限不存在。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Do not use only values from one side.</span><span>06</span></div>
+          <aside class="notes"><p>计算器演示可用 TABLE 或逐个输入函数值。明确禁止只选 1.9、1.99、1.999。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Undefined at the Point">
+          <p class="eyebrow">Packet example</p>
+          <h2>Undefined at the Point Can Still Have a Limit</h2>
+          <p class="zh-title">看附近的趋势，不把 undefined 误写成 DNE</p>
+          <p class="lead"><span class="math">f(x) = (x³ − 4x² − 7x + 10)/(x + 2)</span></p>
+          <table class="data-table">
+            <tr><th>x</th><td>−2.1</td><td class="near">−2.001</td><td class="target">−2</td><td class="near">−1.999</td><td>−1.9</td></tr>
+            <tr><th>f(x)</th><td>22.01</td><td class="near">21.01</td><td class="target">undefined</td><td class="near">20.99</td><td>20.01</td></tr>
+          </table>
+          <div class="split narrow-left" style="margin-top:18px">
+            <div>
+              <button class="reveal-btn" data-reveal="answer7">Show limit</button>
+              <div class="answer" id="answer7"><span class="limit-expression large"><span class="limit-op"><span class="op">lim</span><span class="sub">x→−2</span></span><span>f(x)≈21</span></span><span class="zh-key">The table suggests this estimate; it does not prove it.</span></div>
+            </div>
+            <p class="callout red vertical-rule"><strong>Undefined</strong> describes <span class="math">f(−2)</span>. <strong>DNE</strong> would describe a failed limit.<span class="zh-key">undefined 说的是函数值；DNE 说的是极限结论。</span></p>
+          </div>
+          <div class="slide-footer"><span>Undefined and DNE answer different questions.</span><span>07</span></div>
+          <aside class="notes"><p>让学生完整说：“f(−2) is undefined, but the table suggests a limit of 21.”</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Guided Practice One">
+          <p class="eyebrow">Guided practice</p>
+          <h2>Use the Closest Entries First</h2>
+          <p class="zh-title">先写趋势，再写答案</p>
+          <p class="lead">Estimate <span class="limit-expression"><span class="limit-op"><span class="op">lim</span><span class="sub">x→−7</span></span><span>f(x)</span></span>.</p>
+          <table class="data-table">
+            <tr><th>x</th><td>−7.5</td><td class="near">−7.001</td><td class="near divider-col">−6.999</td><td>−6.5</td></tr>
+            <tr><th>f(x)</th><td>3.8</td><td class="near">3.501</td><td class="near divider-col">3.499</td><td>3.2</td></tr>
+          </table>
+          <div class="split">
+            <ol class="plain-list">
+              <li>From the left, <span class="math">f(x)</span> approaches ______.</li>
+              <li>From the right, <span class="math">f(x)</span> approaches ______.</li>
+            </ol>
+            <div class="vertical-rule">
+              <button class="reveal-btn" data-reveal="answer8">Show solution</button>
+              <div class="answer" id="answer8">The table suggests that both sides approach <strong class="value">3.5</strong>, so <span class="limit-expression"><span class="limit-op"><span class="op">lim</span><span class="sub">x→−7</span></span><span>f(x)≈3.5</span></span>.<span class="zh-key">3.501 和 3.499 支持 3.5 这一估计。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Say the left and right trends before the two-sided answer.</span><span>08</span></div>
+          <aside class="notes"><p>先不显示答案，让学生用英文句型口答，再点击揭示。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Guided Practice Two">
+          <p class="eyebrow">Guided practice</p>
+          <h2>Write Both One-Sided Limits Before DNE</h2>
+          <p class="zh-title">不要只凭表格“跳了一下”就直接写 DNE</p>
+          <table class="data-table">
+            <tr><th>x</th><td>8.9</td><td>8.99</td><td class="near">8.999</td><td class="near divider-col">9.001</td><td>9.01</td><td>9.1</td></tr>
+            <tr><th>f(x)</th><td>0.7</td><td>0.8</td><td class="near">0.999</td><td class="near divider-col">2.001</td><td>2.01</td><td>2.3</td></tr>
+          </table>
+          <div class="split">
+            <div>
+              <p class="formula-step"><span class="limit-op"><span class="op">lim</span><span class="sub">x→9<sup>−</sup></span></span>f(x)= ______</p>
+              <p class="formula-step"><span class="limit-op"><span class="op">lim</span><span class="sub">x→9<sup>+</sup></span></span>f(x)= ______</p>
+            </div>
+            <div class="vertical-rule">
+              <button class="reveal-btn" data-reveal="answer9">Show solution</button>
+              <div class="answer" id="answer9">The table suggests <strong>left: 1; right: 2</strong>. Based on the data, <span class="limit-expression"><span class="limit-op"><span class="op">lim</span><span class="sub">x→9</span></span><span>f(x)</span></span> <strong class="dne">= DNE</strong>.<span class="zh-key">先给两个单侧估计，再给双侧结论。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Evidence first; DNE second.</span><span>09</span></div>
+          <aside class="notes"><p>这道题与第 4 页相同，但此处要求学生自己完成，目的是形成固定答题顺序。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Composite Limits">
+          <p class="eyebrow">Continuous outer function</p>
+          <h2>Apply the Outer Function After Finding the Limit</h2>
+          <p class="zh-title">先求内层极限，再代入连续的外层函数</p>
+          <div class="split narrow-left" style="margin-top:28px">
+            <div>
+              <p class="lead">If</p>
+              <div class="formula-display"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>f(x)=L</div>
+            </div>
+            <div class="vertical-rule">
+              <p class="lead">and <span class="math">g</span> is continuous at <span class="math">L</span>, then</p>
+              <div class="formula-display"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>g(f(x))=g(L)</div>
+            </div>
+          </div>
+          <div class="rule-line"></div>
+          <div class="split">
+            <p class="callout teal"><strong>Step 1:</strong> Read <span class="math">L</span> from the table.<span class="zh-key">先从表中判断内层极限。</span></p>
+            <p class="callout gold"><strong>Step 2:</strong> Evaluate <span class="math">g(L)</span> with a calculator.<span class="zh-key">再计算外层函数值。</span></p>
+          </div>
+          <p class="small subtle" style="margin-top:25px">Trigonometric inputs are in radians unless the problem says otherwise.</p>
+          <div class="slide-footer"><span>Table first, outer function second.</span><span>10</span></div>
+          <aside class="notes"><p>板书时用箭头标出 f(x) → L → g(L)。强调 cos、exp、ln（在定义域内）都是连续外函数。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Composite Example">
+          <p class="eyebrow">Worked example</p>
+          <h2>Find the Inner Limit Before Pressing COS</h2>
+          <p class="zh-title">先确定 f(x) 趋近 5，再计算 cos(5)</p>
+          <p class="lead">Approximate <span class="limit-expression"><span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span><span>cos(f(x))</span></span>.</p>
+          <table class="data-table">
+            <tr><th>x</th><td>1.99</td><td class="near">1.999</td><td class="near divider-col">2.001</td><td>2.01</td></tr>
+            <tr><th>f(x)</th><td>4.85</td><td class="near">4.999</td><td class="near divider-col">5.001</td><td>5.15</td></tr>
+          </table>
+          <div class="split">
+            <div class="formula-step">1. The table suggests <span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span>f(x)≈5</div>
+            <div class="vertical-rule">
+              <button class="reveal-btn" data-reveal="answer11">Show final value</button>
+              <div class="answer" id="answer11">2. <span class="math">cos(5) ≈</span> <strong class="value">0.284</strong> (radians).<span class="zh-key">表格先给出内层极限的估计，再按三位小数四舍五入。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>The table supplies 5; continuity supplies cos(5).</span><span>11</span></div>
+          <aside class="notes"><p>如果学生得到 0.996，通常是计算器在角度制。提醒切回弧度制。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Composite Practice">
+          <p class="eyebrow">Two quick checks</p>
+          <h2>Use the Same Two-Step Process</h2>
+          <p class="zh-title">两题都先读内层极限，再处理外层函数</p>
+          <div class="split">
+            <div>
+              <h3>A. Trigonometric outer function</h3>
+              <table class="data-table">
+                <tr><th>x</th><td>6.999</td><td class="divider-col">7.001</td></tr>
+                <tr><th>f(x)</th><td>3.999</td><td class="divider-col">4.001</td></tr>
+              </table>
+              <p class="formula-step"><span class="limit-op"><span class="op">lim</span><span class="sub">x→7</span></span>2cos(f(x))</p>
+            </div>
+            <div class="vertical-rule">
+              <h3>B. Exponential outer function</h3>
+              <table class="data-table">
+                <tr><th>x</th><td>4.999</td><td class="divider-col">5.001</td></tr>
+                <tr><th>f(x)</th><td>2.001</td><td class="divider-col">1.999</td></tr>
+              </table>
+              <p class="formula-step"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>e<sup>3f(x)</sup></p>
+            </div>
+          </div>
+          <button class="reveal-btn" data-reveal="answer12">Show both answers</button>
+          <div class="answer" id="answer12">The tables suggest inner limits of 4 and 2. <strong>A.</strong> <span class="math">2cos(4) ≈</span> <span class="value">−1.307</span>　 <strong>B.</strong> <span class="math">e<sup>6</sup> ≈</span> <span class="value">403.429</span><span class="zh-key">有限表格给出内层极限的估计。</span></div>
+          <div class="slide-footer"><span>Round only after evaluating the outer function.</span><span>12</span></div>
+          <aside class="notes"><p>两人一组各做一题，再交换解释步骤。答案保留三位小数。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="AP Style Check">
+          <p class="eyebrow">AP-style check</p>
+          <h2>Which Statement Is Supported by the Table?</h2>
+          <p class="zh-title">表格支持的是两个单侧极限，而不是猜测 f(9)</p>
+          <table class="data-table">
+            <tr><th>x</th><td>8.9</td><td>8.99</td><td class="near">8.999</td><td class="near divider-col">9.001</td><td>9.01</td><td>9.1</td></tr>
+            <tr><th>f(x)</th><td>0.7</td><td>0.8</td><td class="near">0.999</td><td class="near divider-col">2.001</td><td>2.01</td><td>2.3</td></tr>
+          </table>
+          <div class="split narrow-right">
+            <ul class="choice-list">
+              <li><span class="letter">A</span><span class="limit-op"><span class="op">lim</span><span class="sub">x→9</span></span>f(x)=1</li>
+              <li><span class="letter">B</span><span class="limit-op"><span class="op">lim</span><span class="sub">x→9</span></span>f(x)=2</li>
+              <li><span class="letter">C</span>left-hand limit = 2; right-hand limit = 1</li>
+              <li><span class="letter">D</span>left-hand limit = 1; right-hand limit = 2</li>
+            </ul>
+            <div class="vertical-rule">
+              <button class="reveal-btn" data-reveal="answer13">Show solution</button>
+              <div class="answer" id="answer13"><strong class="value">D</strong>. The data suggest a left-hand limit of 1 and a right-hand limit of 2, so the two-sided limit is DNE. <span class="math">f(9)</span> cannot be determined.<span class="zh-key">方向由 x 值决定；表中没有 f(9)。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Read the x-row before the f(x)-row.</span><span>13</span></div>
+          <aside class="notes"><p>要求学生圈出 x<9 和 x>9 两组，再判断方向，避免把表格左右位置机械当成方向。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Exit Ticket">
+          <p class="eyebrow">Exit ticket</p>
+          <h2>Finish with the Limit, the Value, and a Composite</h2>
+          <p class="zh-title">最后同时检查：左右趋势、函数值、复合函数</p>
+          <table class="data-table">
+            <tr><th>x</th><td>4.9</td><td class="near">4.999</td><td class="target">5</td><td class="near">5.001</td><td>5.1</td></tr>
+            <tr><th>f(x)</th><td>2.2</td><td class="near">2.001</td><td class="target">8</td><td class="near">1.999</td><td>1.75</td></tr>
+          </table>
+          <div class="split narrow-right">
+            <ol class="question-list">
+              <li><span class="limit-op"><span class="op">lim</span><span class="sub">x→5<sup>−</sup></span></span>f(x)</li>
+              <li><span class="limit-op"><span class="op">lim</span><span class="sub">x→5<sup>+</sup></span></span>f(x)</li>
+              <li><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>f(x)</li>
+              <li><span class="math">f(5)</span></li>
+              <li><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>e<sup>3f(x)</sup></li>
+            </ol>
+            <div class="vertical-rule">
+              <button class="reveal-btn" data-reveal="answer14">Show exit answers</button>
+              <div class="answer" id="answer14"><strong>1.</strong> ≈2　<strong>2.</strong> ≈2　<strong>3.</strong> ≈2　<strong>4.</strong> 8<br><strong>5.</strong> <span class="math">e<sup>6</sup> ≈</span> <span class="value">403.429</span><span class="zh-key">表格估计极限为 2；函数值 f(5)=8 是表中精确给出的。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Use the nearby trend before using the outer function.</span><span>14</span></div>
+          <aside class="notes"><p>收尾让学生完整区分 2 与 8。第 5 问如果有人代入 8，正好用来诊断是否混淆极限与函数值。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_solutions.pdf</p></aside>
+        </section>
+      </main>
+    </div>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button id="prevBtn" title="Previous slide">← Prev</button>
+      <button id="nextBtn" title="Next slide">Next →</button>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="counter" id="counter">01 / 14</span>
+      <span class="key-hint">← → Navigate · N Notes · F Fullscreen · P Print · H Help</span>
+      <button id="notesBtn">Notes</button>
+      <button id="fullscreenBtn">Fullscreen</button>
+    </nav>
+    <aside class="notes-panel" id="notesPanel" aria-label="Teacher notes"></aside>
+    <div class="help" id="help" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+      <div class="help-card">
+        <h3>Classroom Shortcuts</h3>
+        <p><kbd>←</kbd> / <kbd>→</kbd>, <kbd>Page Up</kbd> / <kbd>Page Down</kbd>: navigate</p>
+        <p><kbd>Space</kbd>: next　<kbd>Home</kbd> / <kbd>End</kbd>: first / last</p>
+        <p><kbd>N</kbd>: notes　<kbd>F</kbd>: fullscreen　<kbd>P</kbd>: print</p>
+        <p><kbd>H</kbd> or <kbd>Esc</kbd>: close this window</p>
+      </div>
+    </div>
+    <script>
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const deck = document.getElementById('deck');
+      const viewport = document.getElementById('viewport');
+      const counter = document.getElementById('counter');
+      const progressBar = document.getElementById('progressBar');
+      const notesPanel = document.getElementById('notesPanel');
+      const help = document.getElementById('help');
+      let current = 0;
+
+      slides.forEach((slide,index) => {
+        const page = slide.querySelector('.slide-footer > span:last-child');
+        if (page) page.textContent = index === 0 ? '1.4' : String(index + 1).padStart(2,'0');
+      });
+      function fitDeck() {
+        const scale = Math.min((viewport.clientWidth - 12) / 1600, (viewport.clientHeight - 12) / 900);
+        deck.style.transform = `translate(-50%, -50%) scale(${Math.max(.1,scale)})`;
+      }
+      function updateNotes() {
+        const source = slides[current].querySelector('.notes');
+        notesPanel.innerHTML = `<h3>Slide ${current + 1} Notes</h3>${source ? source.innerHTML : '<p>No notes.</p>'}`;
+      }
+      function go(index) {
+        current = Math.max(0,Math.min(slides.length - 1,index));
+        slides.forEach((slide,i) => slide.classList.toggle('active',i === current));
+        counter.textContent = `${String(current + 1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
+        progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
+        history.replaceState(null,'',`#${current + 1}`);
+        document.title = `${slides[current].dataset.title} | AP Calculus BC 1.4`;
+        updateNotes();
+      }
+      document.getElementById('prevBtn').addEventListener('click',() => go(current - 1));
+      document.getElementById('nextBtn').addEventListener('click',() => go(current + 1));
+      document.getElementById('notesBtn').addEventListener('click',() => notesPanel.classList.toggle('open'));
+      document.getElementById('fullscreenBtn').addEventListener('click',async() => {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
+        else await document.exitFullscreen?.();
+      });
+      document.addEventListener('keydown',event => {
+        const interactive = /^(INPUT|BUTTON|TEXTAREA|SELECT)$/.test(event.target.tagName);
+        if (!interactive && (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ')) { event.preventDefault(); go(current + 1); }
+        if (!interactive && (event.key === 'ArrowLeft' || event.key === 'PageUp')) { event.preventDefault(); go(current - 1); }
+        if (!interactive && event.key === 'Home') { event.preventDefault(); go(0); }
+        if (!interactive && event.key === 'End') { event.preventDefault(); go(slides.length - 1); }
+        if (!interactive && event.key.toLowerCase() === 'n') notesPanel.classList.toggle('open');
+        if (!interactive && event.key.toLowerCase() === 'f') document.getElementById('fullscreenBtn').click();
+        if (!interactive && event.key.toLowerCase() === 'p') window.print();
+        if (!interactive && event.key.toLowerCase() === 'h') help.classList.toggle('open');
+        if (event.key === 'Escape') help.classList.remove('open');
+      });
+      help.addEventListener('click',() => help.classList.remove('open'));
+      document.addEventListener('click',event => {
+        const button = event.target.closest('[data-reveal]');
+        if (!button) return;
+        const answer = document.getElementById(button.dataset.reveal);
+        const show = !answer.classList.contains('show');
+        if (!button.dataset.originalText) button.dataset.originalText = button.textContent;
+        answer.classList.toggle('show',show);
+        button.textContent = show ? 'Hide solution' : button.dataset.originalText;
+      });
+      const answersMode = new URLSearchParams(location.search).get('answers') === 'show';
+      if (answersMode) {
+        document.documentElement.dataset.answers = 'show';
+        document.querySelectorAll('[data-reveal]').forEach(button => {
+          const answer = document.getElementById(button.dataset.reveal);
+          if (!answer) return;
+          if (!button.dataset.originalText) button.dataset.originalText = button.textContent;
+          answer.classList.add('show');
+          button.textContent = 'Hide solution';
+          const chartId = button.dataset.chartToggle;
+          if (chartId) document.getElementById(chartId)?.classList.add('show');
+        });
+      }
+      window.addEventListener('resize',fitDeck);
+      window.addEventListener('fullscreenchange',fitDeck);
+      fitDeck();
+      const initial = parseInt(location.hash.slice(1),10);
+      go(Number.isFinite(initial) ? initial - 1 : 0);
+    </script>
+  </div>
+</body>
+</html>

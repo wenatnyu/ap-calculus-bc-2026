@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 1.1 English Check - 5-Minute Quiz</title>
+  <style>
+    :root {
+      --navy:#16324f; --blue:#2f5d8c; --gold:#c9902f; --teal:#16837a;
+      --ink:#1e2a35; --muted:#62707c; --line:#cbd4db; --pale:#f1f5f7;
+      --answer:#edf7f5; --paper:#ffffff;
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+      --math:"Cambria Math","STIX Two Math","Times New Roman",serif;
+    }
+    * { box-sizing:border-box; }
+    html, body { margin:0; min-height:100%; }
+    body { padding:22px; background:#e6ebef; color:var(--ink); font-family:var(--sans); }
+    button { font:inherit; }
+
+    .toolbar {
+      width:min(210mm,100%); margin:0 auto 10px; display:flex; align-items:center; gap:8px;
+      padding:8px 10px; background:#f8fafb; border:1px solid var(--line); color:var(--navy); font-size:12px;
+    }
+    .toolbar .status { margin-right:auto; font-weight:750; }
+    .toolbar button {
+      border:1px solid var(--blue); border-radius:0; padding:6px 9px; background:white;
+      color:var(--blue); font-size:11px; font-weight:750; cursor:pointer;
+    }
+    .toolbar button:hover, .toolbar button:focus-visible { background:var(--blue); color:white; outline:none; }
+    .toolbar .teacher-action { border-color:var(--teal); color:var(--teal); }
+    .toolbar .teacher-action:hover, .toolbar .teacher-action:focus-visible { background:var(--teal); color:white; }
+
+    .sheet {
+      width:min(210mm,100%); min-height:297mm; margin:0 auto; padding:9mm 12mm 7mm;
+      background:var(--paper); box-shadow:0 8px 28px rgba(22,50,79,.15);
+      display:flex; flex-direction:column; overflow:hidden;
+    }
+    .top-rule { height:5px; margin-bottom:9px; background:linear-gradient(90deg,var(--navy) 0 78%,var(--gold) 78%); }
+    header { display:grid; grid-template-columns:1fr auto; gap:17px; align-items:start; }
+    .eyebrow { color:var(--blue); font-size:10.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { margin:3px 0 2px; color:var(--navy); font:700 27px/1.08 Georgia,"Times New Roman",serif; }
+    .subtitle { margin:0; color:var(--muted); font-size:12px; }
+    .time-box { min-width:84px; padding:7px 10px; border:1.5px solid var(--gold); color:var(--navy); text-align:center; }
+    .time-box strong { display:block; font:700 22px/1 Georgia,"Times New Roman",serif; }
+    .time-box span { color:var(--muted); font-size:10px; }
+    .teacher-stamp {
+      display:none; margin-top:5px; padding:4px 6px; border:1px solid var(--teal);
+      color:var(--teal); font-size:9px; font-weight:850; letter-spacing:.08em; text-align:center;
+    }
+    body[data-print-mode="teacher"] .teacher-stamp { display:block; }
+
+    .student-info { display:grid; grid-template-columns:1.8fr 1fr .75fr; gap:16px; margin:11px 0 4px; font-size:11.5px; }
+    .field { display:flex; align-items:flex-end; gap:6px; white-space:nowrap; }
+    .field-line { flex:1; height:17px; border-bottom:1px solid #60717d; }
+
+    section { margin-top:8px; }
+    .section-head {
+      display:flex; align-items:baseline; gap:7px; padding-top:5px; margin-bottom:5px; border-top:1.5px solid var(--navy);
+    }
+    .section-letter { color:var(--gold); font:700 18px/1 Georgia,"Times New Roman",serif; }
+    h2 { margin:0; color:var(--navy); font-size:13.5px; line-height:1.22; }
+    .points { margin-left:auto; color:var(--muted); font-size:9.8px; white-space:nowrap; }
+    .section-toggle {
+      margin-left:6px; padding:2px 6px; border:1px solid var(--line); border-radius:0;
+      background:white; color:var(--blue); font-size:9.3px; font-weight:750; cursor:pointer;
+    }
+
+    .matching { display:grid; grid-template-columns:1.26fr .9fr; gap:24px; padding:0 4px; }
+    .match-col { display:grid; gap:3px; }
+    .match-row { display:grid; grid-template-columns:25px 1fr; min-height:19px; align-items:baseline; font-size:11.8px; }
+    .answer-slot { display:inline-block; width:19px; height:14px; margin-right:6px; border-bottom:1px solid #596976; vertical-align:-1px; }
+
+    .word-bank { margin:0 2px 5px; padding:5px 9px; border-left:4px solid var(--blue); background:var(--pale); color:var(--navy); font-size:11.5px; }
+    .fill-list { margin:0; padding-left:25px; font-size:11.8px; line-height:1.4; }
+    .fill-list li { padding:2px 0; }
+    .blank { display:inline-block; min-width:105px; height:15px; border-bottom:1px solid #596976; vertical-align:-1px; }
+
+    .translation { margin:0 3px 4px; font:12.5px/1.38 Georgia,"Times New Roman",serif; }
+    .writing-line { height:19px; border-bottom:1px solid #aab5bd; }
+
+    .math-layout { display:grid; grid-template-columns:1.15fr .85fr; gap:17px; align-items:start; }
+    .math-prompt { margin:0 0 5px; font:11.8px/1.37 Georgia,"Times New Roman",serif; }
+    table.data { width:100%; border-collapse:collapse; table-layout:fixed; font:11.8px/1.25 var(--math); }
+    table.data th, table.data td { padding:4px 5px; border:1px solid #71818d; text-align:center; }
+    table.data th { width:33%; color:var(--navy); background:var(--pale); }
+    .calculation-space {
+      position:relative; min-height:70px; border:1px solid var(--line);
+      background:repeating-linear-gradient(to bottom,white 0,white 23px,#edf1f4 24px);
+    }
+    .calculation-space::before { content:"Calculation:"; position:absolute; top:5px; left:7px; color:var(--muted); font:9.5px/1 Georgia,"Times New Roman",serif; }
+
+    .answer-panel {
+      display:none; margin-top:5px; padding:6px 9px; border-left:4px solid var(--teal);
+      background:var(--answer); font-size:10px; line-height:1.32;
+    }
+    .answer-panel.open, body.show-answers .answer-panel { display:block; }
+    .answer-panel strong, .answer { color:var(--teal); font-weight:800; }
+    .explain { color:var(--muted); }
+    .answer-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .answer-grid ol { margin:0; padding-left:20px; }
+    .answer-grid li { margin:1px 0; }
+    .vocab-title { margin:5px 0 3px; color:var(--navy); font-weight:780; }
+    .vocab-reference { display:grid; grid-template-columns:repeat(3,1fr); gap:2px 12px; padding-top:4px; border-top:1px solid #c6ddd9; }
+    .vocab-item { display:flex; justify-content:space-between; gap:6px; font-size:8.9px; }
+    .vocab-item b { color:var(--navy); font-weight:720; }
+    .translation-key .source { color:var(--muted); font-family:Georgia,"Times New Roman",serif; }
+    .translation-key div { margin:1px 0; }
+    .math-key { display:grid; grid-template-columns:1.35fr .65fr; gap:12px; align-items:start; }
+    .solution { font-family:Georgia,"Times New Roman",serif; font-size:10.5px; }
+    .fraction { display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; margin:0 2px; line-height:1.03; }
+    .fraction span:first-child { padding:0 3px 2px; border-bottom:1px solid currentColor; }
+    .fraction span:last-child { padding-top:2px; }
+    .rubric h3 { margin:0 0 2px; color:var(--navy); font-size:10px; }
+    .rubric ul { margin:0; padding-left:16px; }
+    .timing { display:grid; grid-template-columns:repeat(4,1fr); margin-top:5px; border-top:1px solid #c6ddd9; }
+    .timing div { padding:4px 5px; border-right:1px solid #c6ddd9; text-align:center; font-size:8.8px; }
+    .timing div:last-child { border-right:0; }
+    .timing strong { display:block; color:var(--navy); }
+
+    footer { display:flex; justify-content:space-between; margin-top:auto; padding-top:5px; border-top:1px solid var(--line); color:var(--muted); font-size:8.8px; }
+
+    @page { size:A4 portrait; margin:0; }
+    @media print {
+      body { padding:0; background:white; }
+      .toolbar, .section-toggle { display:none!important; }
+      .sheet { width:210mm; height:297mm; min-height:0; margin:0; box-shadow:none; overflow:hidden; }
+      body[data-print-mode="student"] .answer-panel { display:none!important; }
+      body[data-print-mode="student"] .teacher-stamp { display:none!important; }
+      body[data-print-mode="teacher"] .answer-panel { display:block!important; }
+      body[data-print-mode="teacher"] .teacher-stamp { display:block!important; }
+      body[data-print-mode="teacher"] .writing-line { height:13px; }
+      body[data-print-mode="teacher"] .calculation-space { min-height:45px; }
+    }
+    @media (max-width:720px) {
+      body { padding:0; }
+      .toolbar { width:100%; margin:0; flex-wrap:wrap; }
+      .sheet { min-height:100vh; padding:18px; }
+      .math-layout, .answer-grid, .math-key { grid-template-columns:1fr; }
+      .vocab-reference { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body data-print-mode="student">
+  <nav class="toolbar" aria-label="Quiz view and print controls">
+    <span class="status" id="modeStatus">Print mode: Student</span>
+    <button id="revealAllBtn" type="button">Show All Answers</button>
+    <button id="modeBtn" type="button" class="teacher-action">Switch to Teacher Mode</button>
+    <button id="printStudentBtn" type="button">Print Student Copy</button>
+    <button id="printTeacherBtn" type="button" class="teacher-action">Print Teacher Copy</button>
+  </nav>
+
+  <main class="sheet">
+    <div class="top-rule"></div>
+    <header>
+      <div>
+        <div class="eyebrow">AP Calculus BC - Topic 1.1</div>
+        <h1>English Check</h1>
+        <p class="subtitle">Can Change Occur at an Instant? - 瞬时变化率英文小测</p>
+      </div>
+      <div>
+        <div class="time-box"><strong>5</strong><span>MINUTES</span></div>
+        <div class="teacher-stamp">TEACHER KEY</div>
+      </div>
+    </header>
+
+    <div class="student-info">
+      <div class="field">Name / 姓名 <span class="field-line"></span></div>
+      <div class="field">Date / 日期 <span class="field-line"></span></div>
+      <div class="field">Score <span class="field-line"></span> / 10</div>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">A</span>
+        <h2>Match each English term with its Chinese meaning. / 中英连线</h2>
+        <span class="points">4 x 0.5 = 2 points</span>
+        <button class="section-toggle" type="button" data-target="answerA">Answer</button>
+      </div>
+      <div class="matching">
+        <div class="match-col">
+          <div class="match-row"><span>1.</span><span><span class="answer-slot"></span>average rate of change</span></div>
+          <div class="match-row"><span>2.</span><span><span class="answer-slot"></span>instantaneous rate of change</span></div>
+          <div class="match-row"><span>3.</span><span><span class="answer-slot"></span>secant line</span></div>
+          <div class="match-row"><span>4.</span><span><span class="answer-slot"></span>tangent line</span></div>
+        </div>
+        <div class="match-col">
+          <div class="match-row"><span>A.</span><span>切线</span></div>
+          <div class="match-row"><span>B.</span><span>平均变化率</span></div>
+          <div class="match-row"><span>C.</span><span>瞬时变化率</span></div>
+          <div class="match-row"><span>D.</span><span>割线</span></div>
+        </div>
+      </div>
+      <div class="answer-panel" id="answerA">
+        <div class="answer-grid">
+          <div><strong>A. Matching:</strong> 1-B, 2-C, 3-D, 4-A.</div>
+          <div class="explain">average - 平均; instantaneous - 瞬时; secant - 割线; tangent - 切线.</div>
+        </div>
+        <div class="vocab-title">Core Vocabulary / 核心词汇</div>
+        <div class="vocab-reference">
+          <div class="vocab-item"><b>rate of change</b><span>变化率</span></div>
+          <div class="vocab-item"><b>average rate of change</b><span>平均变化率</span></div>
+          <div class="vocab-item"><b>instantaneous rate of change</b><span>瞬时变化率</span></div>
+          <div class="vocab-item"><b>interval</b><span>区间</span></div>
+          <div class="vocab-item"><b>secant line</b><span>割线</span></div>
+          <div class="vocab-item"><b>tangent line</b><span>切线</span></div>
+          <div class="vocab-item"><b>slope</b><span>斜率</span></div>
+          <div class="vocab-item"><b>difference quotient</b><span>差商</span></div>
+          <div class="vocab-item"><b>estimate</b><span>估计</span></div>
+          <div class="vocab-item"><b>approach</b><span>趋近</span></div>
+          <div class="vocab-item"><b>velocity</b><span>速度</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">B</span>
+        <h2>Choose from the word bank. / 选词填空</h2>
+        <span class="points">3 x 1 = 3 points</span>
+        <button class="section-toggle" type="button" data-target="answerB">Answer</button>
+      </div>
+      <div class="word-bank"><strong>Word Bank:</strong>&nbsp;&nbsp; approach &nbsp;·&nbsp; estimate &nbsp;·&nbsp; interval &nbsp;·&nbsp; slope</div>
+      <ol class="fill-list" start="5">
+        <li>A time <span class="blank"></span> has two endpoints.</li>
+        <li>The <span class="blank"></span> of a line is rise divided by run.</li>
+        <li>As the interval gets shorter, secant slopes <span class="blank"></span> the tangent slope.</li>
+      </ol>
+      <div class="answer-panel" id="answerB">
+        <strong>5. interval　6. slope　7. approach.</strong> <span class="explain">Unused word / 干扰词: estimate.</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">C</span>
+        <h2>Translate into Chinese. / 英译中</h2>
+        <span class="points">2 points</span>
+        <button class="section-toggle" type="button" data-target="answerC">Answer</button>
+      </div>
+      <p class="translation"><strong>8.</strong> Over a short interval, the slope of a secant line can be used to estimate the instantaneous rate of change.</p>
+      <div class="writing-line"></div><div class="writing-line"></div>
+      <div class="answer-panel translation-key" id="answerC">
+        <div class="source">Over a short interval, the slope of a secant line can be used to estimate the instantaneous rate of change.</div>
+        <div><strong>参考译文:</strong> 在一个很短的区间上，可以用割线的斜率来估计瞬时变化率。</div>
+        <div class="explain">评分: 准确表达“短区间 + 割线斜率”1 分；准确表达“估计瞬时变化率”1 分。自然同义表达均可。</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">D</span>
+        <h2>Mathematics - English Only</h2>
+        <span class="points">3 points</span>
+        <button class="section-toggle" type="button" data-target="answerD">Answer</button>
+      </div>
+      <div class="math-layout">
+        <div>
+          <p class="math-prompt"><strong>9.</strong> The table gives the position <em>s(t)</em> of an object. Use the average rate of change on [1.9, 2.1] to estimate its instantaneous velocity at <em>t</em> = 2. Show your calculation and include units.</p>
+          <table class="data" aria-label="Position values near t equals 2">
+            <tr><th><em>t</em> (seconds)</th><td>1.9</td><td>2.0</td><td>2.1</td></tr>
+            <tr><th><em>s(t)</em> (meters)</th><td>3.61</td><td>4.00</td><td>4.41</td></tr>
+          </table>
+        </div>
+        <div class="calculation-space"></div>
+      </div>
+      <div class="answer-panel" id="answerD">
+        <div class="math-key">
+          <div class="solution">
+            <span class="fraction"><span>4.41 - 3.61</span><span>2.1 - 1.9</span></span>
+            = <span class="fraction"><span>0.80</span><span>0.20</span></span>
+            = <strong>4.0 m/s</strong>.
+            <span class="explain"> Estimated instantaneous velocity at t = 2: <b>4.0 meters per second</b>.</span>
+          </div>
+          <div class="rubric">
+            <h3>3-point rubric / 评分</h3>
+            <ul><li>1 pt: correct quotient</li><li>1 pt: correct value, 4.0</li><li>1 pt: correct units, m/s</li></ul>
+          </div>
+        </div>
+        <div class="timing">
+          <div><strong>A - 40 sec</strong>连线</div>
+          <div><strong>B - 60 sec</strong>选词</div>
+          <div><strong>C - 60 sec</strong>翻译</div>
+          <div><strong>D - 2 min</strong>数学题</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>AP Calculus BC - Topic 1.1</span>
+      <span>Student/Teacher View - Total: 10 points</span>
+    </footer>
+  </main>
+
+  <script>
+    const body = document.body;
+    const modeStatus = document.getElementById('modeStatus');
+    const modeBtn = document.getElementById('modeBtn');
+    const revealAllBtn = document.getElementById('revealAllBtn');
+
+    function setMode(mode) {
+      const teacher = mode === 'teacher';
+      body.dataset.printMode = teacher ? 'teacher' : 'student';
+      body.classList.toggle('show-answers', teacher);
+      if (!teacher) {
+        document.querySelectorAll('.answer-panel.open').forEach(panel => panel.classList.remove('open'));
+        document.querySelectorAll('.section-toggle').forEach(button => { button.textContent = 'Answer'; });
+      }
+      modeStatus.textContent = teacher ? 'Print mode: Teacher Key' : 'Print mode: Student';
+      modeBtn.textContent = teacher ? 'Return to Student Mode' : 'Switch to Teacher Mode';
+      revealAllBtn.textContent = teacher ? 'Hide All Answers' : (body.classList.contains('show-answers') ? 'Hide All Answers' : 'Show All Answers');
+    }
+
+    document.querySelectorAll('.section-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const panel = document.getElementById(button.dataset.target);
+        const open = panel.classList.toggle('open');
+        button.textContent = open ? 'Hide' : 'Answer';
+      });
+    });
+
+    revealAllBtn.addEventListener('click', () => {
+      const show = !body.classList.contains('show-answers');
+      body.classList.toggle('show-answers', show);
+      revealAllBtn.textContent = show ? 'Hide All Answers' : 'Show All Answers';
+    });
+
+    modeBtn.addEventListener('click', () => {
+      setMode(body.dataset.printMode === 'teacher' ? 'student' : 'teacher');
+    });
+
+    document.getElementById('printStudentBtn').addEventListener('click', () => {
+      setMode('student');
+      window.print();
+    });
+
+    document.getElementById('printTeacherBtn').addEventListener('click', () => {
+      setMode('teacher');
+      window.print();
+    });
+
+    if (new URLSearchParams(window.location.search).get('mode') === 'teacher') {
+      setMode('teacher');
+    }
+  </script>
+</body>
+</html>

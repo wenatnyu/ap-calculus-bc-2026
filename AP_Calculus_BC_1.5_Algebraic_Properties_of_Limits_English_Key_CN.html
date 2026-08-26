@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>AP Calculus BC 1.5 | Algebraic Properties of Limits</title>
+  <style>
+    :root {
+      --navy:#16324f;
+      --blue:#2f5d8c;
+      --blue-light:#eaf0f5;
+      --ink:#1f2a33;
+      --muted:#667585;
+      --paper:#ffffff;
+      --mist:#f3f6f8;
+      --line:#c9d3dc;
+      --gold:#c9902f;
+      --teal:#16837a;
+      --red:#ad433b;
+      --shadow:0 18px 55px rgba(22,50,79,.20);
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+      --math:"STIX Two Math","Cambria Math","Times New Roman",serif;
+    }
+    * { box-sizing:border-box; }
+    html, body { width:100%; height:100%; }
+    body { margin:0; overflow:hidden; background:#dfe6ec; color:var(--ink); font-family:var(--sans); }
+    button { font:inherit; }
+    .app { width:100%; height:100%; position:relative; }
+    .viewport { position:absolute; inset:0 0 58px; display:grid; place-items:center; padding:22px; overflow:hidden; }
+    .deck { width:1600px; height:900px; position:absolute; left:50%; top:50%; transform-origin:50% 50%; }
+    .slide {
+      position:absolute;
+      inset:0;
+      display:none;
+      overflow:hidden;
+      isolation:isolate;
+      padding:60px 94px 68px 108px;
+      background:var(--paper);
+      box-shadow:var(--shadow);
+    }
+    .slide.active { display:block; animation:enter .16s ease-out; }
+    @keyframes enter { from{opacity:.25;transform:translateY(4px)} to{opacity:1;transform:none} }
+    .slide::before { content:""; position:absolute; inset:0 auto 0 0; width:14px; background:var(--blue); z-index:-1; }
+    .slide::after { content:""; position:absolute; inset:0 0 auto 14px; height:8px; background:var(--navy); z-index:-1; }
+    .slide.soft { background:linear-gradient(108deg,#fff 0 76%,#f1f4f7 76% 100%); }
+    .slide.section { background:var(--navy); color:white; }
+    .slide.section::before { background:#86a7c4; }
+    .slide.section::after { background:white; }
+
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin:0 0 20px; font-size:72px; line-height:1.08; letter-spacing:-.04em; font-weight:820; white-space:nowrap; }
+    h2 { margin:0 0 16px; color:var(--navy); font-size:47px; line-height:1.15; letter-spacing:-.025em; font-weight:800; white-space:nowrap; }
+    h3 { margin:0 0 10px; color:var(--navy); font-size:29px; line-height:1.2; }
+    p,li,td,th { font-size:25px; line-height:1.38; }
+    .lead { font-size:32px; line-height:1.42; }
+    .small { font-size:20px; line-height:1.4; }
+    .micro { font-size:16px; line-height:1.35; }
+    .subtle { color:var(--muted); }
+    .section .subtle { color:#d3e0ea; }
+    .eyebrow { margin:0 0 10px; color:var(--blue); font-size:20px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+    .section .eyebrow { color:#bcd0e2; }
+    .zh-title { margin:-8px 0 20px; color:#916919; font-size:20px; line-height:1.25; font-weight:720; }
+    .section .zh-title { color:#e7c56f; }
+    .zh-key { display:block; margin-top:5px; color:#8b641d; font-size:18px; line-height:1.3; font-weight:700; }
+    .section .zh-key { color:#e7c56f; }
+    .math { font-family:var(--math); font-style:italic; }
+    .roman { font-style:normal; }
+    .nowrap { white-space:nowrap; }
+    .limit-op { display:inline-grid; grid-template-rows:1fr auto; justify-items:center; align-items:end; margin:0 .10em 0 .03em; vertical-align:middle; font-style:normal; line-height:.82; }
+    .limit-op .op { font-size:.86em; }
+    .limit-op .sub { margin-top:.16em; font-size:.38em; font-style:italic; white-space:nowrap; }
+    .limit-op .sub sup { margin-left:.04em; font-size:.72em; vertical-align:.42em; }
+    .formula { color:var(--navy); font-family:var(--math); font-size:39px; line-height:1.3; }
+    .formula.small-formula { font-size:31px; }
+    .formula.white { color:white; }
+    .frac { display:inline-grid; grid-template-rows:auto auto; align-items:center; vertical-align:middle; text-align:center; font-style:normal; line-height:1.05; }
+    .frac > span:first-child { padding:0 .14em .08em; border-bottom:1.7px solid currentColor; }
+    .frac > span:last-child { padding:.08em .14em 0; }
+    .accent-rule { width:88px; height:7px; margin:0 0 24px; background:#8db0cc; }
+
+    .term-table { width:100%; margin-top:2px; border-collapse:collapse; table-layout:fixed; border-top:4px solid var(--blue); }
+    .term-table th { padding:7px 12px; color:var(--muted); border-bottom:2px solid var(--navy); font-size:16px; letter-spacing:.07em; text-align:left; text-transform:uppercase; }
+    .term-table td { padding:7px 12px; border-bottom:1px solid var(--line); font-size:21px; line-height:1.22; }
+    .term-table td:nth-child(1), .term-table td:nth-child(3) { color:var(--blue); font-weight:760; }
+    .term-table td:nth-child(2), .term-table td:nth-child(4) { color:#8b641d; font-size:19px; font-weight:700; }
+    .term-table th:nth-child(1), .term-table td:nth-child(1), .term-table th:nth-child(3), .term-table td:nth-child(3) { width:32%; }
+    .term-table th:nth-child(2), .term-table td:nth-child(2), .term-table th:nth-child(4), .term-table td:nth-child(4) { width:18%; }
+    .term-note { margin-top:12px; padding-left:17px; border-left:5px solid var(--gold); font-size:20px; line-height:1.35; }
+
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:start; min-height:0; }
+    .split.wide-left { grid-template-columns:1.15fr .85fr; }
+    .split.wide-right { grid-template-columns:.85fr 1.15fr; }
+    .rule-line { padding:14px 0 16px; border-top:1px solid var(--line); }
+    .rule-line:first-child { border-top:4px solid var(--blue); }
+    .rule-label { color:var(--blue); font-size:19px; font-weight:790; letter-spacing:.03em; text-transform:uppercase; }
+    .rule-line .formula { margin-top:4px; font-size:35px; }
+    .rule-line p { margin:6px 0 0; font-size:20px; }
+    .callout { margin:18px 0 0; padding:12px 0 12px 20px; border-left:6px solid var(--blue); font-size:25px; line-height:1.4; }
+    .callout.teal { border-left-color:var(--teal); }
+    .callout.gold { border-left-color:var(--gold); }
+    .callout.red { border-left-color:var(--red); }
+    .statement { margin:22px 0; padding:21px 25px; border-top:5px solid var(--blue); background:var(--mist); }
+    .statement .formula { font-size:44px; }
+    .number-line { display:grid; grid-template-columns:1fr auto; align-items:center; gap:20px; padding:13px 0; border-bottom:1px solid var(--line); }
+    .number-line .formula { font-size:32px; }
+    .number-line .result { min-width:112px; color:var(--teal); font-size:31px; font-weight:820; text-align:right; }
+
+    .law-table, .data-table { width:100%; border-collapse:collapse; table-layout:fixed; }
+    .law-table th, .data-table th { padding:8px 12px; color:var(--navy); border-bottom:3px solid var(--navy); font-size:18px; text-align:left; }
+    .law-table td { padding:7px 12px; border-bottom:1px solid var(--line); font-size:19px; line-height:1.23; }
+    .law-table td:first-child { width:24%; color:var(--blue); font-weight:760; }
+    .law-table td:nth-child(2) { width:48%; font-family:var(--math); font-size:27px; }
+    .law-table td:nth-child(3) { color:#8b641d; font-size:17px; font-weight:680; }
+    .data-table td { padding:10px 12px; border-bottom:1px solid var(--line); font-size:23px; text-align:center; }
+    .data-table td:first-child { color:var(--navy); font-family:var(--math); }
+    .section .data-table td:first-child { color:white; }
+    .data-table th { text-align:center; }
+    .data-table th:first-child { text-align:left; }
+    .compare-table { width:100%; border-collapse:collapse; table-layout:fixed; }
+    .compare-table th { padding:12px 14px; color:var(--navy); border-bottom:3px solid var(--navy); font-size:20px; text-align:left; }
+    .compare-table td { padding:15px 14px; border-bottom:1px solid var(--line); font-size:22px; vertical-align:top; }
+    .compare-table td:last-child { color:#8b641d; font-weight:680; }
+
+    .mapping { display:grid; grid-template-columns:1fr 54px 1fr; gap:13px; align-items:center; padding:14px 0; border-bottom:1px solid var(--line); }
+    .mapping:first-child { border-top:4px solid var(--blue); }
+    .mapping .arrow { color:#7f9db7; font-size:37px; text-align:center; }
+    .mapping .formula { font-size:31px; }
+    .mapping .target { color:var(--teal); font-family:var(--math); font-size:30px; }
+    .workflow { display:grid; grid-template-columns:1fr 58px 1fr 58px 1fr; align-items:center; gap:14px; margin-top:26px; }
+    .workflow-step { min-height:190px; padding:21px 22px; border-top:5px solid var(--blue); background:var(--mist); }
+    .workflow-step h3 { font-size:28px; }
+    .workflow-step p { margin:0; font-size:22px; }
+    .workflow-arrow { color:#7f9db7; font-size:43px; text-align:center; }
+
+    .cases { display:inline-grid; grid-template-columns:auto 1fr; align-items:stretch; column-gap:12px; vertical-align:middle; }
+    .brace { display:flex; align-items:center; font-family:var(--math); font-size:124px; line-height:.7; transform:scaleX(.72); transform-origin:center; }
+    .case-lines { display:grid; align-content:center; gap:8px; }
+    .case-row { display:grid; grid-template-columns:minmax(220px,auto) auto; gap:22px; align-items:baseline; font-family:var(--math); font-size:29px; }
+    .case-row .condition { font-style:normal; }
+    .one-side-grid { display:grid; grid-template-columns:1fr 1fr; gap:42px; margin-top:12px; }
+    .side-read { padding:17px 0; border-top:4px solid var(--blue); }
+    .side-read h3 { font-size:25px; }
+    .side-read .formula { font-size:35px; }
+
+    .choice-list { list-style:none; margin:10px 0 18px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 30px; }
+    .choice-list li { font-size:23px; line-height:1.34; }
+    .choice-list .letter { display:inline-block; width:39px; color:var(--blue); font-weight:820; }
+    .prompt-list { margin:8px 0 17px; padding-left:1.2em; }
+    .prompt-list li { margin:9px 0; font-size:24px; }
+    .reveal-btn { appearance:none; border:2px solid var(--blue); border-radius:0; color:var(--blue); background:transparent; padding:9px 17px; font-size:19px; font-weight:790; cursor:pointer; }
+    .reveal-btn:hover, .reveal-btn:focus-visible { background:var(--blue); color:white; outline:none; }
+    .answer { display:none; margin-top:12px; padding:12px 16px; background:#eaf4f2; border-left:6px solid var(--teal); color:var(--ink); font-size:21px; line-height:1.36; }
+    .answer.show { display:block; }
+    .answer strong { color:var(--teal); }
+    .dne { color:var(--red); font-weight:820; }
+    .warning { color:var(--red); font-weight:780; }
+
+    .hero-equation { position:absolute; right:96px; top:176px; width:500px; padding:30px 34px; border-top:7px solid #89a9c5; border-bottom:1px solid #6f8ea9; color:white; font-family:var(--math); font-size:42px; line-height:1.45; }
+    .title-note { position:absolute; left:108px; bottom:92px; display:flex; align-items:center; gap:18px; color:#d8e4ee; font-size:21px; }
+    .title-note .line { width:86px; height:2px; background:#86a7c4; }
+    .slide-footer { position:absolute; left:108px; right:58px; bottom:25px; display:flex; justify-content:space-between; align-items:center; gap:24px; color:#6d7a87; font-size:15px; }
+    .section .slide-footer { color:#c7d6e2; }
+    .notes { display:none; }
+
+    .controls { position:absolute; left:0; right:0; bottom:0; height:58px; display:flex; align-items:center; gap:14px; padding:0 22px; background:#f7f9fb; border-top:1px solid #c5d0da; color:#506171; z-index:20; }
+    .controls button { border:0; background:transparent; color:var(--navy); cursor:pointer; font-weight:760; padding:8px 10px; }
+    .controls button:hover, .controls button:focus-visible { background:#e9eef2; outline:none; }
+    .progress-track { flex:1; height:4px; background:#d6dfe7; margin:0 10px; }
+    .progress-bar { width:0; height:100%; background:var(--blue); transition:width .18s ease; }
+    .counter { min-width:82px; text-align:center; font-variant-numeric:tabular-nums; }
+    .key-hint { color:#778593; font-size:14px; white-space:nowrap; }
+    .notes-panel { position:absolute; z-index:40; right:22px; bottom:76px; width:min(560px,calc(100vw - 44px)); max-height:66vh; overflow:auto; display:none; padding:22px 24px; background:#fffef7; border:1px solid #c7b876; box-shadow:0 14px 40px rgba(30,42,53,.25); color:#36352d; }
+    .notes-panel.open { display:block; }
+    .notes-panel h3 { margin-bottom:12px; font-size:22px; }
+    .notes-panel p, .notes-panel li { font-size:16px; line-height:1.55; }
+    .help { position:absolute; inset:0; z-index:50; display:none; place-items:center; background:rgba(22,50,79,.78); }
+    .help.open { display:grid; }
+    .help-card { width:560px; padding:34px 40px; background:white; box-shadow:var(--shadow); }
+    .help-card h3 { font-size:30px; }
+    .help-card p { font-size:20px; }
+    kbd { border:1px solid #aebbc6; padding:2px 7px; background:#f6f8fa; font-family:ui-monospace,monospace; }
+    @media (max-width:760px) { .key-hint{display:none}.controls{gap:4px;padding:0 8px} }
+    @page { size:16in 9in; margin:0; }
+    @media print {
+      html,body{width:auto;height:auto;overflow:visible;background:white}
+      .app,.viewport{position:static;display:block;padding:0;overflow:visible}
+      .deck{position:static;left:auto;top:auto;transform:none!important;width:1600px;height:auto}
+      .slide{position:relative;display:block!important;width:1600px;height:900px;box-shadow:none;break-after:page;page-break-after:always;animation:none!important}
+      .controls,.notes-panel,.help,.reveal-btn{display:none!important}
+      .answer{display:block}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="viewport" id="viewport">
+      <main class="deck" id="deck" aria-live="polite">
+
+        <section class="slide section active" data-title="Algebraic Properties of Limits">
+          <p class="eyebrow">AP Calculus BC · Topic 1.5</p>
+          <div class="accent-rule"></div>
+          <h1>Algebraic Properties of Limits</h1>
+          <p class="lead" style="color:#e7c56f">极限的代数性质与分段函数</p>
+          <div class="hero-equation">
+            <div>If <span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>f(x)=L</div>
+            <div>and <span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>g(x)=M,</div>
+            <div style="margin-top:16px;color:#e7c56f">combine L and M with algebra.</div>
+          </div>
+          <div class="title-note"><span class="line"></span><span>Map the input · Choose the right data · Check the conditions</span></div>
+          <div class="slide-footer"><span>Class slides · English main text with key Chinese</span><span>1.5</span></div>
+          <aside class="notes"><p><b>开场：</b>今天不是在“重新算函数”，而是把已知极限当作数据，再按代数规则组合。先提醒学生：极限与函数值是两栏不同的数据。</p><p>[Sources]<br>https://calculus.flippedmath.com/15-determining-limits-using-algebraic-properties.html<br>https://openstax.org/books/calculus-volume-1/pages/2-3-the-limit-laws</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Core Vocabulary for Topic 1.5">
+          <p class="eyebrow">Language first · One-page reference</p>
+          <h2>Core Vocabulary for Topic 1.5</h2>
+          <p class="zh-title">本节核心词汇集中在这一页</p>
+          <table class="term-table" aria-label="Core English and Chinese vocabulary">
+            <tr><th>English</th><th>中文</th><th>English</th><th>中文</th></tr>
+            <tr><td>limit law</td><td>极限定律</td><td>constant multiple law</td><td>常数倍法则</td></tr>
+            <tr><td>sum law</td><td>和法则</td><td>difference law</td><td>差法则</td></tr>
+            <tr><td>product law</td><td>乘积法则</td><td>quotient law</td><td>商法则</td></tr>
+            <tr><td>power law</td><td>幂法则</td><td>root law</td><td>根式法则</td></tr>
+            <tr><td>input mapping</td><td>输入映射</td><td>composite function</td><td>复合函数</td></tr>
+            <tr><td>function value</td><td>函数值</td><td>piecewise-defined function</td><td>分段函数</td></tr>
+            <tr><td>one-sided limit</td><td>单侧极限</td><td>two-sided limit</td><td>双侧极限</td></tr>
+            <tr><td>denominator</td><td>分母</td><td>nonzero condition</td><td>非零条件</td></tr>
+            <tr><td>left-hand / right-hand limit</td><td>左极限 / 右极限</td><td>DNE (does not exist)</td><td>不存在</td></tr>
+          </table>
+          <p class="term-note"><b>Say it precisely:</b> “The denominator’s <i>limit</i> must be nonzero.”<span class="zh-key">准确表述：分母的极限必须非零。</span></p>
+          <div class="slide-footer"><span>Keep this page open during the first examples.</span><span>02</span></div>
+          <aside class="notes"><p>词汇朗读建议：先英语、再中文、最后让学生用英文指出公式中的 numerator / denominator。DNE 读作 “does not exist”。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf<br>https://openstax.org/books/calculus-volume-1/pages/2-key-terms</p></aside>
+        </section>
+
+        <section class="slide" data-title="Limits Turn Algebra into Arithmetic">
+          <p class="eyebrow">Big idea · Replace trends with numbers</p>
+          <h2>Limits Turn Algebra into Arithmetic</h2>
+          <p class="zh-title">先读出趋势，再做普通代数</p>
+          <div class="statement">
+            <div class="formula">If <span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>f(x)=L and <span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>g(x)=M,</div>
+            <div class="lead" style="margin-top:10px">then an expression built from <span class="math">f(x)</span> and <span class="math">g(x)</span> can usually be evaluated by combining <span class="math">L</span> and <span class="math">M</span>.</div>
+          </div>
+          <div class="split" style="margin-top:28px">
+            <div>
+              <h3>Read the limit data</h3>
+              <div class="number-line"><span class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>f(x)</span><span class="result">L</span></div>
+              <div class="number-line"><span class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>g(x)</span><span class="result">M</span></div>
+            </div>
+            <div>
+              <h3>Then combine the results</h3>
+              <div class="formula" style="padding:28px 0;border-top:4px solid var(--blue)"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>[3f(x)-g(x)] = 3L-M</div>
+              <p class="callout gold">The value at <span class="math">x=a</span> is not needed unless the problem explicitly asks for <span class="math">f(a)</span> or <span class="math">g(a)</span>.<span class="zh-key">极限看附近趋势；点值另算。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>First identify L and M; then perform the algebra.</span><span>03</span></div>
+          <aside class="notes"><p>板书只写两步：① substitute limit data ② simplify。避免学生把 f(a) 错当成 L。</p><p>[Sources]<br>https://openstax.org/books/calculus-volume-1/pages/2-3-the-limit-laws<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Seven Laws You Will Use">
+          <p class="eyebrow">Reference · Assume the component limits exist</p>
+          <h2>Seven Laws You Will Use</h2>
+          <p class="zh-title">设 <span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>f(x)=L</span>，<span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>g(x)=M</span></p>
+          <table class="law-table" aria-label="Seven algebraic limit laws">
+            <tr><th>Law</th><th>Rule</th><th>重点中文</th></tr>
+            <tr><td>Constant multiple</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>[cf(x)] = cL</td><td>常数可提出</td></tr>
+            <tr><td>Sum</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>[f(x)+g(x)] = L+M</td><td>极限分别相加</td></tr>
+            <tr><td>Difference</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>[f(x)-g(x)] = L-M</td><td>注意减号</td></tr>
+            <tr><td>Product</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>[f(x)g(x)] = LM</td><td>极限相乘</td></tr>
+            <tr><td>Quotient</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span><span class="frac"><span>f(x)</span><span>g(x)</span></span> = <span class="frac"><span>L</span><span>M</span></span>, M≠0</td><td>分母极限非零</td></tr>
+            <tr><td>Power</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>[f(x)]<sup>n</sup> = L<sup>n</sup></td><td>先取极限再乘方</td></tr>
+            <tr><td>Root</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>ⁿ√f(x) = ⁿ√L</td><td>须在实数定义域内</td></tr>
+          </table>
+          <p class="callout gold small">For an even root, the expression must remain in the real domain; in particular, the limiting value must be nonnegative. <span class="zh-key">偶次根式需满足实数定义域条件。</span></p>
+          <div class="slide-footer"><span>Each component limit must exist before a law is applied.</span><span>04</span></div>
+          <aside class="notes"><p>商法则与偶次根式有额外条件。强调：这些规则不是“符号搬运”，而是满足条件后的定理。</p><p>[Sources]<br>https://openstax.org/books/calculus-volume-1/pages/2-3-the-limit-laws<br>https://calculus.flippedmath.com/15-determining-limits-using-algebraic-properties.html</p></aside>
+        </section>
+
+        <section class="slide" data-title="The Quotient Law Has a Gate">
+          <p class="eyebrow">Condition check · Denominator limit</p>
+          <h2>The Quotient Law Has a Gate</h2>
+          <p class="zh-title">商法则的入口条件：分母的极限不为 0</p>
+          <div class="split" style="margin-top:30px">
+            <div>
+              <div class="rule-label">Allowed</div>
+              <div class="statement" style="border-top-color:var(--teal)">
+                <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>p(x)=-4</div>
+                <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>q(x)=2</div>
+                <div class="formula" style="margin-top:16px"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span><span class="frac"><span>p(x)</span><span>q(x)</span></span>=-2</div>
+              </div>
+              <p class="callout teal">The denominator’s limit is <b>2</b>, so the quotient law applies.<span class="zh-key">分母极限非零，可以使用。</span></p>
+            </div>
+            <div>
+              <div class="rule-label" style="color:var(--red)">Blocked</div>
+              <div class="statement" style="border-top-color:var(--red)">
+                <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>p(x)=6</div>
+                <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>q(x)=0</div>
+                <div class="formula warning" style="margin-top:16px">Do not write 6 ÷ 0.</div>
+              </div>
+              <p class="callout red">The quotient law is <b>not applicable</b>. This alone does not determine the original limit.<span class="zh-key">不能用商法则；也不能仅凭此就断言 DNE。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Check the limit of the denominator, not only its point value.</span><span>05</span></div>
+          <aside class="notes"><p>特别纠错：分母极限为 0 时，只能说“商法则不能直接使用”。原极限可能经约分后存在，也可能不存在；这是后续 1.6 的内容。</p><p>[Sources]<br>https://openstax.org/books/calculus-volume-1/pages/2-3-the-limit-laws<br>https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Map the Input Before Reading the Limit">
+          <p class="eyebrow">Input mapping · Read inside first</p>
+          <h2>Map the Input Before Reading the Limit</h2>
+          <p class="zh-title">先看括号里面趋近哪里，再查对应的极限数据</p>
+          <div class="split wide-left">
+            <div>
+              <div class="mapping"><span class="formula">x→a</span><span class="arrow">→</span><span class="target">2x→2a</span></div>
+              <div class="mapping"><span class="formula">x→a</span><span class="arrow">→</span><span class="target">−x→−a</span></div>
+              <div class="mapping"><span class="formula">x→a</span><span class="arrow">→</span><span class="target">x/2→a/2</span></div>
+              <p class="callout gold small">For a one-sided limit, multiplying the input by a negative number reverses the direction. <span class="zh-key">单侧极限中，负号会把左右方向翻转。</span></p>
+            </div>
+            <div>
+              <h3>Packet example</h3>
+              <p class="small">Given</p>
+              <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">u→−1</span></span>f(u)=2</div>
+              <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">u→1</span></span>g(u)=6</div>
+              <p class="formula small-formula" style="margin:22px 0 12px"><span class="limit-op"><span class="op">lim</span><span class="sub">x→1</span></span>[f(−x)+<span class="frac"><span>g(x)</span><span>2</span></span>]</p>
+              <button class="reveal-btn" data-reveal="answer6">Show solution</button>
+              <div class="answer" id="answer6">As <span class="math">x→1</span>, <span class="math">−x→−1</span>. Therefore <span class="math">f(−x)→2</span> and <span class="math">g(x)→6</span>, so <span class="math">2+6/2=<strong>5</strong></span>.<span class="zh-key">先把 −x 映射到 −1。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Examples: f(2x) uses the limit at 2a; g(−x) uses the limit at −a.</span><span>06</span></div>
+          <aside class="notes"><p>让学生每次在原题上方写一行 “inside → target”。例题来自 notes Example 1。单侧方向翻转可作为口头拓展，不在本页做复杂计算。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="A Function Value Is Not a Limit">
+          <p class="eyebrow">Data discipline · Read the exact symbol</p>
+          <h2>A Function Value Is Not a Limit</h2>
+          <p class="zh-title">函数值和极限是两类不同数据</p>
+          <table class="compare-table" aria-label="Function values compared with limits">
+            <tr><th>Function</th><th>Point value at x = 5</th><th>Limit as x → 5</th></tr>
+            <tr><td><span class="math">f</span></td><td class="formula small-formula">f(5)=1</td><td class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>f(x)=6</td></tr>
+            <tr><td><span class="math">g</span></td><td class="formula small-formula">g(5)=2</td><td class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>g(x)=−1</td></tr>
+            <tr><td><span class="math">h</span></td><td class="formula small-formula">h(5)=3</td><td class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>h(x)=5</td></tr>
+          </table>
+          <div class="split" style="margin-top:32px">
+            <div class="rule-line">
+              <div class="rule-label">Inside a limit</div>
+              <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>h(x) = <b style="color:var(--teal)">5</b></div>
+              <p>Use the nearby trend.</p>
+            </div>
+            <div class="rule-line">
+              <div class="rule-label">Outside the limit</div>
+              <div class="formula">h(5) = <b style="color:var(--gold)">3</b></div>
+              <p>Use the actual point value.</p>
+            </div>
+          </div>
+          <p class="callout red">Do not replace every appearance of <span class="math">h</span> by the same number.<span class="zh-key">先判断符号问的是“点值”还是“极限”。</span></p>
+          <div class="slide-footer"><span>The symbol tells you which column to use.</span><span>07</span></div>
+          <aside class="notes"><p>把表格两列用不同颜色标记。让学生口头完成：lim h(x) 是 5，但 h(5) 是 3。数据来自 packet Example 3。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Mixed Expressions Need the Right Data">
+          <p class="eyebrow">Worked example · Limit laws plus point value</p>
+          <h2>Mixed Expressions Need the Right Data</h2>
+          <p class="zh-title">同一道题里可能同时出现极限数据和函数值</p>
+          <div class="split wide-right" style="margin-top:18px">
+            <div>
+              <table class="data-table" aria-label="Selected function values and limits">
+                <tr><th>Function</th><th>Value</th><th>Limit</th></tr>
+                <tr><td>f</td><td>f(5)=1</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>f(x)=6</td></tr>
+                <tr><td>g</td><td>g(5)=2</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>g(x)=−1</td></tr>
+                <tr><td>h</td><td>h(5)=3</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>h(x)=5</td></tr>
+              </table>
+            </div>
+            <div>
+              <p class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>[h(x)(f(x)+2g(x))]−h(5)</p>
+              <ol class="prompt-list">
+                <li>Replace terms <b>inside</b> the limit by their limits.</li>
+                <li>Replace <span class="math">h(5)</span> by the point value.</li>
+                <li>Simplify.</li>
+              </ol>
+              <button class="reveal-btn" data-reveal="answer8">Show solution</button>
+              <div class="answer" id="answer8"><div class="formula small-formula">5[6+2(−1)]−3 = 5(4)−3 = <strong>17</strong></div><span class="zh-key">括号内用极限 5、6、−1；最后的 h(5) 用点值 3。</span></div>
+            </div>
+          </div>
+          <p class="callout gold" style="margin-top:34px">A reliable habit: circle every point value and underline every limit.<span class="zh-key">圈出点值，划出极限，避免串列。</span></p>
+          <div class="slide-footer"><span>Same function, different symbol, different data.</span><span>08</span></div>
+          <aside class="notes"><p>答案 17。先让学生只说替换后的数字式，不急着计算；这样能看出错误来自“取错数据”还是“代数计算”。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Composition Is a Two-Step Limit">
+          <p class="eyebrow">Composite functions · Inner trend, then outer behavior</p>
+          <h2>Composition Is a Two-Step Limit</h2>
+          <p class="zh-title">复合函数：先求内层趋近值，再读外层</p>
+          <div class="workflow">
+            <div class="workflow-step"><h3>1 · Inner limit</h3><p class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>g(x)=L</p><p>Find where the inner output goes.</p></div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-step"><h3>2 · Outer input</h3><p class="formula small-formula">u→L</p><p>Use <span class="math">L</span> as the new input target.</p></div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-step"><h3>3 · Outer result</h3><p class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">u→L</span></span>f(u)</p><p>Or use <span class="math">f(L)</span> when <span class="math">f</span> is continuous at <span class="math">L</span>.</p></div>
+          </div>
+          <div class="statement" style="margin-top:35px">
+            <div class="formula small-formula">If <span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span>g(x)=−1 and f is continuous at −1 with f(−1)=4,</div>
+            <div class="formula" style="margin-top:12px"><span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span>f(g(x)) = f(−1) = <b style="color:var(--teal)">4</b>.</div>
+          </div>
+          <p class="small subtle">Compare: <span class="math">f(2x)</span> has a known inner rule; <span class="math">f(g(x))</span> requires the limit of <span class="math">g(x)</span> first.</p>
+          <div class="slide-footer"><span>Composition asks: Where does the inside go?</span><span>09</span></div>
+          <aside class="notes"><p>可补充更一般的版本：若外层在 u→L 的极限为 M，且复合所需条件满足，则结果为 M；本页使用连续性版本，便于学生稳定操作。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf<br>https://openstax.org/books/calculus-volume-1/pages/2-4-continuity</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Piecewise Limits Start with Direction">
+          <p class="eyebrow">Piecewise functions · Choose the branch first</p>
+          <h2>Piecewise Limits Start with Direction</h2>
+          <p class="zh-title">分段函数先按方向选分支，再比较左右结果</p>
+          <div class="workflow" style="margin-top:34px">
+            <div class="workflow-step"><h3>Left-hand limit</h3><p>Use the rule valid for inputs just <b>less than</b> the boundary.</p><span class="zh-key">用边界左侧的分支。</span></div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-step"><h3>Right-hand limit</h3><p>Use the rule valid for inputs just <b>greater than</b> the boundary.</p><span class="zh-key">用边界右侧的分支。</span></div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-step"><h3>Two-sided limit</h3><p>It exists only when the two one-sided limits are equal.</p><span class="zh-key">左右相等，双侧才存在。</span></div>
+          </div>
+          <div class="split" style="margin-top:38px">
+            <p class="callout teal"><b>For a limit:</b> the equality sign in <span class="math">x≤c</span> or <span class="math">x≥c</span> does not change the nearby trend.</p>
+            <p class="callout gold"><b>For the function value:</b> the equality sign tells you which rule supplies <span class="math">f(c)</span>.</p>
+          </div>
+          <p class="lead" style="margin-top:30px;color:var(--navy)">Direction chooses the branch; equality chooses the point value.</p>
+          <div class="slide-footer"><span>Never substitute into both pieces before identifying the side.</span><span>10</span></div>
+          <aside class="notes"><p>在边界画一条竖线。左极限只看竖线左边对应公式，右极限只看右边。强调等号只决定点值属于哪一段。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf<br>https://calculus.flippedmath.com/15-determining-limits-using-algebraic-properties.html</p></aside>
+        </section>
+
+        <section class="slide" data-title="One Boundary, Two Different Trends">
+          <p class="eyebrow">Worked example · Packet notes</p>
+          <h2>One Boundary, Two Different Trends</h2>
+          <p class="zh-title">同一边界的左右结果不同，则双侧极限不存在</p>
+          <div class="split wide-left" style="margin-top:18px">
+            <div>
+              <div class="formula" style="margin-top:20px">f(x)=
+                <span class="cases">
+                  <span class="brace">{</span>
+                  <span class="case-lines">
+                    <span class="case-row"><span>√(11−x)</span><span class="condition">x&lt;−5</span></span>
+                    <span class="case-row"><span><span class="frac"><span>x+3</span><span>5−x²</span></span></span><span class="condition">x≥−5</span></span>
+                  </span>
+                </span>
+              </div>
+              <p class="callout gold small">At <span class="math">x=−5</span>, the left side uses the square-root branch; the right side uses the rational branch.</p>
+            </div>
+            <div>
+              <div class="one-side-grid">
+                <div class="side-read"><h3>From the left</h3><div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→−5<sup>−</sup></span></span>f(x)=√16=4</div></div>
+                <div class="side-read"><h3>From the right</h3><div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→−5<sup>+</sup></span></span>f(x)=<span class="frac"><span>−2</span><span>−20</span></span>=<span class="frac"><span>1</span><span>10</span></span></div></div>
+              </div>
+              <button class="reveal-btn" style="margin-top:28px" data-reveal="answer11">Show conclusion</button>
+              <div class="answer" id="answer11"><strong>The two-sided limit is DNE.</strong> The one-sided limits are 4 and 1/10, so they are not equal. Also, <span class="math">f(−5)=1/10</span> because the second branch includes equality.<span class="zh-key">双侧极限 DNE；函数值是 1/10。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Different one-sided limits → DNE.</span><span>11</span></div>
+          <aside class="notes"><p>结果：左极限 4，右极限 1/10，双侧 DNE，点值 1/10。要求学生解释为什么点值不等于左极限并不矛盾。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Matching Sides Create a Limit">
+          <p class="eyebrow">Counterexample · Point value may still differ</p>
+          <h2>Matching Sides Create a Limit</h2>
+          <p class="zh-title">左右趋势相同，双侧极限存在；点值仍可不同</p>
+          <div class="split wide-left" style="margin-top:14px">
+            <div>
+              <div class="formula">p(x)=
+                <span class="cases">
+                  <span class="brace" style="font-size:150px">{</span>
+                  <span class="case-lines">
+                    <span class="case-row"><span>2x+1</span><span class="condition">x&lt;3</span></span>
+                    <span class="case-row"><span>100</span><span class="condition">x=3</span></span>
+                    <span class="case-row"><span>x+4</span><span class="condition">x&gt;3</span></span>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div>
+              <div class="number-line"><span class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→3<sup>−</sup></span></span>p(x)</span><span class="result">7</span></div>
+              <div class="number-line"><span class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→3<sup>+</sup></span></span>p(x)</span><span class="result">7</span></div>
+              <div class="number-line"><span class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→3</span></span>p(x)</span><span class="result">7</span></div>
+              <div class="number-line"><span class="formula">p(3)</span><span class="result" style="color:var(--gold)">100</span></div>
+            </div>
+          </div>
+          <p class="callout teal" style="margin-top:42px"><b>The limit is 7 even though the function value is 100.</b> The limit describes nearby behavior, not the isolated point.<span class="zh-key">极限由附近趋势决定，不被单个点值改变。</span></p>
+          <div class="slide-footer"><span>Matching sides determine the limit; equality determines the point.</span><span>12</span></div>
+          <aside class="notes"><p>这是自编反例，用来把 1.3 的“空点/实心点”语言连接到分段函数。让学生分别指出哪一行公式决定左右极限和点值。</p><p>[Sources]<br>https://openstax.org/books/calculus-volume-1/pages/2-2-the-limit-of-a-function<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Guided Practice: Map, Then Combine">
+          <p class="eyebrow">Guided practice · Packet Practice 1</p>
+          <h2>Guided Practice: Map, Then Combine</h2>
+          <p class="zh-title">先做输入映射，再使用极限定律</p>
+          <table class="data-table" aria-label="Selected limits of f and g" style="margin-top:8px">
+            <tr><th>Given limit</th><th>Value</th><th>Given limit</th><th>Value</th></tr>
+            <tr><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→3</span></span>f(x)</td><td>4</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→−3</span></span>f(x)</td><td>2</td></tr>
+            <tr><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→3</span></span>g(x)</td><td>1</td><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→−3</span></span>g(x)</td><td>5</td></tr>
+          </table>
+          <div class="split" style="margin-top:30px">
+            <div>
+              <p class="formula small-formula">A. <span class="limit-op"><span class="op">lim</span><span class="sub">x→3</span></span>[2f(x)+g(−x)]</p>
+              <p class="small">Write the mapped target for <span class="math">−x</span> before calculating.</p>
+            </div>
+            <div>
+              <p class="formula small-formula">B. <span class="limit-op"><span class="op">lim</span><span class="sub">x→−3</span></span><span class="frac"><span>g(x)</span><span>f(−x)</span></span></p>
+              <p class="small">Check the denominator’s limit before dividing.</p>
+            </div>
+          </div>
+          <button class="reveal-btn" style="margin-top:18px" data-reveal="answer13">Show solutions</button>
+          <div class="answer" id="answer13"><b>A.</b> As <span class="math">x→3</span>, <span class="math">−x→−3</span>: <span class="math">2(4)+5=<strong>13</strong></span>.<br><b>B.</b> As <span class="math">x→−3</span>, <span class="math">−x→3</span>: <span class="math">5/4=<strong>5/4</strong></span>. The denominator limit is 4, so the quotient law applies.<span class="zh-key">A 映射到 −3；B 的分母映射到 3，且极限为 4≠0。</span></div>
+          <div class="slide-footer"><span>Input mapping decides which table entry you need.</span><span>13</span></div>
+          <aside class="notes"><p>对应 practice 1：A=13，B=5/4。学生若选错 f 的目标值，先不纠正计算，要求其写出 “−x→?”。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="AP Check: Continuity Gives One Guarantee">
+          <p class="eyebrow">AP-style check · One statement must be true</p>
+          <h2>AP Check: Continuity Gives One Guarantee</h2>
+          <p class="zh-title">若 <span class="math">f</span> 连续且 <span class="math">f(3)=7</span>，哪一项一定成立？</p>
+          <p class="lead">If <span class="math">f</span> is continuous and <span class="math">f(3)=7</span>, which statement must be true?</p>
+          <ul class="choice-list">
+            <li><span class="letter">A</span><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→3</span></span>f(3x)=9</span></li>
+            <li><span class="letter">B</span><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→3</span></span>f(2x)=14</span></li>
+            <li><span class="letter">C</span><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→3</span></span><span class="frac"><span>f(x)−f(3)</span><span>x−3</span></span>=7</span></li>
+            <li><span class="letter">D</span><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→3</span></span>f(x²)=49</span></li>
+            <li><span class="letter">E</span><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→3</span></span>[f(x)]²=49</span></li>
+          </ul>
+          <button class="reveal-btn" data-reveal="answer14">Show solution</button>
+          <div class="answer" id="answer14"><strong>E.</strong> Continuity gives <span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→3</span></span>f(x)=f(3)=7</span>. The power law then gives <span class="math">7²=49</span>. The other choices require information about <span class="math">f(6)</span>, <span class="math">f(9)</span>, or a derivative.<span class="zh-key">连续性给出极限等于点值，再用幂法则。</span></div>
+          <div class="slide-footer"><span>Continuity connects the limit to the function value at the same input.</span><span>14</span></div>
+          <aside class="notes"><p>正确选项 E。A、B、D 都把输入映射到别处；C 是导数型极限，题干没有给斜率信息。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide section" data-title="Exit Ticket: One Mixed Expression">
+          <p class="eyebrow">Exit ticket · 60 seconds</p>
+          <h2 style="color:white">Exit Ticket: One Mixed Expression</h2>
+          <p class="zh-title">用符号判断该取“极限”还是“函数值”</p>
+          <div class="split wide-right" style="margin-top:14px">
+            <div>
+              <table class="data-table" style="color:white">
+                <tr><th style="color:white;border-color:#88a3b9">Given</th><th style="color:white;border-color:#88a3b9">Value</th></tr>
+                <tr><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→1</span></span>f(x)</td><td>−1</td></tr>
+                <tr><td><span class="limit-op"><span class="op">lim</span><span class="sub">x→1</span></span>h(x)</td><td>6</td></tr>
+                <tr><td>g(1)</td><td>−2</td></tr>
+              </table>
+            </div>
+            <div>
+              <p class="formula white"><span class="limit-op"><span class="op">lim</span><span class="sub">x→1</span></span>([f(x)]²−h(x))−g(1)</p>
+              <p class="lead">Evaluate the expression and name the law used on <span class="math">[f(x)]²</span>.</p>
+              <button class="reveal-btn" style="border-color:#bcd0e2;color:#e5eef5" data-reveal="answer15">Show solution</button>
+              <div class="answer" id="answer15"><div class="formula small-formula">(−1)²−6−(−2)=1−6+2=<strong>−3</strong></div><b>Law:</b> power law. <span class="zh-key">平方使用幂法则；g(1) 使用函数值 −2。</span></div>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:38px;border-color:#86a7c4;color:#e4edf4">Before you leave: map inner inputs, separate limits from point values, check quotient conditions, and compare both sides of a piecewise boundary.</div>
+          <div class="slide-footer"><span>Four habits: map · separate · check · compare</span><span>15</span></div>
+          <aside class="notes"><p>答案 −3，使用幂法则。收尾让学生用英文说出四个动词：map, separate, check, compare。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_solutions.pdf</p></aside>
+        </section>
+      </main>
+    </div>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button id="prevBtn" title="Previous slide (←)">← Prev</button>
+      <button id="nextBtn" title="Next slide (→ / Space)">Next →</button>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="counter" id="counter">01 / 15</span>
+      <span class="key-hint">← → Navigate · N Notes · F Fullscreen · P Print · H Help</span>
+      <button id="notesBtn" title="Notes (N)">Notes</button>
+      <button id="fullscreenBtn" title="Fullscreen (F)">Fullscreen</button>
+    </nav>
+
+    <aside class="notes-panel" id="notesPanel" aria-label="Teacher notes"></aside>
+    <div class="help" id="help" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+      <div class="help-card">
+        <h3>Classroom Shortcuts</h3>
+        <p><kbd>←</kbd> / <kbd>→</kbd>, <kbd>Page Up</kbd> / <kbd>Page Down</kbd>: navigate</p>
+        <p><kbd>Space</kbd>: next　<kbd>Home</kbd> / <kbd>End</kbd>: first / last</p>
+        <p><kbd>N</kbd>: notes　<kbd>F</kbd>: fullscreen　<kbd>P</kbd>: print</p>
+        <p><kbd>H</kbd> or <kbd>Esc</kbd>: close this window</p>
+      </div>
+    </div>
+
+    <script>
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const deck = document.getElementById('deck');
+      const viewport = document.getElementById('viewport');
+      const counter = document.getElementById('counter');
+      const progressBar = document.getElementById('progressBar');
+      const notesPanel = document.getElementById('notesPanel');
+      const help = document.getElementById('help');
+      let current = 0;
+
+      slides.forEach((slide, index) => {
+        const pageMark = slide.querySelector('.slide-footer > span:last-child');
+        if (pageMark) pageMark.textContent = index === 0 ? '1.5' : String(index + 1).padStart(2, '0');
+      });
+
+      function fitDeck() {
+        const scale = Math.min((viewport.clientWidth - 12) / 1600, (viewport.clientHeight - 12) / 900);
+        deck.style.transform = `translate(-50%, -50%) scale(${Math.max(.1, scale)})`;
+      }
+      function updateNotes() {
+        const source = slides[current].querySelector('.notes');
+        notesPanel.innerHTML = `<h3>Slide ${current + 1} Notes</h3>${source ? source.innerHTML : '<p>No notes for this slide.</p>'}`;
+      }
+      function go(index) {
+        current = Math.max(0, Math.min(slides.length - 1, index));
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+        counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+        progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
+        history.replaceState(null, '', `#${current + 1}`);
+        document.title = `${slides[current].dataset.title} | AP Calculus BC 1.5`;
+        updateNotes();
+      }
+
+      document.getElementById('prevBtn').addEventListener('click', () => go(current - 1));
+      document.getElementById('nextBtn').addEventListener('click', () => go(current + 1));
+      document.getElementById('notesBtn').addEventListener('click', () => notesPanel.classList.toggle('open'));
+      document.getElementById('fullscreenBtn').addEventListener('click', async () => {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
+        else await document.exitFullscreen?.();
+      });
+      document.addEventListener('keydown', event => {
+        const interactive = /^(INPUT|BUTTON|TEXTAREA|SELECT)$/.test(event.target.tagName);
+        if (!interactive && (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ')) { event.preventDefault(); go(current + 1); }
+        if (!interactive && (event.key === 'ArrowLeft' || event.key === 'PageUp')) { event.preventDefault(); go(current - 1); }
+        if (!interactive && event.key === 'Home') { event.preventDefault(); go(0); }
+        if (!interactive && event.key === 'End') { event.preventDefault(); go(slides.length - 1); }
+        if (!interactive && event.key.toLowerCase() === 'n') notesPanel.classList.toggle('open');
+        if (!interactive && event.key.toLowerCase() === 'f') document.getElementById('fullscreenBtn').click();
+        if (!interactive && event.key.toLowerCase() === 'p') window.print();
+        if (!interactive && event.key.toLowerCase() === 'h') help.classList.toggle('open');
+        if (event.key === 'Escape') help.classList.remove('open');
+      });
+      help.addEventListener('click', () => help.classList.remove('open'));
+      document.addEventListener('click', event => {
+        const button = event.target.closest('[data-reveal]');
+        if (!button) return;
+        const answer = document.getElementById(button.dataset.reveal);
+        const show = !answer.classList.contains('show');
+        if (!button.dataset.originalText) button.dataset.originalText = button.textContent;
+        answer.classList.toggle('show', show);
+        button.textContent = show ? 'Hide solution' : button.dataset.originalText;
+      });
+      const answersMode = new URLSearchParams(location.search).get('answers') === 'show';
+      if (answersMode) {
+        document.documentElement.dataset.answers = 'show';
+        document.querySelectorAll('[data-reveal]').forEach(button => {
+          const answer = document.getElementById(button.dataset.reveal);
+          if (!answer) return;
+          if (!button.dataset.originalText) button.dataset.originalText = button.textContent;
+          answer.classList.add('show');
+          button.textContent = 'Hide solution';
+          const chartId = button.dataset.chartToggle;
+          if (chartId) document.getElementById(chartId)?.classList.add('show');
+        });
+      }
+      window.addEventListener('resize', fitDeck);
+      window.addEventListener('fullscreenchange', fitDeck);
+      fitDeck();
+      const initial = parseInt(location.hash.slice(1), 10);
+      go(Number.isFinite(initial) ? initial - 1 : 0);
+    </script>
+  </div>
+</body>
+</html>

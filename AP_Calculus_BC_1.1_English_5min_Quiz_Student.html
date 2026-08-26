@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AP Calculus BC 1.1 English Check — Student</title>
+  <style>
+    :root {
+      --navy: #16324f;
+      --blue: #2f5d8c;
+      --gold: #c9902f;
+      --ink: #1e2a35;
+      --muted: #596773;
+      --rule: #cbd5dd;
+      --pale: #eef3f7;
+      --paper: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      background: #e8edf1;
+      color: var(--ink);
+      font-family: "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .sheet {
+      width: min(210mm, 100%);
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 11mm 13mm 9mm;
+      background: var(--paper);
+      box-shadow: 0 8px 28px rgba(22, 50, 79, 0.16);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .top-rule {
+      height: 5px;
+      background: linear-gradient(90deg, var(--navy) 0 72%, var(--gold) 72% 100%);
+      margin-bottom: 12px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      line-height: 1.1;
+      margin: 4px 0 3px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .time-box {
+      border: 1.5px solid var(--gold);
+      color: var(--navy);
+      min-width: 88px;
+      padding: 8px 10px 7px;
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .time-box strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+    }
+
+    .time-box span { font-size: 11px; color: var(--muted); }
+
+    .student-info {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 0.7fr;
+      gap: 18px;
+      margin: 16px 0 8px;
+      font-size: 13px;
+    }
+
+    .field {
+      display: flex;
+      align-items: flex-end;
+      gap: 7px;
+      white-space: nowrap;
+    }
+
+    .field-line { border-bottom: 1px solid #667580; flex: 1; height: 20px; }
+
+    section { margin-top: 13px; }
+
+    .section-head {
+      border-top: 1.5px solid var(--navy);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding-top: 7px;
+      margin-bottom: 8px;
+    }
+
+    .section-letter {
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: 16px;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .points {
+      color: var(--muted);
+      font-size: 11px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .matching {
+      display: grid;
+      grid-template-columns: 1.28fr 1fr;
+      gap: 26px;
+      padding: 2px 4px 0;
+    }
+
+    .match-col { display: grid; gap: 6px; }
+
+    .match-row {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: baseline;
+      min-height: 24px;
+      font-size: 14px;
+    }
+
+    .answer-slot {
+      display: inline-block;
+      border-bottom: 1px solid #566671;
+      width: 20px;
+      height: 17px;
+      margin-right: 7px;
+      vertical-align: -2px;
+    }
+
+    .word-bank {
+      background: var(--pale);
+      border-left: 4px solid var(--blue);
+      color: var(--navy);
+      font-size: 13px;
+      padding: 7px 11px;
+      margin-bottom: 7px;
+      letter-spacing: 0.01em;
+    }
+
+    .fill-list {
+      margin: 0;
+      padding-left: 27px;
+      font-size: 14px;
+    }
+
+    .fill-list li { padding: 4px 0; line-height: 1.45; }
+
+    .blank {
+      display: inline-block;
+      min-width: 118px;
+      height: 18px;
+      border-bottom: 1px solid #566671;
+      vertical-align: -1px;
+    }
+
+    .translation {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.45;
+      margin: 1px 3px 7px;
+    }
+
+    .writing-line {
+      height: 24px;
+      border-bottom: 1px solid #aab5bd;
+    }
+
+    .math-prompt {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      line-height: 1.42;
+      margin: 0 0 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 72%;
+      margin: 0 auto 8px;
+      table-layout: fixed;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #71818d;
+      padding: 5px 8px;
+      text-align: center;
+    }
+
+    th {
+      width: 32%;
+      background: var(--pale);
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .calculation-space {
+      border: 1px solid var(--rule);
+      min-height: 82px;
+      padding: 7px 9px;
+      position: relative;
+    }
+
+    .calculation-space::before {
+      content: "Calculation:";
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 11px;
+      position: absolute;
+      top: 5px;
+      left: 8px;
+    }
+
+    .footer {
+      margin-top: auto;
+      border-top: 1px solid var(--rule);
+      padding-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    @page { size: A4 portrait; margin: 0; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .sheet {
+        width: 210mm;
+        height: 297mm;
+        min-height: 0;
+        margin: 0;
+        box-shadow: none;
+        overflow: hidden;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 0; }
+      .sheet { min-height: 100vh; padding: 20px; }
+      .matching { gap: 12px; }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <div class="top-rule"></div>
+    <header>
+      <div>
+        <div class="eyebrow">AP Calculus BC · Topic 1.1</div>
+        <h1>English Check</h1>
+        <p class="subtitle">Can Change Occur at an Instant? · 瞬时变化率英文小测</p>
+      </div>
+      <div class="time-box"><strong>5</strong><span>MINUTES</span></div>
+    </header>
+
+    <div class="student-info">
+      <div class="field">Name / 姓名 <span class="field-line"></span></div>
+      <div class="field">Date / 日期 <span class="field-line"></span></div>
+      <div class="field">Score <span class="field-line"></span> / 10</div>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">A</span>
+        <h2>Match each English term with its Chinese meaning. / 中英连线</h2>
+        <span class="points">4 × 0.5 = 2 points</span>
+      </div>
+      <div class="matching">
+        <div class="match-col">
+          <div class="match-row"><span>1.</span><span><span class="answer-slot"></span>average rate of change</span></div>
+          <div class="match-row"><span>2.</span><span><span class="answer-slot"></span>instantaneous rate of change</span></div>
+          <div class="match-row"><span>3.</span><span><span class="answer-slot"></span>secant line</span></div>
+          <div class="match-row"><span>4.</span><span><span class="answer-slot"></span>tangent line</span></div>
+        </div>
+        <div class="match-col">
+          <div class="match-row"><span>A.</span><span>切线</span></div>
+          <div class="match-row"><span>B.</span><span>平均变化率</span></div>
+          <div class="match-row"><span>C.</span><span>瞬时变化率</span></div>
+          <div class="match-row"><span>D.</span><span>割线</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">B</span>
+        <h2>Choose from the word bank. / 选词填空</h2>
+        <span class="points">3 × 1 = 3 points</span>
+      </div>
+      <div class="word-bank"><strong>Word Bank:</strong>&nbsp;&nbsp; approach &nbsp;·&nbsp; estimate &nbsp;·&nbsp; interval &nbsp;·&nbsp; slope</div>
+      <ol class="fill-list" start="5">
+        <li>A time <span class="blank"></span> has two endpoints.</li>
+        <li>The <span class="blank"></span> of a line is rise divided by run.</li>
+        <li>As the interval gets shorter, secant slopes <span class="blank"></span> the tangent slope.</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">C</span>
+        <h2>Translate into Chinese. / 英译中</h2>
+        <span class="points">2 points</span>
+      </div>
+      <p class="translation"><strong>8.</strong> Over a short interval, the slope of a secant line can be used to estimate the instantaneous rate of change.</p>
+      <div class="writing-line"></div>
+      <div class="writing-line"></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">D</span>
+        <h2>Mathematics — English Only</h2>
+        <span class="points">3 points</span>
+      </div>
+      <p class="math-prompt"><strong>9.</strong> The table gives the position <em>s</em>(<em>t</em>) of an object. Use the average rate of change on [1.9, 2.1] to estimate its instantaneous velocity at <em>t</em> = 2. Show your calculation and include units.</p>
+      <table aria-label="Position values near t equals 2">
+        <tr><th><em>t</em> (seconds)</th><td>1.9</td><td>2.0</td><td>2.1</td></tr>
+        <tr><th><em>s</em>(<em>t</em>) (meters)</th><td>3.61</td><td>4.00</td><td>4.41</td></tr>
+      </table>
+      <div class="calculation-space"></div>
+    </section>
+
+    <div class="footer">
+      <span>AP Calculus BC · Topic 1.1</span>
+      <span>Student Copy · Total: 10 points</span>
+    </div>
+  </main>
+</body>
+</html>

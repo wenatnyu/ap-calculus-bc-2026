@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 1.2 Review - 5-Minute Quiz</title>
+  <style>
+    :root {
+      --navy:#16324f;
+      --blue:#2f5d8c;
+      --gold:#c9902f;
+      --teal:#16837a;
+      --ink:#1e2a35;
+      --muted:#63717d;
+      --line:#cbd4db;
+      --pale:#f1f5f7;
+      --answer:#edf7f5;
+      --paper:#ffffff;
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+      --math:"Cambria Math","STIX Two Math","Times New Roman",serif;
+    }
+
+    * { box-sizing:border-box; }
+    html, body { margin:0; min-height:100%; }
+    body {
+      padding:22px;
+      background:#e6ebef;
+      color:var(--ink);
+      font-family:var(--sans);
+    }
+    button { font:inherit; }
+
+    .toolbar {
+      width:min(210mm,100%);
+      margin:0 auto 10px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      background:#f8fafb;
+      border:1px solid var(--line);
+      color:var(--navy);
+      font-size:12px;
+    }
+    .toolbar .status { margin-right:auto; font-weight:750; }
+    .toolbar button {
+      border:1px solid var(--blue);
+      border-radius:0;
+      padding:6px 9px;
+      background:white;
+      color:var(--blue);
+      font-size:11px;
+      font-weight:750;
+      cursor:pointer;
+    }
+    .toolbar button:hover,
+    .toolbar button:focus-visible { background:var(--blue); color:white; outline:none; }
+    .toolbar .teacher-action { border-color:var(--teal); color:var(--teal); }
+    .toolbar .teacher-action:hover,
+    .toolbar .teacher-action:focus-visible { background:var(--teal); color:white; }
+
+    .sheet {
+      width:min(210mm,100%);
+      min-height:297mm;
+      margin:0 auto;
+      padding:10mm 13mm 8mm;
+      background:var(--paper);
+      box-shadow:0 8px 28px rgba(22,50,79,.15);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+    .top-rule {
+      height:5px;
+      margin-bottom:10px;
+      background:linear-gradient(90deg,var(--navy) 0 78%,var(--gold) 78% 100%);
+    }
+    header { display:grid; grid-template-columns:1fr auto; gap:18px; align-items:start; }
+    .eyebrow {
+      color:var(--blue);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    h1 {
+      margin:3px 0 2px;
+      color:var(--navy);
+      font:700 27px/1.1 Georgia,"Times New Roman",serif;
+      white-space:nowrap;
+    }
+    .subtitle { margin:0; color:var(--muted); font-size:12px; }
+    .time-box {
+      min-width:86px;
+      padding:7px 10px;
+      border:1.5px solid var(--gold);
+      color:var(--navy);
+      text-align:center;
+    }
+    .time-box strong { display:block; font:700 22px/1 Georgia,"Times New Roman",serif; }
+    .time-box span { color:var(--muted); font-size:10px; }
+    .teacher-stamp {
+      display:none;
+      margin-top:6px;
+      padding:4px 7px;
+      border:1px solid var(--teal);
+      color:var(--teal);
+      font-size:9px;
+      font-weight:850;
+      letter-spacing:.08em;
+    }
+    body[data-print-mode="teacher"] .teacher-stamp { display:block; }
+
+    .student-info {
+      display:grid;
+      grid-template-columns:1.8fr 1fr .75fr;
+      gap:16px;
+      margin:12px 0 5px;
+      font-size:12px;
+    }
+    .field { display:flex; align-items:flex-end; gap:6px; white-space:nowrap; }
+    .field-line { flex:1; height:17px; border-bottom:1px solid #60717d; }
+
+    section { margin-top:9px; }
+    .section-head {
+      display:flex;
+      align-items:baseline;
+      gap:7px;
+      padding-top:6px;
+      margin-bottom:6px;
+      border-top:1.5px solid var(--navy);
+    }
+    .section-letter { color:var(--gold); font:700 19px/1 Georgia,"Times New Roman",serif; }
+    h2 { margin:0; color:var(--navy); font-size:14px; line-height:1.25; }
+    .points { margin-left:auto; color:var(--muted); font-size:10px; white-space:nowrap; }
+    .section-toggle {
+      margin-left:7px;
+      padding:2px 6px;
+      border:1px solid var(--line);
+      border-radius:0;
+      background:white;
+      color:var(--blue);
+      font-size:9.5px;
+      font-weight:750;
+      cursor:pointer;
+    }
+
+    .matching { display:grid; grid-template-columns:1.25fr .9fr; gap:24px; padding:0 4px; }
+    .match-col { display:grid; gap:3px; }
+    .match-row { display:grid; grid-template-columns:25px 1fr; min-height:20px; align-items:baseline; font-size:12px; }
+    .slot { display:inline-block; width:19px; height:14px; margin-right:6px; border-bottom:1px solid #596976; vertical-align:-1px; }
+
+    .rate-layout { display:grid; grid-template-columns:.95fr 1.05fr; gap:18px; align-items:start; }
+    .prompt { margin:0 0 6px; font:13px/1.4 Georgia,"Times New Roman",serif; }
+    .zh-key { color:#8a641e; font-family:var(--sans); font-size:10.5px; font-weight:690; }
+    table { width:100%; border-collapse:collapse; table-layout:fixed; font:13px/1.25 var(--math); }
+    th, td { padding:5px 6px; border:1px solid #71818d; text-align:center; }
+    th { width:27%; color:var(--navy); background:var(--pale); }
+    .question-list { margin:0; padding-left:22px; font-size:12px; line-height:1.42; }
+    .question-list li { margin:4px 0; }
+    .short-blank { display:inline-block; width:93px; height:15px; border-bottom:1px solid #596976; vertical-align:-1px; }
+    .calc-space {
+      position:relative;
+      min-height:57px;
+      margin-top:6px;
+      border:1px solid var(--line);
+      background:repeating-linear-gradient(to bottom,white 0,white 22px,#edf1f4 23px);
+    }
+    .calc-space::before { content:"Calculation / 计算:"; position:absolute; top:4px; left:7px; color:var(--muted); font-size:9.5px; }
+
+    .choice-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px 22px; margin:0; padding:0; list-style:none; }
+    .choice-grid li { font-size:11.8px; line-height:1.35; }
+    .choice-grid .label { display:inline-block; width:23px; color:var(--blue); font-weight:800; }
+    .concept-prompt { margin:0 0 5px; font:12.5px/1.38 Georgia,"Times New Roman",serif; }
+
+    .writing-lines { margin-top:5px; }
+    .writing-line { height:21px; border-bottom:1px solid #aab5bd; }
+
+    .answer-panel {
+      display:none;
+      margin-top:6px;
+      padding:6px 9px;
+      border-left:4px solid var(--teal);
+      background:var(--answer);
+      font-size:10.5px;
+      line-height:1.35;
+    }
+    .answer-panel.open,
+    body.show-answers .answer-panel { display:block; }
+    .answer-panel strong { color:var(--teal); }
+    .explain { color:var(--muted); }
+    .fraction {
+      display:inline-flex;
+      flex-direction:column;
+      align-items:center;
+      vertical-align:middle;
+      margin:0 3px;
+      color:var(--ink);
+      font-family:var(--math);
+      line-height:1.05;
+    }
+    .fraction span:first-child { padding:0 3px 2px; border-bottom:1px solid currentColor; }
+    .fraction span:last-child { padding-top:2px; }
+
+    footer {
+      display:flex;
+      justify-content:space-between;
+      margin-top:auto;
+      padding-top:5px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:9px;
+    }
+
+    @page { size:A4 portrait; margin:0; }
+    @media print {
+      body { padding:0; background:white; }
+      .toolbar, .section-toggle { display:none!important; }
+      .sheet { width:210mm; height:297mm; min-height:0; margin:0; box-shadow:none; overflow:hidden; }
+      body[data-print-mode="student"] .answer-panel { display:none!important; }
+      body[data-print-mode="student"] .teacher-stamp { display:none!important; }
+      body[data-print-mode="teacher"] .answer-panel { display:block!important; }
+      body[data-print-mode="teacher"] .teacher-stamp { display:block!important; }
+    }
+    @media (max-width:720px) {
+      body { padding:0; }
+      .toolbar { margin:0; width:100%; flex-wrap:wrap; }
+      .sheet { min-height:100vh; padding:18px; }
+      .rate-layout { grid-template-columns:1fr; }
+      h1 { font-size:23px; white-space:normal; }
+    }
+  </style>
+</head>
+<body data-print-mode="student">
+  <nav class="toolbar" aria-label="Quiz view and print controls">
+    <span class="status" id="modeStatus">Print mode: Student</span>
+    <button id="revealAllBtn" type="button">Show All Answers</button>
+    <button id="modeBtn" type="button" class="teacher-action">Switch to Teacher Mode</button>
+    <button id="printStudentBtn" type="button">Print Student Copy</button>
+    <button id="printTeacherBtn" type="button" class="teacher-action">Print Teacher Copy</button>
+  </nav>
+
+  <main class="sheet">
+    <div class="top-rule"></div>
+    <header>
+      <div>
+        <div class="eyebrow">AP Calculus BC - Review for Topic 1.2</div>
+        <h1>5-Minute Review: Instantaneous Change</h1>
+        <p class="subtitle">Topic 1.1 - From secant slopes to an instantaneous rate</p>
+      </div>
+      <div>
+        <div class="time-box"><strong>5</strong><span>MINUTES</span></div>
+        <div class="teacher-stamp">TEACHER KEY</div>
+      </div>
+    </header>
+
+    <div class="student-info">
+      <div class="field">Name / 姓名 <span class="field-line"></span></div>
+      <div class="field">Date / 日期 <span class="field-line"></span></div>
+      <div class="field">Score <span class="field-line"></span> / 10</div>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">A</span>
+        <h2>Match the core terms. / 核心词汇连线</h2>
+        <span class="points">4 x 0.5 = 2 points</span>
+        <button class="section-toggle" type="button" data-target="answerA">Answer</button>
+      </div>
+      <div class="matching">
+        <div class="match-col">
+          <div class="match-row"><span>1.</span><span><span class="slot"></span>average rate of change</span></div>
+          <div class="match-row"><span>2.</span><span><span class="slot"></span>instantaneous rate of change</span></div>
+          <div class="match-row"><span>3.</span><span><span class="slot"></span>secant line</span></div>
+          <div class="match-row"><span>4.</span><span><span class="slot"></span>tangent line</span></div>
+        </div>
+        <div class="match-col">
+          <div class="match-row"><span>A.</span><span>切线</span></div>
+          <div class="match-row"><span>B.</span><span>瞬时变化率</span></div>
+          <div class="match-row"><span>C.</span><span>割线</span></div>
+          <div class="match-row"><span>D.</span><span>平均变化率</span></div>
+        </div>
+      </div>
+      <div class="answer-panel" id="answerA">
+        <strong>Answers:</strong> 1-D, 2-B, 3-C, 4-A. <span class="explain">A secant uses two points; a tangent describes the rate at one instant.</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">B</span>
+        <h2>Estimate an instantaneous velocity. / 估计瞬时速度</h2>
+        <span class="points">4 points</span>
+        <button class="section-toggle" type="button" data-target="answerB">Answer</button>
+      </div>
+      <div class="rate-layout">
+        <div>
+          <p class="prompt">The table gives the position <em>s(t)</em> of an object. Use the symmetric interval [1.9, 2.1] to estimate the instantaneous velocity at <em>t</em> = 2.</p>
+          <table aria-label="Position values near t equals 2">
+            <tr><th>t (s)</th><td>1.9</td><td>2.0</td><td>2.1</td></tr>
+            <tr><th>s(t) (m)</th><td>3.61</td><td>4.00</td><td>4.41</td></tr>
+          </table>
+        </div>
+        <div>
+          <ol class="question-list" start="5">
+            <li>The two table points determine a <span class="short-blank"></span> line.</li>
+            <li>Calculate the slope. Include units. <span class="zh-key">写出单位</span></li>
+          </ol>
+          <div class="calc-space"></div>
+        </div>
+      </div>
+      <div class="answer-panel" id="answerB">
+        <strong>5. secant.</strong> <strong>6.</strong>
+        <span class="fraction"><span>4.41 - 3.61</span><span>2.1 - 1.9</span></span>
+        = <span class="fraction"><span>0.80</span><span>0.20</span></span>
+        = <strong>4.0 m/s</strong>. <span class="explain">This short-interval average rate estimates the instantaneous velocity at t = 2. Scoring: line name 1; setup 1; value 1; units 1.</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">C</span>
+        <h2>Choose the best statement. / 选择最佳表述</h2>
+        <span class="points">2 x 1 = 2 points</span>
+        <button class="section-toggle" type="button" data-target="answerC">Answer</button>
+      </div>
+      <p class="concept-prompt"><strong>7.</strong> As the interval gets shorter, secant slopes usually approach:</p>
+      <ul class="choice-grid">
+        <li><span class="label">A.</span>the position value</li>
+        <li><span class="label">B.</span>the tangent slope</li>
+        <li><span class="label">C.</span>zero in every problem</li>
+        <li><span class="label">D.</span>the total distance</li>
+      </ul>
+      <p class="concept-prompt" style="margin-top:6px"><strong>8.</strong> On a position-time graph, instantaneous velocity is represented by:</p>
+      <ul class="choice-grid">
+        <li><span class="label">A.</span>the slope of the tangent line</li>
+        <li><span class="label">B.</span>the height of the graph</li>
+        <li><span class="label">C.</span>any secant slope</li>
+        <li><span class="label">D.</span>time multiplied by position</li>
+      </ul>
+      <div class="answer-panel" id="answerC">
+        <strong>7. B.</strong> Secant slopes approach the tangent slope. <strong>8. A.</strong> The tangent slope is the instantaneous rate on a position-time graph.
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-letter">D</span>
+        <h2>Explain in one English sentence. / 用一句英文解释</h2>
+        <span class="points">2 points</span>
+        <button class="section-toggle" type="button" data-target="answerD">Answer</button>
+      </div>
+      <p class="prompt"><strong>9-10.</strong> Why is the value 4.0 m/s only an estimate of the instantaneous velocity at <em>t</em> = 2?</p>
+      <div class="writing-lines"><div class="writing-line"></div><div class="writing-line"></div></div>
+      <div class="answer-panel" id="answerD">
+        <strong>Sample sentence:</strong> It is an estimate because it is an average rate over a short interval, not a rate measured at exactly t = 2.
+        <span class="explain"> 参考：它来自短区间的平均变化率，并非直接测得 t = 2 这一瞬间的变化率。Scoring: short-interval average rate 1; distinction from the exact instant 1.</span>
+      </div>
+    </section>
+
+    <footer>
+      <span>AP Calculus BC - Topic 1.1 Review</span>
+      <span>10 points - 5 minutes</span>
+    </footer>
+  </main>
+
+  <script>
+    const body = document.body;
+    const modeStatus = document.getElementById('modeStatus');
+    const modeBtn = document.getElementById('modeBtn');
+    const revealAllBtn = document.getElementById('revealAllBtn');
+
+    function setMode(mode) {
+      const teacher = mode === 'teacher';
+      body.dataset.printMode = teacher ? 'teacher' : 'student';
+      body.classList.toggle('show-answers', teacher);
+      if (!teacher) {
+        document.querySelectorAll('.answer-panel.open').forEach(panel => panel.classList.remove('open'));
+        document.querySelectorAll('.section-toggle').forEach(button => { button.textContent = 'Answer'; });
+      }
+      modeStatus.textContent = teacher ? 'Print mode: Teacher Key' : 'Print mode: Student';
+      modeBtn.textContent = teacher ? 'Return to Student Mode' : 'Switch to Teacher Mode';
+      revealAllBtn.textContent = teacher ? 'Hide All Answers' : (body.classList.contains('show-answers') ? 'Hide All Answers' : 'Show All Answers');
+    }
+
+    document.querySelectorAll('.section-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const panel = document.getElementById(button.dataset.target);
+        const open = panel.classList.toggle('open');
+        button.textContent = open ? 'Hide' : 'Answer';
+      });
+    });
+
+    revealAllBtn.addEventListener('click', () => {
+      const show = !body.classList.contains('show-answers');
+      body.classList.toggle('show-answers', show);
+      revealAllBtn.textContent = show ? 'Hide All Answers' : 'Show All Answers';
+    });
+
+    modeBtn.addEventListener('click', () => {
+      setMode(body.dataset.printMode === 'teacher' ? 'student' : 'teacher');
+    });
+
+    document.getElementById('printStudentBtn').addEventListener('click', () => {
+      setMode('student');
+      window.print();
+    });
+
+    document.getElementById('printTeacherBtn').addEventListener('click', () => {
+      setMode('teacher');
+      window.print();
+    });
+
+    if (new URLSearchParams(window.location.search).get('mode') === 'teacher') {
+      setMode('teacher');
+    }
+  </script>
+</body>
+</html>
