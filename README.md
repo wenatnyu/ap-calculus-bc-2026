@@ -1,6 +1,6 @@
 # AP Calculus BC · Unit 1 course site
 
-Current scope: Topics 1.1–1.5.
+Current scope: Topics 1.1–1.7.
 
 Each topic follows one classroom sequence:
 
@@ -13,7 +13,7 @@ Open `index.html` locally or through GitHub Pages.
 
 ## Classroom tools
 
-- Random Question — 30 English-first prompts covering Topics 1.1–1.5, with key Chinese hints and toggle answers.
+- Random Question — 42 English-first prompts covering Topics 1.1–1.7, with key Chinese hints and toggle answers.
 - Student Picker — six confirmed formal-name/WeChat-profile pairs with avatars, no-repeat rounds, and an attendance switch.
 
 ## Keyboard controls for class notes

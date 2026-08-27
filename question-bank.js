@@ -298,5 +298,125 @@ window.UNIT1_QUESTION_BANK = Object.freeze([
     hint: "按方向选择分支；等号决定点值。",
     answer: "Left: 3; right: 4; two-sided: DNE; f(1)=4. / 左 3；右 4；双侧 DNE；f(1)=4。",
     explanation: "The branches approach different heights. The second branch includes x=1, so it supplies the function value. / 两段趋近值不同；第二段含等号，因此给出 f(1)。"
+  },
+  {
+    id: "1.6-01",
+    topic: "1.6",
+    label: "Direct Substitution / 直接代入",
+    difficulty: "easy",
+    question: "Evaluate lim as x→−1 of (x²+2x−4).",
+    hint: "多项式在目标点连续，可以直接代入。",
+    answer: "−5",
+    explanation: "Substitute x=−1: (−1)²+2(−1)−4 = 1−2−4 = −5. / 直接代入即可。"
+  },
+  {
+    id: "1.6-02",
+    topic: "1.6",
+    label: "Factor and Cancel / 因式分解约分",
+    difficulty: "medium",
+    question: "Evaluate lim as x→−7 of (2x²+13x−7)/(x+7).",
+    hint: "分子含有因式 x+7。",
+    answer: "−15",
+    explanation: "2x²+13x−7=(2x−1)(x+7). Cancel x+7 for nearby x, then 2(−7)−1=−15. / 先因式分解并约分，再代入。"
+  },
+  {
+    id: "1.6-03",
+    topic: "1.6",
+    label: "Nonzero over a Vanishing Denominator / 非零量除以趋近 0 的量",
+    difficulty: "challenge",
+    question: "Evaluate the two-sided limit as x→−6 of (x²+4x+3)/(x+6).",
+    hint: "分子趋近 15；分母从左右两侧趋近 0。",
+    answer: "DNE / 不存在",
+    explanation: "The left-hand limit is −∞ and the right-hand limit is +∞, so no single two-sided limit exists. / 左右趋势相反，因此双侧极限不存在。"
+  },
+  {
+    id: "1.6-04",
+    topic: "1.6",
+    label: "Special Trig Limit / 特殊三角极限",
+    difficulty: "medium",
+    question: "Using radians, evaluate lim as x→0 of sin(3x)/x.",
+    hint: "把式子改写成 3·sin(3x)/(3x)。",
+    answer: "3",
+    explanation: "sin(3x)/x = 3[sin(3x)/(3x)], and the bracketed limit is 1. / 配成 sin u/u 的形式。"
+  },
+  {
+    id: "1.6-05",
+    topic: "1.6",
+    label: "Ratio of Sines / 正弦比",
+    difficulty: "medium",
+    question: "Using radians, evaluate lim as x→0 of sin(7x)/sin(9x).",
+    hint: "上下分别配成 sin(kx)/(kx)。",
+    answer: "7/9",
+    explanation: "[sin(7x)/(7x)]·[9x/sin(9x)]·(7/9) → 1·1·(7/9). / 分别使用特殊三角极限。"
+  },
+  {
+    id: "1.6-06",
+    topic: "1.6",
+    label: "Trig Identity / 三角恒等式",
+    difficulty: "challenge",
+    question: "Using radians, evaluate lim as x→0 of (cos²x−1)/[x(cos x+1)].",
+    hint: "先把 cos²x−1 写成平方差。",
+    answer: "0",
+    explanation: "Factor and cancel cos x+1 to get (cos x−1)/x, whose limit is 0. / 用平方差约分后套用特殊极限。"
+  },
+  {
+    id: "1.7-01",
+    topic: "1.7",
+    label: "Choose Direct Substitution / 选择直接代入",
+    difficulty: "easy",
+    question: "Evaluate lim as x→−3 of (x−2)/(x²−3x+2).",
+    hint: "先代入检查分母是否为 0。",
+    answer: "−1/4",
+    explanation: "Direct substitution gives (−5)/(9+9+2)=−5/20=−1/4. / 分母不为 0，直接代入。"
+  },
+  {
+    id: "1.7-02",
+    topic: "1.7",
+    label: "Rationalize the Numerator / 分子有理化",
+    difficulty: "medium",
+    question: "Evaluate lim as x→5 of [√(x+4)−3]/(x−5).",
+    hint: "分子分母同乘分子的共轭式。",
+    answer: "1/6",
+    explanation: "Rationalizing gives 1/[√(x+4)+3], which approaches 1/6. / 有理化并约去 x−5。"
+  },
+  {
+    id: "1.7-03",
+    topic: "1.7",
+    label: "Rationalize the Denominator / 分母有理化",
+    difficulty: "challenge",
+    question: "Evaluate lim as x→10 of (x−10)/[3−√(x−1)].",
+    hint: "分子分母同乘 3+√(x−1)，并留意 10−x 的符号。",
+    answer: "−6",
+    explanation: "The expression simplifies to −[3+√(x−1)], so the limit is −6. / 有理化后 10−x=−(x−10)。"
+  },
+  {
+    id: "1.7-04",
+    topic: "1.7",
+    label: "Complex Fraction / 复合分式",
+    difficulty: "challenge",
+    question: "Evaluate lim as x→0 of x / [1/(x−4)+1/4].",
+    hint: "先把中括号里的两个分数通分。",
+    answer: "−16",
+    explanation: "1/(x−4)+1/4 = x/[4(x−4)], so the full expression becomes 4(x−4)→−16. / 先通分，再把除法改成乘倒数。"
+  },
+  {
+    id: "1.7-05",
+    topic: "1.7",
+    label: "Fraction Difference Quotient / 分式差商",
+    difficulty: "medium",
+    question: "Evaluate lim as x→0 of [1/(x+3)−1/3]/x.",
+    hint: "先合并分子中的两个分数。",
+    answer: "−1/9",
+    explanation: "The numerator is −x/[3(x+3)]; after dividing by x, −1/[3(x+3)]→−1/9. / 通分后约去 x。"
+  },
+  {
+    id: "1.7-06",
+    topic: "1.7",
+    label: "Procedure Check / 方法选择",
+    difficulty: "easy",
+    question: "After direct substitution gives 0/0, choose the usual next step for (A) a factorable polynomial quotient, (B) a quotient containing a difference of radicals, and (C) a complex fraction.",
+    hint: "在 factor, rationalize, combine fractions 中选择。",
+    answer: "A: factor and cancel; B: rationalize; C: combine fractions. / A 因式分解约分；B 有理化；C 通分。",
+    explanation: "The form of the expression—not 0/0 alone—determines the useful algebraic procedure. / 先识别结构，再选方法。"
   }
 ]);

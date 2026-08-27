@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 1.6 | Determining Limits Using Algebraic Manipulation</title>
+  <style>
+    :root{
+      --navy:#16324f;--blue:#2f5d8c;--blue-light:#eaf0f5;--ink:#1f2a33;--muted:#667585;
+      --paper:#fff;--mist:#f3f6f8;--line:#c9d3dc;--gold:#c9902f;--teal:#16837a;--red:#ad433b;
+      --shadow:0 18px 55px rgba(22,50,79,.20);
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+      --math:"STIX Two Math","Cambria Math","Times New Roman",serif;
+    }
+    *{box-sizing:border-box}html,body{width:100%;height:100%}
+    body{margin:0;overflow:hidden;background:#dfe6ec;color:var(--ink);font-family:var(--sans)}button{font:inherit}
+    .app{width:100%;height:100%;position:relative}.viewport{position:absolute;inset:0 0 58px;display:grid;place-items:center;padding:22px;overflow:hidden}
+    .deck{width:1600px;height:900px;position:absolute;left:50%;top:50%;transform-origin:50% 50%}
+    .slide{position:absolute;inset:0;display:none;overflow:hidden;isolation:isolate;padding:60px 94px 68px 108px;background:var(--paper);box-shadow:var(--shadow)}
+    .slide.active{display:block;animation:enter .16s ease-out}@keyframes enter{from{opacity:.25;transform:translateY(4px)}to{opacity:1;transform:none}}
+    .slide::before{content:"";position:absolute;inset:0 auto 0 0;width:14px;background:var(--blue);z-index:-1}.slide::after{content:"";position:absolute;inset:0 0 auto 14px;height:8px;background:var(--navy);z-index:-1}
+    .slide.soft{background:linear-gradient(108deg,#fff 0 77%,#f1f4f7 77% 100%)}.slide.section{background:var(--navy);color:#fff}.slide.section::before{background:#86a7c4}.slide.section::after{background:#fff}
+    h1,h2,h3,p{margin-top:0}h1{margin:0 0 18px;font-size:58px;line-height:1.08;letter-spacing:-.035em;font-weight:820;white-space:nowrap}h2{margin:0 0 14px;color:var(--navy);font-size:46px;line-height:1.14;letter-spacing:-.025em;font-weight:800;white-space:nowrap}h3{margin:0 0 9px;color:var(--navy);font-size:29px;line-height:1.2}p,li,td,th{font-size:24px;line-height:1.38}.lead{font-size:31px;line-height:1.42}.small{font-size:20px;line-height:1.4}.micro{font-size:16px;line-height:1.35}.subtle{color:var(--muted)}.section .subtle{color:#d3e0ea}
+    .eyebrow{margin:0 0 10px;color:var(--blue);font-size:20px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.section .eyebrow{color:#bcd0e2}.zh-title{margin:-6px 0 19px;color:#916919;font-size:20px;line-height:1.25;font-weight:720}.section .zh-title{color:#e7c56f}.zh-key{display:block;margin-top:5px;color:#8b641d;font-size:18px;line-height:1.3;font-weight:700}.section .zh-key{color:#e7c56f}.accent-rule{width:88px;height:7px;margin:0 0 23px;background:#8db0cc}
+    .math{font-family:var(--math);font-style:italic}.roman{font-style:normal}.nowrap{white-space:nowrap}.formula{color:var(--navy);font-family:var(--math);font-size:39px;line-height:1.3}.formula.small-formula{font-size:31px}.formula.white{color:#fff}
+    .limit-op{display:inline-grid;grid-template-rows:1fr auto;justify-items:center;align-items:end;margin:0 .10em 0 .03em;vertical-align:middle;font-style:normal;line-height:.82}.limit-op .op{font-size:.86em}.limit-op .sub{margin-top:.16em;font-size:.38em;font-style:italic;white-space:nowrap}.limit-op .sub sup{font-size:.72em;vertical-align:.42em}
+    .frac{display:inline-grid;grid-template-rows:auto auto;align-items:center;vertical-align:middle;text-align:center;font-style:normal;line-height:1.05}.frac>span:first-child{padding:0 .14em .08em;border-bottom:1.7px solid currentColor}.frac>span:last-child{padding:.08em .14em 0}
+    .term-table{width:100%;margin-top:1px;border-collapse:collapse;table-layout:fixed;border-top:4px solid var(--blue)}.term-table th{padding:7px 12px;color:var(--muted);border-bottom:2px solid var(--navy);font-size:16px;letter-spacing:.07em;text-align:left;text-transform:uppercase}.term-table td{padding:6px 12px;border-bottom:1px solid var(--line);font-size:19px;line-height:1.18}.term-table td:nth-child(1),.term-table td:nth-child(3){color:var(--blue);font-weight:760}.term-table td:nth-child(2),.term-table td:nth-child(4){color:#8b641d;font-size:18px;font-weight:700}.term-table th:nth-child(1),.term-table td:nth-child(1),.term-table th:nth-child(3),.term-table td:nth-child(3){width:32%}.term-table th:nth-child(2),.term-table td:nth-child(2),.term-table th:nth-child(4),.term-table td:nth-child(4){width:18%}.term-note{margin-top:11px;padding-left:17px;border-left:5px solid var(--gold);font-size:19px;line-height:1.32}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start;min-height:0}.split.wide-left{grid-template-columns:1.16fr .84fr}.split.wide-right{grid-template-columns:.84fr 1.16fr}.statement{margin:20px 0;padding:20px 25px;border-top:5px solid var(--blue);background:var(--mist)}.statement .formula{font-size:42px}.callout{margin:17px 0 0;padding:12px 0 12px 20px;border-left:6px solid var(--blue);font-size:24px;line-height:1.4}.callout.teal{border-left-color:var(--teal)}.callout.gold{border-left-color:var(--gold)}.callout.red{border-left-color:var(--red)}
+    .step-list{margin:5px 0 0;padding:0;list-style:none}.step{display:grid;grid-template-columns:58px 1fr;gap:18px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}.step:first-child{border-top:4px solid var(--blue)}.step-num{width:46px;height:46px;display:grid;place-items:center;border:2px solid var(--blue);color:var(--blue);font-size:21px;font-weight:820}.step p{margin:0;font-size:22px}.step b{color:var(--navy)}
+    .diagnostic{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:10px}.diagnostic th{padding:10px 14px;color:var(--navy);border-bottom:3px solid var(--navy);font-size:19px;text-align:left}.diagnostic td{padding:14px;border-bottom:1px solid var(--line);font-size:22px;vertical-align:top}.diagnostic td:first-child{width:24%;color:var(--blue);font-family:var(--math);font-size:30px}.diagnostic td:last-child{color:#8b641d;font-weight:680}
+    .work{margin-top:17px;border-top:4px solid var(--blue)}.work-line{display:grid;grid-template-columns:66px 1fr;gap:17px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.work-label{color:var(--blue);font-size:17px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}.work-line .formula{font-size:34px}.result{color:var(--teal);font-weight:820}.warning{color:var(--red);font-weight:800}
+    .compare{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:10px}.compare th{padding:11px 15px;border-bottom:3px solid var(--navy);color:var(--navy);font-size:20px;text-align:left}.compare td{padding:17px 15px;border-bottom:1px solid var(--line);font-size:22px;vertical-align:top}.compare .formula{font-size:33px}.good{color:var(--teal);font-weight:800}.bad{color:var(--red);font-weight:800}
+    .nearby{display:grid;grid-template-columns:1fr 70px 1fr;gap:22px;align-items:center;margin-top:28px}.nearby-box{padding:24px;border-top:5px solid var(--blue);background:var(--mist)}.nearby-box h3{font-size:27px}.nearby-arrow{text-align:center;color:#7f9db7;font-size:46px}
+    .sign-table{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:20px}.sign-table th,.sign-table td{padding:13px 16px;border-bottom:1px solid var(--line);text-align:center}.sign-table th{color:var(--navy);border-bottom:3px solid var(--navy);font-size:19px}.sign-table td{font-size:23px}.sign-table td:first-child{color:var(--blue);font-family:var(--math)}
+    .identity-row{display:grid;grid-template-columns:1fr 1fr;gap:22px 56px;margin-top:26px}.identity{padding:18px 0;border-top:4px solid var(--blue);font-family:var(--math);font-size:38px;color:var(--navy);text-align:center}.identity .result{margin-left:12px}
+    .practice-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;margin-top:15px}.practice{padding:18px 0;border-top:5px solid var(--blue)}.practice h3{font-size:24px}.practice .formula{font-size:33px}.reveal-btn{appearance:none;border:2px solid var(--blue);border-radius:0;color:var(--blue);background:transparent;padding:9px 17px;font-size:19px;font-weight:790;cursor:pointer}.reveal-btn:hover,.reveal-btn:focus-visible{background:var(--blue);color:#fff;outline:none}.answer{display:none;margin-top:12px;padding:12px 16px;background:#eaf4f2;border-left:6px solid var(--teal);color:var(--ink);font-size:20px;line-height:1.36}.answer.show{display:block}.answer strong{color:var(--teal)}
+    .hero-equation{position:absolute;right:96px;top:222px;width:500px;padding:28px 32px;border-top:7px solid #89a9c5;border-bottom:1px solid #6f8ea9;color:#fff;font-family:var(--math);font-size:39px;line-height:1.48}.title-copy{width:800px}.title-note{position:absolute;left:108px;bottom:92px;display:flex;align-items:center;gap:18px;color:#d8e4ee;font-size:21px}.title-note .line{width:86px;height:2px;background:#86a7c4}
+    .slide-footer{position:absolute;left:108px;right:58px;bottom:25px;display:flex;justify-content:space-between;align-items:center;gap:24px;color:#6d7a87;font-size:15px}.section .slide-footer{color:#c7d6e2}.notes{display:none}
+    .controls{position:absolute;left:0;right:0;bottom:0;height:58px;display:flex;align-items:center;gap:14px;padding:0 22px;background:#f7f9fb;border-top:1px solid #c5d0da;color:#506171;z-index:20}.controls button{border:0;background:transparent;color:var(--navy);cursor:pointer;font-weight:760;padding:8px 10px}.controls button:hover,.controls button:focus-visible{background:#e9eef2;outline:none}.progress-track{flex:1;height:4px;background:#d6dfe7;margin:0 10px}.progress-bar{width:0;height:100%;background:var(--blue);transition:width .18s ease}.counter{min-width:82px;text-align:center;font-variant-numeric:tabular-nums}.key-hint{color:#778593;font-size:14px;white-space:nowrap}.notes-panel{position:absolute;z-index:40;right:22px;bottom:76px;width:min(560px,calc(100vw - 44px));max-height:66vh;overflow:auto;display:none;padding:22px 24px;background:#fffef7;border:1px solid #c7b876;box-shadow:0 14px 40px rgba(30,42,53,.25);color:#36352d}.notes-panel.open{display:block}.notes-panel h3{margin-bottom:12px;font-size:22px}.notes-panel p,.notes-panel li{font-size:16px;line-height:1.55}.help{position:absolute;inset:0;z-index:50;display:none;place-items:center;background:rgba(22,50,79,.78)}.help.open{display:grid}.help-card{width:560px;padding:34px 40px;background:#fff;box-shadow:var(--shadow)}.help-card h3{font-size:30px}.help-card p{font-size:20px}kbd{border:1px solid #aebbc6;padding:2px 7px;background:#f6f8fa;font-family:ui-monospace,monospace}
+    @media(max-width:760px){.key-hint{display:none}.controls{gap:4px;padding:0 8px}}
+    @page{size:16in 9in;margin:0}@media print{html,body{width:auto;height:auto;overflow:visible;background:#fff}.app,.viewport{position:static;display:block;padding:0;overflow:visible}.deck{position:static;left:auto;top:auto;transform:none!important;width:1600px;height:auto}.slide{position:relative;display:block!important;width:1600px;height:900px;box-shadow:none;break-after:page;page-break-after:always;animation:none!important}.controls,.notes-panel,.help,.reveal-btn{display:none!important}.answer{display:block}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="viewport" id="viewport">
+      <main class="deck" id="deck" aria-live="polite">
+
+        <section class="slide section active" data-title="Determining Limits Using Algebraic Manipulation">
+          <p class="eyebrow">AP Calculus BC · Topic 1.6</p><div class="accent-rule"></div>
+          <div class="title-copy"><h1 style="font-size:54px">Limits by Algebraic Manipulation</h1><p class="lead" style="color:#e7c56f">用代数变形求极限</p></div>
+          <div class="hero-equation"><div><span class="frac"><span>(x-a)q(x)</span><span>x-a</span></span></div><div style="margin:16px 0;color:#bcd0e2">x ≠ a nearby</div><div>= q(x) &nbsp;→&nbsp; q(a)</div></div>
+          <div class="title-note"><span class="line"></span><span>Substitute · Diagnose · Rewrite · Evaluate</span></div>
+          <div class="slide-footer"><span>Class slides · English main text with key Chinese</span><span>1.6</span></div>
+          <aside class="notes"><p><b>开场：</b>先让学生直接代入标题公式，得到 0/0。今天的目标不是把 0/0 当答案，而是把它当作“需要重写”的信号。</p><p>[Sources]<br>https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Core Vocabulary for Topic 1.6">
+          <p class="eyebrow">Language first · One-page reference</p><h2>Core Vocabulary for Topic 1.6</h2><p class="zh-title">本节核心词汇集中在这一页</p>
+          <table class="term-table" aria-label="Core English and Chinese vocabulary">
+            <tr><th>English</th><th>中文</th><th>English</th><th>中文</th></tr>
+            <tr><td>direct substitution</td><td>直接代入</td><td>algebraic manipulation</td><td>代数变形</td></tr>
+            <tr><td>indeterminate form</td><td>未定式</td><td>zero over zero (0/0)</td><td>零比零</td></tr>
+            <tr><td>factor and cancel</td><td>因式分解并约分</td><td>common factor</td><td>公因式</td></tr>
+            <tr><td>equivalent expression</td><td>等价表达式</td><td>punctured neighborhood</td><td>去心邻域</td></tr>
+            <tr><td>removable discontinuity</td><td>可去间断点</td><td>hole</td><td>空点</td></tr>
+            <tr><td>one-sided limit</td><td>单侧极限</td><td>two-sided limit</td><td>双侧极限</td></tr>
+            <tr><td>special trigonometric limit</td><td>特殊三角极限</td><td>radian measure</td><td>弧度制</td></tr>
+            <tr><td>trigonometric identity</td><td>三角恒等式</td><td>coefficient</td><td>系数</td></tr>
+            <tr><td>does not exist (DNE)</td><td>不存在</td><td>nearby behavior</td><td>附近趋势</td></tr>
+          </table>
+          <p class="term-note"><b>Say it precisely:</b> “The form 0/0 is indeterminate; it is not the limit.”<span class="zh-key">准确表述：0/0 是未定式，不是极限答案。</span></p>
+          <div class="slide-footer"><span>Keep this page open during the first examples.</span><span>02</span></div>
+          <aside class="notes"><p>全班先读 direct substitution / factor and cancel / indeterminate form。提醒 “cancel” 只能针对 factors，不能删掉相加的 terms。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html</p></aside>
+        </section>
+
+        <section class="slide" data-title="Substitution Tells You What to Do Next">
+          <p class="eyebrow">First move · Use the result as a diagnosis</p><h2>Substitution Tells You What to Do Next</h2><p class="zh-title">直接代入既可能给答案，也可能给下一步线索</p>
+          <table class="diagnostic">
+            <tr><th>Substitution gives</th><th>Meaning</th><th>Next move</th></tr>
+            <tr><td>a finite number</td><td>The expression is ready.</td><td>Report that value. <span class="zh-key">直接得到极限。</span></td></tr>
+            <tr><td>0/0</td><td>The form is indeterminate.</td><td>Rewrite: factor, cancel, or use a trig identity. <span class="zh-key">变形后再代入。</span></td></tr>
+            <tr><td>nonzero/0</td><td>The quotient law cannot finish the problem.</td><td>Compare the two sides; the limit may be DNE. <span class="zh-key">检查左右趋势。</span></td></tr>
+          </table>
+          <p class="callout gold"><b>Always substitute first.</b> It is the fastest way to choose a reasonable next step.</p>
+          <div class="slide-footer"><span>Substitution is both a method and a diagnostic.</span><span>03</span></div>
+          <aside class="notes"><p>逐行追问：finite number 时是否还需要分解？0/0 是否等于 0？nonzero/0 是否能立刻写 “infinity”？最后一问答案是否定的，要看方向。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="A Finite Substituted Value Finishes the Problem">
+          <p class="eyebrow">Case 1 · Direct substitution</p><h2>A Finite Substituted Value Finishes the Problem</h2><p class="zh-title">代入得到有限值，就可以结束</p>
+          <div class="statement"><div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→-1</span></span>(x<sup>2</sup>+2x-4)</div></div>
+          <div class="work">
+            <div class="work-line"><span class="work-label">Substitute</span><span class="formula">(-1)<sup>2</sup>+2(-1)-4</span></div>
+            <div class="work-line"><span class="work-label">Simplify</span><span class="formula">1-2-4=<span class="result">-5</span></span></div>
+          </div>
+          <div class="split" style="margin-top:30px"><p class="callout teal"><b>No extra algebra is needed.</b> Polynomials are continuous everywhere.</p><p class="callout gold"><b>Language:</b> “By direct substitution, the limit is negative five.”<span class="zh-key">用直接代入法，极限为 -5。</span></p></div>
+          <div class="slide-footer"><span>Start simple; manipulate only when the substitution result requires it.</span><span>04</span></div>
+          <aside class="notes"><p>例题来自官方 notes 第 1 题。让学生完整说一句英文答案，然后再写算式。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Zero Over Zero Is a Signal to Rewrite">
+          <p class="eyebrow">Case 2 · Indeterminate form</p><h2>Zero Over Zero Is a Signal to Rewrite</h2><p class="zh-title">看到 0/0，不停下来；先寻找公因式</p>
+          <div class="statement"><div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>4x<sup>2</sup>-5x</span><span>x</span></span></div></div>
+          <div class="work">
+            <div class="work-line"><span class="work-label">Diagnose</span><span class="formula"><span class="frac"><span>0</span><span>0</span></span> <span class="warning">is not an answer</span></span></div>
+            <div class="work-line"><span class="work-label">Factor</span><span class="formula"><span class="frac"><span>x(4x-5)</span><span>x</span></span></span></div>
+            <div class="work-line"><span class="work-label">Cancel</span><span class="formula">4x-5 &nbsp;→&nbsp; <span class="result">-5</span></span></div>
+          </div>
+          <p class="callout gold">The original expression is undefined at <span class="math">x=0</span>, but the limit only asks what happens <b>near</b> 0.<span class="zh-key">原式在点上无定义，不妨碍附近趋势有极限。</span></p>
+          <div class="slide-footer"><span>0/0 asks for a new expression with the same nearby behavior.</span><span>05</span></div>
+          <aside class="notes"><p>例题来自官方 notes 第 3 题。问学生约分后是否可以写 “x=0”？不可以；应写 x≠0 时两式相等，再取极限。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Cancel Factors, Never Separate Terms">
+          <p class="eyebrow">Algebra checkpoint · Protect the structure</p><h2>Cancel Factors, Never Separate Terms</h2><p class="zh-title">只能约因式，不能约加减项</p>
+          <table class="compare">
+            <tr><th>Valid</th><th>Invalid</th></tr>
+            <tr><td><div class="formula"><span class="frac"><span>(x-4)(5x-1)</span><span>x-4</span></span>=5x-1</div><p class="good">✓ A common factor multiplies the entire numerator.</p></td><td><div class="formula"><span class="frac"><span>x<sup>2</sup>-4</span><span>x-4</span></span> <span class="bad">≠ x+1</span></div><p class="bad">✕ The numerator is not factored, and <span class="math">x-4</span> is not a factor of <span class="math">x<sup>2</sup>-4</span>.</p></td></tr>
+          </table>
+          <p class="callout teal"><b>Safe habit:</b> factor completely, circle the matching factors, then cancel.<span class="zh-key">先完全因式分解，再圈出相同因式并约去。</span></p>
+          <div class="slide-footer"><span>Cancellation is multiplication in reverse.</span><span>06</span></div>
+          <aside class="notes"><p>让学生口头区分 factor 与 term。右侧错误式故意选用不能整除的分子，避免给出“看起来只差一点”的错误捷径。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html</p></aside>
+        </section>
+
+        <section class="slide" data-title="Factoring Removes a Hole, Not the Nearby Trend">
+          <p class="eyebrow">Worked example · Factor and cancel</p><h2>Factoring Removes a Hole, Not the Nearby Trend</h2><p class="zh-title">约去造成空点的因式，保留附近趋势</p>
+          <div class="statement"><div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→-7</span></span><span class="frac"><span>2x<sup>2</sup>+13x-7</span><span>x+7</span></span></div></div>
+          <div class="work">
+            <div class="work-line"><span class="work-label">Factor</span><span class="formula"><span class="frac"><span>(2x-1)(x+7)</span><span>x+7</span></span></span></div>
+            <div class="work-line"><span class="work-label">Cancel</span><span class="formula">2x-1 &nbsp; (x≠-7)</span></div>
+            <div class="work-line"><span class="work-label">Evaluate</span><span class="formula">2(-7)-1=<span class="result">-15</span></span></div>
+          </div>
+          <p class="callout gold">The factor <span class="math">x+7</span> creates a hole at <span class="math">x=-7</span>; it does not change the trend on either side.<span class="zh-key">空点改变点值，不改变两侧附近趋势。</span></p>
+          <div class="slide-footer"><span>Official notes example 4.</span><span>07</span></div>
+          <aside class="notes"><p>官方 notes 第 4 题。先让学生用乘法检查因式分解，再约分。答案 -15。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Cancellation Works Because Limits Ignore One Point">
+          <p class="eyebrow">Why it works · Nearby equivalence</p><h2>Cancellation Works Because Limits Ignore One Point</h2><p class="zh-title">极限比较附近；单个点可以缺失</p>
+          <div class="nearby">
+            <div class="nearby-box"><h3>Original expression</h3><div class="formula"><span class="frac"><span>(x-a)q(x)</span><span>x-a</span></span></div><p class="small subtle">Undefined at <span class="math">x=a</span></p></div>
+            <div class="nearby-arrow">→</div>
+            <div class="nearby-box"><h3>Simplified expression</h3><div class="formula">q(x)</div><p class="small subtle">Defined wherever <span class="math">q</span> is defined</p></div>
+          </div>
+          <div class="statement" style="margin-top:42px"><p class="lead">For every nearby input with <span class="math">x≠a</span>, the two expressions have the same output. Therefore they have the same limit at <span class="math">a</span>.</p></div>
+          <p class="callout teal"><b>Limit language:</b> “equal near the point” is enough.<span class="zh-key">对极限而言，“在点附近相等”就足够。</span></p>
+          <div class="slide-footer"><span>A limit can exist even when the original formula is undefined at the target.</span><span>08</span></div>
+          <aside class="notes"><p>不要引入正式 epsilon-delta 证明；用“去掉目标点后的邻域”解释即可。要求学生说出 x≠a 这个条件。</p><p>[Sources]<br>https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Some Zero Denominators Produce DNE">
+          <p class="eyebrow">Case 3 · Nonzero over zero</p><h2>Some Zero Denominators Produce DNE</h2><p class="zh-title">分子趋近非零而分母趋近零，要比较左右方向</p>
+          <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→-6</span></span><span class="frac"><span>x<sup>2</sup>+4x+3</span><span>x+6</span></span> &nbsp;→&nbsp; <span class="frac"><span>15</span><span>0</span></span></div>
+          <table class="sign-table"><tr><th>Approach</th><th>Numerator</th><th>Denominator</th><th>Quotient</th></tr><tr><td>x→-6<sup>-</sup></td><td>positive, near 15</td><td>small negative</td><td class="warning">→ -∞</td></tr><tr><td>x→-6<sup>+</sup></td><td>positive, near 15</td><td>small positive</td><td class="warning">→ +∞</td></tr></table>
+          <p class="callout red"><b>The one-sided trends disagree.</b> The two-sided limit is <span class="warning">DNE</span>.<span class="zh-key">左侧趋于负无穷，右侧趋于正无穷，双侧极限不存在。</span></p>
+          <p class="small subtle">Do not write “15/0 = infinity.” Division by zero is undefined, and the sign depends on the side.</p>
+          <div class="slide-footer"><span>Official notes example 5.</span><span>09</span></div>
+          <aside class="notes"><p>官方 notes 第 5 题。让学生分别取 -6.1 与 -5.9 判断分母符号；强调 ±∞ 描述趋势，不是函数值。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Special Trig Limits Anchor the Unit">
+          <p class="eyebrow">Reference · Angles must be in radians</p><h2>Special Trig Limits Anchor the Unit</h2><p class="zh-title">特殊三角极限必须使用弧度制</p>
+          <div class="identity-row">
+            <div class="identity"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>sin x</span><span>x</span></span><span class="result">=1</span></div>
+            <div class="identity"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>x</span><span>sin x</span></span><span class="result">=1</span></div>
+            <div class="identity"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>1-cos x</span><span>x</span></span><span class="result">=0</span></div>
+            <div class="identity"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>cos x-1</span><span>x</span></span><span class="result">=0</span></div>
+          </div>
+          <p class="callout gold"><b>Pattern check:</b> the sine's input and the denominator must approach 0 together.<span class="zh-key">要把式子配成 sin u/u 或 u/sin u 的标准形式。</span></p>
+          <div class="slide-footer"><span>Use radians; the degree-mode versions do not equal these constants.</span><span>10</span></div>
+          <aside class="notes"><p>让学生把四个极限抄到词汇页背面。calculator 必须使用 radians。今天重点是识别与配形，不讲 squeeze theorem 的证明。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html</p></aside>
+        </section>
+
+        <section class="slide" data-title="Match the Special Form Before Substituting">
+          <p class="eyebrow">Trig example 1 · Build sin u over u</p><h2>Match the Special Form Before Substituting</h2><p class="zh-title">先配成标准形式，再使用特殊极限</p>
+          <div class="statement"><div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>sin(3x)</span><span>x</span></span></div></div>
+          <div class="work">
+            <div class="work-line"><span class="work-label">Match</span><span class="formula"><span class="frac"><span>sin(3x)</span><span>x</span></span>=3·<span class="frac"><span>sin(3x)</span><span>3x</span></span></span></div>
+            <div class="work-line"><span class="work-label">Use u=3x</span><span class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>sin(3x)</span><span>3x</span></span>=1</span></div>
+            <div class="work-line"><span class="work-label">Evaluate</span><span class="formula">3·1=<span class="result">3</span></span></div>
+          </div>
+          <p class="callout teal">The coefficient inside sine reappears outside the limit.<span class="zh-key">sin 内部的系数通过配形变成外部系数。</span></p>
+          <div class="slide-footer"><span>Official notes example 6.</span><span>11</span></div>
+          <aside class="notes"><p>官方 notes 第 6 题。要求学生指出为什么乘以 3 没有改变原式：同时在分子外补了 3、分母中补了 3x。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Ratios of Sines Reduce to Their Coefficients">
+          <p class="eyebrow">Trig example 2 · Two familiar factors</p><h2>Ratios of Sines Reduce to Their Coefficients</h2><p class="zh-title">两个正弦分别配成特殊极限</p>
+          <div class="statement"><div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>sin(7x)</span><span>sin(9x)</span></span></div></div>
+          <div class="work">
+            <div class="work-line"><span class="work-label">Rewrite</span><span class="formula"><span class="frac"><span>7</span><span>9</span></span>·<span class="frac"><span>sin(7x)</span><span>7x</span></span>·<span class="frac"><span>9x</span><span>sin(9x)</span></span></span></div>
+            <div class="work-line"><span class="work-label">Evaluate</span><span class="formula"><span class="frac"><span>7</span><span>9</span></span>·1·1=<span class="result"><span class="frac"><span>7</span><span>9</span></span></span></span></div>
+          </div>
+          <p class="callout gold"><b>Shortcut after understanding:</b> for nonzero constants <span class="math">a,b</span>, <span class="math">lim<sub>x→0</sub> sin(ax)/sin(bx)=a/b</span>.<span class="zh-key">理解配形过程后，可用系数之比。</span></p>
+          <div class="slide-footer"><span>Official notes example 7.</span><span>12</span></div>
+          <aside class="notes"><p>官方 notes 第 7 题。先不要直接报 7/9；要求学生写出两个 special limit 因子。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Factor a Trig Identity Before Using a Special Limit">
+          <p class="eyebrow">Trig example 3 · Difference of squares</p><h2>Factor a Trig Identity Before Using a Special Limit</h2><p class="zh-title">先用平方差分解，再识别特殊极限</p>
+          <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>cos<sup>2</sup>x-1</span><span>x(cos x+1)</span></span></div>
+          <div class="work">
+            <div class="work-line"><span class="work-label">Factor</span><span class="formula"><span class="frac"><span>(cos x-1)(cos x+1)</span><span>x(cos x+1)</span></span></span></div>
+            <div class="work-line"><span class="work-label">Cancel</span><span class="formula"><span class="frac"><span>cos x-1</span><span>x</span></span></span></div>
+            <div class="work-line"><span class="work-label">Recognize</span><span class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>cos x-1</span><span>x</span></span>=<span class="result">0</span></span></div>
+          </div>
+          <p class="callout teal">Near <span class="math">x=0</span>, <span class="math">cos x+1</span> is nonzero, so the cancellation is valid.<span class="zh-key">在 0 附近 cos x+1 非零，可以约分。</span></p>
+          <div class="slide-footer"><span>Official notes example 8.</span><span>13</span></div>
+          <aside class="notes"><p>官方 notes 第 8 题。学生可能误写 cos²x-1=(cosx-1)²；让其展开验证。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="A Product Can Hide More Than One Familiar Limit">
+          <p class="eyebrow">Mixed trig · Split the structure</p><h2>A Product Can Hide More Than One Familiar Limit</h2><p class="zh-title">复杂式子可以拆成多个熟悉的极限</p>
+          <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>(1-cos<sup>2</sup>x)sin x</span><span>x<sup>2</sup></span></span></div>
+          <div class="work">
+            <div class="work-line"><span class="work-label">Factor</span><span class="formula small-formula"><span class="frac"><span>1-cos x</span><span>x</span></span>·(1+cos x)·<span class="frac"><span>sin x</span><span>x</span></span></span></div>
+            <div class="work-line"><span class="work-label">Read limits</span><span class="formula">0 · 2 · 1</span></div>
+            <div class="work-line"><span class="work-label">Result</span><span class="formula"><span class="result">0</span></span></div>
+          </div>
+          <p class="callout gold">Do not substitute into the original expression first and stop at 0/0. Rewrite until each factor has a known limit.<span class="zh-key">把复杂未定式拆成已知极限的乘积。</span></p>
+          <div class="slide-footer"><span>Official practice problem 23.</span><span>14</span></div>
+          <aside class="notes"><p>官方 practice 第 23 题，答案 0。板书时用三种颜色标记三个因子及其极限。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Guided Practice: Diagnose, Rewrite, Evaluate">
+          <p class="eyebrow">Your turn · Two algebraic forms</p><h2>Guided Practice: Diagnose, Rewrite, Evaluate</h2><p class="zh-title">先判断代入结果，再选择变形</p>
+          <div class="practice-grid">
+            <div class="practice"><h3>A · Factor and cancel</h3><div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→4</span></span><span class="frac"><span>5x<sup>2</sup>-21x+4</span><span>x-4</span></span></div><p class="small">Write the factorization before canceling.</p></div>
+            <div class="practice"><h3>B · Watch the reversed factor</h3><div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span><span class="frac"><span>2x<sup>2</sup>-17x+35</span><span>5-x</span></span></div><p class="small">Use <span class="math">5-x=-(x-5)</span>.</p></div>
+          </div>
+          <button class="reveal-btn" type="button" data-answer="practice15">Reveal answers / 显示答案</button>
+          <div class="answer" id="practice15"><strong>A: 19.</strong> <span class="math">5x²-21x+4=(5x-1)(x-4)</span>. &nbsp; <strong>B: -3.</strong> <span class="math">2x²-17x+35=(2x-7)(x-5)</span> and <span class="math">5-x=-(x-5)</span>.</div>
+          <p class="callout red"><b>Common error:</b> forgetting the negative sign when the denominator reverses a factor.<span class="zh-key">分母因式次序相反时，别漏掉负号。</span></p>
+          <div class="slide-footer"><span>Official practice problems 17 and 22.</span><span>15</span></div>
+          <aside class="notes"><p>A=19，B=-3。A 是 practice 17，B 是 practice 22。先巡视学生的因式分解，不急着看最终答案。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide section" data-title="Exit Ticket: Make Zero Over Zero Useful">
+          <p class="eyebrow">Exit ticket · Explain one cancellation</p><h2 style="color:#fff">Exit Ticket: Make 0/0 Useful</h2><p class="zh-title">把未定式变成可计算的极限</p>
+          <div class="formula white" style="margin-top:42px"><span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span><span class="frac"><span>x<sup>2</sup>-2ax+a<sup>2</sup></span><span>x-a</span></span></div>
+          <ol class="lead" style="margin:30px 0 25px;padding-left:1.2em"><li>Factor the numerator.</li><li>State the restriction used when canceling.</li><li>Evaluate the limit.</li></ol>
+          <button class="reveal-btn" type="button" data-answer="exit16" style="border-color:#bcd0e2;color:#fff">Reveal answer / 显示答案</button>
+          <div class="answer" id="exit16"><strong>Answer: 0.</strong> <span class="math">x²-2ax+a²=(x-a)²</span>. For <span class="math">x≠a</span>, cancel one factor to get <span class="math">x-a</span>; then <span class="math">x-a→0</span>.</div>
+          <p class="callout gold" style="margin-top:28px">You can now turn an undefined expression into an equivalent nearby expression: <b>substitute, diagnose, rewrite, evaluate.</b><span class="zh-key">代入、判断、变形、求值。</span></p>
+          <div class="slide-footer"><span>Official test-prep problem 26.</span><span>16</span></div>
+          <aside class="notes"><p>官方 test prep 第 26 题，正确选项 C，答案 0。收尾要求一名学生用完整英文说出 cancellation restriction: “for x not equal to a.”</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_solutions.pdf</p></aside>
+        </section>
+
+      </main>
+    </div>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button id="prevBtn" type="button">← Previous</button><button id="nextBtn" type="button">Next →</button>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="counter" id="counter">1 / 16</span><button id="notesBtn" type="button">Notes</button><button id="helpBtn" type="button">?</button><span class="key-hint">← → navigate · N notes</span>
+    </nav>
+    <aside class="notes-panel" id="notesPanel" aria-live="polite"><h3 id="notesTitle">Notes</h3><div id="notesContent"></div></aside>
+    <div class="help" id="help"><div class="help-card"><h3>Keyboard controls</h3><p><kbd>←</kbd> / <kbd>→</kbd> Previous or next slide</p><p><kbd>Space</kbd> Next slide</p><p><kbd>N</kbd> Toggle teaching notes</p><p><kbd>H</kbd> Toggle this help</p><p><kbd>Esc</kbd> Close panels</p></div></div>
+  </div>
+
+  <script>
+    const slides=Array.from(document.querySelectorAll('.slide'));let current=0;
+    const deck=document.getElementById('deck'),viewport=document.getElementById('viewport'),counter=document.getElementById('counter'),progressBar=document.getElementById('progressBar'),notesPanel=document.getElementById('notesPanel'),notesTitle=document.getElementById('notesTitle'),notesContent=document.getElementById('notesContent'),help=document.getElementById('help');
+    function fitDeck(){const scale=Math.min(viewport.clientWidth/1600,viewport.clientHeight/900);deck.style.transform=`translate(-50%,-50%) scale(${scale})`}
+    function updateNotes(){const slide=slides[current],notes=slide.querySelector('.notes');notesTitle.textContent=slide.dataset.title||`Slide ${current+1}`;notesContent.innerHTML=notes?notes.innerHTML:'<p>No notes for this slide.</p>'}
+    function go(index){current=Math.max(0,Math.min(slides.length-1,index));slides.forEach((slide,i)=>slide.classList.toggle('active',i===current));counter.textContent=`${current+1} / ${slides.length}`;progressBar.style.width=`${((current+1)/slides.length)*100}%`;history.replaceState(null,'',`#${current+1}`);updateNotes()}
+    document.getElementById('prevBtn').addEventListener('click',()=>go(current-1));document.getElementById('nextBtn').addEventListener('click',()=>go(current+1));document.getElementById('notesBtn').addEventListener('click',()=>notesPanel.classList.toggle('open'));document.getElementById('helpBtn').addEventListener('click',()=>help.classList.add('open'));help.addEventListener('click',event=>{if(event.target===help)help.classList.remove('open')});
+    document.addEventListener('keydown',event=>{const interactive=['BUTTON','INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName);if(!interactive&&(event.key==='ArrowRight'||event.key===' ')){event.preventDefault();go(current+1)}if(!interactive&&event.key==='ArrowLeft'){event.preventDefault();go(current-1)}if(!interactive&&event.key.toLowerCase()==='n')notesPanel.classList.toggle('open');if(!interactive&&event.key.toLowerCase()==='h')help.classList.toggle('open');if(event.key==='Escape'){notesPanel.classList.remove('open');help.classList.remove('open')}});
+    document.querySelectorAll('.reveal-btn').forEach(button=>button.addEventListener('click',()=>{const answer=document.getElementById(button.dataset.answer),show=!answer.classList.contains('show');answer.classList.toggle('show',show);button.textContent=show?'Hide answer / 隐藏答案':'Reveal answer / 显示答案'}));
+    window.addEventListener('resize',fitDeck);const requested=parseInt(location.hash.slice(1),10);go(Number.isFinite(requested)?requested-1:0);fitDeck();
+    if(new URLSearchParams(location.search).get('answers')==='show'){document.querySelectorAll('.answer').forEach(answer=>answer.classList.add('show'));document.querySelectorAll('.reveal-btn').forEach(button=>button.textContent='Hide answer / 隐藏答案')}
+  </script>
+</body>
+</html>

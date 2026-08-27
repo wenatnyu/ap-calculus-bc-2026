@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070914">
+  <meta name="theme-color" content="#050711">
   <meta name="description" content="AP Calculus BC Unit 1: Limits and Continuity. Quizzes, class notes, answers, homework, and classroom random tools.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AP Calculus BC · Limits &amp; Continuity">
@@ -26,12 +26,21 @@
       --space-850:#0d1329;
       --space-800:#101830;
       --space-700:#172242;
-      --text:#f4f1ea;
-      --muted:#a9b8ce;
-      --blue:#9ccfff;
-      --cyan:#73d5d0;
-      --gold:#e8bd69;
-      --rose:#d59bd8;
+      --text:#f8f8ff;
+      --muted:#b7c3da;
+      --coral:#ff5d8f;
+      --orange:#ff9f43;
+      --sun:#ffe45e;
+      --lime:#65e6a3;
+      --aqua:#42dce1;
+      --electric:#72a7ff;
+      --violet:#cb85ff;
+      --blue:var(--electric);
+      --cyan:var(--aqua);
+      --gold:#ffc857;
+      --rose:var(--violet);
+      --question:#ff4fb3;
+      --picker:#ffc857;
       --line:rgba(185,204,235,.17);
       --line-strong:rgba(185,204,235,.34);
       --focus:#ffdc88;
@@ -43,9 +52,11 @@
     *{box-sizing:border-box}
     html{min-height:100%;scroll-behavior:smooth;background:var(--space-950)}
     body{min-height:100vh;margin:0;overflow-x:hidden;background:
-      radial-gradient(circle at 15% 0%,rgba(72,99,190,.2),transparent 32rem),
-      radial-gradient(circle at 90% 8%,rgba(54,154,151,.1),transparent 27rem),
-      linear-gradient(180deg,rgba(5,7,17,.35),var(--space-950) 42rem);
+      radial-gradient(circle at 10% 2%,rgba(255,79,179,.18),transparent 30rem),
+      radial-gradient(circle at 52% -10%,rgba(114,167,255,.18),transparent 32rem),
+      radial-gradient(circle at 92% 8%,rgba(66,220,225,.16),transparent 28rem),
+      radial-gradient(circle at 76% 45%,rgba(203,133,255,.08),transparent 30rem),
+      linear-gradient(180deg,rgba(5,7,17,.28),var(--space-950) 44rem);
       color:var(--text);font-family:var(--sans);line-height:1.5}
     button,input{font:inherit}
     button,a{-webkit-tap-highlight-color:transparent}
@@ -54,107 +65,131 @@
     .skip-link{position:fixed;left:12px;top:12px;z-index:100;transform:translateY(-160%);padding:10px 14px;background:var(--text);color:var(--space-950);text-decoration:none}
     .skip-link:focus{transform:none}
     #math-sky{position:fixed;inset:0;z-index:-2;width:100%;height:100%;pointer-events:none}
-    .grid-wash{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.22;background-image:
-      linear-gradient(rgba(156,207,255,.07) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(156,207,255,.07) 1px,transparent 1px);
+    .grid-wash{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.25;background-image:
+      linear-gradient(rgba(114,167,255,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(114,167,255,.08) 1px,transparent 1px);
       background-size:72px 72px;mask-image:linear-gradient(to bottom,black,transparent 72%);-webkit-mask-image:linear-gradient(to bottom,black,transparent 72%)}
     .shell{width:min(1120px,calc(100% - 40px));margin-inline:auto}
     .topbar{display:flex;align-items:center;justify-content:space-between;min-height:64px;border-bottom:1px solid var(--line)}
     .brand{display:flex;align-items:center;gap:11px;color:var(--text);font-size:12px;font-weight:750;letter-spacing:.15em;text-decoration:none;text-transform:uppercase}
-    .brand-mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid rgba(232,189,105,.65);border-radius:50%;color:var(--gold);font-family:var(--math);font-size:17px}
+    .brand-mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid transparent;border-radius:50%;background:linear-gradient(var(--space-900),var(--space-900)) padding-box,conic-gradient(from 25deg,var(--coral),var(--sun),var(--aqua),var(--violet),var(--coral)) border-box;color:var(--sun);font-family:var(--math);font-size:17px;box-shadow:0 0 20px rgba(114,167,255,.16)}
     .year{color:var(--muted);font-size:12px;letter-spacing:.08em}
     .hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.74fr);gap:56px;align-items:center;min-height:500px;padding:72px 0 82px;border-bottom:1px solid var(--line)}
-    .hero::before,.hero::after{content:"";position:absolute;pointer-events:none;border:1px solid rgba(232,189,105,.18);border-radius:50%}
+    .hero::before,.hero::after{content:"";position:absolute;pointer-events:none;border:1px solid rgba(255,228,94,.24);border-radius:50%}
     .hero::before{right:-90px;top:68px;width:500px;height:300px;transform:rotate(-14deg)}
-    .hero::after{right:0;top:119px;width:340px;height:210px;transform:rotate(18deg);border-color:rgba(115,213,208,.14)}
+    .hero::after{right:0;top:119px;width:340px;height:210px;transform:rotate(18deg);border-color:rgba(66,220,225,.24)}
     .hero-copy{position:relative;z-index:1}
-    .eyebrow{margin:0 0 14px;color:var(--blue);font-size:12px;font-weight:750;letter-spacing:.2em;text-transform:uppercase}
+    .eyebrow{margin:0 0 14px;color:var(--electric);font-size:12px;font-weight:750;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 0 20px rgba(114,167,255,.34)}
     h1{max-width:780px;margin:0;font-family:var(--display);font-size:clamp(46px,7.2vw,86px);font-weight:400;letter-spacing:-.047em;line-height:.96}
     .hero-cn{margin:17px 0 0;color:var(--muted);font-family:var(--display);font-size:clamp(18px,2.2vw,25px);letter-spacing:.16em}
     .sequence{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:31px 0 0;padding:0;list-style:none;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
     .sequence li{display:flex;align-items:center;gap:8px}
-    .sequence li:not(:last-child)::after{content:"→";color:var(--gold);font-weight:400}
+    .sequence li:nth-child(1){color:var(--coral)}
+    .sequence li:nth-child(2){color:var(--sun)}
+    .sequence li:nth-child(3){color:var(--aqua)}
+    .sequence li:nth-child(4){color:var(--violet)}
+    .sequence li:not(:last-child)::after{content:"→";color:var(--muted);font-weight:400}
     .math-stage{position:relative;z-index:1;display:grid;place-items:center;min-height:270px}
     .formula{position:relative;display:flex;align-items:center;gap:.22em;color:var(--gold);font-family:var(--math);font-size:clamp(41px,5vw,68px);white-space:nowrap;text-shadow:0 0 36px rgba(232,189,105,.12)}
+    @supports ((-webkit-background-clip:text) or (background-clip:text)){
+      .formula{background:linear-gradient(90deg,var(--coral),var(--sun) 34%,var(--aqua) 66%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none}
+    }
     .limit-op{position:relative;display:inline-block;padding-bottom:.34em;font-style:normal;line-height:1}
     .limit-sub{position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-family:var(--math);font-size:.25em;letter-spacing:.02em}
     .math-caption{position:absolute;bottom:24px;margin:0;color:rgba(169,184,206,.74);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
     main{padding:62px 0 140px}
     .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:17px}
-    .section-kicker{margin:0 0 5px;color:var(--gold);font-size:11px;font-weight:750;letter-spacing:.18em;text-transform:uppercase}
+    .section-kicker{margin:0 0 5px;color:var(--sun);font-size:11px;font-weight:750;letter-spacing:.18em;text-transform:uppercase}
     .section-head h2{margin:0;font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:400;letter-spacing:-.02em}
     .lesson-count{color:var(--muted);font-family:var(--math);font-size:13px}
     .lesson-list{border-bottom:1px solid var(--line)}
-    .lesson{display:grid;grid-template-columns:74px minmax(260px,1fr) auto;gap:24px;align-items:center;padding:25px 0;border-top:1px solid var(--line);transition:background-color .18s ease}
-    .lesson:hover{background:linear-gradient(90deg,rgba(156,207,255,.035),transparent 78%)}
-    .lesson-number{color:var(--blue);font-family:var(--math);font-size:30px;font-variant-numeric:tabular-nums}
+    .lesson{--accent:var(--electric);--accent-rgb:114,167,255;display:grid;grid-template-columns:74px minmax(260px,1fr) auto;gap:24px;align-items:center;padding:25px 0;border-top:1px solid var(--line);box-shadow:inset 3px 0 0 transparent;transition:background-color .18s ease,box-shadow .18s ease}
+    .lesson[data-topic="1.1"]{--accent:var(--coral);--accent-rgb:255,93,143}
+    .lesson[data-topic="1.2"]{--accent:var(--orange);--accent-rgb:255,159,67}
+    .lesson[data-topic="1.3"]{--accent:var(--sun);--accent-rgb:255,228,94}
+    .lesson[data-topic="1.4"]{--accent:var(--lime);--accent-rgb:101,230,163}
+    .lesson[data-topic="1.5"]{--accent:var(--aqua);--accent-rgb:66,220,225}
+    .lesson[data-topic="1.6"]{--accent:var(--electric);--accent-rgb:114,167,255}
+    .lesson[data-topic="1.7"]{--accent:var(--violet);--accent-rgb:203,133,255}
+    .lesson:hover{background:linear-gradient(90deg,rgba(var(--accent-rgb),.12),transparent 78%);box-shadow:inset 3px 0 0 var(--accent)}
+    .lesson-number{color:var(--accent);font-family:var(--math);font-size:30px;font-variant-numeric:tabular-nums;text-shadow:0 0 24px rgba(var(--accent-rgb),.38)}
     .lesson-title{min-width:0}
     .lesson-title h3{margin:0;font-family:var(--display);font-size:21px;font-weight:500;letter-spacing:-.012em;line-height:1.25}
     .lesson-title p{margin:5px 0 0;color:var(--muted);font-size:13px}
     .lesson-actions{display:flex;align-items:center;gap:6px}
-    .lesson-action{display:inline-flex;align-items:baseline;justify-content:center;gap:6px;min-height:42px;padding:9px 12px;border:1px solid var(--line);color:var(--text);font-size:12px;font-weight:740;letter-spacing:.025em;text-decoration:none;transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease}
+    .lesson-action{display:inline-flex;align-items:baseline;justify-content:center;gap:6px;min-height:42px;padding:9px 12px;border:1px solid rgba(var(--accent-rgb),.34);color:var(--text);font-size:12px;font-weight:740;letter-spacing:.025em;text-decoration:none;transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease}
     .lesson-action span{color:var(--muted);font-size:10px;font-weight:600}
-    .lesson-action:hover{transform:translateY(-1px);border-color:var(--line-strong);background:var(--space-800)}
+    .lesson-action:hover{transform:translateY(-1px);border-color:rgba(var(--accent-rgb),.82);background:rgba(var(--accent-rgb),.13)}
     .lesson-action:focus-visible,.tool-trigger:focus-visible,.panel-button:focus-visible,.icon-button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
-    .lesson-action.homework{border-color:rgba(232,189,105,.34);color:var(--gold)}
+    .lesson-action.homework{border-color:rgba(var(--accent-rgb),.62);background:rgba(var(--accent-rgb),.07);color:var(--accent)}
     .lesson-source{grid-column:2/-1;margin-top:-11px}
     .lesson-source summary{width:max-content;cursor:pointer;color:rgba(169,184,206,.72);font-size:11px;list-style:none}
     .lesson-source summary::-webkit-details-marker{display:none}
-    .lesson-source summary::before{content:"+ ";color:var(--blue)}
+    .lesson-source summary::before{content:"+ ";color:var(--accent)}
     .lesson-source[open] summary::before{content:"− "}
     .source-links{display:flex;flex-wrap:wrap;gap:8px 18px;padding:10px 0 0}
     .source-links a{color:var(--muted);font-size:11px;text-underline-offset:3px}
-    .source-links a:hover{color:var(--blue)}
+    .source-links a:hover{color:var(--accent)}
     .site-foot{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 0 30px;border-top:1px solid var(--line);color:rgba(169,184,206,.68);font-size:11px}
     .site-foot a{color:var(--muted);text-underline-offset:3px}
     .tool-dock{position:fixed;right:22px;bottom:22px;z-index:20;display:grid;gap:9px}
-    .tool-trigger{display:grid;grid-template-columns:34px auto;align-items:center;gap:10px;min-width:142px;min-height:52px;padding:8px 14px 8px 9px;border:1px solid var(--line-strong);background:var(--space-800);color:var(--text);box-shadow:0 10px 34px rgba(0,0,0,.28);cursor:pointer;text-align:left}
-    .tool-trigger:hover{border-color:rgba(156,207,255,.6);background:var(--space-700)}
-    .tool-symbol{display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(156,207,255,.38);border-radius:50%;color:var(--blue);font-family:var(--math);font-size:18px}
-    .tool-trigger:last-child .tool-symbol{border-color:rgba(232,189,105,.4);color:var(--gold)}
+    .tool-trigger{--tool-accent:var(--question);--tool-rgb:255,79,179;display:grid;grid-template-columns:34px auto;align-items:center;gap:10px;min-width:142px;min-height:52px;padding:8px 14px 8px 9px;border:1px solid rgba(var(--tool-rgb),.72);background:linear-gradient(100deg,rgba(var(--tool-rgb),.18),var(--space-800) 66%);color:var(--text);box-shadow:0 10px 34px rgba(0,0,0,.28),0 0 24px rgba(var(--tool-rgb),.12);cursor:pointer;text-align:left}
+    .tool-trigger:last-child{--tool-accent:var(--picker);--tool-rgb:255,200,87}
+    .tool-trigger:hover{border-color:var(--tool-accent);background:linear-gradient(100deg,rgba(var(--tool-rgb),.28),var(--space-700) 72%)}
+    .tool-symbol{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--tool-accent);border-radius:50%;background:var(--tool-accent);color:#07101f;font-family:var(--math);font-size:18px;box-shadow:0 0 22px rgba(var(--tool-rgb),.35)}
     .tool-copy{display:grid;gap:1px;font-size:12px;font-weight:760;line-height:1.15}
-    .tool-copy small{color:var(--muted);font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-    dialog{position:fixed;inset:auto 22px 22px auto;width:min(590px,calc(100% - 44px));max-height:min(760px,calc(100vh - 44px));margin:0;padding:0;overflow:auto;border:1px solid var(--line-strong);border-radius:18px;background:var(--space-850);color:var(--text);box-shadow:var(--shadow)}
+    .tool-copy small{color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
+    dialog{--tool-accent:var(--electric);--tool-rgb:114,167,255;position:fixed;inset:auto 22px 22px auto;width:min(590px,calc(100% - 44px));max-height:min(760px,calc(100vh - 44px));margin:0;padding:0;overflow:auto;border:1px solid rgba(var(--tool-rgb),.54);border-radius:18px;background:linear-gradient(145deg,rgba(var(--tool-rgb),.09),transparent 34%),var(--space-850);color:var(--text);box-shadow:var(--shadow),0 0 42px rgba(var(--tool-rgb),.13)}
+    #question-dialog{--tool-accent:var(--question);--tool-rgb:255,79,179}
+    #picker-dialog{--tool-accent:var(--picker);--tool-rgb:255,200,87}
+    #question-dialog[data-topic="1.1"]{--tool-accent:var(--coral);--tool-rgb:255,93,143}
+    #question-dialog[data-topic="1.2"]{--tool-accent:var(--orange);--tool-rgb:255,159,67}
+    #question-dialog[data-topic="1.3"]{--tool-accent:var(--sun);--tool-rgb:255,228,94}
+    #question-dialog[data-topic="1.4"]{--tool-accent:var(--lime);--tool-rgb:101,230,163}
+    #question-dialog[data-topic="1.5"]{--tool-accent:var(--aqua);--tool-rgb:66,220,225}
+    #question-dialog[data-topic="1.6"]{--tool-accent:var(--electric);--tool-rgb:114,167,255}
+    #question-dialog[data-topic="1.7"]{--tool-accent:var(--violet);--tool-rgb:203,133,255}
     dialog::backdrop{background:rgba(1,3,10,.67);backdrop-filter:blur(3px)}
     dialog[open]{animation:panel-in .18s ease-out}
     @keyframes panel-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
     .dialog-shell{padding:25px}
     .dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding-bottom:18px;border-bottom:1px solid var(--line)}
-    .dialog-head p{margin:0 0 4px;color:var(--blue);font-size:10px;font-weight:760;letter-spacing:.16em;text-transform:uppercase}
+    .dialog-head p{margin:0 0 4px;color:var(--tool-accent);font-size:10px;font-weight:760;letter-spacing:.16em;text-transform:uppercase}
     .dialog-head h2{margin:0;font-family:var(--display);font-size:27px;font-weight:500}
     .icon-button{display:grid;place-items:center;flex:0 0 auto;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--muted);cursor:pointer;font-size:22px;line-height:1}
     .icon-button:hover{color:var(--text);border-color:var(--line-strong)}
     .question-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;color:var(--muted);font-size:10px;font-weight:720;letter-spacing:.08em;text-transform:uppercase}
-    .topic-chip{padding:4px 8px;border:1px solid rgba(156,207,255,.32);color:var(--blue)}
+    .topic-chip{padding:4px 8px;border:1px solid rgba(var(--tool-rgb),.5);color:var(--tool-accent)}
     .difficulty{padding-left:9px;border-left:1px solid var(--line)}
     .question-text{min-height:92px;margin:20px 0 0;font-family:var(--display);font-size:clamp(21px,3.6vw,29px);line-height:1.34;white-space:pre-line}
     .question-hint{margin:13px 0 0;color:var(--muted);font-size:13px}
     .answer-panel{margin-top:21px;padding:17px 0 0;border-top:1px solid var(--line)}
-    .answer-label{margin:0 0 7px;color:var(--gold);font-size:10px;font-weight:760;letter-spacing:.15em;text-transform:uppercase}
+    .answer-label{margin:0 0 7px;color:var(--tool-accent);font-size:10px;font-weight:760;letter-spacing:.15em;text-transform:uppercase}
     .answer-text{margin:0;font-family:var(--display);font-size:19px;line-height:1.45}
     .explanation{margin:11px 0 0;color:var(--muted);font-size:12px;line-height:1.6}
     .dialog-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:9px;margin-top:24px}
     .panel-button{min-height:43px;padding:9px 15px;border:1px solid var(--line-strong);background:transparent;color:var(--text);cursor:pointer;font-size:12px;font-weight:750}
     .panel-button:hover{background:var(--space-700)}
-    .panel-button.primary{border-color:rgba(156,207,255,.5);background:#152848;color:#eef8ff}
+    .panel-button:disabled{opacity:.44;cursor:not-allowed}
+    .panel-button.primary{border-color:rgba(var(--tool-rgb),.76);background:rgba(var(--tool-rgb),.19);color:var(--text)}
     .picker-stage{display:grid;place-items:center;padding:24px 0 18px;text-align:center}
-    .student-orb{position:relative;display:grid;place-items:center;width:104px;height:104px;border:1px solid rgba(255,255,255,.34);border-radius:50%;background:radial-gradient(circle at 32% 26%,#cfeaff 0 4%,var(--orb,#386aa0) 38%,#16243f 100%);box-shadow:0 0 0 11px rgba(156,207,255,.04),0 0 54px rgba(156,207,255,.12);font-family:var(--display);font-size:40px}
+    .student-orb{position:relative;display:grid;place-items:center;width:104px;height:104px;border:1px solid rgba(255,255,255,.42);border-radius:50%;background:radial-gradient(circle at 32% 26%,#fff4c9 0 4%,var(--orb,#386aa0) 38%,#16243f 100%);box-shadow:0 0 0 11px rgba(255,200,87,.05),0 0 58px rgba(255,200,87,.2);font-family:var(--display);font-size:40px}
     .student-orb img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover}
-    .student-orb::after{content:"";position:absolute;inset:-13px;border:1px solid rgba(232,189,105,.24);border-radius:50%;transform:rotate(-18deg) scaleY(.42)}
-    .picker-state{margin:22px 0 4px;color:var(--blue);font-size:10px;font-weight:760;letter-spacing:.16em;text-transform:uppercase}
+    .student-orb::after{content:"";position:absolute;inset:-13px;border:1px solid rgba(255,200,87,.42);border-radius:50%;transform:rotate(-18deg) scaleY(.42)}
+    .picker-state{margin:22px 0 4px;color:var(--picker);font-size:10px;font-weight:760;letter-spacing:.16em;text-transform:uppercase}
     .student-name{margin:0;font-family:var(--display);font-size:37px;font-weight:500;letter-spacing:.04em}
-    .student-nickname{margin:5px 0 0;color:var(--gold);font-size:12px}
+    .student-nickname{margin:5px 0 0;color:var(--picker);font-size:12px}
     .picker-status{margin:7px 0 0;color:var(--muted);font-size:12px}
     .picker-progress{height:2px;margin:0 0 18px;background:var(--line)}
-    .picker-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .25s ease}
+    .picker-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--coral),var(--orange),var(--sun),var(--lime),var(--aqua),var(--electric),var(--violet));transition:width .25s ease}
     .attendance{margin-top:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .attendance summary{padding:12px 0;cursor:pointer;color:var(--muted);font-size:11px;font-weight:720;list-style:none}
     .attendance summary::-webkit-details-marker{display:none}
-    .attendance summary::after{content:" +";color:var(--blue)}
+    .attendance summary::after{content:" +";color:var(--picker)}
     .attendance[open] summary::after{content:" −"}
     .roster-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 14px;padding:0 0 14px}
     .roster-item{display:grid;grid-template-columns:30px minmax(0,1fr) 18px;align-items:center;gap:8px;color:var(--muted);font-size:12px}
-    .roster-item input{width:16px;height:16px;margin:0;accent-color:var(--blue)}
+    .roster-item input{width:16px;height:16px;margin:0;accent-color:var(--picker)}
     .roster-avatar{display:grid;place-items:center;width:30px;height:30px;overflow:hidden;border:1px solid var(--line-strong);border-radius:50%;background:var(--orb,#386aa0);color:#fff;font-family:var(--display);font-size:13px}
     .roster-avatar img{display:block;width:100%;height:100%;object-fit:cover}
     .roster-copy{display:grid;min-width:0;line-height:1.2}
@@ -172,7 +207,7 @@
       .lesson-source{grid-column:2;margin-top:0}
     }
     @media(max-width:600px){
-      .shell{width:min(100% - 28px,1120px)}
+      .shell{width:min(1120px,calc(100% - 28px))}
       .topbar{min-height:56px}.year{display:none}
       .hero{padding:52px 0 58px}
       h1{font-size:clamp(43px,16vw,64px)}
@@ -187,7 +222,7 @@
       .lesson-action{width:100%;min-height:44px}
       .site-foot{display:block;padding-bottom:100px}.site-foot span{display:block;margin-top:5px}
       .tool-dock{right:12px;bottom:max(10px,env(safe-area-inset-bottom));left:12px;grid-template-columns:1fr 1fr;gap:8px}
-      .tool-trigger{grid-template-columns:31px auto;min-width:0;min-height:52px;padding:7px 10px;background:#111a34}
+      .tool-trigger{grid-template-columns:31px auto;min-width:0;min-height:52px;padding:7px 10px;background:linear-gradient(100deg,rgba(var(--tool-rgb),.2),#111a34 72%)}
       .tool-symbol{width:31px;height:31px}
       dialog{inset:auto 10px calc(76px + env(safe-area-inset-bottom)) 10px;width:auto;max-height:calc(100vh - 98px - env(safe-area-inset-bottom))}
       .dialog-shell{padding:21px 18px}.dialog-head h2{font-size:24px}
@@ -199,14 +234,22 @@
       html{scroll-behavior:auto}
       *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
     }
+    @media(forced-colors:active){
+      #math-sky,.grid-wash{display:none}
+      .formula{background:none;color:CanvasText;-webkit-text-fill-color:CanvasText}
+      .lesson,.lesson:hover{box-shadow:none}
+      .tool-symbol{background:CanvasText;color:Canvas}
+    }
     @media print{
       :root{color-scheme:light;--text:#111;--muted:#444;--line:#aaa;--line-strong:#777}
       body{background:#fff;color:#111}.grid-wash,#math-sky,.tool-dock,dialog{display:none!important}
       .topbar,.hero,.lesson-list,.site-foot{border-color:#bbb}
       .hero{grid-template-columns:1fr;min-height:0;padding:32px 0}.math-stage{display:none}
-      main{padding:30px 0}.lesson{grid-template-columns:55px 1fr;padding:16px 0;break-inside:avoid}
-      .lesson-actions{grid-column:2}.lesson-action{color:#111;border-color:#999}
-      .lesson-source{display:none}.site-foot{padding:18px 0}
+      main{padding:30px 0}.lesson{--accent:#111;--accent-rgb:17,17,17;grid-template-columns:55px 1fr;padding:16px 0;break-inside:avoid;box-shadow:none}
+      .lesson:hover{background:none;box-shadow:none}
+      .lesson-actions{grid-column:2}.lesson-action,.lesson-action.homework{background:none;color:#111;border-color:#999}
+      .eyebrow,.section-kicker,.sequence li:nth-child(n),.lesson-number{color:#111;text-shadow:none}
+      .lesson-source{display:none}.site-foot{padding:18px 0;color:#444}
     }
   </style>
 </head>
@@ -252,11 +295,11 @@
         <p class="section-kicker">Course map</p>
         <h2>Lessons / 课程</h2>
       </div>
-      <span class="lesson-count">01 — 05</span>
+      <span class="lesson-count">01 — 07</span>
     </div>
 
     <section class="lesson-list" aria-label="Unit 1 lessons">
-      <article class="lesson">
+      <article class="lesson" data-topic="1.1">
         <div class="lesson-number">1.1</div>
         <div class="lesson-title">
           <h3>Can Change Occur at an Instant?</h3>
@@ -278,7 +321,7 @@
         </details>
       </article>
 
-      <article class="lesson">
+      <article class="lesson" data-topic="1.2">
         <div class="lesson-number">1.2</div>
         <div class="lesson-title">
           <h3>Defining Limits &amp; Limit Notation</h3>
@@ -300,7 +343,7 @@
         </details>
       </article>
 
-      <article class="lesson">
+      <article class="lesson" data-topic="1.3">
         <div class="lesson-number">1.3</div>
         <div class="lesson-title">
           <h3>Limit Values from Graphs</h3>
@@ -322,7 +365,7 @@
         </details>
       </article>
 
-      <article class="lesson">
+      <article class="lesson" data-topic="1.4">
         <div class="lesson-number">1.4</div>
         <div class="lesson-title">
           <h3>Limit Values from Tables</h3>
@@ -344,7 +387,7 @@
         </details>
       </article>
 
-      <article class="lesson">
+      <article class="lesson" data-topic="1.5">
         <div class="lesson-number">1.5</div>
         <div class="lesson-title">
           <h3>Algebraic Properties of Limits</h3>
@@ -362,6 +405,50 @@
             <a href="https://calculus.flippedmath.com/15-determining-limits-using-algebraic-properties.html">Lesson</a>
             <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf">Packet</a>
             <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.6">
+        <div class="lesson-number">1.6</div>
+        <div class="lesson-title">
+          <h3>Limits Using Algebraic Manipulation</h3>
+          <p>用代数化简求极限</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.6 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.6_Review_5min_Quiz.html">Quiz <span>小测</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.6_Determining_Limits_Using_Algebraic_Manipulation_English_Key_CN.html">Notes <span>讲义</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.6_Determining_Limits_Using_Algebraic_Manipulation_English_Key_CN.html?answers=show">Answers <span>答案</span></a>
+          <a class="lesson-action homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_ca1.pdf" target="_blank" rel="noopener">CA #1 <span>作业</span></a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources / 官方资料</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html">Lesson</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_packet.pdf">Packet</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.6_solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.7">
+        <div class="lesson-number">1.7</div>
+        <div class="lesson-title">
+          <h3>Selecting Procedures for Limits</h3>
+          <p>选择合适方法求极限</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.7 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.7_Review_5min_Quiz.html">Quiz <span>小测</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.7_Selecting_Procedures_for_Determining_Limits_English_Key_CN.html">Notes <span>讲义</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.7_Selecting_Procedures_for_Determining_Limits_English_Key_CN.html?answers=show">Answers <span>答案</span></a>
+          <a class="lesson-action homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_ca1.pdf" target="_blank" rel="noopener">CA #1 <span>作业</span></a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources / 官方资料</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/17-selecting-procedures-for-determining-limits.html">Lesson</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf">Packet</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf">Solutions</a>
           </div>
         </details>
       </article>
@@ -398,7 +485,7 @@
         <span id="question-label">Topic</span>
         <span class="difficulty" id="question-difficulty">Easy</span>
       </div>
-      <p class="question-text" id="question-text"></p>
+      <p class="question-text" id="question-text" aria-live="polite"></p>
       <p class="question-hint" id="question-hint"></p>
       <section class="answer-panel" id="answer-panel" aria-live="polite" hidden>
         <p class="answer-label">Answer / 答案</p>
@@ -406,7 +493,7 @@
         <p class="explanation" id="answer-explanation"></p>
       </section>
       <div class="dialog-actions">
-        <button class="panel-button" id="answer-toggle" type="button">Show Answer / 显示答案</button>
+        <button class="panel-button" id="answer-toggle" type="button" aria-controls="answer-panel" aria-expanded="false">Show Answer / 显示答案</button>
         <button class="panel-button primary" id="next-question" type="button">Next / 再抽一道</button>
       </div>
     </div>
@@ -486,6 +573,7 @@
       }
       if (!questionQueue.length) questionQueue = shuffledIndices(questionBank.length);
       const question = questionBank[questionQueue.pop()];
+      questionDialog.dataset.topic = question.topic;
       byId("question-topic").textContent = question.topic;
       byId("question-label").textContent = question.label;
       byId("question-difficulty").textContent = question.difficulty;
@@ -495,6 +583,7 @@
       byId("answer-explanation").textContent = question.explanation;
       answerPanel.hidden = true;
       byId("answer-toggle").textContent = "Show Answer / 显示答案";
+      byId("answer-toggle").setAttribute("aria-expanded", "false");
     }
 
     questionTrigger.addEventListener("click", () => {
@@ -509,6 +598,7 @@
       byId("answer-toggle").textContent = answerPanel.hidden
         ? "Show Answer / 显示答案"
         : "Hide Answer / 收起答案";
+      byId("answer-toggle").setAttribute("aria-expanded", String(!answerPanel.hidden));
     });
 
     const roster = Object.freeze([
@@ -743,12 +833,17 @@
       }
 
       const starCount = Math.min(170, Math.max(72, Math.floor((width * height) / 9000)));
+      const coloredStars = ["255,93,143", "255,228,94", "66,220,225", "203,133,255"];
       for (let index = 0; index < starCount; index += 1) {
         const x = random() * width;
         const y = random() * Math.min(height, 820);
         const radius = random() * 1.25 + .25;
+        const colorRoll = random();
+        const starColor = colorRoll < .76
+          ? "232,240,255"
+          : coloredStars[Math.floor(random() * coloredStars.length)];
         context.beginPath();
-        context.fillStyle = "rgba(220,236,255," + (random() * .55 + .18) + ")";
+        context.fillStyle = "rgba(" + starColor + "," + (random() * .58 + .2) + ")";
         context.arc(x, y, radius, 0, Math.PI * 2);
         context.fill();
       }
@@ -760,7 +855,11 @@
         if (x === -20) context.moveTo(x, y);
         else context.lineTo(x, y);
       }
-      context.strokeStyle = "rgba(115,213,208,.10)";
+      const curveGradient = context.createLinearGradient(0, 0, width, 0);
+      curveGradient.addColorStop(0, "rgba(255,93,143,.16)");
+      curveGradient.addColorStop(.5, "rgba(66,220,225,.2)");
+      curveGradient.addColorStop(1, "rgba(203,133,255,.16)");
+      context.strokeStyle = curveGradient;
       context.lineWidth = 1.15;
       context.stroke();
 
@@ -770,11 +869,11 @@
       context.arc(holeX, holeY, 4.5, 0, Math.PI * 2);
       context.fillStyle = "rgba(5,7,17,.9)";
       context.fill();
-      context.strokeStyle = "rgba(232,189,105,.38)";
+      context.strokeStyle = "rgba(255,228,94,.56)";
       context.stroke();
       context.beginPath();
       context.arc(holeX, holeY + 31, 2.8, 0, Math.PI * 2);
-      context.fillStyle = "rgba(232,189,105,.45)";
+      context.fillStyle = "rgba(255,228,94,.64)";
       context.fill();
     }
 

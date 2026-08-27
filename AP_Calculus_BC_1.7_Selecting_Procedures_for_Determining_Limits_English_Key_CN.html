@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 1.7 | Selecting Procedures for Determining Limits</title>
+  <style>
+    :root {
+      --navy:#16324f; --blue:#2f5d8c; --blue-light:#eaf0f5; --ink:#1f2a33;
+      --muted:#667585; --paper:#fff; --mist:#f3f6f8; --line:#c9d3dc;
+      --gold:#c9902f; --teal:#16837a; --red:#ad433b; --shadow:0 18px 55px rgba(22,50,79,.20);
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+      --math:"STIX Two Math","Cambria Math","Times New Roman",serif;
+    }
+    * { box-sizing:border-box; }
+    html,body { width:100%; height:100%; }
+    body { margin:0; overflow:hidden; background:#dfe6ec; color:var(--ink); font-family:var(--sans); }
+    button { font:inherit; }
+    .app { width:100%; height:100%; position:relative; }
+    .viewport { position:absolute; inset:0 0 58px; display:grid; place-items:center; padding:22px; overflow:hidden; }
+    .deck { position:absolute; left:50%; top:50%; width:1600px; height:900px; transform-origin:50% 50%; }
+    .slide {
+      position:absolute; inset:0; display:none; overflow:hidden; isolation:isolate;
+      padding:60px 94px 68px 108px; background:var(--paper); box-shadow:var(--shadow);
+    }
+    .slide.active { display:block; animation:enter .16s ease-out; }
+    @keyframes enter { from{opacity:.25;transform:translateY(4px)} to{opacity:1;transform:none} }
+    .slide::before { content:""; position:absolute; inset:0 auto 0 0; width:14px; background:var(--blue); z-index:-1; }
+    .slide::after { content:""; position:absolute; inset:0 0 auto 14px; height:8px; background:var(--navy); z-index:-1; }
+    .slide.soft { background:var(--mist); }
+    .slide.section { background:var(--navy); color:#fff; }
+    .slide.section::before { background:var(--gold); }
+    .slide.section::after { background:#0e253b; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:930px; margin:34px 0 14px; font:700 70px/1.03 Georgia,"Times New Roman",serif; letter-spacing:-.025em; }
+    h1 span { display:block; }
+    h2 { margin:8px 0 6px; color:var(--navy); font:700 48px/1.08 Georgia,"Times New Roman",serif; white-space:nowrap; }
+    .section h2 { color:#fff; }
+    h3 { margin-bottom:10px; color:var(--navy); font-size:25px; line-height:1.2; }
+    .section h3 { color:#fff; }
+    p,li { font-size:23px; line-height:1.42; }
+    .eyebrow { margin:0; color:var(--blue); font-size:18px; font-weight:820; letter-spacing:.12em; text-transform:uppercase; }
+    .section .eyebrow { color:#9fc5e2; }
+    .accent-rule { width:130px; height:6px; margin-top:26px; background:var(--gold); }
+    .lead { max-width:1000px; font-size:28px; line-height:1.42; }
+    .zh-title { margin:0 0 24px; color:var(--gold); font-size:22px; font-weight:760; }
+    .zh-key { display:block; margin-top:6px; color:#9a6818; font-size:.82em; font-weight:720; }
+    .section .zh-key { color:#e7c56f; }
+    .small { font-size:20px; }
+    .muted { color:var(--muted); }
+    .math,.formula { font-family:var(--math); }
+    .formula { font-size:36px; line-height:1.35; }
+    .small-formula { font-size:30px; }
+    sup,sub { line-height:0; }
+    .limit-op { display:inline-grid; grid-template-rows:1fr auto; justify-items:center; margin:0 5px; line-height:.78; vertical-align:middle; }
+    .limit-op .op { font-size:1em; font-style:normal; }
+    .limit-op .sub { margin-top:4px; font-size:.48em; white-space:nowrap; }
+    .frac { display:inline-grid; grid-template-rows:auto auto; justify-items:center; margin:0 5px; line-height:1.05; vertical-align:middle; }
+    .frac > span:first-child { min-width:100%; padding:0 6px 3px; border-bottom:2px solid currentColor; text-align:center; }
+    .frac > span:last-child { padding-top:3px; }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:start; }
+    .split.wide-left { grid-template-columns:1.18fr .82fr; }
+    .statement { padding:26px 0 24px; border-top:6px solid var(--blue); border-bottom:1px solid #8fa0af; }
+    .callout { margin-top:22px; padding:15px 18px; border-left:6px solid var(--blue); background:var(--blue-light); font-size:20px; line-height:1.38; }
+    .callout.gold { border-left-color:var(--gold); background:#fbf5e9; }
+    .callout.teal { border-left-color:var(--teal); background:#eaf5f3; }
+    .callout.red { border-left-color:var(--red); background:#faefee; }
+    .rule-line { display:grid; grid-template-columns:220px 1fr auto; gap:24px; align-items:center; padding:14px 0; border-top:1px solid var(--line); }
+    .rule-line:first-child { border-top:5px solid var(--blue); }
+    .rule-line .step { color:var(--blue); font-size:20px; font-weight:820; letter-spacing:.06em; text-transform:uppercase; }
+    .rule-line .result { color:var(--teal); font-size:20px; font-weight:820; }
+    .term-table,.compare-table { width:100%; border-collapse:collapse; table-layout:fixed; }
+    .term-table th,.term-table td,.compare-table th,.compare-table td { padding:8px 13px; border-bottom:1px solid var(--line); text-align:left; font-size:18px; line-height:1.2; }
+    .term-table th,.compare-table th { padding-top:11px; padding-bottom:11px; background:var(--navy); color:#fff; font-size:18px; }
+    .term-table td:nth-child(odd) { color:var(--navy); font-weight:780; }
+    .term-table td:nth-child(even) { color:#8b5d15; font-weight:670; }
+    .term-note { margin-top:18px; padding-top:12px; border-top:3px solid var(--gold); font-size:19px; }
+    .procedure-list { margin:16px 0 0; padding:0; list-style:none; }
+    .procedure-list li { display:grid; grid-template-columns:62px 1fr; gap:18px; padding:13px 0; border-top:1px solid var(--line); }
+    .procedure-list b { color:var(--blue); font:700 32px/1 Georgia,"Times New Roman",serif; }
+    .equation-work { margin-top:22px; padding:22px 0; border-top:4px solid var(--blue); border-bottom:1px solid var(--line); }
+    .equation-work .formula + .formula { margin-top:15px; }
+    .answer { display:none; margin-top:16px; padding:14px 18px; border-left:6px solid var(--teal); background:#eaf4f2; color:var(--ink); font-size:21px; line-height:1.4; }
+    .answer.show { display:block; }
+    .answer strong { color:var(--teal); }
+    .reveal-btn { appearance:none; margin-top:10px; padding:9px 17px; border:2px solid var(--blue); border-radius:0; background:transparent; color:var(--blue); font-size:19px; font-weight:790; cursor:pointer; }
+    .reveal-btn:hover,.reveal-btn:focus-visible { background:var(--blue); color:#fff; outline:none; }
+    .choice-list { list-style:none; margin:10px 0 16px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 34px; }
+    .choice-list li { font-size:23px; }
+    .choice-list .letter { display:inline-block; width:42px; color:var(--blue); font-weight:820; }
+    .mistake-list { margin:8px 0 0; padding-left:1.15em; }
+    .mistake-list li { margin:13px 0; }
+    .warning { color:var(--red); font-weight:800; }
+    .correct { color:var(--teal); font-weight:800; }
+    .hero-equation { position:absolute; right:92px; top:170px; width:480px; padding:28px 0; border-top:7px solid #8fafd0; border-bottom:1px solid #6f8ea9; color:#fff; font-family:var(--math); font-size:35px; line-height:1.55; }
+    .hero-equation .choice { display:flex; justify-content:space-between; gap:20px; color:#dfeaf3; }
+    .hero-equation .choice b { color:#e7c56f; font-family:var(--sans); font-size:22px; }
+    .title-note { position:absolute; left:108px; bottom:92px; display:flex; align-items:center; gap:18px; color:#d8e4ee; font-size:21px; }
+    .title-note .line { width:86px; height:2px; background:#86a7c4; }
+    .slide-footer { position:absolute; left:108px; right:58px; bottom:25px; display:flex; justify-content:space-between; align-items:center; gap:24px; color:#6d7a87; font-size:15px; }
+    .section .slide-footer { color:#c7d6e2; }
+    .notes { display:none; }
+    .controls { position:absolute; left:0; right:0; bottom:0; height:58px; display:flex; align-items:center; gap:14px; padding:0 22px; background:#f7f9fb; border-top:1px solid #c5d0da; color:#506171; z-index:20; }
+    .controls button { border:0; background:transparent; color:var(--navy); cursor:pointer; font-weight:760; padding:8px 10px; }
+    .controls button:hover,.controls button:focus-visible { background:#e9eef2; outline:none; }
+    .progress-track { flex:1; height:4px; margin:0 10px; background:#d6dfe7; }
+    .progress-bar { width:0; height:100%; background:var(--blue); transition:width .18s ease; }
+    .counter { min-width:82px; text-align:center; font-variant-numeric:tabular-nums; }
+    .key-hint { color:#778593; font-size:14px; white-space:nowrap; }
+    .notes-panel { position:absolute; z-index:40; right:22px; bottom:76px; display:none; width:min(560px,calc(100vw - 44px)); max-height:66vh; overflow:auto; padding:22px 24px; background:#fffef7; border:1px solid #c7b876; box-shadow:0 14px 40px rgba(30,42,53,.25); color:#36352d; }
+    .notes-panel.open { display:block; }
+    .notes-panel h3 { margin-bottom:12px; font-size:22px; }
+    .notes-panel p,.notes-panel li { font-size:16px; line-height:1.55; }
+    .help { position:absolute; inset:0; z-index:50; display:none; place-items:center; background:rgba(22,50,79,.78); }
+    .help.open { display:grid; }
+    .help-card { width:560px; padding:34px 40px; background:#fff; box-shadow:var(--shadow); }
+    .help-card h3 { font-size:30px; }
+    .help-card p { font-size:20px; }
+    kbd { border:1px solid #aebbc6; padding:2px 7px; background:#f6f8fa; font-family:ui-monospace,monospace; }
+    @media (max-width:760px) { .key-hint{display:none}.controls{gap:4px;padding:0 8px} }
+    @page { size:16in 9in; margin:0; }
+    @media print {
+      html,body{width:auto;height:auto;overflow:visible;background:#fff}.app,.viewport{position:static;display:block;padding:0;overflow:visible}
+      .deck{position:static;left:auto;top:auto;transform:none!important;width:1600px;height:auto}
+      .slide{position:relative;display:block!important;width:1600px;height:900px;box-shadow:none;break-after:page;page-break-after:always;animation:none!important}
+      .controls,.notes-panel,.help,.reveal-btn{display:none!important}.answer{display:block}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="viewport" id="viewport">
+      <main class="deck" id="deck" aria-live="polite">
+
+        <section class="slide section active" data-title="Selecting Procedures for Determining Limits">
+          <p class="eyebrow">AP Calculus BC · Topic 1.7</p>
+          <div class="accent-rule"></div>
+          <h1><span>Selecting Procedures</span><span>for Determining Limits</span></h1>
+          <p class="lead" style="color:#e7c56f">选择合适的方法求极限</p>
+          <div class="hero-equation">
+            <div class="choice"><span>finite value</span><b>substitute</b></div>
+            <div class="choice"><span>0 / 0</span><b>transform</b></div>
+            <div class="choice"><span>nonzero / 0</span><b>check sides</b></div>
+          </div>
+          <div class="title-note"><span class="line"></span><span>Substitute first · Diagnose the result · Choose one useful move</span></div>
+          <div class="slide-footer"><span>Class slides · English main text with key Chinese</span><span>1.7</span></div>
+          <aside class="notes"><p><b>开场：</b>1.6 学了多种计算工具，1.7 的目标是先诊断再选工具。让学生先说“代入得到什么”，再说“下一步做什么”。</p><p>[Sources]<br>https://calculus.flippedmath.com/17-selecting-procedures-for-determining-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Core Vocabulary for Topic 1.7">
+          <p class="eyebrow">Language first · One-page reference</p>
+          <h2>Core Vocabulary for Topic 1.7</h2>
+          <p class="zh-title">本节核心词汇集中在这一页</p>
+          <table class="term-table" aria-label="Core English and Chinese vocabulary">
+            <tr><th>English</th><th>中文</th><th>English</th><th>中文</th></tr>
+            <tr><td>procedure</td><td>步骤；方法</td><td>direct substitution</td><td>直接代入</td></tr>
+            <tr><td>diagnose</td><td>判断结果类型</td><td>indeterminate form</td><td>未定式</td></tr>
+            <tr><td>algebraic manipulation</td><td>代数变形</td><td>equivalent expression</td><td>等价表达式</td></tr>
+            <tr><td>factor</td><td>因式分解</td><td>common factor</td><td>公因式</td></tr>
+            <tr><td>cancel</td><td>约分</td><td>rationalize</td><td>有理化</td></tr>
+            <tr><td>conjugate</td><td>共轭式</td><td>radical</td><td>根式</td></tr>
+            <tr><td>complex fraction</td><td>复合分式</td><td>common denominator</td><td>公分母；通分</td></tr>
+            <tr><td>numerator</td><td>分子</td><td>denominator</td><td>分母</td></tr>
+            <tr><td>one-sided behavior</td><td>单侧趋势</td><td>domain</td><td>定义域</td></tr>
+            <tr><td>removable discontinuity</td><td>可去间断点</td><td>DNE (does not exist)</td><td>不存在</td></tr>
+          </table>
+          <p class="term-note"><b>Class sentence:</b> “Direct substitution gives an indeterminate form, so I will ______.”<span class="zh-key">课堂句型：直接代入得到未定式，所以我要 ______。</span></p>
+          <div class="slide-footer"><span>Keep this page open while naming each procedure.</span><span>02</span></div>
+          <aside class="notes"><p>先朗读 procedure、substitution、factor、rationalize、conjugate、complex fraction。提醒学生 0/0 是 “zero over zero”，DNE 读 “does not exist”。</p><p>[Sources]<br>https://calculus.flippedmath.com/17-selecting-procedures-for-determining-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Substitute Before You Manipulate">
+          <p class="eyebrow">The first move is diagnostic</p>
+          <h2>Substitute Before You Manipulate</h2>
+          <p class="zh-title">先代入判断，再决定是否需要变形</p>
+          <div class="split wide-left" style="margin-top:34px">
+            <div class="statement">
+              <div class="formula">1. Substitute the approaching value.</div>
+              <div class="formula" style="margin-top:24px">2. Read the form you get.</div>
+              <div class="formula" style="margin-top:24px">3. Use only the procedure that fixes that form.</div>
+            </div>
+            <div>
+              <h3>Why this saves time</h3>
+              <p>A complicated-looking expression may already have a finite value. In that case, extra algebra adds risk without adding information.</p>
+              <p class="callout gold">Appearance does not choose the procedure. The substitution result does.<span class="zh-key">不要看外形猜方法；看代入后的结果。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Every example today begins with the same first line: “Substitute.”</span><span>03</span></div>
+          <aside class="notes"><p>让学生把 “substitute first” 写在页边。选方法的证据必须来自代入后的形式，而不是“看到根号就有理化”。</p><p>[Sources]<br>https://calculus.flippedmath.com/17-selecting-procedures-for-determining-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="The Substitution Result Chooses the Next Move">
+          <p class="eyebrow">Four diagnoses</p>
+          <h2>The Substitution Result Chooses the Next Move</h2>
+          <p class="zh-title">代入结果决定下一步</p>
+          <div style="margin-top:24px">
+            <div class="rule-line"><span class="step">finite real value</span><span>Evaluate and stop.</span><span class="result">direct substitution</span></div>
+            <div class="rule-line"><span class="step">0 / 0</span><span>The form is indeterminate; rewrite the expression.</span><span class="result">factor, rationalize, or combine</span></div>
+            <div class="rule-line"><span class="step">nonzero / 0</span><span>Check signs and one-sided behavior.</span><span class="result">infinite limit or DNE</span></div>
+            <div class="rule-line"><span class="step">outside domain</span><span>Inspect the nearby real domain before deciding.</span><span class="result">one-sided or DNE</span></div>
+          </div>
+          <p class="callout red"><b>0/0 is not an answer.</b> It tells you the current expression hides more information.<span class="zh-key">0/0 不是答案，而是“需要继续变形”的信号。</span></p>
+          <div class="slide-footer"><span>“Indeterminate” means the form alone does not determine the limit.</span><span>04</span></div>
+          <aside class="notes"><p>快速口答：3/4 → stop；0/0 → rewrite；5/0 → check signs；√(negative nearby) → check domain。不要把所有分母为 0 的情况都称为 0/0。</p><p>[Sources]<br>https://calculus.flippedmath.com/17-selecting-procedures-for-determining-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Use This Decision Sequence">
+          <p class="eyebrow">A repeatable routine</p>
+          <h2>Use This Decision Sequence</h2>
+          <p class="zh-title">按同一顺序判断，减少试错</p>
+          <ol class="procedure-list">
+            <li><b>01</b><span><strong>Substitute.</strong> If the result is a finite real number, you are done.<span class="zh-key">直接代入得到有限实数，就结束。</span></span></li>
+            <li><b>02</b><span>If you get <span class="math">0/0</span>, look for a <strong>shared algebraic cause</strong>: a common factor, a radical difference, or nested denominators.<span class="zh-key">0/0 后判断：公因式、根式差，还是复合分式。</span></span></li>
+            <li><b>03</b><span>Rewrite on a punctured neighborhood, then substitute again.<span class="zh-key">在去心邻域内改写成等价式，再次代入。</span></span></li>
+            <li><b>04</b><span>If the denominator approaches 0 but the numerator does not, compare the two sides.<span class="zh-key">若是非零/0，要检查左右符号。</span></span></li>
+          </ol>
+          <div class="slide-footer"><span>The sequence matters more than memorizing a list of tricks.</span><span>05</span></div>
+          <aside class="notes"><p>强调 punctured neighborhood：约分后的式子可以在 x≠a 时与原式相等，而极限只关心 a 附近。这里不要求正式定义，只要求学生理解“点上可不同，附近相同”。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="A Radical Does Not Automatically Mean Rationalize">
+          <p class="eyebrow">Procedure 1 · Direct substitution</p>
+          <h2>A Radical Does Not Automatically Mean Rationalize</h2>
+          <p class="zh-title">有根号不代表一定要有理化</p>
+          <div class="split" style="margin-top:34px">
+            <div>
+              <div class="statement">
+                <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→1</span></span>√(x+4)</div>
+                <div class="formula" style="margin-top:24px">= √(1+4)</div>
+                <div class="formula correct" style="margin-top:24px">= √5</div>
+              </div>
+            </div>
+            <div>
+              <h3>Diagnosis</h3>
+              <p>Substitution gives the finite real number <span class="math">√5</span>. No denominator becomes zero and no ambiguity remains.</p>
+              <p class="callout teal"><b>Procedure:</b> direct substitution.<span class="zh-key">代入后已经得到有限实数，不需要额外变形。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Packet practice 2 · The expression looks harder than the procedure is.</span><span>06</span></div>
+          <aside class="notes"><p>先遮住答案，让学生只说代入结果。追问：为什么不需要乘共轭式？因为没有 0/0。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="A Shared Factor Calls for Cancellation">
+          <p class="eyebrow">Procedure 2 · Factor and cancel</p>
+          <h2>A Shared Factor Calls for Cancellation</h2>
+          <p class="zh-title">出现公因式时，因式分解并约分</p>
+          <div class="split wide-left" style="margin-top:30px">
+            <div class="equation-work">
+              <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span><span class="frac"><span>x²−5x</span><span>x−5</span></span></div>
+              <div class="formula">= <span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span><span class="frac"><span>x(x−5)</span><span>x−5</span></span></div>
+              <div class="formula">= <span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>x = <strong class="correct">5</strong></div>
+            </div>
+            <div>
+              <h3>Why cancellation is legal</h3>
+              <p>For every nearby input with <span class="math">x≠5</span>, the two expressions agree. A limit can ignore the missing point itself.</p>
+              <p class="callout gold">Cancel <b>factors</b>, never separate terms.<span class="zh-key">只能约因子，不能跨加减号约项。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Packet practice 8 · Factor first; cancel second.</span><span>07</span></div>
+          <aside class="notes"><p>学生若把 x² 与 x 相约，要求先写完整因式分解。提醒原函数在 x=5 可能无定义，但极限仍可为 5。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="A Difference of Radicals Calls for the Conjugate">
+          <p class="eyebrow">Procedure 3 · Rationalize</p>
+          <h2>A Difference of Radicals Calls for the Conjugate</h2>
+          <p class="zh-title">根式作差得到 0/0 时，乘共轭式</p>
+          <div class="split wide-left" style="margin-top:24px">
+            <div class="equation-work">
+              <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>√(x+7)−√7</span><span>x</span></span></div>
+              <div class="formula">= <span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>1</span><span>√(x+7)+√7</span></span></div>
+              <div class="formula correct">= <span class="frac"><span>1</span><span>2√7</span></span></div>
+            </div>
+            <div>
+              <h3>The useful identity</h3>
+              <div class="statement"><div class="formula small-formula">(A−B)(A+B)=A²−B²</div></div>
+              <p>The conjugate turns the radical difference into <span class="math">(x+7)−7=x</span>, which cancels the denominator.</p>
+              <p class="callout teal"><b>Signal:</b> a radical difference plus <span class="math">0/0</span>.<span class="zh-key">“根式差 + 0/0” 才是有理化信号。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Packet practice 1 · Multiply by a form of 1.</span><span>08</span></div>
+          <aside class="notes"><p>板书中把共轭式写成分子分母相同，强调乘的是 1。约分后再代入，答案 1/(2√7)。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Nested Denominators Call for One Fraction">
+          <p class="eyebrow">Procedure 4 · Simplify a complex fraction</p>
+          <h2>Nested Denominators Call for One Fraction</h2>
+          <p class="zh-title">复合分式先通分，再约去造成 0/0 的因子</p>
+          <div class="split wide-left" style="margin-top:24px">
+            <div class="equation-work">
+              <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span><span class="frac"><span>1</span><span>x+3</span></span>−<span class="frac"><span>1</span><span>3</span></span></span><span>x</span></span></div>
+              <div class="formula">= <span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>−x</span><span>3(x+3)</span></span> · <span class="frac"><span>1</span><span>x</span></span></div>
+              <div class="formula correct">= −<span class="frac"><span>1</span><span>9</span></span></div>
+            </div>
+            <div>
+              <h3>Two clean moves</h3>
+              <p><b>1.</b> Combine the numerator using the common denominator <span class="math">3(x+3)</span>.</p>
+              <p><b>2.</b> Rewrite division by <span class="math">x</span> as multiplication by <span class="math">1/x</span>.</p>
+              <p class="callout gold">Do not substitute again until the entire complex fraction is simplified.<span class="zh-key">整式化简完成后再代入。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Packet practice 3 · Keep the fraction bars at different visual levels.</span><span>09</span></div>
+          <aside class="notes"><p>学生常漏掉“除以 x”等于“乘 1/x”。要求把大分数线画长，先明确大分子和大分母。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="A Rational Expression May Still Need Only Substitution">
+          <p class="eyebrow">Do not over-process</p>
+          <h2>A Rational Expression May Still Need Only Substitution</h2>
+          <p class="zh-title">分式不等于“必须因式分解”</p>
+          <div class="split" style="margin-top:34px">
+            <div class="statement">
+              <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→−3</span></span><span class="frac"><span>x−2</span><span>x²−3x+2</span></span></div>
+              <div class="formula" style="margin-top:22px">= <span class="frac"><span>−5</span><span>9+9+2</span></span></div>
+              <div class="formula correct" style="margin-top:22px">= −<span class="frac"><span>1</span><span>4</span></span></div>
+            </div>
+            <div>
+              <h3>Diagnosis</h3>
+              <p>The denominator approaches <span class="math">20</span>, not 0. The quotient law applies immediately.</p>
+              <p class="callout teal"><b>Procedure:</b> direct substitution.<span class="zh-key">分母极限非零，可以直接代入。</span></p>
+              <p class="small muted">A longer method can be correct, but it is not the best procedure.</p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Packet practice 4 · Choose the shortest justified route.</span><span>10</span></div>
+          <aside class="notes"><p>让学生先预测“是否需要因式分解”，再计算分母值 20。目标是把“外形”与“诊断”分开。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Four Errors to Catch Early">
+          <p class="eyebrow">Common errors</p>
+          <h2>Four Errors to Catch Early</h2>
+          <p class="zh-title">四个常见错误</p>
+          <ol class="mistake-list">
+            <li><span class="warning">Calling 0/0 the limit.</span> It is an indeterminate form, not a final value.<span class="zh-key">0/0 是继续计算的信号，不是极限值。</span></li>
+            <li><span class="warning">Cancelling terms.</span> Cancellation works only with common factors.<span class="zh-key">只能约公因子，不能约加减中的“项”。</span></li>
+            <li><span class="warning">Rationalizing every radical.</span> First check whether substitution already works.<span class="zh-key">先代入；不是所有根式都要有理化。</span></li>
+            <li><span class="warning">Stopping after the rewrite.</span> Substitute again and state the limit clearly.<span class="zh-key">变形后还要再次代入并写出结论。</span></li>
+          </ol>
+          <div class="slide-footer"><span>A correct procedure includes a diagnosis, a rewrite, and a final evaluation.</span><span>11</span></div>
+          <aside class="notes"><p>可以让四名学生各读一条英文错误描述，再让全班给出中文解释。把第 2 条配一个错误示例，如 (x²−5x)/(x−5) 不能直接把分子中的 x 与分母约掉。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Choose the Procedure Before Computing">
+          <p class="eyebrow">Quick sort · Say the method first</p>
+          <h2>Choose the Procedure Before Computing</h2>
+          <p class="zh-title">先说方法，再计算</p>
+          <ul class="choice-list">
+            <li><span class="letter">A.</span><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→−3</span></span><span class="frac"><span>x−2</span><span>x²−3x+2</span></span></span></li>
+            <li><span class="letter">B.</span><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span><span class="frac"><span>x²−5x</span><span>x−5</span></span></span></li>
+            <li><span class="letter">C.</span><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→7</span></span><span class="frac"><span>√(x+9)−4</span><span>x−7</span></span></span></li>
+            <li><span class="letter">D.</span><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span><span class="frac"><span>1</span><span>x+3</span></span>−<span class="frac"><span>1</span><span>3</span></span></span><span>x</span></span></span></li>
+          </ul>
+          <button class="reveal-btn" type="button" data-reveal="answer12">Show procedures and values</button>
+          <div class="answer" id="answer12"><b>A.</b> direct substitution, <span class="math">−1/4</span> · <b>B.</b> factor and cancel, <span class="math">5</span> · <b>C.</b> rationalize, <span class="math">1/8</span> · <b>D.</b> combine the complex fraction, <span class="math">−1/9</span>.<span class="zh-key">先看代入结果，再把 0/0 与对应的代数结构配对。</span></div>
+          <div class="slide-footer"><span>Four expressions; four different best procedures.</span><span>12</span></div>
+          <aside class="notes"><p>30 秒只报程序，不计算；再给 90 秒算结果。C 的共轭化简后为 1/(√(x+9)+4)，答案 1/8。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Guided Practice: Two Different 0 over 0 Forms">
+          <p class="eyebrow">Guided practice · Diagnose before solving</p>
+          <h2>Guided Practice: Two Different 0/0 Forms</h2>
+          <p class="zh-title">同样是 0/0，结构不同，方法不同</p>
+          <div class="split" style="margin-top:22px">
+            <div>
+              <h3>A · Radical difference</h3>
+              <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span>√(x+11)−√11</span><span>x</span></span></div>
+              <p class="small">Name the procedure and evaluate.</p>
+            </div>
+            <div>
+              <h3>B · Complex fraction</h3>
+              <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span><span class="frac"><span><span class="frac"><span>1</span><span>(x+2)²</span></span>−<span class="frac"><span>1</span><span>4</span></span></span><span>x</span></span></div>
+              <p class="small">Name the procedure and evaluate.</p>
+            </div>
+          </div>
+          <button class="reveal-btn" type="button" data-reveal="answer13">Show solutions</button>
+          <div class="answer" id="answer13"><b>A.</b> Rationalize: <span class="math"><span class="frac"><span>1</span><span>√(x+11)+√11</span></span>→<strong><span class="frac"><span>1</span><span>2√11</span></span></strong></span>.<br><b>B.</b> Combine fractions: <span class="math"><span class="frac"><span>4−(x+2)²</span><span>4(x+2)²x</span></span>=−<span class="frac"><span>x+4</span><span>4(x+2)²</span></span>→<strong>−1/4</strong></span>.<span class="zh-key">A 用共轭式；B 先通分，再约去 x。</span></div>
+          <div class="slide-footer"><span>Packet practice 11 and 13 · Same form, different structure.</span><span>13</span></div>
+          <aside class="notes"><p>A=1/(2√11)，B=−1/4。重点问句：“What inside the expression made you choose that procedure?”</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="AP Check: Rationalize with a Parameter">
+          <p class="eyebrow">AP-style check · Parameter b</p>
+          <h2>AP Check: Rationalize with a Parameter</h2>
+          <p class="zh-title">含参数时，同样先找共轭式</p>
+          <div class="statement" style="margin-top:26px">
+            <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→b</span></span><span class="frac"><span>b−x</span><span>√x−√b</span></span></div>
+          </div>
+          <ul class="choice-list" style="margin-top:24px">
+            <li><span class="letter">A.</span><span class="math">−2√b</span></li><li><span class="letter">B.</span><span class="math">−√b</span></li>
+            <li><span class="letter">C.</span><span class="math">2b</span></li><li><span class="letter">D.</span><span class="math">√b</span></li>
+            <li><span class="letter">E.</span><span class="math">2√b</span></li>
+          </ul>
+          <button class="reveal-btn" type="button" data-reveal="answer14">Show solution</button>
+          <div class="answer" id="answer14"><strong>A.</strong> Since <span class="math">b−x=−(x−b)=−(√x−√b)(√x+√b)</span>, the quotient equals <span class="math">−(√x+√b)</span> for nearby <span class="math">x≠b</span>. Its limit is <span class="math"><strong>−2√b</strong></span>.<span class="zh-key">先把 b−x 写成 −(x−b)，负号不能丢。</span></div>
+          <div class="slide-footer"><span>Packet test prep 14 · Track the negative sign before cancelling.</span><span>14</span></div>
+          <aside class="notes"><p>正确选项 A。最常见错误是把 b−x 当成 x−b，从而选 E。让学生先圈出负号，再写平方差。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide section" data-title="Exit Ticket: Name the Procedure and Finish">
+          <p class="eyebrow">Exit ticket · One complete explanation</p>
+          <h2>Exit Ticket: Name the Procedure and Finish</h2>
+          <p class="zh-title">说出方法，并完成计算</p>
+          <div class="split" style="margin-top:34px">
+            <div>
+              <div class="hero-equation" style="position:static;width:auto;color:#fff">
+                <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→1</span></span><span class="frac"><span><span class="frac"><span>1</span><span>3</span></span>−<span class="frac"><span>1</span><span>3x</span></span></span><span>x−1</span></span></div>
+              </div>
+              <p class="lead" style="margin-top:24px">Write one sentence: “I chose ______ because direct substitution gave ______.”</p>
+              <span class="zh-key">写一句理由：我选择 ______，因为直接代入得到 ______。</span>
+            </div>
+            <div>
+              <button class="reveal-btn" type="button" data-reveal="answer15" style="border-color:#e7c56f;color:#e7c56f">Show answer</button>
+              <div class="answer" id="answer15"><b>Procedure:</b> combine the complex fraction. Substitution gives <span class="math">0/0</span>.<div class="formula small-formula" style="margin-top:12px"><span class="frac"><span>1/3−1/(3x)</span><span>x−1</span></span>=<span class="frac"><span>(x−1)/(3x)</span><span>x−1</span></span>=<span class="frac"><span>1</span><span>3x</span></span>→<strong>1/3</strong></div><span class="zh-key">先通分得到公因子 x−1，再约分并代入。</span></div>
+            </div>
+          </div>
+          <div class="title-note"><span class="line"></span><span>Substitute · Diagnose · Select · Simplify · Substitute again</span></div>
+          <div class="slide-footer"><span>Tomorrow’s habit: name the evidence for your procedure.</span><span>15</span></div>
+          <aside class="notes"><p>答案 1/3，方法是化简复合分式。收尾让学生齐读五个动词：substitute, diagnose, select, simplify, substitute again。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf</p></aside>
+        </section>
+
+      </main>
+    </div>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button id="prevBtn" type="button" aria-label="Previous slide">← Prev</button>
+      <button id="nextBtn" type="button" aria-label="Next slide">Next →</button>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="counter" id="counter">1 / 15</span>
+      <button id="notesBtn" type="button">Notes</button>
+      <button id="helpBtn" type="button">?</button>
+      <span class="key-hint">← → navigate · R reveal · N notes</span>
+    </nav>
+    <aside class="notes-panel" id="notesPanel" aria-live="polite"><h3>Teacher Notes</h3><div id="notesContent"></div></aside>
+    <div class="help" id="help" role="dialog" aria-modal="true" aria-label="Keyboard help">
+      <div class="help-card">
+        <h3>Keyboard shortcuts</h3>
+        <p><kbd>←</kbd> / <kbd>→</kbd> previous or next slide</p>
+        <p><kbd>R</kbd> reveal the current answer</p>
+        <p><kbd>N</kbd> open or close teacher notes</p>
+        <p><kbd>Home</kbd> / <kbd>End</kbd> first or last slide</p>
+        <p><kbd>Esc</kbd> close this panel</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const slides=[...document.querySelectorAll('.slide')];
+    const deck=document.getElementById('deck');
+    const viewport=document.getElementById('viewport');
+    const counter=document.getElementById('counter');
+    const progressBar=document.getElementById('progressBar');
+    const notesPanel=document.getElementById('notesPanel');
+    const notesContent=document.getElementById('notesContent');
+    const help=document.getElementById('help');
+    let index=Math.max(0,Math.min(slides.length-1,Number(location.hash.slice(1)||1)-1));
+    function scaleDeck(){
+      const scale=Math.min((viewport.clientWidth-44)/1600,(viewport.clientHeight-44)/900);
+      deck.style.transform=`translate(-50%,-50%) scale(${scale})`;
+    }
+    function showSlide(next){
+      index=Math.max(0,Math.min(slides.length-1,next));
+      slides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
+      counter.textContent=`${index+1} / ${slides.length}`;
+      progressBar.style.width=`${((index+1)/slides.length)*100}%`;
+      history.replaceState(null,'',`${location.pathname}${location.search}#${index+1}`);
+      const notes=slides[index].querySelector('.notes');
+      notesContent.innerHTML=notes?notes.innerHTML:'<p>No notes for this slide.</p>';
+      document.title=`1.7 · ${slides[index].dataset.title}`;
+    }
+    function toggleCurrentReveal(){
+      const answer=slides[index].querySelector('.answer');
+      if(!answer) return;
+      const show=!answer.classList.contains('show');
+      answer.classList.toggle('show',show);
+      const button=slides[index].querySelector('[data-reveal]');
+      if(button) button.textContent=show?'Hide answer':'Show answer';
+    }
+    document.querySelectorAll('[data-reveal]').forEach(button=>button.addEventListener('click',()=>{
+      const answer=document.getElementById(button.dataset.reveal); const show=!answer.classList.contains('show');
+      answer.classList.toggle('show',show); button.textContent=show?'Hide answer':'Show answer';
+    }));
+    document.getElementById('prevBtn').addEventListener('click',()=>showSlide(index-1));
+    document.getElementById('nextBtn').addEventListener('click',()=>showSlide(index+1));
+    document.getElementById('notesBtn').addEventListener('click',()=>notesPanel.classList.toggle('open'));
+    document.getElementById('helpBtn').addEventListener('click',()=>help.classList.toggle('open'));
+    help.addEventListener('click',event=>{if(event.target===help) help.classList.remove('open');});
+    addEventListener('keydown',event=>{
+      if(event.key==='ArrowRight'||event.key==='PageDown'||event.key===' '){event.preventDefault();showSlide(index+1);}
+      else if(event.key==='ArrowLeft'||event.key==='PageUp'){event.preventDefault();showSlide(index-1);}
+      else if(event.key==='Home') showSlide(0);
+      else if(event.key==='End') showSlide(slides.length-1);
+      else if(event.key.toLowerCase()==='r') toggleCurrentReveal();
+      else if(event.key.toLowerCase()==='n') notesPanel.classList.toggle('open');
+      else if(event.key==='Escape'){notesPanel.classList.remove('open');help.classList.remove('open');}
+    });
+    if(new URLSearchParams(location.search).get('answers')==='show'){
+      document.querySelectorAll('.answer').forEach(answer=>answer.classList.add('show'));
+      document.querySelectorAll('[data-reveal]').forEach(button=>button.textContent='Hide answer');
+    }
+    addEventListener('resize',scaleDeck);
+    scaleDeck();
+    showSlide(index);
+  </script>
+</body>
+</html>
