@@ -139,9 +139,11 @@
     .panel-button.primary{border-color:rgba(156,207,255,.5);background:#152848;color:#eef8ff}
     .picker-stage{display:grid;place-items:center;padding:24px 0 18px;text-align:center}
     .student-orb{position:relative;display:grid;place-items:center;width:104px;height:104px;border:1px solid rgba(255,255,255,.34);border-radius:50%;background:radial-gradient(circle at 32% 26%,#cfeaff 0 4%,var(--orb,#386aa0) 38%,#16243f 100%);box-shadow:0 0 0 11px rgba(156,207,255,.04),0 0 54px rgba(156,207,255,.12);font-family:var(--display);font-size:40px}
+    .student-orb img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover}
     .student-orb::after{content:"";position:absolute;inset:-13px;border:1px solid rgba(232,189,105,.24);border-radius:50%;transform:rotate(-18deg) scaleY(.42)}
     .picker-state{margin:22px 0 4px;color:var(--blue);font-size:10px;font-weight:760;letter-spacing:.16em;text-transform:uppercase}
     .student-name{margin:0;font-family:var(--display);font-size:37px;font-weight:500;letter-spacing:.04em}
+    .student-nickname{margin:5px 0 0;color:var(--gold);font-size:12px}
     .picker-status{margin:7px 0 0;color:var(--muted);font-size:12px}
     .picker-progress{height:2px;margin:0 0 18px;background:var(--line)}
     .picker-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .25s ease}
@@ -151,9 +153,13 @@
     .attendance summary::after{content:" +";color:var(--blue)}
     .attendance[open] summary::after{content:" −"}
     .roster-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 14px;padding:0 0 14px}
-    .roster-item{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}
-    .roster-item input{width:16px;height:16px;accent-color:var(--blue)}
-    .roster-item span{color:var(--text)}
+    .roster-item{display:grid;grid-template-columns:30px minmax(0,1fr) 18px;align-items:center;gap:8px;color:var(--muted);font-size:12px}
+    .roster-item input{width:16px;height:16px;margin:0;accent-color:var(--blue)}
+    .roster-avatar{display:grid;place-items:center;width:30px;height:30px;overflow:hidden;border:1px solid var(--line-strong);border-radius:50%;background:var(--orb,#386aa0);color:#fff;font-family:var(--display);font-size:13px}
+    .roster-avatar img{display:block;width:100%;height:100%;object-fit:cover}
+    .roster-copy{display:grid;min-width:0;line-height:1.2}
+    .roster-copy span{overflow:hidden;color:var(--text);font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+    .roster-copy small{overflow:hidden;color:var(--muted);font-size:9px;text-overflow:ellipsis;white-space:nowrap}
     .drawing .student-orb{animation:orbit-pulse .22s ease-in-out infinite alternate}
     @keyframes orbit-pulse{to{transform:scale(.96);filter:saturate(1.25)}}
     @media(max-width:900px){
@@ -419,6 +425,7 @@
         <div class="student-orb" id="student-orb" aria-hidden="true">?</div>
         <p class="picker-state" id="picker-state">Ready / 准备抽取</p>
         <p class="student-name" id="student-name">六位学生</p>
+        <p class="student-nickname" id="student-nickname" hidden></p>
         <p class="picker-status" id="picker-status">第 1 轮 · 剩余 6 / 6</p>
       </div>
       <div class="picker-progress" aria-hidden="true"><span id="picker-progress"></span></div>
@@ -505,12 +512,12 @@
     });
 
     const roster = Object.freeze([
-      { id:"s01", name:"黄一凡", color:"#4d87c6" },
-      { id:"s02", name:"梁益宁", color:"#4a8d86" },
-      { id:"s03", name:"刘子诚", color:"#725b9c" },
-      { id:"s04", name:"芮嘉言", color:"#a26b55" },
-      { id:"s05", name:"唐静蕾", color:"#5e71ac" },
-      { id:"s06", name:"夏梓程", color:"#8d5771" }
+      { id:"s01", name:"黄一凡", nickname:"Ivannnn", avatar:"assets/avatars/Ivannnn.jpg", color:"#4d87c6" },
+      { id:"s02", name:"梁益宁", nickname:"良品宁", avatar:"assets/avatars/liang-yining.jpg", color:"#4a8d86" },
+      { id:"s03", name:"刘子诚", nickname:"Kris..", avatar:"assets/avatars/kris.jpg", color:"#725b9c" },
+      { id:"s04", name:"芮嘉言", nickname:"牢年入", avatar:"assets/avatars/ryan.jpg", color:"#a26b55" },
+      { id:"s05", name:"唐静蕾", nickname:"绝望的农村人", avatar:"assets/avatars/desperate-rural.jpg", color:"#5e71ac" },
+      { id:"s06", name:"夏梓程", nickname:"让我再睡一会", avatar:"assets/avatars/sleep-more.jpg", color:"#8d5771" }
     ]);
     const rosterById = new Map(roster.map((student) => [student.id, student]));
     const pickerStorageKey = "ap-calculus-home-picker-v1";
@@ -559,16 +566,35 @@
       return eligibleStudents().filter((student) => !drawn.has(student.id));
     }
 
-    function setOrbStudent(student) {
-      const orb = byId("student-orb");
+    function fillAvatar(container, student) {
+      container.replaceChildren();
+      container.style.setProperty("--orb", student ? student.color : "#386aa0");
       if (!student) {
-        orb.textContent = "?";
-        orb.style.setProperty("--orb", "#386aa0");
+        container.textContent = "?";
         return;
       }
-      orb.textContent = Array.from(student.name)[0];
-      orb.style.setProperty("--orb", student.color);
+      const image = document.createElement("img");
+      image.src = student.avatar;
+      image.alt = "";
+      image.decoding = "async";
+      image.addEventListener("error", () => {
+        container.replaceChildren();
+        container.textContent = Array.from(student.name)[0];
+      }, { once:true });
+      container.append(image);
+    }
+
+    function setOrbStudent(student) {
+      const nickname = byId("student-nickname");
+      fillAvatar(byId("student-orb"), student);
+      if (!student) {
+        nickname.hidden = true;
+        nickname.textContent = "";
+        return;
+      }
       byId("student-name").textContent = student.name;
+      nickname.textContent = "微信昵称 · " + student.nickname;
+      nickname.hidden = false;
     }
 
     function renderPicker() {
@@ -642,6 +668,17 @@
       roster.forEach((student) => {
         const label = document.createElement("label");
         label.className = "roster-item";
+        const avatar = document.createElement("span");
+        avatar.className = "roster-avatar";
+        avatar.setAttribute("aria-hidden", "true");
+        fillAvatar(avatar, student);
+        const copy = document.createElement("span");
+        copy.className = "roster-copy";
+        const name = document.createElement("span");
+        name.textContent = student.name;
+        const nickname = document.createElement("small");
+        nickname.textContent = student.nickname;
+        copy.append(name, nickname);
         const input = document.createElement("input");
         input.type = "checkbox";
         input.checked = pickerState.absentIds.includes(student.id);
@@ -655,9 +692,7 @@
           savePickerState();
           renderPicker();
         });
-        const name = document.createElement("span");
-        name.textContent = student.name;
-        label.append(input, name);
+        label.append(avatar, copy, input);
         grid.append(label);
       });
     }
