@@ -11,6 +11,11 @@ Each topic follows one classroom sequence:
 
 Open `index.html` locally or through GitHub Pages.
 
+## Classroom tools
+
+- Random Question — 30 English-first prompts covering Topics 1.1–1.5, with key Chinese hints and toggle answers.
+- Student Picker — six-name public roster with no-repeat rounds and an attendance switch.
+
 ## Keyboard controls for class notes
 
 - `←` / `→`, Page Up / Page Down: navigate
@@ -23,4 +28,4 @@ Open `index.html` locally or through GitHub Pages.
 
 The lesson structure is based on the corresponding pages at [FlippedMath Calculus](https://calculus.flippedmath.com/). Official packets, practice solutions and corrective assignments are linked from their original URLs and are not mirrored in this repository.
 
-The local `private/` directory and `student-picker.html` may contain student roster data and are intentionally excluded from Git.
+The compact homepage picker publishes the six authorized formal names. The local `private/` directory, WeChat avatars/nicknames, and the full `student-picker.html` remain excluded because the profile-to-name mapping has not been confirmed.

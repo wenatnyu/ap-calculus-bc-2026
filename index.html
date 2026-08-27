@@ -3,141 +3,752 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#16324f">
-  <title>AP Calculus BC · Unit 1 Course Materials</title>
+  <meta name="theme-color" content="#070914">
+  <meta name="description" content="AP Calculus BC Unit 1: Limits and Continuity. Quizzes, class notes, answers, homework, and classroom random tools.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AP Calculus BC · Limits &amp; Continuity">
+  <meta property="og:description" content="Unit 1 course materials · Quiz → Notes → Answers → CA #1">
+  <meta property="og:url" content="https://wenatnyu.github.io/ap-calculus-bc-2026/">
+  <meta property="og:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-unit1-og.png">
+  <meta property="og:image:width" content="1672">
+  <meta property="og:image:height" content="941">
+  <meta property="og:image:alt" content="AP Calculus BC Limits and Continuity on a cosmic coordinate grid">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AP Calculus BC · Limits &amp; Continuity">
+  <meta name="twitter:description" content="Unit 1 course materials · Quiz → Notes → Answers → CA #1">
+  <meta name="twitter:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-unit1-og.png">
+  <title>AP Calculus BC · Limits &amp; Continuity</title>
   <style>
     :root {
-      --navy:#16324f;
-      --blue:#2f5d8c;
-      --ink:#1e2a35;
-      --muted:#607080;
-      --paper:#ffffff;
-      --soft:#f3f6f8;
-      --line:#cbd5df;
-      --gold:#c78318;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
-      color:var(--ink);
-      background:#eef2f5;
+      color-scheme: dark;
+      --space-950:#050711;
+      --space-900:#090d1d;
+      --space-850:#0d1329;
+      --space-800:#101830;
+      --space-700:#172242;
+      --text:#f4f1ea;
+      --muted:#a9b8ce;
+      --blue:#9ccfff;
+      --cyan:#73d5d0;
+      --gold:#e8bd69;
+      --rose:#d59bd8;
+      --line:rgba(185,204,235,.17);
+      --line-strong:rgba(185,204,235,.34);
+      --focus:#ffdc88;
+      --display:"Iowan Old Style","Palatino Linotype","Songti SC",STSong,Georgia,serif;
+      --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+      --math:"STIX Two Math","Cambria Math","Times New Roman",serif;
+      --shadow:0 24px 80px rgba(0,0,0,.42);
     }
     *{box-sizing:border-box}
-    body{margin:0;background:#eef2f5;line-height:1.55}
+    html{min-height:100%;scroll-behavior:smooth;background:var(--space-950)}
+    body{min-height:100vh;margin:0;overflow-x:hidden;background:
+      radial-gradient(circle at 15% 0%,rgba(72,99,190,.2),transparent 32rem),
+      radial-gradient(circle at 90% 8%,rgba(54,154,151,.1),transparent 27rem),
+      linear-gradient(180deg,rgba(5,7,17,.35),var(--space-950) 42rem);
+      color:var(--text);font-family:var(--sans);line-height:1.5}
+    button,input{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
     a{color:inherit}
-    .site-head{background:var(--navy);color:#fff;border-bottom:6px solid var(--gold)}
-    .head-inner,.main,.site-foot{width:min(1180px,calc(100% - 36px));margin:auto}
-    .head-inner{padding:32px 0 29px}
-    .eyebrow{margin:0 0 7px;color:#c9d8e6;font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
-    h1{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(34px,5vw,56px);line-height:1.08;font-weight:700}
-    .subtitle{max-width:760px;margin:12px 0 0;color:#e2eaf1;font-size:16px}
-    .main{padding:32px 0 44px}
-    .intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:start;padding:20px 22px;border:1px solid var(--line);background:var(--paper)}
-    .intro p{margin:0;color:var(--muted)}
-    .legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
-    .legend span{padding:4px 8px;border:1px solid var(--line);background:var(--soft);font-size:12px;white-space:nowrap}
-    .section-title{margin:34px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--navy);font-size:22px;color:var(--navy)}
-    .topic-list{display:grid;gap:18px}
-    .topic{border:1px solid var(--line);border-left:6px solid var(--blue);background:var(--paper)}
-    .topic-head{display:grid;grid-template-columns:90px minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
-    .topic-number{font-family:Georgia,"Times New Roman",serif;font-size:34px;font-weight:700;color:var(--navy)}
-    .topic h2{margin:0;font-size:21px;line-height:1.25;color:var(--navy)}
-    .topic-note{margin:4px 0 0;color:var(--muted);font-size:13px}
-    .slide-count{color:var(--muted);font-size:12px;white-space:nowrap}
-    .resources{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line)}
-    .resource{display:block;min-height:94px;padding:14px 15px;background:var(--paper);text-decoration:none}
-    .resource:hover,.resource:focus-visible{background:#f7fafc}
-    .resource strong{display:block;color:var(--blue);font-size:15px}
-    .resource span{display:block;margin-top:4px;color:var(--muted);font-size:12px}
-    .resource.homework strong{color:#8b5a0b}
-    details{border-top:1px solid var(--line);background:var(--soft)}
-    summary{padding:10px 20px;cursor:pointer;color:var(--muted);font-size:13px;font-weight:700}
-    .source-links{display:flex;flex-wrap:wrap;gap:16px;padding:0 20px 13px;font-size:13px}
-    .source-links a{color:var(--blue)}
-    .privacy-note{margin-top:26px;padding:16px 18px;border-left:4px solid var(--gold);background:#fff9ed;color:#5f4b2b;font-size:13px}
-    .site-foot{padding:0 0 30px;color:var(--muted);font-size:12px}
-    @media(max-width:800px){
-      .intro{grid-template-columns:1fr}.legend{justify-content:flex-start}
-      .topic-head{grid-template-columns:68px minmax(0,1fr)}.slide-count{display:none}
-      .resources{grid-template-columns:repeat(2,minmax(0,1fr))}
+    [hidden]{display:none!important}
+    .skip-link{position:fixed;left:12px;top:12px;z-index:100;transform:translateY(-160%);padding:10px 14px;background:var(--text);color:var(--space-950);text-decoration:none}
+    .skip-link:focus{transform:none}
+    #math-sky{position:fixed;inset:0;z-index:-2;width:100%;height:100%;pointer-events:none}
+    .grid-wash{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.22;background-image:
+      linear-gradient(rgba(156,207,255,.07) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(156,207,255,.07) 1px,transparent 1px);
+      background-size:72px 72px;mask-image:linear-gradient(to bottom,black,transparent 72%);-webkit-mask-image:linear-gradient(to bottom,black,transparent 72%)}
+    .shell{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;min-height:64px;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:11px;color:var(--text);font-size:12px;font-weight:750;letter-spacing:.15em;text-decoration:none;text-transform:uppercase}
+    .brand-mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid rgba(232,189,105,.65);border-radius:50%;color:var(--gold);font-family:var(--math);font-size:17px}
+    .year{color:var(--muted);font-size:12px;letter-spacing:.08em}
+    .hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.74fr);gap:56px;align-items:center;min-height:500px;padding:72px 0 82px;border-bottom:1px solid var(--line)}
+    .hero::before,.hero::after{content:"";position:absolute;pointer-events:none;border:1px solid rgba(232,189,105,.18);border-radius:50%}
+    .hero::before{right:-90px;top:68px;width:500px;height:300px;transform:rotate(-14deg)}
+    .hero::after{right:0;top:119px;width:340px;height:210px;transform:rotate(18deg);border-color:rgba(115,213,208,.14)}
+    .hero-copy{position:relative;z-index:1}
+    .eyebrow{margin:0 0 14px;color:var(--blue);font-size:12px;font-weight:750;letter-spacing:.2em;text-transform:uppercase}
+    h1{max-width:780px;margin:0;font-family:var(--display);font-size:clamp(46px,7.2vw,86px);font-weight:400;letter-spacing:-.047em;line-height:.96}
+    .hero-cn{margin:17px 0 0;color:var(--muted);font-family:var(--display);font-size:clamp(18px,2.2vw,25px);letter-spacing:.16em}
+    .sequence{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:31px 0 0;padding:0;list-style:none;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+    .sequence li{display:flex;align-items:center;gap:8px}
+    .sequence li:not(:last-child)::after{content:"→";color:var(--gold);font-weight:400}
+    .math-stage{position:relative;z-index:1;display:grid;place-items:center;min-height:270px}
+    .formula{position:relative;display:flex;align-items:center;gap:.22em;color:var(--gold);font-family:var(--math);font-size:clamp(41px,5vw,68px);white-space:nowrap;text-shadow:0 0 36px rgba(232,189,105,.12)}
+    .limit-op{position:relative;display:inline-block;padding-bottom:.34em;font-style:normal;line-height:1}
+    .limit-sub{position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-family:var(--math);font-size:.25em;letter-spacing:.02em}
+    .math-caption{position:absolute;bottom:24px;margin:0;color:rgba(169,184,206,.74);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+    main{padding:62px 0 140px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:17px}
+    .section-kicker{margin:0 0 5px;color:var(--gold);font-size:11px;font-weight:750;letter-spacing:.18em;text-transform:uppercase}
+    .section-head h2{margin:0;font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:400;letter-spacing:-.02em}
+    .lesson-count{color:var(--muted);font-family:var(--math);font-size:13px}
+    .lesson-list{border-bottom:1px solid var(--line)}
+    .lesson{display:grid;grid-template-columns:74px minmax(260px,1fr) auto;gap:24px;align-items:center;padding:25px 0;border-top:1px solid var(--line);transition:background-color .18s ease}
+    .lesson:hover{background:linear-gradient(90deg,rgba(156,207,255,.035),transparent 78%)}
+    .lesson-number{color:var(--blue);font-family:var(--math);font-size:30px;font-variant-numeric:tabular-nums}
+    .lesson-title{min-width:0}
+    .lesson-title h3{margin:0;font-family:var(--display);font-size:21px;font-weight:500;letter-spacing:-.012em;line-height:1.25}
+    .lesson-title p{margin:5px 0 0;color:var(--muted);font-size:13px}
+    .lesson-actions{display:flex;align-items:center;gap:6px}
+    .lesson-action{display:inline-flex;align-items:baseline;justify-content:center;gap:6px;min-height:42px;padding:9px 12px;border:1px solid var(--line);color:var(--text);font-size:12px;font-weight:740;letter-spacing:.025em;text-decoration:none;transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease}
+    .lesson-action span{color:var(--muted);font-size:10px;font-weight:600}
+    .lesson-action:hover{transform:translateY(-1px);border-color:var(--line-strong);background:var(--space-800)}
+    .lesson-action:focus-visible,.tool-trigger:focus-visible,.panel-button:focus-visible,.icon-button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+    .lesson-action.homework{border-color:rgba(232,189,105,.34);color:var(--gold)}
+    .lesson-source{grid-column:2/-1;margin-top:-11px}
+    .lesson-source summary{width:max-content;cursor:pointer;color:rgba(169,184,206,.72);font-size:11px;list-style:none}
+    .lesson-source summary::-webkit-details-marker{display:none}
+    .lesson-source summary::before{content:"+ ";color:var(--blue)}
+    .lesson-source[open] summary::before{content:"− "}
+    .source-links{display:flex;flex-wrap:wrap;gap:8px 18px;padding:10px 0 0}
+    .source-links a{color:var(--muted);font-size:11px;text-underline-offset:3px}
+    .source-links a:hover{color:var(--blue)}
+    .site-foot{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 0 30px;border-top:1px solid var(--line);color:rgba(169,184,206,.68);font-size:11px}
+    .site-foot a{color:var(--muted);text-underline-offset:3px}
+    .tool-dock{position:fixed;right:22px;bottom:22px;z-index:20;display:grid;gap:9px}
+    .tool-trigger{display:grid;grid-template-columns:34px auto;align-items:center;gap:10px;min-width:142px;min-height:52px;padding:8px 14px 8px 9px;border:1px solid var(--line-strong);background:var(--space-800);color:var(--text);box-shadow:0 10px 34px rgba(0,0,0,.28);cursor:pointer;text-align:left}
+    .tool-trigger:hover{border-color:rgba(156,207,255,.6);background:var(--space-700)}
+    .tool-symbol{display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(156,207,255,.38);border-radius:50%;color:var(--blue);font-family:var(--math);font-size:18px}
+    .tool-trigger:last-child .tool-symbol{border-color:rgba(232,189,105,.4);color:var(--gold)}
+    .tool-copy{display:grid;gap:1px;font-size:12px;font-weight:760;line-height:1.15}
+    .tool-copy small{color:var(--muted);font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+    dialog{position:fixed;inset:auto 22px 22px auto;width:min(590px,calc(100% - 44px));max-height:min(760px,calc(100vh - 44px));margin:0;padding:0;overflow:auto;border:1px solid var(--line-strong);border-radius:18px;background:var(--space-850);color:var(--text);box-shadow:var(--shadow)}
+    dialog::backdrop{background:rgba(1,3,10,.67);backdrop-filter:blur(3px)}
+    dialog[open]{animation:panel-in .18s ease-out}
+    @keyframes panel-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    .dialog-shell{padding:25px}
+    .dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+    .dialog-head p{margin:0 0 4px;color:var(--blue);font-size:10px;font-weight:760;letter-spacing:.16em;text-transform:uppercase}
+    .dialog-head h2{margin:0;font-family:var(--display);font-size:27px;font-weight:500}
+    .icon-button{display:grid;place-items:center;flex:0 0 auto;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--muted);cursor:pointer;font-size:22px;line-height:1}
+    .icon-button:hover{color:var(--text);border-color:var(--line-strong)}
+    .question-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;color:var(--muted);font-size:10px;font-weight:720;letter-spacing:.08em;text-transform:uppercase}
+    .topic-chip{padding:4px 8px;border:1px solid rgba(156,207,255,.32);color:var(--blue)}
+    .difficulty{padding-left:9px;border-left:1px solid var(--line)}
+    .question-text{min-height:92px;margin:20px 0 0;font-family:var(--display);font-size:clamp(21px,3.6vw,29px);line-height:1.34;white-space:pre-line}
+    .question-hint{margin:13px 0 0;color:var(--muted);font-size:13px}
+    .answer-panel{margin-top:21px;padding:17px 0 0;border-top:1px solid var(--line)}
+    .answer-label{margin:0 0 7px;color:var(--gold);font-size:10px;font-weight:760;letter-spacing:.15em;text-transform:uppercase}
+    .answer-text{margin:0;font-family:var(--display);font-size:19px;line-height:1.45}
+    .explanation{margin:11px 0 0;color:var(--muted);font-size:12px;line-height:1.6}
+    .dialog-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:9px;margin-top:24px}
+    .panel-button{min-height:43px;padding:9px 15px;border:1px solid var(--line-strong);background:transparent;color:var(--text);cursor:pointer;font-size:12px;font-weight:750}
+    .panel-button:hover{background:var(--space-700)}
+    .panel-button.primary{border-color:rgba(156,207,255,.5);background:#152848;color:#eef8ff}
+    .picker-stage{display:grid;place-items:center;padding:24px 0 18px;text-align:center}
+    .student-orb{position:relative;display:grid;place-items:center;width:104px;height:104px;border:1px solid rgba(255,255,255,.34);border-radius:50%;background:radial-gradient(circle at 32% 26%,#cfeaff 0 4%,var(--orb,#386aa0) 38%,#16243f 100%);box-shadow:0 0 0 11px rgba(156,207,255,.04),0 0 54px rgba(156,207,255,.12);font-family:var(--display);font-size:40px}
+    .student-orb::after{content:"";position:absolute;inset:-13px;border:1px solid rgba(232,189,105,.24);border-radius:50%;transform:rotate(-18deg) scaleY(.42)}
+    .picker-state{margin:22px 0 4px;color:var(--blue);font-size:10px;font-weight:760;letter-spacing:.16em;text-transform:uppercase}
+    .student-name{margin:0;font-family:var(--display);font-size:37px;font-weight:500;letter-spacing:.04em}
+    .picker-status{margin:7px 0 0;color:var(--muted);font-size:12px}
+    .picker-progress{height:2px;margin:0 0 18px;background:var(--line)}
+    .picker-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .25s ease}
+    .attendance{margin-top:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .attendance summary{padding:12px 0;cursor:pointer;color:var(--muted);font-size:11px;font-weight:720;list-style:none}
+    .attendance summary::-webkit-details-marker{display:none}
+    .attendance summary::after{content:" +";color:var(--blue)}
+    .attendance[open] summary::after{content:" −"}
+    .roster-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 14px;padding:0 0 14px}
+    .roster-item{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}
+    .roster-item input{width:16px;height:16px;accent-color:var(--blue)}
+    .roster-item span{color:var(--text)}
+    .drawing .student-orb{animation:orbit-pulse .22s ease-in-out infinite alternate}
+    @keyframes orbit-pulse{to{transform:scale(.96);filter:saturate(1.25)}}
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;gap:24px;min-height:auto;padding:62px 0 72px}
+      .math-stage{min-height:170px;place-items:start}
+      .math-caption{left:0;bottom:0}
+      .hero::before{right:-200px;top:250px}.hero::after{right:-110px;top:290px}
+      .lesson{grid-template-columns:62px minmax(0,1fr);gap:14px 18px}
+      .lesson-actions{grid-column:2;flex-wrap:wrap}
+      .lesson-source{grid-column:2;margin-top:0}
     }
-    @media(max-width:480px){.resources{grid-template-columns:1fr}.topic-head{padding:16px}.resource{min-height:0}.head-inner,.main,.site-foot{width:min(100% - 24px,1180px)}}
-    @media print{body{background:#fff}.site-head{color:#000;background:#fff;border-color:#000}.subtitle,.eyebrow{color:#333}.topic,.intro{break-inside:avoid}.resource{min-height:0}.privacy-note{display:none}}
+    @media(max-width:600px){
+      .shell{width:min(100% - 28px,1120px)}
+      .topbar{min-height:56px}.year{display:none}
+      .hero{padding:52px 0 58px}
+      h1{font-size:clamp(43px,16vw,64px)}
+      .hero-cn{font-size:18px}.sequence{margin-top:25px;gap:6px;font-size:10px}
+      .math-stage{min-height:132px}.formula{font-size:43px}.math-caption{display:none}
+      main{padding:47px 0 116px}
+      .section-head{align-items:start}.lesson-count{padding-top:7px}
+      .lesson{grid-template-columns:48px minmax(0,1fr);padding:21px 0}
+      .lesson-number{font-size:23px}
+      .lesson-title h3{font-size:18px}.lesson-title p{font-size:12px}
+      .lesson-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+      .lesson-action{width:100%;min-height:44px}
+      .site-foot{display:block;padding-bottom:100px}.site-foot span{display:block;margin-top:5px}
+      .tool-dock{right:12px;bottom:max(10px,env(safe-area-inset-bottom));left:12px;grid-template-columns:1fr 1fr;gap:8px}
+      .tool-trigger{grid-template-columns:31px auto;min-width:0;min-height:52px;padding:7px 10px;background:#111a34}
+      .tool-symbol{width:31px;height:31px}
+      dialog{inset:auto 10px calc(76px + env(safe-area-inset-bottom)) 10px;width:auto;max-height:calc(100vh - 98px - env(safe-area-inset-bottom))}
+      .dialog-shell{padding:21px 18px}.dialog-head h2{font-size:24px}
+      .question-text{min-height:0;font-size:22px}
+      .dialog-actions{display:grid;grid-template-columns:1fr 1fr}.panel-button{width:100%}
+      .student-orb{width:88px;height:88px;font-size:34px}.student-name{font-size:32px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    }
+    @media print{
+      :root{color-scheme:light;--text:#111;--muted:#444;--line:#aaa;--line-strong:#777}
+      body{background:#fff;color:#111}.grid-wash,#math-sky,.tool-dock,dialog{display:none!important}
+      .topbar,.hero,.lesson-list,.site-foot{border-color:#bbb}
+      .hero{grid-template-columns:1fr;min-height:0;padding:32px 0}.math-stage{display:none}
+      main{padding:30px 0}.lesson{grid-template-columns:55px 1fr;padding:16px 0;break-inside:avoid}
+      .lesson-actions{grid-column:2}.lesson-action{color:#111;border-color:#999}
+      .lesson-source{display:none}.site-foot{padding:18px 0}
+    }
   </style>
 </head>
 <body>
-  <header class="site-head">
-    <div class="head-inner">
-      <p class="eyebrow">2026–2027 · AP Calculus BC</p>
-      <h1>Unit 1: Limits and Continuity</h1>
-      <p class="subtitle">课堂入口：先做 5 分钟复习，再进入讲义；讲题时可直接打开答案模式，课后使用 CA #1。</p>
+  <a class="skip-link" href="#lessons">Skip to lessons</a>
+  <canvas id="math-sky" aria-hidden="true"></canvas>
+  <div class="grid-wash" aria-hidden="true"></div>
+
+  <header class="shell">
+    <div class="topbar">
+      <a class="brand" href="./" aria-label="AP Calculus BC home">
+        <span class="brand-mark" aria-hidden="true">∫</span>
+        <span>AP Calculus BC</span>
+      </a>
+      <span class="year">2026–2027 · UNIT 1</span>
     </div>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Unit 1 · Limits</p>
+        <h1 id="page-title">Limits &amp;<br>Continuity</h1>
+        <p class="hero-cn">极限与连续</p>
+        <ol class="sequence" aria-label="Course material order">
+          <li>Quiz</li>
+          <li>Notes</li>
+          <li>Answers</li>
+          <li>CA #1</li>
+        </ol>
+      </div>
+      <div class="math-stage">
+        <div class="formula" aria-label="The limit of f of x as x approaches a equals L">
+          <span class="limit-op" aria-hidden="true">lim<span class="limit-sub">x→a</span></span>
+          <span aria-hidden="true">f(x) = L</span>
+        </div>
+        <p class="math-caption">Approach · Observe · Conclude</p>
+      </div>
+    </section>
   </header>
 
-  <main class="main">
-    <section class="intro" aria-label="使用说明">
-      <p><strong>Recommended order / 建议顺序：</strong> Review Quiz → Class Notes → Notes Answers → CA #1 Homework。Quiz 和讲义答案都在原页面内切换，不需要另外找教师版。</p>
-      <div class="legend" aria-label="材料类型"><span>Quiz · 5 min</span><span>Notes · 16:9</span><span>Answers · toggle</span><span>CA #1 · homework</span></div>
-    </section>
-
-    <h2 class="section-title">Current lessons / 当前课程</h2>
-    <div class="topic-list">
-      <article class="topic">
-        <header class="topic-head"><div class="topic-number">1.1</div><div><h2>Can Change Occur at an Instant?</h2><p class="topic-note">Average and instantaneous rate of change · 平均与瞬时变化率</p></div><span class="slide-count">16 slides</span></header>
-        <div class="resources">
-          <a class="resource" href="AP_Calculus_BC_1.1_English_5min_Quiz.html"><strong>English Check</strong><span>题目、答案与解析同页切换</span></a>
-          <a class="resource" href="AP_Calculus_BC_1.1_Can_Change_Occur_at_an_Instant_English_Key_CN.html"><strong>Class Notes</strong><span>英文主文＋重点中文</span></a>
-          <a class="resource" href="AP_Calculus_BC_1.1_Can_Change_Occur_at_an_Instant_English_Key_CN.html?answers=show"><strong>Notes Answers</strong><span>打开时自动揭示全部答案</span></a>
-          <a class="resource homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_ca1.pdf" target="_blank" rel="noopener"><strong>CA #1 Homework</strong><span>官方 PDF · questions + key</span></a>
-        </div>
-        <details><summary>Official source materials / 官方原始资料</summary><div class="source-links"><a href="https://calculus.flippedmath.com/11-can-change-occur-at-an-instant.html">Lesson page</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf">Packet</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_solutions.pdf">Practice Solutions</a></div></details>
-      </article>
-
-      <article class="topic">
-        <header class="topic-head"><div class="topic-number">1.2</div><div><h2>Defining Limits and Using Limit Notation</h2><p class="topic-note">What a limit says—and what it does not say · 极限与函数值</p></div><span class="slide-count">16 slides</span></header>
-        <div class="resources">
-          <a class="resource" href="AP_Calculus_BC_1.2_Review_5min_Quiz.html"><strong>Review Quiz</strong><span>复习 1.1 · 约 5 分钟</span></a>
-          <a class="resource" href="AP_Calculus_BC_1.2_Defining_Limits_and_Using_Limit_Notation_English_Key_CN.html"><strong>Class Notes</strong><span>定义、读法、附近趋势</span></a>
-          <a class="resource" href="AP_Calculus_BC_1.2_Defining_Limits_and_Using_Limit_Notation_English_Key_CN.html?answers=show"><strong>Notes Answers</strong><span>打开时自动揭示全部答案</span></a>
-          <a class="resource homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_ca1.pdf" target="_blank" rel="noopener"><strong>CA #1 Homework</strong><span>官方 PDF · graph reading</span></a>
-        </div>
-        <details><summary>Official source materials / 官方原始资料</summary><div class="source-links"><a href="https://calculus.flippedmath.com/12-defining-limits-and-using-limit-notation.html">Lesson page</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf">Packet</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_solutions.pdf">Practice Solutions</a></div></details>
-      </article>
-
-      <article class="topic">
-        <header class="topic-head"><div class="topic-number">1.3</div><div><h2>Limit Values from Graphs</h2><p class="topic-note">One-sided and two-sided limits · 单侧与双侧极限</p></div><span class="slide-count">16 slides</span></header>
-        <div class="resources">
-          <a class="resource" href="AP_Calculus_BC_1.3_Review_5min_Quiz.html"><strong>Review Quiz</strong><span>复习 1.2 · 约 5 分钟</span></a>
-          <a class="resource" href="AP_Calculus_BC_1.3_Limit_Values_from_Graphs_English_Key_CN.html"><strong>Class Notes</strong><span>读图、DNE 与 undefined</span></a>
-          <a class="resource" href="AP_Calculus_BC_1.3_Limit_Values_from_Graphs_English_Key_CN.html?answers=show"><strong>Notes Answers</strong><span>打开时自动揭示全部答案</span></a>
-          <a class="resource homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.3_ca1.pdf" target="_blank" rel="noopener"><strong>CA #1 Homework</strong><span>官方 PDF · graphs + construction</span></a>
-        </div>
-        <details><summary>Official source materials / 官方原始资料</summary><div class="source-links"><a href="https://calculus.flippedmath.com/13-limit-values-from-graphs.html">Lesson page</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.3_packet.pdf">Packet</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.3_solutions.pdf">Practice Solutions</a></div></details>
-      </article>
-
-      <article class="topic">
-        <header class="topic-head"><div class="topic-number">1.4</div><div><h2>Limit Values from Tables</h2><p class="topic-note">Estimate trends from selected values · 从表格估计极限</p></div><span class="slide-count">14 slides</span></header>
-        <div class="resources">
-          <a class="resource" href="AP_Calculus_BC_1.4_Review_5min_Quiz.html"><strong>Review Quiz</strong><span>复习 1.2–1.3 · 约 5 分钟</span></a>
-          <a class="resource" href="AP_Calculus_BC_1.4_Limit_Values_from_Tables_English_Key_CN.html"><strong>Class Notes</strong><span>表格、双侧趋势、复合极限</span></a>
-          <a class="resource" href="AP_Calculus_BC_1.4_Limit_Values_from_Tables_English_Key_CN.html?answers=show"><strong>Notes Answers</strong><span>打开时自动揭示全部答案</span></a>
-          <a class="resource homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_ca1.pdf" target="_blank" rel="noopener"><strong>CA #1 Homework</strong><span>官方 PDF · tables + composition</span></a>
-        </div>
-        <details><summary>Official source materials / 官方原始资料</summary><div class="source-links"><a href="https://calculus.flippedmath.com/14-limit-values-from-tables.html">Lesson page</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf">Packet</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_solutions.pdf">Practice Solutions</a></div></details>
-      </article>
-
-      <article class="topic">
-        <header class="topic-head"><div class="topic-number">1.5</div><div><h2>Algebraic Properties of Limits</h2><p class="topic-note">Limit laws, composition and piecewise functions · 极限定律</p></div><span class="slide-count">15 slides</span></header>
-        <div class="resources">
-          <a class="resource" href="AP_Calculus_BC_1.5_Review_5min_Quiz.html"><strong>Review Quiz</strong><span>复习 1.4 · 约 5 分钟</span></a>
-          <a class="resource" href="AP_Calculus_BC_1.5_Algebraic_Properties_of_Limits_English_Key_CN.html"><strong>Class Notes</strong><span>极限定律、输入映射、分段函数</span></a>
-          <a class="resource" href="AP_Calculus_BC_1.5_Algebraic_Properties_of_Limits_English_Key_CN.html?answers=show"><strong>Notes Answers</strong><span>打开时自动揭示全部答案</span></a>
-          <a class="resource homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_ca1.pdf" target="_blank" rel="noopener"><strong>CA #1 Homework</strong><span>官方 PDF · laws + piecewise</span></a>
-        </div>
-        <details><summary>Official source materials / 官方原始资料</summary><div class="source-links"><a href="https://calculus.flippedmath.com/15-determining-limits-using-algebraic-properties.html">Lesson page</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf">Packet</a><a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_solutions.pdf">Practice Solutions</a></div></details>
-      </article>
+  <main class="shell" id="lessons">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">Course map</p>
+        <h2>Lessons / 课程</h2>
+      </div>
+      <span class="lesson-count">01 — 05</span>
     </div>
 
-    <aside class="privacy-note"><strong>Teacher-only classroom tool:</strong> the random student picker and its WeChat roster stay local. Student names, nicknames and avatars are not published in this public course repository.</aside>
+    <section class="lesson-list" aria-label="Unit 1 lessons">
+      <article class="lesson">
+        <div class="lesson-number">1.1</div>
+        <div class="lesson-title">
+          <h3>Can Change Occur at an Instant?</h3>
+          <p>瞬时变化率</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.1 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.1_English_5min_Quiz.html">Quiz <span>小测</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.1_Can_Change_Occur_at_an_Instant_English_Key_CN.html">Notes <span>讲义</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.1_Can_Change_Occur_at_an_Instant_English_Key_CN.html?answers=show">Answers <span>答案</span></a>
+          <a class="lesson-action homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_ca1.pdf" target="_blank" rel="noopener">CA #1 <span>作业</span></a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources / 官方资料</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/11-can-change-occur-at-an-instant.html">Lesson</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_packet.pdf">Packet</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.1_solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson">
+        <div class="lesson-number">1.2</div>
+        <div class="lesson-title">
+          <h3>Defining Limits &amp; Limit Notation</h3>
+          <p>极限定义与记号</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.2 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.2_Review_5min_Quiz.html">Quiz <span>小测</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.2_Defining_Limits_and_Using_Limit_Notation_English_Key_CN.html">Notes <span>讲义</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.2_Defining_Limits_and_Using_Limit_Notation_English_Key_CN.html?answers=show">Answers <span>答案</span></a>
+          <a class="lesson-action homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_ca1.pdf" target="_blank" rel="noopener">CA #1 <span>作业</span></a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources / 官方资料</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/12-defining-limits-and-using-limit-notation.html">Lesson</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_packet.pdf">Packet</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.2_solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson">
+        <div class="lesson-number">1.3</div>
+        <div class="lesson-title">
+          <h3>Limit Values from Graphs</h3>
+          <p>从图像读取极限</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.3 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.3_Review_5min_Quiz.html">Quiz <span>小测</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.3_Limit_Values_from_Graphs_English_Key_CN.html">Notes <span>讲义</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.3_Limit_Values_from_Graphs_English_Key_CN.html?answers=show">Answers <span>答案</span></a>
+          <a class="lesson-action homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.3_ca1.pdf" target="_blank" rel="noopener">CA #1 <span>作业</span></a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources / 官方资料</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/13-limit-values-from-graphs.html">Lesson</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.3_packet.pdf">Packet</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.3_solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson">
+        <div class="lesson-number">1.4</div>
+        <div class="lesson-title">
+          <h3>Limit Values from Tables</h3>
+          <p>从表格估计极限</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.4 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.4_Review_5min_Quiz.html">Quiz <span>小测</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.4_Limit_Values_from_Tables_English_Key_CN.html">Notes <span>讲义</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.4_Limit_Values_from_Tables_English_Key_CN.html?answers=show">Answers <span>答案</span></a>
+          <a class="lesson-action homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_ca1.pdf" target="_blank" rel="noopener">CA #1 <span>作业</span></a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources / 官方资料</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/14-limit-values-from-tables.html">Lesson</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_packet.pdf">Packet</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.4_solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson">
+        <div class="lesson-number">1.5</div>
+        <div class="lesson-title">
+          <h3>Algebraic Properties of Limits</h3>
+          <p>极限定律</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.5 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.5_Review_5min_Quiz.html">Quiz <span>小测</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.5_Algebraic_Properties_of_Limits_English_Key_CN.html">Notes <span>讲义</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.5_Algebraic_Properties_of_Limits_English_Key_CN.html?answers=show">Answers <span>答案</span></a>
+          <a class="lesson-action homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_ca1.pdf" target="_blank" rel="noopener">CA #1 <span>作业</span></a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources / 官方资料</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/15-determining-limits-using-algebraic-properties.html">Lesson</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_packet.pdf">Packet</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.5_solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+    </section>
   </main>
 
-  <footer class="site-foot">Course materials prepared for AP Calculus BC · Updated 2026-08-27. FlippedMath packets, solutions and CA files remain external links to their official source.</footer>
+  <footer class="site-foot shell">
+    <span>AP Calculus BC · 2026–2027</span>
+    <span>Source: <a href="https://calculus.flippedmath.com/" target="_blank" rel="noopener">FlippedMath</a></span>
+  </footer>
+
+  <nav class="tool-dock" aria-label="Classroom tools">
+    <button class="tool-trigger" id="question-trigger" type="button" aria-haspopup="dialog" aria-controls="question-dialog" aria-expanded="false">
+      <span class="tool-symbol" aria-hidden="true">?</span>
+      <span class="tool-copy">随机题目<small>Random question</small></span>
+    </button>
+    <button class="tool-trigger" id="picker-trigger" type="button" aria-haspopup="dialog" aria-controls="picker-dialog" aria-expanded="false">
+      <span class="tool-symbol" aria-hidden="true">✦</span>
+      <span class="tool-copy">随机抽签<small>Student picker</small></span>
+    </button>
+  </nav>
+
+  <dialog id="question-dialog" aria-labelledby="question-dialog-title">
+    <div class="dialog-shell">
+      <header class="dialog-head">
+        <div>
+          <p>Classroom prompt</p>
+          <h2 id="question-dialog-title">Random Question / 随机题目</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Close random question">×</button>
+      </header>
+      <div class="question-meta">
+        <span class="topic-chip" id="question-topic">1.1</span>
+        <span id="question-label">Topic</span>
+        <span class="difficulty" id="question-difficulty">Easy</span>
+      </div>
+      <p class="question-text" id="question-text"></p>
+      <p class="question-hint" id="question-hint"></p>
+      <section class="answer-panel" id="answer-panel" aria-live="polite" hidden>
+        <p class="answer-label">Answer / 答案</p>
+        <p class="answer-text" id="answer-text"></p>
+        <p class="explanation" id="answer-explanation"></p>
+      </section>
+      <div class="dialog-actions">
+        <button class="panel-button" id="answer-toggle" type="button">Show Answer / 显示答案</button>
+        <button class="panel-button primary" id="next-question" type="button">Next / 再抽一道</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="picker-dialog" aria-labelledby="picker-dialog-title">
+    <div class="dialog-shell" id="picker-shell">
+      <header class="dialog-head">
+        <div>
+          <p>Cold call</p>
+          <h2 id="picker-dialog-title">Student Picker / 随机抽签</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Close student picker">×</button>
+      </header>
+      <div class="picker-stage" aria-live="polite">
+        <div class="student-orb" id="student-orb" aria-hidden="true">?</div>
+        <p class="picker-state" id="picker-state">Ready / 准备抽取</p>
+        <p class="student-name" id="student-name">六位学生</p>
+        <p class="picker-status" id="picker-status">第 1 轮 · 剩余 6 / 6</p>
+      </div>
+      <div class="picker-progress" aria-hidden="true"><span id="picker-progress"></span></div>
+      <details class="attendance">
+        <summary>Attendance / 缺席设置</summary>
+        <div class="roster-grid" id="roster-grid"></div>
+      </details>
+      <div class="dialog-actions">
+        <button class="panel-button" id="reset-picker" type="button">New Round / 新一轮</button>
+        <button class="panel-button primary" id="draw-student" type="button">Draw / 随机抽取</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="question-bank.js"></script>
+  <script>
+    "use strict";
+
+    const byId = (id) => document.getElementById(id);
+    const questionBank = Array.isArray(window.UNIT1_QUESTION_BANK) ? window.UNIT1_QUESTION_BANK : [];
+    const questionDialog = byId("question-dialog");
+    const pickerDialog = byId("picker-dialog");
+    const questionTrigger = byId("question-trigger");
+    const pickerTrigger = byId("picker-trigger");
+    const answerPanel = byId("answer-panel");
+    let questionQueue = [];
+
+    function secureIndex(max) {
+      if (!Number.isInteger(max) || max <= 0) return 0;
+      if (window.crypto && typeof window.crypto.getRandomValues === "function") {
+        const range = 0x100000000;
+        const limit = range - (range % max);
+        const values = new Uint32Array(1);
+        do {
+          window.crypto.getRandomValues(values);
+        } while (values[0] >= limit);
+        return values[0] % max;
+      }
+      return Math.floor(Math.random() * max);
+    }
+
+    function shuffledIndices(length) {
+      const values = Array.from({ length }, (_, index) => index);
+      for (let index = values.length - 1; index > 0; index -= 1) {
+        const swapIndex = secureIndex(index + 1);
+        const value = values[index];
+        values[index] = values[swapIndex];
+        values[swapIndex] = value;
+      }
+      return values;
+    }
+
+    function showNextQuestion() {
+      if (!questionBank.length) {
+        byId("question-text").textContent = "Question bank unavailable.";
+        byId("question-hint").textContent = "题库暂不可用。";
+        return;
+      }
+      if (!questionQueue.length) questionQueue = shuffledIndices(questionBank.length);
+      const question = questionBank[questionQueue.pop()];
+      byId("question-topic").textContent = question.topic;
+      byId("question-label").textContent = question.label;
+      byId("question-difficulty").textContent = question.difficulty;
+      byId("question-text").textContent = question.question;
+      byId("question-hint").textContent = question.hint;
+      byId("answer-text").textContent = question.answer;
+      byId("answer-explanation").textContent = question.explanation;
+      answerPanel.hidden = true;
+      byId("answer-toggle").textContent = "Show Answer / 显示答案";
+    }
+
+    questionTrigger.addEventListener("click", () => {
+      showNextQuestion();
+      questionDialog.showModal();
+      questionTrigger.setAttribute("aria-expanded", "true");
+    });
+
+    byId("next-question").addEventListener("click", showNextQuestion);
+    byId("answer-toggle").addEventListener("click", () => {
+      answerPanel.hidden = !answerPanel.hidden;
+      byId("answer-toggle").textContent = answerPanel.hidden
+        ? "Show Answer / 显示答案"
+        : "Hide Answer / 收起答案";
+    });
+
+    const roster = Object.freeze([
+      { id:"s01", name:"黄一凡", color:"#4d87c6" },
+      { id:"s02", name:"梁益宁", color:"#4a8d86" },
+      { id:"s03", name:"刘子诚", color:"#725b9c" },
+      { id:"s04", name:"芮嘉言", color:"#a26b55" },
+      { id:"s05", name:"唐静蕾", color:"#5e71ac" },
+      { id:"s06", name:"夏梓程", color:"#8d5771" }
+    ]);
+    const rosterById = new Map(roster.map((student) => [student.id, student]));
+    const pickerStorageKey = "ap-calculus-home-picker-v1";
+    let drawing = false;
+    let pickerState = loadPickerState();
+
+    function defaultPickerState() {
+      return { round:1, drawnIds:[], absentIds:[], currentId:null };
+    }
+
+    function validIds(value) {
+      if (!Array.isArray(value)) return [];
+      return [...new Set(value.filter((id) => rosterById.has(id)))];
+    }
+
+    function loadPickerState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(pickerStorageKey) || "null");
+        if (!saved) return defaultPickerState();
+        return {
+          round:Number.isInteger(saved.round) && saved.round > 0 ? saved.round : 1,
+          drawnIds:validIds(saved.drawnIds),
+          absentIds:validIds(saved.absentIds),
+          currentId:rosterById.has(saved.currentId) ? saved.currentId : null
+        };
+      } catch (error) {
+        return defaultPickerState();
+      }
+    }
+
+    function savePickerState() {
+      try {
+        localStorage.setItem(pickerStorageKey, JSON.stringify(pickerState));
+      } catch (error) {
+        /* The picker still works in memory when storage is unavailable. */
+      }
+    }
+
+    function eligibleStudents() {
+      const absent = new Set(pickerState.absentIds);
+      return roster.filter((student) => !absent.has(student.id));
+    }
+
+    function remainingStudents() {
+      const drawn = new Set(pickerState.drawnIds);
+      return eligibleStudents().filter((student) => !drawn.has(student.id));
+    }
+
+    function setOrbStudent(student) {
+      const orb = byId("student-orb");
+      if (!student) {
+        orb.textContent = "?";
+        orb.style.setProperty("--orb", "#386aa0");
+        return;
+      }
+      orb.textContent = Array.from(student.name)[0];
+      orb.style.setProperty("--orb", student.color);
+      byId("student-name").textContent = student.name;
+    }
+
+    function renderPicker() {
+      const eligible = eligibleStudents();
+      const remaining = remainingStudents();
+      const current = rosterById.get(pickerState.currentId);
+      const drawnEligible = eligible.filter((student) => pickerState.drawnIds.includes(student.id)).length;
+      if (current && !pickerState.absentIds.includes(current.id)) {
+        setOrbStudent(current);
+        byId("picker-state").textContent = "Please answer / 请回答";
+      } else {
+        setOrbStudent(null);
+        byId("student-name").textContent = eligible.length ? "准备抽取" : "无出席学生";
+        byId("picker-state").textContent = eligible.length ? "Ready / 准备抽取" : "Empty / 抽取池为空";
+      }
+      byId("picker-status").textContent =
+        "第 " + pickerState.round + " 轮 · 剩余 " + remaining.length + " / " + eligible.length;
+      const progress = eligible.length ? (drawnEligible / eligible.length) * 100 : 0;
+      byId("picker-progress").style.width = progress + "%";
+      byId("draw-student").disabled = drawing || eligible.length === 0;
+      byId("draw-student").textContent = drawing ? "Drawing… / 正在抽取" : "Draw / 随机抽取";
+    }
+
+    function finishStudentDraw(student) {
+      if (!pickerState.drawnIds.includes(student.id)) pickerState.drawnIds.push(student.id);
+      pickerState.currentId = student.id;
+      drawing = false;
+      byId("picker-shell").classList.remove("drawing");
+      savePickerState();
+      renderPicker();
+    }
+
+    function drawStudent() {
+      if (drawing) return;
+      let remaining = remainingStudents();
+      if (!remaining.length) {
+        pickerState.round += 1;
+        pickerState.drawnIds = [];
+        pickerState.currentId = null;
+        remaining = remainingStudents();
+      }
+      if (!remaining.length) {
+        renderPicker();
+        return;
+      }
+      const finalStudent = remaining[secureIndex(remaining.length)];
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reducedMotion) {
+        finishStudentDraw(finalStudent);
+        return;
+      }
+      drawing = true;
+      byId("picker-shell").classList.add("drawing");
+      renderPicker();
+      let ticks = 0;
+      const timer = window.setInterval(() => {
+        const preview = remaining[secureIndex(remaining.length)];
+        setOrbStudent(preview);
+        byId("picker-state").textContent = "Drawing / 正在抽取";
+        ticks += 1;
+        if (ticks >= 9) {
+          window.clearInterval(timer);
+          finishStudentDraw(finalStudent);
+        }
+      }, 72);
+    }
+
+    function renderRoster() {
+      const grid = byId("roster-grid");
+      grid.replaceChildren();
+      roster.forEach((student) => {
+        const label = document.createElement("label");
+        label.className = "roster-item";
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.checked = pickerState.absentIds.includes(student.id);
+        input.setAttribute("aria-label", student.name + " 缺席");
+        input.addEventListener("change", () => {
+          const absent = new Set(pickerState.absentIds);
+          if (input.checked) absent.add(student.id);
+          else absent.delete(student.id);
+          pickerState.absentIds = [...absent];
+          if (pickerState.currentId === student.id && input.checked) pickerState.currentId = null;
+          savePickerState();
+          renderPicker();
+        });
+        const name = document.createElement("span");
+        name.textContent = student.name;
+        label.append(input, name);
+        grid.append(label);
+      });
+    }
+
+    pickerTrigger.addEventListener("click", () => {
+      renderRoster();
+      renderPicker();
+      pickerDialog.showModal();
+      pickerTrigger.setAttribute("aria-expanded", "true");
+    });
+    byId("draw-student").addEventListener("click", drawStudent);
+    byId("reset-picker").addEventListener("click", () => {
+      pickerState.round += 1;
+      pickerState.drawnIds = [];
+      pickerState.currentId = null;
+      savePickerState();
+      renderPicker();
+    });
+
+    document.querySelectorAll("[data-close-dialog]").forEach((button) => {
+      button.addEventListener("click", () => button.closest("dialog").close());
+    });
+    [questionDialog, pickerDialog].forEach((dialog) => {
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+      dialog.addEventListener("close", () => {
+        questionTrigger.setAttribute("aria-expanded", "false");
+        pickerTrigger.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    function drawMathSky() {
+      const canvas = byId("math-sky");
+      const context = canvas.getContext("2d");
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      context.clearRect(0, 0, width, height);
+
+      let seed = 246813579;
+      function random() {
+        seed = (seed * 1664525 + 1013904223) >>> 0;
+        return seed / 4294967296;
+      }
+
+      const starCount = Math.min(170, Math.max(72, Math.floor((width * height) / 9000)));
+      for (let index = 0; index < starCount; index += 1) {
+        const x = random() * width;
+        const y = random() * Math.min(height, 820);
+        const radius = random() * 1.25 + .25;
+        context.beginPath();
+        context.fillStyle = "rgba(220,236,255," + (random() * .55 + .18) + ")";
+        context.arc(x, y, radius, 0, Math.PI * 2);
+        context.fill();
+      }
+
+      const curveY = Math.min(height * .56, 450);
+      context.beginPath();
+      for (let x = -20; x <= width + 20; x += 4) {
+        const y = curveY - Math.sin(x * .009) * 36 - Math.sin(x * .0037) * 24;
+        if (x === -20) context.moveTo(x, y);
+        else context.lineTo(x, y);
+      }
+      context.strokeStyle = "rgba(115,213,208,.10)";
+      context.lineWidth = 1.15;
+      context.stroke();
+
+      const holeX = width * .74;
+      const holeY = curveY - Math.sin(holeX * .009) * 36 - Math.sin(holeX * .0037) * 24;
+      context.beginPath();
+      context.arc(holeX, holeY, 4.5, 0, Math.PI * 2);
+      context.fillStyle = "rgba(5,7,17,.9)";
+      context.fill();
+      context.strokeStyle = "rgba(232,189,105,.38)";
+      context.stroke();
+      context.beginPath();
+      context.arc(holeX, holeY + 31, 2.8, 0, Math.PI * 2);
+      context.fillStyle = "rgba(232,189,105,.45)";
+      context.fill();
+    }
+
+    let resizeTimer = 0;
+    window.addEventListener("resize", () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(drawMathSky, 120);
+    });
+    drawMathSky();
+  </script>
 </body>
 </html>
