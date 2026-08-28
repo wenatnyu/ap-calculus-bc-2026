@@ -41,6 +41,7 @@
       --rose:var(--violet);
       --question:#ff4fb3;
       --picker:#ffc857;
+      --calculator:#65e6a3;
       --line:rgba(185,204,235,.17);
       --line-strong:rgba(185,204,235,.34);
       --focus:#ffdc88;
@@ -62,6 +63,7 @@
     button,a{-webkit-tap-highlight-color:transparent}
     a{color:inherit}
     [hidden]{display:none!important}
+    .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
     .skip-link{position:fixed;left:12px;top:12px;z-index:100;transform:translateY(-160%);padding:10px 14px;background:var(--text);color:var(--space-950);text-decoration:none}
     .skip-link:focus{transform:none}
     #math-sky{position:fixed;inset:0;z-index:-2;width:100%;height:100%;pointer-events:none}
@@ -134,7 +136,9 @@
     .site-foot a{color:var(--muted);text-underline-offset:3px}
     .tool-dock{position:fixed;right:22px;bottom:22px;z-index:20;display:grid;gap:9px}
     .tool-trigger{--tool-accent:var(--question);--tool-rgb:255,79,179;display:grid;grid-template-columns:34px auto;align-items:center;gap:10px;min-width:142px;min-height:52px;padding:8px 14px 8px 9px;border:1px solid rgba(var(--tool-rgb),.72);background:linear-gradient(100deg,rgba(var(--tool-rgb),.18),var(--space-800) 66%);color:var(--text);box-shadow:0 10px 34px rgba(0,0,0,.28),0 0 24px rgba(var(--tool-rgb),.12);cursor:pointer;text-align:left}
-    .tool-trigger:last-child{--tool-accent:var(--picker);--tool-rgb:255,200,87}
+    #question-trigger{--tool-accent:var(--question);--tool-rgb:255,79,179}
+    #picker-trigger{--tool-accent:var(--picker);--tool-rgb:255,200,87}
+    #calculator-trigger{--tool-accent:var(--calculator);--tool-rgb:101,230,163}
     .tool-trigger:hover{border-color:var(--tool-accent);background:linear-gradient(100deg,rgba(var(--tool-rgb),.28),var(--space-700) 72%)}
     .tool-symbol{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--tool-accent);border-radius:50%;background:var(--tool-accent);color:#07101f;font-family:var(--math);font-size:18px;box-shadow:0 0 22px rgba(var(--tool-rgb),.35)}
     .tool-copy{display:grid;gap:1px;font-size:12px;font-weight:760;line-height:1.15}
@@ -142,6 +146,7 @@
     dialog{--tool-accent:var(--electric);--tool-rgb:114,167,255;position:fixed;inset:auto 22px 22px auto;width:min(590px,calc(100% - 44px));max-height:min(760px,calc(100vh - 44px));margin:0;padding:0;overflow:auto;border:1px solid rgba(var(--tool-rgb),.54);border-radius:18px;background:linear-gradient(145deg,rgba(var(--tool-rgb),.09),transparent 34%),var(--space-850);color:var(--text);box-shadow:var(--shadow),0 0 42px rgba(var(--tool-rgb),.13)}
     #question-dialog{--tool-accent:var(--question);--tool-rgb:255,79,179}
     #picker-dialog{--tool-accent:var(--picker);--tool-rgb:255,200,87}
+    #calculator-dialog{--tool-accent:var(--calculator);--tool-rgb:101,230,163;width:min(720px,calc(100% - 44px))}
     #question-dialog[data-topic="1.1"]{--tool-accent:var(--coral);--tool-rgb:255,93,143}
     #question-dialog[data-topic="1.2"]{--tool-accent:var(--orange);--tool-rgb:255,159,67}
     #question-dialog[data-topic="1.3"]{--tool-accent:var(--sun);--tool-rgb:255,228,94}
@@ -197,6 +202,68 @@
     .roster-copy small{overflow:hidden;color:var(--muted);font-size:9px;text-overflow:ellipsis;white-space:nowrap}
     .drawing .student-orb{animation:orbit-pulse .22s ease-in-out infinite alternate}
     @keyframes orbit-pulse{to{transform:scale(.96);filter:saturate(1.25)}}
+    .calculator-note{margin:12px 0 0;color:var(--muted);font-size:11px;line-height:1.45}
+    .calculator-note a{color:var(--calculator);text-underline-offset:3px}
+    .calc-tabs{display:grid;grid-template-columns:1fr 1fr auto;align-items:center;margin:20px 0 16px;border-bottom:1px solid var(--line)}
+    .calc-tab{min-height:42px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted);cursor:pointer;font-size:12px;font-weight:760;letter-spacing:.04em}
+    .calc-tab[aria-selected="true"]{border-bottom-color:var(--calculator);color:var(--text)}
+    .calc-tab:focus-visible,.calc-key:focus-visible,.calc-mode:focus-visible,.calc-history button:focus-visible,.graph-button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+    .calc-scientific{width:min(430px,100%);margin-inline:auto}
+    .calc-screen{padding:13px 15px 15px;border:1px solid rgba(101,230,163,.34);background:rgba(2,7,16,.64);box-shadow:inset 0 0 28px rgba(101,230,163,.035)}
+    .calc-screen-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:7px;color:var(--muted);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+    .calc-mode{min-width:54px;padding:4px 8px;border:1px solid rgba(101,230,163,.48);background:rgba(101,230,163,.08);color:var(--calculator);cursor:pointer;font-size:10px;font-weight:800;letter-spacing:.08em}
+    .calc-expression{width:100%;height:38px;padding:0;border:0;border-bottom:1px solid var(--line);outline:0;background:transparent;color:var(--text);font-family:var(--math);font-size:19px;text-align:right}
+    .calc-expression::placeholder{color:rgba(183,195,218,.42)}
+    .calc-result{display:block;min-height:41px;padding-top:7px;overflow:hidden;color:var(--calculator);font-family:var(--math);font-size:27px;line-height:1.2;text-align:right;text-overflow:ellipsis;white-space:nowrap}
+    .calc-result.error{color:var(--coral);font-family:var(--sans);font-size:14px;line-height:2.2}
+    .calc-keypad{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin-top:10px}
+    .calc-key{min-height:43px;padding:6px 3px;border:1px solid var(--line-strong);background:rgba(255,255,255,.025);color:var(--text);cursor:pointer;font-family:var(--math);font-size:16px;font-weight:700}
+    .calc-key:hover{border-color:rgba(101,230,163,.66);background:rgba(101,230,163,.11)}
+    .calc-key.function{color:var(--aqua);font-family:var(--sans);font-size:12px}
+    .calc-key.operator{color:var(--sun);font-size:18px}
+    .calc-key.utility{color:var(--muted);font-family:var(--sans);font-size:11px}
+    .calc-key.equals{border-color:rgba(101,230,163,.78);background:rgba(101,230,163,.2);color:#ecfff4;font-family:var(--sans);font-size:18px}
+    .calc-key.zero{grid-column:span 2}
+    .calc-history{margin-top:12px;border-top:1px solid var(--line)}
+    .calc-history summary{padding:10px 0;cursor:pointer;color:var(--muted);font-size:11px;list-style:none}
+    .calc-history summary::-webkit-details-marker{display:none}
+    .calc-history summary::after{content:" +";color:var(--calculator)}
+    .calc-history[open] summary::after{content:" −"}
+    .calc-history-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+    .calc-history-head button{padding:5px 8px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;font-size:10px}
+    .calc-history-list{display:grid;gap:5px;max-height:126px;margin:0;padding:0;overflow:auto;list-style:none}
+    .calc-history-list button{display:grid;width:100%;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:7px 9px;border:1px solid transparent;background:rgba(255,255,255,.025);color:var(--muted);cursor:pointer;font-family:var(--math);font-size:11px;text-align:left}
+    .calc-history-list button:hover{border-color:rgba(101,230,163,.4);color:var(--text)}
+    .calc-history-list .history-expression{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .calc-history-list .history-result{color:var(--calculator)}
+    .calc-history-empty{margin:0;color:rgba(183,195,218,.58);font-size:11px}
+    .graph-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin-bottom:10px}
+    .graph-expression{min-width:0;height:42px;padding:0 12px;border:1px solid rgba(101,230,163,.42);background:rgba(2,7,16,.55);color:var(--text);font-family:var(--math);font-size:17px}
+    .graph-button{min-height:42px;padding:7px 12px;border:1px solid rgba(101,230,163,.62);background:rgba(101,230,163,.14);color:var(--text);cursor:pointer;font-size:11px;font-weight:760}
+    .graph-button:hover{background:rgba(101,230,163,.23)}
+    .graph-canvas-wrap{position:relative;border:1px solid var(--line-strong);background:#060a16}
+    .graph-canvas{display:block;width:100%;aspect-ratio:16/9;touch-action:none}
+    .graph-readout{position:absolute;top:8px;left:9px;margin:0;padding:4px 7px;background:rgba(5,7,17,.78);color:var(--calculator);font-family:var(--math);font-size:11px;pointer-events:none}
+    .graph-window{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:9px}
+    .graph-window label{display:grid;gap:3px;color:var(--muted);font-size:9px;letter-spacing:.06em;text-transform:uppercase}
+    .graph-window input{width:100%;height:34px;padding:0 7px;border:1px solid var(--line);background:rgba(2,7,16,.5);color:var(--text);font-family:var(--math);font-size:12px}
+    .graph-footer{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:9px}
+    .graph-message{margin:0;color:var(--muted);font-size:10px}
+    .numeric-tools{margin-top:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .numeric-tools summary{padding:11px 0;cursor:pointer;color:var(--calculator);font-size:11px;font-weight:760;letter-spacing:.035em;list-style:none}
+    .numeric-tools summary::-webkit-details-marker{display:none}
+    .numeric-tools summary::after{content:" +";color:var(--muted)}
+    .numeric-tools[open] summary::after{content:" −"}
+    .numeric-grid{display:grid;gap:8px;padding:0 0 12px}
+    .numeric-row{display:grid;grid-template-columns:104px minmax(0,1fr) auto;gap:7px;align-items:end}
+    .numeric-label{align-self:center;color:var(--text);font-size:11px;font-weight:730;line-height:1.2}
+    .numeric-label small{display:block;color:var(--muted);font-size:9px;font-weight:500}
+    .numeric-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+    .numeric-inputs.one{grid-template-columns:minmax(0,1fr)}
+    .numeric-inputs label{display:grid;gap:2px;color:var(--muted);font-size:8px;letter-spacing:.06em;text-transform:uppercase}
+    .numeric-inputs input{width:100%;height:34px;padding:0 7px;border:1px solid var(--line);background:rgba(2,7,16,.5);color:var(--text);font-family:var(--math);font-size:12px}
+    .numeric-result{min-height:19px;margin:0;padding:0 0 1px 111px;color:var(--calculator);font-family:var(--math);font-size:11px;line-height:1.4}
+    .numeric-result.error{color:var(--coral);font-family:var(--sans)}
     @media(max-width:900px){
       .hero{grid-template-columns:1fr;gap:24px;min-height:auto;padding:62px 0 72px}
       .math-stage{min-height:170px;place-items:start}
@@ -221,14 +288,21 @@
       .lesson-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
       .lesson-action{width:100%;min-height:44px}
       .site-foot{display:block;padding-bottom:100px}.site-foot span{display:block;margin-top:5px}
-      .tool-dock{right:12px;bottom:max(10px,env(safe-area-inset-bottom));left:12px;grid-template-columns:1fr 1fr;gap:8px}
-      .tool-trigger{grid-template-columns:31px auto;min-width:0;min-height:52px;padding:7px 10px;background:linear-gradient(100deg,rgba(var(--tool-rgb),.2),#111a34 72%)}
-      .tool-symbol{width:31px;height:31px}
-      dialog{inset:auto 10px calc(76px + env(safe-area-inset-bottom)) 10px;width:auto;max-height:calc(100vh - 98px - env(safe-area-inset-bottom))}
+      .tool-dock{right:12px;bottom:max(10px,env(safe-area-inset-bottom));left:12px;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+      .tool-trigger{grid-template-columns:28px minmax(0,1fr);gap:4px;min-width:0;min-height:52px;padding:5px 6px;background:linear-gradient(100deg,rgba(var(--tool-rgb),.2),#111a34 72%)}
+      .tool-symbol{width:28px;height:28px;font-size:16px}.tool-copy{font-size:11px}.tool-copy small{display:none}
+      dialog{inset:auto 10px calc(76px + env(safe-area-inset-bottom)) 10px;width:auto;max-height:calc(100vh - 98px - env(safe-area-inset-bottom));max-height:calc(100dvh - 98px - env(safe-area-inset-bottom));overscroll-behavior:contain}
       .dialog-shell{padding:21px 18px}.dialog-head h2{font-size:24px}
       .question-text{min-height:0;font-size:22px}
       .dialog-actions{display:grid;grid-template-columns:1fr 1fr}.panel-button{width:100%}
       .student-orb{width:88px;height:88px;font-size:34px}.student-name{font-size:32px}
+      #calculator-dialog .dialog-shell{padding:18px 14px}
+      .calc-keypad{gap:5px}.calc-key{min-height:44px}
+      .graph-window{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .graph-footer{align-items:stretch;flex-direction:column}.graph-button{width:100%}
+      .numeric-row{grid-template-columns:82px minmax(0,1fr)}
+      .numeric-row .graph-button{grid-column:1/-1}
+      .numeric-result{padding-left:89px}
     }
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
@@ -469,6 +543,10 @@
       <span class="tool-symbol" aria-hidden="true">✦</span>
       <span class="tool-copy">随机抽签<small>Student picker</small></span>
     </button>
+    <button class="tool-trigger" id="calculator-trigger" type="button" aria-haspopup="dialog" aria-controls="calculator-dialog" aria-expanded="false">
+      <span class="tool-symbol" aria-hidden="true">ƒx</span>
+      <span class="tool-copy">计算器<small>Calculator</small></span>
+    </button>
   </nav>
 
   <dialog id="question-dialog" aria-labelledby="question-dialog-title">
@@ -527,6 +605,144 @@
     </div>
   </dialog>
 
+  <dialog id="calculator-dialog" aria-labelledby="calculator-dialog-title">
+    <div class="dialog-shell">
+      <header class="dialog-head">
+        <div>
+          <p>AP classroom practice</p>
+          <h2 id="calculator-dialog-title">Graphing Calculator / 图形计算器</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Close calculator">×</button>
+      </header>
+
+      <div class="calc-tabs" role="tablist" aria-label="Calculator views">
+        <button class="calc-tab" id="calc-tab-scientific" type="button" role="tab" aria-selected="true" aria-controls="calc-panel-scientific">Calculate / 计算</button>
+        <button class="calc-tab" id="calc-tab-graph" type="button" role="tab" aria-selected="false" aria-controls="calc-panel-graph" tabindex="-1">Graph / 图像</button>
+        <button class="calc-mode" id="calc-angle-mode" type="button" aria-label="Switch angle mode">RAD</button>
+      </div>
+
+      <section id="calc-panel-scientific" class="calc-scientific" role="tabpanel" aria-labelledby="calc-tab-scientific">
+        <div class="calc-screen">
+          <div class="calc-screen-top">
+            <span>Expression / 表达式</span>
+            <span id="calc-status">Ready / 就绪</span>
+          </div>
+          <label class="sr-only" for="calc-expression">Calculator expression</label>
+          <input class="calc-expression" id="calc-expression" type="text" maxlength="160" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="text" placeholder="sin(pi/6) + 2^3">
+          <output class="calc-result" id="calc-result" for="calc-expression" aria-live="polite">0</output>
+        </div>
+
+        <div class="calc-keypad" id="calc-keypad" aria-label="Scientific calculator keypad">
+          <button class="calc-key utility" type="button" data-insert="(">(</button>
+          <button class="calc-key utility" type="button" data-insert=")">)</button>
+          <button class="calc-key utility" type="button" data-action="reciprocal" aria-label="Reciprocal">1/x</button>
+          <button class="calc-key utility" type="button" data-action="backspace" aria-label="Backspace">⌫</button>
+          <button class="calc-key utility" type="button" data-action="clear" aria-label="Clear expression">AC</button>
+
+          <button class="calc-key function" type="button" data-insert="sin(">sin</button>
+          <button class="calc-key function" type="button" data-insert="cos(">cos</button>
+          <button class="calc-key function" type="button" data-insert="tan(">tan</button>
+          <button class="calc-key function" type="button" data-insert="ln(">ln</button>
+          <button class="calc-key function" type="button" data-insert="log(">log</button>
+
+          <button class="calc-key function" type="button" data-insert="sqrt(" aria-label="Square root">√</button>
+          <button class="calc-key function" type="button" data-action="square" aria-label="Square">x²</button>
+          <button class="calc-key function" type="button" data-insert="^" aria-label="Power">xʸ</button>
+          <button class="calc-key function" type="button" data-insert="pi" aria-label="Pi">π</button>
+          <button class="calc-key function" type="button" data-insert="e" aria-label="Euler's number">e</button>
+
+          <button class="calc-key" type="button" data-insert="7">7</button>
+          <button class="calc-key" type="button" data-insert="8">8</button>
+          <button class="calc-key" type="button" data-insert="9">9</button>
+          <button class="calc-key operator" type="button" data-insert="/" aria-label="Divide">÷</button>
+          <button class="calc-key function" type="button" data-insert="Ans">Ans</button>
+
+          <button class="calc-key" type="button" data-insert="4">4</button>
+          <button class="calc-key" type="button" data-insert="5">5</button>
+          <button class="calc-key" type="button" data-insert="6">6</button>
+          <button class="calc-key operator" type="button" data-insert="*" aria-label="Multiply">×</button>
+          <button class="calc-key function" type="button" data-insert="abs(">abs</button>
+
+          <button class="calc-key" type="button" data-insert="1">1</button>
+          <button class="calc-key" type="button" data-insert="2">2</button>
+          <button class="calc-key" type="button" data-insert="3">3</button>
+          <button class="calc-key operator" type="button" data-insert="-" aria-label="Subtract">−</button>
+          <button class="calc-key utility" type="button" data-action="negate" aria-label="Change sign">±</button>
+
+          <button class="calc-key zero" type="button" data-insert="0">0</button>
+          <button class="calc-key" type="button" data-insert=".">.</button>
+          <button class="calc-key operator" type="button" data-insert="+" aria-label="Add">+</button>
+          <button class="calc-key equals" type="button" data-action="calculate" aria-label="Calculate">=</button>
+        </div>
+
+        <details class="calc-history">
+          <summary>History / 历史记录</summary>
+          <div class="calc-history-head"><span></span><button id="calc-clear-history" type="button">Clear / 清除</button></div>
+          <ol class="calc-history-list" id="calc-history-list"></ol>
+          <p class="calc-history-empty" id="calc-history-empty">No calculations yet / 暂无记录</p>
+        </details>
+      </section>
+
+      <section id="calc-panel-graph" role="tabpanel" aria-labelledby="calc-tab-graph" hidden>
+        <div class="graph-controls">
+          <label class="sr-only" for="graph-expression">Function of x</label>
+          <input class="graph-expression" id="graph-expression" type="text" maxlength="120" autocomplete="off" autocapitalize="off" spellcheck="false" value="sin(x)" aria-describedby="graph-message">
+          <button class="graph-button" id="graph-draw" type="button">Graph / 作图</button>
+        </div>
+        <div class="graph-canvas-wrap">
+          <canvas class="graph-canvas" id="graph-canvas" width="900" height="506" aria-label="Graph of the entered function. Click or drag to trace a point.">Your browser does not support canvas.</canvas>
+          <p class="graph-readout" id="graph-readout">y = sin(x)</p>
+        </div>
+        <div class="graph-window" aria-label="Graph window">
+          <label>x min<input id="graph-x-min" type="number" value="-10" step="any"></label>
+          <label>x max<input id="graph-x-max" type="number" value="10" step="any"></label>
+          <label>y min<input id="graph-y-min" type="number" value="-10" step="any"></label>
+          <label>y max<input id="graph-y-max" type="number" value="10" step="any"></label>
+        </div>
+        <div class="graph-footer">
+          <p class="graph-message" id="graph-message">Use x as the variable. Click the graph to trace. / 用 x 作变量，点击图像读取坐标。</p>
+          <button class="graph-button" id="graph-standard" type="button">Standard Window / 标准窗口</button>
+        </div>
+
+        <details class="numeric-tools">
+          <summary>AP Numeric Tools / AP 数值工具</summary>
+          <div class="numeric-grid">
+            <div class="numeric-row">
+              <div class="numeric-label">Zero <small>区间求零点</small></div>
+              <div class="numeric-inputs">
+                <label>Left<input id="zero-left" type="text" inputmode="decimal" maxlength="40" value="-2"></label>
+                <label>Right<input id="zero-right" type="text" inputmode="decimal" maxlength="40" value="2"></label>
+              </div>
+              <button class="graph-button" id="numeric-zero" type="button">Find Zero / 求零点</button>
+            </div>
+            <p class="numeric-result" id="zero-result" aria-live="polite"></p>
+
+            <div class="numeric-row">
+              <div class="numeric-label">Derivative <small>某点数值导数</small></div>
+              <div class="numeric-inputs one">
+                <label>At x<input id="derivative-x" type="text" inputmode="decimal" maxlength="40" value="0"></label>
+              </div>
+              <button class="graph-button" id="numeric-derivative" type="button">f′(x) / 求导数</button>
+            </div>
+            <p class="numeric-result" id="derivative-result" aria-live="polite"></p>
+
+            <div class="numeric-row">
+              <div class="numeric-label">Integral <small>定积分数值</small></div>
+              <div class="numeric-inputs">
+                <label>Lower a<input id="integral-a" type="text" inputmode="decimal" maxlength="40" value="0"></label>
+                <label>Upper b<input id="integral-b" type="text" inputmode="decimal" maxlength="40" value="pi"></label>
+              </div>
+              <button class="graph-button" id="numeric-integral" type="button">∫ f(x) dx / 积分</button>
+            </div>
+            <p class="numeric-result" id="integral-result" aria-live="polite"></p>
+          </div>
+        </details>
+      </section>
+
+      <p class="calculator-note">Classroom simulator only—not an exam-day calculator. It practices the four AP graphing-calculator capabilities: graphing, zeros, numerical derivatives, and definite integrals. On the AP Exam, use only an approved handheld model or Bluebook’s built-in Desmos, and only on calculator-required parts. / 仅供课堂模拟；正式考试请使用获准设备或 Bluebook 内置 Desmos。 <a href="https://apcentral.collegeboard.org/exam-administration-ordering-scores/administering-exams/exam-policies/calculator-policy" target="_blank" rel="noopener">College Board policy</a> · <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener">Desmos practice</a></p>
+    </div>
+  </dialog>
+
   <script src="question-bank.js"></script>
   <script>
     "use strict";
@@ -535,8 +751,10 @@
     const questionBank = Array.isArray(window.UNIT1_QUESTION_BANK) ? window.UNIT1_QUESTION_BANK : [];
     const questionDialog = byId("question-dialog");
     const pickerDialog = byId("picker-dialog");
+    const calculatorDialog = byId("calculator-dialog");
     const questionTrigger = byId("question-trigger");
     const pickerTrigger = byId("picker-trigger");
+    const calculatorTrigger = byId("calculator-trigger");
     const answerPanel = byId("answer-panel");
     let questionQueue = [];
 
@@ -599,6 +817,880 @@
         ? "Show Answer / 显示答案"
         : "Hide Answer / 收起答案";
       byId("answer-toggle").setAttribute("aria-expanded", String(!answerPanel.hidden));
+    });
+
+    const calculatorStorageKey = "ap-calculus-classroom-calculator-v1";
+    const calculatorExpression = byId("calc-expression");
+    const calculatorResult = byId("calc-result");
+    const calculatorStatus = byId("calc-status");
+    const calculatorModeButton = byId("calc-angle-mode");
+    const calculatorFunctions = new Set(["sin", "cos", "tan", "asin", "acos", "atan", "ln", "log", "sqrt", "abs"]);
+    const calculatorConstants = new Set(["pi", "e", "ans"]);
+    let calculatorJustEvaluated = false;
+    let calculatorState = loadCalculatorState();
+    let graphTraceX = null;
+
+    function defaultCalculatorState() {
+      return { angle:"RAD", answer:0, history:[] };
+    }
+
+    function loadCalculatorState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(calculatorStorageKey) || "null");
+        if (!saved) return defaultCalculatorState();
+        const history = Array.isArray(saved.history)
+          ? saved.history.filter((entry) =>
+              entry &&
+              typeof entry.expression === "string" &&
+              typeof entry.result === "string" &&
+              Number.isFinite(entry.value)
+            ).slice(0, 8)
+          : [];
+        return {
+          angle:saved.angle === "DEG" ? "DEG" : "RAD",
+          answer:Number.isFinite(saved.answer) ? saved.answer : 0,
+          history
+        };
+      } catch (error) {
+        return defaultCalculatorState();
+      }
+    }
+
+    function saveCalculatorState() {
+      try {
+        localStorage.setItem(calculatorStorageKey, JSON.stringify(calculatorState));
+      } catch (error) {
+        /* Calculator remains usable when browser storage is unavailable. */
+      }
+    }
+
+    function normalizeCalculatorExpression(source) {
+      return String(source)
+        .replace(/[×·]/g, "*")
+        .replace(/÷/g, "/")
+        .replace(/[−–—]/g, "-")
+        .replace(/π/g, "pi")
+        .replace(/√/g, "sqrt")
+        .trim();
+    }
+
+    function tokenizeCalculator(source) {
+      const input = normalizeCalculatorExpression(source);
+      if (!input) return [];
+      if (input.length > 160) throw new Error("Expression is too long / 表达式过长");
+      const rawTokens = [];
+      let index = 0;
+
+      while (index < input.length) {
+        const character = input[index];
+        if (/\s/.test(character)) {
+          index += 1;
+          continue;
+        }
+
+        const numberMatch = input.slice(index).match(/^(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?/);
+        if (numberMatch) {
+          const value = Number(numberMatch[0]);
+          if (!Number.isFinite(value)) throw new Error("Number is out of range / 数值超出范围");
+          rawTokens.push({ type:"number", value });
+          index += numberMatch[0].length;
+          continue;
+        }
+
+        const identifierMatch = input.slice(index).match(/^[A-Za-z]+/);
+        if (identifierMatch) {
+          const identifier = identifierMatch[0].toLowerCase();
+          if (calculatorFunctions.has(identifier)) rawTokens.push({ type:"function", value:identifier });
+          else if (calculatorConstants.has(identifier)) rawTokens.push({ type:"constant", value:identifier });
+          else if (identifier === "x") rawTokens.push({ type:"variable", value:"x" });
+          else throw new Error("Unknown name: " + identifier + " / 未知名称");
+          index += identifierMatch[0].length;
+          continue;
+        }
+
+        if ("+-*/^".includes(character)) rawTokens.push({ type:"operator", value:character });
+        else if (character === "(") rawTokens.push({ type:"left", value:character });
+        else if (character === ")") rawTokens.push({ type:"right", value:character });
+        else throw new Error("Unsupported symbol: " + character + " / 不支持的符号");
+        index += 1;
+      }
+
+      const tokens = [];
+      rawTokens.forEach((token) => {
+        const previous = tokens[tokens.length - 1];
+        const previousEndsValue = previous && ["number", "constant", "variable", "right"].includes(previous.type);
+        const currentStartsValue = ["constant", "variable", "function", "left"].includes(token.type);
+        if (previousEndsValue && currentStartsValue) tokens.push({ type:"operator", value:"*" });
+        tokens.push(token);
+      });
+      return tokens;
+    }
+
+    function applyCalculatorFunction(name, value) {
+      if (name === "sqrt") {
+        if (value < 0) throw new Error("Square root needs a nonnegative input / 根号内须非负");
+        return Math.sqrt(value);
+      }
+      if (name === "ln" || name === "log") {
+        if (value <= 0) throw new Error("Logarithms need a positive input / 对数真数须为正");
+        return name === "ln" ? Math.log(value) : Math.log(value) / Math.LN10;
+      }
+      if (name === "abs") return Math.abs(value);
+
+      if (name === "asin" || name === "acos") {
+        if (value < -1 || value > 1) throw new Error("Inverse trig input must be from -1 to 1 / 反三角函数输入须在 -1 到 1 之间");
+        const radians = name === "asin" ? Math.asin(value) : Math.acos(value);
+        return calculatorState.angle === "DEG" ? radians * 180 / Math.PI : radians;
+      }
+      if (name === "atan") {
+        const radians = Math.atan(value);
+        return calculatorState.angle === "DEG" ? radians * 180 / Math.PI : radians;
+      }
+
+      const angle = calculatorState.angle === "DEG" ? value * Math.PI / 180 : value;
+      if (name === "sin") return Math.sin(angle);
+      if (name === "cos") return Math.cos(angle);
+      if (name === "tan") {
+        if (Math.abs(Math.cos(angle)) < 1e-12) throw new Error("Tangent is undefined here / 此处正切无定义");
+        return Math.tan(angle);
+      }
+      throw new Error("Unknown function / 未知函数");
+    }
+
+    function parseCalculatorExpression(source, variables = {}, preparedTokens = null) {
+      const tokens = preparedTokens || tokenizeCalculator(source);
+      if (!tokens.length) throw new Error("Enter an expression / 请输入表达式");
+      let position = 0;
+
+      function current() {
+        return tokens[position];
+      }
+
+      function take(type, value) {
+        const token = current();
+        if (!token || token.type !== type || (value !== undefined && token.value !== value)) return null;
+        position += 1;
+        return token;
+      }
+
+      function require(type, value) {
+        const token = take(type, value);
+        if (!token) throw new Error("Syntax error / 表达式错误");
+        return token;
+      }
+
+      function parsePrimary() {
+        const number = take("number");
+        if (number) return number.value;
+
+        const constant = take("constant");
+        if (constant) {
+          if (constant.value === "pi") return Math.PI;
+          if (constant.value === "e") return Math.E;
+          return calculatorState.answer;
+        }
+
+        const variable = take("variable");
+        if (variable) {
+          if (!Number.isFinite(variables.x)) throw new Error("x is available only in Graph view / x 仅用于图像");
+          return variables.x;
+        }
+
+        const functionToken = take("function");
+        if (functionToken) {
+          require("left");
+          const value = parseAddSubtract();
+          require("right");
+          return applyCalculatorFunction(functionToken.value, value);
+        }
+
+        if (take("left")) {
+          const value = parseAddSubtract();
+          require("right");
+          return value;
+        }
+        throw new Error("Expected a number or function / 需要数字或函数");
+      }
+
+      function parsePower() {
+        let value = parsePrimary();
+        if (take("operator", "^")) value = Math.pow(value, parseUnary());
+        return value;
+      }
+
+      function parseUnary() {
+        if (take("operator", "+")) return parseUnary();
+        if (take("operator", "-")) return -parseUnary();
+        return parsePower();
+      }
+
+      function parseMultiplyDivide() {
+        let value = parseUnary();
+        while (current() && current().type === "operator" && ["*", "/"].includes(current().value)) {
+          const operator = current().value;
+          position += 1;
+          const right = parseUnary();
+          if (operator === "*") value *= right;
+          else {
+            if (right === 0) throw new Error("Cannot divide by zero / 不能除以零");
+            value /= right;
+          }
+        }
+        return value;
+      }
+
+      function parseAddSubtract() {
+        let value = parseMultiplyDivide();
+        while (current() && current().type === "operator" && ["+", "-"].includes(current().value)) {
+          const operator = current().value;
+          position += 1;
+          const right = parseMultiplyDivide();
+          value = operator === "+" ? value + right : value - right;
+        }
+        return value;
+      }
+
+      const value = parseAddSubtract();
+      if (position !== tokens.length) throw new Error("Syntax error / 表达式错误");
+      if (!Number.isFinite(value)) throw new Error("Math error or result out of range / 数学错误或结果超出范围");
+      return value;
+    }
+
+    function formatCalculatorNumber(value, significantDigits = 12) {
+      let cleanValue = Math.abs(value) < 1e-14 ? 0 : value;
+      if (Object.is(cleanValue, -0)) cleanValue = 0;
+      const absolute = Math.abs(cleanValue);
+      if (absolute && (absolute >= 1e12 || absolute < 1e-9)) {
+        return cleanValue.toExponential(Math.max(1, significantDigits - 2)).replace(/\.?0+e/, "e");
+      }
+      return String(Number(cleanValue.toPrecision(significantDigits)));
+    }
+
+    function updateCalculatorMode(message) {
+      calculatorModeButton.textContent = calculatorState.angle;
+      calculatorModeButton.setAttribute("aria-label", "Angle mode " + calculatorState.angle + ". Switch mode.");
+      calculatorStatus.textContent = calculatorState.angle + (message ? " · " + message : " · Ready / 就绪");
+    }
+
+    function showCalculatorError(message) {
+      calculatorResult.classList.add("error");
+      calculatorResult.textContent = message;
+      updateCalculatorMode("Error / 错误");
+      calculatorJustEvaluated = false;
+    }
+
+    function renderCalculatorHistory() {
+      const list = byId("calc-history-list");
+      const empty = byId("calc-history-empty");
+      list.replaceChildren();
+      calculatorState.history.forEach((entry) => {
+        const item = document.createElement("li");
+        const button = document.createElement("button");
+        button.type = "button";
+        button.setAttribute("aria-label", "Reuse " + entry.expression + ", result " + entry.result);
+        const expression = document.createElement("span");
+        expression.className = "history-expression";
+        expression.textContent = entry.expression;
+        const result = document.createElement("span");
+        result.className = "history-result";
+        result.textContent = "= " + entry.result;
+        button.append(expression, result);
+        button.addEventListener("click", () => {
+          calculatorState.angle = entry.angle === "DEG" ? "DEG" : "RAD";
+          updateCalculatorMode("History restored / 已恢复历史模式");
+          calculatorExpression.value = entry.expression;
+          calculatorResult.classList.remove("error");
+          calculatorResult.textContent = entry.result;
+          calculatorJustEvaluated = false;
+          calculatorExpression.focus();
+        });
+        item.append(button);
+        list.append(item);
+      });
+      empty.hidden = calculatorState.history.length > 0;
+    }
+
+    function insertCalculatorText(text) {
+      const isOperator = /^[+\-*/^]$/.test(text);
+      if (calculatorJustEvaluated) {
+        calculatorExpression.value = isOperator ? "Ans" : "";
+        calculatorJustEvaluated = false;
+      }
+      const start = calculatorExpression.selectionStart ?? calculatorExpression.value.length;
+      const end = calculatorExpression.selectionEnd ?? start;
+      calculatorExpression.setRangeText(text, start, end, "end");
+      calculatorResult.classList.remove("error");
+      updateCalculatorMode("Editing / 输入中");
+      calculatorExpression.focus();
+    }
+
+    function backspaceCalculator() {
+      const start = calculatorExpression.selectionStart ?? calculatorExpression.value.length;
+      const end = calculatorExpression.selectionEnd ?? start;
+      if (start !== end) calculatorExpression.setRangeText("", start, end, "end");
+      else if (start > 0) calculatorExpression.setRangeText("", start - 1, start, "end");
+      calculatorJustEvaluated = false;
+      calculatorExpression.focus();
+    }
+
+    function wrapCalculatorExpression(prefix, suffix) {
+      const expression = calculatorExpression.value.trim() || "Ans";
+      calculatorExpression.value = prefix + expression + suffix;
+      calculatorJustEvaluated = false;
+      calculatorExpression.focus();
+    }
+
+    function calculateCurrentExpression() {
+      const expression = calculatorExpression.value.trim();
+      if (!expression) return;
+      try {
+        const value = parseCalculatorExpression(expression);
+        const formatted = formatCalculatorNumber(value);
+        calculatorState.answer = value;
+        calculatorState.history.unshift({
+          expression:expression.slice(0, 160),
+          result:formatted,
+          value,
+          angle:calculatorState.angle
+        });
+        calculatorState.history = calculatorState.history.slice(0, 8);
+        saveCalculatorState();
+        renderCalculatorHistory();
+        calculatorResult.classList.remove("error");
+        calculatorResult.textContent = formatted;
+        updateCalculatorMode("Saved as Ans / 已存为 Ans");
+        calculatorJustEvaluated = true;
+      } catch (error) {
+        showCalculatorError(error instanceof Error ? error.message : "Calculator error / 计算错误");
+      }
+    }
+
+    calculatorModeButton.addEventListener("click", () => {
+      calculatorState.angle = calculatorState.angle === "RAD" ? "DEG" : "RAD";
+      saveCalculatorState();
+      updateCalculatorMode();
+      if (!byId("calc-panel-graph").hidden) drawCalculatorGraph(graphTraceX);
+      else if (window.matchMedia("(pointer:fine)").matches) calculatorExpression.focus();
+    });
+
+    calculatorExpression.addEventListener("input", () => {
+      calculatorJustEvaluated = false;
+      calculatorResult.classList.remove("error");
+      updateCalculatorMode("Editing / 输入中");
+    });
+    calculatorExpression.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === "=") {
+        event.preventDefault();
+        calculateCurrentExpression();
+      }
+    });
+
+    byId("calc-keypad").addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      if (button.dataset.insert !== undefined) {
+        insertCalculatorText(button.dataset.insert);
+        return;
+      }
+      const action = button.dataset.action;
+      if (action === "calculate") calculateCurrentExpression();
+      else if (action === "clear") {
+        calculatorExpression.value = "";
+        calculatorResult.classList.remove("error");
+        calculatorResult.textContent = "0";
+        calculatorJustEvaluated = false;
+        updateCalculatorMode();
+        calculatorExpression.focus();
+      } else if (action === "backspace") backspaceCalculator();
+      else if (action === "square") wrapCalculatorExpression("(", ")^2");
+      else if (action === "reciprocal") wrapCalculatorExpression("1/(", ")");
+      else if (action === "negate") {
+        const expression = calculatorExpression.value.trim();
+        if (expression.startsWith("-(") && expression.endsWith(")")) {
+          calculatorExpression.value = expression.slice(2, -1);
+          calculatorExpression.focus();
+        } else wrapCalculatorExpression("-(", ")");
+      }
+    });
+
+    byId("calc-clear-history").addEventListener("click", () => {
+      calculatorState.history = [];
+      saveCalculatorState();
+      renderCalculatorHistory();
+    });
+
+    function setCalculatorTab(name, focusTab = false) {
+      const scientific = name === "scientific";
+      byId("calc-panel-scientific").hidden = !scientific;
+      byId("calc-panel-graph").hidden = scientific;
+      byId("calc-tab-scientific").setAttribute("aria-selected", String(scientific));
+      byId("calc-tab-graph").setAttribute("aria-selected", String(!scientific));
+      byId("calc-tab-scientific").tabIndex = scientific ? 0 : -1;
+      byId("calc-tab-graph").tabIndex = scientific ? -1 : 0;
+      if (focusTab) byId(scientific ? "calc-tab-scientific" : "calc-tab-graph").focus();
+      else if (scientific && window.matchMedia("(pointer:fine)").matches) calculatorExpression.focus();
+      else window.requestAnimationFrame(() => drawCalculatorGraph(graphTraceX));
+    }
+
+    byId("calc-tab-scientific").addEventListener("click", () => setCalculatorTab("scientific"));
+    byId("calc-tab-graph").addEventListener("click", () => setCalculatorTab("graph"));
+    [byId("calc-tab-scientific"), byId("calc-tab-graph")].forEach((tab) => {
+      tab.addEventListener("keydown", (event) => {
+        if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+          event.preventDefault();
+          const target = event.key === "Home"
+            ? "scientific"
+            : event.key === "End"
+              ? "graph"
+              : tab.id === "calc-tab-scientific" ? "graph" : "scientific";
+          setCalculatorTab(target, true);
+        }
+      });
+    });
+
+    function readGraphWindow() {
+      const values = {
+        xMin:Number(byId("graph-x-min").value),
+        xMax:Number(byId("graph-x-max").value),
+        yMin:Number(byId("graph-y-min").value),
+        yMax:Number(byId("graph-y-max").value)
+      };
+      if (!Object.values(values).every(Number.isFinite)) throw new Error("Window values must be numbers / 窗口须为数字");
+      if (values.xMin >= values.xMax || values.yMin >= values.yMax) throw new Error("Minimum must be less than maximum / 最小值须小于最大值");
+      if (values.xMax - values.xMin > 1e9 || values.yMax - values.yMin > 1e9) throw new Error("Window is too large / 窗口范围过大");
+      return values;
+    }
+
+    function niceGraphStep(span) {
+      const raw = Math.abs(span) / 8;
+      const power = Math.pow(10, Math.floor(Math.log10(raw)));
+      const fraction = raw / power;
+      const multiple = fraction <= 1 ? 1 : fraction <= 2 ? 2 : fraction <= 5 ? 5 : 10;
+      return multiple * power;
+    }
+
+    function drawCalculatorGraph(traceX = null) {
+      const canvas = byId("graph-canvas");
+      const rectangle = canvas.getBoundingClientRect();
+      const width = Math.round(rectangle.width);
+      const height = Math.round(rectangle.height);
+      if (width < 180 || height < 100 || byId("calc-panel-graph").hidden) return;
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      const context = canvas.getContext("2d");
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      context.clearRect(0, 0, width, height);
+      context.fillStyle = "#060a16";
+      context.fillRect(0, 0, width, height);
+
+      const message = byId("graph-message");
+      const readout = byId("graph-readout");
+      const expression = byId("graph-expression").value.trim();
+      try {
+        const windowValues = readGraphWindow();
+        if (!expression) throw new Error("Enter a function of x / 请输入关于 x 的函数");
+        const preparedTokens = tokenizeCalculator(expression);
+        if (!preparedTokens.length) throw new Error("Enter a function of x / 请输入关于 x 的函数");
+        const xSpan = windowValues.xMax - windowValues.xMin;
+        const ySpan = windowValues.yMax - windowValues.yMin;
+        const toPixelX = (x) => (x - windowValues.xMin) / xSpan * width;
+        const toPixelY = (y) => height - (y - windowValues.yMin) / ySpan * height;
+
+        context.lineWidth = 1;
+        context.strokeStyle = "rgba(183,195,218,.13)";
+        context.fillStyle = "rgba(183,195,218,.58)";
+        context.font = "10px -apple-system, sans-serif";
+        const xStep = niceGraphStep(xSpan);
+        const yStep = niceGraphStep(ySpan);
+        let lineCount = 0;
+
+        for (let value = Math.ceil(windowValues.xMin / xStep) * xStep; value <= windowValues.xMax + xStep * .001 && lineCount < 50; value += xStep, lineCount += 1) {
+          const pixel = toPixelX(value);
+          context.beginPath();
+          context.moveTo(pixel, 0);
+          context.lineTo(pixel, height);
+          context.stroke();
+          context.fillText(formatCalculatorNumber(value, 5), Math.min(width - 34, pixel + 3), height - 6);
+        }
+        lineCount = 0;
+        for (let value = Math.ceil(windowValues.yMin / yStep) * yStep; value <= windowValues.yMax + yStep * .001 && lineCount < 50; value += yStep, lineCount += 1) {
+          const pixel = toPixelY(value);
+          context.beginPath();
+          context.moveTo(0, pixel);
+          context.lineTo(width, pixel);
+          context.stroke();
+          context.fillText(formatCalculatorNumber(value, 5), 4, Math.max(11, pixel - 3));
+        }
+
+        context.strokeStyle = "rgba(248,248,255,.5)";
+        context.lineWidth = 1.25;
+        if (windowValues.xMin <= 0 && windowValues.xMax >= 0) {
+          const axis = toPixelX(0);
+          context.beginPath();
+          context.moveTo(axis, 0);
+          context.lineTo(axis, height);
+          context.stroke();
+        }
+        if (windowValues.yMin <= 0 && windowValues.yMax >= 0) {
+          const axis = toPixelY(0);
+          context.beginPath();
+          context.moveTo(0, axis);
+          context.lineTo(width, axis);
+          context.stroke();
+        }
+
+        const gradient = context.createLinearGradient(0, 0, width, 0);
+        gradient.addColorStop(0, "#ff5d8f");
+        gradient.addColorStop(.52, "#65e6a3");
+        gradient.addColorStop(1, "#cb85ff");
+        context.strokeStyle = gradient;
+        context.lineWidth = 2;
+        context.beginPath();
+        let validPoints = 0;
+        let previousPixelY = null;
+        let firstError = null;
+
+        for (let pixelX = 0; pixelX <= width; pixelX += 1) {
+          const x = windowValues.xMin + pixelX / width * xSpan;
+          try {
+            const y = parseCalculatorExpression(expression, { x }, preparedTokens);
+            const pixelY = toPixelY(y);
+            const visibleEnough = pixelY > -height * 2 && pixelY < height * 3;
+            if (!visibleEnough || (previousPixelY !== null && Math.abs(pixelY - previousPixelY) > height * 1.4)) context.moveTo(pixelX, pixelY);
+            else context.lineTo(pixelX, pixelY);
+            previousPixelY = visibleEnough ? pixelY : null;
+            validPoints += 1;
+          } catch (error) {
+            if (!firstError) firstError = error;
+            previousPixelY = null;
+          }
+        }
+        context.stroke();
+        if (validPoints < 2) throw firstError || new Error("No visible real-valued points / 没有可见的实数点");
+
+        if (Number.isFinite(traceX) && traceX >= windowValues.xMin && traceX <= windowValues.xMax) {
+          try {
+            const traceY = parseCalculatorExpression(expression, { x:traceX }, preparedTokens);
+            const pixelX = toPixelX(traceX);
+            const pixelY = toPixelY(traceY);
+            if (pixelY >= 0 && pixelY <= height) {
+              context.fillStyle = "#ffe45e";
+              context.beginPath();
+              context.arc(pixelX, pixelY, 4.5, 0, Math.PI * 2);
+              context.fill();
+            }
+            readout.textContent = "x = " + formatCalculatorNumber(traceX, 7) + "   y = " + formatCalculatorNumber(traceY, 7);
+          } catch (error) {
+            readout.textContent = "x = " + formatCalculatorNumber(traceX, 7) + "   y undefined / 无定义";
+          }
+        } else {
+          readout.textContent = "y = " + expression + " · " + calculatorState.angle;
+        }
+        message.textContent = "Click or drag to trace. / 点击或拖动读取坐标。";
+      } catch (error) {
+        readout.textContent = "Graph error / 作图错误";
+        message.textContent = error instanceof Error ? error.message : "Unable to graph / 无法作图";
+      }
+    }
+
+    function currentGraphEvaluator() {
+      const expression = byId("graph-expression").value.trim();
+      if (!expression) throw new Error("Enter a function of x / 请输入关于 x 的函数");
+      const preparedTokens = tokenizeCalculator(expression);
+      if (!preparedTokens.length) throw new Error("Enter a function of x / 请输入关于 x 的函数");
+      return {
+        expression,
+        evaluate:(x) => parseCalculatorExpression(expression, { x }, preparedTokens)
+      };
+    }
+
+    function readNumericField(id, label) {
+      const source = byId(id).value.trim();
+      if (!source) throw new Error(label + " is required / 请输入" + label);
+      return parseCalculatorExpression(source);
+    }
+
+    function showNumericResult(id, label, value) {
+      const output = byId(id);
+      const formatted = formatCalculatorNumber(value, 11);
+      output.classList.remove("error");
+      output.textContent = label + " ≈ " + formatted + " · " + calculatorState.angle + " · saved as Ans / 已存为 Ans";
+      calculatorState.answer = value;
+      saveCalculatorState();
+    }
+
+    function showNumericError(id, error) {
+      const output = byId(id);
+      output.classList.add("error");
+      output.textContent = error instanceof Error ? error.message : "Numerical method failed / 数值计算失败";
+    }
+
+    function findVerifiedZero(evaluate, left, right) {
+      if (!(left < right)) throw new Error("Left bound must be less than right bound / 左端点须小于右端点");
+      if (right - left > 1e9) throw new Error("Search interval is too large / 搜索区间过大");
+      const sampleCount = 400;
+      const step = (right - left) / sampleCount;
+      const directRoots = [];
+      const brackets = [];
+      let previous = null;
+      let best = null;
+      let invalidSamples = 0;
+
+      for (let index = 0; index <= sampleCount; index += 1) {
+        const x = index === sampleCount ? right : left + index * step;
+        try {
+          const y = evaluate(x);
+          const magnitude = Math.abs(y);
+          if (!best || magnitude < best.magnitude) best = { x, magnitude };
+          if (magnitude <= 1e-10) {
+            if (!directRoots.length || Math.abs(x - directRoots[directRoots.length - 1]) > step * .55) directRoots.push(x);
+            previous = null;
+            continue;
+          }
+          if (previous && Math.sign(previous.y) !== Math.sign(y)) brackets.push([previous.x, x, previous.y, y]);
+          previous = { x, y };
+        } catch (error) {
+          invalidSamples += 1;
+          previous = null;
+        }
+      }
+
+      if (directRoots.length + brackets.length > 1) throw new Error("More than one zero found; use a smaller interval / 检出多个零点，请缩小区间");
+      if (directRoots.length === 1) return directRoots[0];
+
+      if (brackets.length === 1) {
+        let [a, b, fa, fb] = brackets[0];
+        for (let iteration = 0; iteration < 100; iteration += 1) {
+          const midpoint = (a + b) / 2;
+          const fm = evaluate(midpoint);
+          if (Math.abs(fm) <= 1e-11 || Math.abs(b - a) <= 1e-11 * Math.max(1, Math.abs(midpoint))) {
+            if (Math.abs(fm) > 1e-7) throw new Error("Sign change may be a discontinuity, not a zero / 变号处可能是不连续点而非零点");
+            return midpoint;
+          }
+          if (Math.sign(fa) === Math.sign(fm)) {
+            a = midpoint;
+            fa = fm;
+          } else {
+            b = midpoint;
+            fb = fm;
+          }
+        }
+        const root = (a + b) / 2;
+        if (Math.abs(evaluate(root)) <= 1e-7) return root;
+        throw new Error("Zero did not converge / 零点计算未收敛");
+      }
+
+      if (best) {
+        let a = Math.max(left, best.x - step);
+        let b = Math.min(right, best.x + step);
+        const ratio = (Math.sqrt(5) - 1) / 2;
+        let c = b - ratio * (b - a);
+        let d = a + ratio * (b - a);
+        let fc = Math.abs(evaluate(c));
+        let fd = Math.abs(evaluate(d));
+        for (let iteration = 0; iteration < 80; iteration += 1) {
+          if (fc <= fd) {
+            b = d;
+            d = c;
+            fd = fc;
+            c = b - ratio * (b - a);
+            fc = Math.abs(evaluate(c));
+          } else {
+            a = c;
+            c = d;
+            fc = fd;
+            d = a + ratio * (b - a);
+            fd = Math.abs(evaluate(d));
+          }
+        }
+        const candidate = fc <= fd ? c : d;
+        if (Math.abs(evaluate(candidate)) <= 1e-8) return candidate;
+      }
+
+      if (invalidSamples) throw new Error("Function is undefined in the interval; use a continuous interval / 区间内函数无定义，请选连续区间");
+      throw new Error("No verified zero found; try a smaller interval / 未找到可验证零点，请缩小区间");
+    }
+
+    function numericalDerivative(evaluate, x) {
+      let h = Math.cbrt(Number.EPSILON) * Math.max(1, Math.abs(x));
+      while (x + h === x || x - h === x) h *= 2;
+      const center = evaluate(x);
+      const leftValue = evaluate(x - h);
+      const rightValue = evaluate(x + h);
+      const leftSlope = (center - leftValue) / h;
+      const rightSlope = (rightValue - center) / h;
+      const sideScale = Math.max(1, Math.abs(leftSlope), Math.abs(rightSlope));
+      if (Math.abs(leftSlope - rightSlope) > 1e-4 * sideScale) throw new Error("Left and right slopes disagree; derivative may not exist / 左右斜率不一致，导数可能不存在");
+
+      const half = h / 2;
+      const d1 = (rightValue - leftValue) / (2 * h);
+      const d2 = (evaluate(x + half) - evaluate(x - half)) / (2 * half);
+      const result = d2 + (d2 - d1) / 3;
+      if (!Number.isFinite(result)) throw new Error("Derivative did not converge / 导数计算未收敛");
+      return result;
+    }
+
+    function numericalIntegral(evaluate, lower, upper) {
+      if (lower === upper) return 0;
+      let sign = 1;
+      let a = lower;
+      let b = upper;
+      if (a > b) {
+        sign = -1;
+        [a, b] = [b, a];
+      }
+      if (b - a > 1e9) throw new Error("Integration interval is too large / 积分区间过大");
+      let evaluations = 0;
+      const safeEvaluate = (x) => {
+        evaluations += 1;
+        if (evaluations > 50000) throw new Error("Integral exceeded the calculation limit / 积分超过计算上限");
+        return evaluate(x);
+      };
+      const simpson = (left, right, fLeft, fMiddle, fRight) => (right - left) * (fLeft + 4 * fMiddle + fRight) / 6;
+
+      function adapt(left, right, fLeft, fMiddle, fRight, whole, tolerance, depth) {
+        const middle = (left + right) / 2;
+        const leftMiddle = (left + middle) / 2;
+        const rightMiddle = (middle + right) / 2;
+        const fLeftMiddle = safeEvaluate(leftMiddle);
+        const fRightMiddle = safeEvaluate(rightMiddle);
+        const leftEstimate = simpson(left, middle, fLeft, fLeftMiddle, fMiddle);
+        const rightEstimate = simpson(middle, right, fMiddle, fRightMiddle, fRight);
+        const delta = leftEstimate + rightEstimate - whole;
+        if (Math.abs(delta) <= 15 * tolerance) return leftEstimate + rightEstimate + delta / 15;
+        if (depth <= 0) throw new Error("Integral did not converge; check for a discontinuity / 积分未收敛，请检查不连续点");
+        return adapt(left, middle, fLeft, fLeftMiddle, fMiddle, leftEstimate, tolerance / 2, depth - 1)
+          + adapt(middle, right, fMiddle, fRightMiddle, fRight, rightEstimate, tolerance / 2, depth - 1);
+      }
+
+      const panels = 16;
+      const panelWidth = (b - a) / panels;
+      let total = 0;
+      let compensation = 0;
+      for (let index = 0; index < panels; index += 1) {
+        const left = a + index * panelWidth;
+        const right = index === panels - 1 ? b : left + panelWidth;
+        const middle = (left + right) / 2;
+        const fLeft = safeEvaluate(left);
+        const fMiddle = safeEvaluate(middle);
+        const fRight = safeEvaluate(right);
+        const whole = simpson(left, right, fLeft, fMiddle, fRight);
+        const tolerance = (1e-10 + 1e-9 * Math.abs(whole)) / panels;
+        const panelValue = adapt(left, right, fLeft, fMiddle, fRight, whole, tolerance, 18);
+        const adjusted = panelValue - compensation;
+        const next = total + adjusted;
+        compensation = (next - total) - adjusted;
+        total = next;
+      }
+      return sign * total;
+    }
+
+    byId("numeric-zero").addEventListener("click", () => {
+      try {
+        const { evaluate } = currentGraphEvaluator();
+        const left = readNumericField("zero-left", "left bound");
+        const right = readNumericField("zero-right", "right bound");
+        showNumericResult("zero-result", "x", findVerifiedZero(evaluate, left, right));
+      } catch (error) {
+        showNumericError("zero-result", error);
+      }
+    });
+
+    byId("numeric-derivative").addEventListener("click", () => {
+      try {
+        const { evaluate } = currentGraphEvaluator();
+        const x = readNumericField("derivative-x", "x");
+        showNumericResult("derivative-result", "f′(" + formatCalculatorNumber(x, 7) + ")", numericalDerivative(evaluate, x));
+      } catch (error) {
+        showNumericError("derivative-result", error);
+      }
+    });
+
+    byId("numeric-integral").addEventListener("click", () => {
+      try {
+        const { evaluate } = currentGraphEvaluator();
+        const lower = readNumericField("integral-a", "lower bound");
+        const upper = readNumericField("integral-b", "upper bound");
+        showNumericResult("integral-result", "Integral", numericalIntegral(evaluate, lower, upper));
+      } catch (error) {
+        showNumericError("integral-result", error);
+      }
+    });
+
+    document.querySelectorAll(".numeric-tools input").forEach((input) => {
+      input.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        input.closest(".numeric-row").querySelector("button").click();
+      });
+    });
+
+    let traceFrame = 0;
+    let pendingTraceX = null;
+
+    function traceGraphAtEvent(event) {
+      const canvas = byId("graph-canvas");
+      const rectangle = canvas.getBoundingClientRect();
+      try {
+        const windowValues = readGraphWindow();
+        const fraction = Math.max(0, Math.min(1, (event.clientX - rectangle.left) / rectangle.width));
+        pendingTraceX = windowValues.xMin + fraction * (windowValues.xMax - windowValues.xMin);
+        if (!traceFrame) {
+          traceFrame = window.requestAnimationFrame(() => {
+            traceFrame = 0;
+            graphTraceX = pendingTraceX;
+            drawCalculatorGraph(graphTraceX);
+          });
+        }
+      } catch (error) {
+        byId("graph-message").textContent = error instanceof Error ? error.message : "Unable to trace / 无法读取";
+      }
+    }
+
+    let graphTracing = false;
+    byId("graph-canvas").addEventListener("pointerdown", (event) => {
+      graphTracing = true;
+      byId("graph-canvas").setPointerCapture(event.pointerId);
+      traceGraphAtEvent(event);
+    });
+    byId("graph-canvas").addEventListener("pointermove", (event) => {
+      if (graphTracing) traceGraphAtEvent(event);
+    });
+    byId("graph-canvas").addEventListener("pointerup", () => { graphTracing = false; });
+    byId("graph-canvas").addEventListener("pointercancel", () => { graphTracing = false; });
+
+    byId("graph-draw").addEventListener("click", () => {
+      graphTraceX = null;
+      drawCalculatorGraph();
+    });
+    byId("graph-expression").addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        graphTraceX = null;
+        drawCalculatorGraph();
+      }
+    });
+    byId("graph-standard").addEventListener("click", () => {
+      byId("graph-x-min").value = "-10";
+      byId("graph-x-max").value = "10";
+      byId("graph-y-min").value = "-10";
+      byId("graph-y-max").value = "10";
+      graphTraceX = null;
+      drawCalculatorGraph();
+    });
+
+    calculatorTrigger.addEventListener("click", () => {
+      renderCalculatorHistory();
+      updateCalculatorMode();
+      calculatorResult.classList.remove("error");
+      calculatorResult.textContent = formatCalculatorNumber(calculatorState.answer);
+      calculatorDialog.showModal();
+      calculatorTrigger.setAttribute("aria-expanded", "true");
+      window.requestAnimationFrame(() => {
+        if (byId("calc-panel-graph").hidden && window.matchMedia("(pointer:fine)").matches) calculatorExpression.focus();
+        else drawCalculatorGraph(graphTraceX);
+      });
     });
 
     const roster = Object.freeze([
@@ -805,13 +1897,14 @@
     document.querySelectorAll("[data-close-dialog]").forEach((button) => {
       button.addEventListener("click", () => button.closest("dialog").close());
     });
-    [questionDialog, pickerDialog].forEach((dialog) => {
+    [questionDialog, pickerDialog, calculatorDialog].forEach((dialog) => {
       dialog.addEventListener("click", (event) => {
         if (event.target === dialog) dialog.close();
       });
       dialog.addEventListener("close", () => {
         questionTrigger.setAttribute("aria-expanded", "false");
         pickerTrigger.setAttribute("aria-expanded", "false");
+        calculatorTrigger.setAttribute("aria-expanded", "false");
       });
     });
 
@@ -880,7 +1973,10 @@
     let resizeTimer = 0;
     window.addEventListener("resize", () => {
       window.clearTimeout(resizeTimer);
-      resizeTimer = window.setTimeout(drawMathSky, 120);
+      resizeTimer = window.setTimeout(() => {
+        drawMathSky();
+        if (calculatorDialog.open && !byId("calc-panel-graph").hidden) drawCalculatorGraph(graphTraceX);
+      }, 120);
     });
     drawMathSky();
   </script>
