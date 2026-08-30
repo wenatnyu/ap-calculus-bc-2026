@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 1.8 | Determining Limits Using the Squeeze Theorem</title>
+  <style>
+    :root {
+      --navy:#16324f; --blue:#2f5d8c; --blue-light:#eaf0f5; --ink:#1f2a33;
+      --muted:#667585; --paper:#fff; --mist:#f3f6f8; --line:#c9d3dc;
+      --gold:#c9902f; --teal:#16837a; --red:#ad433b; --shadow:0 18px 55px rgba(22,50,79,.20);
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+      --math:"STIX Two Math","Cambria Math","Times New Roman",serif;
+    }
+    * { box-sizing:border-box; }
+    html,body { width:100%; height:100%; }
+    body { margin:0; overflow:hidden; background:#dfe6ec; color:var(--ink); font-family:var(--sans); }
+    button { font:inherit; }
+    .app { width:100%; height:100%; position:relative; }
+    .viewport { position:absolute; inset:0 0 58px; display:grid; place-items:center; padding:22px; overflow:hidden; }
+    .deck { position:absolute; left:50%; top:50%; width:1600px; height:900px; transform-origin:50% 50%; }
+    .slide {
+      position:absolute; inset:0; display:none; overflow:hidden; isolation:isolate;
+      padding:60px 94px 68px 108px; background:var(--paper); box-shadow:var(--shadow);
+    }
+    .slide.active { display:block; animation:enter .16s ease-out; }
+    @keyframes enter { from{opacity:.25;transform:translateY(4px)} to{opacity:1;transform:none} }
+    .slide::before { content:""; position:absolute; inset:0 auto 0 0; width:14px; background:var(--blue); z-index:-1; }
+    .slide::after { content:""; position:absolute; inset:0 0 auto 14px; height:8px; background:var(--navy); z-index:-1; }
+    .slide.soft { background:var(--mist); }
+    .slide.section { background:var(--navy); color:#fff; }
+    .slide.section::before { background:var(--gold); }
+    .slide.section::after { background:#0e253b; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:980px; margin:34px 0 14px; font:700 68px/1.03 Georgia,"Times New Roman",serif; letter-spacing:-.025em; }
+    h1 span { display:block; }
+    h2 { margin:8px 0 6px; color:var(--navy); font:700 47px/1.08 Georgia,"Times New Roman",serif; white-space:nowrap; }
+    .section h2 { color:#fff; }
+    h3 { margin-bottom:10px; color:var(--navy); font-size:25px; line-height:1.2; }
+    .section h3 { color:#fff; }
+    p,li { font-size:23px; line-height:1.42; }
+    .eyebrow { margin:0; color:var(--blue); font-size:18px; font-weight:820; letter-spacing:.12em; text-transform:uppercase; }
+    .section .eyebrow { color:#9fc5e2; }
+    .accent-rule { width:130px; height:6px; margin-top:26px; background:var(--gold); }
+    .lead { max-width:1030px; font-size:28px; line-height:1.42; }
+    .zh-title { margin:0 0 24px; color:var(--gold); font-size:22px; font-weight:760; }
+    .zh-key { display:block; margin-top:6px; color:#9a6818; font-size:.82em; font-weight:720; }
+    .section .zh-key { color:#e7c56f; }
+    .small { font-size:20px; }
+    .muted { color:var(--muted); }
+    .math,.formula { font-family:var(--math); }
+    .formula { font-size:36px; line-height:1.35; }
+    .small-formula { font-size:30px; }
+    sup,sub { line-height:0; }
+    .limit-op { display:inline-grid; grid-template-rows:1fr auto; justify-items:center; margin:0 5px; line-height:.78; vertical-align:middle; }
+    .limit-op .op { font-size:1em; font-style:normal; }
+    .limit-op .sub { margin-top:4px; font-size:.48em; white-space:nowrap; }
+    .frac { display:inline-grid; grid-template-rows:auto auto; justify-items:center; margin:0 5px; line-height:1.05; vertical-align:middle; }
+    .frac > span:first-child { min-width:100%; padding:0 6px 3px; border-bottom:2px solid currentColor; text-align:center; }
+    .frac > span:last-child { padding-top:3px; }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:start; }
+    .split.wide-left { grid-template-columns:1.18fr .82fr; }
+    .statement { padding:26px 0 24px; border-top:6px solid var(--blue); border-bottom:1px solid #8fa0af; }
+    .callout { margin-top:22px; padding:15px 18px; border-left:6px solid var(--blue); background:var(--blue-light); font-size:20px; line-height:1.38; }
+    .callout.gold { border-left-color:var(--gold); background:#fbf5e9; }
+    .callout.teal { border-left-color:var(--teal); background:#eaf5f3; }
+    .callout.red { border-left-color:var(--red); background:#faefee; }
+    .term-table,.compare-table { width:100%; border-collapse:collapse; table-layout:fixed; }
+    .term-table th,.term-table td,.compare-table th,.compare-table td { padding:8px 13px; border-bottom:1px solid var(--line); text-align:left; font-size:17px; line-height:1.16; }
+    .term-table th,.compare-table th { padding-top:10px; padding-bottom:10px; background:var(--navy); color:#fff; font-size:18px; }
+    .term-table td:nth-child(odd) { color:var(--navy); font-weight:780; }
+    .term-table td:nth-child(even) { color:#8b5d15; font-weight:670; }
+    .term-note { margin-top:15px; padding-top:10px; border-top:3px solid var(--gold); font-size:18px; }
+    .logic-grid { display:grid; grid-template-columns:1fr 90px 1fr; gap:24px; align-items:center; margin-top:30px; }
+    .logic-card { min-height:230px; padding:24px 26px; border-top:6px solid var(--blue); background:#f6f8fa; }
+    .logic-card strong { display:block; margin-bottom:14px; color:var(--navy); font-size:24px; }
+    .logic-card p { margin:8px 0; font-size:21px; }
+    .logic-arrow { color:var(--gold); font:700 58px/1 Georgia,serif; text-align:center; }
+    .proof { margin-top:20px; border-top:5px solid var(--blue); }
+    .proof-step { display:grid; grid-template-columns:72px 1fr; gap:20px; padding:14px 6px; border-bottom:1px solid var(--line); align-items:center; }
+    .proof-step b { color:var(--blue); font:700 28px/1 Georgia,serif; }
+    .proof-step .formula { font-size:31px; }
+    .sign-table { width:100%; margin-top:22px; border-collapse:collapse; }
+    .sign-table th,.sign-table td { padding:14px 18px; border-bottom:1px solid var(--line); text-align:left; font-size:21px; }
+    .sign-table th { background:var(--navy); color:#fff; }
+    .sign-table td:first-child { color:var(--blue); font-weight:800; }
+    .check-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:20px; }
+    .check-card { min-height:230px; padding:20px 22px; border-top:6px solid var(--blue); background:#f6f8fa; }
+    .check-card h3 { font-size:22px; }
+    .check-card p { font-size:19px; line-height:1.35; }
+    .choice-list { list-style:none; margin:10px 0 16px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 34px; }
+    .choice-list li { font-size:23px; }
+    .choice-list .letter { display:inline-block; width:42px; color:var(--blue); font-weight:820; }
+    .warning { color:var(--red); font-weight:800; }
+    .correct { color:var(--teal); font-weight:800; }
+    .answer { display:none; margin-top:16px; padding:14px 18px; border-left:6px solid var(--teal); background:#eaf4f2; color:var(--ink); font-size:21px; line-height:1.4; }
+    .answer.show { display:block; }
+    .answer strong { color:var(--teal); }
+    .reveal-btn { appearance:none; margin-top:10px; padding:9px 17px; border:2px solid var(--blue); border-radius:0; background:transparent; color:var(--blue); font-size:19px; font-weight:790; cursor:pointer; }
+    .reveal-btn:hover,.reveal-btn:focus-visible { background:var(--blue); color:#fff; outline:none; }
+    .hero-equation { position:absolute; right:92px; top:178px; width:480px; padding:28px 0; border-top:7px solid #8fafd0; border-bottom:1px solid #6f8ea9; color:#fff; font-family:var(--math); font-size:34px; line-height:1.55; }
+    .hero-equation .row { display:flex; justify-content:space-between; gap:20px; color:#dfeaf3; }
+    .hero-equation .row b { color:#e7c56f; font-family:var(--sans); font-size:22px; }
+    .title-note { position:absolute; left:108px; bottom:92px; display:flex; align-items:center; gap:18px; color:#d8e4ee; font-size:21px; }
+    .title-note .line { width:86px; height:2px; background:#86a7c4; }
+    .slide-footer { position:absolute; left:108px; right:58px; bottom:25px; display:flex; justify-content:space-between; align-items:center; gap:24px; color:#6d7a87; font-size:15px; }
+    .section .slide-footer { color:#c7d6e2; }
+    .notes { display:none; }
+    .controls { position:absolute; left:0; right:0; bottom:0; height:58px; display:flex; align-items:center; gap:14px; padding:0 22px; background:#f7f9fb; border-top:1px solid #c5d0da; color:#506171; z-index:20; }
+    .controls button { border:0; background:transparent; color:var(--navy); cursor:pointer; font-weight:760; padding:8px 10px; }
+    .controls button:hover,.controls button:focus-visible { background:#e9eef2; outline:none; }
+    .progress-track { flex:1; height:4px; margin:0 10px; background:#d6dfe7; }
+    .progress-bar { width:0; height:100%; background:var(--blue); transition:width .18s ease; }
+    .counter { min-width:82px; text-align:center; font-variant-numeric:tabular-nums; }
+    .key-hint { color:#778593; font-size:14px; white-space:nowrap; }
+    .notes-panel { position:absolute; z-index:40; right:22px; bottom:76px; display:none; width:min(560px,calc(100vw - 44px)); max-height:66vh; overflow:auto; padding:22px 24px; background:#fffef7; border:1px solid #c7b876; box-shadow:0 14px 40px rgba(30,42,53,.25); color:#36352d; }
+    .notes-panel.open { display:block; }
+    .notes-panel h3 { margin-bottom:12px; font-size:22px; }
+    .notes-panel p,.notes-panel li { font-size:16px; line-height:1.55; }
+    .help { position:absolute; inset:0; z-index:50; display:none; place-items:center; background:rgba(22,50,79,.78); }
+    .help.open { display:grid; }
+    .help-card { width:560px; padding:34px 40px; background:#fff; box-shadow:var(--shadow); }
+    .help-card h3 { font-size:30px; }
+    .help-card p { font-size:20px; }
+    kbd { border:1px solid #aebbc6; padding:2px 7px; background:#f6f8fa; font-family:ui-monospace,monospace; }
+    @media (max-width:760px) { .key-hint{display:none}.controls{gap:4px;padding:0 8px} }
+    @page { size:16in 9in; margin:0; }
+    @media print {
+      html,body{width:auto;height:auto;overflow:visible;background:#fff}.app,.viewport{position:static;display:block;padding:0;overflow:visible}
+      .deck{position:static;left:auto;top:auto;transform:none!important;width:1600px;height:auto}
+      .slide{position:relative;display:block!important;width:1600px;height:900px;box-shadow:none;break-after:page;page-break-after:always;animation:none!important}
+      .controls,.notes-panel,.help,.reveal-btn{display:none!important}.answer{display:block}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="viewport" id="viewport">
+      <main class="deck" id="deck" aria-live="polite">
+
+        <section class="slide section active" data-title="Determining Limits Using the Squeeze Theorem">
+          <p class="eyebrow">AP Calculus BC - Topic 1.8</p>
+          <div class="accent-rule"></div>
+          <h1><span>Determining Limits Using</span><span>the Squeeze Theorem</span></h1>
+          <p class="lead" style="color:#e7c56f">用夹逼定理求极限</p>
+          <div class="hero-equation">
+            <div class="row"><span>lower bound</span><b>g(x)</b></div>
+            <div class="row"><span>squeezed function</span><b>f(x)</b></div>
+            <div class="row"><span>upper bound</span><b>h(x)</b></div>
+          </div>
+          <div class="title-note"><span class="line"></span><span>Bound the function - Match the two outside limits - Conclude</span></div>
+          <div class="slide-footer"><span>Class slides - English main text with key Chinese</span><span>1.8</span></div>
+          <aside class="notes"><p><b>开场：</b>今天不直接追踪中间函数，而是用上下两个容易求极限的函数把它夹住。</p><p>[Sources]<br>https://calculus.flippedmath.com/18-determining-limits-using-the-squeeze-theorem.html<br>https://www.youtube.com/watch?v=6IwCydD8IMQ<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Core Vocabulary for Topic 1.8">
+          <p class="eyebrow">Language first - One-page reference</p>
+          <h2>Core Vocabulary for Topic 1.8</h2>
+          <p class="zh-title">本节核心词汇集中在这一页</p>
+          <table class="term-table" aria-label="Core English and Chinese vocabulary">
+            <tr><th>English</th><th>中文</th><th>English</th><th>中文</th></tr>
+            <tr><td>Squeeze Theorem</td><td>夹逼定理</td><td>Sandwich / Pinching Theorem</td><td>夹心 / 夹挤定理</td></tr>
+            <tr><td>lower bound</td><td>下界</td><td>upper bound</td><td>上界</td></tr>
+            <tr><td>inequality</td><td>不等式</td><td>bounded</td><td>有界的</td></tr>
+            <tr><td>oscillate</td><td>振荡</td><td>magnitude</td><td>大小；模</td></tr>
+            <tr><td>absolute value</td><td>绝对值</td><td>reverse the inequality</td><td>不等号反向</td></tr>
+            <tr><td>multiply by a negative</td><td>乘以负数</td><td>same limit</td><td>相同的极限</td></tr>
+            <tr><td>punctured neighborhood</td><td>去心邻域</td><td>approach</td><td>趋近</td></tr>
+            <tr><td>hypothesis</td><td>定理条件</td><td>conclusion</td><td>结论</td></tr>
+            <tr><td>the theorem applies</td><td>定理适用</td><td>cannot determine</td><td>无法据此确定</td></tr>
+            <tr><td>does not exist (DNE)</td><td>不存在</td><td>two-sided limit</td><td>双侧极限</td></tr>
+          </table>
+          <p class="term-note"><b>Class sentence:</b> “Both bounds approach ______, so the Squeeze Theorem gives ______.”<span class="zh-key">课堂句型：两个边界都趋近 ______，所以夹逼定理得到 ______。</span></p>
+          <div class="slide-footer"><span>Keep this page open while stating each argument.</span><span>02</span></div>
+          <aside class="notes"><p>先读 lower bound、upper bound、oscillate、absolute value、same limit、cannot determine。区分 cannot determine 与 DNE。</p><p>[Sources]<br>https://calculus.flippedmath.com/18-determining-limits-using-the-squeeze-theorem.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="The Squeeze Theorem">
+          <p class="eyebrow">The theorem - Three functions</p>
+          <h2>The Squeeze Theorem</h2>
+          <p class="zh-title">中间函数被两个同极限的函数夹住</p>
+          <div class="statement" style="margin-top:28px">
+            <div class="formula">If &nbsp; g(x) ≤ f(x) ≤ h(x) &nbsp; near x=a,</div>
+            <div class="formula" style="margin-top:22px">and &nbsp; <span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>g(x)=L=<span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>h(x),</div>
+            <div class="formula correct" style="margin-top:22px">then &nbsp; <span class="limit-op"><span class="op">lim</span><span class="sub">x→a</span></span>f(x)=L.</div>
+          </div>
+          <p class="callout gold"><b>Both outside limits must be the same.</b> The order alone is not enough.<span class="zh-key">上下界必须趋近同一个数；只有夹在中间还不够。</span></p>
+          <div class="slide-footer"><span>The inequalities need only hold sufficiently close to a.</span><span>03</span></div>
+          <aside class="notes"><p>逐项点名三个条件：有上下界、下界极限存在、上界极限存在且相等。强调结论只针对中间函数。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf<br>https://calculus.flippedmath.com/18-determining-limits-using-the-squeeze-theorem.html</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="A Three-Step Routine">
+          <p class="eyebrow">A repeatable proof</p>
+          <h2>A Three-Step Routine</h2>
+          <p class="zh-title">每次夹逼证明都写清三步</p>
+          <div class="proof">
+            <div class="proof-step"><b>01</b><div><strong>State a valid bound.</strong><div class="small">Write <span class="math">g(x)≤f(x)≤h(x)</span> near the target point.<span class="zh-key">先写在目标点附近成立的上下界。</span></div></div></div>
+            <div class="proof-step"><b>02</b><div><strong>Evaluate both outside limits.</strong><div class="small">Show that both equal the same number <span class="math">L</span>.<span class="zh-key">分别求上下界极限，并确认两者相同。</span></div></div></div>
+            <div class="proof-step"><b>03</b><div><strong>Name the theorem and conclude.</strong><div class="small">Therefore, by the Squeeze Theorem, <span class="math">lim f(x)=L</span>.<span class="zh-key">点明“由夹逼定理”，再写中间函数的极限。</span></div></div></div>
+          </div>
+          <p class="callout red">If the outside limits differ, stop: this bound gives no conclusion.<span class="zh-key">若上下界极限不同，只能说这组界无法确定答案。</span></p>
+          <div class="slide-footer"><span>Bound - Evaluate - Conclude</span><span>04</span></div>
+          <aside class="notes"><p>要求学生解题时至少出现一次完整句子 “By the Squeeze Theorem...”。如果外侧极限不同，不要硬猜中间极限。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Absolute Value Controls Oscillation">
+          <p class="eyebrow">The safest bound</p>
+          <h2>Absolute Value Controls Oscillation</h2>
+          <p class="zh-title">用绝对值统一处理双侧振荡</p>
+          <div class="split wide-left" style="margin-top:26px">
+            <div class="statement">
+              <div class="formula">|sin u|≤1 &nbsp; and &nbsp; |cos u|≤1</div>
+              <div class="formula" style="margin-top:24px">|A(x)q(x)|≤|A(x)|</div>
+              <div class="formula" style="margin-top:24px">−|A(x)|≤A(x)q(x)≤|A(x)|</div>
+            </div>
+            <div>
+              <h3>When this finishes the proof</h3>
+              <p>If <span class="math">|q(x)|≤1</span> and <span class="math">|A(x)|→0</span>, both bounds approach 0.</p>
+              <p class="callout teal">Therefore <span class="math">A(x)q(x)→0</span>.<span class="zh-key">振荡项有界，缩放因子趋近 0，乘积被压到 0。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Absolute values avoid separate left- and right-hand cases.</span><span>05</span></div>
+          <aside class="notes"><p>把 |sin u|≤1 与 |cos u|≤1 作为本节核心工具。绝对值形式不会因为 x 的正负而出错。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Negative Multipliers Reverse Inequalities">
+          <p class="eyebrow">Sign check - A two-sided limit</p>
+          <h2>Negative Multipliers Reverse Inequalities</h2>
+          <p class="zh-title">乘负数时不等号必须反向</p>
+          <table class="sign-table" aria-label="Inequality behavior on each side of zero">
+            <tr><th>Near 0</th><th>Starting bound</th><th>After multiplying by x</th></tr>
+            <tr><td>x&gt;0</td><td class="math">−1≤q(x)≤1</td><td class="math">−x≤xq(x)≤x</td></tr>
+            <tr><td>x&lt;0</td><td class="math">−1≤q(x)≤1</td><td class="math">x≤xq(x)≤−x</td></tr>
+            <tr><td>Both sides</td><td class="math">|q(x)|≤1</td><td class="math correct">−|x|≤xq(x)≤|x|</td></tr>
+          </table>
+          <p class="callout red"><span class="warning">Do not write</span> <span class="math">−x≤xq(x)≤x</span> across both sides of 0. It is false when <span class="math">x&lt;0</span>.<span class="zh-key">双侧趋近 0 时，最稳妥的写法是使用 |x|。</span></p>
+          <div class="slide-footer"><span>Odd powers need the same sign check.</span><span>06</span></div>
+          <aside class="notes"><p>这是本节最重要的严谨性修正。官方解答把 −x≤xq≤x 作为跨越 0 的简写；课堂上改写为 −|x|≤xq≤|x|。奇次幂同理。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_solutions.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Example: A Nonnegative Multiplier">
+          <p class="eyebrow">Packet notes 1 - Even power</p>
+          <h2>Example: A Nonnegative Multiplier</h2>
+          <p class="zh-title">偶次幂恒非负，可以直接乘不等式</p>
+          <div class="statement" style="margin-top:24px">
+            <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span>x²cos(<span class="frac"><span>1</span><span>x²</span></span>)</div>
+          </div>
+          <button class="reveal-btn" type="button" data-reveal="answer7" aria-controls="answer7" aria-expanded="false">Show solution</button>
+          <div class="answer" id="answer7"><span class="math">−1≤cos(1/x²)≤1</span>. Since <span class="math">x²≥0</span>, multiplying preserves order:<div class="formula small-formula" style="margin-top:10px">−x²≤x²cos(<span class="frac"><span>1</span><span>x²</span></span>)≤x².</div>Both outside limits are 0, so the limit is <strong>0</strong> by the Squeeze Theorem.<span class="zh-key">因为 x²≥0，不等号方向不变；上下界都趋近 0。</span></div>
+          <div class="slide-footer"><span>Nonnegative factor: no reversal.</span><span>07</span></div>
+          <aside class="notes"><p>先问 x² 的符号，再允许学生把 −1≤cos≤1 乘以 x²。强调最后必须写“by the Squeeze Theorem”。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Example: An Odd Multiplier">
+          <p class="eyebrow">Practice 3 - Correct two-sided bound</p>
+          <h2>Example: An Odd Multiplier</h2>
+          <p class="zh-title">奇次幂会变号，用绝对值界</p>
+          <div class="statement" style="margin-top:24px">
+            <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span>x sin(<span class="frac"><span>1</span><span>x²</span></span>)</div>
+          </div>
+          <button class="reveal-btn" type="button" data-reveal="answer8" aria-controls="answer8" aria-expanded="false">Show solution</button>
+          <div class="answer" id="answer8">Use magnitude instead of multiplying a three-part inequality by a sign-changing number:<div class="formula small-formula" style="margin-top:10px">|x sin(1/x²)|≤|x|</div><div class="formula small-formula">−|x|≤x sin(1/x²)≤|x|.</div>Both bounds approach 0, so the limit is <strong>0</strong>.<span class="zh-key">x 在 0 两侧变号；绝对值写法同时覆盖左右两侧。</span></div>
+          <div class="slide-footer"><span>For x, x³, x⁵, ... use |x|, |x|³, |x|⁵, ...</span><span>08</span></div>
+          <aside class="notes"><p>不要照抄 −x≤x sin(1/x²)≤x；当 x&lt;0 时这个次序错误。正确双侧界是 ±|x|。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_solutions.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Squeezing Between Two Named Functions">
+          <p class="eyebrow">Packet notes 3 - Same outside value</p>
+          <h2>Squeezing Between Two Named Functions</h2>
+          <p class="zh-title">上下界是具体函数时，分别代入检查</p>
+          <div class="split" style="margin-top:24px">
+            <div class="statement">
+              <div class="formula small-formula">g(x)=cos(<span class="frac"><span>π</span><span>2</span></span>x)+2</div>
+              <div class="formula small-formula" style="margin-top:18px">h(x)=x²+3</div>
+              <p style="margin:22px 0 0"><span class="math">g(x)≤f(x)≤h(x)</span> near <span class="math">x=0</span>.</p>
+            </div>
+            <div>
+              <button class="reveal-btn" type="button" data-reveal="answer9" aria-controls="answer9" aria-expanded="false">Show conclusion</button>
+              <div class="answer" id="answer9"><div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span>g(x)=3</div><div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span>h(x)=3</div>Therefore <span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span>f(x)=<strong>3</strong></span>.<span class="zh-key">两个边界都趋近 3，所以中间函数也趋近 3。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>The value of f(0) is not needed.</span><span>09</span></div>
+          <aside class="notes"><p>分别在 g 和 h 中代入 0。问学生：需要知道 f(0) 吗？不需要，极限只看附近。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="When the Bounds Do Not Meet">
+          <p class="eyebrow">Packet notes 2 - No conclusion</p>
+          <h2>When the Bounds Do Not Meet</h2>
+          <p class="zh-title">上下界极限不同，夹逼定理无法给出结论</p>
+          <div class="split" style="margin-top:24px">
+            <div class="statement">
+              <div class="formula small-formula">g(x)=−x²+2x−3</div>
+              <div class="formula small-formula" style="margin-top:18px">h(x)=2x+1</div>
+              <p style="margin:22px 0 0"><span class="math">g(x)≤f(x)≤h(x)</span>, with <span class="math">x→2</span>.</p>
+            </div>
+            <div>
+              <button class="reveal-btn" type="button" data-reveal="answer10" aria-controls="answer10" aria-expanded="false">Show diagnosis</button>
+              <div class="answer" id="answer10"><div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span>g(x)=−3, &nbsp; <span class="limit-op"><span class="op">lim</span><span class="sub">x→2</span></span>h(x)=5.</div>The Squeeze Theorem <strong>cannot determine</strong> the limit from these bounds.<span class="zh-key">这不等于极限不存在；只能说当前信息不足。</span></div>
+            </div>
+          </div>
+          <p class="callout red"><span class="warning">The theorem does not apply</span> ≠ <span class="warning">the limit does not exist.</span><span class="zh-key">定理不适用，不代表极限不存在。</span></p>
+          <div class="slide-footer"><span>A different argument or tighter bounds might still find the limit.</span><span>10</span></div>
+          <aside class="notes"><p>让学生完整说：“The limit cannot be determined from these bounds.” 不接受直接写 DNE。练习 6、7、9 也属于这种情况。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="The Bound Only Needs to Hold Nearby">
+          <p class="eyebrow">A local theorem</p>
+          <h2>The Bound Only Needs to Hold Nearby</h2>
+          <p class="zh-title">不等式只需在目标点附近成立</p>
+          <div class="logic-grid">
+            <div class="logic-card">
+              <strong>Enough</strong>
+              <p class="math">g(x)≤f(x)≤h(x)</p>
+              <p class="math">whenever 0&lt;|x−a|&lt;δ</p>
+              <span class="zh-key">在 a 的某个去心邻域内成立即可。</span>
+            </div>
+            <div class="logic-arrow">→</div>
+            <div class="logic-card">
+              <strong>Not required</strong>
+              <p>The inequality need not hold for every real <span class="math">x</span>.</p>
+              <p>The functions need not be defined at <span class="math">x=a</span>.</p>
+              <span class="zh-key">不要求全局成立，也不要求在 a 点有定义。</span>
+            </div>
+          </div>
+          <p class="callout gold">Limits describe nearby behavior, not the value at the point.<span class="zh-key">极限研究的是“附近”，不是点上的函数值。</span></p>
+          <div class="slide-footer"><span>A punctured neighborhood excludes the center point.</span><span>11</span></div>
+          <aside class="notes"><p>把 0&lt;|x−a|&lt;δ 读作“足够接近 a，但不等于 a”。本节不要求 epsilon-delta 证明，只要求理解局部条件。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Which Bounds Actually Work">
+          <p class="eyebrow">Packet notes 4-6 - Quick check</p>
+          <h2>Which Bounds Actually Work?</h2>
+          <p class="zh-title">检查上下界是否趋近同一个数</p>
+          <div class="check-grid">
+            <div class="check-card"><h3>A</h3><p class="math">−1/2≤f(x)≤x²+1/2</p><p>as <span class="math">x→0</span></p><p>Do the bounds meet?</p></div>
+            <div class="check-card"><h3>B</h3><p class="math">−|x|³≤g(x)≤|x|³</p><p>as <span class="math">x→0</span></p><p>Do the bounds meet?</p></div>
+            <div class="check-card"><h3>C</h3><p class="math">1−x²≤h(x)≤1+x²</p><p>as <span class="math">x→0</span></p><p>Do the bounds meet?</p></div>
+          </div>
+          <button class="reveal-btn" type="button" data-reveal="answer12" aria-controls="answer12" aria-expanded="false">Show answers</button>
+          <div class="answer" id="answer12"><b>A: No.</b> The bounds approach <span class="math">−1/2</span> and <span class="math">1/2</span>. <b>B: Yes.</b> Both approach 0, so <span class="math">g(x)→0</span>. <b>C: Yes.</b> Both approach 1, so <span class="math">h(x)→1</span>.<span class="zh-key">A 只能说无法由这组界确定；B 的双侧界已用 |x|³ 修正。</span></div>
+          <div class="slide-footer"><span>Packet notes 4-6 - Same outside limit is the deciding test.</span><span>12</span></div>
+          <aside class="notes"><p>B 对应 x³sin(1/x)。资料中的 −x³≤g≤x³ 只在 x&gt;0 保持次序；双侧极限应改为 −|x|³≤g≤|x|³。A 是无法确定，不是 DNE。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="CA1 Check: Determine or Not">
+          <p class="eyebrow">Corrective Assignment 1 - Three cases</p>
+          <h2>CA1 Check: Determine or Not?</h2>
+          <p class="zh-title">先算两个边界，再决定能否夹逼</p>
+          <ul class="choice-list" style="margin-top:22px">
+            <li><span class="letter">A.</span><span><span class="math">g=−(1/2)x²+x−9/2</span>, <span class="math">h=cos(π(x+2))−3</span>, <span class="math">x→1</span></span></li>
+            <li><span class="letter">B.</span><span><span class="math">g=−x²+x</span>, <span class="math">h=x²−x</span>, <span class="math">x→2</span></span></li>
+            <li><span class="letter">C.</span><span><span class="math">g=sin((π/2)(x−1))+2</span>, <span class="math">h=2x²+1</span>, <span class="math">x→0</span></span></li>
+          </ul>
+          <p class="small">In each case, <span class="math">g(x)≤f(x)≤h(x)</span> near the target point.</p>
+          <button class="reveal-btn" type="button" data-reveal="answer13" aria-controls="answer13" aria-expanded="false">Show conclusions</button>
+          <div class="answer" id="answer13"><b>A.</b> Both bounds approach <span class="math">−4</span>, so <span class="math">lim f=−4</span>. <b>B.</b> The bounds approach <span class="math">−2</span> and <span class="math">2</span>, so the theorem cannot determine the limit. <b>C.</b> Both bounds approach <span class="math">1</span>, so <span class="math">lim f=1</span>.<span class="zh-key">A、C 可夹逼；B 信息不足，但不能因此写 DNE。</span></div>
+          <div class="slide-footer"><span>CA1 questions 2, 3, and 4.</span><span>13</span></div>
+          <aside class="notes"><p>先给 45 秒只算六个边界值，再讨论能否使用定理。B 的正确结论是 cannot determine，不是 DNE。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_ca1.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Mixed Practice: Build the Bound">
+          <p class="eyebrow">Guided practice - Write the absolute-value bound</p>
+          <h2>Mixed Practice: Build the Bound</h2>
+          <p class="zh-title">先写绝对值界，再写夹逼结论</p>
+          <div class="split" style="margin-top:24px">
+            <div>
+              <h3>A - Even power</h3>
+              <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span>x⁴cos(<span class="frac"><span>3</span><span>x</span></span>)</div>
+            </div>
+            <div>
+              <h3>B - Odd power</h3>
+              <div class="formula small-formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span>x⁵sin(<span class="frac"><span>1</span><span>x³</span></span>)</div>
+            </div>
+          </div>
+          <button class="reveal-btn" type="button" data-reveal="answer14" aria-controls="answer14" aria-expanded="false">Show bounds and limits</button>
+          <div class="answer" id="answer14"><b>A.</b> <span class="math">|x⁴cos(3/x)|≤x⁴</span>, so the limit is <strong>0</strong>. <b>B.</b> <span class="math">|x⁵sin(1/x³)|≤|x|⁵</span>, so <span class="math">−|x|⁵≤x⁵sin(1/x³)≤|x|⁵</span> and the limit is <strong>0</strong>.<span class="zh-key">B 的 x⁵ 会变号，因此上下界必须写成 ±|x|⁵。</span></div>
+          <p class="callout teal">The inside angle may oscillate without limit. The product can still approach 0.<span class="zh-key">振荡部分本身没有极限，乘积仍可能被夹到 0。</span></p>
+          <div class="slide-footer"><span>Bound the magnitude; do not try to evaluate the oscillating factor.</span><span>14</span></div>
+          <aside class="notes"><p>要求学生先圈出“外面的幂”，再写 |sin|≤1 或 |cos|≤1。B 对应 CA1 中奇次幂因子的同类结构。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_ca1.pdf</p></aside>
+        </section>
+
+        <section class="slide section" data-title="Exit Ticket: State a Complete Squeeze Argument">
+          <p class="eyebrow">Exit ticket - One complete explanation</p>
+          <h2>Exit Ticket: State a Complete Squeeze Argument</h2>
+          <p class="zh-title">写出完整的夹逼证明</p>
+          <div class="split" style="margin-top:28px">
+            <div>
+              <div class="hero-equation" style="position:static;width:auto;color:#fff">
+                <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span>x³cos(<span class="frac"><span>5</span><span>x</span></span>)</div>
+              </div>
+              <p class="lead" style="margin-top:22px">Write the bound, evaluate both outside limits, and name the theorem.</p>
+              <span class="zh-key">写出界、求两个外侧极限，并点明定理名称。</span>
+            </div>
+            <div>
+              <button class="reveal-btn" type="button" data-reveal="answer15" aria-controls="answer15" aria-expanded="false" style="border-color:#e7c56f;color:#e7c56f">Show answer</button>
+              <div class="answer" id="answer15"><div class="formula small-formula">|x³cos(5/x)|≤|x|³</div><div class="formula small-formula">−|x|³≤x³cos(5/x)≤|x|³.</div>Since both outside limits are 0, the Squeeze Theorem gives <span class="math"><strong>lim x³cos(5/x)=0</strong></span>.<span class="zh-key">cos 振荡但有界，|x|³ 把乘积压到 0。</span></div>
+            </div>
+          </div>
+          <div class="title-note"><span class="line"></span><span>Valid bound - Same outside limit - Squeeze conclusion</span></div>
+          <div class="slide-footer"><span>Next step: recognize when limits from different representations agree.</span><span>15</span></div>
+          <aside class="notes"><p>收尾检查三项：绝对值界是否正确、两边是否都趋近 0、是否写出 by the Squeeze Theorem。x³ 是奇次幂，不能写 ±x³ 作为统一双侧界。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_solutions.pdf</p></aside>
+        </section>
+
+      </main>
+    </div>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button id="prevBtn" type="button" aria-label="Previous slide">← Prev</button>
+      <button id="nextBtn" type="button" aria-label="Next slide">Next →</button>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="counter" id="counter">1 / 15</span>
+      <button id="notesBtn" type="button">Notes</button>
+      <button id="helpBtn" type="button">?</button>
+      <span class="key-hint">← → navigate - R reveal - N notes</span>
+    </nav>
+    <aside class="notes-panel" id="notesPanel" aria-live="polite"><h3>Teacher Notes</h3><div id="notesContent"></div></aside>
+    <div class="help" id="help" role="dialog" aria-modal="true" aria-label="Keyboard help">
+      <div class="help-card">
+        <h3>Keyboard shortcuts</h3>
+        <p><kbd>←</kbd> / <kbd>→</kbd> previous or next slide</p>
+        <p><kbd>R</kbd> reveal the current answer</p>
+        <p><kbd>N</kbd> open or close teacher notes</p>
+        <p><kbd>Home</kbd> / <kbd>End</kbd> first or last slide</p>
+        <p><kbd>Esc</kbd> close this panel</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const slides=[...document.querySelectorAll('.slide')];
+    const deck=document.getElementById('deck');
+    const viewport=document.getElementById('viewport');
+    const counter=document.getElementById('counter');
+    const progressBar=document.getElementById('progressBar');
+    const notesPanel=document.getElementById('notesPanel');
+    const notesContent=document.getElementById('notesContent');
+    const help=document.getElementById('help');
+    let index=Math.max(0,Math.min(slides.length-1,Number(location.hash.slice(1)||1)-1));
+    function scaleDeck(){
+      const scale=Math.min((viewport.clientWidth-44)/1600,(viewport.clientHeight-44)/900);
+      deck.style.transform=`translate(-50%,-50%) scale(${scale})`;
+    }
+    function showSlide(next){
+      index=Math.max(0,Math.min(slides.length-1,next));
+      slides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
+      counter.textContent=`${index+1} / ${slides.length}`;
+      progressBar.style.width=`${((index+1)/slides.length)*100}%`;
+      history.replaceState(null,'',`${location.pathname}${location.search}#${index+1}`);
+      const notes=slides[index].querySelector('.notes');
+      notesContent.innerHTML=notes?notes.innerHTML:'<p>No notes for this slide.</p>';
+      document.title=`1.8 - ${slides[index].dataset.title}`;
+    }
+    function setReveal(button,answer,show){
+      answer.classList.toggle('show',show); button.textContent=show?'Hide answer':'Show answer';
+      button.setAttribute('aria-expanded',String(show));
+    }
+    function toggleCurrentReveal(){
+      const answer=slides[index].querySelector('.answer');
+      if(!answer) return;
+      const button=slides[index].querySelector('[data-reveal]');
+      if(button) setReveal(button,answer,!answer.classList.contains('show'));
+    }
+    document.querySelectorAll('[data-reveal]').forEach(button=>button.addEventListener('click',()=>{
+      const answer=document.getElementById(button.dataset.reveal);
+      setReveal(button,answer,!answer.classList.contains('show'));
+    }));
+    document.getElementById('prevBtn').addEventListener('click',()=>showSlide(index-1));
+    document.getElementById('nextBtn').addEventListener('click',()=>showSlide(index+1));
+    document.getElementById('notesBtn').addEventListener('click',()=>notesPanel.classList.toggle('open'));
+    document.getElementById('helpBtn').addEventListener('click',()=>help.classList.toggle('open'));
+    help.addEventListener('click',event=>{if(event.target===help) help.classList.remove('open');});
+    addEventListener('keydown',event=>{
+      if(event.key==='ArrowRight'||event.key==='PageDown'||event.key===' '){event.preventDefault();showSlide(index+1);}
+      else if(event.key==='ArrowLeft'||event.key==='PageUp'){event.preventDefault();showSlide(index-1);}
+      else if(event.key==='Home') showSlide(0);
+      else if(event.key==='End') showSlide(slides.length-1);
+      else if(event.key.toLowerCase()==='r') toggleCurrentReveal();
+      else if(event.key.toLowerCase()==='n') notesPanel.classList.toggle('open');
+      else if(event.key==='Escape'){notesPanel.classList.remove('open');help.classList.remove('open');}
+    });
+    if(new URLSearchParams(location.search).get('answers')==='show'){
+      document.querySelectorAll('[data-reveal]').forEach(button=>setReveal(button,document.getElementById(button.dataset.reveal),true));
+    }
+    addEventListener('resize',scaleDeck);
+    scaleDeck();
+    showSlide(index);
+  </script>
+</body>
+</html>

@@ -418,5 +418,125 @@ window.UNIT1_QUESTION_BANK = Object.freeze([
     hint: "在 factor, rationalize, combine fractions 中选择。",
     answer: "A: factor and cancel; B: rationalize; C: combine fractions. / A 因式分解约分；B 有理化；C 通分。",
     explanation: "The form of the expression—not 0/0 alone—determines the useful algebraic procedure. / 先识别结构，再选方法。"
+  },
+  {
+    id: "1.8-01",
+    topic: "1.8",
+    label: "Squeeze Theorem / 夹逼定理",
+    difficulty: "easy",
+    question: "State the three facts needed to use the Squeeze Theorem for g(x)≤f(x)≤h(x) near x=a.",
+    hint: "检查上下界的极限是否相同。",
+    answer: "g(x)≤f(x)≤h(x) near a, lim g(x)=L, and lim h(x)=L. Then lim f(x)=L. / 夹在中间，且上下界都趋近同一个 L。",
+    explanation: "The inequalities only need to hold in a punctured neighborhood of a. The value at x=a is irrelevant. / 不等式只需在 a 附近成立，不要求点值。"
+  },
+  {
+    id: "1.8-02",
+    topic: "1.8",
+    label: "Oscillation with x² / 振荡与 x²",
+    difficulty: "medium",
+    question: "Evaluate lim as x→0 of x²cos(1/x).",
+    hint: "使用 −1≤cos(1/x)≤1。",
+    answer: "0",
+    explanation: "−x²≤x²cos(1/x)≤x², and both outer functions approach 0. / 上下界都趋近 0，所以中间函数也趋近 0。"
+  },
+  {
+    id: "1.8-03",
+    topic: "1.8",
+    label: "Absolute-Value Bound / 绝对值界",
+    difficulty: "medium",
+    question: "Evaluate lim as x→0 of x sin(1/x²).",
+    hint: "跨过 x=0 时，使用 |x| 作上下界。",
+    answer: "0",
+    explanation: "Because |sin(1/x²)|≤1, we have −|x|≤x sin(1/x²)≤|x|. Both bounds approach 0. / 用绝对值界可避免 x<0 时不等号方向错误。"
+  },
+  {
+    id: "1.8-04",
+    topic: "1.8",
+    label: "Matching Bounds / 相同上下界",
+    difficulty: "medium",
+    question: "Near x=2, suppose −2−(x−2)²≤f(x)≤−2+(x−2)². Find lim as x→2 of f(x).",
+    hint: "分别求两个外层函数在 x=2 的极限。",
+    answer: "−2",
+    explanation: "Both −2−(x−2)² and −2+(x−2)² approach −2, so the Squeeze Theorem gives lim f(x)=−2. / 上下界同趋近 −2。"
+  },
+  {
+    id: "1.8-05",
+    topic: "1.8",
+    label: "When Squeeze Does Not Decide / 不能判定",
+    difficulty: "challenge",
+    question: "Near x=−1, suppose x²+x−1≤f(x)≤−x²−4x−2. What can the Squeeze Theorem conclude?",
+    hint: "先比较两个外层极限，不要直接写 DNE。",
+    answer: "It cannot determine the limit. / 夹逼定理不能确定该极限。",
+    explanation: "The lower bound approaches −1 while the upper bound approaches 1. Different bounds mean the theorem is inconclusive; they do not prove that lim f(x) is DNE. / 上下界不同，只能说本定理无法判定。"
+  },
+  {
+    id: "1.8-06",
+    topic: "1.8",
+    label: "Odd-Power Envelope / 奇次幂包络",
+    difficulty: "challenge",
+    question: "Evaluate lim as x→0 of x⁵cos(1/x³).",
+    hint: "写成 |x⁵cos(1/x³)|≤|x|⁵。",
+    answer: "0",
+    explanation: "−|x|⁵≤x⁵cos(1/x³)≤|x|⁵, and both bounds approach 0. / 双侧邻域中应使用绝对值界。"
+  },
+  {
+    id: "1.9-01",
+    topic: "1.9",
+    label: "Absolute Value from the Left / 左侧绝对值",
+    difficulty: "easy",
+    question: "Evaluate lim as x→7⁻ of |x−7|/(x−7).",
+    hint: "从左侧靠近时，x−7<0。",
+    answer: "−1",
+    explanation: "For x<7, |x−7|=−(x−7), so the quotient equals −1 near 7 from the left. / 先根据方向拆绝对值。"
+  },
+  {
+    id: "1.9-02",
+    topic: "1.9",
+    label: "Absolute Value from the Right / 右侧绝对值",
+    difficulty: "easy",
+    question: "Evaluate lim as x→8⁺ of |x−8|/(x−8).",
+    hint: "从右侧靠近时，x−8>0。",
+    answer: "1",
+    explanation: "For x>8, |x−8|=x−8, so the quotient equals 1 near 8 from the right. / 右侧时绝对值内为正。"
+  },
+  {
+    id: "1.9-03",
+    topic: "1.9",
+    label: "Sign Quotient / 符号商",
+    difficulty: "medium",
+    question: "Evaluate lim as x→−9⁻ of (x+9)/|x+9|.",
+    hint: "当 x<−9 时，x+9<0。",
+    answer: "−1",
+    explanation: "On the left of −9, |x+9|=−(x+9), so the quotient is −1. / 根据趋近方向判断符号。"
+  },
+  {
+    id: "1.9-04",
+    topic: "1.9",
+    label: "Piecewise Agreement / 分段一致",
+    difficulty: "medium",
+    question: "Let f(x)=2x−1 for x<5 and f(x)=14−x for x>5. Find lim as x→5 of f(x).",
+    hint: "分别代入左右分支；f(5) 不必有定义。",
+    answer: "9",
+    explanation: "The left branch approaches 2(5)−1=9 and the right branch approaches 14−5=9. The two-sided limit exists even though f(5) is not given. / 左右趋势一致即可。"
+  },
+  {
+    id: "1.9-05",
+    topic: "1.9",
+    label: "Table vs. Point Value / 表格趋势与点值",
+    difficulty: "medium",
+    question: "Table values from both sides suggest that f(x) approaches 0.25 as x approaches 5, while f(5)=4. Based on the table, estimate the limit and state f(5).",
+    hint: "附近趋势与点值是两个不同问题。",
+    answer: "Estimated limit ≈0.25; f(5)=4. / 估计极限约为 0.25，函数值为 4。",
+    explanation: "A finite table suggests nearby behavior rather than proving it. The separate point value does not change the estimate. / 有限表格用于估计趋势；单独的点值不改变这一估计。"
+  },
+  {
+    id: "1.9-06",
+    topic: "1.9",
+    label: "Algebra to Behavior / 代数连接趋势",
+    difficulty: "challenge",
+    question: "Evaluate lim as x→3 of [(x−3)²(x²+1)]/|x−3|.",
+    hint: "当 x≠3 时，(x−3)²/|x−3|=|x−3|。",
+    answer: "0",
+    explanation: "The expression becomes |x−3|(x²+1) near x=3. The first factor approaches 0 and the second approaches 10, so the product approaches 0. / 化简后的形式直接显示趋势。"
   }
 ]);

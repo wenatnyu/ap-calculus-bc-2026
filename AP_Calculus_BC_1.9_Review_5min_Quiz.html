@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 1.9 Review - 5-Minute Quiz</title>
+  <style>
+    :root {
+      --navy:#16324f; --blue:#2f5d8c; --gold:#c9902f; --teal:#16837a;
+      --red:#a33f38; --ink:#202a33; --muted:#5f6d79; --line:#aeb9c3;
+      --pale:#f4f7f9; --answer:#eef7f5; --paper:#fff;
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+      --math:"Cambria Math","STIX Two Math","Times New Roman",serif;
+    }
+    * { box-sizing:border-box; }
+    html,body { margin:0; min-height:100%; }
+    body { padding:22px; background:#e8edf1; color:var(--ink); font-family:var(--sans); }
+    button { font:inherit; }
+    .toolbar {
+      width:min(210mm,100%); margin:0 auto 10px; display:flex; align-items:center; gap:8px;
+      padding:8px 10px; border:1px solid #cbd4db; background:#f8fafb; color:var(--navy); font-size:12px;
+    }
+    .toolbar .status { margin-right:auto; font-weight:750; }
+    .toolbar button {
+      padding:6px 9px; border:1px solid var(--blue); border-radius:0; background:#fff;
+      color:var(--blue); font-size:11px; font-weight:750; cursor:pointer;
+    }
+    .toolbar button:hover,.toolbar button:focus-visible { background:var(--blue); color:#fff; outline:none; }
+    .toolbar .teacher-action { border-color:var(--teal); color:var(--teal); }
+    .toolbar .teacher-action:hover,.toolbar .teacher-action:focus-visible { background:var(--teal); color:#fff; }
+    .sheet {
+      width:min(210mm,100%); min-height:297mm; margin:0 auto; padding:10mm 13mm 8mm;
+      display:flex; flex-direction:column; overflow:hidden; background:var(--paper);
+      box-shadow:0 10px 32px rgba(22,50,79,.16);
+    }
+    .topline { height:5px; margin-bottom:9px; background:linear-gradient(90deg,var(--navy) 0 80%,var(--gold) 80%); }
+    header { display:grid; grid-template-columns:1fr auto; gap:20px; align-items:start; }
+    .kicker { color:var(--blue); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { margin:3px 0 2px; color:var(--navy); font:700 27px/1.1 Georgia,"Times New Roman",serif; white-space:nowrap; }
+    .subtitle { margin:0; color:var(--gold); font-size:12px; font-weight:700; }
+    .time-box { min-width:92px; padding:7px 10px; border:1.5px solid var(--gold); color:var(--navy); text-align:center; }
+    .time-box strong { display:block; font:700 22px/1 Georgia,"Times New Roman",serif; }
+    .time-box span { color:var(--muted); font-size:10px; }
+    .teacher-stamp { display:none; margin-top:6px; padding:4px 7px; border:1px solid var(--teal); color:var(--teal); font-size:9px; font-weight:850; letter-spacing:.08em; text-align:center; }
+    body[data-print-mode="teacher"] .teacher-stamp { display:block; }
+    .student-info { display:grid; grid-template-columns:1.45fr .85fr .55fr; gap:18px; margin:12px 0 8px; font-size:12px; }
+    .field { display:flex; align-items:flex-end; gap:6px; white-space:nowrap; }
+    .field-line { flex:1; height:17px; border-bottom:1px solid #667585; }
+    .directions,.teacher-summary { margin:0 0 5px; padding:7px 10px; border-left:4px solid var(--blue); background:var(--pale); font-size:11.3px; line-height:1.4; }
+    .directions b { color:var(--navy); }
+    .teacher-summary { display:none; border-left-color:var(--teal); background:var(--answer); }
+    body[data-print-mode="teacher"] .teacher-summary { display:block; }
+    body[data-print-mode="teacher"] .student-only { display:none; }
+    .question { margin-top:10px; padding-top:9px; border-top:1px solid #c5ced6; }
+    .qhead { display:flex; align-items:flex-start; gap:8px; margin-bottom:4px; font-size:13px; line-height:1.4; }
+    .qtext { flex:1; min-width:0; }
+    .qnum { color:var(--navy); font-weight:800; }
+    .pts { flex:none; margin-left:auto; color:var(--muted); font-size:10px; font-weight:700; white-space:nowrap; }
+    .section-toggle { flex:none; margin-left:2px; padding:2px 6px; border:1px solid #cbd4db; border-radius:0; background:#fff; color:var(--blue); font-size:9.5px; font-weight:750; cursor:pointer; }
+    .math { font-family:var(--math); font-size:17px; }
+    .limit { display:inline-grid; grid-template-rows:1fr auto; justify-items:center; margin:0 4px; line-height:.78; vertical-align:middle; }
+    .limit .op { font-size:1em; font-style:normal; }
+    .limit .sub { margin-top:4px; font-size:.58em; white-space:nowrap; }
+    .work-line { height:31px; margin-top:5px; border-bottom:1px solid #667585; font-size:11px; color:var(--muted); }
+    .answer-panel { display:none; margin-top:6px; padding:6px 9px; border-left:4px solid var(--teal); background:var(--answer); font-size:10.7px; line-height:1.38; }
+    .answer-panel.open,body.show-answers .answer-panel { display:block; }
+    .answer-panel strong { color:var(--teal); }
+    .rubric { display:none; margin-top:10px; padding-top:7px; border-top:1.5px solid var(--navy); }
+    body[data-print-mode="teacher"] .rubric { display:block; }
+    .rubric h2 { margin:0 0 4px; color:var(--navy); font-size:13px; }
+    .rubric ul { display:grid; grid-template-columns:1fr 1fr; gap:2px 20px; margin:0; padding-left:17px; }
+    .rubric li { font-size:9.8px; line-height:1.32; }
+    footer { display:flex; justify-content:space-between; margin-top:auto; padding-top:5px; border-top:1px solid var(--line); color:var(--muted); font-size:9px; }
+    .teacher-footer { display:none; }
+    body[data-print-mode="teacher"] .student-footer { display:none; }
+    body[data-print-mode="teacher"] .teacher-footer { display:inline; }
+    @page { size:A4 portrait; margin:0; }
+    @media print {
+      body { padding:0; background:#fff; }
+      .toolbar,.section-toggle { display:none!important; }
+      .sheet { width:210mm; height:297mm; min-height:0; margin:0; box-shadow:none; overflow:hidden; }
+      body[data-print-mode="student"] .answer-panel,body[data-print-mode="student"] .teacher-summary,
+      body[data-print-mode="student"] .rubric,body[data-print-mode="student"] .teacher-stamp { display:none!important; }
+      body[data-print-mode="teacher"] .answer-panel,body[data-print-mode="teacher"] .teacher-summary,
+      body[data-print-mode="teacher"] .rubric,body[data-print-mode="teacher"] .teacher-stamp { display:block!important; }
+      body[data-print-mode="teacher"] .student-only { display:none!important; }
+    }
+    @media (max-width:720px) {
+      body { padding:0; } .toolbar { width:100%; margin:0; flex-wrap:wrap; } .toolbar .status { width:100%; }
+      .sheet { min-height:100vh; padding:18px; overflow:visible; } h1 { font-size:22px; white-space:normal; } .qhead { flex-wrap:wrap; } .pts { margin-left:0; }
+    }
+  </style>
+</head>
+<body data-print-mode="student">
+  <nav class="toolbar" aria-label="Quiz view and print controls">
+    <span class="status" id="modeStatus">Print mode: Student</span>
+    <button id="revealAllBtn" type="button">Show All Answers</button>
+    <button id="modeBtn" type="button" class="teacher-action">Switch to Teacher Mode</button>
+    <button id="printStudentBtn" type="button">Print Student Copy</button>
+    <button id="printTeacherBtn" type="button" class="teacher-action">Print Teacher Copy</button>
+  </nav>
+  <main class="sheet">
+    <div class="topline"></div>
+    <header>
+      <div>
+        <div class="kicker">AP Calculus BC · Before Topic 1.9</div>
+        <h1>5-Minute Review: The Squeeze Theorem</h1>
+        <p class="subtitle">五分钟复习：夹逼定理</p>
+      </div>
+      <div>
+        <div class="time-box"><strong>5</strong><span>MINUTES · 10 POINTS</span></div>
+        <div class="teacher-stamp">TEACHER KEY</div>
+      </div>
+    </header>
+    <div class="student-info student-only">
+      <div class="field">Name 姓名 <span class="field-line"></span></div>
+      <div class="field">Date 日期 <span class="field-line"></span></div>
+      <div class="field">Score <span class="field-line"></span></div>
+    </div>
+    <p class="directions student-only"><b>Directions:</b> Use the Squeeze Theorem. State the two outside limits before giving the middle limit.<br><b>要求：</b>使用夹逼定理；先写出上下界的极限，再写中间函数的极限。</p>
+    <p class="teacher-summary"><strong>Fast check:</strong> students must verify that both outside functions approach the same number. An inequality by itself is not enough.</p>
+
+    <section class="question">
+      <div class="qhead">
+        <span class="qtext"><span class="qnum">1.</span> Suppose <span class="math">g(x) ≤ f(x) ≤ h(x)</span> near <span class="math">x=a</span>, and <span class="math"><span class="limit"><span class="op">lim</span><span class="sub">x→a</span></span>g(x)=2=<span class="limit"><span class="op">lim</span><span class="sub">x→a</span></span>h(x)</span>. Find <span class="math"><span class="limit"><span class="op">lim</span><span class="sub">x→a</span></span>f(x)</span>.</span>
+        <span class="pts">2 points</span><button class="section-toggle" type="button" data-target="answer1">Answer</button>
+      </div>
+      <div class="work-line student-only">Conclusion / 结论：</div>
+      <div class="answer-panel" id="answer1"><strong>Answer: 2.</strong> The middle function is squeezed between two functions whose limits are both 2. <span lang="zh-CN">上下界极限相同，所以中间函数的极限也是 2。</span></div>
+    </section>
+
+    <section class="question">
+      <div class="qhead">
+        <span class="qtext"><span class="qnum">2.</span> Evaluate <span class="math"><span class="limit"><span class="op">lim</span><span class="sub">x→0</span></span>x² cos(1/x²)</span>. Write a useful inequality.</span>
+        <span class="pts">4 points</span><button class="section-toggle" type="button" data-target="answer2">Answer</button>
+      </div>
+      <div class="work-line student-only">Bounds and limit / 上下界与极限：</div>
+      <div class="answer-panel" id="answer2"><strong>Answer: 0.</strong> Since <span class="math">−1≤cos(1/x²)≤1</span> and <span class="math">x²≥0</span>, <span class="math">−x²≤x²cos(1/x²)≤x²</span>. Both outside limits are 0, so the middle limit is 0. <span lang="zh-CN">注意乘以非负的 x²，不等号方向不变。</span></div>
+    </section>
+
+    <section class="question">
+      <div class="qhead">
+        <span class="qtext"><span class="qnum">3.</span> Near <span class="math">x=2</span>, a function satisfies <span class="math">−2−(x−2)² ≤ f(x) ≤ −2+(x−2)²</span>. Find <span class="math"><span class="limit"><span class="op">lim</span><span class="sub">x→2</span></span>f(x)</span> and justify.</span>
+        <span class="pts">4 points</span><button class="section-toggle" type="button" data-target="answer3">Answer</button>
+      </div>
+      <div class="work-line student-only">Outside limits / 上下界极限：</div>
+      <div class="answer-panel" id="answer3"><strong>Answer: −2.</strong> Since <span class="math">(x−2)²→0</span>, both outside functions <span class="math">−2−(x−2)²</span> and <span class="math">−2+(x−2)²</span> approach <span class="math">−2</span>. Therefore the Squeeze Theorem gives <span class="math"><span class="limit"><span class="op">lim</span><span class="sub">x→2</span></span>f(x)=−2</span>. <span lang="zh-CN">上下界都趋近 −2，所以中间函数也趋近 −2。</span></div>
+    </section>
+
+    <section class="rubric">
+      <h2>Scoring / 评分</h2>
+      <ul>
+        <li>Q1: 1 point for the theorem condition; 1 for 2.</li>
+        <li>Q2: 2 for correct bounds; 1 for outside limits; 1 for 0.</li>
+        <li>Q3: 2 for evaluating both bounds; 1 for citing the theorem; 1 for −2.</li>
+        <li>Accept equivalent correct notation and wording.</li>
+      </ul>
+    </section>
+    <footer>
+      <span class="student-footer">Topic 1.8 review · No calculator</span><span class="teacher-footer">Common issue: using bounds whose limits are different.</span>
+      <span class="student-footer">Student copy</span><span class="teacher-footer">Teacher copy</span>
+    </footer>
+  </main>
+  <script>
+    const body=document.body;
+    const modeStatus=document.getElementById('modeStatus');
+    const modeBtn=document.getElementById('modeBtn');
+    const revealAllBtn=document.getElementById('revealAllBtn');
+    function setMode(mode){
+      const teacher=mode==='teacher';
+      body.dataset.printMode=teacher?'teacher':'student';
+      body.classList.toggle('show-answers',teacher);
+      if(!teacher){
+        document.querySelectorAll('.answer-panel.open').forEach(panel=>panel.classList.remove('open'));
+        document.querySelectorAll('.section-toggle').forEach(button=>{button.textContent='Answer';});
+      }
+      modeStatus.textContent=teacher?'Print mode: Teacher Key':'Print mode: Student';
+      modeBtn.textContent=teacher?'Return to Student Mode':'Switch to Teacher Mode';
+      revealAllBtn.textContent=body.classList.contains('show-answers')?'Hide All Answers':'Show All Answers';
+    }
+    document.querySelectorAll('.section-toggle').forEach(button=>button.addEventListener('click',()=>{
+      const panel=document.getElementById(button.dataset.target); const open=panel.classList.toggle('open'); button.textContent=open?'Hide':'Answer';
+    }));
+    revealAllBtn.addEventListener('click',()=>{const show=!body.classList.contains('show-answers');body.classList.toggle('show-answers',show);revealAllBtn.textContent=show?'Hide All Answers':'Show All Answers';});
+    modeBtn.addEventListener('click',()=>setMode(body.dataset.printMode==='teacher'?'student':'teacher'));
+    document.getElementById('printStudentBtn').addEventListener('click',()=>{setMode('student');window.print();});
+    document.getElementById('printTeacherBtn').addEventListener('click',()=>{setMode('teacher');window.print();});
+    if(new URLSearchParams(location.search).get('mode')==='teacher') setMode('teacher');
+  </script>
+</body>
+</html>

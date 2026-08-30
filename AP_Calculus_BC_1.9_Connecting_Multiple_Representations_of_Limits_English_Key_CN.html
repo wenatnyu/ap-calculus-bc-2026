@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 1.9 | Connecting Multiple Representations of Limits</title>
+  <style>
+    :root {
+      --navy:#16324f; --blue:#2f5d8c; --blue-light:#eaf0f5; --ink:#1f2a33;
+      --muted:#667585; --paper:#fff; --mist:#f3f6f8; --line:#c9d3dc;
+      --gold:#c9902f; --teal:#16837a; --red:#ad433b; --shadow:0 18px 55px rgba(22,50,79,.20);
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+      --math:"STIX Two Math","Cambria Math","Times New Roman",serif;
+    }
+    * { box-sizing:border-box; }
+    html,body { width:100%; height:100%; }
+    body { margin:0; overflow:hidden; background:#dfe6ec; color:var(--ink); font-family:var(--sans); }
+    button { font:inherit; }
+    .app { width:100%; height:100%; position:relative; }
+    .viewport { position:absolute; inset:0 0 58px; display:grid; place-items:center; padding:22px; overflow:hidden; }
+    .deck { position:absolute; left:50%; top:50%; width:1600px; height:900px; transform-origin:50% 50%; }
+    .slide {
+      position:absolute; inset:0; display:none; overflow:hidden; isolation:isolate;
+      padding:60px 94px 68px 108px; background:var(--paper); box-shadow:var(--shadow);
+    }
+    .slide.active { display:block; animation:enter .16s ease-out; }
+    @keyframes enter { from{opacity:.25;transform:translateY(4px)} to{opacity:1;transform:none} }
+    .slide::before { content:""; position:absolute; inset:0 auto 0 0; width:14px; background:var(--blue); z-index:-1; }
+    .slide::after { content:""; position:absolute; inset:0 0 auto 14px; height:8px; background:var(--navy); z-index:-1; }
+    .slide.soft { background:var(--mist); }
+    .slide.section { background:var(--navy); color:#fff; }
+    .slide.section::before { background:var(--gold); }
+    .slide.section::after { background:#0e253b; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:970px; margin:32px 0 14px; font:700 68px/1.03 Georgia,"Times New Roman",serif; letter-spacing:-.025em; }
+    h1 span { display:block; }
+    h2 { margin:8px 0 6px; color:var(--navy); font:700 47px/1.08 Georgia,"Times New Roman",serif; white-space:nowrap; }
+    .section h2 { color:#fff; }
+    h3 { margin-bottom:10px; color:var(--navy); font-size:25px; line-height:1.2; }
+    .section h3 { color:#fff; }
+    p,li { font-size:23px; line-height:1.42; }
+    .eyebrow { margin:0; color:var(--blue); font-size:18px; font-weight:820; letter-spacing:.12em; text-transform:uppercase; }
+    .section .eyebrow { color:#9fc5e2; }
+    .accent-rule { width:130px; height:6px; margin-top:26px; background:var(--gold); }
+    .lead { max-width:1000px; font-size:28px; line-height:1.42; }
+    .zh-title { margin:0 0 24px; color:var(--gold); font-size:22px; font-weight:760; }
+    .zh-key { display:block; margin-top:6px; color:#9a6818; font-size:.82em; font-weight:720; }
+    .section .zh-key { color:#e7c56f; }
+    .small { font-size:20px; }
+    .muted { color:var(--muted); }
+    .math,.formula { font-family:var(--math); }
+    .formula { font-size:36px; line-height:1.35; }
+    .small-formula { font-size:30px; }
+    sup,sub { line-height:0; }
+    .limit-op { display:inline-grid; grid-template-rows:1fr auto; justify-items:center; margin:0 5px; line-height:.78; vertical-align:middle; }
+    .limit-op .op { font-size:1em; font-style:normal; }
+    .limit-op .sub { margin-top:4px; font-size:.48em; white-space:nowrap; }
+    .frac { display:inline-grid; grid-template-rows:auto auto; justify-items:center; margin:0 5px; line-height:1.05; vertical-align:middle; }
+    .frac > span:first-child { min-width:100%; padding:0 6px 3px; border-bottom:2px solid currentColor; text-align:center; }
+    .frac > span:last-child { padding-top:3px; }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:start; }
+    .split.wide-left { grid-template-columns:1.18fr .82fr; }
+    .statement { padding:26px 0 24px; border-top:6px solid var(--blue); border-bottom:1px solid #8fa0af; }
+    .callout { margin-top:22px; padding:15px 18px; border-left:6px solid var(--blue); background:var(--blue-light); font-size:20px; line-height:1.38; }
+    .callout.gold { border-left-color:var(--gold); background:#fbf5e9; }
+    .callout.teal { border-left-color:var(--teal); background:#eaf5f3; }
+    .callout.red { border-left-color:var(--red); background:#faefee; }
+    .term-table,.compare-table,.value-table { width:100%; border-collapse:collapse; table-layout:fixed; }
+    .term-table th,.term-table td,.compare-table th,.compare-table td,.value-table th,.value-table td { padding:8px 13px; border-bottom:1px solid var(--line); text-align:left; font-size:18px; line-height:1.2; }
+    .term-table th,.compare-table th,.value-table th { padding-top:11px; padding-bottom:11px; background:var(--navy); color:#fff; font-size:18px; }
+    .term-table td:nth-child(odd) { color:var(--navy); font-weight:780; }
+    .term-table td:nth-child(even) { color:#8b5d15; font-weight:670; }
+    .value-table th,.value-table td { text-align:center; font-size:22px; }
+    .value-table .point { color:var(--red); font-weight:820; }
+    .term-note { margin-top:18px; padding-top:12px; border-top:3px solid var(--gold); font-size:19px; }
+    .four-step { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:32px; }
+    .four-step article { min-height:250px; padding:24px 21px; border-top:6px solid var(--blue); background:#f8fafb; }
+    .four-step b { display:block; color:var(--gold); font:700 34px/1 Georgia,"Times New Roman",serif; }
+    .four-step h3 { margin:15px 0 8px; font-size:24px; }
+    .four-step p { font-size:19px; }
+    .rep-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:30px; }
+    .rep-card { padding:22px; border-top:5px solid var(--blue); background:#f8fafb; }
+    .rep-card h3 { margin-bottom:9px; font-size:25px; }
+    .rep-card p { margin-bottom:0; font-size:19px; }
+    .rep-card strong { color:var(--teal); }
+    .evidence-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; margin-top:24px; }
+    .evidence-card { min-height:390px; padding:23px; border:1px solid var(--line); border-top:6px solid var(--blue); background:#fff; }
+    .evidence-card h3 { font-size:24px; }
+    .evidence-card p { font-size:19px; }
+    .tag { display:inline-block; padding:4px 10px; background:var(--blue-light); color:var(--blue); font-size:16px; font-weight:820; }
+    .tag.no { background:#faefee; color:var(--red); }
+    .tag.yes { background:#eaf5f3; color:var(--teal); }
+    .equation-work { margin-top:22px; padding:22px 0; border-top:4px solid var(--blue); border-bottom:1px solid var(--line); }
+    .equation-work .formula + .formula { margin-top:15px; }
+    .answer { display:none; margin-top:16px; padding:14px 18px; border-left:6px solid var(--teal); background:#eaf4f2; color:var(--ink); font-size:21px; line-height:1.4; }
+    .answer.show { display:block; }
+    .answer strong { color:var(--teal); }
+    .reveal-btn { appearance:none; margin-top:10px; padding:9px 17px; border:2px solid var(--blue); border-radius:0; background:transparent; color:var(--blue); font-size:19px; font-weight:790; cursor:pointer; }
+    .reveal-btn:hover,.reveal-btn:focus-visible { background:var(--blue); color:#fff; outline:none; }
+    .choice-list { list-style:none; margin:10px 0 16px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 34px; }
+    .choice-list li { font-size:23px; }
+    .choice-list .letter { display:inline-block; width:42px; color:var(--blue); font-weight:820; }
+    .sign-table { width:100%; border-collapse:collapse; margin-top:18px; }
+    .sign-table th,.sign-table td { padding:15px 18px; border:1px solid var(--line); text-align:center; font-size:25px; }
+    .sign-table th { background:var(--navy); color:#fff; }
+    .sign-table td:last-child { color:var(--teal); font-weight:820; }
+    .quick-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:22px; }
+    .quick-grid div { min-height:118px; padding:19px; border-top:4px solid var(--blue); background:#f7f9fb; font-family:var(--math); font-size:25px; }
+    .graph-card { padding:18px; border:1px solid var(--line); background:#fff; }
+    .graph-svg { width:100%; height:330px; display:block; }
+    .axis { stroke:#263746; stroke-width:3; }
+    .gridline { stroke:#d6dfe7; stroke-width:1; }
+    .curve { fill:none; stroke:var(--blue); stroke-width:7; stroke-linecap:round; }
+    .curve.teal { stroke:var(--teal); }
+    .open-dot { fill:#fff; stroke:var(--blue); stroke-width:6; }
+    .closed-dot { fill:var(--red); stroke:#fff; stroke-width:2; }
+    .graph-label { fill:#354757; font:22px var(--sans); }
+    .correct { color:var(--teal); font-weight:800; }
+    .warning { color:var(--red); font-weight:800; }
+    .hero-equation { position:absolute; right:92px; top:160px; width:500px; padding:28px 0; border-top:7px solid #8fafd0; border-bottom:1px solid #6f8ea9; color:#fff; font-family:var(--math); font-size:34px; line-height:1.55; }
+    .hero-equation .choice { display:flex; justify-content:space-between; gap:20px; color:#dfeaf3; }
+    .hero-equation .choice b { color:#e7c56f; font-family:var(--sans); font-size:21px; }
+    .title-note { position:absolute; left:108px; bottom:92px; display:flex; align-items:center; gap:18px; color:#d8e4ee; font-size:21px; }
+    .title-note .line { width:86px; height:2px; background:#86a7c4; }
+    .slide-footer { position:absolute; left:108px; right:58px; bottom:25px; display:flex; justify-content:space-between; align-items:center; gap:24px; color:#6d7a87; font-size:15px; }
+    .section .slide-footer { color:#c7d6e2; }
+    .notes { display:none; }
+    .controls { position:absolute; left:0; right:0; bottom:0; height:58px; display:flex; align-items:center; gap:14px; padding:0 22px; background:#f7f9fb; border-top:1px solid #c5d0da; color:#506171; z-index:20; }
+    .controls button { border:0; background:transparent; color:var(--navy); cursor:pointer; font-weight:760; padding:8px 10px; }
+    .controls button:hover,.controls button:focus-visible { background:#e9eef2; outline:none; }
+    .progress-track { flex:1; height:4px; margin:0 10px; background:#d6dfe7; }
+    .progress-bar { width:0; height:100%; background:var(--blue); transition:width .18s ease; }
+    .counter { min-width:82px; text-align:center; font-variant-numeric:tabular-nums; }
+    .key-hint { color:#778593; font-size:14px; white-space:nowrap; }
+    .notes-panel { position:absolute; z-index:40; right:22px; bottom:76px; display:none; width:min(560px,calc(100vw - 44px)); max-height:66vh; overflow:auto; padding:22px 24px; background:#fffef7; border:1px solid #c7b876; box-shadow:0 14px 40px rgba(30,42,53,.25); color:#36352d; }
+    .notes-panel.open { display:block; }
+    .notes-panel h3 { margin-bottom:12px; font-size:22px; }
+    .notes-panel p,.notes-panel li { font-size:16px; line-height:1.55; }
+    .help { position:absolute; inset:0; z-index:50; display:none; place-items:center; background:rgba(22,50,79,.78); }
+    .help.open { display:grid; }
+    .help-card { width:560px; padding:34px 40px; background:#fff; box-shadow:var(--shadow); }
+    .help-card h3 { font-size:30px; }
+    .help-card p { font-size:20px; }
+    kbd { border:1px solid #aebbc6; padding:2px 7px; background:#f6f8fa; font-family:ui-monospace,monospace; }
+    @media (max-width:760px) { .key-hint{display:none}.controls{gap:4px;padding:0 8px} }
+    @page { size:16in 9in; margin:0; }
+    @media print {
+      html,body{width:auto;height:auto;overflow:visible;background:#fff}.app,.viewport{position:static;display:block;padding:0;overflow:visible}
+      .deck{position:static;left:auto;top:auto;transform:none!important;width:1600px;height:auto}
+      .slide{position:relative;display:block!important;width:1600px;height:900px;box-shadow:none;break-after:page;page-break-after:always;animation:none!important}
+      .controls,.notes-panel,.help,.reveal-btn{display:none!important}.answer{display:block}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="viewport" id="viewport">
+      <main class="deck" id="deck" aria-live="polite">
+
+        <section class="slide section active" data-title="Connecting Multiple Representations of Limits">
+          <p class="eyebrow">AP Calculus BC · Topic 1.9</p>
+          <div class="accent-rule"></div>
+          <h1><span>Connecting Multiple</span><span>Representations of Limits</span></h1>
+          <p class="lead" style="color:#e7c56f">连接极限的多种表示方式</p>
+          <div class="hero-equation">
+            <div class="choice"><span>graph</span><b>look from both sides</b></div>
+            <div class="choice"><span>table</span><b>read nearby values</b></div>
+            <div class="choice"><span>algebra</span><b>simplify nearby</b></div>
+            <div class="choice"><span>words</span><b>describe approach</b></div>
+          </div>
+          <div class="title-note"><span class="line"></span><span>One limit statement · Four ways to show the same nearby behavior</span></div>
+          <div class="slide-footer"><span>Class slides · English main text with key Chinese</span><span>1.9</span></div>
+          <aside class="notes"><p><b>开场：</b>同一个极限可以用图像、表格、代数式或文字表达。今天每次都问同样四个问题：左边、右边、是否相同、点值是否相关。</p><p>[Sources]<br>https://calculus.flippedmath.com/19-connecting-multiple-representations-of-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf<br>https://www.youtube.com/watch?v=dS4LwH2P_Nw</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Core Vocabulary for Topic 1.9">
+          <p class="eyebrow">Language first · One-page reference</p>
+          <h2>Core Vocabulary for Topic 1.9</h2>
+          <p class="zh-title">本节核心词汇集中在这一页</p>
+          <table class="term-table" aria-label="Core English and Chinese vocabulary">
+            <tr><th>English</th><th>中文</th><th>English</th><th>中文</th></tr>
+            <tr><td>representation</td><td>表示方式</td><td>multiple representations</td><td>多种表示方式</td></tr>
+            <tr><td>graphical</td><td>图像的</td><td>numerical / tabular</td><td>数值的 / 表格的</td></tr>
+            <tr><td>algebraic</td><td>代数的</td><td>verbal</td><td>文字描述的</td></tr>
+            <tr><td>approach</td><td>趋近</td><td>nearby behavior</td><td>附近的趋势</td></tr>
+            <tr><td>one-sided limit</td><td>单侧极限</td><td>two-sided limit</td><td>双侧极限</td></tr>
+            <tr><td>from the left</td><td>从左侧</td><td>from the right</td><td>从右侧</td></tr>
+            <tr><td>function value</td><td>函数值</td><td>limit value</td><td>极限值</td></tr>
+            <tr><td>piecewise function</td><td>分段函数</td><td>linear piece</td><td>线性分段</td></tr>
+            <tr><td>open circle</td><td>空心点</td><td>closed point</td><td>实心点</td></tr>
+            <tr><td>absolute value</td><td>绝对值</td><td>sign</td><td>正负号</td></tr>
+            <tr><td>consistent</td><td>一致的</td><td>DNE (does not exist)</td><td>不存在</td></tr>
+          </table>
+          <p class="term-note"><b>Class sentence:</b> “Both one-sided limits approach ______, so the two-sided limit is ______.”<span class="zh-key">课堂句型：左右极限都趋近 ______，所以双侧极限是 ______。</span></p>
+          <div class="slide-footer"><span>Use precise words before deciding from a representation.</span><span>02</span></div>
+          <aside class="notes"><p>先读 representation、graphical、tabular、algebraic、verbal。提醒 “limit value” 与 “function value” 不是同一个词，也不一定是同一个数。</p><p>[Sources]<br>https://calculus.flippedmath.com/19-connecting-multiple-representations-of-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Four Views of One Limit">
+          <p class="eyebrow">Same behavior · Different evidence</p>
+          <h2>Four Views of One Limit</h2>
+          <p class="zh-title">四种表示，描述同一个“附近趋势”</p>
+          <div class="rep-grid">
+            <article class="rep-card"><h3>Graph</h3><p>Trace the curve toward <span class="math">x=c</span> from both sides. Read the <strong>height approached</strong>.</p><span class="zh-key">看曲线左右靠近时的高度。</span></article>
+            <article class="rep-card"><h3>Table</h3><p>Read outputs for inputs just below and just above <span class="math">c</span>.</p><span class="zh-key">看 c 左右附近的函数值。</span></article>
+            <article class="rep-card"><h3>Algebra</h3><p>Study an equivalent expression for nearby <span class="math">x≠c</span>.</p><span class="zh-key">研究点附近的等价式。</span></article>
+            <article class="rep-card"><h3>Words</h3><p>State what <span class="math">f(x)</span> approaches as <span class="math">x</span> approaches <span class="math">c</span>.</p><span class="zh-key">用语言说出趋近关系。</span></article>
+          </div>
+          <p class="callout gold"><b>The target is nearby behavior.</b> A representation may assign any value at <span class="math">x=c</span> without changing the limit.<span class="zh-key">极限关注附近；点上的函数值可以不同。</span></p>
+          <div class="slide-footer"><span>Representations are consistent when they describe the same approach.</span><span>03</span></div>
+          <aside class="notes"><p>让学生给四个名词各配一个动作：trace, read, simplify, describe。强调所有动作都围绕 x 接近 c，而不是只看 x=c。</p><p>[Sources]<br>https://calculus.flippedmath.com/19-connecting-multiple-representations-of-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Use the Same Four Questions Every Time">
+          <p class="eyebrow">A routine across all representations</p>
+          <h2>Use the Same Four Questions Every Time</h2>
+          <p class="zh-title">无论看到哪种表示，都按同一顺序判断</p>
+          <div class="four-step">
+            <article><b>01</b><h3>From the left?</h3><p>What value does <span class="math">f(x)</span> approach as <span class="math">x→c<sup>−</sup></span>?</p><span class="zh-key">左极限是多少？</span></article>
+            <article><b>02</b><h3>From the right?</h3><p>What value does <span class="math">f(x)</span> approach as <span class="math">x→c<sup>+</sup></span>?</p><span class="zh-key">右极限是多少？</span></article>
+            <article><b>03</b><h3>Do they agree?</h3><p>If the one-sided limits match, the two-sided limit exists.</p><span class="zh-key">左右相等，双侧极限才存在。</span></article>
+            <article><b>04</b><h3>What about <span class="math">f(c)</span>?</h3><p>Record it separately. It does not decide the limit.</p><span class="zh-key">点值单独记录，不替代极限。</span></article>
+          </div>
+          <div class="slide-footer"><span>Left · Right · Compare · Separate the point value</span><span>04</span></div>
+          <aside class="notes"><p>四个问题要求学生背熟。以后所有图表题先写左右极限，再写双侧极限，最后才看 f(c)。</p><p>[Sources]<br>https://calculus.flippedmath.com/19-connecting-multiple-representations-of-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Algebra Shows the Nearby Rule">
+          <p class="eyebrow">Representation 1 · Algebra</p>
+          <h2>Algebra Shows the Nearby Rule</h2>
+          <p class="zh-title">代数式说明点附近遵循什么规律</p>
+          <div class="split wide-left" style="margin-top:22px">
+            <div class="statement">
+              <div class="formula">f(x) = { <span class="frac"><span>x−5</span><span>x²−6x+5</span></span>, <span class="small-formula">x≠5</span></div>
+              <div class="formula" style="padding-left:114px">4, <span class="small-formula">x=5</span> }</div>
+              <div class="formula" style="margin-top:26px"><span class="frac"><span>x−5</span><span>(x−5)(x−1)</span></span> = <span class="frac"><span>1</span><span>x−1</span></span> &nbsp; for <span class="math">x≠5</span></div>
+            </div>
+            <div>
+              <h3>Read two different facts</h3>
+              <p><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>f(x)=1/4</span>, because nearby outputs follow <span class="math">1/(x−1)</span>.</p>
+              <p><span class="math">f(5)=4</span>, because the second piece assigns 4 at the point.</p>
+              <p class="callout teal"><b>Limit: 1/4.</b> Function value: 4.<span class="zh-key">极限值 1/4；函数值 4。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Official packet 7a · The value at x=5 does not enter the limit calculation.</span><span>05</span></div>
+          <aside class="notes"><p>板书因式分解 x²−6x+5=(x−5)(x−1)。分子分母约去 x−5 后，附近表达式是 1/(x−1)，所以极限 1/4；点值仍是 4。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="A Table Uses Nearby Entries">
+          <p class="eyebrow">Representation 2 · Table</p>
+          <h2>A Table Uses Nearby Entries</h2>
+          <p class="zh-title">表格看“靠近点”的数，不只看点上的数</p>
+          <p class="small muted" style="margin:20px 0 0"><b>Given:</b> the two pieces between the listed points are linear.<span class="zh-key">题设：表中两段均为线性分段。</span></p>
+          <table class="value-table" style="margin-top:24px" aria-label="Table showing a limit of one fourth at x equals five">
+            <tr><th>x</th><th>4.8</th><th>4.9</th><th>4.999</th><th class="point">5</th><th>5.001</th><th>5.1</th><th>5.2</th></tr>
+            <tr><th>f(x)</th><td>0</td><td>0.2</td><td>0.249</td><td class="point">4</td><td>0.251</td><td>0.3</td><td>0.5</td></tr>
+          </table>
+          <div class="split" style="margin-top:35px">
+            <p class="callout"><b>From the left:</b> the nearby values move toward <span class="math">0.25</span>.<span class="zh-key">左侧趋近 0.25。</span></p>
+            <p class="callout teal"><b>From the right:</b> the nearby values move toward <span class="math">0.25</span>.<span class="zh-key">右侧也趋近 0.25。</span></p>
+          </div>
+          <p class="callout gold">The entry <span class="math">f(5)=4</span> is not part of the approaching pattern. Therefore <span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>f(x)=1/4</span>.<span class="zh-key">表格中间一格是点值，不决定极限。</span></p>
+          <div class="slide-footer"><span>Official packet 7b · Read inward from both sides.</span><span>06</span></div>
+          <aside class="notes"><p>让学生用手指从表格左右两边向 x=5 移动。0.249 与 0.251 才是最有力的附近证据，中间的 4 是 f(5)。官方答案认为该表可以表示极限 1/4。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="A Graph Separates the Hole from the Point">
+          <p class="eyebrow">Representation 3 · Graph</p>
+          <h2>A Graph Separates the Hole from the Point</h2>
+          <p class="zh-title">空心点显示趋近位置；实心点显示函数值</p>
+          <div class="split" style="margin-top:20px">
+            <div class="graph-card">
+              <svg class="graph-svg" viewBox="0 0 650 380" role="img" aria-label="A graph approaching one fourth from both sides at x equals five, with function value four">
+                <line class="gridline" x1="90" y1="70" x2="610" y2="70"/><line class="gridline" x1="90" y1="145" x2="610" y2="145"/><line class="gridline" x1="90" y1="220" x2="610" y2="220"/><line class="gridline" x1="90" y1="295" x2="610" y2="295"/>
+                <line class="gridline" x1="190" y1="35" x2="190" y2="330"/><line class="gridline" x1="330" y1="35" x2="330" y2="330"/><line class="gridline" x1="470" y1="35" x2="470" y2="330"/>
+                <line class="axis" x1="70" y1="315" x2="620" y2="315"/><line class="axis" x1="90" y1="340" x2="90" y2="25"/>
+                <path class="curve" d="M110 275 C230 258 350 250 470 244"/><path class="curve" d="M470 244 C525 240 570 231 605 216"/>
+                <circle class="open-dot" cx="470" cy="244" r="13"/><circle class="closed-dot" cx="470" cy="70" r="13"/>
+                <text class="graph-label" x="454" y="345">5</text><text class="graph-label" x="490" y="75">f(5)=4</text><text class="graph-label" x="490" y="239">hole: 1/4</text>
+              </svg>
+            </div>
+            <div>
+              <h3>Read the curve, then the point</h3>
+              <p>The curve approaches the open circle at height <span class="math">1/4</span> from both sides.</p>
+              <p>The closed point gives the separate fact <span class="math">f(5)=4</span>.</p>
+              <p class="callout teal"><span class="math"><span class="limit-op"><span class="op">lim</span><span class="sub">x→5</span></span>f(x)=1/4</span> while <span class="math">f(5)=4</span>.<span class="zh-key">沿曲线看极限；看实心点读函数值。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Do not jump from a closed point to a limit statement.</span><span>07</span></div>
+          <aside class="notes"><p>先遮住实心点问极限，再遮住曲线只问 f(5)。图像上这两个信息由不同符号承担：空心点对应附近趋势，实心点对应点值。</p><p>[Sources]<br>https://calculus.flippedmath.com/19-connecting-multiple-representations-of-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Words Must Name the Approach">
+          <p class="eyebrow">Representation 4 · Verbal</p>
+          <h2>Words Must Name the Approach</h2>
+          <p class="zh-title">文字描述要说清“谁趋近谁”</p>
+          <div class="statement" style="margin-top:38px">
+            <p class="formula">“As <span class="math">x</span> approaches 5 from either side, <span class="math">f(x)</span> approaches <span class="math">1/4</span>.”</p>
+            <p class="formula" style="margin-top:28px">“At <span class="math">x=5</span>, the function is assigned the value 4.”</p>
+          </div>
+          <div class="split" style="margin-top:26px">
+            <p class="callout teal"><b>First sentence:</b> a limit statement.<span class="zh-key">第一句描述极限。</span></p>
+            <p class="callout gold"><b>Second sentence:</b> a function-value statement.<span class="zh-key">第二句描述函数值。</span></p>
+          </div>
+          <p class="small muted">Precise language keeps two true statements from being mixed together.</p>
+          <div class="slide-footer"><span>Say “approaches” for a limit and “equals” for an assigned point value.</span><span>08</span></div>
+          <aside class="notes"><p>要求学生完整读两句英文。纠正 “the limit equals f(5)” 这种自动绑定。可以让学生把 graph/table/algebra 三页各改写成这两句 verbal statements。</p><p>[Sources]<br>https://calculus.flippedmath.com/19-connecting-multiple-representations-of-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Test Each Representation Against the Claim">
+          <p class="eyebrow">Official packet 8 · Target limit 6</p>
+          <h2>Test Each Representation Against the Claim</h2>
+          <p class="zh-title">已知极限为 6，逐一核对每种表示</p>
+          <div class="evidence-grid">
+            <article class="evidence-card">
+              <h3>A · Algebra</h3>
+              <p class="math small-formula"><span class="frac"><span>x²−x−6</span><span>x−3</span></span>, x≠3; &nbsp; g(3)=6</p>
+              <p><span class="math">(x−3)(x+2)/(x−3)→5</span>.</p>
+              <span class="tag no">NO · limit is 5</span>
+            </article>
+            <article class="evidence-card">
+              <h3>B · Table</h3>
+              <p>Left-side entries move toward 6, but right-side entries move toward 5.</p>
+              <p class="math">6 ≠ 5</p>
+              <span class="tag no">NO · sides disagree</span>
+            </article>
+            <article class="evidence-card">
+              <h3>C · Graph</h3>
+              <p>Both branches approach the open circle at <span class="math">(3,6)</span>. A closed point sits at <span class="math">(3,3)</span>.</p>
+              <span class="tag yes">YES · limit is 6</span>
+            </article>
+          </div>
+          <p class="callout gold">Check the claimed limit, not the label at the point.<span class="zh-key">核对的是趋近值，不是点上的标签。</span></p>
+          <div class="slide-footer"><span>Official answers: A no · B no · C yes</span><span>09</span></div>
+          <aside class="notes"><p>官方第 8 题答案 a/b no, c yes。A 的点值虽为 6，但极限为 5；B 左右趋势不同；C 两侧曲线都趋近空心点 y=6，实心点 y=3 不影响极限。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="A Two-Sided Limit Needs Agreement">
+          <p class="eyebrow">One-sided limits decide the two-sided limit</p>
+          <h2>A Two-Sided Limit Needs Agreement</h2>
+          <p class="zh-title">双侧极限存在的条件：左右极限相等</p>
+          <div class="split" style="margin-top:28px">
+            <div class="statement">
+              <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→c<sup>−</sup></span></span>f(x)=L</div>
+              <div class="formula" style="margin-top:22px"><span class="limit-op"><span class="op">lim</span><span class="sub">x→c<sup>+</sup></span></span>f(x)=L</div>
+              <div class="formula correct" style="margin-top:28px">⇒ <span class="limit-op"><span class="op">lim</span><span class="sub">x→c</span></span>f(x)=L</div>
+            </div>
+            <div class="statement" style="border-top-color:var(--red)">
+              <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→c<sup>−</sup></span></span>f(x)=A</div>
+              <div class="formula" style="margin-top:22px"><span class="limit-op"><span class="op">lim</span><span class="sub">x→c<sup>+</sup></span></span>f(x)=B</div>
+              <div class="formula warning" style="margin-top:28px">A≠B ⇒ two-sided limit DNE</div>
+            </div>
+          </div>
+          <p class="callout red"><b>DNE does not mean that neither side has a limit.</b> The one-sided limits may both exist but be different.<span class="zh-key">DNE 可能是左右极限各自存在，但数值不同。</span></p>
+          <div class="slide-footer"><span>For piecewise graphs and tables, approach the break from each side separately.</span><span>10</span></div>
+          <aside class="notes"><p>用手势表示 x 从左右接近 c。先写两个单侧结论，不能直接从跳跃点写 DNE。双侧 DNE 时，单侧极限仍可能各自存在。</p><p>[Sources]<br>https://calculus.flippedmath.com/19-connecting-multiple-representations-of-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Absolute Value Turns the Side into a Sign">
+          <p class="eyebrow">One-sided limits · Sign first</p>
+          <h2>Absolute Value Turns the Side into a Sign</h2>
+          <p class="zh-title">绝对值商：先判断括号内的正负</p>
+          <table class="sign-table" aria-label="Sign rule for absolute value quotients">
+            <tr><th>Condition on u</th><th>|u|</th><th>|u| / u</th><th>u / |u|</th></tr>
+            <tr><td><span class="math">u&lt;0</span></td><td><span class="math">−u</span></td><td><span class="math">−1</span></td><td><span class="math">−1</span></td></tr>
+            <tr><td><span class="math">u&gt;0</span></td><td><span class="math">u</span></td><td><span class="math">+1</span></td><td><span class="math">+1</span></td></tr>
+          </table>
+          <div class="split" style="margin-top:28px">
+            <div class="statement">
+              <div class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→4<sup>−</sup></span></span><span class="frac"><span>|x−4|</span><span>x−4</span></span></div>
+              <div class="formula" style="margin-top:20px">x&lt;4 ⇒ x−4&lt;0</div>
+              <div class="formula correct" style="margin-top:20px">= −1</div>
+            </div>
+            <div>
+              <h3>Use the side information</h3>
+              <p>For <span class="math">u=x−a</span>, approaching <span class="math">a</span> from the left makes <span class="math">u&lt;0</span>; approaching from the right makes <span class="math">u&gt;0</span>.</p>
+              <p class="callout gold">Do not substitute <span class="math">x=a</span>. The quotient is undefined there; its nearby sign is the evidence.<span class="zh-key">不能代入点；要看附近的符号。</span></p>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Official notes 2 · Left of 4 gives a negative denominator.</span><span>11</span></div>
+          <aside class="notes"><p>官方 Notes 第 2 题答案 −1。让学生先说 x−4 是 negative，再处理绝对值。强调规则依赖 u 的符号；这里 u=x−a，所以左右方向能直接判断。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Quick Practice: Read the Side, Then the Sign">
+          <p class="eyebrow">Official practice 1–6</p>
+          <h2>Quick Practice: Read the Side, Then the Sign</h2>
+          <p class="zh-title">先读左右方向，再判断括号内正负</p>
+          <div class="quick-grid">
+            <div>1. <span class="limit-op"><span class="op">lim</span><span class="sub">x→7<sup>−</sup></span></span> <span class="frac"><span>|x−7|</span><span>x−7</span></span></div>
+            <div>2. <span class="limit-op"><span class="op">lim</span><span class="sub">x→3<sup>+</sup></span></span> <span class="frac"><span>x−3</span><span>|x−3|</span></span></div>
+            <div>3. <span class="limit-op"><span class="op">lim</span><span class="sub">x→−1<sup>+</sup></span></span> <span class="frac"><span>|x+1|</span><span>x+1</span></span></div>
+            <div>4. <span class="limit-op"><span class="op">lim</span><span class="sub">x→8<sup>+</sup></span></span> <span class="frac"><span>|x−8|</span><span>x−8</span></span></div>
+            <div>5. <span class="limit-op"><span class="op">lim</span><span class="sub">x→2<sup>−</sup></span></span> <span class="frac"><span>|x−2|</span><span>x−2</span></span></div>
+            <div>6. <span class="limit-op"><span class="op">lim</span><span class="sub">x→−9<sup>−</sup></span></span> <span class="frac"><span>x+9</span><span>|x+9|</span></span></div>
+          </div>
+          <button class="reveal-btn" type="button" data-reveal="answer12">Show answers</button>
+          <div class="answer" id="answer12"><strong>1. −1 &nbsp; 2. 1 &nbsp; 3. 1 &nbsp; 4. 1 &nbsp; 5. −1 &nbsp; 6. −1</strong><span class="zh-key">每题只需确定 x−a 在指定一侧的符号。</span></div>
+          <div class="slide-footer"><span>Do not use decimals; the quotient is exactly +1 or −1 on each side.</span><span>12</span></div>
+          <aside class="notes"><p>官方答案依次 −1, 1, 1, 1, −1, −1。建议先只写 sign：−,+,+,+,−,−，再写极限值。第 2、6 题分子分母位置交换，但符号结果相同。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="A Point Value Still Does Not Control the Limit">
+          <p class="eyebrow">Official practice 10 · Piecewise and absolute value</p>
+          <h2>A Point Value Still Does Not Control the Limit</h2>
+          <p class="zh-title">即使给出点值，极限仍由附近表达式决定</p>
+          <div class="split wide-left" style="margin-top:18px">
+            <div class="statement">
+              <div class="formula">f(x) = { <span class="frac"><span>(x−3)²(x²+1)</span><span>|x−3|</span></span>, <span class="small-formula">x≠3</span></div>
+              <div class="formula" style="padding-left:114px">2, <span class="small-formula">x=3</span> }</div>
+              <ul class="choice-list" style="margin-top:26px"><li><span class="letter">A.</span>0</li><li><span class="letter">B.</span>2</li><li><span class="letter">C.</span>10</li><li><span class="letter">D.</span>DNE</li></ul>
+            </div>
+            <div>
+              <h3>Simplify safely</h3>
+              <p class="formula small-formula"><span class="frac"><span>(x−3)²</span><span>|x−3|</span></span> = |x−3|</p>
+              <p class="formula small-formula">f(x)=|x−3|(x²+1), &nbsp; x≠3</p>
+              <button class="reveal-btn" type="button" data-reveal="answer13">Show solution</button>
+              <div class="answer" id="answer13"><strong>A · 0.</strong> As <span class="math">x→3</span>, <span class="math">|x−3|→0</span> and <span class="math">x²+1→10</span>, so the product approaches 0. The assigned value <span class="math">f(3)=2</span> is irrelevant to the limit.<span class="zh-key">附近式趋近 0；点值 2 不替代极限。</span></div>
+            </div>
+          </div>
+          <div class="slide-footer"><span>Both sides are nonnegative and approach 0.</span><span>13</span></div>
+          <aside class="notes"><p>官方第 10 题选 A。特别避免把 (x−3)²/|x−3| 错写成 x−3；正确化简为 |x−3|。两侧都趋近 0，f(3)=2 只说明点值。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Which Representation Shows DNE">
+          <p class="eyebrow">Official practice 9 · Piecewise linear</p>
+          <h2>Which Representation Shows DNE?</h2>
+          <p class="zh-title">哪一种表示能说明 x→4 时双侧极限不存在？</p>
+          <div class="evidence-grid">
+            <article class="evidence-card"><h3>A · Piecewise rule</h3><p class="math small-formula">h(x)={ ½x+3, x&lt;4<br>13−2x, x&gt;4 }</p><p>Both pieces approach 5 at <span class="math">x=4</span>.</p></article>
+            <article class="evidence-card"><h3>B · Table</h3><p>Both linear patterns extend toward 5 at <span class="math">x=4</span>, even though the listed point value is 1.</p><p class="math">left→5; right→5</p></article>
+            <article class="evidence-card"><h3>C · Graph</h3><p>The left branch approaches a lower open point; the right branch approaches a higher closed point.</p><p class="math warning">left ≠ right</p></article>
+          </div>
+          <button class="reveal-btn" type="button" data-reveal="answer14">Show decision</button>
+          <div class="answer" id="answer14"><strong>A: no · B: no · C: yes.</strong> A and B both have matching one-sided limits. Only graph C shows different heights from the two sides, so only C has a two-sided limit that does not exist.<span class="zh-key">A、B 的左右趋势相同；只有 C 左右高度不同。</span></div>
+          <div class="slide-footer"><span>Official answers: A no · B no · C yes</span><span>14</span></div>
+          <aside class="notes"><p>官方第 9 题答案 a/b no, c yes。A 左右代入都得 5；B 两边线性趋势也都延伸到 5，x=4 的点值 1 不影响极限；C 图像左右高度不同。</p><p>[Sources]<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide section" data-title="Exit Ticket: Match the Claim">
+          <p class="eyebrow">Exit ticket · Official CA1 question 5</p>
+          <h2>Which Could Show a Limit of 4?</h2>
+          <p class="zh-title">哪些表示可能满足 x→2 时极限为 4？</p>
+          <p class="small" style="margin:-10px 0 6px;color:#dfeaf3"><b>Select all that apply.</b> <span class="zh-key" style="display:inline;color:#e7c56f">可多选。</span></p>
+          <div class="evidence-grid" style="color:var(--ink)">
+            <article class="evidence-card"><h3>A · Algebra</h3><p class="math small-formula">f(x)={ <span class="frac"><span>x²−4</span><span>x−2</span></span>, x≠2<br>3, x=2 }</p><p>Factor before deciding.</p></article>
+            <article class="evidence-card"><h3>B · Table</h3><p>Left-side entries near 2 approach 7; right-side entries near 2 approach 4.</p><p>Does the middle entry settle it?</p></article>
+            <article class="evidence-card"><h3>C · Graph</h3><p>Both branches meet an open circle at <span class="math">(2,4)</span>.</p><p>Use the curve from both sides.</p></article>
+          </div>
+          <button class="reveal-btn" type="button" data-reveal="answer15" style="border-color:#e7c56f;color:#e7c56f">Show answer</button>
+          <div class="answer" id="answer15"><strong>A: yes · B: no · C: yes.</strong> A simplifies to <span class="math">x+2</span> near 2, so its limit is 4 even though <span class="math">f(2)=3</span>. B has different one-sided trends. C approaches height 4 from both sides.<span class="zh-key">A、C 可以；B 的左右趋势不同。</span></div>
+          <div class="title-note"><span class="line"></span><span>Left · Right · Compare · Keep f(c) separate</span></div>
+          <div class="slide-footer"><span>Homework source: official 1.9 CA1</span><span>15</span></div>
+          <aside class="notes"><p>CA1 第 5 题官方答案 a yes, b no, c yes。要求学生每个选项只写一句证据，不能用 f(2) 直接判断极限。</p><p>[Sources]<br>https://calculus.flippedmath.com/19-connecting-multiple-representations-of-limits.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_ca1.pdf</p></aside>
+        </section>
+
+      </main>
+    </div>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button id="prevBtn" type="button" aria-label="Previous slide">← Prev</button>
+      <button id="nextBtn" type="button" aria-label="Next slide">Next →</button>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="counter" id="counter">1 / 15</span>
+      <button id="notesBtn" type="button">Notes</button>
+      <button id="helpBtn" type="button">?</button>
+      <span class="key-hint">← → navigate · R reveal · N notes</span>
+    </nav>
+    <aside class="notes-panel" id="notesPanel" aria-live="polite"><h3>Teacher Notes</h3><div id="notesContent"></div></aside>
+    <div class="help" id="help" role="dialog" aria-modal="true" aria-label="Keyboard help">
+      <div class="help-card">
+        <h3>Keyboard shortcuts</h3>
+        <p><kbd>←</kbd> / <kbd>→</kbd> previous or next slide</p>
+        <p><kbd>R</kbd> reveal the current answer</p>
+        <p><kbd>N</kbd> open or close teacher notes</p>
+        <p><kbd>Home</kbd> / <kbd>End</kbd> first or last slide</p>
+        <p><kbd>Esc</kbd> close this panel</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const slides=[...document.querySelectorAll('.slide')];
+    const deck=document.getElementById('deck');
+    const viewport=document.getElementById('viewport');
+    const counter=document.getElementById('counter');
+    const progressBar=document.getElementById('progressBar');
+    const notesPanel=document.getElementById('notesPanel');
+    const notesContent=document.getElementById('notesContent');
+    const help=document.getElementById('help');
+    let index=Math.max(0,Math.min(slides.length-1,Number(location.hash.slice(1)||1)-1));
+    function scaleDeck(){
+      const scale=Math.min((viewport.clientWidth-44)/1600,(viewport.clientHeight-44)/900);
+      deck.style.transform=`translate(-50%,-50%) scale(${scale})`;
+    }
+    function showSlide(next){
+      index=Math.max(0,Math.min(slides.length-1,next));
+      slides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
+      counter.textContent=`${index+1} / ${slides.length}`;
+      progressBar.style.width=`${((index+1)/slides.length)*100}%`;
+      history.replaceState(null,'',`${location.pathname}${location.search}#${index+1}`);
+      const notes=slides[index].querySelector('.notes');
+      notesContent.innerHTML=notes?notes.innerHTML:'<p>No notes for this slide.</p>';
+      document.title=`1.9 · ${slides[index].dataset.title}`;
+    }
+    function toggleCurrentReveal(){
+      const answer=slides[index].querySelector('.answer');
+      if(!answer) return;
+      const show=!answer.classList.contains('show');
+      answer.classList.toggle('show',show);
+      const button=slides[index].querySelector('[data-reveal]');
+      if(button) button.textContent=show?'Hide answer':'Show answer';
+    }
+    document.querySelectorAll('[data-reveal]').forEach(button=>button.addEventListener('click',()=>{
+      const answer=document.getElementById(button.dataset.reveal); const show=!answer.classList.contains('show');
+      answer.classList.toggle('show',show); button.textContent=show?'Hide answer':'Show answer';
+    }));
+    document.getElementById('prevBtn').addEventListener('click',()=>showSlide(index-1));
+    document.getElementById('nextBtn').addEventListener('click',()=>showSlide(index+1));
+    document.getElementById('notesBtn').addEventListener('click',()=>notesPanel.classList.toggle('open'));
+    document.getElementById('helpBtn').addEventListener('click',()=>help.classList.toggle('open'));
+    help.addEventListener('click',event=>{if(event.target===help) help.classList.remove('open');});
+    addEventListener('keydown',event=>{
+      if(event.key==='ArrowRight'||event.key==='PageDown'||event.key===' '){event.preventDefault();showSlide(index+1);}
+      else if(event.key==='ArrowLeft'||event.key==='PageUp'){event.preventDefault();showSlide(index-1);}
+      else if(event.key==='Home') showSlide(0);
+      else if(event.key==='End') showSlide(slides.length-1);
+      else if(event.key.toLowerCase()==='r') toggleCurrentReveal();
+      else if(event.key.toLowerCase()==='n') notesPanel.classList.toggle('open');
+      else if(event.key==='Escape'){notesPanel.classList.remove('open');help.classList.remove('open');}
+    });
+    if(new URLSearchParams(location.search).get('answers')==='show'){
+      document.querySelectorAll('.answer').forEach(answer=>answer.classList.add('show'));
+      document.querySelectorAll('[data-reveal]').forEach(button=>button.textContent='Hide answer');
+    }
+    addEventListener('resize',scaleDeck);
+    scaleDeck();
+    showSlide(index);
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # AP Calculus BC · Unit 1 course site
 
-Current scope: Topics 1.1–1.7.
+Current scope: Topics 1.1–1.9.
 
 Each topic follows one classroom sequence:
 
@@ -13,7 +13,7 @@ Open `index.html` locally or through GitHub Pages.
 
 ## Classroom tools
 
-- Random Question — 42 English-first prompts covering Topics 1.1–1.7, with key Chinese hints and toggle answers.
+- Random Question — 54 English-first prompts covering Topics 1.1–1.9, with key Chinese hints and toggle answers.
 - Student Picker — six confirmed formal-name/WeChat-profile pairs with avatars, no-repeat rounds, and an attendance switch.
 - Graphing Calculator — a floating classroom simulator with safe scientific evaluation, RAD/DEG modes, history, graph/trace, verified zeros, numerical derivatives, and definite integrals. It covers the four graphing-calculator capabilities named in the AP Calculus course description, but is not an approved exam-day calculator.
 

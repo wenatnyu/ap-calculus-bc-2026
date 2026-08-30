@@ -35,6 +35,8 @@
       --aqua:#42dce1;
       --electric:#72a7ff;
       --violet:#cb85ff;
+      --magenta:#ff4fb3;
+      --chartreuse:#b7f06a;
       --blue:var(--electric);
       --cyan:var(--aqua);
       --gold:#ffc857;
@@ -113,6 +115,8 @@
     .lesson[data-topic="1.5"]{--accent:var(--aqua);--accent-rgb:66,220,225}
     .lesson[data-topic="1.6"]{--accent:var(--electric);--accent-rgb:114,167,255}
     .lesson[data-topic="1.7"]{--accent:var(--violet);--accent-rgb:203,133,255}
+    .lesson[data-topic="1.8"]{--accent:var(--magenta);--accent-rgb:255,79,179}
+    .lesson[data-topic="1.9"]{--accent:var(--chartreuse);--accent-rgb:183,240,106}
     .lesson:hover{background:linear-gradient(90deg,rgba(var(--accent-rgb),.12),transparent 78%);box-shadow:inset 3px 0 0 var(--accent)}
     .lesson-number{color:var(--accent);font-family:var(--math);font-size:30px;font-variant-numeric:tabular-nums;text-shadow:0 0 24px rgba(var(--accent-rgb),.38)}
     .lesson-title{min-width:0}
@@ -154,6 +158,8 @@
     #question-dialog[data-topic="1.5"]{--tool-accent:var(--aqua);--tool-rgb:66,220,225}
     #question-dialog[data-topic="1.6"]{--tool-accent:var(--electric);--tool-rgb:114,167,255}
     #question-dialog[data-topic="1.7"]{--tool-accent:var(--violet);--tool-rgb:203,133,255}
+    #question-dialog[data-topic="1.8"]{--tool-accent:var(--magenta);--tool-rgb:255,79,179}
+    #question-dialog[data-topic="1.9"]{--tool-accent:var(--chartreuse);--tool-rgb:183,240,106}
     dialog::backdrop{background:rgba(1,3,10,.67);backdrop-filter:blur(3px)}
     dialog[open]{animation:panel-in .18s ease-out}
     @keyframes panel-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
@@ -369,7 +375,7 @@
         <p class="section-kicker">Course map</p>
         <h2>Lessons / 课程</h2>
       </div>
-      <span class="lesson-count">01 — 07</span>
+      <span class="lesson-count">01 — 09</span>
     </div>
 
     <section class="lesson-list" aria-label="Unit 1 lessons">
@@ -523,6 +529,50 @@
             <a href="https://calculus.flippedmath.com/17-selecting-procedures-for-determining-limits.html">Lesson</a>
             <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_packet.pdf">Packet</a>
             <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.7_solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.8">
+        <div class="lesson-number">1.8</div>
+        <div class="lesson-title">
+          <h3>Limits Using the Squeeze Theorem</h3>
+          <p>用夹逼定理求极限</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.8 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.8_Review_5min_Quiz.html">Quiz <span>小测</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.8_Determining_Limits_Using_the_Squeeze_Theorem_English_Key_CN.html">Notes <span>讲义</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.8_Determining_Limits_Using_the_Squeeze_Theorem_English_Key_CN.html?answers=show">Answers <span>答案</span></a>
+          <a class="lesson-action homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_ca1.pdf" target="_blank" rel="noopener">CA #1 <span>作业</span></a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources / 官方资料</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/18-determining-limits-using-the-squeeze-theorem.html">Lesson</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_packet.pdf">Packet</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.8_solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.9">
+        <div class="lesson-number">1.9</div>
+        <div class="lesson-title">
+          <h3>Connecting Multiple Representations of Limits</h3>
+          <p>连接极限的多种表示</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.9 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.9_Review_5min_Quiz.html">Quiz <span>小测</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.9_Connecting_Multiple_Representations_of_Limits_English_Key_CN.html">Notes <span>讲义</span></a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.9_Connecting_Multiple_Representations_of_Limits_English_Key_CN.html?answers=show">Answers <span>答案</span></a>
+          <a class="lesson-action homework" href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_ca1.pdf" target="_blank" rel="noopener">CA #1 <span>作业</span></a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources / 官方资料</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/19-connecting-multiple-representations-of-limits.html">Lesson</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_packet.pdf">Packet</a>
+            <a href="https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.9_solutions.pdf">Solutions</a>
           </div>
         </details>
       </article>
