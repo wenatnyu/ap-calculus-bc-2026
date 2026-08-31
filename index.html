@@ -107,7 +107,7 @@
     .section-head h2{margin:0;font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:400;letter-spacing:-.02em}
     .lesson-count{color:var(--muted);font-family:var(--math);font-size:13px}
     .lesson-list{border-bottom:1px solid var(--line)}
-    .lesson{--accent:var(--electric);--accent-rgb:114,167,255;display:grid;grid-template-columns:74px minmax(260px,1fr) auto;gap:24px;align-items:center;padding:25px 0;border-top:1px solid var(--line);box-shadow:inset 3px 0 0 transparent;transition:background-color .18s ease,box-shadow .18s ease}
+    .lesson{--accent:var(--electric);--accent-rgb:114,167,255;display:grid;grid-template-columns:74px minmax(260px,1fr) auto;gap:12px 24px;align-items:center;padding:19px 0;border-top:1px solid var(--line);box-shadow:inset 3px 0 0 transparent;transition:background-color .18s ease,box-shadow .18s ease}
     .lesson[data-topic="1.1"]{--accent:var(--coral);--accent-rgb:255,93,143}
     .lesson[data-topic="1.2"]{--accent:var(--orange);--accent-rgb:255,159,67}
     .lesson[data-topic="1.3"]{--accent:var(--sun);--accent-rgb:255,228,94}
@@ -123,17 +123,17 @@
     .lesson-title h3{margin:0;font-family:var(--display);font-size:21px;font-weight:500;letter-spacing:-.012em;line-height:1.25}
     .lesson-title p{margin:5px 0 0;color:var(--muted);font-size:13px}
     .lesson-actions{display:flex;align-items:center;gap:6px}
-    .lesson-action{display:inline-flex;align-items:baseline;justify-content:center;gap:6px;min-height:42px;padding:9px 12px;border:1px solid rgba(var(--accent-rgb),.34);color:var(--text);font-size:12px;font-weight:740;letter-spacing:.025em;text-decoration:none;transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease}
+    .lesson-action{display:inline-flex;align-items:baseline;justify-content:center;gap:6px;min-height:44px;padding:9px 12px;border:1px solid rgba(var(--accent-rgb),.34);color:var(--text);font-size:12px;font-weight:740;letter-spacing:.025em;text-decoration:none;transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease}
     .lesson-action span{color:var(--muted);font-size:10px;font-weight:600}
     .lesson-action:hover{transform:translateY(-1px);border-color:rgba(var(--accent-rgb),.82);background:rgba(var(--accent-rgb),.13)}
     .lesson-action:focus-visible,.tool-trigger:focus-visible,.panel-button:focus-visible,.icon-button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
     .lesson-action.homework{border-color:rgba(var(--accent-rgb),.62);background:rgba(var(--accent-rgb),.07);color:var(--accent)}
-    .lesson-source{grid-column:2/-1;margin-top:-11px}
+    .lesson-source{grid-column:2/-1;margin-top:-4px}
     .lesson-source summary{width:max-content;cursor:pointer;color:rgba(169,184,206,.72);font-size:11px;list-style:none}
     .lesson-source summary::-webkit-details-marker{display:none}
     .lesson-source summary::before{content:"+ ";color:var(--accent)}
     .lesson-source[open] summary::before{content:"− "}
-    .source-links{display:flex;flex-wrap:wrap;gap:8px 18px;padding:10px 0 0}
+    .source-links{display:flex;flex-wrap:wrap;gap:8px 18px;padding:8px 0 0}
     .source-links a{color:var(--muted);font-size:11px;text-underline-offset:3px}
     .source-links a:hover{color:var(--accent)}
     .site-foot{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 0 30px;border-top:1px solid var(--line);color:rgba(169,184,206,.68);font-size:11px}
@@ -275,9 +275,9 @@
       .math-stage{min-height:170px;place-items:start}
       .math-caption{left:0;bottom:0}
       .hero::before{right:-200px;top:250px}.hero::after{right:-110px;top:290px}
-      .lesson{grid-template-columns:62px minmax(0,1fr);gap:14px 18px}
+      .lesson{grid-template-columns:62px minmax(0,1fr);gap:9px 18px}
       .lesson-actions{grid-column:2;flex-wrap:wrap}
-      .lesson-source{grid-column:2;margin-top:0}
+      .lesson-source{grid-column:2;margin-top:-1px}
     }
     @media(max-width:600px){
       .shell{width:min(1120px,calc(100% - 28px))}
@@ -288,7 +288,7 @@
       .math-stage{min-height:132px}.formula{font-size:43px}.math-caption{display:none}
       main{padding:47px 0 116px}
       .section-head{align-items:start}.lesson-count{padding-top:7px}
-      .lesson{grid-template-columns:48px minmax(0,1fr);padding:21px 0}
+      .lesson{grid-template-columns:48px minmax(0,1fr);padding:15px 0}
       .lesson-number{font-size:23px}
       .lesson-title h3{font-size:18px}.lesson-title p{font-size:12px}
       .lesson-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
