@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 1.1–1.5 | Vocabulary Dictation</title>
+  <style>
+    :root {
+      --navy:#16324f;
+      --blue:#2f5d8c;
+      --gold:#c9902f;
+      --teal:#167e75;
+      --red:#9b413b;
+      --ink:#202a33;
+      --muted:#5f6d79;
+      --line:#b7c1ca;
+      --pale:#f3f6f8;
+      --answer:#edf7f5;
+      --paper:#ffffff;
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+      --serif:Georgia,"Times New Roman",serif;
+    }
+
+    * { box-sizing:border-box; }
+    html, body { margin:0; min-height:100%; }
+    body {
+      padding:20px;
+      background:#e8edf1;
+      color:var(--ink);
+      font-family:var(--sans);
+    }
+    button { font:inherit; }
+
+    .toolbar {
+      width:min(210mm,100%);
+      margin:0 auto 10px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border:1px solid #cbd4db;
+      background:#f8fafb;
+      color:var(--navy);
+      font-size:12px;
+    }
+    .toolbar .status { margin-right:auto; font-weight:780; }
+    .toolbar button {
+      padding:6px 9px;
+      border:1px solid var(--blue);
+      border-radius:0;
+      background:#fff;
+      color:var(--blue);
+      font-size:11px;
+      font-weight:760;
+      cursor:pointer;
+    }
+    .toolbar button:hover,
+    .toolbar button:focus-visible { background:var(--blue); color:#fff; outline:none; }
+    .toolbar .teacher-action { border-color:var(--teal); color:var(--teal); }
+    .toolbar .teacher-action:hover,
+    .toolbar .teacher-action:focus-visible { background:var(--teal); color:#fff; }
+
+    .sheet {
+      width:min(210mm,100%);
+      min-height:297mm;
+      margin:0 auto;
+      padding:9mm 12mm 7mm;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      background:var(--paper);
+      box-shadow:0 10px 32px rgba(22,50,79,.16);
+    }
+    .topline {
+      height:5px;
+      margin-bottom:8px;
+      background:linear-gradient(90deg,var(--navy) 0 82%,var(--gold) 82% 100%);
+    }
+    header { display:grid; grid-template-columns:1fr auto; gap:18px; align-items:start; }
+    .kicker {
+      color:var(--blue);
+      font-size:10px;
+      font-weight:850;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    h1 {
+      margin:3px 0 2px;
+      color:var(--navy);
+      font:700 25px/1.08 var(--serif);
+    }
+    .subtitle { margin:0; color:var(--gold); font-size:12px; font-weight:750; }
+    .score-box {
+      min-width:96px;
+      padding:7px 10px;
+      border:1.5px solid var(--gold);
+      color:var(--navy);
+      text-align:center;
+    }
+    .score-box strong { display:block; font:700 21px/1 var(--serif); }
+    .score-box span { color:var(--muted); font-size:9px; }
+    .teacher-stamp {
+      display:none;
+      margin-top:6px;
+      padding:4px 7px;
+      border:1px solid var(--teal);
+      color:var(--teal);
+      font-size:9px;
+      font-weight:850;
+      letter-spacing:.08em;
+      text-align:center;
+    }
+    body[data-print-mode="teacher"] .teacher-stamp { display:block; }
+
+    .student-info {
+      display:grid;
+      grid-template-columns:1.5fr .85fr .6fr;
+      gap:18px;
+      margin:10px 0 7px;
+      font-size:11px;
+    }
+    .field { display:flex; align-items:flex-end; gap:6px; white-space:nowrap; }
+    .field-line { flex:1; height:16px; border-bottom:1px solid #667585; }
+    .directions,
+    .teacher-note {
+      margin:0 0 7px;
+      padding:6px 9px;
+      border-left:4px solid var(--blue);
+      background:var(--pale);
+      font-size:10.7px;
+      line-height:1.38;
+    }
+    .directions b { color:var(--navy); }
+    .teacher-note {
+      display:none;
+      border-left-color:var(--teal);
+      background:var(--answer);
+    }
+    body[data-print-mode="teacher"] .teacher-note { display:block; }
+    body[data-print-mode="teacher"] .student-only { display:none; }
+
+    .topics {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:6px;
+      align-items:start;
+    }
+    .topic-column { display:grid; gap:5px; align-content:start; }
+    .topic-card {
+      border:1px solid var(--line);
+      border-top:3px solid var(--blue);
+      break-inside:avoid;
+      background:#fff;
+    }
+    .topic-head {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-height:26px;
+      padding:4px 8px;
+      border-bottom:1px solid #d2d9df;
+      background:var(--pale);
+    }
+    .topic-head h2 {
+      margin:0;
+      color:var(--navy);
+      font-size:11.8px;
+      line-height:1.2;
+    }
+    .topic-head .topic-cn { color:var(--muted); font-size:9.5px; font-weight:650; }
+    .topic-toggle {
+      margin-left:auto;
+      padding:2px 7px;
+      border:1px solid #b8c5cf;
+      border-radius:0;
+      background:#fff;
+      color:var(--blue);
+      font-size:8.8px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .items { display:block; }
+    .dictation-item {
+      min-width:0;
+      padding:5px 8px 4px;
+      border-bottom:1px solid #d8dee3;
+    }
+    .dictation-item:last-child { border-bottom:0; }
+    .prompt {
+      margin:0;
+      min-height:17px;
+      font-size:10.7px;
+      font-weight:690;
+      line-height:1.28;
+    }
+    .num { color:var(--navy); font-weight:850; }
+    .writing-line {
+      height:18px;
+      margin-top:1px;
+      border-bottom:1px solid #657483;
+    }
+    .answer-panel {
+      margin-top:3px;
+      padding:4px 6px;
+      border-left:3px solid var(--teal);
+      background:var(--answer);
+      font-size:8.7px;
+      line-height:1.28;
+    }
+    .topic-card:not(.answers-open) .answer-panel { display:none; }
+    .answer-panel strong { color:var(--teal); font-size:9.3px; }
+    .accepted { color:var(--ink); }
+    .watch { color:var(--red); }
+    .label { font-weight:800; }
+
+    footer {
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:auto;
+      padding-top:5px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:8.5px;
+    }
+    .teacher-footer { display:none; }
+    body[data-print-mode="teacher"] .student-footer { display:none; }
+    body[data-print-mode="teacher"] .teacher-footer { display:inline; }
+
+    @page { size:A4 portrait; margin:0; }
+    @media print {
+      body { padding:0; background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .toolbar, .topic-toggle { display:none!important; }
+      .sheet {
+        width:210mm;
+        height:297mm;
+        min-height:0;
+        margin:0;
+        padding:8mm 11mm 6mm;
+        box-shadow:none;
+        overflow:hidden;
+      }
+      body[data-print-mode="student"] .answer-panel,
+      body[data-print-mode="student"] .teacher-note,
+      body[data-print-mode="student"] .teacher-stamp { display:none!important; }
+      body[data-print-mode="teacher"] .answer-panel,
+      body[data-print-mode="teacher"] .teacher-note,
+      body[data-print-mode="teacher"] .teacher-stamp { display:block!important; }
+      body[data-print-mode="teacher"] .student-only,
+      body[data-print-mode="teacher"] .writing-line { display:none!important; }
+    }
+
+    @media (max-width:720px) {
+      body { padding:0; }
+      .toolbar { width:100%; margin:0; flex-wrap:wrap; }
+      .toolbar .status { width:100%; }
+      .sheet { min-height:100vh; padding:18px; overflow:visible; }
+      h1 { font-size:22px; }
+      .topics { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body data-print-mode="student">
+  <nav class="toolbar" aria-label="Answer and print controls">
+    <span class="status" id="modeStatus">Mode: Student</span>
+    <button id="revealAllBtn" type="button">Show All Answers</button>
+    <button id="modeBtn" type="button" class="teacher-action">Switch to Teacher Mode</button>
+    <button id="printStudentBtn" type="button">Print Student Copy</button>
+    <button id="printTeacherBtn" type="button" class="teacher-action">Print Teacher Copy</button>
+  </nav>
+
+  <main class="sheet">
+    <div class="topline"></div>
+    <header>
+      <div>
+        <div class="kicker">AP Calculus BC · Topics 1.1–1.5</div>
+        <h1>Vocabulary &amp; Expressions Dictation</h1>
+        <p class="subtitle" lang="zh-CN">核心词汇与表达默写</p>
+      </div>
+      <div>
+        <div class="score-box"><strong>20</strong><span>ITEMS · 20 POINTS</span></div>
+        <div class="teacher-stamp">TEACHER KEY</div>
+      </div>
+    </header>
+
+    <div class="student-info student-only">
+      <div class="field">Name 姓名 <span class="field-line"></span></div>
+      <div class="field">Date 日期 <span class="field-line"></span></div>
+      <div class="field">Score 得分 <span class="field-line"></span></div>
+    </div>
+
+    <p class="directions student-only"><b>Directions:</b> Write the exact English term or sentence for each Chinese prompt. Capitalization does not count; spelling and word order do. Do not use abbreviations unless the prompt includes one.<br><b lang="zh-CN">要求：</b><span lang="zh-CN">根据中文写英文。大小写不扣分；拼写和词序计分。题目未给缩写时，不要只写缩写。</span></p>
+    <p class="teacher-note"><strong>Quick marking:</strong> 1 point each. Accept the listed variants when the mathematical meaning is unchanged. The red note flags the error worth correcting aloud.</p>
+
+    <div class="topics">
+      <div class="topic-column">
+      <section class="topic-card" id="topic11">
+        <div class="topic-head">
+          <h2>Topic 1.1 · Rates of Change</h2>
+          <span class="topic-cn" lang="zh-CN">变化率</span>
+          <button class="topic-toggle" type="button" data-topic="topic11" aria-controls="topic11" aria-expanded="false">Show 1.1 Answers</button>
+        </div>
+        <div class="items">
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">1.</span> <span lang="zh-CN">平均变化率</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>average rate of change</strong><br><span class="accepted"><span class="label">Accepted:</span> the average rate of change</span> · <span class="watch"><span class="label">Watch:</span> include “average.”</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">2.</span> <span lang="zh-CN">瞬时变化率</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>instantaneous rate of change</strong><br><span class="accepted"><span class="label">Accepted:</span> the instantaneous rate of change</span> · <span class="watch"><span class="label">Watch:</span> instantaneous, not “instant.”</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">3.</span> <span lang="zh-CN">割线</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>secant line</strong><br><span class="accepted"><span class="label">Accepted:</span> a secant line</span> · <span class="watch"><span class="label">Watch:</span> not “tangent line.”</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">4.</span> <span lang="zh-CN">割线斜率趋近切线斜率。</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>Secant slopes approach the tangent slope.</strong><br><span class="accepted"><span class="label">Accepted:</span> The slopes of secant lines approach the slope of the tangent line.</span> <span class="watch"><span class="label">Watch:</span> secant first, tangent second.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic-card" id="topic12">
+        <div class="topic-head">
+          <h2>Topic 1.2 · Limit Language</h2>
+          <span class="topic-cn" lang="zh-CN">极限语言</span>
+          <button class="topic-toggle" type="button" data-topic="topic12" aria-controls="topic12" aria-expanded="false">Show 1.2 Answers</button>
+        </div>
+        <div class="items">
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">5.</span> <span lang="zh-CN">极限记号</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>limit notation</strong><br><span class="accepted"><span class="label">Accepted:</span> notation for limits</span> · <span class="watch"><span class="label">Watch:</span> notation, not “note.”</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">6.</span> <span lang="zh-CN">邻近值</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>nearby values</strong><br><span class="accepted"><span class="label">Accepted:</span> values near the point</span> · <span class="watch"><span class="label">Watch:</span> nearby does not mean “at the point.”</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">7.</span> <span lang="zh-CN">函数值</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>function value</strong><br><span class="accepted"><span class="label">Accepted:</span> the function value</span> · <span class="watch"><span class="label">Watch:</span> a point value is not automatically a limit.</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">8.</span> <span lang="zh-CN">当 x 趋近 a 时，f(x) 趋近 L。</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>As x approaches a, f(x) approaches L.</strong><br><span class="accepted"><span class="label">Accepted:</span> As x tends to a, f(x) tends to L.</span> <span class="watch"><span class="label">Watch:</span> “approaches” takes -es.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic-card" id="topic13a" data-topic-group="topic13">
+        <div class="topic-head">
+          <h2>Topic 1.3 · Limits from Graphs</h2>
+          <span class="topic-cn" lang="zh-CN">从图像读极限</span>
+          <button class="topic-toggle" type="button" data-topic="topic13" aria-controls="topic13a topic13b" aria-expanded="false">Show 1.3 Answers</button>
+        </div>
+        <div class="items">
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">9.</span> <span lang="zh-CN">左极限</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>left-hand limit</strong><br><span class="accepted"><span class="label">Accepted:</span> limit from the left</span> · <span class="watch"><span class="label">Watch:</span> left-hand is hyphenated.</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">10.</span> <span lang="zh-CN">右极限</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>right-hand limit</strong><br><span class="accepted"><span class="label">Accepted:</span> limit from the right</span> · <span class="watch"><span class="label">Watch:</span> right-hand is hyphenated.</span></div>
+          </div>
+        </div>
+      </section>
+      </div>
+
+      <div class="topic-column">
+      <section class="topic-card" id="topic13b" data-topic-group="topic13">
+        <div class="topic-head">
+          <h2>Topic 1.3 · Limits from Graphs (continued)</h2>
+          <span class="topic-cn" lang="zh-CN">从图像读极限</span>
+          <button class="topic-toggle" type="button" data-topic="topic13" aria-controls="topic13a topic13b" aria-expanded="false">Show 1.3 Answers</button>
+        </div>
+        <div class="items">
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">11.</span> <span lang="zh-CN">不存在（缩写）</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>does not exist (DNE)</strong><br><span class="accepted"><span class="label">Accepted:</span> DNE; does not exist</span> · <span class="watch"><span class="label">Watch:</span> DNE is not “undefined.”</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">12.</span> <span lang="zh-CN">双侧极限只有在两个单侧极限相等时才存在。</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>The two-sided limit exists only when the two one-sided limits are equal.</strong><br><span class="accepted"><span class="label">Accepted:</span> A two-sided limit exists if the left-hand and right-hand limits are equal.</span> <span class="watch"><span class="label">Watch:</span> both sides existing is not enough; they must agree.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic-card" id="topic14">
+        <div class="topic-head">
+          <h2>Topic 1.4 · Limits from Tables</h2>
+          <span class="topic-cn" lang="zh-CN">从表格读极限</span>
+          <button class="topic-toggle" type="button" data-topic="topic14" aria-controls="topic14" aria-expanded="false">Show 1.4 Answers</button>
+        </div>
+        <div class="items">
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">13.</span> <span lang="zh-CN">数值表</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>table of values</strong><br><span class="accepted"><span class="label">Accepted:</span> table of function values</span> · <span class="watch"><span class="label">Watch:</span> use “of,” not “for.”</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">14.</span> <span lang="zh-CN">最接近的数值</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>nearest values</strong><br><span class="accepted"><span class="label">Accepted:</span> closest values</span> · <span class="watch"><span class="label">Watch:</span> values is plural here.</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">15.</span> <span lang="zh-CN">估计 / 近似（动词，任写一个）</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>estimate (or approximate)</strong><br><span class="accepted"><span class="label">Accepted:</span> either word earns the point</span> · <span class="watch"><span class="label">Watch:</span> an estimate is not an exact proof.</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">16.</span> <span lang="zh-CN">表格表明极限约为 L。</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>The table suggests that the limit is approximately L.</strong><br><span class="accepted"><span class="label">Accepted:</span> The table suggests the limit is about L.</span> <span class="watch"><span class="label">Watch:</span> a finite table suggests; it does not prove.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic-card" id="topic15">
+        <div class="topic-head">
+          <h2>Topic 1.5 · Algebraic Properties of Limits</h2>
+          <span class="topic-cn" lang="zh-CN">极限的代数性质</span>
+          <button class="topic-toggle" type="button" data-topic="topic15" aria-controls="topic15" aria-expanded="false">Show 1.5 Answers</button>
+        </div>
+        <div class="items">
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">17.</span> <span lang="zh-CN">极限定律</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>limit law</strong><br><span class="accepted"><span class="label">Accepted:</span> law of limits; limit laws</span> · <span class="watch"><span class="label">Watch:</span> “limit” comes first in the class term.</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">18.</span> <span lang="zh-CN">商法则</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>quotient law</strong><br><span class="accepted"><span class="label">Accepted:</span> quotient rule for limits</span> · <span class="watch"><span class="label">Watch:</span> the denominator-limit condition is required.</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">19.</span> <span lang="zh-CN">复合函数</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>composite function</strong><br><span class="accepted"><span class="label">Accepted:</span> composition of functions</span> · <span class="watch"><span class="label">Watch:</span> composite, not “complicated.”</span></div>
+          </div>
+          <div class="dictation-item">
+            <p class="prompt"><span class="num">20.</span> <span lang="zh-CN">分母的极限必须非零。</span></p>
+            <div class="writing-line student-only"></div>
+            <div class="answer-panel"><strong>The denominator’s limit must be nonzero.</strong><br><span class="accepted"><span class="label">Accepted:</span> The limit of the denominator must not be zero.</span> <span class="watch"><span class="label">Watch:</span> it is the limit—not necessarily the point value.</span></div>
+          </div>
+        </div>
+      </section>
+      </div>
+    </div>
+
+    <footer>
+      <span class="student-footer">Topics 1.1–1.5 · English learning check · No calculation</span>
+      <span class="teacher-footer">Teacher key · Accepted variants are listed under each answer.</span>
+      <span class="student-footer">Student copy</span>
+      <span class="teacher-footer">Teacher copy</span>
+    </footer>
+  </main>
+
+  <script>
+    const body = document.body;
+    const topicCards = [...document.querySelectorAll('.topic-card')];
+    const modeStatus = document.getElementById('modeStatus');
+    const modeBtn = document.getElementById('modeBtn');
+    const revealAllBtn = document.getElementById('revealAllBtn');
+
+    function setTopic(card, open) {
+      card.classList.toggle('answers-open', open);
+      const button = card.querySelector('.topic-toggle');
+      const topic = card.querySelector('h2').textContent.match(/1\.[1-5]/)[0];
+      button.setAttribute('aria-expanded', String(open));
+      button.textContent = open ? `Hide ${topic} Answers` : `Show ${topic} Answers`;
+    }
+
+    function cardsFor(topicKey) {
+      const grouped = [...document.querySelectorAll(`[data-topic-group="${topicKey}"]`)];
+      return grouped.length ? grouped : [document.getElementById(topicKey)];
+    }
+
+    function syncRevealLabel() {
+      const allOpen = topicCards.every(card => card.classList.contains('answers-open'));
+      revealAllBtn.textContent = allOpen ? 'Hide All Answers' : 'Show All Answers';
+    }
+
+    function setMode(mode) {
+      const teacher = mode === 'teacher';
+      body.dataset.printMode = teacher ? 'teacher' : 'student';
+      topicCards.forEach(card => setTopic(card, teacher));
+      modeStatus.textContent = teacher ? 'Mode: Teacher Key' : 'Mode: Student';
+      modeBtn.textContent = teacher ? 'Return to Student Mode' : 'Switch to Teacher Mode';
+      syncRevealLabel();
+    }
+
+    document.querySelectorAll('.topic-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const cards = cardsFor(button.dataset.topic);
+        const open = !cards.every(card => card.classList.contains('answers-open'));
+        cards.forEach(card => setTopic(card, open));
+        syncRevealLabel();
+      });
+    });
+
+    revealAllBtn.addEventListener('click', () => {
+      const show = !topicCards.every(card => card.classList.contains('answers-open'));
+      topicCards.forEach(card => setTopic(card, show));
+      syncRevealLabel();
+    });
+
+    modeBtn.addEventListener('click', () => {
+      setMode(body.dataset.printMode === 'teacher' ? 'student' : 'teacher');
+    });
+
+    document.getElementById('printStudentBtn').addEventListener('click', () => {
+      setMode('student');
+      window.print();
+    });
+
+    document.getElementById('printTeacherBtn').addEventListener('click', () => {
+      setMode('teacher');
+      window.print();
+    });
+
+    if (new URLSearchParams(window.location.search).get('mode') === 'teacher') {
+      setMode('teacher');
+    } else {
+      setMode('student');
+    }
+  </script>
+</body>
+</html>
