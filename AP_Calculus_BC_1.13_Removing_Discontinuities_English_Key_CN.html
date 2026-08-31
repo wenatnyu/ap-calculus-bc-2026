@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 1.13 | Removing Discontinuities</title>
+  <style>
+    :root {
+      --navy:#16324f; --blue:#2f5d8c; --blue-light:#eaf0f5; --ink:#1f2a33;
+      --muted:#667585; --paper:#fff; --mist:#f3f6f8; --line:#c9d3dc;
+      --gold:#c9902f; --teal:#16837a; --red:#ad433b; --shadow:0 18px 55px rgba(22,50,79,.20);
+      --sans:"Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+      --math:"STIX Two Math","Cambria Math","Times New Roman",serif;
+    }
+    * { box-sizing:border-box; }
+    html,body { width:100%; height:100%; }
+    body { margin:0; overflow:hidden; background:#dfe6ec; color:var(--ink); font-family:var(--sans); }
+    button { font:inherit; }
+    .app { width:100%; height:100%; position:relative; }
+    .viewport { position:absolute; inset:0 0 58px; display:grid; place-items:center; padding:22px; overflow:hidden; }
+    .deck { position:absolute; left:50%; top:50%; width:1600px; height:900px; transform-origin:50% 50%; }
+    .slide {
+      position:absolute; inset:0; display:none; overflow:hidden; isolation:isolate;
+      padding:60px 94px 68px 108px; background:var(--paper); box-shadow:var(--shadow);
+    }
+    .slide.active { display:block; animation:enter .16s ease-out; }
+    @keyframes enter { from{opacity:.25;transform:translateY(4px)} to{opacity:1;transform:none} }
+    .slide::before { content:""; position:absolute; inset:0 auto 0 0; width:14px; background:var(--blue); z-index:-1; }
+    .slide::after { content:""; position:absolute; inset:0 0 auto 14px; height:8px; background:var(--navy); z-index:-1; }
+    .slide.soft { background:var(--mist); }
+    .slide.section { background:var(--navy); color:#fff; }
+    .slide.section::before { background:var(--gold); }
+    .slide.section::after { background:#0e253b; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:970px; margin:32px 0 14px; font:700 68px/1.03 Georgia,"Times New Roman",serif; letter-spacing:-.025em; }
+    h1 span { display:block; }
+    h2 { margin:8px 0 6px; color:var(--navy); font:700 47px/1.08 Georgia,"Times New Roman",serif; white-space:nowrap; }
+    .section h2 { color:#fff; }
+    h3 { margin-bottom:10px; color:var(--navy); font-size:25px; line-height:1.2; }
+    .section h3 { color:#fff; }
+    p,li { font-size:23px; line-height:1.42; }
+    .eyebrow { margin:0; color:var(--blue); font-size:18px; font-weight:820; letter-spacing:.12em; text-transform:uppercase; }
+    .section .eyebrow { color:#9fc5e2; }
+    .accent-rule { width:130px; height:6px; margin-top:26px; background:var(--gold); }
+    .lead { max-width:1000px; font-size:28px; line-height:1.42; }
+    .zh-title { margin:0 0 24px; color:var(--gold); font-size:22px; font-weight:760; }
+    .zh-key { display:block; margin-top:6px; color:#9a6818; font-size:.82em; font-weight:720; }
+    .section .zh-key { color:#e7c56f; }
+    .small { font-size:20px; }
+    .muted { color:var(--muted); }
+    .math,.formula { font-family:var(--math); }
+    .formula { font-size:36px; line-height:1.35; }
+    .small-formula { font-size:30px; }
+    sup,sub { line-height:0; }
+    .limit-op { display:inline-grid; grid-template-rows:1fr auto; justify-items:center; margin:0 5px; line-height:.78; vertical-align:middle; }
+    .limit-op .op { font-size:1em; font-style:normal; }
+    .limit-op .sub { margin-top:4px; font-size:.48em; white-space:nowrap; }
+    .frac { display:inline-grid; grid-template-rows:auto auto; justify-items:center; margin:0 5px; line-height:1.05; vertical-align:middle; }
+    .frac > span:first-child { min-width:100%; padding:0 6px 3px; border-bottom:2px solid currentColor; text-align:center; }
+    .frac > span:last-child { padding-top:3px; }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:start; }
+    .split.wide-left { grid-template-columns:1.18fr .82fr; }
+    .statement { padding:26px 0 24px; border-top:6px solid var(--blue); border-bottom:1px solid #8fa0af; }
+    .callout { margin-top:22px; padding:15px 18px; border-left:6px solid var(--blue); background:var(--blue-light); font-size:20px; line-height:1.38; }
+    .callout.gold { border-left-color:var(--gold); background:#fbf5e9; }
+    .callout.teal { border-left-color:var(--teal); background:#eaf5f3; }
+    .callout.red { border-left-color:var(--red); background:#faefee; }
+    .term-table,.compare-table,.value-table { width:100%; border-collapse:collapse; table-layout:fixed; }
+    .term-table th,.term-table td,.compare-table th,.compare-table td,.value-table th,.value-table td { padding:8px 13px; border-bottom:1px solid var(--line); text-align:left; font-size:18px; line-height:1.2; }
+    .term-table th,.compare-table th,.value-table th { padding-top:11px; padding-bottom:11px; background:var(--navy); color:#fff; font-size:18px; }
+    .term-table td:nth-child(odd) { color:var(--navy); font-weight:780; }
+    .term-table td:nth-child(even) { color:#8b5d15; font-weight:670; }
+    .value-table th,.value-table td { text-align:center; font-size:22px; }
+    .value-table .point { color:var(--red); font-weight:820; }
+    .term-note { margin-top:18px; padding-top:12px; border-top:3px solid var(--gold); font-size:19px; }
+    .four-step { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:32px; }
+    .four-step article { min-height:250px; padding:24px 21px; border-top:6px solid var(--blue); background:#f8fafb; }
+    .four-step b { display:block; color:var(--gold); font:700 34px/1 Georgia,"Times New Roman",serif; }
+    .four-step h3 { margin:15px 0 8px; font-size:24px; }
+    .four-step p { font-size:19px; }
+    .rep-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:30px; }
+    .rep-card { padding:22px; border-top:5px solid var(--blue); background:#f8fafb; }
+    .rep-card h3 { margin-bottom:9px; font-size:25px; }
+    .rep-card p { margin-bottom:0; font-size:19px; }
+    .rep-card strong { color:var(--teal); }
+    .evidence-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; margin-top:24px; }
+    .evidence-card { min-height:390px; padding:23px; border:1px solid var(--line); border-top:6px solid var(--blue); background:#fff; }
+    .evidence-card h3 { font-size:24px; }
+    .evidence-card p { font-size:19px; }
+    .tag { display:inline-block; padding:4px 10px; background:var(--blue-light); color:var(--blue); font-size:16px; font-weight:820; }
+    .tag.no { background:#faefee; color:var(--red); }
+    .tag.yes { background:#eaf5f3; color:var(--teal); }
+    .equation-work { margin-top:22px; padding:22px 0; border-top:4px solid var(--blue); border-bottom:1px solid var(--line); }
+    .equation-work .formula + .formula { margin-top:15px; }
+    .answer { display:none; margin-top:16px; padding:14px 18px; border-left:6px solid var(--teal); background:#eaf4f2; color:var(--ink); font-size:21px; line-height:1.4; }
+    .answer.show { display:block; }
+    .answer strong { color:var(--teal); }
+    .reveal-btn { appearance:none; margin-top:10px; padding:9px 17px; border:2px solid var(--blue); border-radius:0; background:transparent; color:var(--blue); font-size:19px; font-weight:790; cursor:pointer; }
+    .reveal-btn:hover,.reveal-btn:focus-visible { background:var(--blue); color:#fff; outline:none; }
+    .choice-list { list-style:none; margin:10px 0 16px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 34px; }
+    .choice-list li { font-size:23px; }
+    .choice-list .letter { display:inline-block; width:42px; color:var(--blue); font-weight:820; }
+    .sign-table { width:100%; border-collapse:collapse; margin-top:18px; }
+    .sign-table th,.sign-table td { padding:15px 18px; border:1px solid var(--line); text-align:center; font-size:25px; }
+    .sign-table th { background:var(--navy); color:#fff; }
+    .sign-table td:last-child { color:var(--teal); font-weight:820; }
+    .quick-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:22px; }
+    .quick-grid div { min-height:118px; padding:19px; border-top:4px solid var(--blue); background:#f7f9fb; font-family:var(--math); font-size:25px; }
+    .graph-card { padding:18px; border:1px solid var(--line); background:#fff; }
+    .graph-svg { width:100%; height:330px; display:block; }
+    .axis { stroke:#263746; stroke-width:3; }
+    .gridline { stroke:#d6dfe7; stroke-width:1; }
+    .curve { fill:none; stroke:var(--blue); stroke-width:7; stroke-linecap:round; }
+    .curve.teal { stroke:var(--teal); }
+    .open-dot { fill:#fff; stroke:var(--blue); stroke-width:6; }
+    .closed-dot { fill:var(--red); stroke:#fff; stroke-width:2; }
+    .graph-label { fill:#354757; font:22px var(--sans); }
+    .correct { color:var(--teal); font-weight:800; }
+    .warning { color:var(--red); font-weight:800; }
+    .hero-equation { position:absolute; right:92px; top:160px; width:500px; padding:28px 0; border-top:7px solid #8fafd0; border-bottom:1px solid #6f8ea9; color:#fff; font-family:var(--math); font-size:34px; line-height:1.55; }
+    .hero-equation .choice { display:flex; justify-content:space-between; gap:20px; color:#dfeaf3; }
+    .hero-equation .choice b { color:#e7c56f; font-family:var(--sans); font-size:21px; }
+    .title-note { position:absolute; left:108px; bottom:92px; display:flex; align-items:center; gap:18px; color:#d8e4ee; font-size:21px; }
+    .title-note .line { width:86px; height:2px; background:#86a7c4; }
+    .slide-footer { position:absolute; left:108px; right:58px; bottom:25px; display:flex; justify-content:space-between; align-items:center; gap:24px; color:#6d7a87; font-size:15px; }
+    .section .slide-footer { color:#c7d6e2; }
+    .notes { display:none; }
+    .controls { position:absolute; left:0; right:0; bottom:0; height:58px; display:flex; align-items:center; gap:14px; padding:0 22px; background:#f7f9fb; border-top:1px solid #c5d0da; color:#506171; z-index:20; }
+    .controls button { border:0; background:transparent; color:var(--navy); cursor:pointer; font-weight:760; padding:8px 10px; }
+    .controls button:hover,.controls button:focus-visible { background:#e9eef2; outline:none; }
+    .progress-track { flex:1; height:4px; margin:0 10px; background:#d6dfe7; }
+    .progress-bar { width:0; height:100%; background:var(--blue); transition:width .18s ease; }
+    .counter { min-width:82px; text-align:center; font-variant-numeric:tabular-nums; }
+    .key-hint { color:#778593; font-size:14px; white-space:nowrap; }
+    .notes-panel { position:absolute; z-index:40; right:22px; bottom:76px; display:none; width:min(560px,calc(100vw - 44px)); max-height:66vh; overflow:auto; padding:22px 24px; background:#fffef7; border:1px solid #c7b876; box-shadow:0 14px 40px rgba(30,42,53,.25); color:#36352d; }
+    .notes-panel.open { display:block; }
+    .notes-panel h3 { margin-bottom:12px; font-size:22px; }
+    .notes-panel p,.notes-panel li { font-size:16px; line-height:1.55; }
+    .help { position:absolute; inset:0; z-index:50; display:none; place-items:center; background:rgba(22,50,79,.78); }
+    .help.open { display:grid; }
+    .help-card { width:560px; padding:34px 40px; background:#fff; box-shadow:var(--shadow); }
+    .help-card h3 { font-size:30px; }
+    .help-card p { font-size:20px; }
+    kbd { border:1px solid #aebbc6; padding:2px 7px; background:#f6f8fa; font-family:ui-monospace,monospace; }
+    @media (max-width:760px) { .key-hint{display:none}.controls{gap:4px;padding:0 8px} }
+    @page { size:16.6667in 9.375in; margin:0; }
+    @media print {
+      html,body{width:auto;height:auto;overflow:visible;background:#fff}.app,.viewport{position:static;display:block;padding:0;overflow:visible}
+      .deck{position:static;left:auto;top:auto;transform:none!important;width:1600px;height:auto}
+      .slide{position:relative;display:block!important;width:1600px;height:900px;box-shadow:none;break-after:page;page-break-after:always;animation:none!important}
+      .controls,.notes-panel,.help,.reveal-btn{display:none!important}.answer{display:block}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="viewport" id="viewport">
+      <main class="deck" id="deck" aria-live="polite">
+        <section class="slide section active" data-title="Removing Discontinuities">
+          <p class="eyebrow">AP Calculus BC · Topic 1.13</p><div class="accent-rule"></div>
+          <h1><span>Removing</span><span>Discontinuities</span></h1>
+          <p class="lead" style="color:#e7c56f">消除可去间断点</p>
+          <div class="hero-equation"><div class="choice"><span>finite limit</span><b>find L</b></div><div class="choice"><span>missing point</span><b>set f(c)=L</b></div><div class="choice"><span>jump or infinity</span><b>cannot fix one point</b></div></div>
+          <div class="title-note"><span class="line"></span><span>A hole can be filled only when the nearby limit already exists.</span></div>
+          <div class="slide-footer"><span>Class slides · English main text with key Chinese</span><span>1.13</span></div>
+          <aside class="notes"><p><b>开场：</b>今天的核心动作不是“约分”，而是先确认有限双侧极限存在，再把点值设成这个极限。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Core Vocabulary for Topic 1.13">
+          <p class="eyebrow">Language first · One-page reference</p><h2>Core Vocabulary for Topic 1.13</h2><p class="zh-title">本节核心词汇集中在这一页</p>
+          <table class="term-table"><tr><th>English</th><th>中文</th><th>English</th><th>中文</th></tr>
+            <tr><td>removable discontinuity</td><td>可去间断点</td><td>nonremovable discontinuity</td><td>不可去间断点</td></tr>
+            <tr><td>hole</td><td>空洞</td><td>continuous extension</td><td>连续延拓</td></tr>
+            <tr><td>factor</td><td>因式分解</td><td>common factor</td><td>公因式</td></tr>
+            <tr><td>cancel</td><td>约去</td><td>domain restriction</td><td>定义域限制</td></tr>
+            <tr><td>finite limit</td><td>有限极限</td><td>function value</td><td>函数值</td></tr>
+            <tr><td>define / redefine</td><td>定义 / 重新定义</td><td>piecewise function</td><td>分段函数</td></tr>
+            <tr><td>parameter</td><td>参数</td><td>matching value</td><td>匹配值</td></tr>
+            <tr><td>jump discontinuity</td><td>跳跃间断</td><td>infinite discontinuity</td><td>无穷间断</td></tr>
+            <tr><td>nearby rule</td><td>点附近规律</td><td>equivalent for x≠c</td><td>在 x≠c 时等价</td></tr>
+          </table>
+          <p class="term-note"><b>Class sentence:</b> “The finite limit is L, so define f(c)=L to remove the hole.”<span class="zh-key">课堂句型：有限极限为 L，因此令 f(c)=L 来补洞。</span></p>
+          <div class="slide-footer"><span>Say “for x≠c” after canceling.</span><span>02</span></div>
+          <aside class="notes"><p>重点朗读 removable, redefine, domain restriction。要求学生约分后补一句 “for x not equal to c”。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="What Makes a Discontinuity Removable?">
+          <p class="eyebrow">Definition · The limit comes first</p><h2>What Makes a Discontinuity Removable?</h2><p class="zh-title">可去的前提：有限双侧极限已经存在</p>
+          <div class="statement"><p class="formula">At x=c, let <span class="limit-op"><span class="op">lim</span><span class="sub">x→c</span></span> f(x)=L, where L is finite.</p><p class="lead">The discontinuity is removable if <span class="math">f(c)</span> is undefined or <span class="math">f(c)≠L</span>.</p></div>
+          <div class="split" style="margin-top:25px"><div class="callout teal"><b>Repair:</b> define or redefine <span class="math">f(c)=L</span>.<span class="zh-key">把点值改成极限值。</span></div><div class="callout red"><b>Not enough:</b> if the two-sided limit is DNE or infinite, one point value cannot help.<span class="zh-key">双侧极限不存在或无穷时，改一个点无效。</span></div></div>
+          <div class="slide-footer"><span>Nearby behavior must already agree.</span><span>03</span></div>
+          <aside class="notes"><p>先说必要条件：finite two-sided limit exists。之后才讨论点值是否缺失或错误。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Why One Value Can Repair a Hole">
+          <p class="eyebrow">Limit versus point value</p><h2>Why One Value Can Repair a Hole</h2><p class="zh-title">极限看附近，连续性还要求点值匹配</p>
+          <div class="four-step"><article><b>01</b><h3>Approach c</h3><p>Use values with <span class="math">x≠c</span>.</p><span class="zh-key">先看点附近。</span></article><article><b>02</b><h3>Find L</h3><p>Both sides approach the same finite number.</p><span class="zh-key">左右趋近同一有限值。</span></article><article><b>03</b><h3>Check f(c)</h3><p>It may be missing or incorrect.</p><span class="zh-key">点值可能缺失或错误。</span></article><article><b>04</b><h3>Match it</h3><p>Set <span class="math">f(c)=L</span>.</p><span class="zh-key">令点值等于极限。</span></article></div>
+          <p class="callout gold"><b>Changing f(c) does not change the limit.</b> It changes only whether the function is continuous at c.<span class="zh-key">改单点不改变极限，只改变该点是否连续。</span></p>
+          <div class="slide-footer"><span>Limit first · Point value second</span><span>04</span></div>
+          <aside class="notes"><p>让学生口头区分：limit 是附近趋势，continuity 还包括点值。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Rational-Function Workflow">
+          <p class="eyebrow">Procedure · Keep the original restriction</p><h2>Rational-Function Workflow</h2><p class="zh-title">有理函数补洞流程</p>
+          <div class="four-step"><article><b>01</b><h3>Factor</h3><p>Factor numerator and denominator completely.</p><span class="zh-key">完全因式分解。</span></article><article><b>02</b><h3>Record exclusions</h3><p>Find zeros of the original denominator.</p><span class="zh-key">记录原分母零点。</span></article><article><b>03</b><h3>Cancel nearby</h3><p>Cancel common factors only for <span class="math">x≠c</span>.</p><span class="zh-key">约分后仍保留限制。</span></article><article><b>04</b><h3>Evaluate L</h3><p>Substitute into the simplified nearby rule.</p><span class="zh-key">代入化简后的附近规律。</span></article></div>
+          <p class="callout red"><b>Do not erase the hole.</b> Algebraic cancellation creates an equivalent rule nearby, not a new value at the excluded input.<span class="zh-key">约分不会自动给原函数补上点值。</span></p>
+          <div class="slide-footer"><span>Factor · Restrict · Cancel · Evaluate</span><span>05</span></div>
+          <aside class="notes"><p>板书四步。尤其强调 restriction 必须在 cancel 之前记录。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Find the Hole, Including Its y-Value">
+          <p class="eyebrow">Worked example · Official notes idea</p><h2>Find the Hole, Including Its y-Value</h2><p class="zh-title">空洞要写出 x 坐标和 y 坐标</p>
+          <div class="split wide-left"><div class="equation-work"><p class="formula">f(x)=<span class="frac"><span>x²−1</span><span>x−1</span></span></p><p class="formula">=<span class="frac"><span>(x−1)(x+1)</span><span>x−1</span></span>=x+1, &nbsp; x≠1</p><p class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→1</span></span>f(x)=2</p></div><div><h3>Coordinates</h3><p><b>x-coordinate:</b> <span class="math">1</span>, from the canceled factor.</p><p><b>y-coordinate:</b> <span class="math">2</span>, from the limit.</p><p class="callout teal"><b>Hole:</b> <span class="math">(1,2)</span><span class="zh-key">空洞坐标为 (1,2)。</span></p></div></div>
+          <div class="slide-footer"><span>The simplified rule supplies the approached height.</span><span>06</span></div>
+          <aside class="notes"><p>官方 notes 第 1 题。先找 x=1，再用极限求 y=2；不要把洞写成只有 x=1。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Build a Continuous Extension">
+          <p class="eyebrow">Worked example · Define the missing value</p><h2>Build a Continuous Extension</h2><p class="zh-title">用极限定义缺失点值</p>
+          <div class="split"><div class="statement"><p class="formula">f(x)=<span class="frac"><span>x²+6x+8</span><span>x+4</span></span>, &nbsp; x≠−4</p><p class="formula">=<span class="frac"><span>(x+4)(x+2)</span><span>x+4</span></span>=x+2</p></div><div><p class="lead"><span class="limit-op"><span class="op">lim</span><span class="sub">x→−4</span></span>f(x)=−2</p><p>Define <span class="math">f(−4)=−2</span>.</p><p class="callout teal"><b>Result:</b> the extended function is continuous at <span class="math">x=−4</span>.<span class="zh-key">补成 −2 后，该点连续。</span></p></div></div>
+          <button class="reveal-btn" type="button" data-reveal="answer7">Show answer</button><div class="answer" id="answer7"><strong>Required value: −2.</strong> The factor cancels nearby, but the original restriction remains until we explicitly define the missing value.</div>
+          <div class="slide-footer"><span>Official packet notes, Question 2</span><span>07</span></div>
+          <aside class="notes"><p>先让学生独立算 30 秒，再 reveal。明确说 “define f(-4)” 而不是“原式等于 -2”。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Choose a Piecewise Parameter">
+          <p class="eyebrow">Continuity equation · Match the point to the limit</p><h2>Choose a Piecewise Parameter</h2><p class="zh-title">分段函数参数必须等于极限</p>
+          <div class="split wide-left"><div class="statement"><p class="formula">f(x)={ <span class="frac"><span>x²−3x−18</span><span>x−6</span></span>, x≠6</p><p class="formula" style="padding-left:120px">a, x=6 }</p><p class="formula"><span class="frac"><span>(x−6)(x+3)</span><span>x−6</span></span>=x+3</p></div><div><h3>Continuity condition</h3><p class="formula">a=f(6)=<span class="limit-op"><span class="op">lim</span><span class="sub">x→6</span></span>f(x)=9</p><p class="callout gold"><b>Answer:</b> <span class="math">a=9</span><span class="zh-key">参数等于附近规律在 6 处的极限。</span></p></div></div>
+          <div class="slide-footer"><span>One equation: point value = finite limit</span><span>08</span></div>
+          <aside class="notes"><p>官方 notes 第 3 题。学生若直接把 6 代入原分式会得到 0/0，提醒先化简。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="A Trigonometric Removable Discontinuity">
+          <p class="eyebrow">Basic trig limit · Radians</p><h2>A Trigonometric Removable Discontinuity</h2><p class="zh-title">用基本三角极限补洞</p>
+          <div class="split"><div class="equation-work"><p class="formula">f(x)=<span class="frac"><span>sin(4x)</span><span>6x</span></span>, x≠0</p><p class="formula">=<span class="frac"><span>4</span><span>6</span></span>·<span class="frac"><span>sin(4x)</span><span>4x</span></span></p><p class="formula"><span class="limit-op"><span class="op">lim</span><span class="sub">x→0</span></span>f(x)=<span class="frac"><span>2</span><span>3</span></span></p></div><div><h3>Continuous extension</h3><p>Set <span class="math">f(0)=2/3</span>.</p><p class="callout teal"><b>Radians matter.</b> The limit <span class="math">sin u/u→1</span> uses radian measure.<span class="zh-key">基本三角极限使用弧度制。</span></p></div></div>
+          <div class="slide-footer"><span>Official CA1 Question 5 structure</span><span>09</span></div>
+          <aside class="notes"><p>把 sin(4x)/(6x) 改写成 (4/6)[sin(4x)/(4x)]。让学生解释 2/3 的来源。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_ca1.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Removable Versus Nonremovable">
+          <p class="eyebrow">Classification · Can one point repair it?</p><h2>Removable Versus Nonremovable</h2><p class="zh-title">判断标准：改单点是否足够</p>
+          <table class="compare-table"><tr><th>Situation</th><th>Two-sided limit</th><th>Can changing f(c) repair it?</th></tr><tr><td>Hole or wrong point value</td><td>Finite and exists</td><td class="correct">Yes - set f(c)=L</td></tr><tr><td>Jump</td><td>DNE; sides disagree</td><td class="warning">No</td></tr><tr><td>Infinite behavior</td><td>Infinite or DNE</td><td class="warning">No</td></tr><tr><td>Oscillation</td><td>DNE</td><td class="warning">No</td></tr></table>
+          <p class="callout gold"><b>Diagnostic question:</b> “Is there one finite number that both sides approach?”<span class="zh-key">诊断问题：左右是否趋近同一个有限数？</span></p>
+          <div class="slide-footer"><span>A repairable point needs an existing finite target.</span><span>10</span></div>
+          <aside class="notes"><p>四种类型快速口答。强调 nonremovable 不是“永远不能修改函数”，而是“只改该点值不够”。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="One Formula Can Have a Hole and an Asymptote">
+          <p class="eyebrow">Mixed classification · Cancel carefully</p><h2>One Formula Can Have a Hole and an Asymptote</h2><p class="zh-title">同一函数可以同时有空洞和竖直渐近线</p>
+          <div class="split wide-left"><div class="equation-work"><p class="formula">r(x)=<span class="frac"><span>x²−4</span><span>x²−x−2</span></span></p><p class="formula">=<span class="frac"><span>(x−2)(x+2)</span><span>(x−2)(x+1)</span></span>=<span class="frac"><span>x+2</span><span>x+1</span></span>, x≠2,−1</p></div><div><p><b>Canceled zero:</b> <span class="math">x=2</span> → hole.</p><p><b>Surviving zero:</b> <span class="math">x=−1</span> → vertical asymptote.</p><p><b>Hole height:</b> <span class="math">(2+2)/(2+1)=4/3</span>.</p><p class="callout teal"><b>Hole:</b> <span class="math">(2,4/3)</span><br><b>VA:</b> <span class="math">x=−1</span></p></div></div>
+          <div class="slide-footer"><span>Cancellation classifies denominator zeros.</span><span>11</span></div>
+          <aside class="notes"><p>这是连接下一节的桥梁。先分类每个原分母零点：约掉则 hole，保留则可能 VA。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Guided Practice: Fill Two Holes">
+          <p class="eyebrow">Try it · Explain the nearby rule</p><h2>Guided Practice: Fill Two Holes</h2><p class="zh-title">写出补洞所需的点值</p>
+          <div class="split"><div><h3>A</h3><p class="formula">f(x)=<span class="frac"><span>x²−9</span><span>x−3</span></span>, x≠3</p><p>Find <span class="math">f(3)</span> for continuity.</p></div><div><h3>B</h3><p class="formula">g(x)=<span class="frac"><span>x²+8x−20</span><span>x+10</span></span>, x≠−10</p><p>Find <span class="math">g(−10)</span> for continuity.</p></div></div>
+          <button class="reveal-btn" type="button" data-reveal="answer12">Show answer</button><div class="answer" id="answer12"><strong>A: 6.</strong> The nearby rule is <span class="math">x+3</span>. <strong>B: −12.</strong> Factor the numerator as <span class="math">(x+10)(x−2)</span>; the nearby rule is <span class="math">x−2</span>.<span class="zh-key">A 补 6；B 补 −12。</span></div>
+          <div class="slide-footer"><span>Official packet Practice 1-2</span><span>12</span></div>
+          <aside class="notes"><p>两题限时 90 秒。要求必须写 nearby rule，不能只写答案。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+
+        <section class="slide" data-title="Three Common Errors">
+          <p class="eyebrow">Error analysis · Precise language</p><h2>Three Common Errors</h2><p class="zh-title">三个常见错误</p>
+          <div class="evidence-grid"><article class="evidence-card"><h3>“Cancel means defined.”</h3><p class="warning">False.</p><p>The original input is still excluded until a value is explicitly assigned.</p><span class="zh-key">约分不会自动补点。</span></article><article class="evidence-card"><h3>“Any DNE is removable.”</h3><p class="warning">False.</p><p>A removable discontinuity needs one finite two-sided limit.</p><span class="zh-key">可去间断必须有有限双侧极限。</span></article><article class="evidence-card"><h3>“Use f(c) to find the limit.”</h3><p class="warning">False.</p><p>Find the nearby limit first; then choose the point value.</p><span class="zh-key">先求极限，再定点值。</span></article></div>
+          <div class="slide-footer"><span>State the domain restriction every time.</span><span>13</span></div>
+          <aside class="notes"><p>每个错误请学生用一句英文纠正。特别检查他们是否把“约分后的式子”误当成原函数在洞处已有定义。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_solutions.pdf</p></aside>
+        </section>
+
+        <section class="slide soft" data-title="Official CA1 Practice">
+          <p class="eyebrow">Independent practice · Three structures</p><h2>Official CA1 Practice</h2><p class="zh-title">官方 CA #1 题型练习</p>
+          <div class="quick-grid"><div><b>1.</b> <span class="frac"><span>x²−6x+9</span><span>x−3</span></span><br><span class="small">Fill x=3.</span></div><div><b>2.</b> <span class="frac"><span>x²−14x+40</span><span>x−10</span></span><br><span class="small">Fill x=10.</span></div><div><b>3.</b> <span class="frac"><span>x²+3x−4</span><span>x−1</span></span><br><span class="small">Fill x=1.</span></div></div>
+          <button class="reveal-btn" type="button" data-reveal="answer14">Show answer</button><div class="answer" id="answer14"><strong>1: 0.</strong> Nearby rule <span class="math">x−3</span>. <strong>2: 6.</strong> Nearby rule <span class="math">x−4</span>. <strong>3: 5.</strong> Nearby rule <span class="math">x+4</span>.<span class="zh-key">依次补 0、6、5。</span></div>
+          <div class="slide-footer"><span>Factor first · Then evaluate the finite limit</span><span>14</span></div>
+          <aside class="notes"><p>对应 CA1 前四题的核心结构。教师讲评时让学生报“因式 + 附近规律 + 点值”。</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_ca1.pdf</p></aside>
+        </section>
+
+        <section class="slide section" data-title="Exit Ticket: Can One Point Fix It?">
+          <p class="eyebrow">Exit ticket · Decide and justify</p><h2>Can One Point Fix It?</h2><p class="zh-title">判断能否只改一个点使其连续</p>
+          <div class="split" style="color:var(--ink)"><div class="evidence-card"><h3>A</h3><p class="math">lim x→4− f(x)=7<br>lim x→4+ f(x)=7<br>f(4)=−2</p><p>Can we repair it?</p></div><div class="evidence-card"><h3>B</h3><p class="math">lim x→4− g(x)=7<br>lim x→4+ g(x)=−2<br>g(4) undefined</p><p>Can we repair it?</p></div></div>
+          <button class="reveal-btn" type="button" data-reveal="answer15" style="border-color:#e7c56f;color:#e7c56f">Show answer</button><div class="answer" id="answer15"><strong>A: yes - redefine f(4)=7.</strong> <strong>B: no.</strong> Its one-sided limits disagree, so the two-sided limit does not exist.<span class="zh-key">A 可补成 7；B 是跳跃，改单点无效。</span></div>
+          <div class="title-note"><span class="line"></span><span>Finite two-sided limit → match the point value</span></div>
+          <div class="slide-footer"><span>Next: infinite limits and vertical asymptotes</span><span>15</span></div>
+          <aside class="notes"><p>收尾要求完整句子：A removable because the finite two-sided limit exists; B nonremovable because the sides disagree.</p><p>[Sources]<br>https://calculus.flippedmath.com/113-removing-discontinuities.html<br>https://calculus.flippedmath.com/uploads/1/1/3/0/11305589/calc_1.13_packet.pdf</p></aside>
+        </section>
+      </main>
+
+    </div>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button id="prevBtn" type="button" aria-label="Previous slide">← Prev</button>
+      <button id="nextBtn" type="button" aria-label="Next slide">Next →</button>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="counter" id="counter">1 / 15</span>
+      <button id="notesBtn" type="button">Notes</button>
+      <button id="helpBtn" type="button">?</button>
+      <span class="key-hint">← → navigate · R reveal · N notes</span>
+    </nav>
+    <aside class="notes-panel" id="notesPanel" aria-live="polite"><h3>Teacher Notes</h3><div id="notesContent"></div></aside>
+    <div class="help" id="help" role="dialog" aria-modal="true" aria-label="Keyboard help">
+      <div class="help-card">
+        <h3>Keyboard shortcuts</h3>
+        <p><kbd>←</kbd> / <kbd>→</kbd> previous or next slide</p>
+        <p><kbd>R</kbd> reveal the current answer</p>
+        <p><kbd>N</kbd> open or close teacher notes</p>
+        <p><kbd>Home</kbd> / <kbd>End</kbd> first or last slide</p>
+        <p><kbd>Esc</kbd> close this panel</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const slides=[...document.querySelectorAll('.slide')];
+    const deck=document.getElementById('deck');
+    const viewport=document.getElementById('viewport');
+    const counter=document.getElementById('counter');
+    const progressBar=document.getElementById('progressBar');
+    const notesPanel=document.getElementById('notesPanel');
+    const notesContent=document.getElementById('notesContent');
+    const help=document.getElementById('help');
+    let index=Math.max(0,Math.min(slides.length-1,Number(location.hash.slice(1)||1)-1));
+    function scaleDeck(){
+      const scale=Math.min((viewport.clientWidth-44)/1600,(viewport.clientHeight-44)/900);
+      deck.style.transform=`translate(-50%,-50%) scale(${scale})`;
+    }
+    function showSlide(next){
+      index=Math.max(0,Math.min(slides.length-1,next));
+      slides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
+      counter.textContent=`${index+1} / ${slides.length}`;
+      progressBar.style.width=`${((index+1)/slides.length)*100}%`;
+      history.replaceState(null,'',`${location.pathname}${location.search}#${index+1}`);
+      const notes=slides[index].querySelector('.notes');
+      notesContent.innerHTML=notes?notes.innerHTML:'<p>No notes for this slide.</p>';
+      document.title=`1.13 · ${slides[index].dataset.title}`;
+    }
+    function toggleCurrentReveal(){
+      const answer=slides[index].querySelector('.answer');
+      if(!answer) return;
+      const show=!answer.classList.contains('show');
+      answer.classList.toggle('show',show);
+      const button=slides[index].querySelector('[data-reveal]');
+      if(button) button.textContent=show?'Hide answer':'Show answer';
+    }
+    document.querySelectorAll('[data-reveal]').forEach(button=>button.addEventListener('click',()=>{
+      const answer=document.getElementById(button.dataset.reveal); const show=!answer.classList.contains('show');
+      answer.classList.toggle('show',show); button.textContent=show?'Hide answer':'Show answer';
+    }));
+    document.getElementById('prevBtn').addEventListener('click',()=>showSlide(index-1));
+    document.getElementById('nextBtn').addEventListener('click',()=>showSlide(index+1));
+    document.getElementById('notesBtn').addEventListener('click',()=>notesPanel.classList.toggle('open'));
+    document.getElementById('helpBtn').addEventListener('click',()=>help.classList.toggle('open'));
+    help.addEventListener('click',event=>{if(event.target===help) help.classList.remove('open');});
+    addEventListener('keydown',event=>{
+      if(event.key==='ArrowRight'||event.key==='PageDown'||event.key===' '){event.preventDefault();showSlide(index+1);}
+      else if(event.key==='ArrowLeft'||event.key==='PageUp'){event.preventDefault();showSlide(index-1);}
+      else if(event.key==='Home') showSlide(0);
+      else if(event.key==='End') showSlide(slides.length-1);
+      else if(event.key.toLowerCase()==='r') toggleCurrentReveal();
+      else if(event.key.toLowerCase()==='n') notesPanel.classList.toggle('open');
+      else if(event.key==='Escape'){notesPanel.classList.remove('open');help.classList.remove('open');}
+    });
+    if(new URLSearchParams(location.search).get('answers')==='show'){
+      document.querySelectorAll('.answer').forEach(answer=>answer.classList.add('show'));
+      document.querySelectorAll('[data-reveal]').forEach(button=>button.textContent='Hide answer');
+    }
+    addEventListener('resize',scaleDeck);
+    scaleDeck();
+    showSlide(index);
+  </script>
+</body>
+</html>

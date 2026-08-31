@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050711">
-  <meta name="description" content="AP Calculus BC Unit 1: Limits and Continuity. Quizzes, class slides, homework, and classroom random tools.">
+  <meta name="description" content="AP Calculus BC Topics 1.1–2.1: limits, continuity, and the first derivative lesson. Quizzes, class slides, homework, reviews, and classroom tools.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AP Calculus BC · Limits &amp; Continuity">
-  <meta property="og:description" content="Unit 1 course materials · Quiz → Slides → CA #1">
+  <meta property="og:description" content="Topics 1.1–2.1 · Quiz → Slides → CA #1 · Unit 1 reviews">
   <meta property="og:url" content="https://wenatnyu.github.io/ap-calculus-bc-2026/">
   <meta property="og:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-unit1-og.png">
   <meta property="og:image:width" content="1672">
@@ -15,7 +15,7 @@
   <meta property="og:image:alt" content="AP Calculus BC Limits and Continuity on a cosmic coordinate grid">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AP Calculus BC · Limits &amp; Continuity">
-  <meta name="twitter:description" content="Unit 1 course materials · Quiz → Slides → CA #1">
+  <meta name="twitter:description" content="Topics 1.1–2.1 · Quiz → Slides → CA #1 · Unit 1 reviews">
   <meta name="twitter:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-unit1-og.png">
   <title>AP Calculus BC · Limits &amp; Continuity</title>
   <style>
@@ -117,8 +117,19 @@
     .lesson[data-topic="1.7"]{--accent:var(--violet);--accent-rgb:203,133,255}
     .lesson[data-topic="1.8"]{--accent:var(--magenta);--accent-rgb:255,79,179}
     .lesson[data-topic="1.9"]{--accent:var(--chartreuse);--accent-rgb:183,240,106}
+    .lesson[data-topic="mid-review"]{--accent:var(--gold);--accent-rgb:255,200,87}
+    .lesson[data-topic="1.10"]{--accent:var(--coral);--accent-rgb:255,93,143}
+    .lesson[data-topic="1.11"]{--accent:var(--orange);--accent-rgb:255,159,67}
+    .lesson[data-topic="1.12"]{--accent:var(--sun);--accent-rgb:255,228,94}
+    .lesson[data-topic="1.13"]{--accent:var(--lime);--accent-rgb:101,230,163}
+    .lesson[data-topic="1.14"]{--accent:var(--aqua);--accent-rgb:66,220,225}
+    .lesson[data-topic="1.15"]{--accent:var(--electric);--accent-rgb:114,167,255}
+    .lesson[data-topic="1.16"]{--accent:var(--violet);--accent-rgb:203,133,255}
+    .lesson[data-topic="end-review"]{--accent:var(--chartreuse);--accent-rgb:183,240,106}
+    .lesson[data-topic="2.1"]{--accent:var(--magenta);--accent-rgb:255,79,179}
     .lesson:hover{background:linear-gradient(90deg,rgba(var(--accent-rgb),.12),transparent 78%);box-shadow:inset 3px 0 0 var(--accent)}
     .lesson-number{color:var(--accent);font-family:var(--math);font-size:30px;font-variant-numeric:tabular-nums;text-shadow:0 0 24px rgba(var(--accent-rgb),.38)}
+    .review-card .lesson-number{font-family:var(--sans);font-size:18px;font-weight:800;letter-spacing:.08em}
     .lesson-title{min-width:0}
     .lesson-title h3{margin:0;font-family:var(--display);font-size:21px;font-weight:500;letter-spacing:-.012em;line-height:1.25}
     .lesson-title p{margin:5px 0 0;color:var(--muted);font-size:13px}
@@ -136,6 +147,8 @@
     .source-links{display:flex;flex-wrap:wrap;gap:8px 18px;padding:8px 0 0}
     .source-links a{color:var(--muted);font-size:11px;text-underline-offset:3px}
     .source-links a:hover{color:var(--accent)}
+    .unit-divider{display:flex;align-items:center;gap:14px;padding:30px 0 12px;color:var(--magenta);font-size:11px;font-weight:780;letter-spacing:.18em;text-transform:uppercase}
+    .unit-divider::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,rgba(255,79,179,.56),transparent)}
     .site-foot{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 0 30px;border-top:1px solid var(--line);color:rgba(169,184,206,.68);font-size:11px}
     .site-foot a{color:var(--muted);text-underline-offset:3px}
     .tool-dock{position:fixed;right:22px;bottom:22px;z-index:20;display:grid;gap:9px}
@@ -160,6 +173,14 @@
     #question-dialog[data-topic="1.7"]{--tool-accent:var(--violet);--tool-rgb:203,133,255}
     #question-dialog[data-topic="1.8"]{--tool-accent:var(--magenta);--tool-rgb:255,79,179}
     #question-dialog[data-topic="1.9"]{--tool-accent:var(--chartreuse);--tool-rgb:183,240,106}
+    #question-dialog[data-topic="1.10"]{--tool-accent:var(--coral);--tool-rgb:255,93,143}
+    #question-dialog[data-topic="1.11"]{--tool-accent:var(--orange);--tool-rgb:255,159,67}
+    #question-dialog[data-topic="1.12"]{--tool-accent:var(--sun);--tool-rgb:255,228,94}
+    #question-dialog[data-topic="1.13"]{--tool-accent:var(--lime);--tool-rgb:101,230,163}
+    #question-dialog[data-topic="1.14"]{--tool-accent:var(--aqua);--tool-rgb:66,220,225}
+    #question-dialog[data-topic="1.15"]{--tool-accent:var(--electric);--tool-rgb:114,167,255}
+    #question-dialog[data-topic="1.16"]{--tool-accent:var(--violet);--tool-rgb:203,133,255}
+    #question-dialog[data-topic="2.1"]{--tool-accent:var(--magenta);--tool-rgb:255,79,179}
     dialog::backdrop{background:rgba(1,3,10,.67);backdrop-filter:blur(3px)}
     dialog[open]{animation:panel-in .18s ease-out}
     @keyframes panel-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
@@ -289,10 +310,11 @@
       main{padding:47px 0 116px}
       .section-head{align-items:start}.lesson-count{padding-top:7px}
       .lesson{grid-template-columns:48px minmax(0,1fr);padding:15px 0}
-      .lesson-number{font-size:23px}
+      .lesson-number{font-size:23px}.review-card .lesson-number{font-size:14px}
       .lesson-title h3{font-size:18px}.lesson-title p{font-size:12px}
       .lesson-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
       .lesson-action{width:100%;min-height:44px}
+      .unit-divider{padding:22px 0 9px}
       .site-foot{display:block;padding-bottom:100px}.site-foot span{display:block;margin-top:5px}
       .tool-dock{right:12px;bottom:max(10px,env(safe-area-inset-bottom));left:12px;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
       .tool-trigger{grid-template-columns:28px minmax(0,1fr);gap:4px;min-width:0;min-height:52px;padding:5px 6px;background:linear-gradient(100deg,rgba(var(--tool-rgb),.2),#111a34 72%)}
@@ -329,7 +351,7 @@
       .lesson:hover{background:none;box-shadow:none}
       .lesson-actions{grid-column:2}.lesson-action,.lesson-action.homework{background:none;color:#111;border-color:#999}
       .eyebrow,.section-kicker,.sequence li:nth-child(n),.lesson-number{color:#111;text-shadow:none}
-      .lesson-source{display:none}.site-foot{padding:18px 0;color:#444}
+      .lesson-source{display:none}.unit-divider{padding:14px 0 7px;color:#111;break-after:avoid}.unit-divider::after{background:#999}.site-foot{padding:18px 0;color:#444}
     }
   </style>
 </head>
@@ -344,14 +366,14 @@
         <span class="brand-mark" aria-hidden="true">∫</span>
         <span>AP Calculus BC</span>
       </a>
-      <span class="year">2026–2027 · UNIT 1</span>
+      <span class="year">2026–2027 · UNIT 1 → 2.1</span>
     </div>
 
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-copy">
-        <p class="eyebrow">Unit 1 · Limits</p>
+        <p class="eyebrow">Unit 1 → Topic 2.1</p>
         <h1 id="page-title">Limits &amp;<br>Continuity</h1>
-        <p class="hero-cn">极限与连续</p>
+        <p class="hero-cn">极限、连续与变化率</p>
         <ol class="sequence" aria-label="Course material order">
           <li>Quiz</li>
           <li>Slides</li>
@@ -374,10 +396,10 @@
         <p class="section-kicker">Course map</p>
         <h2>Lessons</h2>
       </div>
-      <span class="lesson-count">01 — 09</span>
+      <span class="lesson-count">17 lessons · 2 reviews</span>
     </div>
 
-    <section class="lesson-list" aria-label="Unit 1 lessons">
+    <section class="lesson-list" aria-label="Topics 1.1 through 2.1 and Unit 1 reviews">
       <article class="lesson" data-topic="1.1">
         <div class="lesson-number">1.1</div>
         <div class="lesson-title">
@@ -563,6 +585,214 @@
             <a href="https://calculus.flippedmath.com/19-connecting-multiple-representations-of-limits.html">Lesson</a>
             <a href="resources/unit-1/1.9/packet.pdf">Packet</a>
             <a href="resources/unit-1/1.9/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson review-card" data-topic="mid-review">
+        <div class="lesson-number">MID</div>
+        <div class="lesson-title">
+          <h3>Unit 1 Mid-Unit Review</h3>
+          <p>1.1–1.9 阶段复习</p>
+        </div>
+        <nav class="lesson-actions" aria-label="Unit 1 mid-unit review materials">
+          <a class="lesson-action" href="resources/unit-1/mid-unit-review/review.pdf" target="_blank" rel="noopener">Review</a>
+          <a class="lesson-action" href="resources/unit-1/mid-unit-review/solutions.pdf" target="_blank" rel="noopener" aria-label="Mid-unit review solutions">Key</a>
+          <a class="lesson-action homework" href="resources/unit-1/mid-unit-review/corrective.pdf" target="_blank" rel="noopener" aria-label="Mid-unit corrective assignment">CA</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official source</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/mid-unit-1-review.html">Review page</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.10">
+        <div class="lesson-number">1.10</div>
+        <div class="lesson-title">
+          <h3>Exploring Types of Discontinuities</h3>
+          <p>探索间断类型</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.10 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.10_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.10_Types_of_Discontinuities_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-1/1.10/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/110-exploring-types-of-discontinuities.html">Lesson</a>
+            <a href="resources/unit-1/1.10/packet.pdf">Packet</a>
+            <a href="resources/unit-1/1.10/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.11">
+        <div class="lesson-number">1.11</div>
+        <div class="lesson-title">
+          <h3>Defining Continuity at a Point</h3>
+          <p>一点处的连续性</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.11 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.11_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.11_Continuity_at_a_Point_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-1/1.11/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/111-defining-continuity-at-a-point.html">Lesson</a>
+            <a href="resources/unit-1/1.11/packet.pdf">Packet</a>
+            <a href="resources/unit-1/1.11/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.12">
+        <div class="lesson-number">1.12</div>
+        <div class="lesson-title">
+          <h3>Confirming Continuity Over an Interval</h3>
+          <p>区间上的连续性</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.12 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.12_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.12_Continuity_Over_an_Interval_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-1/1.12/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/112-confirming-continuity-over-an-interval.html">Lesson</a>
+            <a href="resources/unit-1/1.12/packet.pdf">Packet</a>
+            <a href="resources/unit-1/1.12/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.13">
+        <div class="lesson-number">1.13</div>
+        <div class="lesson-title">
+          <h3>Removing Discontinuities</h3>
+          <p>补定义消除可去间断</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.13 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.13_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.13_Removing_Discontinuities_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-1/1.13/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/113-removing-discontinuities.html">Lesson</a>
+            <a href="resources/unit-1/1.13/packet.pdf">Packet</a>
+            <a href="resources/unit-1/1.13/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.14">
+        <div class="lesson-number">1.14</div>
+        <div class="lesson-title">
+          <h3>Infinite Limits &amp; Vertical Asymptotes</h3>
+          <p>无穷极限与竖直渐近线</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.14 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.14_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.14_Infinite_Limits_and_Vertical_Asymptotes_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-1/1.14/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/114-infinite-limits-and-vertical-asymptotes.html">Lesson</a>
+            <a href="resources/unit-1/1.14/packet.pdf">Packet</a>
+            <a href="resources/unit-1/1.14/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.15">
+        <div class="lesson-number">1.15</div>
+        <div class="lesson-title">
+          <h3>Limits at Infinity &amp; Horizontal Asymptotes</h3>
+          <p>无穷远处的极限与水平渐近线</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.15 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.15_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.15_Limits_at_Infinity_and_Horizontal_Asymptotes_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-1/1.15/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/115-limits-at-infinity-and-horizontal-asymptotes.html">Lesson</a>
+            <a href="resources/unit-1/1.15/packet.pdf">Packet</a>
+            <a href="resources/unit-1/1.15/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="1.16">
+        <div class="lesson-number">1.16</div>
+        <div class="lesson-title">
+          <h3>Intermediate Value Theorem (IVT)</h3>
+          <p>介值定理</p>
+        </div>
+        <nav class="lesson-actions" aria-label="1.16 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_1.16_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_1.16_Intermediate_Value_Theorem_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-1/1.16/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/116-intermediate-value-theorem.html">Lesson</a>
+            <a href="resources/unit-1/1.16/packet.pdf">Packet</a>
+            <a href="resources/unit-1/1.16/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson review-card" data-topic="end-review">
+        <div class="lesson-number">U1</div>
+        <div class="lesson-title">
+          <h3>End of Unit 1 Review</h3>
+          <p>第一单元综合复习</p>
+        </div>
+        <nav class="lesson-actions" aria-label="End of Unit 1 review materials">
+          <a class="lesson-action" href="resources/unit-1/end-of-unit-review/review.pdf" target="_blank" rel="noopener">Review</a>
+          <a class="lesson-action" href="resources/unit-1/end-of-unit-review/solutions.pdf" target="_blank" rel="noopener" aria-label="End-of-unit review solutions">Key</a>
+          <a class="lesson-action homework" href="resources/unit-1/end-of-unit-review/corrective.pdf" target="_blank" rel="noopener" aria-label="End-of-unit corrective assignment">CA</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official source</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/end-of-unit-1-review.html">Review page</a>
+          </div>
+        </details>
+      </article>
+
+      <div class="unit-divider" role="separator">Unit 2 · Differentiation</div>
+
+      <article class="lesson" data-topic="2.1">
+        <div class="lesson-number">2.1</div>
+        <div class="lesson-title">
+          <h3>Average &amp; Instantaneous Rate of Change</h3>
+          <p>平均变化率与瞬时变化率</p>
+        </div>
+        <nav class="lesson-actions" aria-label="2.1 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2.1_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2.1_Average_and_Instantaneous_Rate_of_Change_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-2/2.1/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/21-defining-average-and-instantaneous-rate-of-change-at-a-point.html">Lesson</a>
+            <a href="resources/unit-2/2.1/packet.pdf">Packet</a>
+            <a href="resources/unit-2/2.1/solutions.pdf">Solutions</a>
           </div>
         </details>
       </article>
