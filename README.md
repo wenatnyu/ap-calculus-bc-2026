@@ -5,9 +5,8 @@ Current scope: Topics 1.1–1.9.
 Each topic follows one classroom sequence:
 
 1. Review Quiz — questions, answers and explanations in one HTML file.
-2. Class Notes — English-first slides with key Chinese support.
-3. Notes Answers — the same slides opened with `?answers=show`.
-4. CA #1 Homework — linked to the official FlippedMath PDF.
+2. Slides — English-first class notes with key Chinese support and built-in answer reveals.
+3. CA #1 — a classroom copy of the official corrective assignment.
 
 Open `index.html` locally or through GitHub Pages.
 
@@ -27,6 +26,6 @@ Open `index.html` locally or through GitHub Pages.
 
 ## Source and copyright
 
-The lesson structure is based on the corresponding pages at [FlippedMath Calculus](https://calculus.flippedmath.com/). Official packets, practice solutions and corrective assignments are linked from their original URLs and are not mirrored in this repository.
+The lesson structure is based on the corresponding pages at [FlippedMath Calculus](https://calculus.flippedmath.com/). Lesson links continue to open the original FlippedMath pages. Classroom copies of each Packet, Practice Solutions and CA #1 are stored under `resources/unit-1/` so students can open them directly from this GitHub Pages site. Source attribution remains with FlippedMath.
 
 The compact homepage picker publishes the six formal names, WeChat nicknames, and avatar copies explicitly confirmed for classroom use. The original local `private/` directory and the full `student-picker.html` remain excluded from Git.
