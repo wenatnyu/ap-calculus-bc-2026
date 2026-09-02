@@ -1,4 +1,4 @@
-window.UNIT1_QUESTION_BANK = Object.freeze([
+window.AP_CALCULUS_QUESTION_BANK = Object.freeze([
   {
     id: "1.1-01",
     topic: "1.1",

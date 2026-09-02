@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050711">
-  <meta name="description" content="AP Calculus BC Topics 1.1–2.1: limits, continuity, and the first derivative lesson. Quizzes, class slides, homework, reviews, and classroom tools.">
+  <meta name="description" content="AP Calculus BC Units 1–3: limits, continuity, derivative fundamentals, and differentiation. Quizzes, class slides, homework, reviews, and classroom tools.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AP Calculus BC · Limits &amp; Continuity">
-  <meta property="og:description" content="Topics 1.1–2.1 · Quiz → Slides → CA #1 · Unit 1 reviews">
+  <meta property="og:title" content="AP Calculus BC · Units 1–3">
+  <meta property="og:description" content="Topics 1.1–3.6 · Quiz → Slides → CA #1 · Unit reviews">
   <meta property="og:url" content="https://wenatnyu.github.io/ap-calculus-bc-2026/">
   <meta property="og:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-unit1-og.png">
   <meta property="og:image:width" content="1672">
   <meta property="og:image:height" content="941">
-  <meta property="og:image:alt" content="AP Calculus BC Limits and Continuity on a cosmic coordinate grid">
+  <meta property="og:image:alt" content="AP Calculus BC course site on a cosmic coordinate grid">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AP Calculus BC · Limits &amp; Continuity">
-  <meta name="twitter:description" content="Topics 1.1–2.1 · Quiz → Slides → CA #1 · Unit 1 reviews">
+  <meta name="twitter:title" content="AP Calculus BC · Units 1–3">
+  <meta name="twitter:description" content="Topics 1.1–3.6 · Quiz → Slides → CA #1 · Unit reviews">
   <meta name="twitter:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-unit1-og.png">
-  <title>AP Calculus BC · Limits &amp; Continuity</title>
+  <title>AP Calculus BC · Units 1–3</title>
   <style>
     :root {
       color-scheme: dark;
@@ -95,6 +95,7 @@
     .sequence li:not(:last-child)::after{content:"→";color:var(--muted);font-weight:400}
     .math-stage{position:relative;z-index:1;display:grid;place-items:center;min-height:270px}
     .formula{position:relative;display:flex;align-items:center;gap:.22em;color:var(--gold);font-family:var(--math);font-size:clamp(41px,5vw,68px);white-space:nowrap;text-shadow:0 0 36px rgba(232,189,105,.12)}
+    .formula.derivative-formula{font-size:clamp(38px,4.1vw,56px)}
     @supports ((-webkit-background-clip:text) or (background-clip:text)){
       .formula{background:linear-gradient(90deg,var(--coral),var(--sun) 34%,var(--aqua) 66%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none}
     }
@@ -127,6 +128,23 @@
     .lesson[data-topic="1.16"]{--accent:var(--violet);--accent-rgb:203,133,255}
     .lesson[data-topic="end-review"]{--accent:var(--chartreuse);--accent-rgb:183,240,106}
     .lesson[data-topic="2.1"]{--accent:var(--magenta);--accent-rgb:255,79,179}
+    .lesson[data-topic="2.2"]{--accent:var(--orange);--accent-rgb:255,159,67}
+    .lesson[data-topic="2.3"]{--accent:var(--sun);--accent-rgb:255,228,94}
+    .lesson[data-topic="2.4"]{--accent:var(--lime);--accent-rgb:101,230,163}
+    .lesson[data-topic="2.5"]{--accent:var(--aqua);--accent-rgb:66,220,225}
+    .lesson[data-topic="2.6"]{--accent:var(--electric);--accent-rgb:114,167,255}
+    .lesson[data-topic="2.7"]{--accent:var(--violet);--accent-rgb:203,133,255}
+    .lesson[data-topic="2.8"]{--accent:var(--coral);--accent-rgb:255,93,143}
+    .lesson[data-topic="2.9"]{--accent:var(--chartreuse);--accent-rgb:183,240,106}
+    .lesson[data-topic="2.10"]{--accent:var(--gold);--accent-rgb:255,200,87}
+    .lesson[data-topic="unit-2-review"]{--accent:var(--aqua);--accent-rgb:66,220,225}
+    .lesson[data-topic="3.1"]{--accent:var(--violet);--accent-rgb:203,133,255}
+    .lesson[data-topic="3.2"]{--accent:var(--coral);--accent-rgb:255,93,143}
+    .lesson[data-topic="3.3"]{--accent:var(--orange);--accent-rgb:255,159,67}
+    .lesson[data-topic="3.4"]{--accent:var(--sun);--accent-rgb:255,228,94}
+    .lesson[data-topic="3.5"]{--accent:var(--lime);--accent-rgb:101,230,163}
+    .lesson[data-topic="3.6"]{--accent:var(--electric);--accent-rgb:114,167,255}
+    .lesson[data-topic="unit-3-review"]{--accent:var(--magenta);--accent-rgb:255,79,179}
     .lesson:hover{background:linear-gradient(90deg,rgba(var(--accent-rgb),.12),transparent 78%);box-shadow:inset 3px 0 0 var(--accent)}
     .lesson-number{color:var(--accent);font-family:var(--math);font-size:30px;font-variant-numeric:tabular-nums;text-shadow:0 0 24px rgba(var(--accent-rgb),.38)}
     .review-card .lesson-number{font-family:var(--sans);font-size:18px;font-weight:800;letter-spacing:.08em}
@@ -181,6 +199,21 @@
     #question-dialog[data-topic="1.15"]{--tool-accent:var(--electric);--tool-rgb:114,167,255}
     #question-dialog[data-topic="1.16"]{--tool-accent:var(--violet);--tool-rgb:203,133,255}
     #question-dialog[data-topic="2.1"]{--tool-accent:var(--magenta);--tool-rgb:255,79,179}
+    #question-dialog[data-topic="2.2"]{--tool-accent:var(--orange);--tool-rgb:255,159,67}
+    #question-dialog[data-topic="2.3"]{--tool-accent:var(--sun);--tool-rgb:255,228,94}
+    #question-dialog[data-topic="2.4"]{--tool-accent:var(--lime);--tool-rgb:101,230,163}
+    #question-dialog[data-topic="2.5"]{--tool-accent:var(--aqua);--tool-rgb:66,220,225}
+    #question-dialog[data-topic="2.6"]{--tool-accent:var(--electric);--tool-rgb:114,167,255}
+    #question-dialog[data-topic="2.7"]{--tool-accent:var(--violet);--tool-rgb:203,133,255}
+    #question-dialog[data-topic="2.8"]{--tool-accent:var(--coral);--tool-rgb:255,93,143}
+    #question-dialog[data-topic="2.9"]{--tool-accent:var(--chartreuse);--tool-rgb:183,240,106}
+    #question-dialog[data-topic="2.10"]{--tool-accent:var(--gold);--tool-rgb:255,200,87}
+    #question-dialog[data-topic="3.1"]{--tool-accent:var(--violet);--tool-rgb:203,133,255}
+    #question-dialog[data-topic="3.2"]{--tool-accent:var(--coral);--tool-rgb:255,93,143}
+    #question-dialog[data-topic="3.3"]{--tool-accent:var(--orange);--tool-rgb:255,159,67}
+    #question-dialog[data-topic="3.4"]{--tool-accent:var(--sun);--tool-rgb:255,228,94}
+    #question-dialog[data-topic="3.5"]{--tool-accent:var(--lime);--tool-rgb:101,230,163}
+    #question-dialog[data-topic="3.6"]{--tool-accent:var(--electric);--tool-rgb:114,167,255}
     dialog::backdrop{background:rgba(1,3,10,.67);backdrop-filter:blur(3px)}
     dialog[open]{animation:panel-in .18s ease-out}
     @keyframes panel-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
@@ -304,7 +337,7 @@
       .shell{width:min(1120px,calc(100% - 28px))}
       .topbar{min-height:56px}.year{display:none}
       .hero{padding:52px 0 58px}
-      h1{font-size:clamp(43px,16vw,64px)}
+      h1{font-size:clamp(38px,12vw,55px)}
       .hero-cn{font-size:18px}.sequence{margin-top:25px;gap:6px;font-size:10px}
       .math-stage{min-height:132px}.formula{font-size:43px}.math-caption{display:none}
       main{padding:47px 0 116px}
@@ -366,14 +399,14 @@
         <span class="brand-mark" aria-hidden="true">∫</span>
         <span>AP Calculus BC</span>
       </a>
-      <span class="year">2026–2027 · UNIT 1 → 2.1</span>
+      <span class="year">2026–2027 · UNITS 1–3</span>
     </div>
 
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-copy">
-        <p class="eyebrow">Unit 1 → Topic 2.1</p>
-        <h1 id="page-title">Limits &amp;<br>Continuity</h1>
-        <p class="hero-cn">极限、连续与变化率</p>
+        <p class="eyebrow">Topics 1.1 → 3.6</p>
+        <h1 id="page-title">Limits &amp;<br>Differentiation</h1>
+        <p class="hero-cn">极限、连续与微分</p>
         <ol class="sequence" aria-label="Course material order">
           <li>Quiz</li>
           <li>Slides</li>
@@ -381,11 +414,10 @@
         </ol>
       </div>
       <div class="math-stage">
-        <div class="formula" aria-label="The limit of f of x as x approaches a equals L">
-          <span class="limit-op" aria-hidden="true">lim<span class="limit-sub">x→a</span></span>
-          <span aria-hidden="true">f(x) = L</span>
+        <div class="formula derivative-formula" aria-label="d y over d x equals f prime of x">
+          <span aria-hidden="true">dy/dx = f′(x)</span>
         </div>
-        <p class="math-caption">Approach · Observe · Conclude</p>
+        <p class="math-caption">Approach · Differentiate · Connect</p>
       </div>
     </section>
   </header>
@@ -396,10 +428,10 @@
         <p class="section-kicker">Course map</p>
         <h2>Lessons</h2>
       </div>
-      <span class="lesson-count">17 lessons · 2 reviews</span>
+      <span class="lesson-count">32 lessons · 4 reviews</span>
     </div>
 
-    <section class="lesson-list" aria-label="Topics 1.1 through 2.1 and Unit 1 reviews">
+    <section class="lesson-list" aria-label="AP Calculus BC Units 1 through 3">
       <article class="lesson" data-topic="1.1">
         <div class="lesson-number">1.1</div>
         <div class="lesson-title">
@@ -796,6 +828,361 @@
           </div>
         </details>
       </article>
+
+      <article class="lesson" data-topic="2.2">
+        <div class="lesson-number">2.2</div>
+        <div class="lesson-title">
+          <h3>Defining the Derivative &amp; Using Derivative Notation</h3>
+          <p>定义导函数与使用导数记号</p>
+        </div>
+        <nav class="lesson-actions" aria-label="2.2 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2.2_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2.2_Defining_the_Derivative_of_a_Function_and_Using_Derivative_Notation_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-2/2.2/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/22-defining-the-derivative-of-a-function-and-using-derivative-notation.html">Lesson</a>
+            <a href="resources/unit-2/2.2/packet.pdf">Packet</a>
+            <a href="resources/unit-2/2.2/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="2.3">
+        <div class="lesson-number">2.3</div>
+        <div class="lesson-title">
+          <h3>Estimating Derivatives of a Function at a Point</h3>
+          <p>估计函数在一点处的导数</p>
+        </div>
+        <nav class="lesson-actions" aria-label="2.3 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2.3_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2.3_Estimating_Derivatives_of_a_Function_at_a_Point_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-2/2.3/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/23-estimating-derivatives-of-a-function-at-a-point.html">Lesson</a>
+            <a href="resources/unit-2/2.3/packet.pdf">Packet</a>
+            <a href="resources/unit-2/2.3/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="2.4">
+        <div class="lesson-number">2.4</div>
+        <div class="lesson-title">
+          <h3>Connecting Differentiability &amp; Continuity</h3>
+          <p>可导性与连续性的联系</p>
+        </div>
+        <nav class="lesson-actions" aria-label="2.4 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2.4_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2.4_Connecting_Differentiability_and_Continuity_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-2/2.4/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/24-connecting-differentiability-and-continuity.html">Lesson</a>
+            <a href="resources/unit-2/2.4/packet.pdf">Packet</a>
+            <a href="resources/unit-2/2.4/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="2.5">
+        <div class="lesson-number">2.5</div>
+        <div class="lesson-title">
+          <h3>Applying the Power Rule</h3>
+          <p>应用幂函数求导法则</p>
+        </div>
+        <nav class="lesson-actions" aria-label="2.5 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2.5_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2.5_Applying_the_Power_Rule_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-2/2.5/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/25-applying-the-power-rule.html">Lesson</a>
+            <a href="resources/unit-2/2.5/packet.pdf">Packet</a>
+            <a href="resources/unit-2/2.5/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="2.6">
+        <div class="lesson-number">2.6</div>
+        <div class="lesson-title">
+          <h3>Constant, Sum, Difference &amp; Constant Multiple Rules</h3>
+          <p>常数、和、差与常数倍求导法则</p>
+        </div>
+        <nav class="lesson-actions" aria-label="2.6 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2.6_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2.6_Derivative_Rules_Constant_Sum_Difference_and_Constant_Multiple_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-2/2.6/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/26-derivative-rules-constant-sum-difference-and-constant-multiple.html">Lesson</a>
+            <a href="resources/unit-2/2.6/packet.pdf">Packet</a>
+            <a href="resources/unit-2/2.6/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="2.7">
+        <div class="lesson-number">2.7</div>
+        <div class="lesson-title">
+          <h3>Derivatives of cos(x), sin(x), e<sup>x</sup> &amp; ln(x)</h3>
+          <p>基本三角、指数与对数函数的导数</p>
+        </div>
+        <nav class="lesson-actions" aria-label="2.7 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2.7_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2.7_Derivatives_of_Cos_Sin_Ex_and_Ln_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-2/2.7/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/27-derivatives-of-cosx-sinx-ex-and-lnx.html">Lesson</a>
+            <a href="resources/unit-2/2.7/packet.pdf">Packet</a>
+            <a href="resources/unit-2/2.7/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="2.8">
+        <div class="lesson-number">2.8</div>
+        <div class="lesson-title">
+          <h3>The Product Rule</h3>
+          <p>乘积法则</p>
+        </div>
+        <nav class="lesson-actions" aria-label="2.8 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2.8_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2.8_The_Product_Rule_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-2/2.8/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/28-the-product-rule.html">Lesson</a>
+            <a href="resources/unit-2/2.8/packet.pdf">Packet</a>
+            <a href="resources/unit-2/2.8/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="2.9">
+        <div class="lesson-number">2.9</div>
+        <div class="lesson-title">
+          <h3>The Quotient Rule</h3>
+          <p>商法则</p>
+        </div>
+        <nav class="lesson-actions" aria-label="2.9 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2.9_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2.9_The_Quotient_Rule_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-2/2.9/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/29-the-quotient-rule.html">Lesson</a>
+            <a href="resources/unit-2/2.9/packet.pdf">Packet</a>
+            <a href="resources/unit-2/2.9/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="2.10">
+        <div class="lesson-number">2.10</div>
+        <div class="lesson-title">
+          <h3>Derivatives of tan(x), cot(x), sec(x) &amp; csc(x)</h3>
+          <p>其余四个三角函数的导数</p>
+        </div>
+        <nav class="lesson-actions" aria-label="2.10 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2.10_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2.10_Derivatives_of_Tan_Cot_Sec_and_Csc_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-2/2.10/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/210-derivatives-of-tanx-cotx-secx-cscx.html">Lesson</a>
+            <a href="resources/unit-2/2.10/packet.pdf">Packet</a>
+            <a href="resources/unit-2/2.10/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson review-card" data-topic="unit-2-review">
+        <div class="lesson-number">U2</div>
+        <div class="lesson-title">
+          <h3>Unit 2 Review</h3>
+          <p>第二单元综合复习</p>
+        </div>
+        <nav class="lesson-actions" aria-label="Unit 2 review materials">
+          <a class="lesson-action" href="resources/unit-2/end-of-unit-review/review.pdf" target="_blank" rel="noopener">Review</a>
+          <a class="lesson-action" href="resources/unit-2/end-of-unit-review/solutions.pdf" target="_blank" rel="noopener" aria-label="Unit 2 review solutions">Key</a>
+          <a class="lesson-action homework" href="resources/unit-2/end-of-unit-review/corrective.pdf" target="_blank" rel="noopener" aria-label="Unit 2 corrective assignment">CA</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official source</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/unit-2-review.html">Review page</a>
+          </div>
+        </details>
+      </article>
+
+      <div class="unit-divider" role="separator">Unit 3 · Composite, Implicit &amp; Inverse Functions</div>
+
+      <article class="lesson" data-topic="3.1">
+        <div class="lesson-number">3.1</div>
+        <div class="lesson-title">
+          <h3>The Chain Rule</h3>
+          <p>链式法则</p>
+        </div>
+        <nav class="lesson-actions" aria-label="3.1 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_3.1_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_3.1_Chain_Rule_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-3/3.1/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/31-the-chain-rule.html">Lesson</a>
+            <a href="resources/unit-3/3.1/packet.pdf">Packet</a>
+            <a href="resources/unit-3/3.1/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="3.2">
+        <div class="lesson-number">3.2</div>
+        <div class="lesson-title">
+          <h3>Implicit Differentiation</h3>
+          <p>隐函数求导</p>
+        </div>
+        <nav class="lesson-actions" aria-label="3.2 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_3.2_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_3.2_Implicit_Differentiation_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-3/3.2/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/32-implicit-differentiation.html">Lesson</a>
+            <a href="resources/unit-3/3.2/packet.pdf">Packet</a>
+            <a href="resources/unit-3/3.2/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="3.3">
+        <div class="lesson-number">3.3</div>
+        <div class="lesson-title">
+          <h3>Differentiating Inverse Functions</h3>
+          <p>反函数求导</p>
+        </div>
+        <nav class="lesson-actions" aria-label="3.3 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_3.3_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_3.3_Differentiating_Inverse_Functions_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-3/3.3/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/33-differentiating-inverse-functions.html">Lesson</a>
+            <a href="resources/unit-3/3.3/packet.pdf">Packet</a>
+            <a href="resources/unit-3/3.3/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="3.4">
+        <div class="lesson-number">3.4</div>
+        <div class="lesson-title">
+          <h3>Differentiating Inverse Trigonometric Functions</h3>
+          <p>反三角函数求导</p>
+        </div>
+        <nav class="lesson-actions" aria-label="3.4 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_3.4_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_3.4_Differentiating_Inverse_Trigonometric_Functions_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-3/3.4/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/34-differentiating-inverse-trigonometric-functions.html">Lesson</a>
+            <a href="resources/unit-3/3.4/packet.pdf">Packet</a>
+            <a href="resources/unit-3/3.4/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="3.5">
+        <div class="lesson-number">3.5</div>
+        <div class="lesson-title">
+          <h3>Selecting Procedures for Calculating Derivatives</h3>
+          <p>选择求导方法</p>
+        </div>
+        <nav class="lesson-actions" aria-label="3.5 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_3.5_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_3.5_Selecting_Procedures_for_Calculating_Derivatives_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-3/3.5/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/35-selecting-procedures-for-calculating-derivatives.html">Lesson</a>
+            <a href="resources/unit-3/3.5/packet.pdf">Packet</a>
+            <a href="resources/unit-3/3.5/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="3.6">
+        <div class="lesson-number">3.6</div>
+        <div class="lesson-title">
+          <h3>Calculating Higher-Order Derivatives</h3>
+          <p>计算高阶导数</p>
+        </div>
+        <nav class="lesson-actions" aria-label="3.6 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_3.6_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_3.6_Calculating_Higher_Order_Derivatives_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-3/3.6/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/36-calculating-higher-order-derivatives.html">Lesson</a>
+            <a href="resources/unit-3/3.6/packet.pdf">Packet</a>
+            <a href="resources/unit-3/3.6/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson review-card" data-topic="unit-3-review">
+        <div class="lesson-number">U3</div>
+        <div class="lesson-title">
+          <h3>Unit 3 Review</h3>
+          <p>第三单元综合复习</p>
+        </div>
+        <nav class="lesson-actions" aria-label="Unit 3 review materials">
+          <a class="lesson-action" href="resources/unit-3/end-of-unit-review/review.pdf" target="_blank" rel="noopener">Review</a>
+          <a class="lesson-action" href="resources/unit-3/end-of-unit-review/solutions.pdf" target="_blank" rel="noopener" aria-label="Unit 3 review solutions">Key</a>
+          <a class="lesson-action homework" href="resources/unit-3/end-of-unit-review/corrective.pdf" target="_blank" rel="noopener" aria-label="Unit 3 corrective assignment">CA</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official source</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/unit-3-review.html">Review page</a>
+          </div>
+        </details>
+      </article>
     </section>
   </main>
 
@@ -1014,11 +1401,19 @@
   </dialog>
 
   <script src="question-bank.js"></script>
+  <script src="question-bank-2.2-2.5.js"></script>
+  <script src="question-bank-2.6-2.10.js"></script>
+  <script src="question-bank-unit3.js"></script>
   <script>
     "use strict";
 
     const byId = (id) => document.getElementById(id);
-    const questionBank = Array.isArray(window.UNIT1_QUESTION_BANK) ? window.UNIT1_QUESTION_BANK : [];
+    const questionBank = [
+      window.AP_CALCULUS_QUESTION_BANK,
+      window.AP_CALCULUS_QUESTION_BANK_2A,
+      window.AP_CALCULUS_QUESTION_BANK_2B,
+      window.AP_CALCULUS_QUESTION_BANK_3
+    ].flatMap((bank) => Array.isArray(bank) ? bank : []);
     const questionDialog = byId("question-dialog");
     const pickerDialog = byId("picker-dialog");
     const calculatorDialog = byId("calculator-dialog");
