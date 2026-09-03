@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050711">
-  <meta name="description" content="AP Calculus BC Units 1–3: limits, continuity, derivative fundamentals, and differentiation. Quizzes, class slides, homework, reviews, and classroom tools.">
+  <meta name="description" content="AP Calculus BC Units 1–5: limits, differentiation, contextual applications, and analytical applications. Quizzes, class slides, homework, reviews, and classroom tools.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AP Calculus BC · Units 1–3">
-  <meta property="og:description" content="Topics 1.1–3.6 · Quiz → Slides → CA #1 · Unit reviews">
+  <meta property="og:title" content="AP Calculus BC · Units 1–5">
+  <meta property="og:description" content="Topics 1.1–5.12 · Quiz → Slides → CA #1 · Unit reviews">
   <meta property="og:url" content="https://wenatnyu.github.io/ap-calculus-bc-2026/">
-  <meta property="og:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-unit1-og.png">
+  <meta property="og:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-units1-5-og.png">
   <meta property="og:image:width" content="1672">
   <meta property="og:image:height" content="941">
   <meta property="og:image:alt" content="AP Calculus BC course site on a cosmic coordinate grid">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AP Calculus BC · Units 1–3">
-  <meta name="twitter:description" content="Topics 1.1–3.6 · Quiz → Slides → CA #1 · Unit reviews">
-  <meta name="twitter:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-unit1-og.png">
-  <title>AP Calculus BC · Units 1–3</title>
+  <meta name="twitter:title" content="AP Calculus BC · Units 1–5">
+  <meta name="twitter:description" content="Topics 1.1–5.12 · Quiz → Slides → CA #1 · Unit reviews">
+  <meta name="twitter:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-units1-5-og.png">
+  <title>AP Calculus BC · Units 1–5</title>
   <style>
     :root {
       color-scheme: dark;
@@ -145,6 +145,28 @@
     .lesson[data-topic="3.5"]{--accent:var(--lime);--accent-rgb:101,230,163}
     .lesson[data-topic="3.6"]{--accent:var(--electric);--accent-rgb:114,167,255}
     .lesson[data-topic="unit-3-review"]{--accent:var(--magenta);--accent-rgb:255,79,179}
+    .lesson[data-topic="4.1"]{--accent:var(--coral);--accent-rgb:255,93,143}
+    .lesson[data-topic="4.2"]{--accent:var(--orange);--accent-rgb:255,159,67}
+    .lesson[data-topic="4.3"]{--accent:var(--sun);--accent-rgb:255,228,94}
+    .lesson[data-topic="4.4"]{--accent:var(--lime);--accent-rgb:101,230,163}
+    .lesson[data-topic="4.5"]{--accent:var(--aqua);--accent-rgb:66,220,225}
+    .lesson[data-topic="4.6"]{--accent:var(--electric);--accent-rgb:114,167,255}
+    .lesson[data-topic="4.7"]{--accent:var(--violet);--accent-rgb:203,133,255}
+    .lesson[data-topic="unit-4-review"]{--accent:var(--magenta);--accent-rgb:255,79,179}
+    .lesson[data-topic="5.1"]{--accent:var(--magenta);--accent-rgb:255,79,179}
+    .lesson[data-topic="5.2"]{--accent:var(--orange);--accent-rgb:255,159,67}
+    .lesson[data-topic="5.3"]{--accent:var(--sun);--accent-rgb:255,228,94}
+    .lesson[data-topic="5.4"]{--accent:var(--lime);--accent-rgb:101,230,163}
+    .lesson[data-topic="5.5"]{--accent:var(--aqua);--accent-rgb:66,220,225}
+    .lesson[data-topic="5.6"]{--accent:var(--electric);--accent-rgb:114,167,255}
+    .lesson[data-topic="5.7"]{--accent:var(--violet);--accent-rgb:203,133,255}
+    .lesson[data-topic="unit-5-mid-review"]{--accent:var(--gold);--accent-rgb:255,200,87}
+    .lesson[data-topic="5.8"]{--accent:var(--coral);--accent-rgb:255,93,143}
+    .lesson[data-topic="5.9"]{--accent:var(--chartreuse);--accent-rgb:183,240,106}
+    .lesson[data-topic="5.10"]{--accent:var(--gold);--accent-rgb:255,200,87}
+    .lesson[data-topic="5.11"]{--accent:var(--aqua);--accent-rgb:66,220,225}
+    .lesson[data-topic="5.12"]{--accent:var(--violet);--accent-rgb:203,133,255}
+    .lesson[data-topic="unit-5-review"]{--accent:var(--magenta);--accent-rgb:255,79,179}
     .lesson:hover{background:linear-gradient(90deg,rgba(var(--accent-rgb),.12),transparent 78%);box-shadow:inset 3px 0 0 var(--accent)}
     .lesson-number{color:var(--accent);font-family:var(--math);font-size:30px;font-variant-numeric:tabular-nums;text-shadow:0 0 24px rgba(var(--accent-rgb),.38)}
     .review-card .lesson-number{font-family:var(--sans);font-size:18px;font-weight:800;letter-spacing:.08em}
@@ -214,6 +236,25 @@
     #question-dialog[data-topic="3.4"]{--tool-accent:var(--sun);--tool-rgb:255,228,94}
     #question-dialog[data-topic="3.5"]{--tool-accent:var(--lime);--tool-rgb:101,230,163}
     #question-dialog[data-topic="3.6"]{--tool-accent:var(--electric);--tool-rgb:114,167,255}
+    #question-dialog[data-topic="4.1"]{--tool-accent:var(--coral);--tool-rgb:255,93,143}
+    #question-dialog[data-topic="4.2"]{--tool-accent:var(--orange);--tool-rgb:255,159,67}
+    #question-dialog[data-topic="4.3"]{--tool-accent:var(--sun);--tool-rgb:255,228,94}
+    #question-dialog[data-topic="4.4"]{--tool-accent:var(--lime);--tool-rgb:101,230,163}
+    #question-dialog[data-topic="4.5"]{--tool-accent:var(--aqua);--tool-rgb:66,220,225}
+    #question-dialog[data-topic="4.6"]{--tool-accent:var(--electric);--tool-rgb:114,167,255}
+    #question-dialog[data-topic="4.7"]{--tool-accent:var(--violet);--tool-rgb:203,133,255}
+    #question-dialog[data-topic="5.1"]{--tool-accent:var(--magenta);--tool-rgb:255,79,179}
+    #question-dialog[data-topic="5.2"]{--tool-accent:var(--orange);--tool-rgb:255,159,67}
+    #question-dialog[data-topic="5.3"]{--tool-accent:var(--sun);--tool-rgb:255,228,94}
+    #question-dialog[data-topic="5.4"]{--tool-accent:var(--lime);--tool-rgb:101,230,163}
+    #question-dialog[data-topic="5.5"]{--tool-accent:var(--aqua);--tool-rgb:66,220,225}
+    #question-dialog[data-topic="5.6"]{--tool-accent:var(--electric);--tool-rgb:114,167,255}
+    #question-dialog[data-topic="5.7"]{--tool-accent:var(--violet);--tool-rgb:203,133,255}
+    #question-dialog[data-topic="5.8"]{--tool-accent:var(--coral);--tool-rgb:255,93,143}
+    #question-dialog[data-topic="5.9"]{--tool-accent:var(--chartreuse);--tool-rgb:183,240,106}
+    #question-dialog[data-topic="5.10"]{--tool-accent:var(--gold);--tool-rgb:255,200,87}
+    #question-dialog[data-topic="5.11"]{--tool-accent:var(--aqua);--tool-rgb:66,220,225}
+    #question-dialog[data-topic="5.12"]{--tool-accent:var(--violet);--tool-rgb:203,133,255}
     dialog::backdrop{background:rgba(1,3,10,.67);backdrop-filter:blur(3px)}
     dialog[open]{animation:panel-in .18s ease-out}
     @keyframes panel-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
@@ -399,14 +440,14 @@
         <span class="brand-mark" aria-hidden="true">∫</span>
         <span>AP Calculus BC</span>
       </a>
-      <span class="year">2026–2027 · UNITS 1–3</span>
+      <span class="year">2026–2027 · UNITS 1–5</span>
     </div>
 
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-copy">
-        <p class="eyebrow">Topics 1.1 → 3.6</p>
-        <h1 id="page-title">Limits &amp;<br>Differentiation</h1>
-        <p class="hero-cn">极限、连续与微分</p>
+        <p class="eyebrow">Topics 1.1 → 5.12</p>
+        <h1 id="page-title">Limits, Derivatives<br>&amp; Applications</h1>
+        <p class="hero-cn">极限、导数与导数应用</p>
         <ol class="sequence" aria-label="Course material order">
           <li>Quiz</li>
           <li>Slides</li>
@@ -417,7 +458,7 @@
         <div class="formula derivative-formula" aria-label="d y over d x equals f prime of x">
           <span aria-hidden="true">dy/dx = f′(x)</span>
         </div>
-        <p class="math-caption">Approach · Differentiate · Connect</p>
+        <p class="math-caption">Approach · Differentiate · Analyze</p>
       </div>
     </section>
   </header>
@@ -428,10 +469,10 @@
         <p class="section-kicker">Course map</p>
         <h2>Lessons</h2>
       </div>
-      <span class="lesson-count">32 lessons · 4 reviews</span>
+      <span class="lesson-count">51 lessons · 7 reviews</span>
     </div>
 
-    <section class="lesson-list" aria-label="AP Calculus BC Units 1 through 3">
+    <section class="lesson-list" aria-label="AP Calculus BC Units 1 through 5">
       <article class="lesson" data-topic="1.1">
         <div class="lesson-number">1.1</div>
         <div class="lesson-title">
@@ -1183,6 +1224,465 @@
           </div>
         </details>
       </article>
+
+      <div class="unit-divider" role="separator">Unit 4 · Contextual Applications of Differentiation</div>
+
+      <article class="lesson" data-topic="4.1">
+        <div class="lesson-number">4.1</div>
+        <div class="lesson-title">
+          <h3>Interpreting the Meaning of the Derivative in Context</h3>
+          <p>语境中导数的意义</p>
+        </div>
+        <nav class="lesson-actions" aria-label="4.1 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_4.1_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_4.1_Interpreting_the_Meaning_of_the_Derivative_in_Context_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-4/4.1/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/41-interpreting-the-meaning-of-the-derivative-in-context.html">Lesson</a>
+            <a href="resources/unit-4/4.1/packet.pdf">Packet</a>
+            <a href="resources/unit-4/4.1/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="4.2">
+        <div class="lesson-number">4.2</div>
+        <div class="lesson-title">
+          <h3>Straight-Line Motion: Connecting Position, Velocity, and Acceleration</h3>
+          <p>直线运动：位置、速度与加速度</p>
+        </div>
+        <nav class="lesson-actions" aria-label="4.2 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_4.2_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_4.2_Straight_Line_Motion_Connecting_Position_Velocity_and_Acceleration_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-4/4.2/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/42-straight-line-motion-connecting-position-velocity-and-acceleration.html">Lesson</a>
+            <a href="resources/unit-4/4.2/packet.pdf">Packet</a>
+            <a href="resources/unit-4/4.2/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="4.3">
+        <div class="lesson-number">4.3</div>
+        <div class="lesson-title">
+          <h3>Rates of Change in Applied Contexts Other Than Motion</h3>
+          <p>非运动情境中的变化率</p>
+        </div>
+        <nav class="lesson-actions" aria-label="4.3 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_4.3_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_4.3_Rates_of_Change_in_Applied_Contexts_Other_Than_Motion_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-4/4.3/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/43-rates-of-change-in-applied-contexts-other-than-motion.html">Lesson</a>
+            <a href="resources/unit-4/4.3/packet.pdf">Packet</a>
+            <a href="resources/unit-4/4.3/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="4.4">
+        <div class="lesson-number">4.4</div>
+        <div class="lesson-title">
+          <h3>Introduction to Related Rates</h3>
+          <p>相关变化率入门</p>
+        </div>
+        <nav class="lesson-actions" aria-label="4.4 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_4.4_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_4.4_Introduction_to_Related_Rates_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-4/4.4/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/44-introduction-to-related-rates.html">Lesson</a>
+            <a href="resources/unit-4/4.4/packet.pdf">Packet</a>
+            <a href="resources/unit-4/4.4/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="4.5">
+        <div class="lesson-number">4.5</div>
+        <div class="lesson-title">
+          <h3>Solving Related Rates Problems</h3>
+          <p>求解相关变化率问题</p>
+        </div>
+        <nav class="lesson-actions" aria-label="4.5 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_4.5_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_4.5_Solving_Related_Rates_Problems_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-4/4.5/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/45-solving-related-rates-problems.html">Lesson</a>
+            <a href="resources/unit-4/4.5/packet.pdf">Packet</a>
+            <a href="resources/unit-4/4.5/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="4.6">
+        <div class="lesson-number">4.6</div>
+        <div class="lesson-title">
+          <h3>Approximating Values Using Local Linearity and Linearization</h3>
+          <p>局部线性与线性化近似</p>
+        </div>
+        <nav class="lesson-actions" aria-label="4.6 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_4.6_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_4.6_Approximating_Values_of_a_Function_Using_Local_Linearity_and_Linearization_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-4/4.6/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/46-approximating-values-of-a-function-using-local-linearity-and-linearization.html">Lesson</a>
+            <a href="resources/unit-4/4.6/packet.pdf">Packet</a>
+            <a href="resources/unit-4/4.6/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="4.7">
+        <div class="lesson-number">4.7</div>
+        <div class="lesson-title">
+          <h3>Using L'Hopital's Rule for Indeterminate Forms</h3>
+          <p>洛必达法则与未定式极限</p>
+        </div>
+        <nav class="lesson-actions" aria-label="4.7 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_4.7_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_4.7_Using_LHopitals_Rule_for_Determining_Limits_of_Indeterminate_Forms_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-4/4.7/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/47-using-lhopitals-rule-for-determining-limits-of-indeterminate-forms.html">Lesson</a>
+            <a href="resources/unit-4/4.7/packet.pdf">Packet</a>
+            <a href="resources/unit-4/4.7/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson review-card" data-topic="unit-4-review">
+        <div class="lesson-number">U4</div>
+        <div class="lesson-title">
+          <h3>Unit 4 Review</h3>
+          <p>第四单元综合复习</p>
+        </div>
+        <nav class="lesson-actions" aria-label="Unit 4 Review materials">
+          <a class="lesson-action" href="resources/unit-4/end-of-unit-review/review.pdf" target="_blank" rel="noopener">Review</a>
+          <a class="lesson-action" href="resources/unit-4/end-of-unit-review/solutions.pdf" target="_blank" rel="noopener" aria-label="Unit 4 Review solutions">Key</a>
+          <a class="lesson-action homework" href="resources/unit-4/end-of-unit-review/corrective.pdf" target="_blank" rel="noopener" aria-label="Unit 4 Review corrective assignment">CA</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official source</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/unit-4-review.html">Review page</a>
+          </div>
+        </details>
+      </article>
+
+      <div class="unit-divider" role="separator">Unit 5 · Analytical Applications of Differentiation</div>
+
+      <article class="lesson" data-topic="5.1">
+        <div class="lesson-number">5.1</div>
+        <div class="lesson-title">
+          <h3>Using the Mean Value Theorem</h3>
+          <p>使用中值定理</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.1 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.1_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.1_Using_the_Mean_Value_Theorem_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.1/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/51-using-the-mean-value-theorem.html">Lesson</a>
+            <a href="resources/unit-5/5.1/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.1/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.2">
+        <div class="lesson-number">5.2</div>
+        <div class="lesson-title">
+          <h3>Extreme Value Theorem, Extrema, and Critical Points</h3>
+          <p>极值定理、极值与临界点</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.2 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.2_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.2_Extreme_Value_Theorem_Global_Versus_Local_Extrema_and_Critical_Points_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.2/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/52-extreme-value-theorem-global-versus-local-extrema-and-critical-points.html">Lesson</a>
+            <a href="resources/unit-5/5.2/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.2/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.3">
+        <div class="lesson-number">5.3</div>
+        <div class="lesson-title">
+          <h3>Intervals of Increase and Decrease</h3>
+          <p>函数的递增与递减区间</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.3 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.3_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.3_Determining_Intervals_on_Which_a_Function_Is_Increasing_or_Decreasing_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.3/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/53-determining-intervals-on-which-a-function-is-increasing-or-decreasing.html">Lesson</a>
+            <a href="resources/unit-5/5.3/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.3/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.4">
+        <div class="lesson-number">5.4</div>
+        <div class="lesson-title">
+          <h3>First Derivative Test for Relative Extrema</h3>
+          <p>一阶导数检验与局部极值</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.4 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.4_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.4_Using_the_First_Derivative_Test_to_Determine_Relative_Local_Extrema_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.4/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/54-using-the-first-derivative-test-to-determine-relative-local-extrema.html">Lesson</a>
+            <a href="resources/unit-5/5.4/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.4/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.5">
+        <div class="lesson-number">5.5</div>
+        <div class="lesson-title">
+          <h3>Candidates Test for Absolute Extrema</h3>
+          <p>候选点检验与绝对极值</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.5 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.5_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.5_Using_the_Candidates_Test_to_Determine_Absolute_Global_Extrema_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.5/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/55-using-the-candidates-test-to-determine-absolute-global-extrema.html">Lesson</a>
+            <a href="resources/unit-5/5.5/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.5/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.6">
+        <div class="lesson-number">5.6</div>
+        <div class="lesson-title">
+          <h3>Determining Concavity over a Function’s Domain</h3>
+          <p>判断函数的凹向性</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.6 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.6_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.6_Determining_Concavity_of_Functions_over_Their_Domains_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.6/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/56-determining-concavity-of-functions-over-their-domains.html">Lesson</a>
+            <a href="resources/unit-5/5.6/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.6/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.7">
+        <div class="lesson-number">5.7</div>
+        <div class="lesson-title">
+          <h3>Second Derivative Test for Extrema</h3>
+          <p>二阶导数检验</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.7 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.7_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.7_Using_the_Second_Derivative_Test_to_Determine_Extrema_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.7/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/57-using-the-second-derivative-test-to-determine-extrema.html">Lesson</a>
+            <a href="resources/unit-5/5.7/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.7/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson review-card" data-topic="unit-5-mid-review">
+        <div class="lesson-number">U5·M</div>
+        <div class="lesson-title">
+          <h3>Mid-Unit 5 Review</h3>
+          <p>第五单元阶段复习</p>
+        </div>
+        <nav class="lesson-actions" aria-label="Mid-Unit 5 Review materials">
+          <a class="lesson-action" href="resources/unit-5/mid-unit-review/review.pdf" target="_blank" rel="noopener">Review</a>
+          <a class="lesson-action" href="resources/unit-5/mid-unit-review/solutions.pdf" target="_blank" rel="noopener" aria-label="Mid-Unit 5 Review solutions">Key</a>
+          <a class="lesson-action homework" href="resources/unit-5/mid-unit-review/corrective.pdf" target="_blank" rel="noopener" aria-label="Mid-Unit 5 Review corrective assignment">CA</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official source</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/mid-unit-5-review.html">Review page</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.8">
+        <div class="lesson-number">5.8</div>
+        <div class="lesson-title">
+          <h3>Sketching Graphs of Functions and Their Derivatives</h3>
+          <p>函数及其导函数图像</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.8 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.8_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.8_Sketching_Graphs_of_Functions_and_Their_Derivatives_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.8/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/58-sketching-graphs-of-functions-and-their-derivatives.html">Lesson</a>
+            <a href="resources/unit-5/5.8/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.8/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.9">
+        <div class="lesson-number">5.9</div>
+        <div class="lesson-title">
+          <h3>Connecting a Function, Its First Derivative, and Its Second Derivative</h3>
+          <p>连接函数、一阶导数与二阶导数</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.9 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.9_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.9_Connecting_a_Function_Its_First_Derivative_and_Its_Second_Derivative_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.9/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/59-connecting-a-function-its-first-derivative-and-its-second-derivative.html">Lesson</a>
+            <a href="resources/unit-5/5.9/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.9/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.10">
+        <div class="lesson-number">5.10</div>
+        <div class="lesson-title">
+          <h3>Introduction to Optimization Problems</h3>
+          <p>优化问题入门</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.10 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.10_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.10_Introduction_to_Optimization_Problems_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.10/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/510-introduction-to-optimization-problems.html">Lesson</a>
+            <a href="resources/unit-5/5.10/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.10/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.11">
+        <div class="lesson-number">5.11</div>
+        <div class="lesson-title">
+          <h3>Solving Optimization Problems</h3>
+          <p>求解优化问题</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.11 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.11_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.11_Solving_Optimization_Problems_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.11/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/511-solving-optimization-problems.html">Lesson</a>
+            <a href="resources/unit-5/5.11/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.11/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson" data-topic="5.12">
+        <div class="lesson-number">5.12</div>
+        <div class="lesson-title">
+          <h3>Exploring Behaviors of Implicit Relations</h3>
+          <p>隐式关系的行为</p>
+        </div>
+        <nav class="lesson-actions" aria-label="5.12 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_5.12_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_5.12_Exploring_Behaviors_of_Implicit_Relations_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-5/5.12/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official sources</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/512-exploring-behaviors-of-implicit-relations.html">Lesson</a>
+            <a href="resources/unit-5/5.12/packet.pdf">Packet</a>
+            <a href="resources/unit-5/5.12/solutions.pdf">Solutions</a>
+          </div>
+        </details>
+      </article>
+
+      <article class="lesson review-card" data-topic="unit-5-review">
+        <div class="lesson-number">U5</div>
+        <div class="lesson-title">
+          <h3>End of Unit 5 Review</h3>
+          <p>第五单元综合复习</p>
+        </div>
+        <nav class="lesson-actions" aria-label="End of Unit 5 Review materials">
+          <a class="lesson-action" href="resources/unit-5/end-of-unit-review/review.pdf" target="_blank" rel="noopener">Review</a>
+          <a class="lesson-action homework" href="resources/unit-5/end-of-unit-review/corrective.pdf" target="_blank" rel="noopener" aria-label="End of Unit 5 corrective assignment with answer key">CA + Key</a>
+        </nav>
+        <details class="lesson-source">
+          <summary>Official source</summary>
+          <div class="source-links">
+            <a href="https://calculus.flippedmath.com/end-of-unit-5-review.html">Review page</a>
+          </div>
+        </details>
+      </article>
     </section>
   </main>
 
@@ -1404,6 +1904,9 @@
   <script src="question-bank-2.2-2.5.js"></script>
   <script src="question-bank-2.6-2.10.js"></script>
   <script src="question-bank-unit3.js"></script>
+  <script src="question-bank-unit4.js"></script>
+  <script src="question-bank-unit5a.js"></script>
+  <script src="question-bank-unit5b.js"></script>
   <script>
     "use strict";
 
@@ -1412,7 +1915,10 @@
       window.AP_CALCULUS_QUESTION_BANK,
       window.AP_CALCULUS_QUESTION_BANK_2A,
       window.AP_CALCULUS_QUESTION_BANK_2B,
-      window.AP_CALCULUS_QUESTION_BANK_3
+      window.AP_CALCULUS_QUESTION_BANK_3,
+      window.AP_CALCULUS_QUESTION_BANK_4,
+      window.AP_CALCULUS_QUESTION_BANK_5A,
+      window.AP_CALCULUS_QUESTION_BANK_5B
     ].flatMap((bank) => Array.isArray(bank) ? bank : []);
     const questionDialog = byId("question-dialog");
     const pickerDialog = byId("picker-dialog");

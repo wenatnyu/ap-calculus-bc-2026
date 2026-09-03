@@ -1,6 +1,6 @@
 # AP Calculus BC · Course site
 
-Current scope: Units 1–3 (Topics 1.1–3.6), including the official unit reviews.
+Current scope: Units 1–5 (Topics 1.1–5.12), including the official mid-unit and end-of-unit reviews.
 
 Each topic follows one classroom sequence:
 
@@ -12,7 +12,7 @@ Open `index.html` locally or through GitHub Pages.
 
 ## Classroom tools
 
-- Random Question — 192 English-first prompts covering Topics 1.1–3.6, with key Chinese hints and toggle answers.
+- Random Question — 306 English-first prompts covering Topics 1.1–5.12, with key Chinese hints and toggle answers.
 - Student Picker — six confirmed formal-name/WeChat-profile pairs with avatars, no-repeat rounds, and an attendance switch.
 - Graphing Calculator — a floating classroom simulator with safe scientific evaluation, RAD/DEG modes, history, graph/trace, verified zeros, numerical derivatives, and definite integrals. It covers the four graphing-calculator capabilities named in the AP Calculus course description, but is not an approved exam-day calculator.
 
@@ -24,6 +24,6 @@ Open `index.html` locally or through GitHub Pages.
 
 ## Source and copyright
 
-The lesson structure is based on the corresponding pages at [FlippedMath Calculus](https://calculus.flippedmath.com/). Lesson links continue to open the original FlippedMath pages. Classroom copies of each Packet, Practice Solutions, CA #1 and review are stored under `resources/unit-1/`, `resources/unit-2/`, and `resources/unit-3/` so students can open them directly from this GitHub Pages site. Source attribution remains with FlippedMath.
+The lesson structure is based on the corresponding pages at [FlippedMath Calculus](https://calculus.flippedmath.com/). Lesson links continue to open the original FlippedMath pages. Classroom copies of each Packet, Practice Solutions, CA #1 and review are stored under `resources/unit-1/` through `resources/unit-5/` so students can open them directly from this GitHub Pages site. Source attribution remains with FlippedMath.
 
 The compact homepage picker publishes the six formal names, WeChat nicknames, and avatar copies explicitly confirmed for classroom use. The original local `private/` directory and the full `student-picker.html` remain excluded from Git.

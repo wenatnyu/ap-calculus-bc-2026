@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AP Calculus BC 5.1 Review - 5-Minute Quiz</title>
+  <link rel="stylesheet" href="assets/u2-quiz.css">
+</head>
+<body data-print-mode="student">
+  <nav class="toolbar" aria-label="Quiz view and print controls">
+    <span class="status" id="modeStatus">Print mode: Student</span>
+    <button id="revealAllBtn" type="button">Show All Answers</button>
+    <button id="modeBtn" type="button" class="teacher-action">Switch to Teacher Mode</button>
+    <button id="printStudentBtn" type="button">Print Student Copy</button>
+    <button id="printTeacherBtn" type="button" class="teacher-action">Print Teacher Copy</button>
+  </nav>
+  <main class="sheet">
+    <div class="topline"></div>
+    <header><div><div class="kicker">AP Calculus BC · Before Topic 5.1</div><h1>5-Minute Review: L’Hôpital’s Rule</h1><p class="subtitle">五分钟复习：洛必达法则</p></div><div><div class="time-box"><strong>5</strong><span>MINUTES · 10 POINTS</span></div><div class="teacher-stamp">TEACHER KEY</div></div></header>
+    <div class="student-info student-only"><div class="field">Name 姓名 <span class="field-line"></span></div><div class="field">Date 日期 <span class="field-line"></span></div><div class="field">Score <span class="field-line"></span></div></div>
+    <p class="directions student-only"><b>Directions:</b> Substitute first. Name the form before choosing a method.<br><b>要求：</b>先代入并判断形式，再选择方法。</p>
+    <p class="teacher-summary"><strong>Fast check:</strong> L’Hôpital’s Rule applies directly only to quotient limits with a verified <span class="math">0/0</span> or <span class="math">∞/∞</span> form.</p>
+    <section class="question"><div class="qhead"><span class="qtext"><span class="qnum">1.</span> Evaluate <span class="math">lim<sub>x→0</sub> sin(6x)/x</span>. State the indeterminate form.</span><span class="pts">3 points</span><button class="section-toggle" type="button" data-target="answer1">Answer</button></div><div class="work-line student-only">Form and work / 形式与过程：</div><div class="answer-panel" id="answer1"><strong>Answer:</strong> Substitution gives <span class="math">0/0</span>. L’Hôpital gives <span class="math">lim<sub>x→0</sub>6cos(6x)=6</span>.</div></section>
+    <section class="question"><div class="qhead"><span class="qtext"><span class="qnum">2.</span> Evaluate <span class="math">lim<sub>x→0</sub>(1−cos x)/x²</span>. Explain why the rule is used twice.</span><span class="pts">3 points</span><button class="section-toggle" type="button" data-target="answer2">Answer</button></div><div class="work-line student-only">Two form checks / 两次形式检查：</div><div class="answer-panel" id="answer2"><strong>Answer:</strong> The first form is <span class="math">0/0</span>. One application gives <span class="math">sin x/(2x)</span>, still <span class="math">0/0</span>. A second application gives <span class="math">cos x/2→1/2</span>.</div></section>
+    <section class="question"><div class="qhead"><span class="qtext"><span class="qnum">3.</span> May L’Hôpital’s Rule be used directly on <span class="math">lim<sub>x→3</sub>(2x−5)/x</span>? Evaluate the limit.</span><span class="pts">4 points</span><button class="section-toggle" type="button" data-target="answer3">Answer</button></div><div class="work-line student-only">Decision and value / 判断与结果：</div><div class="answer-panel" id="answer3"><strong>Answer:</strong> No. Substitution gives the determinate value <span class="math">1/3</span>, not <span class="math">0/0</span> or <span class="math">∞/∞</span>. The limit is <span class="math">1/3</span>.</div></section>
+    <section class="rubric"><h2>Scoring / 评分</h2><ul><li>Q1: 1 form, 1 derivative step, 1 result.</li><li>Q2: 1 first form, 1 second form, 1 result.</li><li>Q3: 2 method decision, 2 value and explanation.</li><li>Accept equivalent correct notation.</li></ul></section>
+    <footer><span class="student-footer">Topic 5.1 warm-up · No calculator</span><span class="teacher-footer">Use the revealed work to discuss method choice.</span><span class="student-footer">Student copy</span><span class="teacher-footer">Teacher copy</span></footer>
+  </main>
+  <script src="assets/u2-quiz.js"></script>
+</body>
+</html>
