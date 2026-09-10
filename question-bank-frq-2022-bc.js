@@ -1,0 +1,380 @@
+window.AP_CALCULUS_QUESTION_BANK_FRQ_2022_BC = Object.freeze([
+  {
+    "id": "2022-bc-frq1-01",
+    "topic": "2022 FRQ 1",
+    "label": "Amount from a rate / 速率积分得到总量",
+    "difficulty": "easy",
+    "question": "Water enters at r(t) liters/minute. What expression gives the amount entering from t=2 to t=7?",
+    "keyChinese": "速率积分得到总量",
+    "hint": "Use time as the integration variable and preserve the bounds. / 重点：速率积分得到总量",
+    "answer": "∫₂⁷r(t)dt",
+    "explanation": "Multiplying liters/minute by minutes through integration produces liters."
+  },
+  {
+    "id": "2022-bc-frq1-02",
+    "topic": "2022 FRQ 1",
+    "label": "Average rate / 平均值",
+    "difficulty": "easy",
+    "question": "Write the average value of R on [a,b].",
+    "keyChinese": "平均值",
+    "hint": "Average value is area divided by interval length. / 重点：平均值",
+    "answer": "(1/(b−a))∫ₐᵇR(t)dt",
+    "explanation": "The factor 1/(b−a) distinguishes average value from total accumulation."
+  },
+  {
+    "id": "2022-bc-frq1-03",
+    "topic": "2022 FRQ 1",
+    "label": "Increasing rate / 导数符号",
+    "difficulty": "medium",
+    "question": "If A′(2)=−14, what does this say about the arrival rate A at t=2?",
+    "keyChinese": "导数符号",
+    "hint": "Name the function that is changing. / 重点：导数符号",
+    "answer": "A is decreasing at t=2.",
+    "explanation": "A′(2)<0 means the arrival-rate function decreases at that instant; it does not say A(2) is negative."
+  },
+  {
+    "id": "2022-bc-frq1-04",
+    "topic": "2022 FRQ 1",
+    "label": "Queue growth / 净变化率",
+    "difficulty": "medium",
+    "question": "A queue satisfies Q′(t)=A(t)−300. At what times is the queue growing?",
+    "keyChinese": "净变化率",
+    "hint": "Translate “growing” to Q′>0. / 重点：净变化率",
+    "answer": "Where A(t)>300.",
+    "explanation": "The queue grows exactly when arrivals exceed the service rate."
+  },
+  {
+    "id": "2022-bc-frq1-05",
+    "topic": "2022 FRQ 1",
+    "label": "Queue maximum / 符号变化",
+    "difficulty": "medium",
+    "question": "Suppose A(t)−300 changes from positive to negative at t=c. What kind of point does Q have at c?",
+    "keyChinese": "符号变化",
+    "hint": "Q′=A−300. / 重点：符号变化",
+    "answer": "Q has a local maximum at t=c.",
+    "explanation": "Q′ changes + to −, so Q changes from increasing to decreasing."
+  },
+  {
+    "id": "2022-bc-frq1-06",
+    "topic": "2022 FRQ 1",
+    "label": "Absolute maximum / 候选点检验",
+    "difficulty": "hard",
+    "question": "To prove an absolute maximum of a differentiable accumulation function on [a,d], which inputs must be checked?",
+    "keyChinese": "候选点检验",
+    "hint": "Use the closed-interval candidates test. / 重点：候选点检验",
+    "answer": "Both endpoints and every interior critical number.",
+    "explanation": "A local sign change alone is not automatically a global comparison unless the full sign behavior proves it."
+  },
+  {
+    "id": "2022-bc-frq2-01",
+    "topic": "2022 FRQ 2",
+    "label": "Tangent slope / 参数曲线斜率",
+    "difficulty": "easy",
+    "question": "For x′(3)=5 and y′(3)=−2, find dy/dx at t=3.",
+    "keyChinese": "参数曲线斜率",
+    "hint": "Use y′/x′. / 重点：参数曲线斜率",
+    "answer": "−2/5",
+    "explanation": "Parametric slope divides the y-velocity by the x-velocity."
+  },
+  {
+    "id": "2022-bc-frq2-02",
+    "topic": "2022 FRQ 2",
+    "label": "Velocity magnitude / 速率",
+    "difficulty": "easy",
+    "question": "A velocity vector is ⟨6,−8⟩. Find speed.",
+    "keyChinese": "速率",
+    "hint": "Take the Euclidean norm. / 重点：速率",
+    "answer": "10",
+    "explanation": "Speed is √(6²+(−8)²), not 6−8."
+  },
+  {
+    "id": "2022-bc-frq2-03",
+    "topic": "2022 FRQ 2",
+    "label": "Differentiate velocity / 加速度向量",
+    "difficulty": "medium",
+    "question": "If x′(t)=eᵗ and y′(t)=sin t, find a(t).",
+    "keyChinese": "加速度向量",
+    "hint": "Differentiate each component in order. / 重点：加速度向量",
+    "answer": "⟨eᵗ,cos t⟩",
+    "explanation": "Acceleration is the derivative of the velocity vector."
+  },
+  {
+    "id": "2022-bc-frq2-04",
+    "topic": "2022 FRQ 2",
+    "label": "Recover a coordinate / 初值 + 位移",
+    "difficulty": "medium",
+    "question": "If y(2)=7 and y′(t)=t², write y(5).",
+    "keyChinese": "初值 + 位移",
+    "hint": "Use the net change theorem. / 重点：初值 + 位移",
+    "answer": "7+∫₂⁵t²dt=46",
+    "explanation": "The integral 39 is displacement; adding the initial 7 gives position 46."
+  },
+  {
+    "id": "2022-bc-frq2-05",
+    "topic": "2022 FRQ 2",
+    "label": "Arc length / 总路程",
+    "difficulty": "medium",
+    "question": "Write total distance on [a,b] for velocity ⟨p(t),q(t)⟩.",
+    "keyChinese": "总路程",
+    "hint": "Integrate the magnitude of velocity. / 重点：总路程",
+    "answer": "∫ₐᵇ√(p(t)²+q(t)²)dt",
+    "explanation": "Total distance is accumulated speed along the curve."
+  },
+  {
+    "id": "2022-bc-frq2-06",
+    "topic": "2022 FRQ 2",
+    "label": "Distance versus displacement / 路程与位移",
+    "difficulty": "hard",
+    "question": "Can total distance equal the magnitude of displacement? State when.",
+    "keyChinese": "路程与位移",
+    "hint": "Think about whether the direction of velocity changes. / 重点：路程与位移",
+    "answer": "Yes—when motion from start to finish has no reversal/bending that creates a longer path; more precisely, when the velocity vectors are nonnegative scalar multiples of one fixed direction almost everywhere.",
+    "explanation": "The triangle inequality gives distance ≥ displacement magnitude, with equality only for consistently directed motion."
+  },
+  {
+    "id": "2022-bc-frq3-01",
+    "topic": "2022 FRQ 3",
+    "label": "Recover f / 净变化",
+    "difficulty": "easy",
+    "question": "If f(3)=4 and ∫₃⁷f′(x)dx=−6, find f(7).",
+    "keyChinese": "净变化",
+    "hint": "Add the signed integral to the initial value. / 重点：净变化",
+    "answer": "−2",
+    "explanation": "f(7)=4+(−6)=−2."
+  },
+  {
+    "id": "2022-bc-frq3-02",
+    "topic": "2022 FRQ 3",
+    "label": "Area below the axis / 带符号面积",
+    "difficulty": "easy",
+    "question": "A semicircle of radius 3 lies below the x-axis on a graph of f′. What is its signed integral?",
+    "keyChinese": "带符号面积",
+    "hint": "Below the axis means negative. / 重点：带符号面积",
+    "answer": "−9π/2",
+    "explanation": "The geometric area is (1/2)π(3²), and the integral carries a negative sign."
+  },
+  {
+    "id": "2022-bc-frq3-03",
+    "topic": "2022 FRQ 3",
+    "label": "Inflection from f′ / 拐点",
+    "difficulty": "medium",
+    "question": "If f′ changes from increasing to decreasing at x=c, what happens to f?",
+    "keyChinese": "拐点",
+    "hint": "Translate the trend of f′ into the sign of f″ where defined. / 重点：拐点",
+    "answer": "f changes from concave up to concave down, so x=c is an inflection-point x-coordinate (assuming f is continuous there).",
+    "explanation": "An extremum of f′ marks a concavity change of f when the trend truly changes."
+  },
+  {
+    "id": "2022-bc-frq3-04",
+    "topic": "2022 FRQ 3",
+    "label": "Threshold comparison / 递减条件",
+    "difficulty": "medium",
+    "question": "For g=f−3x, express the condition for g to decrease.",
+    "keyChinese": "递减条件",
+    "hint": "Compute g′. / 重点：递减条件",
+    "answer": "f′(x)<3 (or ≤3 under a nonincreasing convention).",
+    "explanation": "Since g′=f′−3, its sign is determined by comparing f′ with 3."
+  },
+  {
+    "id": "2022-bc-frq3-05",
+    "topic": "2022 FRQ 3",
+    "label": "Minimum from sign change / 绝对最小值",
+    "difficulty": "medium",
+    "question": "If g′0 on (c,b), where is the absolute minimum on [a,b]?",
+    "keyChinese": "绝对最小值",
+    "hint": "Use the global monotonic behavior. / 重点：绝对最小值",
+    "answer": "At x=c.",
+    "explanation": "g decreases all the way to c and increases after c, so every other value is larger."
+  },
+  {
+    "id": "2022-bc-frq3-06",
+    "topic": "2022 FRQ 3",
+    "label": "Zero versus inflection / 零点与拐点",
+    "difficulty": "hard",
+    "question": "Why does f′(c)=0 alone not prove that f has an inflection point at c?",
+    "keyChinese": "零点与拐点",
+    "hint": "State what must change for an inflection point. / 重点：零点与拐点",
+    "answer": "Because an inflection point requires a change in concavity; equivalently, f′ must change from increasing to decreasing or vice versa near c. A zero alone only makes c a critical-number candidate for f.",
+    "explanation": "The value of f′ controls increasing/decreasing of f, while the trend of f′ controls concavity."
+  },
+  {
+    "id": "FRQ22-Q4-01",
+    "topic": "2022 FRQ 4",
+    "label": "Second derivative from data",
+    "difficulty": "easy",
+    "question": "A table gives q′(2)=−4.2 and q′(5)=−3.3. Approximate q″(3.5). / 用表格估计二阶导。",
+    "hint": "Use the average rate of change of q′ on [2,5].",
+    "answer": "0.3",
+    "explanation": "[−3.3−(−4.2)]/(5−2)=0.9/3=0.3."
+  },
+  {
+    "id": "FRQ22-Q4-02",
+    "topic": "2022 FRQ 4",
+    "label": "IVT existence",
+    "difficulty": "medium",
+    "question": "If F is twice differentiable, F′(1)=−7, and F′(4)=2, explain why F′(c)=0 for some c∈(1,4). / 说明零点存在。",
+    "hint": "State why F′ is continuous, then bracket 0.",
+    "answer": "Such a c exists by the IVT.",
+    "explanation": "Twice differentiable F makes F′ differentiable and continuous; −7<0<2."
+  },
+  {
+    "id": "FRQ22-Q4-03",
+    "topic": "2022 FRQ 4",
+    "label": "Unequal right sum",
+    "difficulty": "medium",
+    "question": "For t=0,2,5,9 with f(t)=3,4,1,−2, write the right Riemann sum for ∫₀⁹f(t)dt. / 写右端点黎曼和。",
+    "hint": "Widths are 2, 3, 4.",
+    "answer": "2(4)+3(1)+4(−2)=3.",
+    "explanation": "Pair each width with the function value at its right endpoint."
+  },
+  {
+    "id": "FRQ22-Q4-04",
+    "topic": "2022 FRQ 4",
+    "label": "Cone related rate",
+    "difficulty": "hard",
+    "question": "For V=(1/3)πr²h, find dV/dt when r=3, h=8, r′=−2, h′=1. / 求圆锥体积变化率。",
+    "hint": "Apply product and chain rules before substitution.",
+    "answer": "dV/dt=−29π.",
+    "explanation": "(π/3)[2(3)(8)(−2)+9(1)]=(π/3)(−87)=−29π."
+  },
+  {
+    "id": "FRQ22-Q4-05",
+    "topic": "2022 FRQ 4",
+    "label": "Derivative units",
+    "difficulty": "easy",
+    "question": "If s is measured in centimeters and t in days, what are the units of s″(t)? / 二阶导单位。",
+    "hint": "Differentiate centimeters per day once more with respect to days.",
+    "answer": "cm/day²",
+    "explanation": "s′ has units cm/day, so s″ has units (cm/day)/day."
+  },
+  {
+    "id": "FRQ22-Q4-06",
+    "topic": "2022 FRQ 4",
+    "label": "Net change meaning",
+    "difficulty": "medium",
+    "question": "What does ∫₂⁷r′(t)dt represent? / 解释定积分。",
+    "hint": "Use the Fundamental Theorem of Calculus.",
+    "answer": "r(7)−r(2), the net change in r.",
+    "explanation": "Integrating a rate over time accumulates the net change in the original quantity."
+  },
+  {
+    "id": "FRQ22-Q5-01",
+    "topic": "2022 FRQ 5",
+    "label": "Logarithmic area",
+    "difficulty": "easy",
+    "question": "Find the area under y=1/x from x=1 to x=e. / 求面积。",
+    "hint": "Use a definite integral.",
+    "answer": "1",
+    "explanation": "∫₁ᵉ(1/x)dx=ln e−ln 1=1."
+  },
+  {
+    "id": "FRQ22-Q5-02",
+    "topic": "2022 FRQ 5",
+    "label": "Given cross-sectional area",
+    "difficulty": "easy",
+    "question": "A solid has A(x)=x²+1 for 0≤x≤2. Find its volume. / 截面积已给。",
+    "hint": "Volume is the accumulation of cross-sectional area.",
+    "answer": "14/3",
+    "explanation": "∫₀²(x²+1)dx=8/3+2=14/3."
+  },
+  {
+    "id": "FRQ22-Q5-03",
+    "topic": "2022 FRQ 5",
+    "label": "Integration by parts",
+    "difficulty": "medium",
+    "question": "Evaluate ∫₀¹xe^(2x)dx. / 分部积分。",
+    "hint": "Choose u=x and dv=e^(2x)dx.",
+    "answer": "(e²+1)/4",
+    "explanation": "[xe^(2x)/2−e^(2x)/4]₀¹=e²/4+1/4."
+  },
+  {
+    "id": "FRQ22-Q5-04",
+    "topic": "2022 FRQ 5",
+    "label": "Improper p-integral",
+    "difficulty": "medium",
+    "question": "Evaluate ∫₂^∞x^(−3)dx using limit notation. / 反常积分。",
+    "hint": "Replace ∞ by b and take b→∞.",
+    "answer": "1/8",
+    "explanation": "lim[b→∞][−1/(2x²)]₂ᵇ=0−(−1/8)=1/8."
+  },
+  {
+    "id": "FRQ22-Q5-05",
+    "topic": "2022 FRQ 5",
+    "label": "Improper disk volume",
+    "difficulty": "hard",
+    "question": "Revolve y=1/x², x≥1, about the x-axis. Find the volume. / 求旋转体积。",
+    "hint": "Disk area is π(1/x²)².",
+    "answer": "π/3",
+    "explanation": "π∫₁^∞x^(−4)dx=π[−1/(3x³)]₁^∞=π/3."
+  },
+  {
+    "id": "FRQ22-Q5-06",
+    "topic": "2022 FRQ 5",
+    "label": "Unbounded does not mean infinite",
+    "difficulty": "medium",
+    "question": "The area under y=1/x for x≥1 diverges. Does the volume from revolving it about the x-axis converge? Explain. / 无界区域的体积会收敛吗？",
+    "hint": "The disk integrand squares 1/x.",
+    "answer": "Yes; the volume is π.",
+    "explanation": "V=π∫₁^∞x^(−2)dx=π, a convergent p-integral even though ∫₁^∞1/x dx diverges."
+  },
+  {
+    "id": "FRQ22-Q6-01",
+    "topic": "2022 FRQ 6",
+    "label": "Ratio Test and endpoints",
+    "difficulty": "hard",
+    "question": "Find the interval of convergence of Σ from n=0 to ∞ of (−1)^n x^n/(n+1). / 求收敛区间。",
+    "hint": "Ratio Test for the interior; then test x=±1.",
+    "answer": "(−1,1]",
+    "explanation": "|x|<1 inside. At x=1 the alternating harmonic-type series converges; at x=−1 the harmonic series diverges."
+  },
+  {
+    "id": "FRQ22-Q6-02",
+    "topic": "2022 FRQ 6",
+    "label": "Alternating error bound",
+    "difficulty": "medium",
+    "question": "Approximate Σ from n=1 to ∞ of (−1)^(n+1)/n by 1−1/2. Give an error bound. / 给出误差界。",
+    "hint": "Use the magnitude of the first omitted term.",
+    "answer": "|error|<1/3",
+    "explanation": "The series alternates with decreasing terms to zero; the first omitted term has magnitude 1/3."
+  },
+  {
+    "id": "FRQ22-Q6-03",
+    "topic": "2022 FRQ 6",
+    "label": "Termwise derivative",
+    "difficulty": "easy",
+    "question": "Differentiate G(x)=x+x³/3+x⁵/5+… term by term. / 逐项求导。",
+    "hint": "The odd denominator cancels.",
+    "answer": "G′(x)=1+x²+x⁴+…",
+    "explanation": "d[x^(2n+1)/(2n+1)]/dx=x^(2n)."
+  },
+  {
+    "id": "FRQ22-Q6-04",
+    "topic": "2022 FRQ 6",
+    "label": "Geometric evaluation",
+    "difficulty": "medium",
+    "question": "Find the exact sum of 1−1/9+1/81−…. / 求等比级数和。",
+    "hint": "a=1 and r=−1/9.",
+    "answer": "9/10",
+    "explanation": "a/(1−r)=1/[1−(−1/9)]=9/10."
+  },
+  {
+    "id": "FRQ22-Q6-05",
+    "topic": "2022 FRQ 6",
+    "label": "Endpoint logic",
+    "difficulty": "medium",
+    "question": "Why can the Ratio Test not decide convergence at an endpoint where its limit equals 1? / 为什么还要检验端点？",
+    "hint": "Recall the inconclusive cases of the Ratio Test.",
+    "answer": "Because a ratio limit of 1 is inconclusive.",
+    "explanation": "The endpoint series must be examined by another test, such as AST, p-series, or nth-term test."
+  },
+  {
+    "id": "FRQ22-Q6-06",
+    "topic": "2022 FRQ 6",
+    "label": "Bound versus actual error",
+    "difficulty": "medium",
+    "question": "True or false: the alternating-series first omitted term is always the exact error. Explain. / 第一遗漏项是否等于实际误差？",
+    "hint": "The theorem gives an inequality.",
+    "answer": "False.",
+    "explanation": "Its magnitude is an upper bound: |error| is less than or equal to (and in the 2022 scoring statement, written less than) the first omitted term magnitude; it is not generally the exact error."
+  }
+]);

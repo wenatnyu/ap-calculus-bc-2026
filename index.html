@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050711">
-  <meta name="description" content="AP Calculus BC Units 1–9: limits, differentiation, integration, differential equations, applications of integration, and parametric, vector, and polar curves. Quizzes, class slides, homework, reviews, and classroom tools.">
+  <meta name="description" content="AP Calculus BC Units 1–10 plus 2022 BC free-response practice. Quizzes, class slides, local official PDFs, homework, reviews, and classroom tools.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AP Calculus BC · Units 1–9">
-  <meta property="og:description" content="Topics 1.1–9.9 · Quiz → Slides → CA #1 · Unit reviews">
+  <meta property="og:title" content="AP Calculus BC · Units 1–10 + 2022 FRQs">
+  <meta property="og:description" content="Topics 1.1–10.15 · 2022 FRQ 1–6 · Quiz → Slides → Practice">
   <meta property="og:url" content="https://wenatnyu.github.io/ap-calculus-bc-2026/">
   <meta property="og:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-units1-5-og.png">
   <meta property="og:image:width" content="1672">
   <meta property="og:image:height" content="941">
   <meta property="og:image:alt" content="AP Calculus BC course site on a cosmic coordinate grid">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AP Calculus BC · Units 1–9">
-  <meta name="twitter:description" content="Topics 1.1–9.9 · Quiz → Slides → CA #1 · Unit reviews">
+  <meta name="twitter:title" content="AP Calculus BC · Units 1–10 + 2022 FRQs">
+  <meta name="twitter:description" content="Topics 1.1–10.15 · 2022 FRQ 1–6 · Quiz → Slides → Practice">
   <meta name="twitter:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-units1-5-og.png">
-  <title>AP Calculus BC · Units 1–9</title>
+  <title>AP Calculus BC · Units 1–10 + 2022 FRQs</title>
   <style>
     :root {
       color-scheme: dark;
@@ -218,6 +218,29 @@
     .lesson[data-topic="9.8"]{--accent:var(--chartreuse);--accent-rgb:183,240,106}
     .lesson[data-topic="9.9"]{--accent:var(--gold);--accent-rgb:255,200,87}
     .lesson[data-topic="unit-9-review"]{--accent:var(--magenta);--accent-rgb:255,79,179}
+    .lesson[data-topic="10.1"]{--accent:var(--coral);--accent-rgb:255,93,143}
+    .lesson[data-topic="10.2"]{--accent:var(--orange);--accent-rgb:255,159,67}
+    .lesson[data-topic="10.3"]{--accent:var(--sun);--accent-rgb:255,228,94}
+    .lesson[data-topic="10.4"]{--accent:var(--lime);--accent-rgb:101,230,163}
+    .lesson[data-topic="10.5"]{--accent:var(--aqua);--accent-rgb:66,220,225}
+    .lesson[data-topic="10.6"]{--accent:var(--electric);--accent-rgb:114,167,255}
+    .lesson[data-topic="10.7"]{--accent:var(--violet);--accent-rgb:203,133,255}
+    .lesson[data-topic="10.8"]{--accent:var(--chartreuse);--accent-rgb:183,240,106}
+    .lesson[data-topic="10.9"]{--accent:var(--gold);--accent-rgb:255,200,87}
+    .lesson[data-topic="unit-10-mid-review"]{--accent:var(--magenta);--accent-rgb:255,79,179}
+    .lesson[data-topic="10.10"]{--accent:var(--coral);--accent-rgb:255,93,143}
+    .lesson[data-topic="10.11"]{--accent:var(--orange);--accent-rgb:255,159,67}
+    .lesson[data-topic="10.12"]{--accent:var(--sun);--accent-rgb:255,228,94}
+    .lesson[data-topic="10.13"]{--accent:var(--lime);--accent-rgb:101,230,163}
+    .lesson[data-topic="10.14"]{--accent:var(--aqua);--accent-rgb:66,220,225}
+    .lesson[data-topic="10.15"]{--accent:var(--violet);--accent-rgb:203,133,255}
+    .lesson[data-topic="unit-10-review"]{--accent:var(--magenta);--accent-rgb:255,79,179}
+    .lesson[data-topic="frq-2022-1"]{--accent:var(--coral);--accent-rgb:255,93,143}
+    .lesson[data-topic="frq-2022-2"]{--accent:var(--orange);--accent-rgb:255,159,67}
+    .lesson[data-topic="frq-2022-3"]{--accent:var(--sun);--accent-rgb:255,228,94}
+    .lesson[data-topic="frq-2022-4"]{--accent:var(--lime);--accent-rgb:101,230,163}
+    .lesson[data-topic="frq-2022-5"]{--accent:var(--aqua);--accent-rgb:66,220,225}
+    .lesson[data-topic="frq-2022-6"]{--accent:var(--violet);--accent-rgb:203,133,255}
     .lesson:hover{background:linear-gradient(90deg,rgba(var(--accent-rgb),.12),transparent 78%);box-shadow:inset 3px 0 0 var(--accent)}
     .lesson-number{color:var(--accent);font-family:var(--math);font-size:30px;font-variant-numeric:tabular-nums;text-shadow:0 0 24px rgba(var(--accent-rgb),.38)}
     .review-card .lesson-number{font-family:var(--sans);font-size:18px;font-weight:800;letter-spacing:.08em}
@@ -417,7 +440,7 @@
     .numeric-result{min-height:19px;margin:0;padding:0 0 1px 111px;color:var(--calculator);font-family:var(--math);font-size:11px;line-height:1.4}
     .numeric-result.error{color:var(--coral);font-family:var(--sans)}
     @media(max-width:900px){
-      .hero{grid-template-columns:1fr;gap:24px;min-height:auto;padding:62px 0 72px}
+      .hero{grid-template-columns:1fr;gap:24px;min-height:auto;padding:62px 0 72px;overflow:hidden}
       .math-stage{min-height:170px;place-items:start}
       .math-caption{left:0;bottom:0}
       .hero::before{right:-200px;top:250px}.hero::after{right:-110px;top:290px}
@@ -491,14 +514,14 @@
         <span class="brand-mark" aria-hidden="true">∫</span>
         <span>AP Calculus BC</span>
       </a>
-      <span class="year">2026–2027 · UNITS 1–9</span>
+      <span class="year">2026–2027 · UNITS 1–10 · 2022 FRQ</span>
     </div>
 
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-copy">
-        <p class="eyebrow">Topics 1.1 → 9.9</p>
-        <h1 id="page-title">Limits, Derivatives,<br>Integrals &amp; Curves</h1>
-        <p class="hero-cn">极限、导数、积分与曲线</p>
+        <p class="eyebrow">Topics 1.1 → 10.15 · 2022 FRQ</p>
+        <h1 id="page-title">Limits, Derivatives,<br>Integrals &amp; Series</h1>
+        <p class="hero-cn">极限、导数、积分与级数</p>
         <ol class="sequence" aria-label="Course material order">
           <li>Quiz</li>
           <li>Slides</li>
@@ -509,7 +532,7 @@
         <div class="formula derivative-formula" aria-label="d y over d x equals f prime of x">
           <span aria-hidden="true">dy/dx = f′(x)</span>
         </div>
-        <p class="math-caption">Approach · Differentiate · Accumulate · Trace</p>
+        <p class="math-caption">Approach · Differentiate · Accumulate · Expand</p>
       </div>
     </section>
   </header>
@@ -520,10 +543,10 @@
         <p class="section-kicker">Course map</p>
         <h2>Lessons</h2>
       </div>
-      <span class="lesson-count">96 lessons · 13 reviews</span>
+      <span class="lesson-count">111 lessons · 15 reviews · 6 FRQs</span>
     </div>
 
-    <section class="lesson-list" aria-label="AP Calculus BC Units 1 through 9">
+    <section class="lesson-list" aria-label="AP Calculus BC Units 1 through 10 and 2022 free-response practice">
       <article class="lesson" data-topic="1.1">
         <div class="lesson-number">1.1</div>
         <div class="lesson-title">
@@ -2801,6 +2824,263 @@
           </div>
         </details>
       </article>
+
+      <div class="unit-divider" role="separator">Unit 10 · Infinite Sequences and Series</div>
+
+      <article class="lesson" data-topic="10.1">
+        <div class="lesson-number">10.1</div>
+        <div class="lesson-title"><h3>Defining Convergent and Divergent Infinite Series</h3><p>定义收敛与发散的无穷级数</p></div>
+        <nav class="lesson-actions" aria-label="10.1 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.1_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.1_Defining_Convergent_and_Divergent_Infinite_Series_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.1/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/101-defining-convergent-and-divergent-infinite-series.html">Lesson</a><a href="resources/unit-10/10.1/packet.pdf">Packet</a><a href="resources/unit-10/10.1/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.2">
+        <div class="lesson-number">10.2</div>
+        <div class="lesson-title"><h3>Working with Geometric Series</h3><p>等比级数</p></div>
+        <nav class="lesson-actions" aria-label="10.2 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.2_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.2_Working_with_Geometric_Series_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.2/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/102-working-with-geometric-series.html">Lesson</a><a href="resources/unit-10/10.2/packet.pdf">Packet</a><a href="resources/unit-10/10.2/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.3">
+        <div class="lesson-number">10.3</div>
+        <div class="lesson-title"><h3>The nth Term Test for Divergence</h3><p>发散的第 n 项判别法</p></div>
+        <nav class="lesson-actions" aria-label="10.3 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.3_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.3_The_nth_Term_Test_for_Divergence_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.3/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/103-the-nth-term-test-for-divergence.html">Lesson</a><a href="resources/unit-10/10.3/packet.pdf">Packet</a><a href="resources/unit-10/10.3/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.4">
+        <div class="lesson-number">10.4</div>
+        <div class="lesson-title"><h3>Integral Test for Convergence</h3><p>积分判别法</p></div>
+        <nav class="lesson-actions" aria-label="10.4 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.4_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.4_Integral_Test_for_Convergence_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.4/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/104-integral-test-for-convergence.html">Lesson</a><a href="resources/unit-10/10.4/packet.pdf">Packet</a><a href="resources/unit-10/10.4/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.5">
+        <div class="lesson-number">10.5</div>
+        <div class="lesson-title"><h3>Harmonic Series and p-series</h3><p>调和级数与 p 级数</p></div>
+        <nav class="lesson-actions" aria-label="10.5 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.5_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.5_Harmonic_Series_and_p_series_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.5/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/105-harmonic-series-and-p-series.html">Lesson</a><a href="resources/unit-10/10.5/packet.pdf">Packet</a><a href="resources/unit-10/10.5/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.6">
+        <div class="lesson-number">10.6</div>
+        <div class="lesson-title"><h3>Comparison Tests for Convergence</h3><p>收敛性的比较判别法</p></div>
+        <nav class="lesson-actions" aria-label="10.6 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.6_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.6_Comparison_Tests_for_Convergence_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.6/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/106-comparison-tests-for-convergence.html">Lesson</a><a href="resources/unit-10/10.6/packet.pdf">Packet</a><a href="resources/unit-10/10.6/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.7">
+        <div class="lesson-number">10.7</div>
+        <div class="lesson-title"><h3>Alternating Series Test for Convergence</h3><p>交错级数判别法</p></div>
+        <nav class="lesson-actions" aria-label="10.7 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.7_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.7_Alternating_Series_Test_for_Convergence_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.7/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/107-alternating-series-test-for-convergence.html">Lesson</a><a href="resources/unit-10/10.7/packet.pdf">Packet</a><a href="resources/unit-10/10.7/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.8">
+        <div class="lesson-number">10.8</div>
+        <div class="lesson-title"><h3>Ratio Test for Convergence</h3><p>比值判别法</p></div>
+        <nav class="lesson-actions" aria-label="10.8 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.8_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.8_Ratio_Test_for_Convergence_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.8/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/108-ratio-test-for-convergence.html">Lesson</a><a href="resources/unit-10/10.8/packet.pdf">Packet</a><a href="resources/unit-10/10.8/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.9">
+        <div class="lesson-number">10.9</div>
+        <div class="lesson-title"><h3>Determining Absolute or Conditional Convergence</h3><p>判断绝对收敛或条件收敛</p></div>
+        <nav class="lesson-actions" aria-label="10.9 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.9_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.9_Determining_Absolute_or_Conditional_Convergence_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.9/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/109-determining-absolute-or-conditional-convergence.html">Lesson</a><a href="resources/unit-10/10.9/packet.pdf">Packet</a><a href="resources/unit-10/10.9/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson review-card" data-topic="unit-10-mid-review">
+        <div class="lesson-number">U10-MID</div>
+        <div class="lesson-title"><h3>Mid-Unit 10 Review</h3><p>第十单元期中复习</p></div>
+        <nav class="lesson-actions" aria-label="Mid-Unit 10 Review materials">
+          <a class="lesson-action" href="resources/unit-10/mid-unit-review/review.pdf" target="_blank" rel="noopener">Review</a>
+          <a class="lesson-action" href="resources/unit-10/mid-unit-review/solutions.pdf" target="_blank" rel="noopener">Key</a>
+          <a class="lesson-action homework" href="resources/unit-10/mid-unit-review/corrective.pdf" target="_blank" rel="noopener">CA</a>
+        </nav>
+        <details class="lesson-source"><summary>Official source</summary><div class="source-links"><a href="https://calculus.flippedmath.com/mid-unit-10-review.html">Review page</a><a href="resources/unit-10/mid-unit-review/flow-chart.pdf">Series Test Flow Chart</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.10">
+        <div class="lesson-number">10.10</div>
+        <div class="lesson-title"><h3>Alternating Series Error Bound</h3><p>交错级数误差界</p></div>
+        <nav class="lesson-actions" aria-label="10.10 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.10_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.10_Alternating_Series_Error_Bound_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.10/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/1010-alternating-series-error-bound.html">Lesson</a><a href="resources/unit-10/10.10/packet.pdf">Packet</a><a href="resources/unit-10/10.10/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.11">
+        <div class="lesson-number">10.11</div>
+        <div class="lesson-title"><h3>Finding Taylor Polynomial Approximations of Functions</h3><p>用泰勒多项式近似函数</p></div>
+        <nav class="lesson-actions" aria-label="10.11 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.11_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.11_Finding_Taylor_Polynomial_Approximations_of_Functions_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.11/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/1011-finding-taylor-polynomial-approximations-of-functions.html">Lesson</a><a href="resources/unit-10/10.11/packet.pdf">Packet</a><a href="resources/unit-10/10.11/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.12">
+        <div class="lesson-number">10.12</div>
+        <div class="lesson-title"><h3>Lagrange Error Bound</h3><p>拉格朗日误差界</p></div>
+        <nav class="lesson-actions" aria-label="10.12 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.12_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.12_Lagrange_Error_Bound_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.12/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/1012-lagrange-error-bound.html">Lesson</a><a href="resources/unit-10/10.12/packet.pdf">Packet</a><a href="resources/unit-10/10.12/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.13">
+        <div class="lesson-number">10.13</div>
+        <div class="lesson-title"><h3>Radius and Interval of Convergence of Power Series</h3><p>幂级数的收敛半径与收敛区间</p></div>
+        <nav class="lesson-actions" aria-label="10.13 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.13_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.13_Radius_and_Interval_of_Convergence_of_Power_Series_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.13/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/1013-radius-and-interval-of-convergence-of-power-series.html">Lesson</a><a href="resources/unit-10/10.13/packet.pdf">Packet</a><a href="resources/unit-10/10.13/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.14">
+        <div class="lesson-number">10.14</div>
+        <div class="lesson-title"><h3>Finding Taylor or Maclaurin Series for a Function</h3><p>求函数的泰勒级数或麦克劳林级数</p></div>
+        <nav class="lesson-actions" aria-label="10.14 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.14_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.14_Finding_Taylor_or_Maclaurin_Series_for_a_Function_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.14/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/1014-finding-taylor-or-maclaurin-series-for-a-function.html">Lesson</a><a href="resources/unit-10/10.14/packet.pdf">Packet</a><a href="resources/unit-10/10.14/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="10.15">
+        <div class="lesson-number">10.15</div>
+        <div class="lesson-title"><h3>Representing Functions as a Power Series</h3><p>用幂级数表示函数</p></div>
+        <nav class="lesson-actions" aria-label="10.15 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_10.15_Review_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_10.15_Representing_Functions_as_a_Power_Series_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/unit-10/10.15/ca1.pdf" target="_blank" rel="noopener">CA #1</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/1015-representing-functions-as-a-power-series.html">Lesson</a><a href="resources/unit-10/10.15/packet.pdf">Packet</a><a href="resources/unit-10/10.15/solutions.pdf">Solutions</a></div></details>
+      </article>
+
+      <article class="lesson review-card" data-topic="unit-10-review">
+        <div class="lesson-number">U10</div>
+        <div class="lesson-title"><h3>End of Unit 10 Review</h3><p>第10单元期末复习</p></div>
+        <nav class="lesson-actions" aria-label="End of Unit 10 Review materials">
+          <a class="lesson-action" href="resources/unit-10/end-of-unit-review/review.pdf" target="_blank" rel="noopener">Review</a>
+          <a class="lesson-action" href="resources/unit-10/end-of-unit-review/solutions.pdf" target="_blank" rel="noopener">Key</a>
+          <a class="lesson-action homework" href="resources/unit-10/end-of-unit-review/corrective.pdf" target="_blank" rel="noopener">CA</a>
+        </nav>
+        <details class="lesson-source"><summary>Official source</summary><div class="source-links"><a href="https://calculus.flippedmath.com/end-of-unit-10-review.html">Review page</a></div></details>
+      </article>
+
+      <div class="unit-divider" role="separator">AP Exam Practice · 2022 BC Free-Response</div>
+
+      <article class="lesson" data-topic="frq-2022-1">
+        <div class="lesson-number">Q1</div>
+        <div class="lesson-title"><h3>Toll-Plaza Accumulation</h3><p>收费站：速率累积与最大排队数 · Calculator required</p></div>
+        <nav class="lesson-actions" aria-label="2022 FRQ 1 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_1_Prep_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_1_Toll_Plaza_Accumulation_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/frq-2022-bc/question-1.pdf" target="_blank" rel="noopener">FRQ</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/2022-bc.html">Practice page</a><a href="resources/frq-2022-bc/questions.pdf">Full booklet</a><a href="resources/frq-2022-bc/scoring-question-1.pdf">Scoring</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="frq-2022-2">
+        <div class="lesson-number">Q2</div>
+        <div class="lesson-title"><h3>Parametric Particle Motion</h3><p>参数运动：斜率、速率、加速度、位置与路程 · Calculator required</p></div>
+        <nav class="lesson-actions" aria-label="2022 FRQ 2 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_2_Prep_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_2_Parametric_Particle_Motion_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/frq-2022-bc/question-2.pdf" target="_blank" rel="noopener">FRQ</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/2022-bc.html">Practice page</a><a href="resources/frq-2022-bc/questions.pdf">Full booklet</a><a href="resources/frq-2022-bc/scoring-question-2.pdf">Scoring</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="frq-2022-3">
+        <div class="lesson-number">Q3</div>
+        <div class="lesson-title"><h3>Reading the Graph of f′</h3><p>读导函数图像：面积、拐点与最值 · No calculator</p></div>
+        <nav class="lesson-actions" aria-label="2022 FRQ 3 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_3_Prep_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_3_Reading_the_Graph_of_f_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/frq-2022-bc/question-3.pdf" target="_blank" rel="noopener">FRQ</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/2022-bc.html">Practice page</a><a href="resources/frq-2022-bc/questions.pdf">Full booklet</a><a href="resources/frq-2022-bc/scoring-question-3.pdf">Scoring</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="frq-2022-4">
+        <div class="lesson-number">Q4</div>
+        <div class="lesson-title"><h3>Melting Cone: Rates, IVT &amp; Accumulation</h3><p>融化圆锥：变化率、介值与累积 · No calculator</p></div>
+        <nav class="lesson-actions" aria-label="2022 FRQ 4 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_4_Prep_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_4_Melting_Cone_Rates_IVT_Accumulation_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/frq-2022-bc/question-4.pdf" target="_blank" rel="noopener">FRQ</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/2022-bc.html">Practice page</a><a href="resources/frq-2022-bc/questions.pdf">Full booklet</a><a href="resources/frq-2022-bc/scoring-question-4.pdf">Scoring</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="frq-2022-5">
+        <div class="lesson-number">Q5</div>
+        <div class="lesson-title"><h3>Area, Cross Sections &amp; Improper Volume</h3><p>面积、截面体积与反常积分 · No calculator</p></div>
+        <nav class="lesson-actions" aria-label="2022 FRQ 5 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_5_Prep_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_5_Area_Cross_Sections_Improper_Volume_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/frq-2022-bc/question-5.pdf" target="_blank" rel="noopener">FRQ</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/2022-bc.html">Practice page</a><a href="resources/frq-2022-bc/questions.pdf">Full booklet</a><a href="resources/frq-2022-bc/scoring-question-5.pdf">Scoring</a></div></details>
+      </article>
+
+      <article class="lesson" data-topic="frq-2022-6">
+        <div class="lesson-number">Q6</div>
+        <div class="lesson-title"><h3>Power Series: Convergence, Error &amp; Derivative</h3><p>幂级数：收敛、误差与求导 · No calculator</p></div>
+        <nav class="lesson-actions" aria-label="2022 FRQ 6 materials">
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_6_Prep_5min_Quiz.html">Quiz</a>
+          <a class="lesson-action" href="AP_Calculus_BC_2022_FRQ_6_Power_Series_Convergence_Error_Derivative_English_Key_CN.html">Slides</a>
+          <a class="lesson-action homework" href="resources/frq-2022-bc/question-6.pdf" target="_blank" rel="noopener">FRQ</a>
+        </nav>
+        <details class="lesson-source"><summary>Official sources</summary><div class="source-links"><a href="https://calculus.flippedmath.com/2022-bc.html">Practice page</a><a href="resources/frq-2022-bc/questions.pdf">Full booklet</a><a href="resources/frq-2022-bc/scoring-question-6.pdf">Scoring</a></div></details>
+      </article>
     </section>
   </main>
 
@@ -3029,6 +3309,8 @@
   <script src="question-bank-unit7.js"></script>
   <script src="question-bank-unit8.js"></script>
   <script src="question-bank-unit9.js"></script>
+  <script src="question-bank-unit10.js"></script>
+  <script src="question-bank-frq-2022-bc.js"></script>
   <script>
     "use strict";
 
@@ -3044,7 +3326,9 @@
       window.AP_CALCULUS_QUESTION_BANK_6,
       window.AP_CALCULUS_QUESTION_BANK_7,
       window.AP_CALCULUS_QUESTION_BANK_8,
-      window.AP_CALCULUS_QUESTION_BANK_9
+      window.AP_CALCULUS_QUESTION_BANK_9,
+      window.AP_CALCULUS_QUESTION_BANK_10,
+      window.AP_CALCULUS_QUESTION_BANK_FRQ_2022_BC
     ].flatMap((bank) => Array.isArray(bank) ? bank : []);
     const questionDialog = byId("question-dialog");
     const pickerDialog = byId("picker-dialog");
