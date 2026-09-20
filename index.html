@@ -103,6 +103,33 @@
     .limit-sub{position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-family:var(--math);font-size:.25em;letter-spacing:.02em}
     .math-caption{position:absolute;bottom:24px;margin:0;color:rgba(169,184,206,.74);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
     main{padding:62px 0 140px}
+    .pace-section{margin:0 0 54px;padding:0 0 42px;border-bottom:1px solid var(--line)}
+    .pace-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:18px}
+    .pace-head h2{margin:0;font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:400;letter-spacing:-.02em}
+    .exam-chip{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid rgba(255,228,94,.38);border-radius:999px;background:rgba(255,228,94,.07);color:var(--sun);font-size:12px;font-weight:750;letter-spacing:.04em;text-decoration:none}
+    .exam-chip strong{font-family:var(--math);font-size:17px;font-weight:600}
+    .pace-dashboard{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:14px;margin-bottom:16px}
+    .pace-card{padding:22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,rgba(16,24,48,.88),rgba(9,13,29,.72));box-shadow:0 18px 60px rgba(0,0,0,.2)}
+    .pace-card-label{margin:0 0 8px;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .pace-status{display:flex;align-items:baseline;gap:12px;margin:0 0 13px}
+    .pace-status strong{font-family:var(--display);font-size:clamp(28px,4vw,44px);font-weight:400;line-height:1}
+    .pace-status span{color:var(--muted);font-size:13px}
+    .pace-meter{height:8px;overflow:hidden;border-radius:99px;background:rgba(185,204,235,.11)}
+    .pace-meter span{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--coral),var(--sun),var(--aqua),var(--violet));transition:width .35s ease}
+    .pace-now{margin:13px 0 0;color:var(--muted);font-size:13px}.pace-now strong{color:var(--text)}
+    .pace-control label{display:block;margin-bottom:9px;color:var(--muted);font-size:12px}
+    .pace-control select{width:100%;padding:11px 38px 11px 12px;border:1px solid var(--line-strong);border-radius:10px;background:var(--space-850);color:var(--text)}
+    .pace-verdict{margin:14px 0 0;padding-left:12px;border-left:3px solid var(--aqua);color:var(--text);font-size:14px}
+    .pace-verdict[data-state="ahead"]{border-color:var(--lime);color:var(--lime)}
+    .pace-verdict[data-state="behind"]{border-color:var(--coral);color:#ff9fba}
+    .pace-note{margin:10px 0 0;color:var(--muted);font-size:11px}
+    .pace-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:rgba(9,13,29,.62)}
+    .pace-table{width:100%;border-collapse:collapse;font-size:12px}
+    .pace-table th,.pace-table td{padding:11px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+    .pace-table th{color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+    .pace-table tr:last-child td{border-bottom:0}.pace-table tr.is-current{background:rgba(114,167,255,.1);box-shadow:inset 3px 0 var(--electric)}
+    .pace-table tr.is-past td:first-child{color:var(--lime)}
+    .pace-table .session-range{white-space:nowrap;color:var(--sun);font-family:var(--math);font-size:13px}
     .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:17px}
     .section-kicker{margin:0 0 5px;color:var(--sun);font-size:11px;font-weight:750;letter-spacing:.18em;text-transform:uppercase}
     .section-head h2{margin:0;font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:400;letter-spacing:-.02em}
@@ -441,6 +468,7 @@
     .numeric-result.error{color:var(--coral);font-family:var(--sans)}
     @media(max-width:900px){
       .hero{grid-template-columns:1fr;gap:24px;min-height:auto;padding:62px 0 72px;overflow:hidden}
+      .pace-head{align-items:flex-start;flex-direction:column}.pace-dashboard{grid-template-columns:1fr}.exam-chip{border-radius:12px}
       .math-stage{min-height:170px;place-items:start}
       .math-caption{left:0;bottom:0}
       .hero::before{right:-200px;top:250px}.hero::after{right:-110px;top:290px}
@@ -538,6 +566,42 @@
   </header>
 
   <main class="shell" id="lessons">
+    <section class="pace-section" id="course-progress" aria-labelledby="pace-title">
+      <div class="pace-head">
+        <div>
+          <p class="section-kicker">Calendar roadmap</p>
+          <h2 id="pace-title">Course Progress</h2>
+        </div>
+        <a class="exam-chip" href="https://apcentral.collegeboard.org/exam-administration-ordering-scores/exam-dates" target="_blank" rel="noopener">
+          AP Exam <strong>May 10, 2027</strong> · Session 1
+        </a>
+      </div>
+
+      <div class="pace-dashboard">
+        <div class="pace-card">
+          <p class="pace-card-label">Today’s planned position</p>
+          <p class="pace-status"><strong id="planned-session">Unit 1</strong><span id="planned-date">Plan begins Sep 21</span></p>
+          <div class="pace-meter" aria-hidden="true"><span id="pace-meter-fill"></span></div>
+          <p class="pace-now">Target: <strong id="planned-target">Unit 1 complete · ready for 2.1</strong></p>
+        </div>
+        <div class="pace-card pace-control">
+          <p class="pace-card-label">Actual classroom progress</p>
+          <label for="actual-session">Choose the latest unit completed</label>
+          <select id="actual-session"></select>
+          <p class="pace-verdict" id="pace-verdict" data-state="on">On plan · 按计划进行</p>
+          <p class="pace-note">Saved on this device. Update after class.</p>
+        </div>
+      </div>
+
+      <div class="pace-table-wrap">
+        <table class="pace-table">
+          <thead><tr><th>Dates</th><th>Class days</th><th>Sections / Pace</th><th>Target</th><th>Focus</th></tr></thead>
+          <tbody id="pace-table-body"></tbody>
+        </table>
+      </div>
+      <p class="pace-note">Fall dates follow the school calendar. Spring dates are estimates from the Feb 22 opening date and may shift around school events.</p>
+    </section>
+
     <div class="section-head">
       <div>
         <p class="section-kicker">Course map</p>
@@ -3315,6 +3379,75 @@
     "use strict";
 
     const byId = (id) => document.getElementById(id);
+    const coursePlan = [
+      { unit:2, start:"2026-09-21", end:"2026-09-30", dates:"Sep 21–30", days:"7", sections:"10 · 1.4/day", target:"Finish Unit 2", focus:"Derivative definition, notation, rules + checkpoint" },
+      { unit:3, start:"2026-10-08", end:"2026-10-16", dates:"Oct 8–16", days:"8", sections:"6 · 0.8/day", target:"Finish Unit 3", focus:"Chain rule, implicit differentiation + checkpoint" },
+      { unit:4, start:"2026-10-19", end:"2026-10-30", dates:"Oct 19–30", days:"10", sections:"7 · 0.7/day", target:"Finish Unit 4", focus:"Contextual applications of differentiation" },
+      { unit:5, start:"2026-11-02", end:"2026-11-13", dates:"Nov 2–13", days:"10", sections:"12 · 1.2/day", target:"Finish Unit 5", focus:"Analytical applications + unit checkpoint" },
+      { unit:6, start:"2026-11-23", end:"2026-12-11", dates:"Nov 23–Dec 11", days:"15", sections:"14 · 0.9/day", target:"Finish Unit 6", focus:"Accumulation, integration methods & applications" },
+      { unit:7, start:"2026-12-14", end:"2026-12-24", dates:"Dec 14–24", days:"9", sections:"9 · 1.0/day", target:"Finish Unit 7", focus:"Differential equations + checkpoint" },
+      { unit:7, start:"2027-01-04", end:"2027-01-15", dates:"Jan 4–15", days:"Exam weeks", sections:"—", target:"Semester Review", focus:"Final exam, corrections & prerequisite repair" },
+      { unit:8, start:"2027-02-22", end:"2027-03-05", dates:"Feb 22–Mar 5", days:"≈10", sections:"13 · ≈1.3/day", target:"Finish Unit 8", focus:"Applications of integration + checkpoint" },
+      { unit:9, start:"2027-03-08", end:"2027-03-17", dates:"Mar 8–17", days:"≈8", sections:"9 · ≈1.1/day", target:"Finish Unit 9", focus:"Parametric, polar & vector-valued functions" },
+      { unit:10, start:"2027-03-18", end:"2027-03-31", dates:"Mar 18–31", days:"≈10", sections:"15 · ≈1.5/day", target:"Finish Unit 10", focus:"Infinite series, power series & Taylor series" },
+      { unit:11, start:"2027-04-01", end:"2027-05-07", dates:"Apr 1–May 7", days:"≈27", sections:"Mixed review", target:"AP Exam Review", focus:"MCQ sets, timed FRQs, corrections & full practice" }
+    ];
+
+    function renderCourseProgress() {
+      const today = new Date();
+      const todayKey = [today.getFullYear(), String(today.getMonth() + 1).padStart(2,"0"), String(today.getDate()).padStart(2,"0")].join("-");
+      const completedUnits = coursePlan.filter((item) => item.unit <= 10 && item.target.startsWith("Finish") && item.end <= todayKey);
+      const plannedCompleted = completedUnits.length ? completedUnits[completedUnits.length - 1].unit : 1;
+      const activeItem = coursePlan.find((item) => todayKey >= item.start && todayKey <= item.end);
+      const nextItem = coursePlan.find((item) => item.start > todayKey);
+      const plannedItem = activeItem || nextItem;
+      const inReview = activeItem && activeItem.unit === 11;
+      byId("planned-session").textContent = inReview ? "AP Review" : "Unit " + plannedCompleted;
+      byId("planned-date").textContent = activeItem ? "current calendar target" : (nextItem ? "next block begins " + nextItem.dates.split("–")[0] : "AP Exam week");
+      byId("planned-target").textContent = plannedItem ? plannedItem.target + " · " + plannedItem.dates : "AP Calculus BC Exam · May 10";
+      byId("pace-meter-fill").style.width = (Math.min(plannedCompleted, 10) / 10 * 100) + "%";
+
+      const select = byId("actual-session");
+      for (let unit = 1; unit <= 11; unit += 1) {
+        const option = document.createElement("option");
+        option.value = String(unit);
+        option.textContent = unit === 11 ? "Units 1–10 complete · AP Review" : "Unit " + unit + " complete";
+        select.append(option);
+      }
+      const saved = Number.parseInt(window.localStorage.getItem("apbc-actual-unit") || "1", 10);
+      select.value = String(Number.isFinite(saved) && saved >= 1 && saved <= 11 ? saved : 1);
+
+      function updateVerdict() {
+        const actual = Number(select.value);
+        const comparisonTarget = inReview ? 11 : plannedCompleted;
+        const difference = actual - comparisonTarget;
+        const verdict = byId("pace-verdict");
+        window.localStorage.setItem("apbc-actual-unit", String(actual));
+        if (difference > 0) {
+          verdict.dataset.state = "ahead";
+          verdict.textContent = "Ahead by " + difference + " unit milestone" + (difference === 1 ? "" : "s") + " · 领先 " + difference + " 个单元节点";
+        } else if (difference < 0) {
+          verdict.dataset.state = "behind";
+          verdict.textContent = "Behind by " + Math.abs(difference) + " unit milestone" + (difference === -1 ? "" : "s") + " · 落后 " + Math.abs(difference) + " 个单元节点";
+        } else {
+          verdict.dataset.state = "on";
+          verdict.textContent = "On plan · 按计划进行";
+        }
+      }
+      select.addEventListener("change", updateVerdict);
+      updateVerdict();
+
+      const body = byId("pace-table-body");
+      coursePlan.forEach((item) => {
+        const row = document.createElement("tr");
+        if (activeItem === item) row.className = "is-current";
+        else if (todayKey > item.end) row.className = "is-past";
+        row.innerHTML = "<td>" + item.dates + "</td><td class=\"session-range\">" + item.days + "</td><td class=\"session-range\">" + item.sections + "</td><td>" + item.target + "</td><td>" + item.focus + "</td>";
+        body.append(row);
+      });
+    }
+    renderCourseProgress();
+
     const questionBank = [
       window.AP_CALCULUS_QUESTION_BANK,
       window.AP_CALCULUS_QUESTION_BANK_2A,
