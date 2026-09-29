@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>AP Calculus BC · Units 1–2 Quick Review</title>
+  <style>
+    :root{
+      --space:#070a16;--panel:#10172c;--panel-2:#0b1122;--text:#f6f7ff;--muted:#aebbd3;
+      --line:rgba(190,207,238,.18);--u1:#55dbe2;--u2:#ffcb5b;--pink:#ff70a9;
+      --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+      --serif:"Iowan Old Style","Palatino Linotype","Songti SC",Georgia,serif;
+      --math:"STIX Two Math","Cambria Math","Times New Roman",serif
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--space)}
+    body{margin:0;background:radial-gradient(circle at 10% 0,rgba(85,219,226,.13),transparent 32rem),radial-gradient(circle at 90% 4%,rgba(255,203,91,.12),transparent 30rem),var(--space);color:var(--text);font-family:var(--sans);line-height:1.45}
+    a{color:inherit}.shell{width:min(1220px,calc(100% - 34px));margin:auto}
+    header{padding:42px 0 30px;border-bottom:1px solid var(--line)}
+    .topline{display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:11px;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
+    .home{text-decoration:none}.home:hover{color:var(--text)}
+    h1{margin:24px 0 6px;font-family:var(--serif);font-size:clamp(38px,6vw,68px);font-weight:400;letter-spacing:-.04em;line-height:1}
+    .subtitle{margin:0;color:var(--muted);font-size:15px}
+    .unit-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:24px 0 54px}
+    .unit{--accent:var(--u1);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:14px;background:linear-gradient(155deg,rgba(16,23,44,.96),rgba(11,17,34,.9));overflow:hidden}
+    .unit.u2{--accent:var(--u2)}
+    .unit-head{padding:22px 24px 18px;border-bottom:1px solid var(--line)}
+    .unit-label{margin:0 0 5px;color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    h2{margin:0;font-family:var(--serif);font-size:31px;font-weight:400}.zh{color:var(--muted);font-size:.58em}
+    .block{padding:19px 24px;border-bottom:1px solid var(--line)}.block:last-child{border-bottom:0}
+    h3{margin:0 0 12px;color:var(--accent);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+    .terms{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;margin:0;padding:0;list-style:none}
+    .terms li{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px dotted rgba(190,207,238,.14);font-size:12px}
+    .terms span:last-child{color:var(--muted);white-space:nowrap}
+    .formula-list{display:grid;gap:9px}.formula{padding:10px 12px;border-left:3px solid var(--accent);background:rgba(255,255,255,.025)}
+    .math{font-family:var(--math);font-size:18px;line-height:1.35}.note{display:block;margin-top:3px;color:var(--muted);font-size:11px}
+    .frac{display:inline-grid;grid-template-rows:auto auto;vertical-align:middle;text-align:center;line-height:1.05}.frac>span:first-child{padding:0 .18em .1em;border-bottom:1px solid currentColor}.frac>span:last-child{padding:.1em .18em 0}
+    .rules{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rules .formula{min-height:57px}
+    .compact{font-size:16px}.arrow{color:var(--pink)}
+    footer{padding:20px 0 36px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:820px){.unit-grid{grid-template-columns:1fr}.terms{grid-template-columns:1fr}.topline{flex-direction:column}.unit{border-radius:10px}}
+    @media(max-width:480px){.shell{width:min(100% - 20px,1220px)}header{padding-top:28px}.unit-grid{gap:12px;padding-top:16px}.unit-head,.block{padding-left:17px;padding-right:17px}.rules{grid-template-columns:1fr}}
+    @media print{
+      :root{color-scheme:light;--space:#fff;--panel:#fff;--panel-2:#fff;--text:#111;--muted:#555;--line:#bbb;--u1:#126a72;--u2:#8b5b00}
+      @page{size:A4;margin:10mm}body{background:#fff}.shell{width:100%}header{padding:0 0 8mm}.topline .home{display:none}h1{font-size:32pt}.subtitle{font-size:10pt}
+      .unit-grid{display:block;padding:8mm 0 0}.unit{break-after:page;border:1px solid #aaa;border-top:4px solid var(--accent);border-radius:0;background:#fff}.unit:last-child{break-after:auto}
+      .unit-head{padding:5mm 6mm}.block{padding:4mm 6mm}.terms{grid-template-columns:1fr 1fr}.terms li{font-size:8.5pt}.math{font-size:12pt}.note{font-size:8pt}.formula{padding:2.5mm 3mm;background:#fff}footer{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <div class="topline"><a class="home" href="index.html">← Course Home</a><span>AP Calculus BC · Quick Reference</span></div>
+    <h1>Units 1–2 Quick Review</h1>
+    <p class="subtitle">Limits, Continuity &amp; Differentiation · 极限、连续与导数</p>
+  </header>
+
+  <main class="shell unit-grid">
+    <section class="unit u1" aria-labelledby="unit-1-title">
+      <div class="unit-head">
+        <p class="unit-label">Unit 1</p>
+        <h2 id="unit-1-title">Limits &amp; Continuity <span class="zh">极限与连续</span></h2>
+      </div>
+
+      <div class="block">
+        <h3>Key Words · 重要单词</h3>
+        <ul class="terms">
+          <li><span>limit</span><span>极限</span></li><li><span>approach</span><span>趋近</span></li>
+          <li><span>left-hand limit</span><span>左极限</span></li><li><span>right-hand limit</span><span>右极限</span></li>
+          <li><span>direct substitution</span><span>直接代入</span></li><li><span>indeterminate form</span><span>未定式</span></li>
+          <li><span>factor</span><span>因式分解</span></li><li><span>rationalize</span><span>有理化</span></li>
+          <li><span>Squeeze Theorem</span><span>夹逼定理</span></li><li><span>continuous</span><span>连续</span></li>
+          <li><span>discontinuity</span><span>间断点</span></li><li><span>removable discontinuity</span><span>可去间断点</span></li>
+          <li><span>jump discontinuity</span><span>跳跃间断点</span></li><li><span>vertical asymptote</span><span>竖直渐近线</span></li>
+          <li><span>horizontal asymptote</span><span>水平渐近线</span></li><li><span>Intermediate Value Theorem</span><span>介值定理</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Limits · 极限</h3>
+        <div class="formula-list">
+          <div class="formula"><span class="math">lim<sub>x→a</sub> f(x) = L</span><span class="note">As x approaches a, f(x) approaches L.</span></div>
+          <div class="formula"><span class="math">lim<sub>x→a⁻</sub> f(x) = lim<sub>x→a⁺</sub> f(x) = L <span class="arrow">⇒</span> lim<sub>x→a</sub> f(x) = L</span></div>
+          <div class="formula"><span class="math"><span class="frac"><span>0</span><span>0</span></span></span><span class="note">Indeterminate form · factor, rationalize, or find a common denominator.</span></div>
+          <div class="formula"><span class="math">lim<sub>x→0</sub> <span class="frac"><span>sin x</span><span>x</span></span> = 1</span><span class="note">Angles are measured in radians.</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>Continuity · 连续</h3>
+        <div class="formula-list">
+          <div class="formula"><span class="math">① f(a) exists &nbsp; ② lim<sub>x→a</sub> f(x) exists &nbsp; ③ lim<sub>x→a</sub> f(x) = f(a)</span></div>
+          <div class="formula"><span class="math">g(x) ≤ f(x) ≤ h(x), &nbsp; lim g(x) = lim h(x) = L <span class="arrow">⇒</span> lim f(x) = L</span><span class="note">Squeeze Theorem · 夹逼定理</span></div>
+          <div class="formula"><span class="math">lim<sub>x→a±</sub> f(x) = ±∞ <span class="arrow">⇒</span> x = a</span><span class="note">Vertical asymptote · 竖直渐近线</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>Limits at Infinity &amp; IVT</h3>
+        <div class="formula-list">
+          <div class="formula compact"><span class="math">degree(top) &lt; degree(bottom) <span class="arrow">⇒</span> limit = 0</span></div>
+          <div class="formula compact"><span class="math">degree(top) = degree(bottom) <span class="arrow">⇒</span> ratio of leading coefficients</span></div>
+          <div class="formula"><span class="math">f continuous on [a,b], &nbsp; N between f(a), f(b) <span class="arrow">⇒</span> ∃c∈(a,b): f(c)=N</span><span class="note">Intermediate Value Theorem · 介值定理</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit u2" aria-labelledby="unit-2-title">
+      <div class="unit-head">
+        <p class="unit-label">Unit 2</p>
+        <h2 id="unit-2-title">Differentiation <span class="zh">导数</span></h2>
+      </div>
+
+      <div class="block">
+        <h3>Key Words · 重要单词</h3>
+        <ul class="terms">
+          <li><span>derivative</span><span>导数</span></li><li><span>differentiate</span><span>求导</span></li>
+          <li><span>average rate of change</span><span>平均变化率</span></li><li><span>instantaneous rate of change</span><span>瞬时变化率</span></li>
+          <li><span>difference quotient</span><span>差商</span></li><li><span>secant line</span><span>割线</span></li>
+          <li><span>tangent line</span><span>切线</span></li><li><span>slope</span><span>斜率</span></li>
+          <li><span>differentiable</span><span>可导</span></li><li><span>power rule</span><span>幂法则</span></li>
+          <li><span>product rule</span><span>乘积法则</span></li><li><span>quotient rule</span><span>商法则</span></li>
+          <li><span>numerator</span><span>分子</span></li><li><span>denominator</span><span>分母</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Rate of Change &amp; Definition</h3>
+        <div class="formula-list">
+          <div class="formula"><span class="math">Average rate = <span class="frac"><span>f(b) − f(a)</span><span>b − a</span></span></span><span class="note">Slope of a secant line · 割线斜率</span></div>
+          <div class="formula"><span class="math">f′(a) = lim<sub>h→0</sub> <span class="frac"><span>f(a+h) − f(a)</span><span>h</span></span></span></div>
+          <div class="formula"><span class="math">f′(x) = lim<sub>h→0</sub> <span class="frac"><span>f(x+h) − f(x)</span><span>h</span></span></span></div>
+          <div class="formula"><span class="math">Differentiable <span class="arrow">⇒</span> Continuous</span><span class="note">可导必连续；连续不一定可导。</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>Basic Rules · 基本法则</h3>
+        <div class="rules">
+          <div class="formula"><span class="math">(c)′ = 0</span></div>
+          <div class="formula"><span class="math">(x<sup>n</sup>)′ = nx<sup>n−1</sup></span></div>
+          <div class="formula"><span class="math">(cf)′ = cf′</span></div>
+          <div class="formula"><span class="math">(f ± g)′ = f′ ± g′</span></div>
+          <div class="formula"><span class="math">(fg)′ = f′g + fg′</span></div>
+          <div class="formula"><span class="math">(<span class="frac"><span>f</span><span>g</span></span>)′ = <span class="frac"><span>f′g − fg′</span><span>g²</span></span></span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>Essential Derivatives · 必背导数</h3>
+        <div class="rules">
+          <div class="formula"><span class="math">(sin x)′ = cos x</span></div>
+          <div class="formula"><span class="math">(cos x)′ = −sin x</span></div>
+          <div class="formula"><span class="math">(e<sup>x</sup>)′ = e<sup>x</sup></span></div>
+          <div class="formula"><span class="math">(ln x)′ = <span class="frac"><span>1</span><span>x</span></span></span></div>
+          <div class="formula"><span class="math">(tan x)′ = sec²x</span></div>
+          <div class="formula"><span class="math">(cot x)′ = −csc²x</span></div>
+          <div class="formula"><span class="math">(sec x)′ = sec x tan x</span></div>
+          <div class="formula"><span class="math">(csc x)′ = −csc x cot x</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>Tangent Line &amp; Table Estimate</h3>
+        <div class="formula-list">
+          <div class="formula"><span class="math">y − f(a) = f′(a)(x − a)</span><span class="note">Tangent line equation · 切线方程</span></div>
+          <div class="formula"><span class="math">f′(a) ≈ <span class="frac"><span>f(a+h) − f(a−h)</span><span>2h</span></span></span><span class="note">Centered estimate from a table · 表格中心差分</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">AP Calculus BC · Units 1–2 Quick Reference</footer>
+</body>
+</html>
