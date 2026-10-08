@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>AP Calculus BC · Precalculus Review</title>
+  <style>
+    :root{--bg:#070a16;--panel:#10172c;--text:#f7f8ff;--muted:#aebbd3;--line:rgba(190,207,238,.18);--log:#65e6a3;--trig:#ffcb5b;--pink:#ff70a9;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;--serif:"Iowan Old Style","Palatino Linotype","Songti SC",Georgia,serif;--math:"STIX Two Math","Cambria Math","Times New Roman",serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;background:radial-gradient(circle at 8% 0,rgba(101,230,163,.13),transparent 30rem),radial-gradient(circle at 92% 2%,rgba(255,203,91,.12),transparent 30rem),var(--bg);color:var(--text);font-family:var(--sans);line-height:1.45}a{color:inherit}.shell{width:min(1220px,calc(100% - 34px));margin:auto}
+    header{padding:40px 0 28px;border-bottom:1px solid var(--line)}.topline{display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:11px;font-weight:750;letter-spacing:.13em;text-transform:uppercase}.home{text-decoration:none}h1{margin:22px 0 6px;font-family:var(--serif);font-size:clamp(38px,6vw,66px);font-weight:400;letter-spacing:-.04em;line-height:1}.subtitle{margin:0;color:var(--muted)}
+    .topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:24px 0}.topic{--accent:var(--log);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:14px;background:linear-gradient(155deg,rgba(16,23,44,.96),rgba(11,17,34,.9));overflow:hidden}.topic.trig{--accent:var(--trig)}.topic-head{padding:22px 24px 17px;border-bottom:1px solid var(--line)}.label{margin:0 0 5px;color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h2{margin:0;font-family:var(--serif);font-size:31px;font-weight:400}.zh{color:var(--muted);font-size:.58em}.block{padding:18px 24px;border-bottom:1px solid var(--line)}.block:last-child{border-bottom:0}h3{margin:0 0 11px;color:var(--accent);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+    .terms{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;margin:0;padding:0;list-style:none}.terms li{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px dotted rgba(190,207,238,.14);font-size:12px}.terms span:last-child{color:var(--muted);white-space:nowrap}.formula-list{display:grid;gap:8px}.formula{padding:9px 11px;border-left:3px solid var(--accent);background:rgba(255,255,255,.025)}.math{font-family:var(--math);font-size:18px;line-height:1.35}.note{display:block;margin-top:3px;color:var(--muted);font-size:11px}.frac{display:inline-grid;grid-template-rows:auto auto;vertical-align:middle;text-align:center;line-height:1.05}.frac>span:first-child{padding:0 .18em .1em;border-bottom:1px solid currentColor}.frac>span:last-child{padding:.1em .18em 0}.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}.table{width:100%;border-collapse:collapse;font-family:var(--math);font-size:13px}.table th,.table td{padding:7px 5px;border-bottom:1px solid var(--line);text-align:center}.table th{color:var(--accent)}
+    .practice{padding:8px 0 55px}.practice-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:15px 0}.practice h2{font-size:35px}.answer-button{padding:8px 12px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;font:inherit;font-size:12px}.problems{display:grid;grid-template-columns:1fr 1fr;gap:12px}.problem-set{border:1px solid var(--line);border-radius:12px;background:rgba(16,23,44,.8);padding:18px 20px}.problem-set h3{font-size:13px}.problem-set ol{margin:0;padding-left:24px}.problem-set li{padding:7px 0 9px;font-family:var(--math);font-size:17px}.problem-set details{margin-top:5px;font-family:var(--sans);font-size:12px;color:var(--muted)}.problem-set summary{color:var(--accent);cursor:pointer;font-weight:750}.answer{margin:6px 0 0;padding:7px 9px;border-left:2px solid var(--accent);background:rgba(255,255,255,.025)}footer{padding:18px 0 32px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;text-align:center}
+    @media(max-width:820px){.topic-grid,.problems{grid-template-columns:1fr}.terms{grid-template-columns:1fr}.topline{flex-direction:column}.topic{border-radius:10px}}
+    @media(max-width:480px){.shell{width:min(100% - 20px,1220px)}.topic-head,.block{padding-left:17px;padding-right:17px}.two{grid-template-columns:1fr}.practice-head{align-items:start;flex-direction:column}}
+    @media print{:root{color-scheme:light;--bg:#fff;--panel:#fff;--text:#111;--muted:#555;--line:#bbb;--log:#176b48;--trig:#8b5b00}@page{size:A4;margin:10mm}body{background:#fff}.shell{width:100%}header{padding:0 0 6mm}.topline .home,.answer-button{display:none}h1{font-size:30pt}.topic-grid{display:block;padding:6mm 0}.topic{break-after:page;border-radius:0;background:#fff;margin:0}.topic:last-child{break-after:auto}.topic-head{padding:4mm 5mm}.block{padding:3.5mm 5mm}.terms{grid-template-columns:1fr 1fr}.terms li{font-size:8pt}.formula{background:#fff}.math{font-size:11pt}.note{font-size:7.5pt}.practice{break-before:page;padding:0}.problem-set{background:#fff;break-inside:avoid}.problem-set details{display:none}footer{display:none}}
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <div class="topline"><a class="home" href="index.html">← Course Home</a><span>AP Calculus BC · Precalculus Toolkit</span></div>
+    <h1>Logarithms &amp; Trigonometry</h1>
+    <p class="subtitle">Precalculus Review · 对数与三角函数复习</p>
+  </header>
+
+  <main class="shell">
+    <div class="topic-grid">
+      <section class="topic" aria-labelledby="log-title">
+        <div class="topic-head"><p class="label">Logarithms</p><h2 id="log-title">Logarithmic Functions <span class="zh">对数函数</span></h2></div>
+        <div class="block"><h3>Key Words · 重要单词</h3><ul class="terms">
+          <li><span>exponential function</span><span>指数函数</span></li><li><span>logarithmic function</span><span>对数函数</span></li><li><span>base</span><span>底数</span></li><li><span>exponent</span><span>指数</span></li><li><span>natural logarithm</span><span>自然对数</span></li><li><span>inverse function</span><span>反函数</span></li><li><span>domain</span><span>定义域</span></li><li><span>vertical asymptote</span><span>竖直渐近线</span></li>
+        </ul></div>
+        <div class="block"><h3>Definition &amp; Inverse</h3><div class="formula-list">
+          <div class="formula"><span class="math">log<sub>b</sub>x = y &nbsp; ⇔ &nbsp; b<sup>y</sup> = x</span><span class="note">b &gt; 0, b ≠ 1, x &gt; 0</span></div>
+          <div class="formula"><span class="math">ln x = log<sub>e</sub>x</span></div>
+          <div class="formula"><span class="math">log<sub>b</sub>(b<sup>x</sup>) = x, &nbsp; b<sup>log<sub>b</sub>x</sup> = x</span></div>
+          <div class="formula"><span class="math">log<sub>b</sub>x = <span class="frac"><span>ln x</span><span>ln b</span></span></span><span class="note">Change of base · 换底公式</span></div>
+        </div></div>
+        <div class="block"><h3>Log Laws · 对数法则</h3><div class="formula-list">
+          <div class="formula"><span class="math">log<sub>b</sub>(MN) = log<sub>b</sub>M + log<sub>b</sub>N</span></div>
+          <div class="formula"><span class="math">log<sub>b</sub>(M/N) = log<sub>b</sub>M − log<sub>b</sub>N</span></div>
+          <div class="formula"><span class="math">log<sub>b</sub>(M<sup>p</sup>) = p log<sub>b</sub>M</span></div>
+        </div></div>
+        <div class="block"><h3>Graph &amp; Equations</h3><div class="formula-list">
+          <div class="formula"><span class="math">y = log<sub>b</sub>x</span><span class="note">Domain: x &gt; 0 · Range: all real numbers · asymptote: x = 0</span></div>
+          <div class="formula"><span class="math">b<sup>f(x)</sup> = b<sup>g(x)</sup> ⇒ f(x)=g(x)</span></div>
+          <div class="formula"><span class="math">log<sub>b</sub>f(x)=log<sub>b</sub>g(x) ⇒ f(x)=g(x)</span><span class="note">Check that every logarithm argument is positive.</span></div>
+        </div></div>
+      </section>
+
+      <section class="topic trig" aria-labelledby="trig-title">
+        <div class="topic-head"><p class="label">Trigonometry</p><h2 id="trig-title">Trigonometric Functions <span class="zh">三角函数</span></h2></div>
+        <div class="block"><h3>Key Words · 重要单词</h3><ul class="terms">
+          <li><span>radian</span><span>弧度</span></li><li><span>unit circle</span><span>单位圆</span></li><li><span>reference angle</span><span>参考角</span></li><li><span>quadrant</span><span>象限</span></li><li><span>amplitude</span><span>振幅</span></li><li><span>period</span><span>周期</span></li><li><span>reciprocal identity</span><span>倒数恒等式</span></li><li><span>Pythagorean identity</span><span>勾股恒等式</span></li>
+        </ul></div>
+        <div class="block"><h3>Radians &amp; Unit Circle</h3><div class="formula-list">
+          <div class="formula"><span class="math">180° = π radians</span></div>
+          <div class="formula"><span class="math">degrees × <span class="frac"><span>π</span><span>180</span></span> = radians</span></div>
+          <div class="formula"><span class="math">radians × <span class="frac"><span>180</span><span>π</span></span> = degrees</span></div>
+          <div class="formula"><span class="math">(x,y) = (cos θ, sin θ), &nbsp; tan θ = y/x</span></div>
+        </div></div>
+        <div class="block"><h3>Exact Values · 精确值</h3><table class="table"><thead><tr><th>θ</th><th>0</th><th>π/6</th><th>π/4</th><th>π/3</th><th>π/2</th></tr></thead><tbody><tr><td>sin θ</td><td>0</td><td>1/2</td><td>√2/2</td><td>√3/2</td><td>1</td></tr><tr><td>cos θ</td><td>1</td><td>√3/2</td><td>√2/2</td><td>1/2</td><td>0</td></tr><tr><td>tan θ</td><td>0</td><td>√3/3</td><td>1</td><td>√3</td><td>undefined</td></tr></tbody></table></div>
+        <div class="block"><h3>Identities · 恒等式</h3><div class="two">
+          <div class="formula"><span class="math">tan x = <span class="frac"><span>sin x</span><span>cos x</span></span></span></div><div class="formula"><span class="math">cot x = <span class="frac"><span>cos x</span><span>sin x</span></span></span></div>
+          <div class="formula"><span class="math">sec x = 1/cos x</span></div><div class="formula"><span class="math">csc x = 1/sin x</span></div>
+          <div class="formula"><span class="math">sin²x + cos²x = 1</span></div><div class="formula"><span class="math">1 + tan²x = sec²x</span></div>
+          <div class="formula"><span class="math">1 + cot²x = csc²x</span></div>
+        </div></div>
+        <div class="block"><h3>Graphs · 图像</h3><div class="formula-list">
+          <div class="formula"><span class="math">y = A sin(Bx+C)+D</span></div>
+          <div class="formula"><span class="math">amplitude = |A|, &nbsp; period = <span class="frac"><span>2π</span><span>|B|</span></span>, &nbsp; midline: y=D</span></div>
+          <div class="formula"><span class="math">tan(Bx) period = π/|B|</span></div>
+        </div></div>
+      </section>
+    </div>
+
+    <section class="practice" aria-labelledby="practice-title">
+      <div class="practice-head"><div><p class="label">Practice</p><h2 id="practice-title">Quick Practice <span class="zh">快速练习</span></h2></div><button class="answer-button" id="toggle-all" type="button">Show All Answers</button></div>
+      <div class="problems">
+        <article class="problem-set"><h3>Logarithms · 对数</h3><ol>
+          <li>Evaluate: log<sub>2</sub>32.<details><summary>Answer</summary><p class="answer">5, because 2<sup>5</sup>=32.</p></details></li>
+          <li>Expand: ln(3x²/√y).<details><summary>Answer</summary><p class="answer">ln 3 + 2ln x − ½ln y.</p></details></li>
+          <li>Condense: 2ln x − ln(x−1).<details><summary>Answer</summary><p class="answer">ln(x²/(x−1)).</p></details></li>
+          <li>Solve: 3<sup>2x−1</sup>=27.<details><summary>Answer</summary><p class="answer">27=3³, so 2x−1=3 and x=2.</p></details></li>
+          <li>Solve: ln(x−2)=1.<details><summary>Answer</summary><p class="answer">x−2=e, so x=e+2.</p></details></li>
+          <li>Find the domain: f(x)=ln(5−2x).<details><summary>Answer</summary><p class="answer">5−2x&gt;0, so x&lt;5/2.</p></details></li>
+        </ol></article>
+        <article class="problem-set"><h3>Trigonometry · 三角函数</h3><ol>
+          <li>Convert 225° to radians.<details><summary>Answer</summary><p class="answer">225°·π/180° = 5π/4.</p></details></li>
+          <li>Find sin(5π/6), cos(5π/6), and tan(5π/6).<details><summary>Answer</summary><p class="answer">1/2, −√3/2, −√3/3.</p></details></li>
+          <li>Simplify: (1−cos²x)/sin x.<details><summary>Answer</summary><p class="answer">sin²x/sin x = sin x (where defined).</p></details></li>
+          <li>Solve sin x=√3/2 on [0,2π).<details><summary>Answer</summary><p class="answer">x=π/3, 2π/3.</p></details></li>
+          <li>For y=−3cos(2x)+1, give amplitude, period, and midline.<details><summary>Answer</summary><p class="answer">Amplitude 3; period π; midline y=1.</p></details></li>
+          <li>Evaluate: arctan(−1).<details><summary>Answer</summary><p class="answer">−π/4.</p></details></li>
+        </ol></article>
+      </div>
+    </section>
+  </main>
+  <footer class="shell">AP Calculus BC · Precalculus Review</footer>
+  <script>
+    const button=document.getElementById("toggle-all");
+    button.addEventListener("click",()=>{const details=[...document.querySelectorAll("details")];const open=details.some(item=>!item.open);details.forEach(item=>item.open=open);button.textContent=open?"Hide All Answers":"Show All Answers"});
+  </script>
+</body>
+</html>
