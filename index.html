@@ -78,6 +78,10 @@
     .brand{display:flex;align-items:center;gap:11px;color:var(--text);font-size:12px;font-weight:750;letter-spacing:.15em;text-decoration:none;text-transform:uppercase}
     .brand-mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid transparent;border-radius:50%;background:linear-gradient(var(--space-900),var(--space-900)) padding-box,conic-gradient(from 25deg,var(--coral),var(--sun),var(--aqua),var(--violet),var(--coral)) border-box;color:var(--sun);font-family:var(--math);font-size:17px;box-shadow:0 0 20px rgba(114,167,255,.16)}
     .year{color:var(--muted);font-size:12px;letter-spacing:.08em}
+    .topbar-tools{display:flex;align-items:center;gap:20px}
+    .course-link{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;border:1px solid rgba(101,230,163,.45);border-radius:8px;color:var(--lime);font-size:13px;font-weight:750;text-decoration:none}
+    .course-link:hover{background:rgba(101,230,163,.1)}
+    .course-link:focus-visible{outline:2px solid var(--focus);outline-offset:4px}
     .hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.74fr);gap:56px;align-items:center;min-height:500px;padding:72px 0 82px;border-bottom:1px solid var(--line)}
     .hero::before,.hero::after{content:"";position:absolute;pointer-events:none;border:1px solid rgba(255,228,94,.24);border-radius:50%}
     .hero::before{right:-90px;top:68px;width:500px;height:300px;transform:rotate(-14deg)}
@@ -542,7 +546,10 @@
         <span class="brand-mark" aria-hidden="true">∫</span>
         <span>AP Calculus BC</span>
       </a>
-      <span class="year">2026–2027 · UNITS 1–10 · 2022 FRQ</span>
+      <div class="topbar-tools">
+        <span class="year">2026–2027 · UNITS 1–10 · 2022 FRQ</span>
+        <a class="course-link" href="precal/" aria-label="Precal · AP Precalculus resources">Precal ↗</a>
+      </div>
     </div>
 
     <section class="hero" aria-labelledby="page-title">

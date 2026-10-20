@@ -12,6 +12,12 @@ The 2022 BC FRQ section follows the same Quiz → Slides sequence, then links to
 
 Open `index.html` locally or through GitHub Pages.
 
+## Precalculus
+
+The homepage's **Precal** link opens `precal/index.html`. Topic 1.12, Transformations of Functions, includes an online slide viewer, the original editable PowerPoint, and the uploaded PDF notes. The viewer supports arrow keys, Page Up / Page Down, Space, slide selection, and fullscreen. Slides 1–16 form the 40-minute lesson; slides 17–19 are supplementary.
+
+The original PPTX and PDF are stored under `resources/precal/1.12/`. The online viewer uses slide images rendered from the same PowerPoint, with no external document-viewing service.
+
 ## Classroom tools
 
 - Random Question — 702 English-first prompts covering Topics 1.1–10.15 and the 2022 BC FRQs, with key Chinese hints and toggle answers.
