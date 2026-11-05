@@ -1,0 +1,19 @@
+{
+  "name": "ap-calculus-visitor-stats",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-11-05",
+  "workers_dev": true,
+  "observability": { "enabled": false },
+  "rules": [{ "type": "Text", "globs": ["**/*.html", "**/admin.js"], "fallthrough": true }],
+  "vars": {
+    "SITE_ORIGIN": "https://wenatnyu.github.io",
+    "SITE_BASE": "/ap-calculus-bc-2026/"
+  },
+  "triggers": { "crons": ["15 19 * * *"] },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "ap-calculus-visitors",
+    "database_id": "2fa90fe3-bc43-406b-9c3e-ab956b25705e",
+    "migrations_dir": "migrations"
+  }]
+}

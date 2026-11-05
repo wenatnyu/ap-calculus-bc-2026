@@ -18,6 +18,7 @@
   <meta name="twitter:description" content="Topics 1.1–10.15 · 2022 FRQ 1–6 · Quiz → Slides → Practice">
   <meta name="twitter:image" content="https://wenatnyu.github.io/ap-calculus-bc-2026/assets/ap-calculus-units1-5-og.png">
   <title>AP Calculus BC · Units 1–10 + 2022 FRQs</title>
+  <link rel="stylesheet" href="assets/site-extras.css">
   <style>
     :root {
       color-scheme: dark;
@@ -577,6 +578,20 @@
   </header>
 
   <main class="shell" id="lessons">
+    <section class="site-info" aria-label="Contact and visitor statistics">
+      <div class="site-info-card" id="contact">
+        <h2>Contact</h2>
+        <a class="contact-email" href="mailto:wenyin@nyu.edu">wenyin@nyu.edu ↗</a>
+        <div class="wechat-line"><span>WeChat <strong>wutsupman</strong></span><button type="button" id="copy-wechat" aria-label="Copy WeChat ID wutsupman">Copy</button><span id="copy-status" role="status" aria-live="polite"></span></div>
+      </div>
+      <div class="site-info-card">
+        <h2>Site visits</h2>
+        <div class="visit-numbers"><div><strong id="visit-today">—</strong><span>Today</span></div><div><strong id="visit-total">—</strong><span>All time</span></div></div>
+        <p class="visit-caption" id="visit-status">Page views · Home &amp; Notes · Shanghai time</p>
+        <details class="visit-privacy"><summary>About these statistics</summary><p>统计首页和 Notes 页的浏览次数；刷新会再次计数。后台记录访问时间、页面、IP 与国家/地区，IP 明细仅教师可见，保留 30 天。累计浏览次数长期保留，不使用追踪 Cookie。校园网络可能共用 IP，独立 IP 数不等于人数。</p></details>
+        <a class="teacher-stats" id="teacher-stats" hidden target="_blank" rel="noopener">Teacher stats ↗</a>
+      </div>
+    </section>
     <section class="pace-section" id="course-progress" aria-labelledby="pace-title">
       <div class="pace-head">
         <div>
@@ -4709,5 +4724,6 @@
     });
     drawMathSky();
   </script>
+  <script src="assets/site-analytics.js" data-endpoint="https://ap-calculus-visitor-stats.igcs0478-private-analytics.workers.dev" defer></script>
 </body>
 </html>

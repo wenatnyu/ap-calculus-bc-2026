@@ -18,6 +18,14 @@ The homepage's **Precal** link opens `precal/index.html`. Topic 1.12, Transforma
 
 The original PPTX and PDF are stored under `resources/precal/1.12/`. The online viewer uses slide images rendered from the same PowerPoint, with no external document-viewing service.
 
+## Contact and visitor statistics
+
+The homepage displays `wenyin@nyu.edu`, the WeChat ID `wutsupman` with a copy button, and live page-view counters. Tracking currently covers the homepage and `notes.html`; refreshing a page counts another view. The daily boundary uses Asia/Shanghai time. A statistics failure never prevents the course material from loading.
+
+`services/visitor-stats/` contains a separate Cloudflare Worker and D1 database. The public statistics endpoint returns aggregate counts only. The teacher dashboard requires a password, uses an eight-hour Secure/HttpOnly session cookie, and can export the latest 10,000 retained visit records. Raw IP records are deleted after 30 days by a daily scheduled task; lifetime and daily aggregate counts remain. No persistent visitor ID or tracking cookie is created.
+
+The admin password is stored locally in the Git-ignored `private/visitor-admin-password.txt` and in a Cloudflare Worker secret. It must never be added to the repository or browser JavaScript. See `services/visitor-stats/README.md` for deployment commands.
+
 ## Classroom tools
 
 - Random Question — 702 English-first prompts covering Topics 1.1–10.15 and the 2022 BC FRQs, with key Chinese hints and toggle answers.

@@ -3,3 +3,8 @@ tmp/
 .tmp-*/
 private/
 student-picker.html
+node_modules/
+.wrangler/
+.dev.vars
+.env
+.env.*
