@@ -30,8 +30,7 @@ The admin password is stored locally in the Git-ignored `private/visitor-admin-p
 
 - Random Question — 702 English-first prompts covering Topics 1.1–10.15 and the 2022 BC FRQs, with key Chinese hints and toggle answers.
 - Student Picker — six confirmed formal-name/WeChat-profile pairs with avatars, no-repeat rounds, and an attendance switch.
-- Graphing Calculator — a floating classroom simulator with safe scientific evaluation, RAD/DEG modes, history, graph/trace, verified zeros, numerical derivatives, and definite integrals. It covers the four graphing-calculator capabilities named in the AP Calculus course description, but is not an approved exam-day calculator.
-- TI‑84 Calculator Lab — `calculator.html` is linked from the home header, Notes, and the floating calculator. It loads the two third-party simulators on demand and includes original illustrations and TI‑84 Plus/CE workflows for angle mode, graphing, zeros, intersections, numerical derivatives, and definite integrals, plus a motion FRQ example.
+- TI‑84 Calculator Lab — `calculator.html` is linked from the home header, Notes, and the floating calculator shortcut. Its built-in calculator runs on same-site JavaScript and supports scientific calculations, RAD/DEG, history, graphing two functions, trace, zeros, intersections, numerical derivatives, and definite integrals. Four example buttons load matching tutorial inputs. The two third-party TI‑84 practice simulators load only when selected, and both original site links are available. The lab also includes illustrated TI‑84 Plus/CE tutorials and a motion FRQ example.
 
 ## Keyboard controls for class notes
 

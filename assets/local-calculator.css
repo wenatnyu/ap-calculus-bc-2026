@@ -1,0 +1,92 @@
+/* First-party classroom calculator. Use within .local-calculator. */
+.local-calculator {
+  --calculator: var(--mint, #79edbb);
+  --line-strong: rgba(185, 204, 235, .34);
+  --focus: var(--gold, #ffdc88);
+  --text: var(--ink, #f8f8ff);
+  --sun: var(--gold, #ffe45e);
+  --coral: #ff8cae;
+  --math: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+  color: var(--text);
+}
+.local-calculator .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.local-calculator .calc-view-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.local-calculator .calc-tabs{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;margin:20px 0 16px;border-bottom:1px solid var(--line)}
+.local-calculator .calc-tab{min-height:42px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted);cursor:pointer;font-size:12px;font-weight:760;letter-spacing:.04em}
+.local-calculator .calc-tab[aria-selected="true"]{border-bottom-color:var(--calculator);color:var(--text)}
+.local-calculator .calc-tab:focus-visible,.local-calculator .calc-key:focus-visible,.local-calculator .calc-mode:focus-visible,.local-calculator .calc-history button:focus-visible,.local-calculator .graph-button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.local-calculator .calc-scientific{width:min(430px,100%);margin-inline:auto}
+.local-calculator .calc-screen{padding:13px 15px 15px;border:1px solid rgba(101,230,163,.34);background:rgba(2,7,16,.64);box-shadow:inset 0 0 28px rgba(101,230,163,.035)}
+.local-calculator .calc-screen-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:7px;color:var(--muted);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.local-calculator .calc-mode{min-width:54px;padding:4px 8px;border:1px solid rgba(101,230,163,.48);background:rgba(101,230,163,.08);color:var(--calculator);cursor:pointer;font-size:10px;font-weight:800;letter-spacing:.08em}
+.local-calculator .calc-expression{width:100%;height:38px;padding:0;border:0;border-bottom:1px solid var(--line);outline:0;background:transparent;color:var(--text);font-family:var(--math);font-size:19px;text-align:right}
+.local-calculator .calc-expression::placeholder{color:rgba(183,195,218,.42)}
+.local-calculator .calc-result{display:block;min-height:41px;padding-top:7px;overflow:hidden;color:var(--calculator);font-family:var(--math);font-size:27px;line-height:1.2;text-align:right;text-overflow:ellipsis;white-space:nowrap}
+.local-calculator .calc-result.error{color:var(--coral);font-family:var(--sans);font-size:14px;line-height:2.2}
+.local-calculator .calc-keypad{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin-top:10px}
+.local-calculator .calc-key{min-height:43px;padding:6px 3px;border:1px solid var(--line-strong);background:rgba(255,255,255,.025);color:var(--text);cursor:pointer;font-family:var(--math);font-size:16px;font-weight:700}
+.local-calculator .calc-key:hover{border-color:rgba(101,230,163,.66);background:rgba(101,230,163,.11)}
+.local-calculator .calc-key.function{color:var(--aqua);font-family:var(--sans);font-size:12px}
+.local-calculator .calc-key.operator{color:var(--sun);font-size:18px}
+.local-calculator .calc-key.utility{color:var(--muted);font-family:var(--sans);font-size:11px}
+.local-calculator .calc-key.equals{border-color:rgba(101,230,163,.78);background:rgba(101,230,163,.2);color:#ecfff4;font-family:var(--sans);font-size:18px}
+.local-calculator .calc-key.zero{grid-column:span 2}
+.local-calculator .calc-history{margin-top:12px;border-top:1px solid var(--line)}
+.local-calculator .calc-history summary{padding:10px 0;cursor:pointer;color:var(--muted);font-size:11px;list-style:none}
+.local-calculator .calc-history summary::-webkit-details-marker{display:none}
+.local-calculator .calc-history summary::after{content:" +";color:var(--calculator)}
+.local-calculator .calc-history[open] summary::after{content:" −"}
+.local-calculator .calc-history-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.local-calculator .calc-history-head button{padding:5px 8px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;font-size:10px}
+.local-calculator .calc-history-list{display:grid;gap:5px;max-height:126px;margin:0;padding:0;overflow:auto;list-style:none}
+.local-calculator .calc-history-list button{display:grid;width:100%;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:7px 9px;border:1px solid transparent;background:rgba(255,255,255,.025);color:var(--muted);cursor:pointer;font-family:var(--math);font-size:11px;text-align:left}
+.local-calculator .calc-history-list button:hover{border-color:rgba(101,230,163,.4);color:var(--text)}
+.local-calculator .calc-history-list .history-expression{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.local-calculator .calc-history-list .history-result{color:var(--calculator)}
+.local-calculator .calc-history-empty{margin:0;color:rgba(183,195,218,.58);font-size:11px}
+.local-calculator .graph-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin-bottom:10px}
+.local-calculator #calc-panel-graph{max-width:850px;margin-inline:auto}
+.local-calculator .graph-controls>.graph-button{align-self:end}
+.local-calculator .graph-functions{display:grid;gap:7px;min-width:0}
+.local-calculator .graph-functions label{display:grid;grid-template-columns:24px minmax(0,1fr);gap:7px;align-items:center}
+.local-calculator .graph-functions label span{color:var(--calculator);font:600 16px var(--math)}
+.local-calculator .graph-functions label+label span{color:#e0aaff}
+.local-calculator .graph-expression{min-width:0;height:42px;padding:0 12px;border:1px solid rgba(101,230,163,.42);background:rgba(2,7,16,.55);color:var(--text);font-family:var(--math);font-size:17px}
+.local-calculator .graph-button{min-height:42px;padding:7px 12px;border:1px solid rgba(101,230,163,.62);background:rgba(101,230,163,.14);color:var(--text);cursor:pointer;font-size:11px;font-weight:760}
+.local-calculator .graph-button:hover{background:rgba(101,230,163,.23)}
+.local-calculator .graph-canvas-wrap{position:relative;border:1px solid var(--line-strong);background:#060a16}
+.local-calculator .graph-canvas{display:block;width:100%;aspect-ratio:16/9;touch-action:none}
+.local-calculator .graph-readout{position:absolute;top:8px;left:9px;margin:0;padding:4px 7px;background:rgba(5,7,17,.78);color:var(--calculator);font-family:var(--math);font-size:11px;pointer-events:none}
+.local-calculator .graph-window{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:9px}
+.local-calculator .graph-window label{display:grid;gap:3px;color:var(--muted);font-size:9px;letter-spacing:.06em;text-transform:uppercase}
+.local-calculator .graph-window input{width:100%;height:34px;padding:0 7px;border:1px solid var(--line);background:rgba(2,7,16,.5);color:var(--text);font-family:var(--math);font-size:12px}
+.local-calculator .graph-footer{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:9px}
+.local-calculator .graph-message{margin:0;color:var(--muted);font-size:10px}
+.local-calculator .numeric-tools{margin-top:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.local-calculator .numeric-tools summary{padding:11px 0;cursor:pointer;color:var(--calculator);font-size:11px;font-weight:760;letter-spacing:.035em;list-style:none}
+.local-calculator .numeric-tools summary::-webkit-details-marker{display:none}
+.local-calculator .numeric-tools summary::after{content:" +";color:var(--muted)}
+.local-calculator .numeric-tools[open] summary::after{content:" −"}
+.local-calculator .numeric-hint{margin:0 0 10px;color:var(--muted);font-size:12px}
+.local-calculator .numeric-grid{display:grid;gap:8px;padding:0 0 12px}
+.local-calculator .numeric-row{display:grid;grid-template-columns:104px minmax(0,1fr) auto;gap:7px;align-items:end}
+.local-calculator .numeric-label{align-self:center;color:var(--text);font-size:11px;font-weight:730;line-height:1.2}
+.local-calculator .numeric-label small{display:block;color:var(--muted);font-size:9px;font-weight:500}
+.local-calculator .numeric-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.local-calculator .numeric-inputs.one{grid-template-columns:minmax(0,1fr)}
+.local-calculator .numeric-inputs label{display:grid;gap:2px;color:var(--muted);font-size:8px;letter-spacing:.06em;text-transform:uppercase}
+.local-calculator .numeric-inputs input{width:100%;height:34px;padding:0 7px;border:1px solid var(--line);background:rgba(2,7,16,.5);color:var(--text);font-family:var(--math);font-size:12px}
+.local-calculator .numeric-result{min-height:19px;margin:0;padding:0 0 1px 111px;color:var(--calculator);font-family:var(--math);font-size:11px;line-height:1.4}
+.local-calculator .numeric-result.error{color:var(--coral);font-family:var(--sans)}
+@media (max-width: 600px) {
+  .local-calculator .calc-keypad{gap:5px}
+  .local-calculator .calc-key{min-height:44px}
+  .local-calculator .graph-window{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .local-calculator .graph-footer{align-items:stretch;flex-direction:column}
+  .local-calculator .graph-button{width:100%}
+  .local-calculator .numeric-row{grid-template-columns:82px minmax(0,1fr)}
+  .local-calculator .numeric-row .graph-button{grid-column:1/-1}
+  .local-calculator .numeric-result{padding-left:89px}
+  .local-calculator .graph-controls { grid-template-columns: minmax(0,1fr) auto; }
+  .local-calculator .graph-window input,.local-calculator .numeric-inputs input { font-size:16px; }
+}

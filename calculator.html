@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050711">
-  <meta name="description" content="AP Calculus BC 的 TI-84 在线练习：弧度、画图、零点、交点、数值导数与定积分。">
+  <meta name="description" content="AP Calculus BC 站内图形计算器、TI-84 在线模拟器与图文教程。">
   <title>TI‑84 Calculator Lab · AP Calculus BC</title>
   <link rel="stylesheet" href="assets/ti84-guide.css">
+  <link rel="stylesheet" href="assets/local-calculator.css">
+  <script src="assets/local-calculator.js" defer></script>
   <script src="assets/ti84-guide.js" defer></script>
 </head>
 <body>
@@ -23,23 +25,184 @@
     <section class="hero" aria-labelledby="page-title">
       <p class="eyebrow">AP Calculus BC / Classroom tools</p>
       <h1 id="page-title">TI‑84 Calculator Lab</h1>
-      <p class="intro">先按键，再读屏幕，最后把结果写成数学式。用两个在线模拟器练习 TI‑84 Plus / CE 的常用操作。</p>
+      <p class="intro">直接用站内计算器解题，或打开 TI‑84 模拟器，跟着图文教程练习按键。</p>
       <nav class="jump-list" aria-label="Jump to a section">
-        <a class="jump-primary" href="#simulators">Simulators</a>
+        <a class="jump-primary" href="#local-calculator">站内计算器</a>
+        <a href="#simulators">TI‑84 模拟器</a>
         <a href="#setup">Setup</a><a href="#zero">Zero</a><a href="#intersect">Intersect</a>
         <a href="#derivative">Derivative</a><a href="#integral">Integral</a><a href="#frq">FRQ Practice</a>
       </nav>
     </section>
 
+    <section class="built-in" id="local-calculator" aria-labelledby="local-calculator-title">
+      <div class="section-head">
+        <div><p class="eyebrow">Built-in</p><h2 id="local-calculator-title">站内图形计算器</h2></div>
+        <p>计算在浏览器里完成，无需连接外部模拟器。用下方例题按钮载入函数与参数。</p>
+      </div>
+      <div class="local-calculator sim-card">
+        <div class="calc-examples" role="group" aria-label="载入站内计算器例题">
+          <span>例题</span>
+          <button type="button" data-calculator-example="zero">零点</button>
+          <button type="button" data-calculator-example="intersect">交点</button>
+          <button type="button" data-calculator-example="derivative">导数</button>
+          <button type="button" data-calculator-example="integral">定积分</button>
+        </div>
+        <div class="calc-tabs">
+          <div class="calc-view-tabs" role="tablist" aria-label="Calculator views">
+            <button class="calc-tab" id="calc-tab-scientific" type="button" role="tab" aria-selected="true" aria-controls="calc-panel-scientific">Calculate / 计算</button>
+            <button class="calc-tab" id="calc-tab-graph" type="button" role="tab" aria-selected="false" aria-controls="calc-panel-graph" tabindex="-1">Graph / 图像</button>
+          </div>
+          <button class="calc-mode" id="calc-angle-mode" type="button" aria-label="Switch angle mode">RAD</button>
+        </div>
+
+        <section id="calc-panel-scientific" class="calc-scientific" role="tabpanel" aria-labelledby="calc-tab-scientific">
+          <div class="calc-screen">
+            <div class="calc-screen-top">
+              <span>Expression / 表达式</span>
+              <span id="calc-status">Ready / 就绪</span>
+            </div>
+            <label class="sr-only" for="calc-expression">Calculator expression</label>
+            <input class="calc-expression" id="calc-expression" type="text" maxlength="160" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="text" placeholder="sin(pi/6) + 2^3">
+            <output class="calc-result" id="calc-result" for="calc-expression" aria-live="polite">0</output>
+          </div>
+
+          <div class="calc-keypad" id="calc-keypad" aria-label="Scientific calculator keypad">
+            <button class="calc-key utility" type="button" data-insert="(">(</button>
+            <button class="calc-key utility" type="button" data-insert=")">)</button>
+            <button class="calc-key utility" type="button" data-action="reciprocal" aria-label="Reciprocal">1/x</button>
+            <button class="calc-key utility" type="button" data-action="backspace" aria-label="Backspace">⌫</button>
+            <button class="calc-key utility" type="button" data-action="clear" aria-label="Clear expression">AC</button>
+
+            <button class="calc-key function" type="button" data-insert="sin(">sin</button>
+            <button class="calc-key function" type="button" data-insert="cos(">cos</button>
+            <button class="calc-key function" type="button" data-insert="tan(">tan</button>
+            <button class="calc-key function" type="button" data-insert="ln(">ln</button>
+            <button class="calc-key function" type="button" data-insert="log(">log</button>
+
+            <button class="calc-key function" type="button" data-insert="sqrt(" aria-label="Square root">√</button>
+            <button class="calc-key function" type="button" data-action="square" aria-label="Square">x²</button>
+            <button class="calc-key function" type="button" data-insert="^" aria-label="Power">xʸ</button>
+            <button class="calc-key function" type="button" data-insert="pi" aria-label="Pi">π</button>
+            <button class="calc-key function" type="button" data-insert="e" aria-label="Euler's number">e</button>
+
+            <button class="calc-key" type="button" data-insert="7">7</button>
+            <button class="calc-key" type="button" data-insert="8">8</button>
+            <button class="calc-key" type="button" data-insert="9">9</button>
+            <button class="calc-key operator" type="button" data-insert="/" aria-label="Divide">÷</button>
+            <button class="calc-key function" type="button" data-insert="Ans">Ans</button>
+
+            <button class="calc-key" type="button" data-insert="4">4</button>
+            <button class="calc-key" type="button" data-insert="5">5</button>
+            <button class="calc-key" type="button" data-insert="6">6</button>
+            <button class="calc-key operator" type="button" data-insert="*" aria-label="Multiply">×</button>
+            <button class="calc-key function" type="button" data-insert="abs(">abs</button>
+
+            <button class="calc-key" type="button" data-insert="1">1</button>
+            <button class="calc-key" type="button" data-insert="2">2</button>
+            <button class="calc-key" type="button" data-insert="3">3</button>
+            <button class="calc-key operator" type="button" data-insert="-" aria-label="Subtract">−</button>
+            <button class="calc-key utility" type="button" data-action="negate" aria-label="Change sign">±</button>
+
+            <button class="calc-key zero" type="button" data-insert="0">0</button>
+            <button class="calc-key" type="button" data-insert=".">.</button>
+            <button class="calc-key operator" type="button" data-insert="+" aria-label="Add">+</button>
+            <button class="calc-key equals" type="button" data-action="calculate" aria-label="Calculate">=</button>
+          </div>
+
+          <details class="calc-history">
+            <summary>History / 历史记录</summary>
+            <div class="calc-history-head"><span></span><button id="calc-clear-history" type="button">Clear / 清除</button></div>
+            <ol class="calc-history-list" id="calc-history-list"></ol>
+            <p class="calc-history-empty" id="calc-history-empty">No calculations yet / 暂无记录</p>
+          </details>
+        </section>
+
+        <section id="calc-panel-graph" role="tabpanel" aria-labelledby="calc-tab-graph" hidden>
+          <div class="graph-controls">
+            <div class="graph-functions">
+              <label><span>Y₁</span><input class="graph-expression" id="graph-expression" type="text" maxlength="120" autocomplete="off" autocapitalize="off" spellcheck="false" value="sin(x)" aria-label="Y1 function of x" aria-describedby="graph-message"></label>
+              <label><span>Y₂</span><input class="graph-expression" id="graph-expression-two" type="text" maxlength="120" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Optional / 可选" aria-label="Y2 function of x (optional)" aria-describedby="graph-message"></label>
+            </div>
+            <button class="graph-button" id="graph-draw" type="button">Graph / 作图</button>
+          </div>
+          <div class="graph-canvas-wrap">
+            <canvas class="graph-canvas" id="graph-canvas" width="900" height="506" aria-label="Graph of Y1 and optional Y2. Click or drag to trace.">Your browser does not support canvas.</canvas>
+            <p class="graph-readout" id="graph-readout">y = sin(x)</p>
+          </div>
+          <div class="graph-window" aria-label="Graph window">
+            <label>x min<input id="graph-x-min" type="number" value="-10" step="any"></label>
+            <label>x max<input id="graph-x-max" type="number" value="10" step="any"></label>
+            <label>y min<input id="graph-y-min" type="number" value="-10" step="any"></label>
+            <label>y max<input id="graph-y-max" type="number" value="10" step="any"></label>
+          </div>
+          <div class="graph-footer">
+            <p class="graph-message" id="graph-message">Use x as the variable. Click the graph to trace. / 用 x 作变量，点击图像读取坐标。</p>
+            <button class="graph-button" id="graph-standard" type="button">Standard Window / 标准窗口</button>
+          </div>
+
+          <details class="numeric-tools" open>
+            <summary>AP Numeric Tools / AP 数值工具</summary>
+            <p class="numeric-hint">零点、导数和积分默认使用 Y₁；交点需要输入两条曲线，区间内只留一个目标交点。</p>
+            <div class="numeric-grid">
+              <div class="numeric-row">
+                <div class="numeric-label">Zero <small>区间求零点</small></div>
+                <div class="numeric-inputs">
+                  <label>Left<input id="zero-left" type="text" inputmode="decimal" maxlength="40" value="-2"></label>
+                  <label>Right<input id="zero-right" type="text" inputmode="decimal" maxlength="40" value="2"></label>
+                </div>
+                <button class="graph-button" id="numeric-zero" type="button">Find Zero / 求零点</button>
+              </div>
+              <p class="numeric-result" id="zero-result" aria-live="polite"></p>
+
+              <div class="numeric-row">
+                <div class="numeric-label">Intersect <small>两曲线交点</small></div>
+                <div class="numeric-inputs">
+                  <label>Left<input id="intersection-left" type="text" inputmode="decimal" maxlength="40" value="1"></label>
+                  <label>Right<input id="intersection-right" type="text" inputmode="decimal" maxlength="40" value="3"></label>
+                </div>
+                <button class="graph-button" id="numeric-intersection" type="button">Find Intersection / 求交点</button>
+              </div>
+              <p class="numeric-result" id="intersection-result" aria-live="polite"></p>
+
+              <div class="numeric-row">
+                <div class="numeric-label">Derivative <small>某点数值导数</small></div>
+                <div class="numeric-inputs one">
+                  <label>At x<input id="derivative-x" type="text" inputmode="decimal" maxlength="40" value="0"></label>
+                </div>
+                <button class="graph-button" id="numeric-derivative" type="button">f′(x) / 求导数</button>
+              </div>
+              <p class="numeric-result" id="derivative-result" aria-live="polite"></p>
+
+              <div class="numeric-row">
+                <div class="numeric-label">Integral <small>定积分数值</small></div>
+                <div class="numeric-inputs">
+                  <label>Lower a<input id="integral-a" type="text" inputmode="decimal" maxlength="40" value="0"></label>
+                  <label>Upper b<input id="integral-b" type="text" inputmode="decimal" maxlength="40" value="pi"></label>
+                </div>
+                <button class="graph-button" id="numeric-integral" type="button">∫ f(x) dx / 积分</button>
+              </div>
+              <p class="numeric-result" id="integral-result" aria-live="polite"></p>
+            </div>
+          </details>
+        </section>
+        <noscript><p>站内计算器需要 JavaScript。也可使用下方模拟器原站链接。</p></noscript>
+      </div>
+      <p class="sim-note">站内版用于直接计算。练习 TI‑84 实体机的按键流程，请用下方模拟器。</p>
+    </section>
+
     <section class="simulators" id="simulators" aria-labelledby="simulators-title">
       <div class="section-head">
-        <div><p class="eyebrow">Practice station</p><h2 id="simulators-title">Online simulators</h2></div>
-        <p>点选一个模拟器开始练习。卡住时可用 <b>Open calculator ↗</b> 在新标签页打开。</p>
+        <div><p class="eyebrow">TI‑84 key practice</p><h2 id="simulators-title">Online simulators</h2></div>
+        <p>两个外部模拟器均可在站内加载，也可直接打开原网站。</p>
       </div>
       <div class="sim-card">
         <div class="sim-switch" role="group" aria-label="Choose a TI-84 simulator">
           <button type="button" aria-controls="ti84calc-panel" aria-pressed="false">TI84Calc</button>
           <button type="button" aria-controls="mycalculatorpal-panel" aria-pressed="false">MyCalculatorPal</button>
+        </div>
+        <div class="sim-links" aria-label="External calculator websites">
+          <a href="https://ti84calc.com/ti84calc" target="_blank" rel="noopener noreferrer">TI84Calc 原站 ↗</a>
+          <a href="https://mycalculatorpal.com/ti84-calculator/Index.html" target="_blank" rel="noopener noreferrer">MyCalculatorPal 原站 ↗</a>
         </div>
         <p class="sim-empty" id="sim-empty">选择模拟器后才会加载第三方页面。下方教程可直接阅读。</p>
         <section class="sim-panel" id="ti84calc-panel" aria-label="TI84Calc simulator" hidden>
@@ -52,7 +215,7 @@
         </section>
         <noscript><p class="sim-empty">浏览器未启用 JavaScript：<a href="https://ti84calc.com/ti84calc">打开 TI84Calc</a> · <a href="https://mycalculatorpal.com/ti84-calculator/ti84/index.html">打开 MyCalculatorPal</a></p></noscript>
       </div>
-      <p class="sim-note">在线模拟器仅供练习。AP Calculus 的计算器环节使用考试允许的手持型号或 Bluebook 内置 Desmos。<a href="https://apstudents.collegeboard.org/exam-policies-guidelines/calculator-policies" target="_blank" rel="noopener noreferrer">College Board 规定 ↗</a></p>
+      <p class="sim-note">本站计算器与网页模拟器均用于课堂练习。<a href="https://apstudents.collegeboard.org/exam-policies-guidelines/calculator-policies" target="_blank" rel="noopener noreferrer">College Board 考试规定 ↗</a></p>
     </section>
 
     <section class="tutorials" aria-labelledby="tutorial-title">
