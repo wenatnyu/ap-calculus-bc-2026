@@ -44,7 +44,7 @@ h1 { margin: 0; font-size: clamp(39px, 7vw, 75px); letter-spacing: -.045em; }
 .jump-list a:hover, .sim-switch button:hover { border-color: var(--mint); }
 .jump-list .jump-primary, .sim-switch button[aria-pressed="true"] { background: #203c35; color: var(--mint); border-color: var(--mint); }
 main :is(section, article)[id] { scroll-margin-top: 18px; }
-.built-in, .simulators, .tutorials { padding: 30px 0 34px; border-top: 1px solid var(--line); }
+.practice-zone, .emulator-zone, .simulators, .tutorials { padding: 30px 0 34px; border-top: 1px solid var(--line); }
 .section-head { display: flex; justify-content: space-between; align-items: end; gap: 10px 32px; margin-bottom: 18px; }
 .section-head h2 { margin: 0; font-size: clamp(28px, 4.6vw, 42px); }
 .section-head > p { margin: 0; max-width: 395px; color: var(--muted); font-size: 13px; }
@@ -52,10 +52,12 @@ main :is(section, article)[id] { scroll-margin-top: 18px; }
 .sim-switch { display: flex; flex-wrap: wrap; gap: 9px; }
 .sim-switch button { cursor: pointer; min-height: 44px; }
 .sim-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 9px; font-size: 13px; }
-.calc-examples { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; color: var(--muted); font-size: 13px; }
-.calc-examples span { margin-right: 4px; }
-.calc-examples button { min-height: 36px; padding: 4px 12px; border: 1px solid var(--line); border-radius: 6px; background: #111b2d; color: var(--mint); cursor: pointer; font-size: 13px; }
-.calc-examples button:hover { border-color: var(--mint); }
+.emulator-launch { display:flex; align-items:center; justify-content:space-between; gap:12px 24px; flex-wrap:wrap; padding:17px 20px; }
+.emulator-launch > div { flex:1 1 370px; }
+.emulator-launch p { margin:0; font-size:14px; color:var(--muted); }
+.emulator-launch p + p { margin-top:6px; font-size:12px; }
+.emulator-open { display:inline-flex; min-height:44px; align-items:center; padding:7px 12px; border:1px solid var(--mint); border-radius:7px; background:#203c35; color:var(--mint); font-size:13px; font-weight:700; text-decoration:none; }
+.emulator-open:hover { background:#294b43; }
 .sim-empty { margin: 13px 0 1px; color: var(--muted); font-size: 14px; }
 .sim-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px; padding: 12px 0 8px; font-size: 13px; }
 .sim-bar p, .sim-note { margin: 0; color: var(--muted); }
@@ -96,7 +98,7 @@ figcaption { margin-top: 7px; color: var(--muted); font-size: 12px; }
   :root { color-scheme: light; --ink: #111; --muted: #303030; --line: #bbb; --mint: #173d2b; --gold: #111; --aqua: #111; }
   body, .lesson, .frq, .frq-pair > div, kbd { background: white; }
   .shell { width: 100%; }
-  .topbar, .jump-list, .built-in, .simulators, .return-link, .skip { display: none !important; }
+  .topbar, .jump-list, .practice-zone, .emulator-zone, .simulators, .return-link, .skip { display: none !important; }
   .hero { padding: 0 0 8px; }
   h1 { font-size: 30px; }
   .intro { margin: 5px 0 9px; }
