@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 316" width="560" height="316" role="img" aria-labelledby="title desc">
+  <title id="title">Numerical integral of x squared from zero to two</title>
+  <desc id="desc">The Classic command fnInt of X squared with respect to X from zero to two returns approximately 2.666667. The shaded region lies above the x-axis.</desc>
+  <rect x="1" y="1" width="558" height="314" rx="16" fill="#111d2e" stroke="#30465c" stroke-width="2"/>
+  <rect x="16" y="48" width="528" height="252" rx="9" fill="#d9f3db"/>
+  <circle cx="28" cy="25" r="4" fill="#80f0bf"/>
+  <g font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" fill="#15352f">
+    <text x="42" y="31" fill="#d5eee7" font-size="17" font-weight="700" letter-spacing="1.7">MATH · fnInt</text>
+    <text x="522" y="31" fill="#abc3cb" font-size="15" text-anchor="end">0 ≤ X ≤ 2</text>
+    <text x="40" y="83" font-size="16" font-weight="700">CLASSIC INPUT</text>
+    <text x="40" y="127" font-size="28">fnInt(X²,X,0,2)</text>
+    <path d="M40 150H307" stroke="#9bbc9f"/>
+    <text x="40" y="179" font-size="16" font-weight="700">SIGNED AREA</text>
+    <text x="40" y="239" font-size="36" font-weight="700">≈ 2.666667</text>
+    <path d="M340 248Q416 248 492 152V248Z" fill="#86c3a5"/>
+    <path d="M329 248H514M340 257V151" stroke="#477362" stroke-width="1.5"/>
+    <path d="M340 248Q416 248 492 152" fill="none" stroke="#185245" stroke-width="3" stroke-linecap="round"/>
+    <path d="M492 152V248" fill="none" stroke="#185245" stroke-width="1.6" stroke-dasharray="4 4"/>
+    <text x="466" y="146" fill="#426352" font-size="16" text-anchor="end">Y = X²</text>
+    <text x="340" y="276" fill="#426352" font-size="16" text-anchor="middle">0</text>
+    <text x="492" y="276" fill="#426352" font-size="16" text-anchor="middle">2</text>
+  </g>
+</svg>

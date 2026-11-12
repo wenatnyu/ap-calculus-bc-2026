@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 316" width="560" height="316" role="img" aria-labelledby="title desc">
+  <title id="title">Numerical derivative of sine at one radian</title>
+  <desc id="desc">The Classic command nDeriv of sine of X, with respect to X and evaluated at one, returns approximately 0.540302.</desc>
+  <rect x="1" y="1" width="558" height="314" rx="16" fill="#111d2e" stroke="#30465c" stroke-width="2"/>
+  <rect x="16" y="48" width="528" height="252" rx="9" fill="#d9f3db"/>
+  <circle cx="28" cy="25" r="4" fill="#80f0bf"/>
+  <g font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" fill="#15352f">
+    <text x="42" y="31" fill="#d5eee7" font-size="17" font-weight="700" letter-spacing="1.7">MATH · nDeriv</text>
+    <text x="522" y="31" fill="#abc3cb" font-size="15" text-anchor="end">RADIAN</text>
+    <text x="40" y="83" font-size="16" font-weight="700">CLASSIC INPUT</text>
+    <text x="40" y="130" font-size="28">nDeriv(sin(X),X,1)</text>
+    <path d="M39 157H521" stroke="#9bbc9f"/>
+    <text x="40" y="191" font-size="16" font-weight="700">SLOPE AT X = 1</text>
+    <text x="520" y="252" font-size="40" font-weight="700" text-anchor="end">≈ 0.540302</text>
+  </g>
+</svg>

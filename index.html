@@ -86,6 +86,7 @@
     .notes-link{display:inline-flex;align-items:center;min-height:44px;color:var(--aqua);font-size:13px;font-weight:750;text-decoration:none}
     .notes-link:hover{text-decoration:underline;text-underline-offset:4px}
     .notes-link:focus-visible{outline:2px solid var(--focus);outline-offset:4px}
+    .calc-guide-link{color:var(--lime);font-size:12px;text-underline-offset:3px}
     .hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.74fr);gap:56px;align-items:center;min-height:500px;padding:72px 0 82px;border-bottom:1px solid var(--line)}
     .hero::before,.hero::after{content:"";position:absolute;pointer-events:none;border:1px solid rgba(255,228,94,.24);border-radius:50%}
     .hero::before{right:-90px;top:68px;width:500px;height:300px;transform:rotate(-14deg)}
@@ -486,7 +487,7 @@
     }
     @media(max-width:600px){
       .shell{width:min(1120px,calc(100% - 28px))}
-      .topbar{min-height:56px}.year{display:none}
+      .topbar{min-height:56px;flex-wrap:wrap;gap:0 9px}.year{display:none}.topbar-tools{gap:12px}
       .hero{padding:52px 0 58px}
       h1{font-size:clamp(38px,12vw,55px)}
       .hero-cn{font-size:18px}.sequence{margin-top:25px;gap:6px;font-size:10px}
@@ -553,6 +554,7 @@
       <div class="topbar-tools">
         <span class="year">2026–2027 · UNITS 1–10 · 2022 FRQ</span>
         <a class="notes-link" href="notes.html">Notes</a>
+        <a class="notes-link" href="calculator.html">Calculator</a>
         <a class="course-link" href="precal/" aria-label="Precal · AP Precalculus resources">Precal ↗</a>
       </div>
     </div>
@@ -3260,6 +3262,7 @@
         <div>
           <p>AP classroom practice</p>
           <h2 id="calculator-dialog-title">Graphing Calculator / 图形计算器</h2>
+          <a class="calc-guide-link" href="calculator.html">TI‑84 模拟器与图文教程 ↗</a>
         </div>
         <button class="icon-button" type="button" data-close-dialog aria-label="Close calculator">×</button>
       </header>

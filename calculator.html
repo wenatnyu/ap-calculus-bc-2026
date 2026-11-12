@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050711">
+  <meta name="description" content="AP Calculus BC 的 TI-84 在线练习：弧度、画图、零点、交点、数值导数与定积分。">
+  <title>TI‑84 Calculator Lab · AP Calculus BC</title>
+  <link rel="stylesheet" href="assets/ti84-guide.css">
+  <script src="assets/ti84-guide.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#calculator-lab">Skip to calculator lab</a>
+  <header class="shell topbar">
+    <a class="brand" href="index.html"><span aria-hidden="true">∫</span> AP Calculus BC</a>
+    <nav aria-label="Course navigation">
+      <a href="index.html#lessons">Lessons</a>
+      <a href="notes.html">Notes</a>
+    </nav>
+  </header>
+
+  <main class="shell" id="calculator-lab">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">AP Calculus BC / Classroom tools</p>
+      <h1 id="page-title">TI‑84 Calculator Lab</h1>
+      <p class="intro">先按键，再读屏幕，最后把结果写成数学式。用两个在线模拟器练习 TI‑84 Plus / CE 的常用操作。</p>
+      <nav class="jump-list" aria-label="Jump to a section">
+        <a class="jump-primary" href="#simulators">Simulators</a>
+        <a href="#setup">Setup</a><a href="#zero">Zero</a><a href="#intersect">Intersect</a>
+        <a href="#derivative">Derivative</a><a href="#integral">Integral</a><a href="#frq">FRQ Practice</a>
+      </nav>
+    </section>
+
+    <section class="simulators" id="simulators" aria-labelledby="simulators-title">
+      <div class="section-head">
+        <div><p class="eyebrow">Practice station</p><h2 id="simulators-title">Online simulators</h2></div>
+        <p>点选一个模拟器开始练习。卡住时可用 <b>Open calculator ↗</b> 在新标签页打开。</p>
+      </div>
+      <div class="sim-card">
+        <div class="sim-switch" role="group" aria-label="Choose a TI-84 simulator">
+          <button type="button" aria-controls="ti84calc-panel" aria-pressed="false">TI84Calc</button>
+          <button type="button" aria-controls="mycalculatorpal-panel" aria-pressed="false">MyCalculatorPal</button>
+        </div>
+        <p class="sim-empty" id="sim-empty">选择模拟器后才会加载第三方页面。下方教程可直接阅读。</p>
+        <section class="sim-panel" id="ti84calc-panel" aria-label="TI84Calc simulator" hidden>
+          <div class="sim-bar"><p>TI84Calc · 若屏幕未亮，先按 <kbd>ON</kbd>。</p><a href="https://ti84calc.com/ti84calc" target="_blank" rel="noopener noreferrer">Open calculator ↗</a></div>
+          <iframe title="TI84Calc 在线 TI-84 模拟器" data-src="https://ti84calc.com/ti84calc" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin"></iframe>
+        </section>
+        <section class="sim-panel" id="mycalculatorpal-panel" aria-label="MyCalculatorPal simulator" hidden>
+          <div class="sim-bar"><p>MyCalculatorPal · 加载可能需要几秒。<a href="https://mycalculatorpal.com/ti84-calculator/Index.html" target="_blank" rel="noopener noreferrer">Source page ↗</a></p><a href="https://mycalculatorpal.com/ti84-calculator/ti84/index.html" target="_blank" rel="noopener noreferrer">Open calculator ↗</a></div>
+          <iframe title="MyCalculatorPal 在线 TI-84 Plus CE 模拟器" data-src="https://mycalculatorpal.com/ti84-calculator/ti84/index.html" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin"></iframe>
+        </section>
+        <noscript><p class="sim-empty">浏览器未启用 JavaScript：<a href="https://ti84calc.com/ti84calc">打开 TI84Calc</a> · <a href="https://mycalculatorpal.com/ti84-calculator/ti84/index.html">打开 MyCalculatorPal</a></p></noscript>
+      </div>
+      <p class="sim-note">在线模拟器仅供练习。AP Calculus 的计算器环节使用考试允许的手持型号或 Bluebook 内置 Desmos。<a href="https://apstudents.collegeboard.org/exam-policies-guidelines/calculator-policies" target="_blank" rel="noopener noreferrer">College Board 规定 ↗</a></p>
+    </section>
+
+    <section class="tutorials" aria-labelledby="tutorial-title">
+      <div class="section-head">
+        <div><p class="eyebrow">Key by key</p><h2 id="tutorial-title">TI‑84 图文教程</h2></div>
+        <p>图为课堂示意。不同版本的菜单排版可能不同，请认准英文命令名。</p>
+      </div>
+
+      <article class="lesson" id="setup" aria-labelledby="setup-title">
+        <div class="lesson-copy">
+          <p class="eyebrow">01 / Setup</p><h3 id="setup-title">设置弧度，画出函数</h3>
+          <p class="prompt" lang="en">Set the angle mode to radians. Then graph a function.</p>
+          <ol class="steps">
+            <li><kbd>MODE</kbd> → 用方向键选 <b>RADIAN</b> → <kbd>ENTER</kbd>。</li>
+            <li><kbd>2nd</kbd> <kbd>MODE</kbd>（QUIT）回主屏幕。算 <span class="math">sin(π/2)</span> 自检，结果应为 <b>1</b>；用 <kbd>2nd</kbd> <kbd>^</kbd> 输入 π。</li>
+            <li><kbd>Y=</kbd> 输入函数，用 <kbd>X,T,θ,n</kbd> 输入 <var>x</var>；按 <kbd>ZOOM</kbd> <kbd>6</kbd>（ZStandard）快速画图，或用 <kbd>WINDOW</kbd> 自定范围，再按 <kbd>GRAPH</kbd>。</li>
+          </ol>
+          <p class="takeaway"><b>图像不见了？</b>先看窗口范围和该函数是否已开启绘图，再检查输入。</p>
+        </div>
+        <figure><img src="assets/ti84-guide/mode.svg" width="560" height="316" loading="lazy" alt="MODE 模式页选中 Radian；用 sin(π/2)=1 检查弧度设置。"><figcaption>模式页 · 选中 Radian 后按 ENTER</figcaption></figure>
+      </article>
+
+      <article class="lesson" id="zero" aria-labelledby="zero-title">
+        <div class="lesson-copy">
+          <p class="eyebrow">02 / Zero</p><h3 id="zero-title">求函数零点</h3>
+          <p class="prompt" lang="en">Find the positive zero of <span class="math"><var>f</var>(<var>x</var>) = <var>x</var><sup>3</sup> − <var>x</var> − 1</span>.</p>
+          <ol class="steps">
+            <li>在 <kbd>Y=</kbd> 输入 <code>X^3−X−1</code>（MathPrint 下输入指数后按 <kbd>→</kbd> 退出上标框）。可将 <kbd>WINDOW</kbd> 设为 <span class="math">0 ≤ <var>x</var> ≤ 2.2</span>、<span class="math">−2 ≤ <var>y</var> ≤ 6</span>，再按 <kbd>GRAPH</kbd>。</li>
+            <li><kbd>2nd</kbd> <kbd>TRACE</kbd>（CALC）→ <b>2:zero</b>。</li>
+            <li>按提示输入 <b>Left Bound</b> 1、<b>Right Bound</b> 2、<b>Guess</b> 1.3，每次都按 <kbd>ENTER</kbd>。也可用方向键移动光标来选。</li>
+          </ol>
+          <p class="takeaway"><b>写在答题纸上：</b><span class="math"><var>x</var><sup>3</sup> − <var>x</var> − 1 = 0 ⇒ <var>x</var> ≈ 1.325</span>。</p>
+        </div>
+        <figure><img src="assets/ti84-guide/zero.svg" width="560" height="316" loading="lazy" alt="三次函数图像穿过 x 轴，左界 x=1、右界 x=2，零点 x≈1.324718。"><figcaption>先夹住目标零点，再读屏幕上的 X</figcaption></figure>
+      </article>
+
+      <article class="lesson" id="intersect" aria-labelledby="intersect-title">
+        <div class="lesson-copy">
+          <p class="eyebrow">03 / Intersect</p><h3 id="intersect-title">找两条曲线的交点</h3>
+          <p class="prompt" lang="en">Find the right-hand intersection of <span class="math"><var>y</var> = <var>x</var><sup>2</sup></span> and <span class="math"><var>y</var> = <var>x</var> + 2</span>.</p>
+          <ol class="steps">
+            <li>在 <kbd>Y=</kbd> 设 <code>Y₁=X²</code>、<code>Y₂=X+2</code>。用 <kbd>ZOOM</kbd> <kbd>6</kbd> 画出两条曲线。</li>
+            <li><kbd>2nd</kbd> <kbd>TRACE</kbd> → <b>5:intersect</b>。在 <b>First curve?</b> 和 <b>Second curve?</b> 提示下各选一条曲线并按 <kbd>ENTER</kbd>；必要时用上下键切换曲线。</li>
+            <li><b>Guess?</b> 时用方向键移到右侧交点附近，再按 <kbd>ENTER</kbd>。读出 <span class="math"><var>x</var> = 2, <var>y</var> = 4</span>；要找左交点就重做一次，猜测位置选在 <span class="math"><var>x</var> = −1</span> 附近。</li>
+          </ol>
+          <p class="takeaway"><b>写在答题纸上：</b>解 <span class="math"><var>x</var><sup>2</sup> = <var>x</var> + 2</span>，右交点为 <span class="math">(2, 4)</span>。</p>
+        </div>
+        <figure><img src="assets/ti84-guide/intersect.svg" width="560" height="316" loading="lazy" alt="抛物线 y=x² 与直线 y=x+2 相交，标出所求的右交点 (2,4)。"><figcaption>有多个交点时，Guess 的位置很重要</figcaption></figure>
+      </article>
+
+      <article class="lesson" id="derivative" aria-labelledby="derivative-title">
+        <div class="lesson-copy">
+          <p class="eyebrow">04 / Numerical derivative</p><h3 id="derivative-title">算一点处的导数</h3>
+          <p class="prompt" lang="en">Estimate <span class="math"><var>f</var>′(1)</span> for <span class="math"><var>f</var>(<var>x</var>) = sin <var>x</var></span> in radians.</p>
+          <ol class="steps">
+            <li>确认 <b>Radian</b>。按 <kbd>2nd</kbd> <kbd>MODE</kbd> 回主屏幕，再按 <kbd>MATH</kbd> → <b>8:nDeriv(</b>。</li>
+            <li>Classic 模式输入 <code>nDeriv(sin(X),X,1)</code>。若出现 MathPrint 模板，用方向键把变量、函数和求值点分别填成 <code>X</code>、<code>sin(X)</code>、<code>1</code>。</li>
+            <li>按 <kbd>ENTER</kbd>，读数约为 <b>0.540302</b>，不同型号最后几位可能略有差异。</li>
+          </ol>
+          <p class="takeaway"><b>写在答题纸上：</b><span class="math"><var>f</var>′(1) ≈ 0.540</span>。这是 <span class="math"><var>x</var> = 1</span> 处的斜率；<code>nDeriv</code> 不会给出符号导函数。</p>
+        </div>
+        <figure><img src="assets/ti84-guide/derivative.svg" width="560" height="316" loading="lazy" alt="弧度模式下输入 nDeriv(sin(X),X,1)，读数约 0.540302。"><figcaption>Classic 输入顺序 · 函数、变量、求值点</figcaption></figure>
+      </article>
+
+      <article class="lesson" id="integral" aria-labelledby="integral-title">
+        <div class="lesson-copy">
+          <p class="eyebrow">05 / Definite integral</p><h3 id="integral-title">算定积分与净变化</h3>
+          <p class="prompt" lang="en">Evaluate <math><msubsup><mo>∫</mo><mn>0</mn><mn>2</mn></msubsup><msup><mi>x</mi><mn>2</mn></msup><mspace width=".2em"/><mi mathvariant="normal">d</mi><mi>x</mi></math>.</p>
+          <ol class="steps">
+            <li><kbd>2nd</kbd> <kbd>MODE</kbd> 回主屏幕，按 <kbd>MATH</kbd> → <b>9:fnInt(</b>。</li>
+            <li>Classic 模式输入 <code>fnInt(X²,X,0,2)</code>。MathPrint 模板填下限 <code>0</code>、上限 <code>2</code>、被积函数 <code>X²</code>、积分变量 <code>X</code>。</li>
+            <li>按 <kbd>ENTER</kbd>，读数约为 <b>2.666667</b>。保留中间精度，最后按题意舍入。</li>
+          </ol>
+          <p class="takeaway"><b>写在答题纸上：</b><math><msubsup><mo>∫</mo><mn>0</mn><mn>2</mn></msubsup><msup><mi>x</mi><mn>2</mn></msup><mspace width=".2em"/><mi mathvariant="normal">d</mi><mi>x</mi><mo>≈</mo><mn>2.667</mn></math>。定积分有正负；若求总面积，需把轴下部分也按正面积计算。</p>
+        </div>
+        <figure><img src="assets/ti84-guide/integral.svg" width="560" height="316" loading="lazy" alt="输入 fnInt(X²,X,0,2)，读数约 2.666667。"><figcaption>Classic 输入顺序 · 函数、变量、下限、上限</figcaption></figure>
+      </article>
+
+      <article class="frq" id="frq" aria-labelledby="frq-title">
+        <p class="eyebrow">06 / FRQ Practice</p><h3 id="frq-title">同一个速度函数，两种答案</h3>
+        <p>若速度 <span class="math"><var>v</var>(<var>t</var>) = <var>t</var> − 2</span>（米/秒），求前 5 秒的净位移和总路程。先找出变号点 <span class="math"><var>t</var> = 2</span>，再决定是否要把负值转为正。</p>
+        <div class="frq-pair">
+          <div><h4>Displacement · 净位移</h4><p><code>fnInt(X−2,X,0,5)</code></p><p><math><msubsup><mo>∫</mo><mn>0</mn><mn>5</mn></msubsup><mi>v</mi><mo>(</mo><mi>t</mi><mo>)</mo><mspace width=".2em"/><mi mathvariant="normal">d</mi><mi>t</mi><mo>=</mo><mn>2.5</mn></math> 米</p></div>
+          <div><h4>Total distance · 总路程</h4><p><code>fnInt(abs(X−2),X,0,5)</code>；<code>abs(</code> 在 <kbd>MATH</kbd> → <b>NUM</b>。</p><p><math><msubsup><mo>∫</mo><mn>0</mn><mn>5</mn></msubsup><mo>|</mo><mi>v</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>|</mo><mspace width=".2em"/><mi mathvariant="normal">d</mi><mi>t</mi><mo>=</mo><mn>6.5</mn></math> 米</p></div>
+        </div>
+        <a class="return-link" href="#simulators">回模拟器练习 ↑</a>
+      </article>
+    </section>
+
+    <footer class="references">
+      <b>Texas Instruments 操作参考</b>
+      <a href="https://education.ti.com/html/webhelp/EG_TI84PlusCEOLC/EN/Content/EG_GSGuide/M_Set_Modes/SM_Setting_Calculator_Modes.HTML" target="_blank" rel="noopener noreferrer">Modes ↗</a>
+      <a href="https://education.ti.com/en/customer-support/knowledge-base/ti-83-84-plus-family/product-usage/11582" target="_blank" rel="noopener noreferrer">Zero ↗</a>
+      <a href="https://education.ti.com/en/customer-support/knowledge-base/ti-83-84-plus-family/product-usage/34471" target="_blank" rel="noopener noreferrer">Intersect ↗</a>
+      <a href="https://education.ti.com/en/customer-support/knowledge-base/ti-83-84-plus-family/product-usage/34918" target="_blank" rel="noopener noreferrer">nDeriv ↗</a>
+      <a href="https://education.ti.com/en/customer-support/knowledge-base/ti-83-84-plus-family/product-usage/34694" target="_blank" rel="noopener noreferrer">fnInt ↗</a>
+    </footer>
+  </main>
+</body>
+</html>

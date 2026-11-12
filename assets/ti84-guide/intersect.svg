@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 316" width="560" height="316" role="img" aria-labelledby="title desc">
+  <title id="title">Finding the right intersection of x squared and x plus two</title>
+  <desc id="desc">The parabola y equals x squared and the line y equals x plus two meet at negative one comma one and two comma four. The selected right intersection is two comma four.</desc>
+  <rect x="1" y="1" width="558" height="314" rx="16" fill="#111d2e" stroke="#30465c" stroke-width="2"/>
+  <rect x="16" y="48" width="528" height="252" rx="9" fill="#d9f3db"/>
+  <circle cx="28" cy="25" r="4" fill="#80f0bf"/>
+  <g font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" fill="#15352f">
+    <text x="42" y="31" fill="#d5eee7" font-size="17" font-weight="700" letter-spacing="1.7">CALC · INTERSECT</text>
+    <path d="M50 134H512M50 168H512" stroke="#a9c8ad" stroke-width="1" stroke-dasharray="3 5"/>
+    <path d="M50 202H512M272 76V226" stroke="#477362" stroke-width="1.5"/>
+    <path d="M72 95.75Q272 308.25 472 95.75" fill="none" stroke="#185245" stroke-width="3" stroke-linecap="round"/>
+    <path d="M72 210.5L472 125.5" fill="none" stroke="#514a83" stroke-width="3" stroke-dasharray="8 4" stroke-linecap="round"/>
+    <circle cx="192" cy="185" r="5.5" fill="#f0faf1" stroke="#477362" stroke-width="2"/>
+    <circle cx="432" cy="134" r="9" fill="#fff4ba" stroke="#77570d" stroke-width="2"/>
+    <circle cx="432" cy="134" r="2.7" fill="#77570d"/>
+    <path d="M206 167L195 179" fill="none" stroke="#477362" stroke-width="1"/>
+    <text x="210" y="163" fill="#426352" font-size="16">(−1, 1)</text>
+    <path d="M418 109L428 125" fill="none" stroke="#77570d" stroke-width="1"/>
+    <text x="413" y="104" fill="#694a10" font-size="16" font-weight="700" text-anchor="end">(2, 4)</text>
+    <path d="M40 238H65" stroke="#185245" stroke-width="3"/>
+    <text x="73" y="244" font-size="16">Y₁ = X²</text>
+    <path d="M259 238H284" stroke="#514a83" stroke-width="3" stroke-dasharray="7 3"/>
+    <text x="293" y="244" font-size="16">Y₂ = X + 2</text>
+    <path d="M39 257H521" stroke="#9bbc9f"/>
+    <text x="40" y="282" font-size="20" font-weight="700">X = 2</text>
+    <text x="520" y="282" font-size="20" text-anchor="end">Y = 4</text>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 316" width="560" height="316" role="img" aria-labelledby="title desc">
+  <title id="title">Finding the zero of x cubed minus x minus one</title>
+  <desc id="desc">The function is negative at x equals one and positive at x equals two. The highlighted zero between those bounds is at x approximately 1.324718.</desc>
+  <rect x="1" y="1" width="558" height="314" rx="16" fill="#111d2e" stroke="#30465c" stroke-width="2"/>
+  <rect x="16" y="48" width="528" height="252" rx="9" fill="#d9f3db"/>
+  <circle cx="28" cy="25" r="4" fill="#80f0bf"/>
+  <g font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" fill="#15352f">
+    <text x="42" y="31" fill="#d5eee7" font-size="17" font-weight="700" letter-spacing="1.7">CALC · ZERO</text>
+    <text x="522" y="31" fill="#abc3cb" font-size="15" text-anchor="end">Y₁ = X³ − X − 1</text>
+    <path d="M50 64H512M50 102H512M50 140H512" stroke="#a9c8ad" stroke-width="1" stroke-dasharray="3 5"/>
+    <path d="M50 178H512" stroke="#477362" stroke-width="1.5"/>
+    <path d="M140 65V219M460 65V219" stroke="#6c907d" stroke-width="1.4" stroke-dasharray="4 5"/>
+    <path d="M60 203.234375C204 197.35625 348 165.5075 492 60.941" fill="none" stroke="#185245" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="140" cy="197" r="4" fill="#f0faf1" stroke="#326c5d" stroke-width="2"/>
+    <circle cx="460" cy="83" r="4" fill="#f0faf1" stroke="#326c5d" stroke-width="2"/>
+    <circle cx="243.91" cy="178" r="9" fill="#fff4ba" stroke="#77570d" stroke-width="2"/>
+    <circle cx="243.91" cy="178" r="2.7" fill="#77570d"/>
+    <text x="48" y="172" fill="#527362" font-size="14" text-anchor="end">0</text>
+    <text x="140" y="236" fill="#426352" font-size="16" text-anchor="middle">1 · left</text>
+    <text x="460" y="236" fill="#426352" font-size="16" text-anchor="middle">2 · right</text>
+    <path d="M39 249H521" stroke="#9bbc9f"/>
+    <text x="40" y="280" font-size="20" font-weight="700">X ≈ 1.324718</text>
+    <text x="520" y="280" font-size="20" text-anchor="end">Y = 0</text>
+  </g>
+</svg>

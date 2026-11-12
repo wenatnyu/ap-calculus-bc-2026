@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 316" width="560" height="316" role="img" aria-labelledby="title desc">
+  <title id="title">TI-84 mode screen: select Radian</title>
+  <desc id="desc">Radian is selected in the angle mode row. On the home screen, sine of pi over two equals one.</desc>
+  <rect x="1" y="1" width="558" height="314" rx="16" fill="#111d2e" stroke="#30465c" stroke-width="2"/>
+  <rect x="16" y="48" width="528" height="252" rx="9" fill="#d9f3db"/>
+  <circle cx="28" cy="25" r="4" fill="#80f0bf"/>
+  <g font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" fill="#15352f">
+    <text x="42" y="31" fill="#d5eee7" font-size="17" font-weight="700" letter-spacing="1.7">MODE</text>
+    <text x="522" y="31" fill="#abc3cb" font-size="15" text-anchor="end">ANGLE</text>
+    <text x="40" y="82" font-size="16" font-weight="700">ANGLE MODE</text>
+    <rect x="38" y="104" width="151" height="49" rx="5" fill="#1b5142"/>
+    <text x="114" y="136" fill="#f3fff4" font-size="24" font-weight="700" text-anchor="middle">Radian</text>
+    <text x="217" y="136" fill="#356255" font-size="24">Degree</text>
+    <path d="M39 178H521" stroke="#9bbc9f" stroke-width="1"/>
+    <text x="40" y="210" font-size="16" font-weight="700">HOME SCREEN CHECK</text>
+    <text x="40" y="265" font-size="28">sin(π/2)</text>
+    <text x="520" y="265" font-size="39" font-weight="700" text-anchor="end">1</text>
+  </g>
+</svg>
