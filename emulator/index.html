@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>TI-84 Plus CE 真机模拟 · AP Calculus BC</title>
-  <link rel="stylesheet" href="emulator.css">
-  <script type="module" src="emulator.js"></script>
+  <link rel="stylesheet" href="emulator.css?v=2">
+  <script type="module" src="emulator.js?v=2"></script>
 </head>
 <body>
   <main class="page">
@@ -14,15 +14,15 @@
     <header>
       <p class="eyebrow">AP CALCULUS BC</p>
       <h1>TI-84 Plus CE 真机模拟</h1>
-      <p class="intro">用 TI-84 Plus CE 固件运行真实菜单和图形功能。模拟程序在本站加载，固件只在你的浏览器里读取。</p>
+      <p class="intro">模拟器在本站运行，ROM 只在本机读取。</p>
     </header>
 
     <div class="workspace">
       <section class="panel setup" aria-labelledby="setup-title">
         <h2 id="setup-title">启动计算器</h2>
         <ol>
-          <li>选择你有权使用的 TI-84 Plus CE 完整 ROM 镜像（4 MiB）。<code>.8cu</code> 系统更新包无法使用。</li>
-          <li>导入后，按模拟器左下角的 <kbd>ON</kbd> 开机。再次打开页面时需要重新导入。</li>
+          <li>导入获准使用的 TI‑84 Plus CE 完整 ROM（4 MiB）。</li>
+          <li>按 <kbd>ON</kbd> 开机。刷新后需重新导入。</li>
         </ol>
         <label for="rom">导入本地 ROM</label>
         <input id="rom" type="file" accept=".rom,.bin,application/octet-stream" aria-describedby="status">
@@ -31,6 +31,11 @@
           <button id="pause" type="button" disabled>暂停</button>
           <button id="unload" type="button" disabled>卸载 ROM</button>
         </div>
+        <details class="rom-help">
+          <summary>没有 ROM？</summary>
+          <p>TI 官网提供的 <code>.8eu</code> 是实体机升级包，本页无法导入。<a href="https://education.ti.com/en/software/details/en/158B7669E4C0493A84D33D9A22FDBD3C/ti-84plusoperatingsystem" target="_blank" rel="noopener noreferrer">查看 TI 下载与许可</a>。</p>
+          <p>可用<a href="../calculator.html#simulators">课程页内的 TI84Calc</a>，或<a href="https://education.ti.com/en/products/online-calculators/ti-84ce-online-calc" target="_blank" rel="noopener noreferrer">TI 官方网页版（订阅）</a>。</p>
+        </details>
       </section>
 
       <section class="device" aria-labelledby="device-title" tabindex="0">
@@ -46,7 +51,7 @@
         <div class="help">
           <h2 id="keys-title">键盘快捷键</h2>
           <p>先点击计算器。可直接输入数字、运算符、括号和 <kbd>X</kbd>；方向键移动，<kbd>Enter</kbd> 确认，<kbd>Esc</kbd> 清屏，<kbd>O</kbd> 开机。</p>
-          <p>没有 ROM？直接打开<a href="../calculator.html#practice">站内按键练习</a>或选择<a href="../calculator.html#simulators">备用在线模拟器</a>。</p>
+          <p><a href="../calculator.html#practice">AP 真题按键练习</a></p>
         </div>
         <p class="credit">第三方模拟核心：<a href="https://github.com/hunterchen7/ti84ce/tree/eb90c33cfaebd19fbd0fea9c06a359e3efaf54c2">hunterchen7/ti84ce</a> · <a href="vendor/LICENSE-ti84ce.txt">MIT License</a> · <a href="vendor/README.md">版本说明</a>。此页面不是 TI 官方产品。</p>
       </aside>

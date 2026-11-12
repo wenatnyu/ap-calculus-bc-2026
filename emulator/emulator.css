@@ -82,6 +82,9 @@ h1 { margin: .2rem 0 .3rem; font-size: clamp(1.85rem, 5vw, 2.6rem); line-height:
 .status[data-error] { color: #ffbaba; }
 .session { display: flex; gap: .5rem; flex-wrap: wrap; }
 .session button:disabled { opacity: .58; cursor: default; }
+.rom-help { margin-top: .85rem; color: #c1cfe4; font-size: .9rem; }
+.rom-help summary { color: #eaf1ff; cursor: pointer; }
+.rom-help p { margin: .45rem 0 0; }
 .help { border-top: 1px solid #344760; padding-top: .85rem; }
 .help p { margin: .55rem 0; color: #c1cfe4; }
 .credit { margin: 1rem 0 0; color: #a9bbd2; font-size: .79rem; }

@@ -273,8 +273,8 @@ romInput.addEventListener('change', async () => {
   romInput.value = '';
   if (!file) return;
   const request = ++generation;
-  if (/\.8cu$/i.test(file.name) || file.size !== FULL_ROM_SIZE) {
-    announce('请选择 4 MiB 的 TI-84 Plus CE 完整 ROM 镜像。系统更新包（.8cu）无法启动模拟器。', true);
+  if (/\.8[ce]u$/i.test(file.name) || file.size !== FULL_ROM_SIZE) {
+    announce('请选择 4 MiB 的 TI‑84 Plus CE 完整 ROM。系统升级包无法导入。', true);
     return;
   }
   announce('正在读取本地 ROM…');

@@ -30,7 +30,7 @@ The admin password is stored locally in the Git-ignored `private/visitor-admin-p
 
 - Random Question — 702 English-first prompts covering Topics 1.1–10.15 and the 2022 BC FRQs, with key Chinese hints and toggle answers.
 - Student Picker — six confirmed formal-name/WeChat-profile pairs with avatars, no-repeat rounds, and an attendance switch.
-- TI‑84 Calculator Lab — `calculator.html` is linked from the home header, Notes, and the floating calculator shortcut. Guided keypad exercises use adapted released AP Calculus BC questions and run without a ROM, external simulator, or installation. The separate same-site `emulator/` runs TI‑84 Plus CE firmware from a local file the user has permission to use; no ROM is bundled or uploaded. Both third-party simulators and their original links remain available as online backups. The lab also keeps the illustrated tutorials.
+- TI‑84 Calculator Lab — `calculator.html` is linked from the home header, Notes, and the floating calculator shortcut. It includes AP keypad exercises and illustrated tutorials. TI84Calc opens in an on-demand frame; MyCalculatorPal opens in a new tab. The separate same-site `emulator/` needs an authorized local 4 MiB TI‑84 Plus CE ROM; TI's OS update package is not a full ROM. No firmware is bundled or uploaded.
 
 ## Keyboard controls for class notes
 

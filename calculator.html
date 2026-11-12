@@ -6,17 +6,17 @@
   <meta name="theme-color" content="#050711">
   <meta name="description" content="AP Calculus BC 真题按键练习、站内 TI-84 Plus CE 模拟器与图文教程。">
   <title>TI‑84 Calculator Lab · AP Calculus BC</title>
-  <link rel="stylesheet" href="assets/ti84-guide.css">
+  <link rel="stylesheet" href="assets/ti84-guide.css?v=2">
   <link rel="stylesheet" href="assets/ti84-practice.css">
   <script src="assets/ti84-practice-lessons.js" defer></script>
   <script src="assets/ti84-practice.js" defer></script>
-  <script src="assets/ti84-guide.js" defer></script>
+  <script src="assets/ti84-guide.js?v=2" defer></script>
 </head>
 <body>
-  <a class="skip" href="#calculator-lab">Skip to calculator lab</a>
+  <a class="skip" href="#calculator-lab">跳到计算器工具</a>
   <header class="shell topbar">
     <a class="brand" href="index.html"><span aria-hidden="true">∫</span> AP Calculus BC</a>
-    <nav aria-label="Course navigation">
+    <nav aria-label="课程导航">
       <a href="index.html#lessons">Lessons</a>
       <a href="notes.html">Notes</a>
     </nav>
@@ -24,74 +24,48 @@
 
   <main class="shell" id="calculator-lab">
     <section class="hero" aria-labelledby="page-title">
-      <p class="eyebrow">AP Calculus BC / Classroom tools</p>
       <h1 id="page-title">TI‑84 Calculator Lab</h1>
-      <p class="intro">学生打开就能练 AP 真题按键；课堂演示可用本站完整模拟器，两个在线版本随时备用。</p>
-      <nav class="jump-list" aria-label="Jump to a section">
-        <a class="jump-primary" href="#practice">单元练习</a>
-        <a href="#full-emulator">完整模拟器</a>
-        <a href="#simulators">在线备用</a>
+      <nav class="jump-list" aria-label="页内导航">
+        <a href="#simulators">模拟器</a>
+        <a href="#practice">真题练习</a>
         <a href="#tutorial-title">图文教程</a>
       </nav>
+    </section>
+
+    <section class="simulators" id="simulators" aria-labelledby="simulators-title">
+      <h2 id="simulators-title">模拟器</h2>
+      <div class="sim-tools">
+        <button class="sim-action sim-primary" id="ti84calc-toggle" type="button" aria-controls="ti84calc-panel" aria-expanded="false" hidden>
+          <span>TI84Calc</span><small>本页打开 <span class="sim-chevron" aria-hidden="true">⌄</span></small>
+        </button>
+        <a class="sim-action" href="https://mycalculatorpal.com/ti84-calculator/Index.html" target="_blank" rel="noopener noreferrer">
+          <span>MyCalculatorPal</span><small>新标签页 ↗</small>
+        </a>
+        <a class="sim-action" id="full-emulator" href="emulator/">
+          <span>本站 TI‑84 Plus CE</span><small>需导入 ROM</small>
+        </a>
+      </div>
+      <section class="sim-panel" id="ti84calc-panel" aria-label="TI84Calc 在线模拟器" hidden>
+        <iframe title="TI84Calc 在线 TI‑84 模拟器" data-src="https://ti84calc.com/ti84calc" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin"></iframe>
+      </section>
+      <noscript><p>启用 JavaScript 后可在本页打开 TI84Calc。</p></noscript>
     </section>
 
     <span id="local-calculator" aria-hidden="true"></span>
     <section class="practice-zone" id="practice" aria-labelledby="practice-title">
       <div class="section-head">
-        <div><p class="eyebrow">01 / Guided key practice</p><h2 id="practice-title">AP 真题单元练习</h2></div>
-        <p>按单元选题，照 TI‑84 的按键顺序操作。每一步都有反馈，最后对照 FRQ 写法。</p>
+        <h2 id="practice-title">AP 真题练习</h2><p>7 道题 · 打开即练</p>
       </div>
       <div id="ti84-practice"></div>
-      <noscript><p class="sim-note">启用 JavaScript 后即可使用按键练习。也可以直接阅读下方图文教程。</p></noscript>
-    </section>
-
-    <section class="emulator-zone" id="full-emulator" aria-labelledby="full-emulator-title">
-      <div class="section-head">
-        <div><p class="eyebrow">02 / Full emulation</p><h2 id="full-emulator-title">本站 TI‑84 Plus CE 完整模拟器</h2></div>
-        <p>使用真实固件，适合课堂演示完整菜单和操作。</p>
-      </div>
-      <div class="sim-card emulator-launch">
-        <div>
-          <p>模拟器在本站运行，无需连接那两个外站。启动时请选择有权使用的 <strong>TI‑84 Plus CE ROM</strong>；文件只在本机浏览器读取，本站不上传或分发固件。</p>
-          <p class="sim-note">手头没有 ROM？直接用上方的单元练习，或打开下方在线备用模拟器。</p>
-        </div>
-        <a class="emulator-open" href="emulator/">启动本站模拟器 →</a>
-      </div>
-    </section>
-
-    <section class="simulators" id="simulators" aria-labelledby="simulators-title">
-      <div class="section-head">
-        <div><p class="eyebrow">03 / Online backup</p><h2 id="simulators-title">在线备用模拟器</h2></div>
-        <p>两个外部模拟器都保留了网页内预览和原站链接。选中后才连接相应网站。</p>
-      </div>
-      <div class="sim-card">
-        <div class="sim-switch" role="group" aria-label="Choose a TI-84 simulator">
-          <button type="button" aria-controls="ti84calc-panel" aria-pressed="false">TI84Calc</button>
-          <button type="button" aria-controls="mycalculatorpal-panel" aria-pressed="false">MyCalculatorPal</button>
-        </div>
-        <div class="sim-links" aria-label="External calculator websites">
-          <a href="https://ti84calc.com/ti84calc" target="_blank" rel="noopener noreferrer">TI84Calc 原站 ↗</a>
-          <a href="https://mycalculatorpal.com/ti84-calculator/Index.html" target="_blank" rel="noopener noreferrer">MyCalculatorPal 原站 ↗</a>
-        </div>
-        <p class="sim-empty" id="sim-empty">选择模拟器后才会加载第三方页面。下方教程可直接阅读。</p>
-        <section class="sim-panel" id="ti84calc-panel" aria-label="TI84Calc simulator" hidden>
-          <div class="sim-bar"><p>TI84Calc · 若屏幕未亮，先按 <kbd>ON</kbd>。</p><a href="https://ti84calc.com/ti84calc" target="_blank" rel="noopener noreferrer">Open calculator ↗</a></div>
-          <iframe title="TI84Calc 在线 TI-84 模拟器" data-src="https://ti84calc.com/ti84calc" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin"></iframe>
-        </section>
-        <section class="sim-panel" id="mycalculatorpal-panel" aria-label="MyCalculatorPal simulator" hidden>
-          <div class="sim-bar"><p>MyCalculatorPal · 加载可能需要几秒。<a href="https://mycalculatorpal.com/ti84-calculator/Index.html" target="_blank" rel="noopener noreferrer">Source page ↗</a></p><a href="https://mycalculatorpal.com/ti84-calculator/ti84/index.html" target="_blank" rel="noopener noreferrer">Open calculator ↗</a></div>
-          <iframe title="MyCalculatorPal 在线 TI-84 Plus CE 模拟器" data-src="https://mycalculatorpal.com/ti84-calculator/ti84/index.html" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin"></iframe>
-        </section>
-        <noscript><p class="sim-empty">浏览器未启用 JavaScript：<a href="https://ti84calc.com/ti84calc">打开 TI84Calc</a> · <a href="https://mycalculatorpal.com/ti84-calculator/ti84/index.html">打开 MyCalculatorPal</a></p></noscript>
-      </div>
-      <p class="sim-note">以上工具供课堂练习。正式考试请查阅 <a href="https://apstudents.collegeboard.org/exam-policies-guidelines/calculator-policies" target="_blank" rel="noopener noreferrer">College Board 计算器规定 ↗</a>。</p>
+      <noscript><p>启用 JavaScript 后可使用按键练习。</p></noscript>
     </section>
 
     <section class="tutorials" aria-labelledby="tutorial-title">
-      <div class="section-head">
-        <div><p class="eyebrow">Key by key</p><h2 id="tutorial-title">TI‑84 图文教程</h2></div>
-        <p>图为课堂示意。不同版本的菜单排版可能不同，请认准英文命令名。</p>
-      </div>
+      <div class="section-head"><h2 id="tutorial-title">TI‑84 图文教程</h2></div>
+      <nav class="topics" aria-label="教程目录">
+        <a href="#setup">弧度与画图</a><a href="#zero">零点</a><a href="#intersect">交点</a>
+        <a href="#derivative">数值求导</a><a href="#integral">定积分</a><a href="#frq">位移与路程</a>
+      </nav>
 
       <article class="lesson" id="setup" aria-labelledby="setup-title">
         <div class="lesson-copy">
@@ -181,6 +155,7 @@
       <a href="https://education.ti.com/en/customer-support/knowledge-base/ti-83-84-plus-family/product-usage/34471" target="_blank" rel="noopener noreferrer">Intersect ↗</a>
       <a href="https://education.ti.com/en/customer-support/knowledge-base/ti-83-84-plus-family/product-usage/34918" target="_blank" rel="noopener noreferrer">nDeriv ↗</a>
       <a href="https://education.ti.com/en/customer-support/knowledge-base/ti-83-84-plus-family/product-usage/34694" target="_blank" rel="noopener noreferrer">fnInt ↗</a>
+      <a class="exam-policy" href="https://apstudents.collegeboard.org/exam-policies-guidelines/calculator-policies" target="_blank" rel="noopener noreferrer">AP 计算器规定 ↗</a>
     </footer>
   </main>
 </body>

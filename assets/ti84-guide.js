@@ -1,16 +1,13 @@
-const simulatorButtons = document.querySelectorAll('.sim-switch button');
-for (const button of simulatorButtons) {
-  button.addEventListener('click', () => {
-    document.getElementById('sim-empty').hidden = true;
-    for (const choice of simulatorButtons) {
-      const active = choice === button;
-      const panel = document.getElementById(choice.getAttribute('aria-controls'));
-      choice.setAttribute('aria-pressed', String(active));
-      panel.hidden = !active;
-      if (active) {
-        const frame = panel.querySelector('iframe');
-        if (!frame.hasAttribute('src')) frame.src = frame.dataset.src;
-      }
-    }
-  });
-}
+const ti84Toggle = document.getElementById('ti84calc-toggle');
+const ti84Panel = document.getElementById('ti84calc-panel');
+
+ti84Toggle.hidden = false;
+ti84Toggle.addEventListener('click', () => {
+  const opening = ti84Panel.hidden;
+  if (opening) {
+    const frame = ti84Panel.querySelector('iframe');
+    if (!frame.hasAttribute('src')) frame.src = frame.dataset.src;
+  }
+  ti84Panel.hidden = !opening;
+  ti84Toggle.setAttribute('aria-expanded', String(opening));
+});
