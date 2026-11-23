@@ -192,8 +192,9 @@
       });
       if (ymin <= 0 && ymax >= 0) lineTo(left,py(0),right,py(0),'#778f80');
       if (xmin <= 0 && xmax >= 0) lineTo(px(0),top,px(0),bottom,'#778f80');
-      label(right+font*.5, bottom+font*1.15, 'x','middle');
-      label(left-font*.4, top-font*.4,'y','end');
+      const xLabelY = Math.max(top + font, Math.min(bottom - font * .3, py(0) + font * .35));
+      label(right + font * .65, xLabelY, 'x', 'middle');
+      label(left + font * .5, top - font * .35, 'y', 'middle');
       const available = fns.map((fn,i) => fn ? i : -1).filter(i => i>=0);
       available.forEach((i,n) => label(right-(available.length-1-n)*font*2.2,top-font*.35,curveNames[i],'end',curveColors[i]));
 
