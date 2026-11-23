@@ -3,28 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#182c29">
-  <title>课堂图形计算器 · AP Calculus BC</title>
-  <link rel="stylesheet" href="device.css">
-  <script src="../assets/ti84-math.js" defer></script>
-  <script src="graph.js" defer></script>
-  <script src="device.js" defer></script>
+  <meta name="theme-color" content="#ffffff">
+  <title>TI84Calc 原版 · AP Calculus BC</title>
+  <link rel="stylesheet" href="original-view.css">
+  <script src="original-view.js" defer></script>
 </head>
 <body>
-  <main class="device" aria-label="课堂图形计算器">
-    <header class="device-head">
-      <h1><span class="integral-mark" aria-hidden="true">∫</span>课堂图形计算器</h1>
-      <div class="device-controls">
-        <button type="button" id="sound" aria-label="按键音" aria-pressed="true" title="开启或关闭按键音"><span class="sound-light" aria-hidden="true"></span>按键音</button>
-        <button type="button" id="fullscreen" aria-label="全屏" aria-pressed="false" title="进入或退出全屏" hidden><span class="expand-icon" aria-hidden="true">⛶</span><span id="full-label">全屏</span></button>
-      </div>
-    </header>
-    <section class="display" aria-label="计算器显示屏">
-      <div class="lcd-strip"><span id="view-name">HOME</span><span class="indicators"><span id="shift-state" hidden>2nd</span><span id="angle-state">RAD</span></span></div>
-      <div id="screen" aria-live="polite" aria-atomic="false"></div>
-    </section>
-    <section id="keypad" class="keypad" aria-label="计算器键盘"></section>
-    <noscript>请启用 JavaScript 以使用计算器。</noscript>
+  <main id="viewport" aria-label="TI84Calc 原版计算器">
+    <div id="faceplate">
+      <iframe data-src="https://ti84calc.com/ti84calc#calculatorContainer" title="TI84Calc 原版计算器屏幕与键盘" width="600" height="800" scrolling="no" allow="fullscreen"></iframe>
+    </div>
+    <p id="loading" role="status" hidden>正在打开 TI84Calc…</p>
+    <noscript>请启用 JavaScript 以使用 TI84Calc 原版计算器。</noscript>
   </main>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* Real-number operations shared by the classroom calculator and keyed AP practice. */
+/* Real-number operations for the AP keypad exercises. */
 (() => {
   'use strict';
 
