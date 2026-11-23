@@ -30,7 +30,7 @@ The admin password is stored locally in the Git-ignored `private/visitor-admin-p
 
 - Random Question — 702 English-first prompts covering Topics 1.1–10.15 and the 2022 BC FRQs, with key Chinese hints and toggle answers.
 - Student Picker — six confirmed formal-name/WeChat-profile pairs with avatars, no-repeat rounds, and an attendance switch.
-- TI‑84 Calculator Lab — `calculator.html` is linked from the home header, Notes, and the Classroom menu. It includes AP keypad exercises and illustrated tutorials. TI84Calc opens in an on-demand frame; MyCalculatorPal opens in a new tab. The separate same-site `emulator/` needs an authorized local 4 MiB TI‑84 Plus CE ROM; TI's OS update package is not a full ROM. No firmware is bundled or uploaded.
+- TI‑84 Calculator Lab — `calculator.html` is linked from the home header, Notes, and the Classroom menu. It includes AP keypad exercises and illustrated tutorials. The primary link opens the standalone classroom graphing calculator in a new tab with screen and keypad sized to the viewport. It supports free-entry real arithmetic, function graphs, trace and numerical calculus. Key tones default to on and the mute control remembers the device preference. The original TI84Calc and MyCalculatorPal remain available as separate links. The separate same-site `emulator/` needs an authorized local 4 MiB TI‑84 Plus CE ROM; TI's OS update package is not a full ROM. No firmware is bundled or uploaded.
 
 ## Keyboard controls for class notes
 

@@ -24,20 +24,16 @@ main [id] { scroll-margin-top: 5rem; }
 .section-head h2, .simulators h2 { margin: 0; font-size: clamp(22px, 3vw, 26px); }
 .section-head > p { margin: 0; color: var(--muted); font-size: 13px; }
 .simulators h2 { margin-bottom: 10px; }
-.sim-tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.sim-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 215px), 1fr)); gap: 8px; }
 .sim-action {
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2px 8px;
   min-height: 47px; padding: 7px 11px; border: 1px solid var(--line); border-radius: 4px;
   background: white; color: var(--green); font-size: 14px; font-weight: 650; text-decoration: none; text-align: start;
 }
 .sim-action small { color: var(--muted); font-size: 11px; font-weight: 550; }
-.sim-action:hover, .sim-action[aria-expanded="true"] { background: #eff7fc; border-color: #4386b2; color: #1f567b; }
+.sim-action:hover { background: #eff7fc; border-color: #4386b2; color: #1f567b; }
 .sim-primary { cursor: pointer; background: #effaf3; border-color: #a6cfb9; }
 .sim-primary small { color: var(--green); }
-.sim-chevron { display: inline-block; }
-.sim-primary[aria-expanded="true"] .sim-chevron { transform: rotate(180deg); }
-.sim-panel { margin-top: 12px; }
-.sim-panel iframe { display: block; width: min(100%, 760px); height: 800px; margin-inline: auto; border: 1px solid var(--line); border-radius: 4px; background: #f4f5f7; }
 .topics { margin: -4px 0 10px; }
 .lesson { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: clamp(16px, 4vw, 38px); align-items: start; padding: 17px 0; border-top: 1px solid var(--line); }
 h3 { margin: 0 0 6px; font-size: clamp(19px, 2.6vw, 23px); }
@@ -66,7 +62,6 @@ figcaption { margin-top: 7px; color: var(--muted); font-size: 12px; }
   .shell { width: calc(100% - 28px); }
   .lesson { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   figure { max-width: 520px; }
-  .sim-panel iframe { height: 780px; }
 }
 @media (max-width: 520px) {
   .frq-pair, .sim-tools { grid-template-columns: 1fr; }

@@ -34,74 +34,7 @@
   const isGraphLesson = lesson => !['derivative', 'integral'].includes(lesson.mode);
   const bounds = lesson => ({ xMin: -10, xMax: 10, yMin: -10, yMax: 10, ...lesson.window });
 
-  // Restricted arithmetic only: no eval, Function, imports, or global lookup.
-  function compile(expression) {
-    const source = compact(expression);
-    if (!source || source.length > 200) throw Error('expression');
-    const tokenPattern = /(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?|[a-z]+|[+\-*/^()]/y;
-    const tokens = [];
-    for (let i = 0; i < source.length;) {
-      tokenPattern.lastIndex = i;
-      const match = tokenPattern.exec(source);
-      if (!match) throw Error('token');
-      tokens.push(match[0]);
-      i = tokenPattern.lastIndex;
-    }
-    const fns = { sin: Math.sin, cos: Math.cos, tan: Math.tan, abs: Math.abs, sqrt: Math.sqrt,
-      exp: Math.exp, ln: Math.log, log: Math.log10, asin: Math.asin, acos: Math.acos, atan: Math.atan };
-    let i = 0;
-    const peek = () => tokens[i];
-    const take = token => peek() === token && Boolean(++i);
-    function primary() {
-      const token = tokens[i++];
-      if (token === '(') {
-        const f = sum();
-        if (!take(')')) throw Error('parenthesis');
-        return f;
-      }
-      if (token === 'x' || token === 't') return x => x;
-      if (token === 'pi') return () => Math.PI;
-      if (token === 'e') return () => Math.E;
-      if (token && /^\d|^\./.test(token)) return () => Number(token);
-      if (Object.hasOwn(fns, token) && take('(')) {
-        const f = sum();
-        if (!take(')')) throw Error('parenthesis');
-        return x => fns[token](f(x));
-      }
-      throw Error('value');
-    }
-    function unary() {
-      if (take('-')) { const f = unary(); return x => -f(x); }
-      if (take('+')) return unary();
-      const base = primary();
-      if (take('^')) { const power = unary(); return x => base(x) ** power(x); }
-      return base;
-    }
-    function product() {
-      let f = unary();
-      while (peek() && !['+', '-', ')'].includes(peek())) {
-        const op = peek();
-        if (op === '*' || op === '/') i += 1;
-        const left = f;
-        const right = unary();
-        f = op === '/' ? x => left(x) / right(x) : x => left(x) * right(x);
-      }
-      return f;
-    }
-    function sum() {
-      let f = product();
-      while (peek() === '+' || peek() === '-') {
-        const op = tokens[i++];
-        const left = f;
-        const right = product();
-        f = op === '+' ? x => left(x) + right(x) : x => left(x) - right(x);
-      }
-      return f;
-    }
-    const fn = sum();
-    if (i !== tokens.length) throw Error('expression');
-    return fn;
-  }
+  const compile = window.TI84Math.compile;
 
   function checkedFunction(entry, expected, lesson) {
     const input = normalizeFunction(entry);
