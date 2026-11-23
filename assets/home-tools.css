@@ -1,0 +1,287 @@
+/* Course calendar and contact information */
+.pace-section, .site-info {
+  min-width: 0;
+  margin-block: 2rem;
+}
+.pace-head, .wechat-line, .visit-numbers, .visit-numbers > div, .pace-status {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .4rem .8rem;
+}
+.pace-head {
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.pace-head h2, .site-info-card h2 {
+  margin: 0;
+}
+.exam-chip, .teacher-stats, .visit-privacy summary, .attendance summary {
+  color: var(--green);
+  font-size: .875rem;
+}
+.pace-dashboard, .site-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 1rem;
+}
+.pace-dashboard {
+  margin-bottom: 1rem;
+}
+.pace-card, .site-info-card {
+  min-width: 0;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+}
+.pace-card-label, .site-info-card h2 {
+  margin: 0 0 .65rem;
+  font-size: 1rem;
+  font-weight: 650;
+}
+.pace-status { margin: 0; }
+.pace-status strong, .visit-numbers strong {
+  color: var(--ink);
+  font-size: 1.65rem;
+  font-weight: 650;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.pace-status span, .pace-control label, .pace-now, .wechat-line, .visit-numbers span {
+  color: var(--muted);
+  font-size: .875rem;
+}
+.pace-control label { display: block; margin-bottom: .4rem; }
+.pace-control select {
+  max-width: 100%;
+  min-height: 38px;
+  padding: .35rem .65rem;
+  border: 1px solid #a9b5af;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+.pace-meter, .picker-progress {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #e1e8e4;
+}
+.pace-meter { margin: .9rem 0 .65rem; }
+.pace-meter span, .picker-progress span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--green);
+}
+.pace-now, .pace-verdict { margin: .7rem 0 0; }
+.pace-now strong, .wechat-line strong { color: var(--ink); }
+.pace-verdict {
+  border-left: 3px solid currentColor;
+  padding-left: .65rem;
+  color: var(--blue);
+  font-size: .875rem;
+  font-weight: 600;
+}
+.pace-verdict[data-state="ahead"] { color: var(--green); }
+.pace-verdict[data-state="behind"] { color: #8f530d; }
+.pace-note, .visit-caption, .visit-privacy p {
+  margin: .65rem 0 0;
+  color: var(--muted);
+  font-size: .8125rem;
+  line-height: 1.5;
+}
+.pace-table-wrap {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.pace-table {
+  width: 100%;
+  min-width: 38rem;
+  border-collapse: collapse;
+  font-size: .875rem;
+}
+.pace-table th, .pace-table td {
+  padding: .65rem .8rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.pace-table th { background: #f5f7f6; }
+.pace-table tbody tr:last-child td { border-bottom: 0; }
+.pace-table .is-current { background: #edf6fc; }
+.pace-table .is-current td:first-child { box-shadow: inset 3px 0 var(--blue); font-weight: 700; }
+.pace-table .is-past td:first-child { color: var(--muted); }
+.session-range { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.contact-email {
+  color: var(--green);
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+}
+.wechat-line { align-items: center; margin-top: .65rem; }
+.wechat-line strong { margin-left: .25rem; }
+.wechat-line button {
+  padding: .15rem .65rem;
+  min-height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--green);
+  font: inherit;
+  cursor: pointer;
+}
+.wechat-line button:hover { background: var(--green-wash); }
+#copy-status { color: var(--green); }
+.visit-numbers { gap: .6rem 1.75rem; }
+.visit-numbers > div { gap: .4rem; }
+.visit-privacy, .teacher-stats { margin-top: .6rem; }
+.visit-privacy summary, .attendance summary { width: fit-content; cursor: pointer; }
+.teacher-stats:not([hidden]) { display: inline-block; }
+
+/* Classroom dialogs */
+#question-dialog, #picker-dialog {
+  width: min(35rem, calc(100% - 2rem));
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #a6b7ae;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 12px 45px #17291f30;
+}
+dialog::backdrop { background: rgb(20 36 29 / 45%); }
+.dialog-shell { padding: clamp(1rem, 4vw, 1.7rem); }
+.dialog-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.dialog-head p, .answer-label {
+  margin: 0 0 .35rem;
+  color: var(--green);
+  font-size: .8rem;
+  font-weight: 650;
+}
+.dialog-head h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  line-height: 1.25;
+}
+.icon-button, .panel-button {
+  border: 1px solid #aab7ae;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.question-meta, .dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem .75rem;
+  margin-top: 1.2rem;
+}
+.question-meta, .picker-status, .student-nickname, .question-hint, .explanation {
+  color: var(--muted);
+  font-size: .875rem;
+}
+.topic-chip {
+  padding: .15rem .5rem;
+  border-radius: 3px;
+  background: var(--green-wash);
+  color: var(--green);
+  font-weight: 700;
+}
+.difficulty { border-left: 1px solid var(--line); padding-left: .75rem; }
+.question-text {
+  margin: .9rem 0 .55rem;
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  line-height: 1.5;
+}
+.question-text, .answer-text, .explanation { white-space: pre-line; overflow-wrap: anywhere; }
+.question-hint, .explanation { margin: .5rem 0 0; }
+.answer-panel {
+  margin-top: 1.2rem;
+  padding: .85rem 1rem;
+  border-left: 3px solid var(--green);
+  background: var(--green-wash);
+}
+.answer-text { margin: .3rem 0; }
+.dialog-actions { justify-content: flex-end; }
+.panel-button { min-height: 42px; padding: .5rem .9rem; font-weight: 600; }
+.panel-button:hover, .icon-button:hover { background: #f4f7f5; }
+.panel-button.primary { background: var(--green); color: #fff; border-color: var(--green); }
+.panel-button.primary:hover { background: #095e3a; }
+.panel-button:disabled { color: #626c67; background: #eaeeec; border-color: var(--line); cursor: not-allowed; }
+.picker-stage { padding: 1.2rem 0; text-align: center; }
+.student-orb, .roster-avatar {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  color: white;
+  background: var(--orb, var(--green));
+}
+.student-orb { width: 80px; height: 80px; margin: 0 auto; font-size: 2rem; }
+.student-orb img, .roster-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.picker-state { margin: .8rem 0 .25rem; color: var(--green); font-size: .8rem; font-weight: 650; }
+.student-name { margin: 0; font-size: 1.65rem; font-weight: 650; }
+.student-nickname, .picker-status { margin: .25rem 0 0; }
+.drawing .student-orb { outline: 3px solid var(--blue); outline-offset: 2px; }
+.attendance { margin-top: .6rem; border-bottom: 1px solid var(--line); }
+.attendance summary { padding: .65rem 0; }
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  gap: .3rem .8rem;
+  padding: .2rem 0 .8rem;
+}
+.roster-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .55rem;
+  min-height: 44px;
+  padding: .25rem .45rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.roster-item:hover { background: #f3f6f4; }
+.roster-item input { width: 17px; height: 17px; margin: 0; accent-color: var(--green); }
+.roster-avatar { width: 32px; height: 32px; }
+.roster-copy { display: grid; font-size: .9rem; line-height: 1.3; overflow-wrap: anywhere; }
+.roster-copy small { color: var(--muted); }
+.site-info :focus-visible, .pace-section :focus-visible, .dialog-shell :focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .picker-progress span { transition: width .2s ease; }
+}
+@media print {
+  .site-info, #question-dialog, #picker-dialog { display: none; }
+  .pace-table-wrap { overflow: visible; }
+  .pace-table { min-width: 0; }
+  .pace-table tr, .pace-card { break-inside: avoid; }
+}

@@ -1,0 +1,72 @@
+:root {
+  color-scheme: light;
+  --ink: #202a26;
+  --muted: #56665d;
+  --line: #dce5df;
+  --green: #0d7549;
+  --green-wash: #edf8f1;
+  --blue: #327aaf;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: white; }
+button, input, select { font: inherit; }
+a { color: var(--green); }
+:focus-visible { outline: 3px solid #1467a2; outline-offset: 3px; }
+[hidden] { display: none !important; }
+.course-topbar {
+  position: relative;
+  z-index: 3;
+  min-height: 59px;
+  padding: 0 max(24px, calc((100% - 1384px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  background: linear-gradient(106deg, #22e27c, #15be7a);
+  border-bottom: 1px solid #13ac69;
+}
+.course-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #073b28;
+  font-size: 21px;
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -.65px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand-integral {
+  display: inline-grid;
+  place-items: center;
+  width: 33px;
+  height: 33px;
+  border-radius: 7px;
+  color: white;
+  background: #0b6140;
+  font: italic 27px/1 Georgia, serif;
+}
+.course-nav { display: flex; align-items: stretch; gap: 6px; }
+.course-nav a {
+  padding: 9px 12px;
+  border-radius: 4px;
+  color: #063a27;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.course-nav a:hover, .course-nav a:focus-visible { background: rgb(255 255 255 / 28%); }
+.course-nav a[aria-current="page"] { background: rgb(255 255 255 / 72%); }
+@media (max-width: 700px) {
+  .course-topbar { flex-wrap: wrap; padding: 12px 16px 8px; gap: 8px 18px; }
+  .course-nav { flex-wrap: wrap; gap: 2px; }
+  .course-nav a { padding: 7px 9px; }
+}
+@media print {
+  .course-topbar { min-height: 0; padding: 0 0 10px; background: none; border-color: #888; }
+  .course-nav { display: none; }
+  .course-brand, .brand-integral { color: #111; background: none; }
+}

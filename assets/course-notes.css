@@ -1,0 +1,29 @@
+body { line-height: 1.6; }
+.shell { width: min(100% - 40px, 960px); margin-inline: auto; }
+main.shell { padding-block: clamp(30px, 5vw, 58px) 64px; }
+h1, h2, h3 { color: var(--ink); line-height: 1.18; }
+h1 { margin: 0; font-size: clamp(30px, 4vw, 40px); }
+.intro { margin: 10px 0 36px; color: var(--muted); }
+h2 { margin: 0; padding-bottom: 10px; border-bottom: 2px solid var(--line); font-size: 24px; }
+.note-card { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.note-meta { margin: 0 0 6px; color: var(--muted); font-size: 13px; }
+.note-card h3 { margin: 0; font-size: 20px; }
+.note-cn { margin: 4px 0 12px; color: var(--muted); }
+.note-actions { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.note-actions a, footer a { color: var(--green); text-underline-offset: .18em; }
+.note-actions a { padding-block: 5px; font-size: 14px; }
+.note-actions a:first-child {
+  padding: 6px 12px;
+  border: 1px solid #a6cfb9;
+  border-radius: 4px;
+  background: var(--green-wash);
+  text-decoration: none;
+  font-weight: 600;
+}
+.note-actions a:first-child:hover { background: #dbf3e4; }
+footer.shell { border-top: 1px solid var(--line); padding-block: 16px 28px; color: var(--muted); font-size: 13px; }
+@media print {
+  .course-topbar { display: none; }
+  .shell { width: 100%; }
+  main.shell { padding-block: 0 30px; }
+}
