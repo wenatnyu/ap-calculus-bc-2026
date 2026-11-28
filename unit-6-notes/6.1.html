@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.1 · Exploring Accumulation of Change · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.1 · Exploring Accumulation of Change</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=cgDBFQ9GkZw" href="https://www.youtube.com/watch?v=cgDBFQ9GkZw" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.1/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/61-exploring-accumulation-of-change.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.1 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.1-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.1 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.1/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.1",
+  "pages": {
+    "1": 792,
+    "2": 234
+  },
+  "groups": [
+    {
+      "label": "Area under the curve",
+      "page": 1,
+      "box": [
+        106,
+        94,
+        452,
+        195
+      ],
+      "items": [
+        {
+          "label": "左图 · 横轴上方",
+          "answer": "阴影标出所选区间中曲线与 \\(x\\) 轴之间的区域。纵坐标为正，这部分对净变化的贡献为正。",
+          "loc": [
+            113,
+            137,
+            137,
+            114
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M113 225 L113 206 C121 204 130 197 137 191 C149 181 156 174 168 174 C186 174 201 195 218 204 C232 210 241 205 249 201 L249 225 Z",
+              "fill": "#4d93aa3b",
+              "stroke": "#2d7283",
+              "stroke-width": 0.75
+            }
+          ]
+        },
+        {
+          "label": "中图 · 横轴下方",
+          "answer": "曲线在横轴下方时，曲线与轴之间仍有面积。计算净变化时，这块几何面积带负号。",
+          "loc": [
+            264,
+            137,
+            136,
+            114
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M264 178 L264 229 C273 225 280 218 287 211 C299 202 307 195 318 195 C338 195 352 216 369 225 C381 232 390 229 399 224 L399 178 Z",
+              "fill": "#efa87d50",
+              "stroke": "#996640",
+              "stroke-width": 0.75
+            }
+          ]
+        },
+        {
+          "label": "右图 · 曲线穿过横轴",
+          "answer": "在曲线与横轴的交点处分开。所选区间的净变化等于上方区域的面积减去下方区域的面积。",
+          "loc": [
+            412,
+            137,
+            138,
+            114
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M413 192 L413 209 Q425 205 436 192 Z",
+              "fill": "#efa87d50",
+              "stroke": "#996640",
+              "stroke-width": 0.75
+            },
+            {
+              "type": "path",
+              "d": "M436 192 C447 183 457 175 468 175 C479 175 487 181 500 192 Z",
+              "fill": "#4d93aa3b",
+              "stroke": "#2d7283",
+              "stroke-width": 0.75
+            },
+            {
+              "type": "path",
+              "d": "M500 192 C513 204 525 214 539 207 Q545 205 548 204 L548 192 Z",
+              "fill": "#efa87d50",
+              "stroke": "#996640",
+              "stroke-width": 0.75
+            }
+          ]
+        }
+      ],
+      "tip": "跟随视频依次涂出三幅图中曲线和横轴之间的区域。遇到曲线穿过横轴时，换一个符号记录后面的累积量。",
+      "slide": 1,
+      "time": 15
+    },
+    {
+      "label": "1 · Road trip",
+      "page": 1,
+      "box": [
+        106,
+        301,
+        451,
+        151
+      ],
+      "items": [
+        {
+          "label": "1 · 行驶路程",
+          "answer": "速度保持在 \\(60\\,\\mathrm{mi/h}\\)。图上长方形的宽为 \\(4\\,\\mathrm h\\)，高为 \\(60\\,\\mathrm{mi/h}\\)，路程是 \\(60\\times4=240\\,\\mathrm{mi}\\)。",
+          "loc": [
+            298,
+            353,
+            245,
+            45
+          ],
+          "ink": "(60\\,\\mathrm{mi/h})(4\\,\\mathrm h)=240\\,\\mathrm{mi}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M172.50 433.00 L172.50 382.50 L251.30 382.50 L251.30 433.00 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        }
+      ],
+      "slide": 2,
+      "time": 105
+    },
+    {
+      "label": "Units for area under the curve",
+      "page": 1,
+      "box": [
+        102,
+        460,
+        457,
+        75
+      ],
+      "items": [
+        {
+          "label": "单位 · 两个填空",
+          "answer": "第一空填 \\(y\\)，第二空填 \\(x\\)。变化率图像下的面积单位等于纵轴单位乘以横轴单位，例如 \\((\\mathrm{gal/min})(\\mathrm{min})=\\mathrm{gal}\\)。",
+          "loc": [
+            166,
+            500,
+            127,
+            19
+          ],
+          "ink": [
+            {
+              "box": [
+                168,
+                501,
+                13,
+                17
+              ],
+              "tex": "y"
+            },
+            {
+              "box": [
+                280,
+                501,
+                13,
+                17
+              ],
+              "tex": "x"
+            }
+          ]
+        }
+      ],
+      "slide": 3,
+      "time": 235
+    },
+    {
+      "label": "2 · Water leaking from a tank",
+      "page": 1,
+      "box": [
+        106,
+        546,
+        452,
+        169
+      ],
+      "items": [
+        {
+          "label": "2 · 9 分钟漏水量",
+          "answer": "前 \\(6\\) 分钟的图形可拆成宽 \\(6\\)、高 \\(2\\) 的长方形和半径为 \\(2\\) 的半圆。最后 \\(3\\) 分钟是底 \\(3\\)、高 \\(2\\) 的三角形。总量为 \\(6(2)+\\tfrac12\\pi(2)^2+\\tfrac12(3)(2)=15+2\\pi\\) 加仑。",
+          "loc": [
+            332,
+            614,
+            216,
+            43
+          ],
+          "ink": "12+2\\pi+3=15+2\\pi\\ \\mathrm{gal}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M171.00 691.00 L171.00 661.00 L262.00 661.00 L262.00 691.00 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M201.5 661 A30.4 30.4 0 0 1 262.3 661 Z",
+              "fill": "#758bc039",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M262.30 691.00 L262.30 661.00 L308.00 691.00 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        }
+      ],
+      "slide": 4,
+      "time": 270
+    },
+    {
+      "label": "3a–b · Particle motion",
+      "page": 2,
+      "box": [
+        106,
+        35,
+        453,
+        179
+      ],
+      "items": [
+        {
+          "label": "3a · 距起点多远",
+          "answer": "两端的正三角形各为 \\(10\\,\\mathrm{cm}\\)。中间负向位移的大小为 \\(\\tfrac12(3)(15)+2(15)+\\tfrac12(1)(15)=60\\,\\mathrm{cm}\\)。净位移为 \\(10-60+10=-40\\,\\mathrm{cm}\\)，所以在起点左侧，距起点 \\(40\\,\\mathrm{cm}\\)。",
+          "loc": [
+            364,
+            93,
+            187,
+            37
+          ],
+          "ink": "\\Delta x=-40\\,\\mathrm{cm},\\quad |\\Delta x|=40\\,\\mathrm{cm}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M160.60 143.00 L160.60 115.70 L188.30 143.00 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M188.30 143.00 L229.90 184.10 L257.60 184.10 L271.50 143.00 Z",
+              "fill": "#efa87d48",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M271.50 143.00 L299.30 115.70 L299.30 143.00 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        },
+        {
+          "label": "3b · 距第 2 秒的位置多远",
+          "answer": "在 \\([2,8]\\) 上，速度都在横轴上或下方。这一段的净位移为 \\(-22.5-30-7.5=-60\\,\\mathrm{cm}\\)，因此相距 \\(60\\,\\mathrm{cm}\\)。",
+          "loc": [
+            361,
+            179,
+            193,
+            29
+          ],
+          "ink": "\\Delta x=-60\\,\\mathrm{cm},\\quad |\\Delta x|=60\\,\\mathrm{cm}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M188.3 143 L229.9 184.1 L257.6 184.1 L271.5 143 Z",
+              "fill": "none",
+              "stroke": "#a45123",
+              "stroke-width": 1.65
+            }
+          ]
+        }
+      ],
+      "tip": "先求位移，再用绝对值回答 “how far from”。区间内走过的总路程要把每段距离相加。",
+      "slide": 5,
+      "time": 420
+    }
+  ]
+}</script>
+</body></html>

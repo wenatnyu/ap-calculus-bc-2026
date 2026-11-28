@@ -1,0 +1,8 @@
+.slide .source-page {font:650 .63em/1.4 'Avenir Next','PingFang SC',sans-serif;letter-spacing:.02em;color:var(--accent);margin:0 0 .6em;}
+.slide .question {margin:.8em 0;}
+.solutions {border-top:1px solid var(--line);margin-top:.6em;}
+.solution {padding:.55em 0;border-bottom:1px solid var(--line);}
+.solution h3 {font-size:.76em;margin:0;}
+.solution p {font-size:.9em;line-height:1.6;margin:.15em 0;}
+.return-paper {white-space:nowrap;}
+@media(max-width:720px){.slide .katex-display{max-width:100%;}.controls select{max-width:55vw;}}

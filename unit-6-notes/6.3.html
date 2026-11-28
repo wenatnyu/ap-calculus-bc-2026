@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.3 · Riemann Sums, Summation Notation, and Definite Integral Notation · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.3 · Riemann Sums, Summation Notation, and Definite Integral Notation</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=wpbPzBcX42c" href="https://www.youtube.com/watch?v=wpbPzBcX42c" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.3/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/63-riemann-sums-summation-notation-and-definite-integral-notation.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.3 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.3-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.3 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.3/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.3",
+  "pages": {
+    "1": 792,
+    "2": 792
+  },
+  "groups": [
+    {
+      "label": "Opening graph · Rectangles on [−1, 6]",
+      "page": 1,
+      "box": [
+        106,
+        92,
+        451,
+        240
+      ],
+      "slide": 1,
+      "items": [
+        {
+          "label": "等分区间",
+          "answer": "把区间 \\([-1,6]\\) 等分为 \\(n\\) 段，每段宽 \\(\\Delta x=\\tfrac7n\\)。以右端点取样时，第 \\(k\\) 个取样点是 \\(x_k=-1+\\tfrac{7k}{n}\\)。",
+          "loc": [
+            112,
+            172,
+            209,
+            44
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                112,
+                172,
+                209,
+                22
+              ],
+              "tex": "\\Delta x=\\frac7n"
+            },
+            {
+              "box": [
+                112,
+                195,
+                209,
+                22
+              ],
+              "tex": "x_k=-1+\\frac{7k}{n}"
+            }
+          ]
+        },
+        {
+          "label": "在图上画四个右端点矩形",
+          "answer": "取 \\(n=4\\)，每段宽 \\(\\tfrac74\\)，用各段右端点的函数值作为高度。曲线在横轴下方时，矩形对净面积的贡献为负。",
+          "loc": [
+            337,
+            133,
+            216,
+            197
+          ],
+          "masks": [],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M375.35 275.8 V209.6 H409.0 V275.8 Z",
+              "fill": "#245a9b",
+              "fill-opacity": "0.16",
+              "stroke": "#245a9b",
+              "stroke-width": "0.85"
+            },
+            {
+              "type": "path",
+              "d": "M409.0 275.8 V287.6 H442.55 V275.8 Z",
+              "fill": "#ab392c",
+              "fill-opacity": "0.16",
+              "stroke": "#ab392c",
+              "stroke-width": "0.85"
+            },
+            {
+              "type": "path",
+              "d": "M442.55 275.8 V310.4 H476.2 V275.8 Z",
+              "fill": "#ab392c",
+              "fill-opacity": "0.16",
+              "stroke": "#ab392c",
+              "stroke-width": "0.85"
+            },
+            {
+              "type": "path",
+              "d": "M476.2 275.8 V161.7 H509.8 V275.8 Z",
+              "fill": "#245a9b",
+              "fill-opacity": "0.16",
+              "stroke": "#245a9b",
+              "stroke-width": "0.85"
+            }
+          ]
+        },
+        {
+          "label": "写出有向面积的极限",
+          "answer": "有向面积为 \\(\\displaystyle\\lim_{n\\to\\infty}\\sum_{k=1}^n\\frac7n f\\!\\left(-1+\\frac{7k}{n}\\right)\\)。若要求曲线与横轴之间的总几何面积，应把高度换为 \\(\\lvert f(x_k)\\rvert\\)。",
+          "loc": [
+            108,
+            237,
+            220,
+            60
+          ],
+          "masks": [],
+          "ink": "\\displaystyle\\lim_{n\\to\\infty}\\sum_{k=1}^{n}\\frac7n\\, f\\!\\left(-1+\\frac{7k}{n}\\right)"
+        }
+      ],
+      "tip": "先让学生指出每个矩形取高的位置，再观察横轴下方的矩形怎样影响总和。",
+      "time": 20
+    },
+    {
+      "label": "Subinterval width and the sum of rectangles",
+      "page": 1,
+      "box": [
+        105,
+        331,
+        455,
+        167
+      ],
+      "slide": 2,
+      "items": [
+        {
+          "label": "左栏 · 每段宽度",
+          "answer": "区间总长为 \\(b-a\\)。把它分成 \\(n\\) 个等宽小区间，得到 \\(\\Delta x=\\tfrac{b-a}{n}\\)。",
+          "loc": [
+            116,
+            376,
+            202,
+            36
+          ],
+          "masks": [],
+          "ink": "\\Delta x=\\dfrac{b-a}{n}"
+        },
+        {
+          "label": "右栏 · 宽度的极限",
+          "answer": "固定端点 \\(a,b\\) 后，段数越多，每段越窄。\\(\\displaystyle\\lim_{n\\to\\infty}\\tfrac{b-a}{n}=0\\)。",
+          "loc": [
+            341,
+            377,
+            203,
+            35
+          ],
+          "masks": [],
+          "ink": "\\Delta x\\longrightarrow0"
+        },
+        {
+          "label": "展开矩形面积之和",
+          "answer": "每个小矩形贡献“宽 × 有符号的高”。若各段宽分别为 \\(\\Delta x_k\\)，总和为 \\(\\sum_{k=1}^{n}\\Delta x_k f(x_k)\\)。",
+          "loc": [
+            111,
+            447,
+            441,
+            34
+          ],
+          "masks": [],
+          "ink": "\\Delta x_1f(x_1)+\\Delta x_2f(x_2)+\\cdots+\\Delta x_nf(x_n)"
+        }
+      ],
+      "time": 120
+    },
+    {
+      "label": "Summation notation · Two forms",
+      "page": 1,
+      "box": [
+        103,
+        503,
+        458,
+        237
+      ],
+      "slide": 3,
+      "items": [
+        {
+          "label": "框内 · 补上求和项",
+          "answer": "右端点为 \\(a+k\\Delta x\\)。在原式的求和符号后写下小矩形的宽度与高度的乘积。",
+          "loc": [
+            292,
+            557,
+            249,
+            41
+          ],
+          "masks": [],
+          "ink": "\\left(\\frac{b-a}{n}\\right)f\\!\\left(a+\\frac{b-a}{n}k\\right)"
+        },
+        {
+          "label": "框下 · 用区间宽度表示",
+          "answer": "同一极限可写作 \\(\\displaystyle\\lim_{\\Delta x\\to0^+}\\sum_{k=1}^{n}f(x_k)\\,\\Delta x\\)。这里 \\(\\Delta x=(b-a)/n\\)，因此让宽度趋近零也就是让 \\(n\\to\\infty\\)。",
+          "loc": [
+            119,
+            682,
+            415,
+            53
+          ],
+          "masks": [],
+          "ink": "\\displaystyle\\lim_{\\Delta x\\to0^+}\\sum_{k=1}^{n}f(x_k)\\,\\Delta x"
+        }
+      ],
+      "time": 200
+    },
+    {
+      "label": "Definite integral notation",
+      "page": 2,
+      "box": [
+        103,
+        40,
+        460,
+        98
+      ],
+      "slide": 4,
+      "items": [
+        {
+          "label": "第一行 · 等号右侧",
+          "answer": "连续函数的黎曼和极限等于定积分 \\(\\displaystyle\\int_a^b f(x)\\,dx\\)。",
+          "loc": [
+            397,
+            68,
+            147,
+            37
+          ],
+          "masks": [],
+          "ink": "\\displaystyle\\int_a^bf(x)\\,dx"
+        },
+        {
+          "label": "第二行 · 有向面积的记号",
+          "answer": "下限 \\(a\\) 是起点，上限 \\(b\\) 是终点。被积函数为 \\(f(x)\\)，积分变量为 \\(x\\)。",
+          "loc": [
+            455,
+            105,
+            94,
+            26
+          ],
+          "masks": [],
+          "ink": "\\int_a^bf(x)\\,dx"
+        }
+      ],
+      "time": 520
+    },
+    {
+      "label": "Example 1 · Rewrite the integral as a sum",
+      "page": 2,
+      "box": [
+        106,
+        151,
+        451,
+        81
+      ],
+      "slide": 5,
+      "items": [
+        {
+          "label": "1 · 右端点黎曼和",
+          "answer": "端点是 \\(2\\) 和 \\(6\\)，所以 \\(\\Delta x=4/n\\)，\\(x_k=2+4k/n\\)。代入 \\(f(x)=x^2-3\\)，把每一项乘以 \\(\\Delta x\\) 后求和并取极限。 \\(\\displaystyle\\lim_{n\\to\\infty}\\sum_{k=1}^n\\frac4n\\left[\\left(2+\\frac{4k}{n}\\right)^2-3\\right]\\)。",
+          "loc": [
+            213,
+            183,
+            332,
+            43
+          ],
+          "masks": [],
+          "ink": "\\displaystyle\\lim_{n\\to\\infty}\\sum_{k=1}^n\\frac4n\\left[\\left(2+\\frac{4k}{n}\\right)^2-3\\right]"
+        }
+      ],
+      "time": 620
+    },
+    {
+      "label": "Example 2a–c · Three integrals for one sum",
+      "page": 2,
+      "box": [
+        105,
+        242,
+        453,
+        165
+      ],
+      "slide": 6,
+      "items": [
+        {
+          "label": "2a · 从 0 积到 6",
+          "answer": "取 \\(\\Delta x=6/n\\)，\\(x_k=6k/n\\)。于是 \\((4+6k/n)^2=(4+x_k)^2\\)，积分区间是 \\([0,6]\\)。 \\(\\displaystyle\\int_0^6(4+x)^2\\,dx\\)。",
+          "loc": [
+            143,
+            326,
+            117,
+            67
+          ],
+          "masks": [],
+          "ink": "\\displaystyle\\int_0^6(4+x)^2\\,dx"
+        },
+        {
+          "label": "2b · 从 4 积到 10",
+          "answer": "也可把整个 \\(4+6k/n\\) 看作右端点。此时下限为 \\(4\\)，区间长为 \\(6\\)，上限为 \\(10\\)，被积函数为 \\(x^2\\)。 \\(\\displaystyle\\int_4^{10}x^2\\,dx\\)。",
+          "loc": [
+            280,
+            326,
+            117,
+            67
+          ],
+          "masks": [],
+          "ink": "\\displaystyle\\int_4^{10}x^2\\,dx"
+        },
+        {
+          "label": "2c · 从 0 积到 1",
+          "answer": "若取 \\(\\Delta x=1/n\\)，则 \\(x_k=k/n\\)。把外面的 \\(6\\) 保留在被积函数里，得到 \\(\\displaystyle\\int_0^1 6(4+6x)^2\\,dx\\)。",
+          "loc": [
+            415,
+            326,
+            137,
+            67
+          ],
+          "masks": [],
+          "ink": "\\displaystyle\\int_0^1 6(4+6x)^2\\,dx"
+        }
+      ],
+      "tip": "三个答案都可以。让学生把每一种积分的宽度和取样点代回原来的求和式。",
+      "time": 720
+    },
+    {
+      "label": "Example 3 · Convert the expanded sum",
+      "page": 2,
+      "box": [
+        106,
+        418,
+        447,
+        113
+      ],
+      "slide": 7,
+      "items": [
+        {
+          "label": "3 · 确定被积函数与区间",
+          "answer": "外面的 \\(2/n\\) 是宽度，各项分母为 \\(2k/n+3\\)。从 \\(a=0\\) 开始，右端点 \\(x_k=2k/n\\)，最后一个为 \\(2\\)。 \\(\\displaystyle\\int_0^2\\frac{1}{x+3}\\,dx\\)。",
+          "loc": [
+            132,
+            482,
+            392,
+            45
+          ],
+          "masks": [],
+          "ink": "\\displaystyle\\int_0^2\\frac{1}{x+3}\\,dx"
+        }
+      ],
+      "time": 970
+    },
+    {
+      "label": "Example 4 · A ten-rectangle approximation",
+      "page": 2,
+      "box": [
+        106,
+        539,
+        449,
+        194
+      ],
+      "slide": 8,
+      "items": [
+        {
+          "label": "4 · 所近似的定积分",
+          "answer": "每段宽为 \\(1/10\\)，右端点依次为 \\(1/10,2/10,\\ldots,1\\)。因此该有限和近似 \\(\\displaystyle\\int_0^1\\cos x\\,dx\\)。",
+          "loc": [
+            132,
+            583,
+            386,
+            62
+          ],
+          "masks": [],
+          "ink": "\\displaystyle\\int_0^1\\cos x\\,dx"
+        },
+        {
+          "label": "追问 · 10 在哪里？",
+          "answer": "\\(10\\) 是这次近似使用的矩形个数。定积分表示矩形个数趋于无穷时的极限，同一个定积分可以用不同数量的矩形来近似。",
+          "loc": [
+            133,
+            680,
+            393,
+            40
+          ],
+          "masks": [],
+          "ink": "n=10,\\quad \\Delta x=\\tfrac1{10};\\qquad \\text{integral: } n\\to\\infty"
+        }
+      ],
+      "time": 1110
+    }
+  ]
+}</script>
+</body></html>

@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.2 · Approximating Areas with Riemann Sums · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.2 · Approximating Areas with Riemann Sums</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=Tc4Ix6NmKZE" href="https://www.youtube.com/watch?v=Tc4Ix6NmKZE" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.2/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/62-approximating-areas-with-riemann-sums.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.2 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.2-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.2 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.2/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.2",
+  "pages": {
+    "1": 792,
+    "2": 792,
+    "3": 792
+  },
+  "groups": [
+    {
+      "label": "Opening · Left-endpoint approximation",
+      "page": 1,
+      "box": [
+        106,
+        89,
+        450,
+        189
+      ],
+      "items": [
+        {
+          "label": "等分区间 · 一般式",
+          "answer": "把 \\([2,6]\\) 等分为 \\(n\\) 段，每段宽 \\(\\Delta x=4/n\\)。每个矩形的高度取其左端点的函数值。",
+          "loc": [
+            108,
+            150,
+            235,
+            44
+          ],
+          "ink": "\\Delta x=\\frac4n,\\quad L_n=\\frac4n\\sum_{i=0}^{n-1}g\\!\\left(2+\\frac{4i}{n}\\right)"
+        },
+        {
+          "label": "视频示范 · 四个左端点矩形",
+          "answer": "视频依次用 \\(n=1,4,8\\) 比较矩形，宽度为 \\(4,1,\\tfrac12\\)。图中画的是 \\(n=4\\)：每个底宽为 \\(1\\)，从图上估读左端点高度，\\(L_4\\approx 1(2+2.3+3.2+4.7)=12.2\\) 平方单位。",
+          "loc": [
+            108,
+            196,
+            238,
+            45
+          ],
+          "ink": "n=4,\\quad L_4\\approx1(2+2.3+3.2+4.7)=12.2",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M429.24 238.40 L429.24 198.88 L450.96 198.88 L450.96 238.40 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M450.96 238.40 L450.96 192.95 L472.68 192.95 L472.68 238.40 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M472.68 238.40 L472.68 175.17 L494.40 175.17 L494.40 238.40 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M494.40 238.40 L494.40 145.53 L516.12 145.53 L516.12 238.40 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        }
+      ],
+      "tip": "视频先画一个宽矩形，再把分割加密为 4 段和 8 段。每次先问学生底宽如何变化，再观察矩形顶边与曲线间的空隙。",
+      "slide": 1,
+      "time": 20
+    },
+    {
+      "label": "Opening · Name of the method",
+      "page": 1,
+      "box": [
+        106,
+        280,
+        455,
+        41
+      ],
+      "items": [
+        {
+          "label": "术语填空",
+          "answer": "填 Riemann sum（黎曼和）。每项是“一个样本点的函数值乘以小区间的宽度”，然后将这些项相加。",
+          "loc": [
+            295,
+            283,
+            110,
+            16
+          ],
+          "ink": "\\text{Riemann sum}"
+        }
+      ],
+      "slide": 2,
+      "time": 200
+    },
+    {
+      "label": "Left-Riemann sum",
+      "page": 1,
+      "box": [
+        114,
+        388,
+        211,
+        279
+      ],
+      "items": [
+        {
+          "label": "左端点 · 三个矩形",
+          "answer": "\\(f(x)=4x-\\tfrac12x^2\\)。区间宽 \\(\\Delta x=(8-2)/3=2\\)。取左端点 \\(2,4,6\\)，高度为 \\(6,8,6\\)，得 \\(L_3=40\\) 平方单位。",
+          "loc": [
+            120,
+            614,
+            200,
+            44
+          ],
+          "ink": "L_3=2(6+8+6)=40",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M181.36 583.10 L181.36 480.62 L218.22 480.62 L218.22 583.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M218.22 583.10 L218.22 446.46 L255.08 446.46 L255.08 583.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M255.08 583.10 L255.08 480.62 L291.94 480.62 L291.94 583.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        }
+      ],
+      "context": [
+        106,
+        340,
+        450,
+        40
+      ],
+      "tip": "用手沿横轴依次指出每个矩形所取的左端点。",
+      "slide": 3,
+      "time": 220
+    },
+    {
+      "label": "Right-Riemann sum",
+      "page": 1,
+      "box": [
+        339,
+        388,
+        211,
+        279
+      ],
+      "items": [
+        {
+          "label": "右端点 · 三个矩形",
+          "answer": "取右端点 \\(4,6,8\\)，对应高度为 \\(8,6,0\\)。第三个矩形高度为零，对和的贡献也是零。三项相加得 \\(R_3=28\\) 平方单位。",
+          "loc": [
+            344,
+            614,
+            199,
+            44
+          ],
+          "ink": "R_3=2(8+6+0)=28",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M406.56 583.10 L406.56 446.46 L443.42 446.46 L443.42 583.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M443.42 583.10 L443.42 480.62 L480.28 480.62 L480.28 583.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        }
+      ],
+      "context": [
+        106,
+        340,
+        450,
+        40
+      ],
+      "tip": "让学生说明为什么右端点取到 8 时，最右边那块的面积为零。",
+      "slide": 4,
+      "time": 470
+    },
+    {
+      "label": "Midpoint-Riemann sum",
+      "page": 2,
+      "box": [
+        114,
+        35,
+        212,
+        305
+      ],
+      "items": [
+        {
+          "label": "中点 · 三个矩形",
+          "answer": "沿用 \\(f(x)=4x-\\tfrac12x^2\\)。三个子区间的中点为 \\(3,5,7\\)，高度分别为 \\(7.5,7.5,3.5\\)。乘以公用底宽 \\(2\\) 得 \\(37\\) 平方单位。",
+          "loc": [
+            119,
+            280,
+            202,
+            42
+          ],
+          "ink": "M_3=2(7.5+7.5+3.5)=37",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M181.36 243.10 L181.36 115.00 L218.22 115.00 L218.22 243.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M218.22 243.10 L218.22 115.00 L255.08 115.00 L255.08 243.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M255.08 243.10 L255.08 183.32 L291.94 183.32 L291.94 243.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        }
+      ],
+      "tip": "在每个长方形上边的中点标出采样位置。",
+      "slide": 5,
+      "time": 520
+    },
+    {
+      "label": "Trapezoidal sum",
+      "page": 2,
+      "box": [
+        338,
+        35,
+        214,
+        305
+      ],
+      "items": [
+        {
+          "label": "梯形 · 三个子区间",
+          "answer": "沿用上一页的 \\(f(x)=4x-\\tfrac12x^2\\)。依次连接 \\((2,6),(4,8),(6,6),(8,0)\\)。三个梯形的面积为 \\(14,14,6\\)，合计 \\(34\\)。相同分割下也有 \\(T_3=\\tfrac12(40+28)=34\\)。",
+          "loc": [
+            342,
+            280,
+            204,
+            42
+          ],
+          "ink": "T_3=\\tfrac12(L_3+R_3)=34",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M406.56 243.10 L406.56 140.62 L443.42 106.46 L443.42 243.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M443.42 243.10 L443.42 106.46 L480.28 140.62 L480.28 243.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M480.28 243.10 L480.28 140.62 L517.14 243.10 L517.14 243.10 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        }
+      ],
+      "tip": "相邻端点用直线相连，先标出第一个梯形的两条平行边。",
+      "slide": 6,
+      "time": 750
+    },
+    {
+      "label": "Increasing function · Left and right",
+      "page": 2,
+      "box": [
+        106,
+        434,
+        453,
+        162
+      ],
+      "items": [
+        {
+          "label": "Left · 左端点",
+          "answer": "递增函数的左端点在每个小区间内取得最小函数值。对应矩形低于曲线，所以面积和为低估。",
+          "loc": [
+            222,
+            461,
+            104,
+            18
+          ],
+          "ink": "\\text{underestimate}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M203.93 571.60 L203.93 553.31 L224.06 553.31 L224.06 571.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M224.06 571.60 L224.06 535.02 L244.19 535.02 L244.19 571.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M244.19 571.60 L244.19 516.73 L264.32 516.73 L264.32 571.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        },
+        {
+          "label": "Right · 右端点",
+          "answer": "递增函数的右端点在每个小区间内取得最大函数值。对应矩形高于曲线，所以面积和为高估。",
+          "loc": [
+            456,
+            461,
+            102,
+            18
+          ],
+          "ink": "\\text{overestimate}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M408.70 571.60 L408.70 553.31 L428.83 553.31 L428.83 571.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M428.83 571.60 L428.83 535.02 L448.96 535.02 L448.96 571.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M448.96 571.60 L448.96 516.73 L469.09 516.73 L469.09 571.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M469.09 571.60 L469.09 498.44 L489.22 498.44 L489.22 571.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        }
+      ],
+      "slide": 7,
+      "time": 1020
+    },
+    {
+      "label": "Decreasing function · Left and right",
+      "page": 2,
+      "box": [
+        106,
+        602,
+        454,
+        150
+      ],
+      "items": [
+        {
+          "label": "Left · 左端点",
+          "answer": "递减函数的左端点在每个小区间内取得最大函数值。对应矩形高于曲线，所以面积和为高估。",
+          "loc": [
+            225,
+            615,
+            102,
+            18
+          ],
+          "ink": "\\text{overestimate}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M180.70 730.60 L180.70 653.00 L201.87 653.00 L201.87 730.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M201.87 730.60 L201.87 672.40 L223.04 672.40 L223.04 730.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M223.04 730.60 L223.04 691.80 L244.21 691.80 L244.21 730.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M244.21 730.60 L244.21 711.20 L265.38 711.20 L265.38 730.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        },
+        {
+          "label": "Right · 右端点",
+          "answer": "递减函数的右端点在每个小区间内取得最小函数值。对应矩形低于曲线，所以面积和为低估。",
+          "loc": [
+            450,
+            615,
+            105,
+            18
+          ],
+          "ink": "\\text{underestimate}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M405.90 730.60 L405.90 672.40 L427.07 672.40 L427.07 730.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M427.07 730.60 L427.07 691.80 L448.24 691.80 L448.24 730.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            },
+            {
+              "type": "path",
+              "d": "M448.24 730.60 L448.24 711.20 L469.41 711.20 L469.41 730.60 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        }
+      ],
+      "slide": 8,
+      "time": 1080
+    },
+    {
+      "label": "Trapezoid estimation · Concavity",
+      "page": 3,
+      "box": [
+        108,
+        35,
+        449,
+        143
+      ],
+      "items": [
+        {
+          "label": "Concave up · 凹向上",
+          "answer": "凹向上的函数在两端点连成的弦线下方。图中取 \\([2,4]\\) 作示意，梯形上边沿弦线，面积出现高估。",
+          "loc": [
+            220,
+            48,
+            100,
+            21
+          ],
+          "ink": "\\text{overestimate}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M229.50 146.40 L229.50 112.50 L266.70 137.70 L266.70 146.40 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        },
+        {
+          "label": "Concave down · 凹向下",
+          "answer": "凹向下时弦线低于曲线。图中取 \\([0,4]\\) 作示意，梯形近似给出低估值。",
+          "loc": [
+            449,
+            48,
+            107,
+            21
+          ],
+          "ink": "\\text{underestimate}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M412.80 147.40 L482.40 84.40 L482.40 147.40 Z",
+              "fill": "#688fd027",
+              "stroke": "#184b91",
+              "stroke-width": 1.15
+            }
+          ]
+        }
+      ],
+      "tip": "把直尺的两端放在曲线上，观察直边和曲线之间的空隙。",
+      "slide": 9,
+      "time": 1110
+    },
+    {
+      "label": "Water table · Right-Riemann sum",
+      "page": 3,
+      "box": [
+        108,
+        393,
+        223,
+        175
+      ],
+      "items": [
+        {
+          "label": "右端点 · 注水量",
+          "answer": "四段各宽 \\(3\\,\\mathrm{min}\\)，取 \\(t=3,6,9,12\\) 分钟的流率。得到 \\(3(13+18+23+27)=243\\) 加仑。",
+          "loc": [
+            113,
+            420,
+            215,
+            43
+          ],
+          "ink": "R_4=3(13+18+23+27)=243\\ \\mathrm{gal}"
+        },
+        {
+          "label": "与真实值比较",
+          "answer": "\\(R(t)\\) 连续递增，右端点取到每段最高流率，矩形面积之和高估实际注水量。",
+          "loc": [
+            113,
+            533,
+            214,
+            29
+          ],
+          "ink": "\\text{Overestimate: }R(t)\\text{ increases.}"
+        }
+      ],
+      "context": [
+        106,
+        200,
+        454,
+        193
+      ],
+      "slide": 10,
+      "time": 1170
+    },
+    {
+      "label": "Water table · Left-Riemann sum",
+      "page": 3,
+      "box": [
+        335,
+        393,
+        223,
+        175
+      ],
+      "items": [
+        {
+          "label": "左端点 · 注水量",
+          "answer": "取 \\(t=0,3,6,9\\) 分钟的流率，四项公用底宽 \\(3\\) 分钟。左端点和为 \\(3(7+13+18+23)=183\\) 加仑。",
+          "loc": [
+            340,
+            420,
+            214,
+            43
+          ],
+          "ink": "L_4=3(7+13+18+23)=183\\ \\mathrm{gal}"
+        },
+        {
+          "label": "与真实值比较",
+          "answer": "\\(R(t)\\) 递增，左端点取到每段最低流率。因此左端点和低估实际注水量。",
+          "loc": [
+            340,
+            533,
+            212,
+            29
+          ],
+          "ink": "\\text{Underestimate: }R(t)\\text{ increases.}"
+        }
+      ],
+      "context": [
+        106,
+        200,
+        454,
+        193
+      ],
+      "slide": 11,
+      "time": 1370
+    },
+    {
+      "label": "Water table · Midpoint-Riemann sum",
+      "page": 3,
+      "box": [
+        107,
+        571,
+        224,
+        89
+      ],
+      "items": [
+        {
+          "label": "中点 · 两个子区间",
+          "answer": "这次把 \\([0,12]\\) 分成 \\([0,6]\\) 和 \\([6,12]\\)，每段宽为 \\(6\\)。中点是 \\(3\\) 和 \\(9\\)，所以 \\(M_2=6(13+23)=216\\) 加仑。",
+          "loc": [
+            113,
+            600,
+            210,
+            43
+          ],
+          "ink": "M_2=6(13+23)=216\\ \\mathrm{gal}"
+        }
+      ],
+      "context": [
+        106,
+        200,
+        454,
+        193
+      ],
+      "slide": 12,
+      "time": 1410
+    },
+    {
+      "label": "Water table · Trapezoidal sum",
+      "page": 3,
+      "box": [
+        335,
+        571,
+        223,
+        89
+      ],
+      "items": [
+        {
+          "label": "梯形 · 四个子区间",
+          "answer": "四个梯形底宽均为 \\(3\\) 分钟，两端流率的平均值分别为 \\(10,15.5,20.5,25\\)。合计 \\(3(10+15.5+20.5+25)=213\\) 加仑，也可用 \\((L_4+R_4)/2\\) 核对。",
+          "loc": [
+            340,
+            600,
+            212,
+            43
+          ],
+          "ink": "T_4=\\tfrac{183+243}{2}=213\\ \\mathrm{gal}"
+        }
+      ],
+      "context": [
+        106,
+        200,
+        454,
+        193
+      ],
+      "slide": 13,
+      "time": 1560
+    }
+  ]
+}</script>
+</body></html>

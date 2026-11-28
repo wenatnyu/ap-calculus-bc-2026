@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.4 · The Fundamental Theorem of Calculus and Accumulation Functions · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.4 · The Fundamental Theorem of Calculus and Accumulation Functions</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=hnSWSHGHs34" href="https://www.youtube.com/watch?v=hnSWSHGHs34" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.4/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/64-the-fundamental-theorem-of-calculus-and-accumulation-functions.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.4 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.4-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.4 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.4/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.4",
+  "pages": {
+    "1": 792,
+    "2": 364
+  },
+  "groups": [
+    {
+      "label": "Opening · A moving upper limit",
+      "page": 1,
+      "box": [
+        105,
+        90,
+        454,
+        139
+      ],
+      "slide": 1,
+      "items": [
+        {
+          "label": "第一空 · 积分区间",
+          "answer": "起点 \\(a\\) 固定，把终点记作变量 \\(x\\)。题目的区间写为 \\([a,x]\\)。",
+          "loc": [
+            144,
+            154,
+            29,
+            16
+          ],
+          "masks": [],
+          "ink": "[a,x]"
+        },
+        {
+          "label": "第二空 · 累积函数",
+          "answer": "以 \\(t\\) 作为积分变量，从 \\(a\\) 到 \\(x\\) 累积函数 \\(f\\) 的有向面积，得到 \\(\\displaystyle F(x)=\\int_a^x f(t)\\,dt\\)。",
+          "loc": [
+            326,
+            182,
+            202,
+            37
+          ],
+          "masks": [],
+          "ink": "\\displaystyle\\int_a^x f(t)\\,dt"
+        }
+      ],
+      "time": 30
+    },
+    {
+      "label": "1a · Complete the accumulation table",
+      "page": 1,
+      "box": [
+        105,
+        239,
+        456,
+        181
+      ],
+      "slide": 2,
+      "items": [
+        {
+          "label": "1a · F(0)",
+          "answer": "上下限同为 \\(0\\)，所以 \\(F(0)=0\\)。",
+          "loc": [
+            150,
+            337,
+            37,
+            24
+          ],
+          "masks": [],
+          "ink": "0"
+        },
+        {
+          "label": "1a · F(1)",
+          "answer": "从 \\(0\\) 到 \\(1\\)，两端高度为 \\(3,2\\)，梯形面积为 \\(\\tfrac{3+2}{2}=\\tfrac52\\)。",
+          "loc": [
+            189,
+            337,
+            37,
+            24
+          ],
+          "masks": [],
+          "ink": "\\tfrac52",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M432 362.5V296L454.3 318.1V362.5Z",
+              "fill": "#245a9b",
+              "fill-opacity": "0.16",
+              "stroke": "#245a9b",
+              "stroke-width": "0.85"
+            }
+          ]
+        },
+        {
+          "label": "1a · F(2)",
+          "answer": "从 \\(1\\) 到 \\(2\\) 再加一个高度从 \\(2\\) 降到 \\(1\\) 的梯形，得到 \\(F(2)=\\tfrac52+\\tfrac32=4\\)。",
+          "loc": [
+            228,
+            337,
+            36,
+            24
+          ],
+          "masks": [],
+          "ink": "4",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M454.3 362.5V318.1L476.5 340.3V362.5Z",
+              "fill": "#245a9b",
+              "fill-opacity": "0.16",
+              "stroke": "#245a9b",
+              "stroke-width": "0.85"
+            }
+          ]
+        },
+        {
+          "label": "1a · F(3)",
+          "answer": "在 \\([2,3]\\) 上 \\(f=1\\)，所以 \\(F(3)=4+1=5\\)。",
+          "loc": [
+            266,
+            337,
+            37,
+            24
+          ],
+          "masks": [],
+          "ink": "5",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M476.5 362.5V340.3H498.8V362.5Z",
+              "fill": "#245a9b",
+              "fill-opacity": "0.16",
+              "stroke": "#245a9b",
+              "stroke-width": "0.85"
+            }
+          ]
+        },
+        {
+          "label": "1a · F(4)",
+          "answer": "\\([3,4]\\) 上方的三角形面积为 \\(\\tfrac12\\)，所以 \\(F(4)=5+\\tfrac12=\\tfrac{11}{2}\\)。",
+          "loc": [
+            305,
+            337,
+            37,
+            24
+          ],
+          "masks": [],
+          "ink": "\\tfrac{11}{2}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M498.8 362.5V340.3L521 362.5Z",
+              "fill": "#245a9b",
+              "fill-opacity": "0.16",
+              "stroke": "#245a9b",
+              "stroke-width": "0.85"
+            }
+          ]
+        },
+        {
+          "label": "1a · F(5)",
+          "answer": "最后一个三角形位于横轴下方，贡献 \\(-\\tfrac12\\)，所以 \\(F(5)=\\tfrac{11}{2}-\\tfrac12=5\\)。",
+          "loc": [
+            344,
+            337,
+            37,
+            24
+          ],
+          "masks": [],
+          "ink": "5",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M521 362.5H543.2V384.7Z",
+              "fill": "#ab392c",
+              "fill-opacity": "0.16",
+              "stroke": "#ab392c",
+              "stroke-width": "0.85"
+            }
+          ]
+        },
+        {
+          "label": "表格下方 · 名称",
+          "answer": "这种以变动上限记录有向面积的函数称为 accumulation function（累积函数）。",
+          "loc": [
+            205,
+            396,
+            164,
+            17
+          ],
+          "masks": [],
+          "ink": "\\text{accumulation function}"
+        }
+      ],
+      "tip": "按横坐标从左向右揭示各格。图上每个新色块给出这一格相对上一格增加或减少的面积。",
+      "time": 90
+    },
+    {
+      "label": "Fundamental Theorem of Calculus",
+      "page": 1,
+      "box": [
+        104,
+        432,
+        454,
+        155
+      ],
+      "slide": 3,
+      "items": [
+        {
+          "label": "定理框 · 对累积函数求导",
+          "answer": "当 \\(f\\) 连续时，\\(\\displaystyle \\frac{d}{dx}\\int_a^x f(t)\\,dt=f(x)\\)。累积量在 \\(x\\) 处的瞬时变化率就是当前的被积函数值。",
+          "loc": [
+            365,
+            473,
+            163,
+            35
+          ],
+          "masks": [],
+          "ink": "f(x)"
+        },
+        {
+          "label": "下一行 · 运算的关系",
+          "answer": "这里填 inverses。从固定起点对连续函数积分，再对上限求导，就得到先前的被积函数 \\(f\\)。",
+          "loc": [
+            249,
+            533,
+            60,
+            16
+          ],
+          "masks": [],
+          "ink": "\\text{inverses}"
+        },
+        {
+          "label": "最后一空 · F 与 f 的关系",
+          "answer": "因为 \\(F^{\\prime}(x)=f(x)\\)，所以 \\(F\\) 是 \\(f\\) 的一个 antiderivative（原函数）。",
+          "loc": [
+            192,
+            561,
+            100,
+            16
+          ],
+          "masks": [],
+          "ink": "\\text{antiderivative}"
+        }
+      ],
+      "time": 255
+    },
+    {
+      "label": "Variations of the FTC",
+      "page": 1,
+      "box": [
+        104,
+        596,
+        450,
+        148
+      ],
+      "slide": 4,
+      "items": [
+        {
+          "label": "第一行 · 上限变化",
+          "answer": "把上限 \\(g(x)\\) 代入 \\(f\\)，再乘上限的导数。这一步来自链式法则。",
+          "loc": [
+            341,
+            636,
+            198,
+            38
+          ],
+          "masks": [],
+          "ink": "f(g(x))\\,g'(x)"
+        },
+        {
+          "label": "第二行 · 上下限都变化",
+          "answer": "上限的贡献减去下限的贡献。分别把 \\(g(x)\\) 和 \\(h(x)\\) 代入 \\(f\\)，并各自乘相应端点的导数。",
+          "loc": [
+            274,
+            689,
+            266,
+            42
+          ],
+          "masks": [],
+          "ink": "f(g(x))\\,g'(x)-f(h(x))\\,h'(x)"
+        }
+      ],
+      "time": 375
+    },
+    {
+      "label": "Find F′(x) · 1–3",
+      "page": 2,
+      "box": [
+        107,
+        35,
+        451,
+        164
+      ],
+      "slide": 5,
+      "items": [
+        {
+          "label": "1 · 上限 x",
+          "answer": "下限 \\(2\\) 固定，上限为 \\(x\\)。把 \\(t=x\\) 代入被积函数即可。因此 \\(F'(x)=3x^2+4x\\)。",
+          "loc": [
+            112,
+            77,
+            139,
+            79
+          ],
+          "masks": [],
+          "ink": "F'(x)=3x^2+4x"
+        },
+        {
+          "label": "2 · 上限 x³",
+          "answer": "下限 \\(\\pi/2\\) 固定，先对上限 \\(x^3\\) 求导，再乘 \\(\\sin(x^3)\\)。因此 \\(F'(x)=3x^2\\sin(x^3)\\)。",
+          "loc": [
+            264,
+            79,
+            139,
+            78
+          ],
+          "masks": [],
+          "ink": "F'(x)=3x^2\\sin(x^3)"
+        },
+        {
+          "label": "3 · 上限 4x",
+          "answer": "导数为 \\(h(4x)\\) 乘以上限的导数 \\(4\\)。因此 \\(F'(x)=4h(4x)\\)。",
+          "loc": [
+            413,
+            77,
+            139,
+            80
+          ],
+          "masks": [],
+          "ink": "F'(x)=4h(4x)"
+        }
+      ],
+      "time": 390
+    },
+    {
+      "label": "Find F′(x) · 4–5",
+      "page": 2,
+      "box": [
+        107,
+        199,
+        451,
+        153
+      ],
+      "slide": 6,
+      "items": [
+        {
+          "label": "4 · 对称端点",
+          "answer": "上限 \\(x\\) 的贡献为 \\(5x\\)，下限 \\(-x\\) 的贡献为 \\(5(-x)(-1)=5x\\)。相减得到零。也可由奇函数在对称区间上的积分为零验证。",
+          "loc": [
+            114,
+            224,
+            209,
+            105
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                115,
+                232,
+                207,
+                30
+              ],
+              "tex": "F'(x)=5x-5(-x)(-1)"
+            },
+            {
+              "box": [
+                124,
+                271,
+                180,
+                25
+              ],
+              "tex": "F'(x)=0"
+            }
+          ]
+        },
+        {
+          "label": "5 · 上下限 3x 与 2x",
+          "answer": "上限给出 \\(3[(3x)^2-3x]\\)，下限给出 \\(2[(2x)^2-2x]\\)。相减后得到 \\(19x^2-5x\\)。",
+          "loc": [
+            339,
+            224,
+            213,
+            105
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                340,
+                232,
+                210,
+                31
+              ],
+              "tex": "3(9x^2-3x)-2(4x^2-2x)"
+            },
+            {
+              "box": [
+                345,
+                271,
+                200,
+                25
+              ],
+              "tex": "F'(x)=19x^2-5x"
+            }
+          ]
+        }
+      ],
+      "time": 570
+    }
+  ]
+}</script>
+</body></html>

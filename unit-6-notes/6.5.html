@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.5 · Interpreting the Behavior of Accumulation Functions Involving Area · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.5 · Interpreting the Behavior of Accumulation Functions Involving Area</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=00G3lDAv6e4" href="https://www.youtube.com/watch?v=00G3lDAv6e4" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="sheets/6.5/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/65-interpreting-the-behavior-of-accumulation-functions-involving-area.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.5 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.5-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.5 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="sheets/6.5/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.5",
+  "pages": {
+    "1": 792,
+    "2": 183
+  },
+  "groups": [
+    {
+      "label": "Behavior table · 单调性与极值",
+      "page": 1,
+      "box": [
+        105,
+        84,
+        472,
+        205
+      ],
+      "slide": 1,
+      "items": [
+        {
+          "label": "Increasing · 递增",
+          "loc": [
+            234,
+            209,
+            338,
+            17
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                234,
+                209,
+                171,
+                17
+              ],
+              "tex": "F'(x)>0"
+            },
+            {
+              "box": [
+                412,
+                209,
+                160,
+                17
+              ],
+              "tex": "f(x)>0"
+            }
+          ],
+          "answer": "微积分基本定理给出 \\(F'(x)=f(x)\\)。当 \\(f\\) 的图像位于横轴上方时，向右移动上限会累加正面积，\\(F\\) 递增。"
+        },
+        {
+          "label": "Decreasing · 递减",
+          "loc": [
+            234,
+            229,
+            338,
+            17
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                234,
+                229,
+                171,
+                17
+              ],
+              "tex": "F'(x)\u003c0"
+            },
+            {
+              "box": [
+                412,
+                229,
+                160,
+                17
+              ],
+              "tex": "f(x)\u003c0"
+            }
+          ],
+          "answer": "在 \\(f(x)\u003c0\\) 的区间，继续向右积分会累加负的有向面积，所以 \\(F'(x)\u003c0\\)，\\(F\\) 递减。"
+        },
+        {
+          "label": "Relative maximum · 相对极大",
+          "loc": [
+            234,
+            249,
+            338,
+            17
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                234,
+                249,
+                171,
+                17
+              ],
+              "tex": "F':+\\longrightarrow-"
+            },
+            {
+              "box": [
+                412,
+                249,
+                160,
+                17
+              ],
+              "tex": "f:+\\longrightarrow-"
+            }
+          ],
+          "answer": "从左向右经过该点时，若 \\(f\\) 从正值变为负值，\\(F\\) 就先增后减，在该点取得相对极大值。"
+        },
+        {
+          "label": "Relative minimum · 相对极小",
+          "loc": [
+            234,
+            269,
+            338,
+            17
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                234,
+                269,
+                171,
+                17
+              ],
+              "tex": "F':-\\longrightarrow+"
+            },
+            {
+              "box": [
+                412,
+                269,
+                160,
+                17
+              ],
+              "tex": "f:-\\longrightarrow+"
+            }
+          ],
+          "answer": "从左向右经过该点时，若 \\(f\\) 从负值变为正值，\\(F\\) 就先减后增，在该点取得相对极小值。"
+        }
+      ],
+      "tip": "先区分图上画的是谁：\\(F\\) 是累积量，所给的 \\(f\\) 是它的导数。",
+      "time": 45
+    },
+    {
+      "label": "Behavior table · 凹凸性与拐点",
+      "page": 1,
+      "box": [
+        123,
+        286,
+        454,
+        65
+      ],
+      "slide": 2,
+      "items": [
+        {
+          "label": "Concave up · 凹向上",
+          "loc": [
+            234,
+            289,
+            338,
+            17
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                234,
+                289,
+                171,
+                17
+              ],
+              "tex": "F''(x)>0"
+            },
+            {
+              "box": [
+                412,
+                289,
+                160,
+                17
+              ],
+              "tex": "f'(x)>0"
+            }
+          ],
+          "answer": "在 \\(f\\) 递增的区间，\\(F\\) 的切线斜率越来越大，所以曲线凹向上。可用 \\(F''(x)=f'(x)>0\\) 判定。"
+        },
+        {
+          "label": "Concave down · 凹向下",
+          "loc": [
+            234,
+            309,
+            338,
+            17
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                234,
+                309,
+                171,
+                17
+              ],
+              "tex": "F''(x)\u003c0"
+            },
+            {
+              "box": [
+                412,
+                309,
+                160,
+                17
+              ],
+              "tex": "f'(x)\u003c0"
+            }
+          ],
+          "answer": "在 \\(f\\) 递减的区间，\\(F\\) 的切线斜率越来越小，所以曲线凹向下。可用 \\(F''(x)=f'(x)\u003c0\\) 判定。"
+        },
+        {
+          "label": "Point of inflection · 拐点",
+          "loc": [
+            234,
+            330,
+            338,
+            17
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                234,
+                330,
+                171,
+                17
+              ],
+              "tex": "F''\\ \\text{changes sign}"
+            },
+            {
+              "box": [
+                412,
+                330,
+                160,
+                17
+              ],
+              "tex": "f'\\ \\text{changes sign}"
+            }
+          ],
+          "answer": "若 \\(f\\) 在某点两侧由递增转为递减，或由递减转为递增，则 \\(F\\) 的凹凸性改变。判定依据是该点两侧的变化，点上 \\(F''\\) 可以不存在。"
+        }
+      ],
+      "context": [
+        105,
+        169,
+        472,
+        39
+      ],
+      "tip": "横轴上方、下方给出 \\(F'\\) 的符号；\\(f\\) 的上升、下降说明 \\(F'\\) 怎样变化。",
+      "time": 85
+    },
+    {
+      "label": "1a–c · 从图像读极值与凹向上区间",
+      "page": 1,
+      "box": [
+        105,
+        542,
+        455,
+        94
+      ],
+      "slide": 3,
+      "items": [
+        {
+          "label": "1a · 相对极小的位置",
+          "loc": [
+            114,
+            585,
+            138,
+            33
+          ],
+          "masks": [],
+          "ink": "x\\approx5.4",
+          "answer": "设 \\(c\\) 是 \\(5\u003cc\u003c6\\) 内的横轴交点。\\(g'(x)=f(x)\\) 在 \\(c\\) 左侧为负、右侧为正，所以相对极小值出现在 \\(x=c\\)。从原图估读，\\(c\\approx5.4\\)。"
+        },
+        {
+          "label": "1b · 相对极大的位置",
+          "loc": [
+            263,
+            585,
+            139,
+            33
+          ],
+          "masks": [],
+          "ink": "x=3",
+          "answer": "在 \\(x=3\\) 处，\\(f\\) 从横轴上方穿到下方，\\(g'=f\\) 从正变负，因此 \\(g\\) 先增后减。"
+        },
+        {
+          "label": "1c · 凹向上区间",
+          "loc": [
+            413,
+            586,
+            138,
+            33
+          ],
+          "masks": [],
+          "ink": "(4,6)",
+          "answer": "在 \\(4\u003cx\u003c6\\) 上，\\(f\\) 递增，即 \\(g'\\) 递增，故 \\(g\\) 凹向上。"
+        }
+      ],
+      "context": [
+        105,
+        361,
+        452,
+        179
+      ],
+      "tip": "先在横轴上找 \\(f\\) 变号的位置，再找图线本身由降转升的位置。",
+      "time": 135
+    },
+    {
+      "label": "1d–f · 凹向下区间、拐点与最大值",
+      "page": 1,
+      "box": [
+        105,
+        632,
+        455,
+        94
+      ],
+      "slide": 4,
+      "items": [
+        {
+          "label": "1d · 凹向下区间",
+          "loc": [
+            115,
+            674,
+            137,
+            32
+          ],
+          "masks": [],
+          "ink": "(2,4)",
+          "answer": "在 \\(2\u003cx\u003c4\\) 上，\\(f=g'\\) 递减，所以 \\(g\\) 凹向下。"
+        },
+        {
+          "label": "1e · 拐点的横坐标",
+          "loc": [
+            264,
+            674,
+            138,
+            32
+          ],
+          "masks": [],
+          "ink": "x=4",
+          "answer": "在 \\(x=4\\) 两侧，\\(f\\) 由递减转为递增，\\(g\\) 由凹向下转为凹向上。题目要求的是拐点的横坐标。"
+        },
+        {
+          "label": "1f · 闭区间上的最大值",
+          "loc": [
+            415,
+            679,
+            135,
+            32
+          ],
+          "masks": [],
+          "ink": "g(3)=5+2+1=8",
+          "answer": "在 \\([1,3]\\) 上 \\(g\\) 递增，在 \\([3,5]\\) 上 \\(g\\) 递减，因此最大值在 \\(x=3\\) 取得。从 1 到 3 的正面积由一个矩形和一个三角形组成，\\(\\int_1^3 f(t)\\,dt=1\\cdot2+\\frac12\\cdot1\\cdot2=3\\)，故 \\(g(3)=5+3=8\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M260 463.5 L260 412.5 L287.5 412.5 L287.5 463.5 Z",
+              "fill": "#377c862b",
+              "stroke": "#23616d",
+              "stroke-width": 0.85
+            },
+            {
+              "type": "path",
+              "d": "M287.5 463.5 L287.5 412.5 L315 463.5 Z",
+              "fill": "#377c862b",
+              "stroke": "#23616d",
+              "stroke-width": 0.85
+            }
+          ]
+        }
+      ],
+      "context": [
+        105,
+        361,
+        452,
+        179
+      ],
+      "tip": "用 \\(g'=f\\) 确定最大值的位置，然后把有向面积加到给定的初始值上。",
+      "time": 280
+    },
+    {
+      "label": "2 · 变上限与相对极大值",
+      "page": 2,
+      "box": [
+        105,
+        34,
+        450,
+        147
+      ],
+      "slide": 5,
+      "items": [
+        {
+          "label": "2 · 相对极大的位置",
+          "loc": [
+            126,
+            100,
+            200,
+            63
+          ],
+          "masks": [],
+          "ink": [
+            {
+              "box": [
+                123,
+                98,
+                205,
+                37
+              ],
+              "tex": "g'(x)=\\tfrac12 f\\!\\left(\\tfrac x2+5\\right)"
+            },
+            {
+              "box": [
+                126,
+                140,
+                200,
+                23
+              ],
+              "tex": "\\tfrac x2+5=3\\quad\\Rightarrow\\quad x=-4"
+            }
+          ],
+          "answer": "由微积分基本定理与链式法则，\\(g'(x)=\\tfrac12 f(\\tfrac{x}{2}+5)\\)。当输入 \\(t\\) 经过 \\(3\\) 时，\\(f(t)\\) 由正变负。上限随 \\(x\\) 递增，故 \\(g'\\) 在 \\(\\tfrac{x}{2}+5=3\\) 处也由正变负，即 \\(x=-4\\) 时 \\(g\\) 取得相对极大值。"
+        }
+      ],
+      "tip": "图上读到的 \\(3\\) 是送入 \\(f\\) 的自变量，把它代入积分上限才能求得题目所问的 \\(x\\)。",
+      "time": 410
+    }
+  ]
+}</script>
+</body></html>

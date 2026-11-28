@@ -1,11 +1,12 @@
 (() => {
   'use strict';
-  const { topic, groups } = JSON.parse(document.getElementById('sheet-data').textContent);
+  const { topic, groups, pages } = JSON.parse(document.getElementById('sheet-data').textContent);
   const byId = id => document.getElementById(id);
   const stage = byId('paper-stage');
   const picker = byId('question-picker');
   const dialog = byId('whole-sheet');
-  const fullPage = [0, 0, 612, 792];
+  function pageNumber() { return groups[current].page || 1; }
+  function pageBounds() { return [0, 0, 612, pages?.[pageNumber()] || 792]; }
   const opened = groups.map(() => new Set());
   let current = 0;
 
@@ -53,31 +54,32 @@
     interior.append(holder);
   }
 
-  function drawSketch(interior, crop, box) {
-    if (!intersects(box, crop)) return;
-    const holder = position(element('div', 'paper-ink'), box, crop);
-    holder.setAttribute('aria-hidden', 'true');
+  function drawOverlay(interior, crop, shapes) {
     const ns = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(ns, 'svg');
-    svg.setAttribute('viewBox', box.join(' '));
+    const holder = position(element('span', 'paper-ink'), crop, crop);
+    holder.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('viewBox', crop.join(' '));
     svg.setAttribute('width', '100%');
     svg.setAttribute('height', '100%');
-    function shape(type, attributes) {
+    for (const {type, ...attributes} of shapes) {
       const node = document.createElementNS(ns, type);
       for (const [key, value] of Object.entries(attributes)) node.setAttribute(key, value);
       svg.append(node);
     }
-    // Example 3 uses the printed axes at (424.74, 629.82), with 10.66 PDF points per unit.
-    shape('path', { d: 'M351 598.02H403.44 M403.44 619.32L456.78 587.28L498 607.9',
-      fill: 'none', stroke: 'currentColor', 'stroke-width': 1.9, 'stroke-linecap': 'round' });
-    shape('path', { d: 'M355 595.8L351 598.02L355 600.25 M495.8 604L498 607.9L493.6 608.45',
-      fill: 'none', stroke: 'currentColor', 'stroke-width': 1.5 });
-    for (const [cx, cy, filled] of [[403.44,598.02,true],[403.44,619.32,false],[456.78,587.28,false],[456.78,640.62,true]]) {
-      shape('circle', { cx, cy, r: 2.75, fill: filled ? 'currentColor' : 'white', stroke: 'currentColor', 'stroke-width': 1.55 });
-    }
     holder.append(svg);
     interior.append(holder);
   }
+
+  // Original graph solution for Unit 1 pages saved with the single-sketch format.
+  const limitSketch = [
+    {type:'path', d:'M351 598.02H403.44 M403.44 619.32L456.78 587.28L498 607.9',
+      fill:'none', stroke:'currentColor', 'stroke-width':1.9, 'stroke-linecap':'round'},
+    {type:'path', d:'M355 595.8L351 598.02L355 600.25 M495.8 604L498 607.9L493.6 608.45',
+      fill:'none', stroke:'currentColor', 'stroke-width':1.5},
+    ...[[403.44,598.02,true],[403.44,619.32,false],[456.78,587.28,false],[456.78,640.62,true]].map(([cx,cy,filled]) =>
+      ({type:'circle', cx, cy, r:2.75, fill:filled ? 'currentColor' : 'white', stroke:'currentColor', 'stroke-width':1.55}))
+  ];
 
   function makeCrop(box, scale, overview = false) {
     const outer = element('div', 'paper-crop');
@@ -89,26 +91,30 @@
     interior.style.transform = 'scale(' + scale + ')';
     const image = element('img', 'paper-image');
     image.alt = overview ? topic + ' Notes 原讲义整页' : topic + ' Notes · ' + groups[current].label + ' 原讲义';
-    image.src = 'sheets/' + topic + '.webp';
+    image.src = 'sheets/' + topic + (pages ? '-p' + pageNumber() : '') + '.webp';
     image.draggable = false;
-    interior.append(position(image, fullPage, box));
+    interior.append(position(image, pageBounds(), box));
     const focus = groups[current].focus;
     if (focus && !overview && intersects(box, focus)) {
       interior.append(position(element('span', 'active-questions'), focus, box));
     }
 
-    groups.forEach((group, g) => group.items.forEach((item, i) => {
-      const visible = (overview || g === current) && opened[g].has(i);
-      if (!visible) {
-        for (const mask of item.masks || []) {
-          if (intersects(box, mask)) interior.append(position(element('span', 'paper-mask'), mask, box));
+    groups.forEach((group, g) => {
+      if ((group.page || 1) !== pageNumber()) return;
+      group.items.forEach((item, i) => {
+        const visible = (overview || g === current) && opened[g].has(i);
+        if (!visible) {
+          for (const mask of item.masks || []) {
+            if (intersects(box, mask)) interior.append(position(element('span', 'paper-mask'), mask, box));
+          }
+          return;
         }
-        return;
-      }
-      if (item.sketch) drawSketch(interior, box, item.loc);
-      const marks = typeof item.ink === 'string' ? [{ box: item.loc, tex: item.ink }] : item.ink || [];
-      marks.forEach(mark => writeInk(interior, box, mark));
-    }));
+        if (item.draw) drawOverlay(interior, box, item.draw);
+        else if (item.sketch && intersects(item.loc, box)) drawOverlay(interior, box, limitSketch);
+        const marks = typeof item.ink === 'string' ? [{ box: item.loc, tex: item.ink }] : item.ink || [];
+        marks.forEach(mark => writeInk(interior, box, mark));
+      });
+    });
     if (overview) {
       const regions = focus ? [focus] : activeBoxes();
       for (const outline of regions) interior.append(position(element('span', 'map-outline'), outline, box));
@@ -160,8 +166,8 @@
     }));
     if (dialog.open) {
       const mapHeight = window.innerHeight * .98 - dialog.querySelector('.map-head').offsetHeight - 19;
-      const mapScale = Math.min((window.innerWidth * .96 - 19) / 612, mapHeight / 792);
-      byId('map-stage').replaceChildren(makeCrop(fullPage, Math.max(.1, mapScale), true));
+      const mapScale = Math.min((window.innerWidth * .96 - 19) / 612, mapHeight / pageBounds()[3], 2);
+      byId('map-stage').replaceChildren(makeCrop(pageBounds(), Math.max(.1, mapScale), true));
     }
     fitInk();
   }
@@ -234,7 +240,15 @@
     byId('progress').style.width = (current + 1) / groups.length * 100 + '%';
     byId('lesson-link').href = topic + '-lesson.html?notes=' + (current + 1) + '#' + group.slide;
     byId('video').href = byId('video').dataset.url + (Number.isInteger(group.time) ? '&t=' + group.time + 's' : '');
-    byId('video').textContent = '本题视频 ↗';
+    byId('video').textContent = Number.isInteger(group.time) ? '本题视频 ↗' : '本节视频 ↗';
+    if (pages) {
+      const page = pageNumber();
+      const pdf = byId('packet');
+      pdf.hash = 'page=' + page;
+      pdf.textContent = 'Packet · Notes p. ' + page + ' ↗';
+      document.querySelector('.paper-ref').textContent = 'FlippedMath · ' + topic + ' Notes · PDF 第 ' + page + ' 页';
+      document.querySelector('.map-head small').textContent = 'FlippedMath · ' + topic + ' Notes · p. ' + page;
+    }
     byId('map-title').textContent = group.label;
     document.querySelector('.sources').open = false;
     document.querySelector('.answer-panel').scrollTop = 0;

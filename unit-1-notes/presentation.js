@@ -22,7 +22,14 @@
     slides.forEach((slide, i) => { slide.hidden = i !== current; });
     picker.selectedIndex = current;
     const video = document.getElementById('video');
-    const time = Number(slides[current].dataset.videoTime);
+    const slide = slides[current];
+    const packet = document.getElementById('packet');
+    if (packet && slide.dataset.page) {
+      packet.hash = 'page=' + slide.dataset.page;
+      packet.textContent = 'Packet · Notes p. ' + slide.dataset.page + ' ↗';
+    }
+    if (returnLink && slide.dataset.question) returnLink.hash = 'q-' + slide.dataset.question;
+    const time = Number(slide.dataset.videoTime);
     if (Number.isInteger(time) && time >= 0) {
       video.href = video.dataset.url + '&t=' + time + 's';
       const stamp = Math.floor(time / 60) + ':' + String(time % 60).padStart(2, '0');
