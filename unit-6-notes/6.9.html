@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.9 · Integrating Using Substitution · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.9 · Integrating Using Substitution</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=VOD8ItScG2I" href="https://www.youtube.com/watch?v=VOD8ItScG2I" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.9/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/69-integrating-using-substitution.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.9 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.9-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.9 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.9/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.9",
+  "pages": {
+    "1": 792,
+    "2": 347
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Opening · The reverse chain rule",
+      "box": [
+        106,
+        92,
+        452,
+        59
+      ],
+      "items": [
+        {
+          "label": "换元法的名称",
+          "loc": [
+            140,
+            108,
+            111,
+            15
+          ],
+          "ink": "u\\text{-substitution}",
+          "answer": "填 \\(u\\)-substitution（换元积分法）。若 \\(u=g(x)\\)，则 \\(du=g^\\prime(x)\\,dx\\)，将复合被积函数中的 \\(g(x)\\) 与 \\(g^\\prime(x)\\,dx\\) 一起替换。"
+        }
+      ],
+      "slide": 1,
+      "time": 40
+    },
+    {
+      "page": 1,
+      "label": "1–3 · Indefinite integrals with substitution",
+      "box": [
+        107,
+        163,
+        451,
+        215
+      ],
+      "items": [
+        {
+          "label": "1",
+          "loc": [
+            114,
+            230,
+            136,
+            106
+          ],
+          "ink": [
+            {
+              "box": [
+                114,
+                227,
+                137,
+                34
+              ],
+              "tex": "u=3x-4,\\quad du=3\\,dx"
+            },
+            {
+              "box": [
+                114,
+                283,
+                137,
+                39
+              ],
+              "tex": "\\frac{(3x-4)^6}{18}+C"
+            }
+          ],
+          "answer": "令 \\(u=3x-4\\)，则 \\(dx=du/3\\)。积分为 \\(\\tfrac13\\int u^5\\,du=(3x-4)^6/18+C\\)。"
+        },
+        {
+          "label": "2",
+          "loc": [
+            264,
+            231,
+            137,
+            108
+          ],
+          "ink": [
+            {
+              "box": [
+                264,
+                228,
+                137,
+                34
+              ],
+              "tex": "u=x^3+4,\\quad du=3x^2\\,dx"
+            },
+            {
+              "box": [
+                264,
+                285,
+                137,
+                39
+              ],
+              "tex": "\\frac{(x^3+4)^6}{3}+C"
+            }
+          ],
+          "answer": "令 \\(u=x^3+4\\)，则 \\(6x^2\\,dx=2\\,du\\)。积分为 \\(2\\int u^5\\,du=(x^3+4)^6/3+C\\)。"
+        },
+        {
+          "label": "3",
+          "loc": [
+            413,
+            239,
+            137,
+            101
+          ],
+          "ink": [
+            {
+              "box": [
+                413,
+                239,
+                137,
+                34
+              ],
+              "tex": "u=\\sqrt{x}-1,\\quad du=\\frac{dx}{2\\sqrt{x}}"
+            },
+            {
+              "box": [
+                413,
+                285,
+                137,
+                39
+              ],
+              "tex": "\\tfrac23(\\sqrt{x}-1)^3+C"
+            }
+          ],
+          "answer": "在 \\(x>0\\) 上令 \\(u=\\sqrt{x}-1\\)，有 \\(dx/\\sqrt{x}=2\\,du\\)，所以积分为 \\(2\\int u^2\\,du=\\tfrac23(\\sqrt{x}-1)^3+C\\)。"
+        }
+      ],
+      "slide": 2,
+      "time": 100
+    },
+    {
+      "page": 1,
+      "label": "4–5 · Exponential and trigonometric substitution",
+      "box": [
+        107,
+        388,
+        451,
+        142
+      ],
+      "items": [
+        {
+          "label": "4",
+          "loc": [
+            114,
+            413,
+            210,
+            92
+          ],
+          "ink": [
+            {
+              "box": [
+                113,
+                416,
+                212,
+                28
+              ],
+              "tex": "u=\\cos x,\\quad du=-\\sin x\\,dx"
+            },
+            {
+              "box": [
+                113,
+                457,
+                212,
+                31
+              ],
+              "tex": "-e^{\\cos x}+C"
+            }
+          ],
+          "answer": "取 \\(u=\\cos x\\)，则 \\(\\sin x\\,dx=-du\\)。积分为 \\(-\\int e^u\\,du=-e^{\\cos x}+C\\)。"
+        },
+        {
+          "label": "5",
+          "loc": [
+            337,
+            413,
+            215,
+            92
+          ],
+          "ink": [
+            {
+              "box": [
+                339,
+                415,
+                210,
+                28
+              ],
+              "tex": "u=\\sin(3x),\\quad du=3\\cos(3x)\\,dx"
+            },
+            {
+              "box": [
+                339,
+                457,
+                210,
+                31
+              ],
+              "tex": "\\tfrac13\\ln|\\sin(3x)|+C"
+            }
+          ],
+          "answer": "\\(\\cot(3x)=\\cos(3x)/\\sin(3x)\\)。取 \\(u=\\sin(3x)\\)，得 \\(\\tfrac13\\int du/u=\\tfrac13\\ln|\\sin(3x)|+C\\)。"
+        }
+      ],
+      "slide": 3,
+      "time": 420
+    },
+    {
+      "page": 1,
+      "label": "6–7 · Choosing a substitution",
+      "box": [
+        107,
+        545,
+        451,
+        171
+      ],
+      "items": [
+        {
+          "label": "6",
+          "loc": [
+            114,
+            601,
+            210,
+            91
+          ],
+          "ink": [
+            {
+              "box": [
+                114,
+                600,
+                211,
+                27
+              ],
+              "tex": "u=x+1,\\quad x=u-1"
+            },
+            {
+              "box": [
+                114,
+                635,
+                211,
+                43
+              ],
+              "tex": "\\tfrac23(x+1)^{3/2}-2\\sqrt{x+1}+C"
+            }
+          ],
+          "answer": "取 \\(u=x+1\\)，则 \\(x=u-1\\)。被积式化为 \\(u^{1/2}-u^{-1/2}\\)，得到 \\(\\tfrac23(x+1)^{3/2}-2\\sqrt{x+1}+C\\)。"
+        },
+        {
+          "label": "7",
+          "loc": [
+            338,
+            599,
+            211,
+            92
+          ],
+          "ink": [
+            {
+              "box": [
+                338,
+                600,
+                211,
+                27
+              ],
+              "tex": "u=2x,\\quad dx=\\tfrac12\\,du"
+            },
+            {
+              "box": [
+                338,
+                636,
+                211,
+                36
+              ],
+              "tex": "\\tfrac12\\arcsin(2x)+C"
+            }
+          ],
+          "answer": "令 \\(u=2x\\)，得到 \\(\\tfrac12\\int(1-u^2)^{-1/2}\\,du=\\tfrac12\\arcsin(2x)+C\\)。"
+        }
+      ],
+      "slide": 4,
+      "time": 630
+    },
+    {
+      "page": 2,
+      "label": "8–9 · Change the bounds",
+      "box": [
+        107,
+        36,
+        451,
+        257
+      ],
+      "items": [
+        {
+          "label": "8",
+          "loc": [
+            114,
+            106,
+            210,
+            138
+          ],
+          "ink": [
+            {
+              "box": [
+                113,
+                112,
+                212,
+                31
+              ],
+              "tex": "u=t^3+1,\\quad u:1\\to9"
+            },
+            {
+              "box": [
+                113,
+                160,
+                212,
+                48
+              ],
+              "tex": "\\tfrac13\\int_1^9\\sqrt{u}\\,du=\\tfrac{52}{9}"
+            }
+          ],
+          "answer": "令 \\(u=t^3+1\\)，则 \\(du=3t^2\\,dt\\)。当 \\(t=0,2\\) 时，\\(u=1,9\\)，所以积分为 \\(\\tfrac29[ u^{3/2}]_1^9=\\tfrac{52}{9}\\)。"
+        },
+        {
+          "label": "9",
+          "loc": [
+            339,
+            106,
+            210,
+            138
+          ],
+          "ink": [
+            {
+              "box": [
+                339,
+                112,
+                210,
+                31
+              ],
+              "tex": "u=\\sin x,\\quad u:0\\to1"
+            },
+            {
+              "box": [
+                339,
+                160,
+                210,
+                48
+              ],
+              "tex": "\\int_0^1\\sqrt{u}\\,du=\\tfrac23"
+            }
+          ],
+          "answer": "令 \\(u=\\sin x\\)，则 \\(du=\\cos x\\,dx\\)。新上下限为 \\(0\\) 和 \\(1\\)，故 \\(\\int_0^1u^{1/2}\\,du=\\tfrac23\\)。"
+        }
+      ],
+      "slide": 5,
+      "time": 880
+    }
+  ]
+}</script>
+</body></html>

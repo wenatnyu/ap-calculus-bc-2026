@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>7.9 · Logistic Models with Differential Equations · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 7</a>
+    <span class="topic" lang="en">7.9 · Logistic Models with Differential Equations</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=DaBVapQZ948" href="https://www.youtube.com/watch?v=DaBVapQZ948" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-7/7.9/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/79-logistic-models-with-differential-equations.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 7.9 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="7.9-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 7.9 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-7/7.9/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "7.9",
+  "pages": {
+    "1": 792,
+    "2": 550
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Logistic population growth · 读 S 形曲线",
+      "box": [
+        106,
+        88,
+        452,
+        301
+      ],
+      "items": [
+        {
+          "label": "图像 · 环境容纳量",
+          "answer": "对图中从下方增长的种群，\\(\\lim_{t\\to\\infty}y(t)=L\\)。曲线越接近水平渐近线 \\(y=L\\)，增长率越接近零。",
+          "loc": [
+            198,
+            173,
+            157,
+            26
+          ],
+          "ink": "y=L",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M184.00 202.80L452.00 202.80",
+              "fill": "none",
+              "stroke": "#496c70",
+              "stroke-width": 1.2,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              "stroke-dasharray": "4 3"
+            }
+          ]
+        },
+        {
+          "label": "图像 · 拐点与增长率",
+          "answer": "当 \\(0\u003cy\u003cL/2\\) 时，人口增长且增长率上升。当 \\(L/2\u003cy\u003cL\\) 时，人口仍然增长，但增长率下降。两者之间的拐点高度为 \\(L/2\\)。",
+          "loc": [
+            204,
+            264,
+            94,
+            24
+          ],
+          "ink": [
+            {
+              "box": [
+                196,
+                263,
+                93,
+                22
+              ],
+              "tex": "y^{\\prime\\prime}>0"
+            },
+            {
+              "box": [
+                355,
+                221,
+                92,
+                25
+              ],
+              "tex": "y^{\\prime\\prime}\u003c0"
+            },
+            {
+              "box": [
+                330,
+                263,
+                89,
+                22
+              ],
+              "tex": "y=L/2"
+            }
+          ],
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 322.1,
+              "cy": 260.9,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            }
+          ]
+        }
+      ],
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Logistic differential equation · 两种形式",
+      "box": [
+        103,
+        390,
+        456,
+        165
+      ],
+      "items": [
+        {
+          "label": "标准形式",
+          "answer": "若 \\(k,L>0\\)，则 \\(dy/dt=ky(1-y/L)\\)。\\(L\\) 为环境容纳量，\\(k\\) 是低密度下的相对增长率极限。",
+          "loc": [
+            326,
+            433,
+            174,
+            36
+          ],
+          "ink": "ky\\left(1-\\frac yL\\right)"
+        },
+        {
+          "label": "因式分解形式",
+          "answer": "通分得 \\(dy/dt=(k/L)y(L-y)\\)。常数解为 \\(y=0\\) 和 \\(y=L\\)。",
+          "loc": [
+            326,
+            491,
+            174,
+            33
+          ],
+          "ink": "\\frac{k}{L}\\,y(L-y)"
+        }
+      ],
+      "time": 130,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1–2 · 极限值与拐点高度",
+      "box": [
+        105,
+        566,
+        455,
+        177
+      ],
+      "items": [
+        {
+          "label": "1 · 极限值与拐点",
+          "answer": "由 \\(1-y/3\\) 得 \\(L=3\\)。因 \\(y^{\\prime}\\) 在 \\(y=L/2\\) 最大，拐点的纵坐标为 \\(3/2\\)。",
+          "loc": [
+            206,
+            626,
+            121,
+            53
+          ],
+          "ink": [
+            {
+              "box": [
+                213,
+                627,
+                105,
+                24
+              ],
+              "tex": "3"
+            },
+            {
+              "box": [
+                281,
+                654,
+                46,
+                26
+              ],
+              "tex": "\\frac32"
+            }
+          ]
+        },
+        {
+          "label": "2 · 极限值与拐点",
+          "answer": "由因子 \\(16-y\\) 得 \\(L=16\\)，所以拐点的纵坐标为 \\(8\\)。",
+          "loc": [
+            433,
+            627,
+            118,
+            51
+          ],
+          "ink": [
+            {
+              "box": [
+                436,
+                627,
+                111,
+                24
+              ],
+              "tex": "16"
+            },
+            {
+              "box": [
+                509,
+                654,
+                42,
+                26
+              ],
+              "tex": "8"
+            }
+          ]
+        }
+      ],
+      "time": 310,
+      "slide": 3
+    },
+    {
+      "page": 2,
+      "label": "3–4 · 环境容纳量与最大增长率",
+      "box": [
+        106,
+        34,
+        452,
+        110
+      ],
+      "items": [
+        {
+          "label": "3 · 容量和增长最快处",
+          "answer": "由 \\(1-y/100\\) 知容量为 \\(100\\)。当 \\(y=50\\) 时增长率最大。",
+          "loc": [
+            223,
+            80,
+            103,
+            54
+          ],
+          "ink": [
+            {
+              "box": [
+                225,
+                81,
+                96,
+                24
+              ],
+              "tex": "100"
+            },
+            {
+              "box": [
+                258,
+                109,
+                66,
+                24
+              ],
+              "tex": "y=50"
+            }
+          ]
+        },
+        {
+          "label": "4 · 容量和增长最快处",
+          "answer": "由 \\(7-y\\) 知容量为 \\(7\\)。当 \\(y=7/2\\) 时增长率最大。",
+          "loc": [
+            449,
+            80,
+            101,
+            55
+          ],
+          "ink": [
+            {
+              "box": [
+                450,
+                81,
+                99,
+                24
+              ],
+              "tex": "7"
+            },
+            {
+              "box": [
+                480,
+                108,
+                71,
+                26
+              ],
+              "tex": "y=\\frac72"
+            }
+          ]
+        }
+      ],
+      "time": 450,
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "通解 · 初始条件与参数",
+      "box": [
+        106,
+        154,
+        452,
+        50
+      ],
+      "items": [
+        {
+          "label": "通解中的常数",
+          "answer": "对 \\(0\u003cy\u003cL\\) 的增长解，分离变量得 \\([1/y+1/(L-y)]\\,dy=k\\,dt\\)。积分得 \\(\\ln(y/(L-y))=kt+C\\)，故 \\(y=L/(1+be^{-kt})\\)。给定正初值 \\(y(0)=y_0\\)，有 \\(b=(L-y_0)/y_0\\)。其中 \\(b=0\\) 给出 \\(y\\equiv L\\)，另有平衡解 \\(y\\equiv0\\)。",
+          "loc": [
+            410,
+            174,
+            141,
+            30
+          ],
+          "ink": "b=\\frac{L-y_0}{y_0}"
+        }
+      ],
+      "time": 520,
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "5 · 用公园人数与入园速率建模",
+      "box": [
+        106,
+        210,
+        452,
+        219
+      ],
+      "items": [
+        {
+          "label": "5 · 设模型、代数据",
+          "answer": "令 \\(P^{\\prime}=kP(1-P/2500)\\)。在 \\(P=1200\\) 时，\\(100=1200k(1-1200/2500)=624k\\)，故 \\(k=25/156\\)（每小时）。",
+          "loc": [
+            120,
+            280,
+            426,
+            61
+          ],
+          "ink": [
+            {
+              "box": [
+                122,
+                278,
+                420,
+                32
+              ],
+              "tex": "100=k(1200)\\left(1-\\frac{1200}{2500}\\right)"
+            },
+            {
+              "box": [
+                122,
+                311,
+                420,
+                32
+              ],
+              "tex": "k=\\frac{100}{624}=\\frac{25}{156}"
+            }
+          ]
+        },
+        {
+          "label": "5 · 微分方程",
+          "answer": "因此 \\(dP/dt=(25/156)P(1-P/2500)=P(2500-P)/15600\\)，其中 \\(dP/dt\\) 的单位为人/小时。",
+          "loc": [
+            122,
+            353,
+            422,
+            60
+          ],
+          "ink": "\\frac{dP}{dt}=\\frac{P(2500-P)}{15600}"
+        }
+      ],
+      "time": 590,
+      "slide": 6
+    },
+    {
+      "page": 2,
+      "label": "6 · 从展开式确定容量",
+      "box": [
+        106,
+        437,
+        452,
+        111
+      ],
+      "items": [
+        {
+          "label": "6 · 环境容纳量",
+          "answer": "因 \\(y^{\\prime}=\\frac45y-\\frac1{150}y^2=\\frac1{150}y(120-y)\\)，正平衡值为 \\(120\\)，即环境容纳量。",
+          "loc": [
+            121,
+            472,
+            425,
+            60
+          ],
+          "ink": "\\frac{dy}{dt}=\\frac1{150}y(120-y),\\qquad L=120"
+        }
+      ],
+      "time": 870,
+      "slide": 7
+    }
+  ]
+}</script>
+</body></html>

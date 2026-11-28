@@ -21,6 +21,8 @@ h2 { margin: 0; padding-bottom: 10px; border-bottom: 2px solid var(--line); font
   font-weight: 600;
 }
 .note-actions a:first-child:hover { background: #dbf3e4; }
+.shell section + section { margin-top: 32px; }
+.note-card h3 + .note-actions { margin-top: 10px; }
 footer.shell { border-top: 1px solid var(--line); padding-block: 16px 28px; color: var(--muted); font-size: 13px; }
 @media print {
   .course-topbar { display: none; }

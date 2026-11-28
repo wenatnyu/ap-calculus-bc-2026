@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.11 · Integration by Parts · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.11 · Integration by Parts</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=UgwFNb9-gk0" href="https://www.youtube.com/watch?v=UgwFNb9-gk0" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.11/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/611-integration-by-parts.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.11 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.11-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.11 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.11/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.11",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Integration by parts · Product rule",
+      "box": [
+        102,
+        85,
+        458,
+        164
+      ],
+      "items": [
+        {
+          "label": "公式填空",
+          "loc": [
+            311,
+            113,
+            235,
+            37
+          ],
+          "ink": "f(x)g(x)-\\int f^\\prime(x)g(x)\\,dx",
+          "answer": "对讲义左端的积关于 \\(x\\) 积分，得到 \\(\\int fg^\\prime\\,dx=fg-\\int f^\\prime g\\,dx\\)（两侧原函数相差常数）。"
+        },
+        {
+          "label": "从乘积法则推导",
+          "loc": [
+            114,
+            194,
+            436,
+            49
+          ],
+          "ink": [
+            {
+              "box": [
+                115,
+                194,
+                433,
+                20
+              ],
+              "tex": "fg^\\prime=(fg)^\\prime-f^\\prime g"
+            },
+            {
+              "box": [
+                115,
+                218,
+                433,
+                22
+              ],
+              "tex": "\\int fg^\\prime\\,dx=\\int(fg)^\\prime\\,dx-\\int f^\\prime g\\,dx"
+            }
+          ],
+          "answer": "将 \\((fg)^\\prime=f^\\prime g+fg^\\prime\\) 移项并积分。乘积导数的原函数就是乘积 \\(fg\\)，得到分部积分公式。"
+        }
+      ],
+      "slide": 1,
+      "time": 25
+    },
+    {
+      "page": 1,
+      "label": "1 · Choose the two factors",
+      "box": [
+        105,
+        252,
+        451,
+        211
+      ],
+      "items": [
+        {
+          "label": "1 · 选择 f 与 f′",
+          "loc": [
+            198,
+            315,
+            132,
+            53
+          ],
+          "ink": [
+            {
+              "box": [
+                201,
+                317,
+                103,
+                20
+              ],
+              "tex": "x"
+            },
+            {
+              "box": [
+                201,
+                342,
+                103,
+                21
+              ],
+              "tex": "1"
+            }
+          ],
+          "answer": "取 \\(f=x\\)，则 \\(f^\\prime=1\\)。"
+        },
+        {
+          "label": "1 · 选择 g′ 与 g",
+          "loc": [
+            380,
+            315,
+            150,
+            54
+          ],
+          "ink": [
+            {
+              "box": [
+                382,
+                317,
+                144,
+                20
+              ],
+              "tex": "\\sin x"
+            },
+            {
+              "box": [
+                382,
+                342,
+                144,
+                21
+              ],
+              "tex": "-\\cos x"
+            }
+          ],
+          "answer": "取 \\(g^\\prime=\\sin x\\)，选 \\(g=-\\cos x\\)。"
+        },
+        {
+          "label": "1 · 完成积分",
+          "loc": [
+            111,
+            374,
+            440,
+            75
+          ],
+          "ink": [
+            {
+              "box": [
+                111,
+                373,
+                440,
+                30
+              ],
+              "tex": "\\int x\\sin x\\,dx=-x\\cos x+\\int\\cos x\\,dx"
+            },
+            {
+              "box": [
+                111,
+                412,
+                440,
+                32
+              ],
+              "tex": "=-x\\cos x+\\sin x+C"
+            }
+          ],
+          "answer": "代入公式得 \\(\\int x\\sin x\\,dx=-x\\cos x-\\int(-\\cos x)\\,dx=-x\\cos x+\\sin x+C\\)。"
+        }
+      ],
+      "slide": 2,
+      "time": 225
+    },
+    {
+      "page": 1,
+      "label": "2 · Tabular integration",
+      "box": [
+        106,
+        470,
+        452,
+        267
+      ],
+      "items": [
+        {
+          "label": "2 · 求导列",
+          "loc": [
+            217,
+            549,
+            103,
+            106
+          ],
+          "ink": [
+            {
+              "box": [
+                219,
+                551,
+                102,
+                15
+              ],
+              "tex": "x^4"
+            },
+            {
+              "box": [
+                219,
+                569,
+                102,
+                15
+              ],
+              "tex": "4x^3"
+            },
+            {
+              "box": [
+                219,
+                587,
+                102,
+                15
+              ],
+              "tex": "12x^2"
+            },
+            {
+              "box": [
+                219,
+                605,
+                102,
+                15
+              ],
+              "tex": "24x"
+            },
+            {
+              "box": [
+                219,
+                623,
+                102,
+                15
+              ],
+              "tex": "24"
+            },
+            {
+              "box": [
+                219,
+                641,
+                102,
+                15
+              ],
+              "tex": "0"
+            }
+          ],
+          "answer": "左列由 \\(x^4\\) 逐次求导，依次为 \\(x^4,\\,4x^3,\\,12x^2,\\,24x,\\,24,\\,0\\)。"
+        },
+        {
+          "label": "2 · 积分列",
+          "loc": [
+            341,
+            549,
+            104,
+            106
+          ],
+          "ink": [
+            {
+              "box": [
+                343,
+                551,
+                101,
+                15
+              ],
+              "tex": "\\sin x"
+            },
+            {
+              "box": [
+                343,
+                569,
+                101,
+                15
+              ],
+              "tex": "-\\cos x"
+            },
+            {
+              "box": [
+                343,
+                587,
+                101,
+                15
+              ],
+              "tex": "-\\sin x"
+            },
+            {
+              "box": [
+                343,
+                605,
+                101,
+                15
+              ],
+              "tex": "\\cos x"
+            },
+            {
+              "box": [
+                343,
+                623,
+                101,
+                15
+              ],
+              "tex": "\\sin x"
+            },
+            {
+              "box": [
+                343,
+                641,
+                101,
+                15
+              ],
+              "tex": "-\\cos x"
+            }
+          ],
+          "answer": "右列从 \\(\\sin x\\) 开始反复积分，依次出现 \\(-\\cos x,-\\sin x,\\cos x,\\sin x,-\\cos x\\)。"
+        },
+        {
+          "label": "2 · 对角相乘并求和",
+          "loc": [
+            111,
+            666,
+            439,
+            55
+          ],
+          "ink": [
+            {
+              "box": [
+                111,
+                663,
+                439,
+                26
+              ],
+              "tex": "\\int x^4\\sin x\\,dx=-x^4\\cos x+4x^3\\sin x+12x^2\\cos x"
+            },
+            {
+              "box": [
+                111,
+                693,
+                439,
+                24
+              ],
+              "tex": "{}-24x\\sin x-24\\cos x+C"
+            }
+          ],
+          "answer": "对角相乘并以 \\(+,-,+,-,+\\) 组合，原函数为 \\(-x^4\\cos x+4x^3\\sin x+12x^2\\cos x-24x\\sin x-24\\cos x+C\\)。"
+        }
+      ],
+      "slide": 3,
+      "time": 450
+    }
+  ]
+}</script>
+</body></html>

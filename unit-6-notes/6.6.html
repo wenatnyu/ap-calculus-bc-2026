@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.6 · Applying Properties of Definite Integrals · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.6 · Applying Properties of Definite Integrals</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=Z_DEopTVoic" href="https://www.youtube.com/watch?v=Z_DEopTVoic" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.6/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/66-applying-properties-of-definite-integrals.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.6 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.6-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.6 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.6/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.6",
+  "pages": {
+    "1": 792,
+    "2": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1–2 · Signed area",
+      "box": [
+        106,
+        91,
+        452,
+        133
+      ],
+      "items": [
+        {
+          "label": "1 · 从 0 到 12",
+          "loc": [
+            376,
+            127,
+            172,
+            24
+          ],
+          "ink": "2\\pi+2+2+0-3=2\\pi+1",
+          "answer": "半径为 \\(2\\) 的上半圆贡献 \\(2\\pi\\)，区间 \\([4,6]\\)、\\([6,7]\\) 分别贡献 \\(2,2\\)。\\([7,9]\\) 的两块小三角形相消，\\([9,12]\\) 贡献 \\(-3\\)，故积分为 \\(2\\pi+1\\)。"
+        },
+        {
+          "label": "2 · 从 12 到 0",
+          "loc": [
+            376,
+            190,
+            172,
+            22
+          ],
+          "ink": "-(2\\pi+1)",
+          "answer": "反向积分等于原积分的相反数，故结果为 \\(-2\\pi-1\\)。"
+        }
+      ],
+      "slide": 1,
+      "time": 30
+    },
+    {
+      "page": 1,
+      "label": "Properties · Limits and intervals",
+      "box": [
+        107,
+        229,
+        452,
+        164
+      ],
+      "items": [
+        {
+          "label": "相同上下限",
+          "loc": [
+            248,
+            267,
+            75,
+            32
+          ],
+          "ink": "0",
+          "answer": "积分区间宽度为零，因此 \\(\\int_a^a f(x)\\,dx=0\\)。"
+        },
+        {
+          "label": "对调上下限",
+          "loc": [
+            448,
+            261,
+            103,
+            43
+          ],
+          "ink": "-\\int_a^b f(x)\\,dx",
+          "answer": "方向反转，有 \\(\\int_b^a f(x)\\,dx=-\\int_a^b f(x)\\,dx\\)。"
+        },
+        {
+          "label": "常数倍",
+          "loc": [
+            225,
+            343,
+            100,
+            45
+          ],
+          "ink": "k\\int_a^b f(x)\\,dx",
+          "answer": "常数 \\(k\\) 可提出积分号，\\(\\int_a^b kf(x)\\,dx=k\\int_a^b f(x)\\,dx\\)。"
+        },
+        {
+          "label": "相邻区间",
+          "loc": [
+            474,
+            344,
+            78,
+            44
+          ],
+          "ink": "\\int_a^b f(x)\\,dx",
+          "answer": "在 \\(c\\) 处分割后，两段有向面积之和为 \\(\\int_a^b f(x)\\,dx\\)。"
+        }
+      ],
+      "slide": 2,
+      "time": 120
+    },
+    {
+      "page": 1,
+      "label": "Properties · Sums and differences",
+      "box": [
+        108,
+        394,
+        450,
+        70
+      ],
+      "items": [
+        {
+          "label": "和的积分",
+          "loc": [
+            217,
+            413,
+            112,
+            43
+          ],
+          "ink": "\\int_a^b f(x)\\,dx+\\int_a^b g(x)\\,dx",
+          "answer": "积分的线性性给出 \\(\\int_a^b(f+g)\\,dx=\\int_a^b f\\,dx+\\int_a^b g\\,dx\\)。"
+        },
+        {
+          "label": "差的积分",
+          "loc": [
+            450,
+            414,
+            105,
+            43
+          ],
+          "ink": "\\int_a^b f(x)\\,dx-\\int_a^b g(x)\\,dx",
+          "answer": "两项之差的积分等于两项积分之差，即 \\(\\int_a^b f\\,dx-\\int_a^b g\\,dx\\)。"
+        }
+      ],
+      "slide": 3,
+      "time": 210
+    },
+    {
+      "page": 1,
+      "label": "3–4 · Apply the properties",
+      "box": [
+        108,
+        466,
+        450,
+        131
+      ],
+      "items": [
+        {
+          "label": "3 · 反向矩形",
+          "loc": [
+            456,
+            472,
+            90,
+            29
+          ],
+          "ink": "-2",
+          "answer": "在 \\([6,7]\\) 上高度为 \\(2\\)，从 \\(7\\) 积到 \\(6\\) 得 \\(-2\\)。"
+        },
+        {
+          "label": "4 · 常数倍与反向",
+          "loc": [
+            463,
+            510,
+            85,
+            29
+          ],
+          "ink": "12",
+          "answer": "从 \\(8\\) 到 \\(12\\)，下方两块三角形合计 \\(-4\\)。反向并乘 \\(3\\) 得 \\(12\\)。"
+        }
+      ],
+      "slide": 4,
+      "time": 240
+    },
+    {
+      "page": 1,
+      "label": "5a–f · Given integral values",
+      "box": [
+        106,
+        600,
+        452,
+        147
+      ],
+      "items": [
+        {
+          "label": "5a",
+          "loc": [
+            119,
+            641,
+            127,
+            37
+          ],
+          "ink": "3",
+          "answer": "\\(\\int_5^1 f(x)\\,dx=-(-3)=3\\)。"
+        },
+        {
+          "label": "5b",
+          "loc": [
+            269,
+            641,
+            128,
+            37
+          ],
+          "ink": "4-3=1",
+          "answer": "将 \\([-2,5]\\) 在 \\(1\\) 处拆开，得到 \\(4+(-3)=1\\)。"
+        },
+        {
+          "label": "5c",
+          "loc": [
+            415,
+            642,
+            135,
+            36
+          ],
+          "ink": "4+2(8)=20",
+          "answer": "同一区间内用线性性得到 \\(4+2\\cdot8=20\\)。"
+        },
+        {
+          "label": "5d",
+          "loc": [
+            114,
+            714,
+            136,
+            26
+          ],
+          "ink": "\\text{Cannot determine}",
+          "answer": "现有数据给出 \\(\\int_{-2}^1 f(x)\\,dx\\)，却没有 \\(\\int_{-2}^0 f(x)\\,dx\\)，所以不能确定 \\(\\int_0^1 f(x)\\,dx\\)。"
+        },
+        {
+          "label": "5e",
+          "loc": [
+            265,
+            713,
+            135,
+            26
+          ],
+          "ink": "3(-4)=-12",
+          "answer": "将上下限反转并提出 \\(3\\)，得 \\(3(-4)=-12\\)。"
+        },
+        {
+          "label": "5f",
+          "loc": [
+            412,
+            713,
+            138,
+            26
+          ],
+          "ink": "0",
+          "answer": "上下限均为 \\(5\\)，积分等于 \\(0\\)。"
+        }
+      ],
+      "slide": 5,
+      "time": 330
+    },
+    {
+      "page": 2,
+      "label": "6–7 · Piecewise integrands",
+      "box": [
+        106,
+        36,
+        453,
+        246
+      ],
+      "items": [
+        {
+          "label": "6 · 分段函数",
+          "loc": [
+            112,
+            108,
+            90,
+            21
+          ],
+          "ink": "3+2-\\tfrac12=\\tfrac92",
+          "answer": "\\([1,2]\\) 为高 \\(3\\) 的矩形；之后 \\(4-x\\) 在 \\([2,4]\\) 与 \\([4,5]\\) 上分别贡献 \\(2\\) 和 \\(-\\tfrac12\\)。积分为 \\(\\tfrac92\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M232.00 200.00 L232.00 162.00 L245.00 162.00 L245.00 200.00 Z",
+              "fill": "#dcece8",
+              "stroke": "none",
+              "stroke-width": 0,
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M245.00 200.00 L245.00 175.00 L271.00 200.00 Z",
+              "fill": "#dcece8",
+              "stroke": "none",
+              "stroke-width": 0,
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M271.00 200.00 L285.00 213.00 L285.00 200.00 Z",
+              "fill": "#f1dfe4",
+              "stroke": "none",
+              "stroke-width": 0,
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M155 162H245 M245 175L285 213",
+              "fill": "none",
+              "stroke": "#155d96",
+              "stroke-width": 1.4,
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 245,
+              "cy": 162,
+              "r": 2.1,
+              "stroke": "#155d96",
+              "stroke-width": 1.2,
+              "fill": "white"
+            },
+            {
+              "type": "circle",
+              "cx": 245,
+              "cy": 175,
+              "r": 2.1,
+              "stroke": "#155d96",
+              "stroke-width": 1.2,
+              "fill": "#155d96"
+            }
+          ]
+        },
+        {
+          "label": "7 · 绝对值函数",
+          "loc": [
+            343,
+            94,
+            206,
+            31
+          ],
+          "ink": "2+\\tfrac92=\\tfrac{13}{2}",
+          "answer": "\\(|x-2|\\) 在 \\(x=2\\) 处折转，两块三角形的面积分别为 \\(\\tfrac12(2)(2)\\) 和 \\(\\tfrac12(3)(3)\\)，合计 \\(\\tfrac{13}{2}\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M444.00 203.00 L444.00 178.00 L470.00 203.00 L508.00 166.00 L508.00 203.00 Z",
+              "fill": "#dcece8",
+              "stroke": "none",
+              "stroke-width": 0,
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M404 140.5L470 203L508 166",
+              "fill": "none",
+              "stroke": "#155d96",
+              "stroke-width": 1.4,
+              "stroke-linejoin": "round"
+            }
+          ]
+        }
+      ],
+      "slide": 6,
+      "time": 480
+    },
+    {
+      "page": 2,
+      "label": "8–9 · Absolute value and area",
+      "box": [
+        107,
+        295,
+        450,
+        174
+      ],
+      "items": [
+        {
+          "label": "8 · 先积分",
+          "loc": [
+            411,
+            371,
+            139,
+            29
+          ],
+          "ink": "2",
+          "answer": "两块半圆分别给出 \\(-\\pi/2,\\pi/2\\)。先相加再取绝对值，得到 \\(|-\\pi/2+\\pi/2+2|=2\\)。"
+        },
+        {
+          "label": "9 · 先取绝对值",
+          "loc": [
+            411,
+            435,
+            140,
+            28
+          ],
+          "ink": "\\pi+2",
+          "answer": "下方半圆翻折到横轴上方，得到几何总面积 \\(\\pi/2+\\pi/2+2=\\pi+2\\)。"
+        }
+      ],
+      "slide": 7,
+      "time": 630
+    },
+    {
+      "page": 2,
+      "label": "10–11 · Calculator and graph",
+      "box": [
+        106,
+        496,
+        453,
+        232
+      ],
+      "items": [
+        {
+          "label": "10 · 根式",
+          "loc": [
+            207,
+            535,
+            122,
+            23
+          ],
+          "ink": "\\tfrac23(2\\sqrt2-1)\\approx1.219",
+          "answer": "从 \\(2\\) 到 \\(3\\)，曲线 \\(y=\\sqrt{x-1}\\) 位于横轴上方。计算得 \\(\\left[\\tfrac23(x-1)^{3/2}\\right]_2^3=\\tfrac23(2\\sqrt2-1)\\approx1.219\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M245.20 639.00 L245.20 626.60 L245.85 626.29 L246.51 625.99 L247.16 625.70 L247.82 625.42 L248.47 625.14 L249.13 624.86 L249.78 624.59 L250.44 624.33 L251.09 624.07 L251.75 623.81 L252.41 623.56 L253.06 623.32 L253.72 623.07 L254.37 622.83 L255.03 622.60 L255.68 622.36 L256.33 622.13 L256.99 621.91 L257.64 621.68 L258.30 621.46 L258.30 639.00 Z",
+              "fill": "#dcece8",
+              "stroke": "none",
+              "stroke-width": 0,
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M232.10 639.00 L232.75 636.23 L233.41 635.08 L234.06 634.20 L234.72 633.45 L235.38 632.80 L236.03 632.21 L236.69 631.66 L237.34 631.16 L238.00 630.68 L238.65 630.23 L239.31 629.80 L239.96 629.40 L240.62 629.00 L241.27 628.63 L241.93 628.26 L242.58 627.91 L243.24 627.57 L243.89 627.24 L244.54 626.91 L245.20 626.60 L245.85 626.29 L246.51 625.99 L247.16 625.70 L247.82 625.42 L248.47 625.14 L249.13 624.86 L249.78 624.59 L250.44 624.33 L251.09 624.07 L251.75 623.81 L252.41 623.56 L253.06 623.32 L253.72 623.07 L254.37 622.83 L255.03 622.60 L255.68 622.36 L256.33 622.13 L256.99 621.91 L257.64 621.68 L258.30 621.46 L258.95 621.25 L259.61 621.03 L260.26 620.82 L260.92 620.61 L261.57 620.40 L262.23 620.19 L262.88 619.99 L263.54 619.79 L264.19 619.59 L264.85 619.39 L265.50 619.20 L266.16 619.01 L266.81 618.81 L267.47 618.62 L268.12 618.44 L268.78 618.25 L269.44 618.07 L270.09 617.88 L270.75 617.70 L271.40 617.52 L272.06 617.34 L272.71 617.17 L273.37 616.99 L274.02 616.82 L274.68 616.65 L275.33 616.47 L275.99 616.30 L276.64 616.14 L277.30 615.97 L277.95 615.80 L278.61 615.64 L279.26 615.47 L279.92 615.31 L280.57 615.15 L281.23 614.99 L281.88 614.83 L282.53 614.67 L283.19 614.51 L283.85 614.36 L284.50 614.20",
+              "fill": "none",
+              "stroke": "#155d96",
+              "stroke-width": 1.4,
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "11 · 直线",
+          "loc": [
+            453,
+            535,
+            78,
+            23
+          ],
+          "ink": "-4",
+          "answer": "\\(y=x/3-1\\) 在 \\(x=3\\) 过横轴。计算器给出 \\(\\int_{-2}^{4}(x/3-1)\\,dx=[x^2/6-x]_{-2}^4=-4\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M417.30 643.00 L417.30 664.00 L482.80 643.00 Z",
+              "fill": "#f1dfe4",
+              "stroke": "none",
+              "stroke-width": 0,
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M482.80 643.00 L495.90 638.80 L495.90 643.00 Z",
+              "fill": "#dcece8",
+              "stroke": "none",
+              "stroke-width": 0,
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M378 676.6L509 634.6",
+              "fill": "none",
+              "stroke": "#155d96",
+              "stroke-width": 1.4,
+              "stroke-linejoin": "round"
+            }
+          ]
+        }
+      ],
+      "slide": 8,
+      "time": 750
+    }
+  ]
+}</script>
+</body></html>

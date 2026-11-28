@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.12 · Integrating Using Linear Partial Fractions · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.12 · Integrating Using Linear Partial Fractions</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=FF3IXYlbork" href="https://www.youtube.com/watch?v=FF3IXYlbork" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.12/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/612-integrating-using-linear-partial-fractions.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.12 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.12-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.12 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.12/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.12",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Partial Fraction Decomposition",
+      "box": [
+        104,
+        88,
+        456,
+        261
+      ],
+      "time": 25,
+      "items": [
+        {
+          "label": "一般式 · 分解为一次因子",
+          "answer": "当 \\(\\deg P\u003c\\deg Q\\) 且 \\(Q\\) 可分解为互不重复的一次因子时，每个分式的分母保留一个因子，分子是待定常数。",
+          "loc": [
+            201,
+            314,
+            261,
+            27
+          ],
+          "ink": "\\displaystyle\\frac{A_1}{a_1x+b_1}+\\frac{A_2}{a_2x+b_2}+\\frac{A_3}{a_3x+b_3}+\\cdots+\\frac{A_n}{a_nx+b_n}"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Two linear factors",
+      "box": [
+        105,
+        359,
+        451,
+        147
+      ],
+      "time": 175,
+      "items": [
+        {
+          "label": "1 · 求系数",
+          "answer": "设 \\(\\dfrac{1}{(x-1)(x+2)}=\\dfrac A{x-1}+\\dfrac B{x+2}\\)。清除分母后 \\(1=A(x+2)+B(x-1)\\)。代入 \\(x=1,-2\\)，分别得 \\(A=\\tfrac13,\\ B=-\\tfrac13\\)。",
+          "loc": [
+            118,
+            397,
+            404,
+            32
+          ],
+          "ink": "1=A(x+2)+B(x-1)\\quad\\Longrightarrow\\quad A=\\tfrac13,\\ B=-\\tfrac13"
+        },
+        {
+          "label": "1 · 不定积分",
+          "answer": "利用 \\(\\displaystyle\\int \\frac{dx}{x-a}=\\ln|x-a|+C\\)，原积分为 \\(\\frac13\\ln|x-1|-\\frac13\\ln|x+2|+C\\)。",
+          "loc": [
+            118,
+            447,
+            403,
+            36
+          ],
+          "ink": "\\frac13\\ln|x-1|-\\frac13\\ln|x+2|+C"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · Three linear factors",
+      "box": [
+        105,
+        518,
+        454,
+        216
+      ],
+      "time": 450,
+      "items": [
+        {
+          "label": "2 · 因式分解与设式",
+          "answer": "\\(x^3-3x^2-4x=x(x-4)(x+1)\\)。令三个分母依次为 \\(x,\\ x-4,\\ x+1\\)，分子为 \\(A,B,C\\)。",
+          "loc": [
+            117,
+            559,
+            411,
+            30
+          ],
+          "ink": "\\frac{2x^2-7}{x(x-4)(x+1)}=\\frac{A}{x}+\\frac{B}{x-4}+\\frac{C}{x+1}"
+        },
+        {
+          "label": "2 · 三个系数",
+          "answer": "清除分母得到 \\(2x^2-7=A(x-4)(x+1)+Bx(x+1)+Cx(x-4)\\)。代入 \\(x=0,4,-1\\) 依次得到 \\(A=\\tfrac74,\\ B=\\tfrac54,\\ C=-1\\)。",
+          "loc": [
+            117,
+            609,
+            407,
+            27
+          ],
+          "ink": "x=0,4,-1\\quad\\Longrightarrow\\quad A=\\tfrac74,\\ B=\\tfrac54,\\ C=-1"
+        },
+        {
+          "label": "2 · 不定积分",
+          "answer": "逐项积分并合并积分常数，得 \\(\\dfrac74\\ln|x|+\\dfrac54\\ln|x-4|-\\ln|x+1|+C\\)。",
+          "loc": [
+            117,
+            669,
+            412,
+            33
+          ],
+          "ink": "\\frac74\\ln|x|+\\frac54\\ln|x-4|-\\ln|x+1|+C"
+        }
+      ],
+      "slide": 3
+    }
+  ]
+}</script>
+</body></html>

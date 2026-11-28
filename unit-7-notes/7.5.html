@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>7.5 · Approximating Solutions Using Euler’s Method · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 7</a>
+    <span class="topic" lang="en">7.5 · Approximating Solutions Using Euler’s Method</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=PROci7yXT2A" href="https://www.youtube.com/watch?v=PROci7yXT2A" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-7/7.5/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/75-approximating-solutions-using-eulerrsquos-method.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 7.5 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="7.5-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 7.5 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-7/7.5/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "7.5",
+  "pages": {
+    "1": 792,
+    "2": 486
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1 · Euler’s method · Step 1",
+      "box": [
+        106,
+        91,
+        453,
+        301
+      ],
+      "items": [
+        {
+          "label": "Step 1 · 斜率、切线与新点",
+          "answer": "在 \\((0,0)\\) 的斜率为 \\(1+0=1\\)。切线为 \\(y=x\\)，走到 \\(x=0.5\\) 时近似高度为 \\(0.5\\)。新点为 \\((0.5,0.5)\\)。",
+          "loc": [
+            118,
+            232,
+            272,
+            74
+          ],
+          "ink": [
+            {
+              "box": [
+                118,
+                232,
+                269,
+                56
+              ],
+              "tex": "m=1,\\quad y=0+1(x-0)"
+            },
+            {
+              "box": [
+                421,
+                359,
+                116,
+                25
+              ],
+              "tex": "(0.5,0.5)"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M471.00 273.50L490.80 253.70",
+              "fill": "none",
+              "stroke": "#165a9c",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 471,
+              "cy": 273.5,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            },
+            {
+              "type": "circle",
+              "cx": 490.8,
+              "cy": 253.7,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            }
+          ]
+        }
+      ],
+      "time": 80,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Euler’s method · Step 2",
+      "box": [
+        106,
+        400,
+        448,
+        184
+      ],
+      "items": [
+        {
+          "label": "Step 2 · 从第一步终点继续",
+          "answer": "从 \\((0.5,0.5)\\) 出发，斜率为 \\(1.5\\)，切线为 \\(y=0.5+1.5(x-0.5)\\)。在 \\(x=1\\) 时得 \\(y\\approx1.25\\)。",
+          "loc": [
+            116,
+            439,
+            416,
+            64
+          ],
+          "ink": [
+            {
+              "box": [
+                298,
+                401,
+                49,
+                19
+              ],
+              "tex": "(.5,.5)"
+            },
+            {
+              "box": [
+                116,
+                439,
+                410,
+                60
+              ],
+              "tex": "y=0.5+1.5(x-0.5)"
+            },
+            {
+              "box": [
+                257,
+                553,
+                55,
+                23
+              ],
+              "tex": "(0.5,0.5)"
+            },
+            {
+              "box": [
+                418,
+                551,
+                114,
+                25
+              ],
+              "tex": "(1,1.25)"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M471.00 273.50L490.80 253.70L510.60 224.00",
+              "fill": "none",
+              "stroke": "#165a9c",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 471,
+              "cy": 273.5,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            },
+            {
+              "type": "circle",
+              "cx": 490.8,
+              "cy": 253.7,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            },
+            {
+              "type": "circle",
+              "cx": 510.6,
+              "cy": 224,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            }
+          ]
+        }
+      ],
+      "context": [
+        420,
+        144,
+        140,
+        196
+      ],
+      "time": 270,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1 · Euler’s method · Step 3",
+      "box": [
+        106,
+        591,
+        450,
+        145
+      ],
+      "items": [
+        {
+          "label": "Step 3 · 三步折线",
+          "answer": "在 \\((1,1.25)\\) 的斜率为 \\(2.25\\)。在切线上走 \\(0.5\\)，新高度为 \\(1.25+2.25(0.5)=2.375\\)，故 \\(f(1.5)\\approx2.375\\)。",
+          "loc": [
+            118,
+            632,
+            411,
+            46
+          ],
+          "ink": [
+            {
+              "box": [
+                298,
+                596,
+                43,
+                17
+              ],
+              "tex": "(1,1.25)"
+            },
+            {
+              "box": [
+                118,
+                631,
+                411,
+                43
+              ],
+              "tex": "y=1.25+2.25(x-1)"
+            },
+            {
+              "box": [
+                255,
+                707,
+                58,
+                21
+              ],
+              "tex": "(1,1.25)"
+            },
+            {
+              "box": [
+                421,
+                706,
+                115,
+                23
+              ],
+              "tex": "(1.5,2.375)"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M471.00 273.50L490.80 253.70L510.60 224.00L530.40 179.45",
+              "fill": "none",
+              "stroke": "#165a9c",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 471,
+              "cy": 273.5,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            },
+            {
+              "type": "circle",
+              "cx": 490.8,
+              "cy": 253.7,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            },
+            {
+              "type": "circle",
+              "cx": 510.6,
+              "cy": 224,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            },
+            {
+              "type": "circle",
+              "cx": 530.4,
+              "cy": 179.45,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            }
+          ]
+        }
+      ],
+      "context": [
+        420,
+        144,
+        140,
+        196
+      ],
+      "time": 420,
+      "slide": 3
+    },
+    {
+      "page": 2,
+      "label": "2 · 步长与递推式",
+      "box": [
+        105,
+        33,
+        451,
+        198
+      ],
+      "items": [
+        {
+          "label": "2 · 步长",
+          "answer": "\\(h=(2-1)/5=1/5=0.2\\)。",
+          "loc": [
+            255,
+            94,
+            177,
+            29
+          ],
+          "ink": "\\frac{2-1}{5}=\\frac15"
+        },
+        {
+          "label": "2 · 更新公式",
+          "answer": "在第 \\(n\\) 步，\\(y_{n+1}=y_n+2x_nh\\)，\\(x_{n+1}=x_n+h\\)。初始点为 \\((x_0,y_0)=(1,3)\\)。",
+          "loc": [
+            137,
+            188,
+            380,
+            36
+          ],
+          "ink": "y_{n+1}=y_n+2x_nh,\\quad x_{n+1}=x_n+h"
+        }
+      ],
+      "time": 530,
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "2 · 五步欧拉表",
+      "box": [
+        148,
+        234,
+        369,
+        205
+      ],
+      "items": [
+        {
+          "label": "第 1 步",
+          "answer": "从 \\((1,3)\\) 出发，斜率为 \\(2(1)=2\\)。向前一步，近似高度为 \\(3+0.2(2)=3.4\\)。",
+          "loc": [
+            152,
+            259,
+            361,
+            26
+          ],
+          "ink": [
+            {
+              "box": [
+                153,
+                259,
+                55,
+                26
+              ],
+              "tex": "1"
+            },
+            {
+              "box": [
+                213,
+                259,
+                73,
+                26
+              ],
+              "tex": "3"
+            },
+            {
+              "box": [
+                291,
+                259,
+                82,
+                26
+              ],
+              "tex": "2"
+            },
+            {
+              "box": [
+                379,
+                259,
+                133,
+                26
+              ],
+              "tex": "3+2(0.2)=3.4"
+            }
+          ]
+        },
+        {
+          "label": "第 2 步",
+          "answer": "从 \\((1.2,3.4)\\) 出发，斜率为 \\(2(1.2)=2.4\\)。向前一步，近似高度为 \\(3.4+0.2(2.4)=3.88\\)。",
+          "loc": [
+            152,
+            289,
+            361,
+            26
+          ],
+          "ink": [
+            {
+              "box": [
+                153,
+                289,
+                55,
+                26
+              ],
+              "tex": "1.2"
+            },
+            {
+              "box": [
+                213,
+                289,
+                73,
+                26
+              ],
+              "tex": "3.4"
+            },
+            {
+              "box": [
+                291,
+                289,
+                82,
+                26
+              ],
+              "tex": "2.4"
+            },
+            {
+              "box": [
+                379,
+                289,
+                133,
+                26
+              ],
+              "tex": "3.4+2.4(0.2)=3.88"
+            }
+          ]
+        },
+        {
+          "label": "第 3 步",
+          "answer": "从 \\((1.4,3.88)\\) 出发，斜率为 \\(2(1.4)=2.8\\)。向前一步，近似高度为 \\(3.88+0.2(2.8)=4.44\\)。",
+          "loc": [
+            152,
+            319,
+            361,
+            26
+          ],
+          "ink": [
+            {
+              "box": [
+                153,
+                319,
+                55,
+                26
+              ],
+              "tex": "1.4"
+            },
+            {
+              "box": [
+                213,
+                319,
+                73,
+                26
+              ],
+              "tex": "3.88"
+            },
+            {
+              "box": [
+                291,
+                319,
+                82,
+                26
+              ],
+              "tex": "2.8"
+            },
+            {
+              "box": [
+                379,
+                319,
+                133,
+                26
+              ],
+              "tex": "3.88+2.8(0.2)=4.44"
+            }
+          ]
+        },
+        {
+          "label": "第 4 步",
+          "answer": "从 \\((1.6,4.44)\\) 出发，斜率为 \\(2(1.6)=3.2\\)。向前一步，近似高度为 \\(4.44+0.2(3.2)=5.08\\)。",
+          "loc": [
+            152,
+            349,
+            361,
+            26
+          ],
+          "ink": [
+            {
+              "box": [
+                153,
+                349,
+                55,
+                26
+              ],
+              "tex": "1.6"
+            },
+            {
+              "box": [
+                213,
+                349,
+                73,
+                26
+              ],
+              "tex": "4.44"
+            },
+            {
+              "box": [
+                291,
+                349,
+                82,
+                26
+              ],
+              "tex": "3.2"
+            },
+            {
+              "box": [
+                379,
+                349,
+                133,
+                26
+              ],
+              "tex": "4.44+3.2(0.2)=5.08"
+            }
+          ]
+        },
+        {
+          "label": "第 5 步",
+          "answer": "从 \\((1.8,5.08)\\) 出发，斜率为 \\(2(1.8)=3.6\\)。向前一步，近似高度为 \\(5.08+0.2(3.6)=5.8\\)。",
+          "loc": [
+            152,
+            379,
+            361,
+            26
+          ],
+          "ink": [
+            {
+              "box": [
+                153,
+                379,
+                55,
+                26
+              ],
+              "tex": "1.8"
+            },
+            {
+              "box": [
+                213,
+                379,
+                73,
+                26
+              ],
+              "tex": "5.08"
+            },
+            {
+              "box": [
+                291,
+                379,
+                82,
+                26
+              ],
+              "tex": "3.6"
+            },
+            {
+              "box": [
+                379,
+                379,
+                133,
+                26
+              ],
+              "tex": "5.08+3.6(0.2)=5.8"
+            }
+          ]
+        },
+        {
+          "label": "终点 · f(2)",
+          "answer": "五次更新后到达 \\(x=2\\)，得 \\(f(2)\\approx5.8\\)。最后一行只记录终点。",
+          "loc": [
+            152,
+            409,
+            360,
+            25
+          ],
+          "ink": [
+            {
+              "box": [
+                152,
+                408,
+                56,
+                25
+              ],
+              "tex": "2"
+            },
+            {
+              "box": [
+                212,
+                408,
+                74,
+                25
+              ],
+              "tex": "5.8"
+            }
+          ]
+        }
+      ],
+      "context": [
+        105,
+        34,
+        447,
+        56
+      ],
+      "time": 680,
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

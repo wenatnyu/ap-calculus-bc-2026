@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>7.7 · Particular Solutions using Initial Conditions and Separation of Variables · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 7</a>
+    <span class="topic" lang="en">7.7 · Particular Solutions using Initial Conditions and Separation of Variables</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=RBy5HpCSRfY" href="https://www.youtube.com/watch?v=RBy5HpCSRfY" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-7/7.7/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/77-particular-solutions-using-initial-conditions-and-separation-of-variables.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 7.7 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="7.7-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 7.7 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-7/7.7/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "7.7",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1 · 使用初值 y(1)=1",
+      "box": [
+        105,
+        85,
+        454,
+        189
+      ],
+      "items": [
+        {
+          "label": "1 · 分离与积分",
+          "answer": "由于初值非零，在所求解的区间上可以写成 \\(y^{-2}\\,dy=x^2\\,dx\\)。积分给出 \\(-1/y=x^3/3+C\\)。",
+          "loc": [
+            120,
+            130,
+            275,
+            45
+          ],
+          "ink": "-\\frac1y=\\frac{x^3}{3}+C"
+        },
+        {
+          "label": "1 · 特解与图像",
+          "answer": "代入 \\((1,1)\\) 得 \\(C=-4/3\\)，所以 \\(y=3/(4-x^3)\\)。含 \\(x=1\\) 的最大区间为 \\(x\u003c\\sqrt[3]{4}\\)。原图上画出这条曲线在窗口中的部分。",
+          "loc": [
+            120,
+            189,
+            277,
+            55
+          ],
+          "ink": "y=\\frac3{4-x^3},\\qquad x\u003c\\sqrt[3]{4}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M417.65 159.87L418.93 159.76L420.21 159.65L421.49 159.52L422.77 159.39L424.05 159.25L425.33 159.10L426.61 158.94L427.89 158.77L429.17 158.58L430.45 158.39L431.73 158.19L433.01 157.97L434.29 157.74L435.57 157.49L436.85 157.23L438.13 156.96L439.41 156.66L440.69 156.35L441.97 156.02L443.25 155.68L444.53 155.31L445.81 154.93L447.09 154.53L448.37 154.11L449.65 153.67L450.93 153.22L452.21 152.75L453.49 152.27L454.77 151.78L456.05 151.28L457.33 150.77L458.61 150.26L459.89 149.76L461.17 149.26L462.45 148.78L463.73 148.31L465.01 147.86L466.29 147.43L467.57 147.04L468.85 146.67L470.13 146.34L471.41 146.05L472.69 145.79L473.97 145.56L475.25 145.38L476.53 145.22L477.81 145.10L479.09 145.01L480.37 144.94L481.65 144.90L482.93 144.87L484.21 144.86L485.49 144.85L486.77 144.85L488.05 144.85L489.33 144.84L490.61 144.83L491.89 144.80L493.17 144.76L494.45 144.69L495.73 144.60L497.01 144.47L498.29 144.30L499.57 144.09L500.85 143.82L502.12 143.48L503.40 143.07L504.68 142.57L505.96 141.96L507.24 141.20L508.52 140.28L509.80 139.15L511.08 137.72L512.36 135.92L513.64 133.59L514.92 130.50L516.20 126.24L517.48 120.05L518.76 110.35L520.04 93.10",
+              "fill": "none",
+              "stroke": "#165a9c",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 509.85,
+              "cy": 139.1,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            }
+          ]
+        }
+      ],
+      "time": 15,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "2 · 用初值确定根号分支",
+      "box": [
+        105,
+        296,
+        454,
+        169
+      ],
+      "items": [
+        {
+          "label": "2 · 积分并代入初值",
+          "answer": "积分得 \\(y^2=2x^2+C\\)。由 \\(1=2(2)^2+C\\)，求得 \\(C=-7\\)。",
+          "loc": [
+            119,
+            344,
+            278,
+            38
+          ],
+          "ink": "y^2=2x^2-7"
+        },
+        {
+          "label": "2 · 特解与图像",
+          "answer": "因 \\(y(2)=1>0\\)，取 \\(y=\\sqrt{2x^2-7}\\)。原方程含 \\(1/y\\)，故在包含 2 的区间 \\(x>\\sqrt{7/2}\\) 上成立。",
+          "loc": [
+            118,
+            387,
+            279,
+            58
+          ],
+          "ink": "y=\\sqrt{2x^2-7},\\quad x>\\sqrt{7/2}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M528.81 370.67L529.07 364.46L529.34 361.71L529.60 359.58L529.86 357.78L530.13 356.19L530.39 354.74L530.65 353.40L530.92 352.15L531.18 350.97L531.44 349.85L531.71 348.78L531.97 347.75L532.23 346.76L532.50 345.80L532.76 344.87L533.02 343.97L533.29 343.09L533.55 342.24L533.81 341.40L534.08 340.59L534.34 339.79L534.60 339.00L534.87 338.23L535.13 337.47L535.39 336.73L535.66 336.00L535.92 335.28L536.18 334.56L536.45 333.86L536.71 333.17L536.97 332.49L537.24 331.81L537.50 331.15L537.76 330.49L538.03 329.83L538.29 329.19L538.55 328.55L538.82 327.92L539.08 327.29L539.34 326.67L539.61 326.05L539.87 325.44L540.13 324.84L540.40 324.24L540.66 323.64L540.92 323.05L541.19 322.46L541.45 321.88L541.71 321.30L541.98 320.73L542.24 320.16L542.50 319.59L542.77 319.02L543.03 318.46L543.29 317.91L543.56 317.35L543.82 316.80L544.08 316.25L544.35 315.71L544.61 315.16L544.87 314.62L545.14 314.09L545.40 313.55L545.66 313.02L545.93 312.49L546.19 311.96L546.45 311.44L546.72 310.92L546.98 310.40L547.24 309.88L547.51 309.36L547.77 308.85L548.03 308.33L548.30 307.82L548.56 307.32L548.82 306.81L549.09 306.30L549.35 305.80L549.61 305.30L549.88 304.80",
+              "fill": "none",
+              "stroke": "#165a9c",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 531.65,
+              "cy": 349,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            }
+          ]
+        }
+      ],
+      "time": 215,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "3 · 平移变量后的初值问题",
+      "box": [
+        105,
+        520,
+        453,
+        185
+      ],
+      "items": [
+        {
+          "label": "3 · 分离与积分",
+          "answer": "由 \\(dy/(y+2)=e^x\\,dx\\) 得 \\(\\ln|y+2|=e^x+C\\)。已知 \\(y(0)=-1\\)，故 \\(0=1+C\\)，即 \\(C=-1\\)。",
+          "loc": [
+            116,
+            561,
+            282,
+            45
+          ],
+          "ink": "\\ln|y+2|=e^x-1"
+        },
+        {
+          "label": "3 · 特解与图像",
+          "answer": "因初值处 \\(y+2=1>0\\)，解为 \\(y=e^{e^x-1}-2\\)，定义在所有实数上。其导数为 \\(e^{e^x-1}e^x=(y+2)e^x\\)。",
+          "loc": [
+            118,
+            616,
+            280,
+            49
+          ],
+          "ink": "y=e^{e^x-1}-2",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M420.45 628.50L421.55 628.48L422.65 628.45L423.75 628.43L424.84 628.40L425.94 628.38L427.04 628.35L428.14 628.32L429.24 628.29L430.34 628.25L431.44 628.22L432.54 628.18L433.63 628.14L434.73 628.10L435.83 628.06L436.93 628.01L438.03 627.96L439.13 627.91L440.23 627.86L441.32 627.80L442.42 627.74L443.52 627.68L444.62 627.61L445.72 627.54L446.82 627.46L447.92 627.38L449.02 627.30L450.11 627.21L451.21 627.11L452.31 627.01L453.41 626.90L454.51 626.79L455.61 626.67L456.71 626.54L457.80 626.40L458.90 626.25L460.00 626.10L461.10 625.93L462.20 625.75L463.30 625.57L464.40 625.36L465.50 625.15L466.59 624.91L467.69 624.67L468.79 624.40L469.89 624.11L470.99 623.80L472.09 623.47L473.19 623.12L474.28 622.73L475.38 622.32L476.48 621.87L477.58 621.38L478.68 620.85L479.78 620.27L480.88 619.65L481.97 618.96L483.07 618.22L484.17 617.40L485.27 616.50L486.37 615.51L487.47 614.42L488.57 613.22L489.67 611.89L490.76 610.41L491.86 608.76L492.96 606.91L494.06 604.85L495.16 602.52L496.26 599.90L497.36 596.93L498.45 593.55L499.55 589.70L500.65 585.28L501.75 580.19L502.85 574.31L503.95 567.47L505.05 559.49L506.15 550.10L507.24 539.02L508.34 525.85",
+              "fill": "none",
+              "stroke": "#165a9c",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 487.05,
+              "cy": 614.85,
+              "r": 2.2,
+              "stroke": "#165a9c",
+              "fill": "#165a9c"
+            }
+          ]
+        }
+      ],
+      "time": 400,
+      "slide": 3
+    }
+  ]
+}</script>
+</body></html>

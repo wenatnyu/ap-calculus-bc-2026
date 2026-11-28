@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.7 · The Fundamental Theorem of Calculus and Definite Integrals · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.7 · The Fundamental Theorem of Calculus and Definite Integrals</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=fdJ-NdflShM" href="https://www.youtube.com/watch?v=fdJ-NdflShM" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.7/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/67-the-fundamental-theorem-of-calculus-and-definite-integrals.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.7 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.7-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.7 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.7/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.7",
+  "pages": {
+    "1": 792,
+    "2": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Antiderivatives · Opening example",
+      "box": [
+        105,
+        90,
+        453,
+        130
+      ],
+      "items": [
+        {
+          "label": "验证原函数",
+          "loc": [
+            112,
+            147,
+            427,
+            29
+          ],
+          "ink": "\\frac{d}{dx}(3x^2)=6x",
+          "answer": "\\(3x^2\\) 的导数是 \\(6x\\)，所以它是 \\(6x\\) 的一个原函数。加上任意常数仍有相同导数。"
+        }
+      ],
+      "slide": 1,
+      "time": 40
+    },
+    {
+      "page": 1,
+      "label": "Power rule · Derivative and antiderivative",
+      "box": [
+        107,
+        230,
+        451,
+        145
+      ],
+      "items": [
+        {
+          "label": "左栏 · 导数",
+          "loc": [
+            223,
+            266,
+            101,
+            34
+          ],
+          "ink": "nx^{n-1}",
+          "answer": "\\(\\dfrac{d}{dx}x^n=nx^{n-1}\\)。"
+        },
+        {
+          "label": "右栏 · 原函数",
+          "loc": [
+            446,
+            268,
+            103,
+            43
+          ],
+          "ink": "\\frac{x^{n+1}}{n+1}+C",
+          "answer": "当 \\(n\\ne-1\\) 时，\\(\\int x^n\\,dx=\\tfrac{x^{n+1}}{n+1}+C\\)。"
+        },
+        {
+          "label": "右栏 · 两个步骤",
+          "loc": [
+            386,
+            314,
+            166,
+            49
+          ],
+          "ink": [
+            {
+              "box": [
+                389,
+                314,
+                163,
+                21
+              ],
+              "tex": "\\text{Add 1 to the exponent.}"
+            },
+            {
+              "box": [
+                389,
+                342,
+                164,
+                21
+              ],
+              "tex": "\\text{Divide by the new exponent.}"
+            }
+          ],
+          "answer": "先给指数加 \\(1\\)，再除以新指数 \\(n+1\\)。当 \\(n=-1\\) 时，原函数为 \\(\\ln|x|+C\\)。"
+        }
+      ],
+      "slide": 2,
+      "time": 140
+    },
+    {
+      "page": 1,
+      "label": "1–3 · Find an antiderivative",
+      "box": [
+        107,
+        385,
+        451,
+        206
+      ],
+      "items": [
+        {
+          "label": "1",
+          "loc": [
+            114,
+            432,
+            137,
+            76
+          ],
+          "ink": "\\tfrac13 x^3+C",
+          "answer": "\\(\\int x^2\\,dx=x^3/3+C\\)。"
+        },
+        {
+          "label": "2",
+          "loc": [
+            264,
+            435,
+            137,
+            78
+          ],
+          "ink": "\\tfrac54x^4-\\tfrac3{x^2}-x+C",
+          "answer": "将分式写成 \\(6x^{-3}\\)，逐项积分得到 \\(F(x)=\\tfrac54x^4-3x^{-2}-x+C\\)，适用于不跨过 \\(0\\) 的区间。"
+        },
+        {
+          "label": "3",
+          "loc": [
+            412,
+            431,
+            138,
+            77
+          ],
+          "ink": "\\tfrac23x^{3/2}+6\\sqrt{x}+C",
+          "answer": "在 \\(x>0\\) 上，\\(\\sqrt{x}+3/\\sqrt{x}=x^{1/2}+3x^{-1/2}\\)，故 \\(F(x)=\\tfrac23x^{3/2}+6\\sqrt{x}+C\\)。"
+        }
+      ],
+      "slide": 3,
+      "time": 180
+    },
+    {
+      "page": 1,
+      "label": "Sine and cosine integrals",
+      "box": [
+        102,
+        629,
+        456,
+        96
+      ],
+      "items": [
+        {
+          "label": "正弦积分",
+          "loc": [
+            245,
+            652,
+            102,
+            54
+          ],
+          "ink": "-\\cos x+C",
+          "answer": "因为 \\((-\\cos x)^\\prime=\\sin x\\)，所以 \\(\\int\\sin x\\,dx=-\\cos x+C\\)。"
+        },
+        {
+          "label": "余弦积分",
+          "loc": [
+            476,
+            652,
+            72,
+            54
+          ],
+          "ink": "\\sin x+C",
+          "answer": "因为 \\((\\sin x)^\\prime=\\cos x\\)，所以 \\(\\int\\cos x\\,dx=\\sin x+C\\)。"
+        }
+      ],
+      "slide": 4,
+      "time": 420
+    },
+    {
+      "page": 2,
+      "label": "Fundamental Theorem of Calculus",
+      "box": [
+        102,
+        42,
+        456,
+        160
+      ],
+      "items": [
+        {
+          "label": "定理填空",
+          "loc": [
+            341,
+            109,
+            183,
+            44
+          ],
+          "ink": "F(b)-F(a)",
+          "answer": "若 \\(f\\) 在 \\([a,b]\\) 上连续，则 \\(\\int_a^b f(x)\\,dx=F(b)-F(a)\\)。"
+        }
+      ],
+      "slide": 5,
+      "time": 490
+    },
+    {
+      "page": 2,
+      "label": "4–6 · Evaluate definite integrals",
+      "box": [
+        107,
+        227,
+        452,
+        218
+      ],
+      "items": [
+        {
+          "label": "4",
+          "loc": [
+            113,
+            283,
+            139,
+            92
+          ],
+          "ink": "[4x-3x^2]_{-2}^{5}=-35",
+          "answer": "原函数为 \\(4x-3x^2\\)。上限代入为 \\(-55\\)，下限代入为 \\(-20\\)，相减得 \\(-35\\)。"
+        },
+        {
+          "label": "5",
+          "loc": [
+            265,
+            283,
+            137,
+            92
+          ],
+          "ink": "\\left[\\tfrac23x^{3/2}+\\tfrac1x\\right]_1^4=\\tfrac{47}{12}",
+          "answer": "原函数为 \\(\\tfrac23x^{3/2}+\\tfrac1x\\)。因此 \\((16/3+1/4)-(2/3+1)=47/12\\)。"
+        },
+        {
+          "label": "6",
+          "loc": [
+            413,
+            283,
+            138,
+            92
+          ],
+          "ink": "[-4\\cos x]_0^{\\pi/2}=4",
+          "answer": "\\(\\int_0^{\\pi/2}4\\sin x\\,dx=-4\\cos(\\pi/2)+4\\cos(0)=4\\)。"
+        }
+      ],
+      "slide": 6,
+      "time": 520
+    },
+    {
+      "page": 2,
+      "label": "7 · Recover a function value",
+      "box": [
+        106,
+        509,
+        457,
+        207
+      ],
+      "items": [
+        {
+          "label": "7 · 求 f(3)",
+          "loc": [
+            108,
+            544,
+            300,
+            104
+          ],
+          "ink": "f(3)=-2+\\left[\\tfrac13x^3-2x\\right]_1^3=\\tfrac83",
+          "answer": "\\(f(3)-f(1)=\\int_1^3(x^2-2)\\,dx=14/3\\)，所以 \\(f(3)=-2+14/3=8/3\\)。"
+        }
+      ],
+      "slide": 7,
+      "time": 880
+    }
+  ]
+}</script>
+</body></html>

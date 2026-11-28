@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>7.8 · Exponential Models with Differential Equations · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 7</a>
+    <span class="topic" lang="en">7.8 · Exponential Models with Differential Equations</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=whbcQMVsJF0" href="https://www.youtube.com/watch?v=whbcQMVsJF0" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-7/7.8/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/78-exponential-models-with-differential-equations.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 7.8 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="7.8-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 7.8 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-7/7.8/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "7.8",
+  "pages": {
+    "1": 792,
+    "2": 285
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Exponential growth and decay · 初值与增长因子",
+      "box": [
+        107,
+        89,
+        451,
+        163
+      ],
+      "items": [
+        {
+          "label": "模型中的参数",
+          "answer": "对正数量，\\(a=y(0)>0\\)，每单位时间的变化因子为 \\(b\\)。当 \\(b>1\\) 时增长，当 \\(0\u003cb\u003c1\\) 时衰减。对 \\(y=ab^t\\) 求导得 \\(dy/dt=ab^t\\ln b=(\\ln b)y\\)。因此连续相对变化率为 \\(k=\\ln b\\)。",
+          "loc": [
+            131,
+            138,
+            401,
+            59
+          ],
+          "ink": [
+            {
+              "box": [
+                139,
+                136,
+                388,
+                29
+              ],
+              "tex": "a=y(0),\\qquad b=\\frac{y(t+1)}{y(t)}"
+            },
+            {
+              "box": [
+                139,
+                171,
+                388,
+                27
+              ],
+              "tex": "\\frac{dy}{dt}=ab^t\\ln b=(\\ln b)y"
+            }
+          ]
+        }
+      ],
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1–2 · 从文字建立微分方程",
+      "box": [
+        106,
+        256,
+        453,
+        93
+      ],
+      "items": [
+        {
+          "label": "1 · 动物体重",
+          "answer": "设 \\(W(t)\\) 为体重。增长率与体重成正比，故 \\(dW/dt=kW\\)，其中 \\(k>0\\)。",
+          "loc": [
+            115,
+            298,
+            208,
+            44
+          ],
+          "ink": "\\frac{dW}{dt}=kW,\\quad k>0"
+        },
+        {
+          "label": "2 · 细菌数量",
+          "answer": "设 \\(B(t)\\) 为细菌数量。数量下降，故用正比例常数表达为 \\(dB/dt=-kB\\)，其中 \\(k>0\\)。",
+          "loc": [
+            337,
+            298,
+            211,
+            44
+          ],
+          "ink": "\\frac{dB}{dt}=-kB,\\quad k>0"
+        }
+      ],
+      "time": 240,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "模型推导 · 分离变量",
+      "box": [
+        106,
+        348,
+        453,
+        146
+      ],
+      "items": [
+        {
+          "label": "通解与初值",
+          "answer": "由 \\(dy/y=k\\,dt\\) 得 \\(\\ln|y|=kt+C_1\\)。指数化后的等式为 \\(|y|=e^{kt+C_1}\\)。将符号并入常数得 \\(y=Ce^{kt}\\)，其中 \\(C=y(0)\\)。令 \\(C=0\\) 即得平衡解 \\(y\\equiv0\\)。",
+          "loc": [
+            137,
+            374,
+            390,
+            78
+          ],
+          "ink": [
+            {
+              "box": [
+                136,
+                374,
+                392,
+                35
+              ],
+              "tex": "\\int\\frac{dy}{y}=\\int k\\,dt\\quad\\Longrightarrow\\quad\\ln|y|=kt+C_1"
+            },
+            {
+              "box": [
+                136,
+                415,
+                392,
+                32
+              ],
+              "tex": "|y|=e^{kt+C_1}\\quad\\Longrightarrow\\quad y=Ce^{kt}"
+            }
+          ]
+        }
+      ],
+      "time": 310,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3–4 · 从比例常数与初值得到特解",
+      "box": [
+        106,
+        510,
+        453,
+        93
+      ],
+      "items": [
+        {
+          "label": "3 · 指数增长",
+          "answer": "增长率常数为 \\(6\\)，初值为 \\(5\\)，故 \\(y(t)=5e^{6t}\\)。",
+          "loc": [
+            115,
+            550,
+            210,
+            43
+          ],
+          "ink": "y=5e^{6t}"
+        },
+        {
+          "label": "4 · 指数衰减",
+          "answer": "自变量为 \\(x\\)，比例常数为 \\(-3\\)，初值为 \\(4\\)，所以 \\(y(x)=4e^{-3x}\\)。",
+          "loc": [
+            339,
+            550,
+            209,
+            43
+          ],
+          "ink": "y=4e^{-3x}"
+        }
+      ],
+      "time": 430,
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "5 · 用两次称重预测体重",
+      "box": [
+        107,
+        607,
+        451,
+        135
+      ],
+      "items": [
+        {
+          "label": "5 · 微分方程与参数",
+          "answer": "以月计时，以磅计重。\\(W^{\\prime}=kW\\)，并且 \\(W(0)=3\\)，\\(W(3)=4\\)。由 \\(4=3e^{3k}\\)，得 \\(k=\\ln(4/3)/3\\)（每月）。",
+          "loc": [
+            116,
+            650,
+            427,
+            37
+          ],
+          "ink": "W^{\\prime}=kW,\\quad 4=3e^{3k},\\quad k=\\frac{\\ln(4/3)}3"
+        },
+        {
+          "label": "5 · 五个月时的体重",
+          "answer": "模型为 \\(W(t)=3(4/3)^{t/3}\\)。代入 \\(t=5\\)，预测体重 \\(W(5)=3(4/3)^{5/3}\\approx4.846\\) 磅。",
+          "loc": [
+            116,
+            695,
+            427,
+            37
+          ],
+          "ink": "W(5)=3\\left(\\frac43\\right)^{5/3}\\approx4.846\\ \\mathrm{lb}"
+        }
+      ],
+      "time": 530,
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "增长与衰减 · 指数的符号",
+      "box": [
+        106,
+        36,
+        451,
+        65
+      ],
+      "items": [
+        {
+          "label": "两种等价写法",
+          "answer": "在 \\(5e^{2t}\\) 中，单位时间的增长因子是 \\(e^2>1\\)。在 \\(7e^{-3t}=7(1/e)^{3t}\\) 中，单位时间的因子是 \\(e^{-3}\u003c1\\)。",
+          "loc": [
+            433,
+            54,
+            112,
+            25
+          ],
+          "ink": "=7\\left(\\frac1e\\right)^{3t}"
+        }
+      ],
+      "time": 800,
+      "slide": 6
+    },
+    {
+      "page": 2,
+      "label": "6 · 由倍增时间求连续增长率",
+      "box": [
+        106,
+        107,
+        452,
+        170
+      ],
+      "items": [
+        {
+          "label": "6 · 连续增长率",
+          "answer": "设初始人口为 \\(C>0\\)。由 \\(2C=Ce^{7k}\\) 得 \\(k=\\ln 2/7\\approx0.09902\\)，单位为每年。对衰减常数 \\(k\u003c0\\)，同理有 \\(T_{1/2}=\\ln2/|k|\\)。",
+          "loc": [
+            124,
+            164,
+            415,
+            75
+          ],
+          "ink": [
+            {
+              "box": [
+                124,
+                164,
+                415,
+                35
+              ],
+              "tex": "2C=Ce^{7k}\\quad\\Longrightarrow\\quad 7k=\\ln2"
+            },
+            {
+              "box": [
+                124,
+                210,
+                415,
+                34
+              ],
+              "tex": "k=\\frac{\\ln2}{7}\\approx0.09902\\ \\mathrm{yr}^{-1}"
+            }
+          ]
+        }
+      ],
+      "time": 840,
+      "slide": 7
+    }
+  ]
+}</script>
+</body></html>

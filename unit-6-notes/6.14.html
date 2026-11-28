@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.14 · Selecting Techniques for Antidifferentiation · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.14 · Selecting Techniques for Antidifferentiation</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=vbC3jC0ui7A" href="https://www.youtube.com/watch?v=vbC3jC0ui7A" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.14/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/614-selecting-techniques-for-antidifferentiation.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.14 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.14-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.14 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.14/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.14",
+  "pages": {
+    "1": 457
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Calculus AB/BC · Seven techniques",
+      "box": [
+        105,
+        138,
+        228,
+        307
+      ],
+      "time": 25,
+      "items": [
+        {
+          "label": "AB/BC · 1",
+          "answer": "幂法则适用于 \\(n\\ne-1\\)。\\(\\displaystyle\\int x^n\\,dx=\\frac{x^{n+1}}{n+1}+C\\)。",
+          "loc": [
+            150,
+            179,
+            151,
+            16
+          ],
+          "ink": "\\text{Power Rule (antiderivatives)}"
+        },
+        {
+          "label": "AB/BC · 2",
+          "answer": "若能识别内层函数及其导数因子，可设 \\(u=g(x)\\)，用 \\(du=g^{\\prime}(x)\\,dx\\) 将积分换元。",
+          "loc": [
+            150,
+            215,
+            151,
+            16
+          ],
+          "ink": "\\text{U-Substitution}"
+        },
+        {
+          "label": "AB/BC · 3",
+          "answer": "先识别基本三角函数的原函数，例如 \\(\\displaystyle\\int \\sec^2x\\,dx=\\tan x+C\\)。",
+          "loc": [
+            150,
+            251,
+            151,
+            16
+          ],
+          "ink": "\\text{Trigonometry}"
+        },
+        {
+          "label": "AB/BC · 4",
+          "answer": "认出反三角函数的导数形式，例如 \\(\\displaystyle\\int \\frac{dx}{1+x^2}=\\arctan x+C\\)。",
+          "loc": [
+            150,
+            287,
+            151,
+            16
+          ],
+          "ink": "\\text{Inverse trigonometry}"
+        },
+        {
+          "label": "AB/BC · 5",
+          "answer": "认出指数与对数形式，例如 \\(\\displaystyle\\int e^x\\,dx=e^x+C\\)，\\(\\displaystyle\\int\\frac{dx}{x}=\\ln|x|+C\\)。",
+          "loc": [
+            150,
+            323,
+            151,
+            16
+          ],
+          "ink": "\\text{Exponential and Logarithms}"
+        },
+        {
+          "label": "AB/BC · 6",
+          "answer": "有理函数的分子次数不小于分母次数时，先做多项式长除法，将整式与真分式分开。",
+          "loc": [
+            150,
+            358,
+            151,
+            16
+          ],
+          "ink": "\\text{Long Division}"
+        },
+        {
+          "label": "AB/BC · 7",
+          "answer": "把二次三项式改写成平方加常数，例如 \\(x^2+4x+5=(x+2)^2+1\\)，再检查是否出现反三角公式。",
+          "loc": [
+            150,
+            393,
+            151,
+            16
+          ],
+          "ink": "\\text{Completing the Square}"
+        }
+      ],
+      "context": [
+        106,
+        113,
+        450,
+        23
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Calculus BC only · Three techniques",
+      "box": [
+        332,
+        138,
+        224,
+        307
+      ],
+      "time": 50,
+      "items": [
+        {
+          "label": "BC only · 1",
+          "answer": "乘积中某个因子求导后会简化时，可考虑分部积分。公式为 \\(\\displaystyle\\int u\\,dv=uv-\\int v\\,du\\)。",
+          "loc": [
+            375,
+            177,
+            151,
+            16
+          ],
+          "ink": "\\text{Integration by parts}"
+        },
+        {
+          "label": "BC only · 2",
+          "answer": "真分式的分母能分解为互不重复的一次因子时，为每个因子配置一个常数分子，分解后逐项求积分。",
+          "loc": [
+            375,
+            213,
+            151,
+            16
+          ],
+          "ink": "\\text{Linear Partial Fractions}"
+        },
+        {
+          "label": "BC only · 3",
+          "answer": "积分端点无穷或积分区间内存在无穷间断点时，用极限定义积分。区间内部的无穷间断点要求先分段。",
+          "loc": [
+            375,
+            249,
+            151,
+            16
+          ],
+          "ink": "\\text{Improper Integrals}"
+        }
+      ],
+      "context": [
+        106,
+        113,
+        450,
+        23
+      ],
+      "slide": 2
+    }
+  ]
+}</script>
+</body></html>

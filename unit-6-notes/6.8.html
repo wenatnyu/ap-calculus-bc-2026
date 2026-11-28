@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.8 · Finding Antiderivatives and Indefinite Integrals: Basic Rules and Notation · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.8 · Finding Antiderivatives and Indefinite Integrals: Basic Rules and Notation</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=Bl5H1DKCM90" href="https://www.youtube.com/watch?v=Bl5H1DKCM90" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.8/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/68-finding-antiderivatives-and-indefinite-integrals-basic-rules-and-notation.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.8 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.8-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.8 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.8/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.8",
+  "pages": {
+    "1": 792,
+    "2": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Opening · Derivatives and constants",
+      "box": [
+        107,
+        92,
+        451,
+        143
+      ],
+      "items": [
+        {
+          "label": "第1栏 · 求导",
+          "loc": [
+            111,
+            129,
+            139,
+            29
+          ],
+          "ink": "f^\\prime(x)=2x",
+          "answer": "常数项求导为零，\\(\\dfrac{d}{dx}(x^2+1)=2x\\)。"
+        },
+        {
+          "label": "第2栏 · 求导",
+          "loc": [
+            260,
+            129,
+            139,
+            29
+          ],
+          "ink": "f^\\prime(x)=2x",
+          "answer": "常数项求导为零，\\(\\dfrac{d}{dx}(x^2-5)=2x\\)。"
+        },
+        {
+          "label": "第3栏 · 求导",
+          "loc": [
+            409,
+            129,
+            139,
+            29
+          ],
+          "ink": "f^\\prime(x)=2x",
+          "answer": "常数项求导为零，\\(\\dfrac{d}{dx}(x^2+1000)=2x\\)。"
+        },
+        {
+          "label": "通解的名称",
+          "loc": [
+            119,
+            176,
+            101,
+            20
+          ],
+          "ink": "\\text{general}",
+          "answer": "左栏 \\(f(x)=x^2+C\\) 表示所有原函数，填 general（通解）。"
+        },
+        {
+          "label": "特解的名称",
+          "loc": [
+            345,
+            176,
+            106,
+            20
+          ],
+          "ink": "\\text{particular}",
+          "answer": "右栏已选定 \\(C=1\\)，故 \\(f(x)=x^2+1\\) 是 particular solution（特解）。"
+        }
+      ],
+      "slide": 1,
+      "time": 30
+    },
+    {
+      "page": 1,
+      "label": "Indefinite and exponential integrals",
+      "box": [
+        104,
+        242,
+        459,
+        142
+      ],
+      "items": [
+        {
+          "label": "术语填空",
+          "loc": [
+            299,
+            241,
+            136,
+            18
+          ],
+          "ink": "\\text{indefinite integrals}",
+          "answer": "没有上下限的积分称为 indefinite integrals（不定积分），结果是含任意常数 \\(C\\) 的原函数族。"
+        },
+        {
+          "label": "自然指数",
+          "loc": [
+            234,
+            331,
+            92,
+            43
+          ],
+          "ink": "e^x+C",
+          "answer": "\\(\\int e^x\\,dx=e^x+C\\)。"
+        },
+        {
+          "label": "一般底数",
+          "loc": [
+            447,
+            331,
+            104,
+            43
+          ],
+          "ink": "\\frac{a^x}{\\ln a}+C",
+          "answer": "当 \\(a>0,\\ a\\ne1\\) 时，\\(\\int a^x\\,dx=\\dfrac{a^x}{\\ln a}+C\\)。"
+        }
+      ],
+      "slide": 2,
+      "time": 120
+    },
+    {
+      "page": 1,
+      "label": "1–2 · Exponentials and an initial value",
+      "box": [
+        107,
+        388,
+        452,
+        143
+      ],
+      "items": [
+        {
+          "label": "1",
+          "loc": [
+            113,
+            413,
+            213,
+            92
+          ],
+          "ink": "\\frac{7^x}{\\ln7}+C",
+          "answer": "\\(7^x\\) 求导会多出 \\(\\ln7\\)，所以原函数族为 \\(7^x/\\ln7+C\\)。"
+        },
+        {
+          "label": "2",
+          "loc": [
+            338,
+            430,
+            214,
+            75
+          ],
+          "ink": "f(x)=e^x-\\tfrac23 x^3+3",
+          "answer": "积分得 \\(f(x)=e^x-\\tfrac23x^3+C\\)。代入 \\(f(0)=4\\) 得 \\(1+C=4\\)，因此 \\(C=3\\)。"
+        }
+      ],
+      "slide": 3,
+      "time": 180
+    },
+    {
+      "page": 1,
+      "label": "Logarithmic integrals · 3–4",
+      "box": [
+        103,
+        537,
+        457,
+        201
+      ],
+      "items": [
+        {
+          "label": "对数公式",
+          "loc": [
+            341,
+            550,
+            190,
+            38
+          ],
+          "ink": "\\ln|x|+C",
+          "answer": "在不跨过 \\(0\\) 的区间，\\(\\int \\tfrac1x\\,dx=\\ln|x|+C\\)。"
+        },
+        {
+          "label": "3",
+          "loc": [
+            114,
+            633,
+            211,
+            78
+          ],
+          "ink": "x-5\\ln|x|+C",
+          "answer": "利用积分的线性性，\\(\\int(1-5/x)\\,dx=x-5\\ln|x|+C\\)。"
+        },
+        {
+          "label": "4",
+          "loc": [
+            339,
+            647,
+            209,
+            72
+          ],
+          "ink": "f(x)=2\\ln x-\\tfrac6x-1",
+          "answer": "初值位于 \\(x>0\\)，原函数为 \\(2\\ln x-6/x+C\\)。代入 \\(f(1)=-7\\) 得 \\(C=-1\\)。"
+        }
+      ],
+      "slide": 4,
+      "time": 330
+    },
+    {
+      "page": 2,
+      "label": "Six trigonometric integrals",
+      "box": [
+        104,
+        44,
+        449,
+        129
+      ],
+      "items": [
+        {
+          "label": "余弦",
+          "loc": [
+            256,
+            70,
+            87,
+            29
+          ],
+          "ink": "\\sin x+C",
+          "answer": "因为 \\((\\sin x)^\\prime=\\cos x\\)，所以 \\(\\int \\cos x\\,dx=\\sin x+C\\)。"
+        },
+        {
+          "label": "正弦",
+          "loc": [
+            256,
+            102,
+            87,
+            29
+          ],
+          "ink": "-\\cos x+C",
+          "answer": "因为 \\((-\\cos x)^\\prime=\\sin x\\)，所以 \\(\\int \\sin x\\,dx=-\\cos x+C\\)。"
+        },
+        {
+          "label": "正割平方",
+          "loc": [
+            261,
+            133,
+            82,
+            29
+          ],
+          "ink": "\\tan x+C",
+          "answer": "因为 \\((\\tan x)^\\prime=\\sec^2x\\)，所以 \\(\\int \\sec^2x\\,dx=\\tan x+C\\)。"
+        },
+        {
+          "label": "余割与余切",
+          "loc": [
+            457,
+            70,
+            88,
+            29
+          ],
+          "ink": "-\\csc x+C",
+          "answer": "因为 \\((-\\csc x)^\\prime=\\csc x\\cot x\\)，所以 \\(\\int \\csc x\\cot x\\,dx=-\\csc x+C\\)。"
+        },
+        {
+          "label": "正割与正切",
+          "loc": [
+            451,
+            102,
+            94,
+            29
+          ],
+          "ink": "\\sec x+C",
+          "answer": "因为 \\((\\sec x)^\\prime=\\sec x\\tan x\\)，所以 \\(\\int \\sec x\\tan x\\,dx=\\sec x+C\\)。"
+        },
+        {
+          "label": "余割平方",
+          "loc": [
+            440,
+            133,
+            104,
+            29
+          ],
+          "ink": "-\\cot x+C",
+          "answer": "因为 \\((-\\cot x)^\\prime=\\csc^2x\\)，所以 \\(\\int \\csc^2x\\,dx=-\\cot x+C\\)。"
+        }
+      ],
+      "slide": 5,
+      "time": 540
+    },
+    {
+      "page": 2,
+      "label": "5–6 · Trigonometric antiderivatives",
+      "box": [
+        107,
+        178,
+        451,
+        196
+      ],
+      "items": [
+        {
+          "label": "5",
+          "loc": [
+            113,
+            204,
+            212,
+            86
+          ],
+          "ink": "3\\tan x+C",
+          "answer": "\\(\\int 3\\sec^2x\\,dx=3\\tan x+C\\)。"
+        },
+        {
+          "label": "6",
+          "loc": [
+            339,
+            223,
+            210,
+            78
+          ],
+          "ink": "f(x)=x+\\cos x-1",
+          "answer": "积分得 \\(f(x)=x+\\cos x+C\\)。代入 \\(x=\\pi\\) 得 \\(\\pi-1+C=\\pi-2\\)，故 \\(C=-1\\)。"
+        }
+      ],
+      "slide": 6,
+      "time": 600
+    },
+    {
+      "page": 2,
+      "label": "Inverse trigonometric derivatives",
+      "box": [
+        103,
+        393,
+        450,
+        89
+      ],
+      "items": [
+        {
+          "label": "反正弦",
+          "loc": [
+            186,
+            421,
+            61,
+            51
+          ],
+          "ink": "\\frac1{\\sqrt{1-x^2}}",
+          "answer": "\\((\\arcsin x)^\\prime=1/\\sqrt{1-x^2}\\)，定义于 \\(|x|\u003c1\\)。"
+        },
+        {
+          "label": "反正割",
+          "loc": [
+            329,
+            420,
+            67,
+            52
+          ],
+          "ink": "\\frac1{|x|\\sqrt{x^2-1}}",
+          "answer": "\\((\\operatorname{arcsec}x)^\\prime=1/(|x|\\sqrt{x^2-1})\\)，其中 \\(|x|>1\\)。"
+        },
+        {
+          "label": "反正切",
+          "loc": [
+            477,
+            422,
+            67,
+            48
+          ],
+          "ink": "\\frac1{1+x^2}",
+          "answer": "\\((\\arctan x)^\\prime=1/(1+x^2)\\)，对所有实数 \\(x\\) 成立。"
+        }
+      ],
+      "slide": 7,
+      "time": 690
+    },
+    {
+      "page": 2,
+      "label": "7–8 · Inverse trigonometric integrals",
+      "box": [
+        107,
+        483,
+        451,
+        66
+      ],
+      "items": [
+        {
+          "label": "7",
+          "loc": [
+            194,
+            506,
+            127,
+            34
+          ],
+          "ink": "\\arcsin x+C",
+          "answer": "\\(\\int \\frac{1}{\\sqrt{1-x^2}}\\,dx=\\arcsin x+C\\)。"
+        },
+        {
+          "label": "8",
+          "loc": [
+            411,
+            506,
+            140,
+            34
+          ],
+          "ink": "\\operatorname{arcsec}x+C",
+          "answer": "\\(\\int \\frac{1}{|x|\\sqrt{x^2-1}}\\,dx=\\operatorname{arcsec}x+C\\)，适用于 \\(|x|>1\\) 的各连通区间。"
+        }
+      ],
+      "slide": 8,
+      "time": 780
+    },
+    {
+      "page": 2,
+      "label": "9–10 · Rewrite before integrating",
+      "box": [
+        107,
+        547,
+        451,
+        185
+      ],
+      "items": [
+        {
+          "label": "9",
+          "loc": [
+            114,
+            607,
+            212,
+            85
+          ],
+          "ink": "\\tfrac32x^2+x-2\\ln|x|+C",
+          "answer": "分子逐项除以 \\(x\\) 得 \\(3x+1-2/x\\)。积分得 \\(\\tfrac32x^2+x-2\\ln|x|+C\\)。"
+        },
+        {
+          "label": "10",
+          "loc": [
+            340,
+            604,
+            206,
+            90
+          ],
+          "ink": "\\tfrac65x^{5/2}+\\tfrac34x^4+C",
+          "answer": "展开 \\(3x(\\sqrt x+x^2)=3x^{3/2}+3x^3\\)，从而原函数为 \\(\\tfrac65x^{5/2}+\\tfrac34x^4+C\\)。"
+        }
+      ],
+      "slide": 9,
+      "time": 840
+    }
+  ]
+}</script>
+</body></html>

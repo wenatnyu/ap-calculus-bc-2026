@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>7.6 · General Solutions Using Separation of Variables · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 7</a>
+    <span class="topic" lang="en">7.6 · General Solutions Using Separation of Variables</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=UYxf-G2dgPQ" href="https://www.youtube.com/watch?v=UYxf-G2dgPQ" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-7/7.6/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/76-general-solutions-using-separation-of-variables.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 7.6 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="7.6-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 7.6 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-7/7.6/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "7.6",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Recall · 隐函数求导",
+      "box": [
+        106,
+        89,
+        450,
+        123
+      ],
+      "items": [
+        {
+          "label": "圆的斜率",
+          "answer": "由 \\(x^2+y^2=9\\) 得 \\(2x+2y\\,dy/dx=0\\)。因此在 \\(y\\ne0\\) 处，\\(dy/dx=-x/y\\)。反向积分 \\(y\\,dy=-x\\,dx\\) 会得到同心圆族。",
+          "loc": [
+            120,
+            114,
+            423,
+            67
+          ],
+          "ink": "2x+2y\\frac{dy}{dx}=0\\quad\\Longrightarrow\\quad \\frac{dy}{dx}=-\\frac{x}{y}"
+        }
+      ],
+      "time": 15,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · 分离变量后保留两个分支",
+      "box": [
+        107,
+        229,
+        224,
+        255
+      ],
+      "items": [
+        {
+          "label": "1 · 通解",
+          "answer": "由 \\(y\\,dy=x^2\\,dx\\) 得 \\(y^2/2=x^3/3+C_1\\)。所以 \\(y=\\pm\\sqrt{\\tfrac23x^3+C}\\)，每个解都取固定分支，且根号内为正，使原方程的分母非零。",
+          "loc": [
+            113,
+            262,
+            209,
+            184
+          ],
+          "ink": [
+            {
+              "box": [
+                114,
+                273,
+                204,
+                40
+              ],
+              "tex": "y\\,dy=x^2\\,dx"
+            },
+            {
+              "box": [
+                114,
+                325,
+                204,
+                47
+              ],
+              "tex": "\\frac{y^2}{2}=\\frac{x^3}{3}+C_1"
+            },
+            {
+              "box": [
+                114,
+                388,
+                204,
+                51
+              ],
+              "tex": "y=\\pm\\sqrt{\\tfrac23x^3+C}"
+            }
+          ]
+        }
+      ],
+      "time": 80,
+      "context": [
+        107,
+        212,
+        451,
+        16
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · 检查平衡解",
+      "box": [
+        333,
+        229,
+        225,
+        255
+      ],
+      "items": [
+        {
+          "label": "2 · 通解与零解",
+          "answer": "对非零解，\\(y^{-2}\\,dy=\\sin x\\,dx\\)，所以 \\(-1/y=-\\cos x+C_1\\)。故 \\(y=1/(\\cos x+C)\\)，分母须非零。原方程也有平衡解 \\(y\\equiv0\\)。",
+          "loc": [
+            342,
+            258,
+            204,
+            182
+          ],
+          "ink": [
+            {
+              "box": [
+                342,
+                268,
+                204,
+                42
+              ],
+              "tex": "-\\frac1y=-\\cos x+C_1"
+            },
+            {
+              "box": [
+                342,
+                340,
+                204,
+                50
+              ],
+              "tex": "y=\\frac1{\\cos x+C}"
+            },
+            {
+              "box": [
+                342,
+                401,
+                204,
+                35
+              ],
+              "tex": "y\\equiv0"
+            }
+          ]
+        }
+      ],
+      "time": 380,
+      "context": [
+        107,
+        212,
+        451,
+        16
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3 · 指数形式的解族",
+      "box": [
+        107,
+        484,
+        224,
+        255
+      ],
+      "items": [
+        {
+          "label": "3 · 通解",
+          "answer": "当 \\(y\\ne0\\) 时，\\(dy/y=x\\,dx\\)，故 \\(\\ln|y|=x^2/2+C_1\\)。通解为 \\(y=Ce^{x^2/2}\\)，其中特别包含 \\(C=0\\) 的零解。",
+          "loc": [
+            118,
+            513,
+            200,
+            173
+          ],
+          "ink": [
+            {
+              "box": [
+                118,
+                536,
+                200,
+                57
+              ],
+              "tex": "\\ln|y|=\\frac{x^2}{2}+C_1"
+            },
+            {
+              "box": [
+                118,
+                616,
+                200,
+                53
+              ],
+              "tex": "y=Ce^{x^2/2}"
+            }
+          ]
+        }
+      ],
+      "time": 495,
+      "context": [
+        107,
+        212,
+        451,
+        16
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "4 · 先提取公因子",
+      "box": [
+        333,
+        484,
+        225,
+        257
+      ],
+      "items": [
+        {
+          "label": "4 · 通解",
+          "answer": "由 \\(dy/(y+2)=2x\\,dx\\) 得 \\(\\ln|y+2|=x^2+C_1\\)。因此 \\(y=Ce^{x^2}-2\\)。当 \\(C=0\\) 时给出分离时除掉的常数解 \\(y=-2\\)。",
+          "loc": [
+            342,
+            519,
+            204,
+            181
+          ],
+          "ink": [
+            {
+              "box": [
+                343,
+                527,
+                203,
+                49
+              ],
+              "tex": "\\frac{dy}{y+2}=2x\\,dx"
+            },
+            {
+              "box": [
+                343,
+                589,
+                203,
+                49
+              ],
+              "tex": "\\ln|y+2|=x^2+C_1"
+            },
+            {
+              "box": [
+                343,
+                652,
+                203,
+                40
+              ],
+              "tex": "y=Ce^{x^2}-2"
+            }
+          ]
+        }
+      ],
+      "time": 645,
+      "context": [
+        107,
+        212,
+        451,
+        16
+      ],
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>7.1 · Modeling Situations with Differential Equations · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 7</a>
+    <span class="topic" lang="en">7.1 · Modeling Situations with Differential Equations</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=Elrcj9Ix40c" href="https://www.youtube.com/watch?v=Elrcj9Ix40c" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-7/7.1/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/71-modeling-situations-with-differential-equations.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 7.1 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="7.1-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 7.1 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-7/7.1/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "7.1",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Direct and inverse proportion",
+      "box": [
+        105,
+        90,
+        453,
+        125
+      ],
+      "time": 25,
+      "items": [
+        {
+          "label": "正比例",
+          "answer": "\\(a\\) 与 \\(b\\) 成正比时，二者满足 \\(a=kb\\)，其中 \\(k\\) 为比例常数。",
+          "loc": [
+            309,
+            122,
+            43,
+            22
+          ],
+          "ink": "a=kb"
+        },
+        {
+          "label": "反比例",
+          "answer": "\\(a\\) 与 \\(b\\) 成反比时，\\(a=\\dfrac{k}{b}\\)，即 \\(ab=k\\)，且 \\(b\\ne0\\)。",
+          "loc": [
+            389,
+            182,
+            35,
+            28
+          ],
+          "ink": "a=\\frac{k}{b}"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · A product of rates and variables",
+      "box": [
+        105,
+        219,
+        454,
+        128
+      ],
+      "time": 100,
+      "items": [
+        {
+          "label": "1 · 写出微分方程",
+          "answer": "\\(y\\) 对 \\(x\\) 的变化率是 \\(\\dfrac{dy}{dx}\\)，\\(w\\) 对 \\(x\\) 的变化率是 \\(\\dfrac{dw}{dx}\\)。后者与 \\(t\\) 的乘积乘上常数 \\(k\\)，得到 \\(\\dfrac{dy}{dx}=kt\\,\\dfrac{dw}{dx}\\)。",
+          "loc": [
+            118,
+            290,
+            409,
+            41
+          ],
+          "ink": "\\frac{dy}{dx}=kt\\,\\frac{dw}{dx}"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · The force of a spring",
+      "box": [
+        105,
+        347,
+        454,
+        236
+      ],
+      "time": 150,
+      "items": [
+        {
+          "label": "2 · 反比关系",
+          "answer": "\\(F\\) 对 \\(D\\) 的变化率与 \\(\\ln D\\) 成反比，所以 \\(\\dfrac{dF}{dD}=\\dfrac{k}{\\ln D}\\)。",
+          "loc": [
+            118,
+            430,
+            407,
+            33
+          ],
+          "ink": "\\frac{dF}{dD}=\\frac{k}{\\ln D}"
+        },
+        {
+          "label": "2 · 比例常数",
+          "answer": "题给 \\(D=0.2\\) 时 \\(\\dfrac{dF}{dD}=3\\)。代入得到 \\(3=\\dfrac{k}{\\ln(0.2)}\\)，故 \\(k=3\\ln(0.2)\\)。",
+          "loc": [
+            118,
+            475,
+            407,
+            33
+          ],
+          "ink": "3=\\frac{k}{\\ln(0.2)}\\quad\\Longrightarrow\\quad k=3\\ln(0.2)"
+        },
+        {
+          "label": "2 · 完整模型",
+          "answer": "把常数写回原式得到 \\(\\displaystyle\\frac{dF}{dD}=\\frac{3\\ln(0.2)}{\\ln D}\\)。代入 \\(D=0.2\\) 可检验变化率为 \\(3\\)。",
+          "loc": [
+            118,
+            529,
+            406,
+            33
+          ],
+          "ink": "\\frac{dF}{dD}=\\frac{3\\ln(0.2)}{\\ln D}"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3 · Acceleration of a swimmer",
+      "box": [
+        105,
+        583,
+        454,
+        151
+      ],
+      "time": 300,
+      "items": [
+        {
+          "label": "3 · 加速度模型",
+          "answer": "速度是 \\(p^{\\prime}(t)\\)，加速度是 \\(p^{\\prime\\prime}(t)\\)。加速度与时间的立方根成正比，因此 \\(\\displaystyle\\frac{d^2p}{dt^2}=k\\sqrt[3]{t}\\)。",
+          "loc": [
+            118,
+            663,
+            405,
+            30
+          ],
+          "ink": "\\frac{d^2p}{dt^2}=k\\sqrt[3]{t}"
+        },
+        {
+          "label": "3 · 模型适用时间",
+          "answer": "\\(t\\) 以分钟计，\\(30\\) 秒等于 \\(\\frac12\\) 分钟，题目给出的时间范围为 \\(0\\le t\\le\\frac12\\)。",
+          "loc": [
+            118,
+            702,
+            406,
+            25
+          ],
+          "ink": "0\\le t\\le\\tfrac12\\ \\text{min}"
+        }
+      ],
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

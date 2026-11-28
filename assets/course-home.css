@@ -40,6 +40,7 @@ h1 { margin: 0; font-size: clamp(34px, 3.65vw, 54px); line-height: 1.04; font-we
 .unit-label { margin: 0 0 4px; color: var(--green); }
 .unit-head h2 { margin: 0; font-size: clamp(22px, 2.15vw, 32px); line-height: 1.18; font-weight: 680; letter-spacing: -.032em; }
 .unit-count { color: var(--muted); font-size: 12px; white-space: nowrap; padding-bottom: 2px; }
+.unit-materials { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
 .lesson {
   display: grid; grid-template-columns: 48px minmax(0, 1fr) auto;
   column-gap: 13px; row-gap: 4px; align-items: start; padding: 15px 0; border-bottom: 1px solid var(--line);

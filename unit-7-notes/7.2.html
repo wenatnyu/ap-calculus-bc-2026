@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>7.2 · Verifying Solutions for Differential Equations · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 7</a>
+    <span class="topic" lang="en">7.2 · Verifying Solutions for Differential Equations</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=4JY40RKmC9c" href="https://www.youtube.com/watch?v=4JY40RKmC9c" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-7/7.2/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/72-verifying-solutions-for-differential-equations.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 7.2 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="7.2-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 7.2 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-7/7.2/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "7.2",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1 · A particular solution",
+      "box": [
+        105,
+        90,
+        452,
+        167
+      ],
+      "time": 30,
+      "items": [
+        {
+          "label": "1 · 通解",
+          "answer": "对 \\(\\dfrac{dy}{dx}=e^{2x}-2x^2\\) 逐项积分，得到 \\(y=\\dfrac12e^{2x}-\\dfrac23x^3+C\\)。",
+          "loc": [
+            118,
+            182,
+            412,
+            28
+          ],
+          "ink": "y=\\frac12e^{2x}-\\frac23x^3+C"
+        },
+        {
+          "label": "1 · 初值与特解",
+          "answer": "将 \\(y(0)=4\\) 代入，得到 \\(4=\\tfrac12+C\\)，所以 \\(C=\\tfrac72\\)。特解为 \\(y=\\frac12e^{2x}-\\frac23x^3+\\frac72\\)。",
+          "loc": [
+            118,
+            221,
+            411,
+            28
+          ],
+          "ink": "C=\\tfrac72\\quad\\Longrightarrow\\quad y=\\tfrac12e^{2x}-\\tfrac23x^3+\\tfrac72"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "2 · Reading a slope as a derivative",
+      "box": [
+        105,
+        263,
+        452,
+        51
+      ],
+      "time": 270,
+      "items": [
+        {
+          "label": "2 · 曲线方程",
+          "answer": "每点的斜率给出 \\(y^{\\prime}=e^{2x}-2x^2\\)，经过 \\((0,4)\\) 给出 \\(y(0)=4\\)。两项条件均与第 1 题相同，故 \\(y=\\frac12e^{2x}-\\frac23x^3+\\frac72\\)。",
+          "loc": [
+            118,
+            291,
+            412,
+            23
+          ],
+          "ink": "y=\\tfrac12e^{2x}-\\tfrac23x^3+\\tfrac72"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "3 · Two integrations and two initial values",
+      "box": [
+        105,
+        316,
+        452,
+        150
+      ],
+      "time": 330,
+      "items": [
+        {
+          "label": "3 · 用导数初值",
+          "answer": "展开 \\((1-2x)^2=1-4x+4x^2\\) 并积分，得 \\(y^{\\prime}=-x^{-1}+x-2x^2+\\frac43x^3+C_1\\)。用 \\(y^{\\prime}(1)=\\tfrac76\\)，得 \\(C_1=\\tfrac{11}{6}\\)。",
+          "loc": [
+            118,
+            346,
+            412,
+            27
+          ],
+          "ink": "y^{\\prime}=-\\frac1x+x-2x^2+\\frac43x^3+\\frac{11}{6}"
+        },
+        {
+          "label": "3 · 用函数初值",
+          "answer": "初值点在 \\(x>0\\)，故 \\(\\int-\\frac1x\\,dx=-\\ln x+C\\)。再积分得 \\(y=-\\ln x+\\frac12x^2-\\frac23x^3+\\frac13x^4+\\frac{11}{6}x+C_2\\)。代入 \\(y(1)=0\\) 得 \\(C_2=-2\\)。",
+          "loc": [
+            118,
+            385,
+            411,
+            28
+          ],
+          "ink": "0=\\frac12-\\frac23+\\frac13+\\frac{11}{6}+C_2\\quad\\Longrightarrow\\quad C_2=-2"
+        },
+        {
+          "label": "3 · 特解",
+          "answer": "代回得 \\(y=-\\ln x+\\frac12x^2-\\frac23x^3+\\frac13x^4+\\frac{11}{6}x-2\\)，所在区间为 \\(x>0\\)。",
+          "loc": [
+            118,
+            425,
+            412,
+            29
+          ],
+          "ink": "y=-\\ln x+\\frac{x^2}{2}-\\frac{2x^3}{3}+\\frac{x^4}{3}+\\frac{11x}{6}-2"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "Recall · Four trigonometric rules",
+      "box": [
+        103,
+        468,
+        455,
+        99
+      ],
+      "time": 660,
+      "items": [
+        {
+          "label": "正弦的导数",
+          "answer": "\\(\\dfrac{d}{dx}\\sin x=\\cos x\\)。",
+          "loc": [
+            240,
+            490,
+            30,
+            29
+          ],
+          "ink": "\\cos x"
+        },
+        {
+          "label": "余弦的导数",
+          "answer": "\\(\\dfrac{d}{dx}\\cos x=-\\sin x\\)。",
+          "loc": [
+            461,
+            490,
+            40,
+            29
+          ],
+          "ink": "-\\sin x"
+        },
+        {
+          "label": "正弦的不定积分",
+          "answer": "因 \\((-\\cos x)^{\\prime}=\\sin x\\)，故 \\(\\displaystyle\\int\\sin x\\,dx=-\\cos x+C\\)。",
+          "loc": [
+            231,
+            529,
+            65,
+            30
+          ],
+          "ink": "-\\cos x+C"
+        },
+        {
+          "label": "余弦的不定积分",
+          "answer": "因 \\((\\sin x)^{\\prime}=\\cos x\\)，故 \\(\\displaystyle\\int\\cos x\\,dx=\\sin x+C\\)。",
+          "loc": [
+            473,
+            529,
+            53,
+            30
+          ],
+          "ink": "\\sin x+C"
+        }
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "4 · Verify a candidate solution",
+      "box": [
+        105,
+        571,
+        452,
+        159
+      ],
+      "time": 690,
+      "items": [
+        {
+          "label": "4 · 二阶导数",
+          "answer": "对 \\(y=ke^{-4x}-2\\sin(5x)\\) 连续求导，得 \\(y^{\\prime}=-4ke^{-4x}-10\\cos(5x)\\) 和 \\(y^{\\prime\\prime}=16ke^{-4x}+50\\sin(5x)\\)。",
+          "loc": [
+            118,
+            610,
+            411,
+            32
+          ],
+          "ink": "y^{\\prime\\prime}=16ke^{-4x}+50\\sin(5x)"
+        },
+        {
+          "label": "4 · 代入与求参",
+          "answer": "代入 \\(y^{\\prime\\prime}+25y\\) 后三角函数项抵消，余下 \\(41ke^{-4x}=-82e^{-4x}\\)。由于 \\(e^{-4x}>0\\)，可约去得到 \\(41k=-82\\)，即 \\(k=-2\\)。",
+          "loc": [
+            118,
+            667,
+            410,
+            35
+          ],
+          "ink": "41ke^{-4x}=-82e^{-4x}\\quad\\Longrightarrow\\quad k=-2"
+        }
+      ],
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

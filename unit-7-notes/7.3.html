@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>7.3 · Sketching Slope Fields · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 7</a>
+    <span class="topic" lang="en">7.3 · Sketching Slope Fields</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=ijA_c48-AxQ" href="https://www.youtube.com/watch?v=ijA_c48-AxQ" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-7/7.3/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/73-sketching-slope-fields.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 7.3 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="7.3-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 7.3 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-7/7.3/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "7.3",
+  "pages": {
+    "1": 792,
+    "2": 267
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Opening · Read a slope field",
+      "box": [
+        105,
+        90,
+        453,
+        176
+      ],
+      "time": 25,
+      "items": [
+        {
+          "label": "示例 · 同一列的斜率",
+          "answer": "方程 \\(\\dfrac{dy}{dx}=2x\\) 中斜率只由 \\(x\\) 决定。同一竖列的斜率相同。在 \\(x=0\\) 处，所有线段水平。",
+          "loc": [
+            396,
+            151,
+            152,
+            30
+          ],
+          "ink": "m=2x"
+        },
+        {
+          "label": "示例 · 一族解曲线",
+          "answer": "积分得 \\(y=x^2+C\\)。每条抛物线都沿着线段的方向延伸，改变 \\(C\\) 使图形上下平移。",
+          "loc": [
+            395,
+            202,
+            155,
+            31
+          ],
+          "ink": "y=x^2+C"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Sketch the slope field for xy",
+      "box": [
+        106,
+        291,
+        226,
+        231
+      ],
+      "time": 150,
+      "items": [
+        {
+          "label": "1 · 两坐标轴",
+          "answer": "在任一坐标轴上，\\(x=0\\) 或 \\(y=0\\)，所以 \\(m=xy=0\\)。在这些点都画水平短线。",
+          "loc": [
+            117,
+            315,
+            205,
+            20
+          ],
+          "ink": "xy=0\\ \\Longrightarrow\\ m=0",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 212.30 508.90 L 226.10 508.90 M 212.30 481.20 L 226.10 481.20 M 148.10 453.50 L 161.90 453.50 M 180.20 453.50 L 194.00 453.50 M 212.30 453.50 L 226.10 453.50 M 244.40 453.50 L 258.20 453.50 M 276.50 453.50 L 290.30 453.50 M 212.30 425.80 L 226.10 425.80 M 212.30 398.10 L 226.10 398.10",
+              "fill": "none",
+              "stroke": "#1554a4",
+              "stroke-width": 1.55,
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "1 · 正斜率",
+          "answer": "第一、三象限中 \\(xy>0\\)，每条短线向右上方倾斜。例如 \\((1,1)\\) 处 \\(m=1\\)，\\((2,2)\\) 处 \\(m=4\\)。",
+          "loc": [
+            117,
+            338,
+            205,
+            20
+          ],
+          "ink": "m(1,1)=1,\\quad m(2,2)=4",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 153.08 515.53 L 156.92 502.27 M 183.64 514.87 L 190.56 502.93 M 151.54 487.17 L 158.46 475.23 M 181.88 485.71 L 192.32 476.69 M 246.08 430.31 L 256.52 421.29 M 279.94 431.77 L 286.86 419.83 M 247.84 404.07 L 254.76 392.13 M 281.48 404.73 L 285.32 391.47",
+              "fill": "none",
+              "stroke": "#1554a4",
+              "stroke-width": 1.55,
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "1 · 负斜率",
+          "answer": "第二、四象限中 \\(xy\u003c0\\)，每条短线向右下方倾斜。例如 \\((-1,1)\\) 处 \\(m=-1\\)，\\((2,-2)\\) 处 \\(m=-4\\)。",
+          "loc": [
+            117,
+            361,
+            205,
+            20
+          ],
+          "ink": "m(-1,1)=-1,\\quad m(2,-2)=-4",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 247.84 502.93 L 254.76 514.87 M 281.48 502.27 L 285.32 515.53 M 246.08 476.69 L 256.52 485.71 M 279.94 475.23 L 286.86 487.17 M 151.54 419.83 L 158.46 431.77 M 181.88 421.29 L 192.32 430.31 M 153.08 391.47 L 156.92 404.73 M 183.64 392.13 L 190.56 404.07",
+              "fill": "none",
+              "stroke": "#1554a4",
+              "stroke-width": 1.55,
+              "stroke-linecap": "round"
+            }
+          ]
+        }
+      ],
+      "context": [
+        106,
+        276,
+        451,
+        15
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · Sketch the slope field for y − 2x",
+      "box": [
+        334,
+        291,
+        222,
+        231
+      ],
+      "time": 375,
+      "items": [
+        {
+          "label": "2 · 上面两行",
+          "answer": "依照 \\(x=-1,0,1,2\\) 的顺序，\\(y=2\\) 时斜率为 \\((4,2,0,-2)\\)，\\(y=1\\) 时为 \\((3,1,-1,-3)\\)。",
+          "loc": [
+            345,
+            315,
+            201,
+            20
+          ],
+          "ink": "m(x,2)=2-2x",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 411.11 431.04 L 416.09 418.16 M 440.48 429.11 L 450.92 420.09 M 472.58 420.09 L 483.02 429.11 M 507.41 418.16 L 512.39 431.04 M 411.68 403.53 L 415.52 390.27 M 442.24 402.87 L 449.16 390.93 M 470.90 396.90 L 484.70 396.90 M 506.44 390.93 L 513.36 402.87",
+              "fill": "none",
+              "stroke": "#1554a4",
+              "stroke-width": 1.55,
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "2 · 横轴这一行",
+          "answer": "在 \\(y=0\\) 上有 \\(m=-2x\\)，四个斜率依次为 \\((2,0,-2,-4)\\)。",
+          "loc": [
+            345,
+            338,
+            201,
+            20
+          ],
+          "ink": "m(x,0)=-2x",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 410.14 458.27 L 417.06 446.33 M 438.80 452.30 L 452.60 452.30 M 474.34 446.33 L 481.26 458.27 M 507.98 445.67 L 511.82 458.93",
+              "fill": "none",
+              "stroke": "#1554a4",
+              "stroke-width": 1.55,
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "2 · 下面两行",
+          "answer": "\\(y=-1\\) 时四个斜率依次为 \\((1,-1,-3,-5)\\)，\\(y=-2\\) 时依次为 \\((0,-2,-4,-6)\\)。检验所有水平线段都位于 \\(y=2x\\) 上。",
+          "loc": [
+            345,
+            361,
+            201,
+            20
+          ],
+          "ink": "m(x,-2)=-2-2x",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 406.70 507.70 L 420.50 507.70 M 442.24 501.73 L 449.16 513.67 M 475.88 501.07 L 479.72 514.33 M 508.59 500.93 L 511.21 514.47 M 408.38 484.51 L 418.82 475.49 M 440.48 475.49 L 450.92 484.51 M 475.31 473.56 L 480.29 486.44 M 508.34 473.28 L 511.46 486.72",
+              "fill": "none",
+              "stroke": "#1554a4",
+              "stroke-width": 1.55,
+              "stroke-linecap": "round"
+            }
+          ]
+        }
+      ],
+      "context": [
+        106,
+        276,
+        451,
+        15
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3a · Tangent to the solution curve",
+      "box": [
+        106,
+        537,
+        453,
+        184
+      ],
+      "time": 550,
+      "items": [
+        {
+          "label": "3a · 指定点的斜率",
+          "answer": "代入 \\((-1,-2)\\)，切线斜率为 \\(m=1-(-1)(-2)=-1\\)。",
+          "loc": [
+            117,
+            620,
+            244,
+            28
+          ],
+          "ink": "m=1-(-1)(-2)=-1"
+        },
+        {
+          "label": "3a · 点斜式与切线",
+          "answer": "由点斜式得 \\(y-(-2)=-1(x-(-1))\\)，亦即 \\(y+2=-(x+1)\\) 或 \\(y=-x-3\\)。",
+          "loc": [
+            117,
+            668,
+            244,
+            30
+          ],
+          "ink": "y+2=-(x+1)",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 384.67 629.87 L 468.13 713.33",
+              "fill": "none",
+              "stroke": "#1554a4",
+              "stroke-width": 1.55,
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 437.1,
+              "cy": 682.3,
+              "r": 2.5,
+              "fill": "#1554a4"
+            }
+          ]
+        }
+      ],
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "4 · Identify the differential equation",
+      "box": [
+        105,
+        44,
+        447,
+        215
+      ],
+      "time": 650,
+      "items": [
+        {
+          "label": "4 · 零斜率的位置",
+          "answer": "图上 \\((-1,1)\\)、\\((0,0)\\)、\\((1,-1)\\) 等点都有水平短线，落在直线 \\(y=-x\\) 上，说明 \\(x+y=0\\) 时斜率为零。",
+          "loc": [
+            220,
+            79,
+            130,
+            36
+          ],
+          "ink": "y=-x\\ \\Rightarrow\\ m=0"
+        },
+        {
+          "label": "4 · 选项与检验",
+          "answer": "选 \\(\\mathrm{(C)}\\)，即 \\(\\dfrac{dy}{dx}=x+y\\)。它在 \\(y=-x\\) 上给出零斜率，在 \\((0,1)\\) 处给出正斜率 \\(1\\)，与图相符。",
+          "loc": [
+            219,
+            150,
+            129,
+            25
+          ],
+          "ink": "\\mathrm{(C)}\\quad \\frac{dy}{dx}=x+y",
+          "draw": [
+            {
+              "type": "ellipse",
+              "cx": 151.7,
+              "cy": 160.1,
+              "rx": 11.2,
+              "ry": 8.1,
+              "fill": "none",
+              "stroke": "#1554a4",
+              "stroke-width": 1.5
+            }
+          ]
+        }
+      ],
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>6.10 · Integrating Functions Using Long Division and Completing the Square · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 6</a>
+    <span class="topic" lang="en">6.10 · Integrating Functions Using Long Division and Completing the Square</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=lgj-y22SmXk" href="https://www.youtube.com/watch?v=lgj-y22SmXk" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-6/6.10/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/610-integrating-functions-using-long-division-and-completing-the-square.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 6.10 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="6.10-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 6.10 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-6/6.10/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "6.10",
+  "pages": {
+    "1": 792,
+    "2": 192
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1 · Long division by x − 2",
+      "box": [
+        106,
+        173,
+        226,
+        226
+      ],
+      "items": [
+        {
+          "label": "1 · 商与余数",
+          "loc": [
+            113,
+            212,
+            211,
+            59
+          ],
+          "ink": "3x^2+5x+5+\\frac{11}{x-2}",
+          "answer": "长除法给出商 \\(3x^2+5x+5\\)、余数 \\(11\\)。用 \\((x-2)(3x^2+5x+5)+11\\) 可还原分子。"
+        },
+        {
+          "label": "1 · 原函数",
+          "loc": [
+            113,
+            284,
+            211,
+            73
+          ],
+          "ink": "x^3+\\tfrac52 x^2+5x+11\\ln|x-2|+C",
+          "answer": "将商逐项积分，余项 \\(11/(x-2)\\) 积成对数。结果为 \\(x^3+\\tfrac52x^2+5x+11\\ln|x-2|+C\\)。"
+        }
+      ],
+      "slide": 1,
+      "time": 70,
+      "context": [
+        106,
+        102,
+        450,
+        70
+      ]
+    },
+    {
+      "page": 1,
+      "label": "2 · Long division by 3x − 5",
+      "box": [
+        332,
+        173,
+        226,
+        226
+      ],
+      "items": [
+        {
+          "label": "2 · 商与余数",
+          "loc": [
+            339,
+            208,
+            210,
+            64
+          ],
+          "ink": "2x^3+x^2+2x+4+\\frac{20}{3x-5}",
+          "answer": "逐项相除得到商 \\(2x^3+x^2+2x+4\\)，余数为 \\(20\\)。"
+        },
+        {
+          "label": "2 · 原函数",
+          "loc": [
+            339,
+            279,
+            210,
+            107
+          ],
+          "ink": [
+            {
+              "box": [
+                339,
+                278,
+                210,
+                36
+              ],
+              "tex": "\\tfrac12x^4+\\tfrac13x^3+x^2+4x"
+            },
+            {
+              "box": [
+                339,
+                319,
+                210,
+                36
+              ],
+              "tex": "{}+\\tfrac{20}{3}\\ln|3x-5|+C"
+            }
+          ],
+          "answer": "对商逐项积分。令 \\(u=3x-5\\) 得余项的原函数为 \\(\\tfrac{20}{3}\\ln|3x-5|\\)。合并为 \\(\\tfrac12x^4+\\tfrac13x^3+x^2+4x+\\tfrac{20}{3}\\ln|3x-5|+C\\)。"
+        }
+      ],
+      "slide": 2,
+      "time": 380,
+      "context": [
+        106,
+        102,
+        450,
+        70
+      ]
+    },
+    {
+      "page": 1,
+      "label": "3–4 · Completing the square",
+      "box": [
+        106,
+        456,
+        453,
+        237
+      ],
+      "items": [
+        {
+          "label": "3",
+          "loc": [
+            112,
+            521,
+            214,
+            115
+          ],
+          "ink": [
+            {
+              "box": [
+                114,
+                518,
+                210,
+                34
+              ],
+              "tex": "x^2+6x+10=(x+3)^2+1"
+            },
+            {
+              "box": [
+                114,
+                576,
+                209,
+                36
+              ],
+              "tex": "\\arctan(x+3)+C"
+            }
+          ],
+          "answer": "分母为 \\((x+3)^2+1\\)。取 \\(u=x+3\\)，得 \\(\\int du/(1+u^2)=\\arctan(x+3)+C\\)。"
+        },
+        {
+          "label": "4",
+          "loc": [
+            339,
+            522,
+            214,
+            114
+          ],
+          "ink": [
+            {
+              "box": [
+                339,
+                518,
+                211,
+                34
+              ],
+              "tex": "-x^2+8x-15=1-(x-4)^2"
+            },
+            {
+              "box": [
+                339,
+                576,
+                211,
+                36
+              ],
+              "tex": "\\arcsin(x-4)+C"
+            }
+          ],
+          "answer": "根式内为 \\(1-(x-4)^2\\)。令 \\(u=x-4\\)，所得原函数为 \\(\\arcsin(x-4)+C\\)，在 \\(3\u003cx\u003c5\\) 上成立。"
+        }
+      ],
+      "slide": 3,
+      "time": 490
+    },
+    {
+      "page": 2,
+      "label": "5 · A scaled arctangent",
+      "box": [
+        106,
+        34,
+        447,
+        145
+      ],
+      "items": [
+        {
+          "label": "5",
+          "loc": [
+            112,
+            63,
+            431,
+            96
+          ],
+          "ink": [
+            {
+              "box": [
+                112,
+                65,
+                431,
+                36
+              ],
+              "tex": "x^2-4x+20=(x-2)^2+16"
+            },
+            {
+              "box": [
+                112,
+                111,
+                431,
+                41
+              ],
+              "tex": "8\\arctan\\!\\left(\\frac{x-2}{4}\\right)+C"
+            }
+          ],
+          "answer": "令 \\(u=(x-2)/4\\)，则 \\(dx=4\\,du\\)，分母为 \\(16(1+u^2)\\)。积分等于 \\(8\\arctan((x-2)/4)+C\\)。"
+        }
+      ],
+      "slide": 4,
+      "time": 840
+    }
+  ]
+}</script>
+</body></html>
