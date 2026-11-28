@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>4.3 · Rates of Change in Applied Contexts Other Than Motion · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 4</a>
+    <span class="topic" lang="en">4.3 · Rates of Change in Applied Contexts Other Than Motion</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=wIzh3fBlY-Y" href="https://www.youtube.com/watch?v=wIzh3fBlY-Y" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-4/4.3/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/43-rates-of-change-in-applied-contexts-other-than-motion.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 4.3 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="4.3-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 4.3 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-4/4.3/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "4.3",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "递增与递减 · 判断导数符号",
+      "box": [
+        106,
+        91,
+        442,
+        150
+      ],
+      "time": 19,
+      "items": [
+        {
+          "label": "判断依据",
+          "loc": [
+            400,
+            106,
+            140,
+            17
+          ],
+          "answer": "检查所研究的量对自变量的导数符号。",
+          "ink": "\\text{sign of the derivative}"
+        },
+        {
+          "label": "高度增加",
+          "loc": [
+            254,
+            130,
+            130,
+            20
+          ],
+          "answer": "高度的一阶导数即竖直速度。",
+          "ink": "h^{\\prime}(t)>0"
+        },
+        {
+          "label": "速度减小",
+          "loc": [
+            266,
+            157,
+            130,
+            21
+          ],
+          "answer": "速度减小表示加速度为负。",
+          "ink": "v^{\\prime}(t)=a(t)\u003c0"
+        },
+        {
+          "label": "IQ 增加",
+          "loc": [
+            292,
+            186,
+            131,
+            19
+          ],
+          "answer": "设 IQ 为随时间变化的量 \\(Q(t)\\)。",
+          "ink": "Q^{\\prime}(t)>0"
+        },
+        {
+          "label": "笑脸所代表的量减小",
+          "loc": [
+            240,
+            214,
+            132,
+            21
+          ],
+          "answer": "用 \\(H(t)\\) 表示笑脸所代表的量；它的导数为负时，这个量正在减小。",
+          "ink": "H^{\\prime}(t)\u003c0"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "计算器 · 指定点求导",
+      "box": [
+        105,
+        252,
+        444,
+        83
+      ],
+      "time": 105,
+      "items": [
+        {
+          "label": "在 3 处的数值导数",
+          "loc": [
+            115,
+            285,
+            417,
+            42
+          ],
+          "answer": "在 TI-84 的数值求导模板输入 \\(5^{\\sin x}\\)，求值点填 \\(3\\)。计算结果约为 \\(-1.999608\\)。",
+          "ink": "f^{\\prime}(3)=5^{\\sin 3}\\ln(5)\\cos3\\approx-2.000"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "兔群 · 对数量和对速率求导",
+      "box": [
+        104,
+        338,
+        450,
+        149
+      ],
+      "time": 175,
+      "items": [
+        {
+          "label": "数量的导数",
+          "loc": [
+            126,
+            371,
+            401,
+            34
+          ],
+          "answer": "若函数是兔子数量，其导数表示此刻种群数量的净增长速率，单位为只/年。",
+          "ink": "f^{\\prime}(x):\\quad\\mathrm{rabbits/year}"
+        },
+        {
+          "label": "速率的导数",
+          "loc": [
+            126,
+            442,
+            400,
+            37
+          ],
+          "answer": "若函数已是兔群的增长速率，其导数表示这一增长速率每年如何改变，单位为只/年²。",
+          "ink": "f^{\\prime}(x):\\quad\\mathrm{rabbits/year^2}"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "人口表 · 估算两个时刻的变化率",
+      "box": [
+        106,
+        495,
+        449,
+        177
+      ],
+      "time": 253,
+      "items": [
+        {
+          "label": "估算 P′(15)",
+          "loc": [
+            110,
+            600,
+            216,
+            54
+          ],
+          "answer": "用 10 年与 20 年的数据夹住 15 年，估算为每年 3 人。",
+          "ink": "\\dfrac{150-120}{20-10}=3\\ \\mathrm{people/yr}"
+        },
+        {
+          "label": "估算 P′(20)",
+          "loc": [
+            338,
+            600,
+            209,
+            54
+          ],
+          "answer": "采用 10 年和 30 年的中心差商，估算为每年 4 人。",
+          "ink": "\\dfrac{200-120}{30-10}=4\\ \\mathrm{people/yr}"
+        }
+      ],
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

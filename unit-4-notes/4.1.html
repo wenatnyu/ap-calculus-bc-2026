@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>4.1 · Interpreting the Meaning of the Derivative in Context · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 4</a>
+    <span class="topic" lang="en">4.1 · Interpreting the Meaning of the Derivative in Context</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=KRRVYYogYaA" href="https://www.youtube.com/watch?v=KRRVYYogYaA" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-4/4.1/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/41-interpreting-the-meaning-of-the-derivative-in-context.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 4.1 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="4.1-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 4.1 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-4/4.1/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "4.1",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "斜率、导数的单位与增减",
+      "box": [
+        105,
+        92,
+        451,
+        195
+      ],
+      "time": 18,
+      "items": [
+        {
+          "label": "两点间的斜率",
+          "loc": [
+            325,
+            118,
+            167,
+            42
+          ],
+          "answer": "\\(m=\\Delta y/\\Delta x\\)，即因变量的变化量除以自变量的变化量，要求 \\(\\Delta x\\ne0\\)。",
+          "ink": [
+            {
+              "box": [
+                340,
+                120,
+                32,
+                17
+              ],
+              "tex": "\\Delta y"
+            },
+            {
+              "box": [
+                340,
+                139,
+                32,
+                18
+              ],
+              "tex": "\\Delta x"
+            },
+            {
+              "box": [
+                393,
+                119,
+                77,
+                19
+              ],
+              "tex": "\\Delta\\text{output}"
+            },
+            {
+              "box": [
+                393,
+                140,
+                77,
+                20
+              ],
+              "tex": "\\Delta\\text{input}"
+            }
+          ]
+        },
+        {
+          "label": "导数的单位",
+          "loc": [
+            374,
+            190,
+            70,
+            48
+          ],
+          "answer": "\\(f^{\\prime}(x)\\) 的单位是函数值的单位除以 \\(x\\) 的单位。",
+          "ink": [
+            {
+              "box": [
+                372,
+                192,
+                70,
+                20
+              ],
+              "tex": "\\text{units of }f"
+            },
+            {
+              "box": [
+                372,
+                215,
+                70,
+                20
+              ],
+              "tex": "\\text{units of }x"
+            }
+          ]
+        },
+        {
+          "label": "导数为正",
+          "loc": [
+            254,
+            247,
+            81,
+            29
+          ],
+          "answer": "在某个区间内导数处处为正，则函数在该区间递增。",
+          "ink": "\\text{increasing}"
+        },
+        {
+          "label": "导数为负",
+          "loc": [
+            475,
+            247,
+            75,
+            29
+          ],
+          "answer": "在某个区间内导数处处为负，则函数在该区间递减。",
+          "ink": "\\text{decreasing}"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1a–b · 讲义的完成数量",
+      "box": [
+        106,
+        294,
+        450,
+        178
+      ],
+      "time": 165,
+      "items": [
+        {
+          "label": "1a · 函数值",
+          "loc": [
+            121,
+            341,
+            418,
+            40
+          ],
+          "answer": "\\(p(10)=1\\) 表示经过 10 周，Brust 老师共完成 1 份讲义。",
+          "ink": "w=10\\ \\mathrm{weeks}:\\quad 1\\ \\mathrm{packet}"
+        },
+        {
+          "label": "1b · 瞬时完成速率",
+          "loc": [
+            121,
+            414,
+            418,
+            43
+          ],
+          "answer": "第 39 周这一时刻，已完成讲义的数量正以每周 4 份的速率增加。",
+          "ink": "w=39:\\quad 4\\ \\mathrm{packets/week}"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2a–b · 买卡速率的变化",
+      "box": [
+        106,
+        476,
+        450,
+        208
+      ],
+      "time": 239,
+      "items": [
+        {
+          "label": "2a · 买卡速率",
+          "loc": [
+            121,
+            531,
+            418,
+            44
+          ],
+          "answer": "经过 3 年时，Kelly 先生购买棒球卡的瞬时速率为每年 150 张。",
+          "ink": "t=3:\\quad 150\\ \\mathrm{cards/year}"
+        },
+        {
+          "label": "2b · 速率的变化",
+          "loc": [
+            121,
+            598,
+            418,
+            47
+          ],
+          "answer": "\\(b^{\\prime}(4)=10\\) 表示第 4 年时，买卡速率正以每年增加 10 张/年的速度上升，单位为张/年\\(^2\\)。",
+          "ink": "t=4:\\quad 10\\ \\mathrm{cards/year^2}"
+        }
+      ],
+      "slide": 3
+    }
+  ]
+}</script>
+</body></html>

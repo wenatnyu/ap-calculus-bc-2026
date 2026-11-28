@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>4.4 · Introduction to Related Rates · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 4</a>
+    <span class="topic" lang="en">4.4 · Introduction to Related Rates</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=fnDT0a1RxP0" href="https://www.youtube.com/watch?v=fnDT0a1RxP0" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-4/4.4/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/44-introduction-to-related-rates.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 4.4 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="4.4-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 4.4 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-4/4.4/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "4.4",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "A right triangle · Relating changing lengths",
+      "box": [
+        106,
+        91,
+        454,
+        109
+      ],
+      "items": [
+        {
+          "label": "勾股关系",
+          "loc": [
+            117,
+            126,
+            425,
+            33
+          ],
+          "ink": "a^2+b^2=c^2",
+          "answer": "在每一时刻，都有 \\(a(t)^2+b(t)^2=c(t)^2\\)。"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Differentiate a relationship in time",
+      "box": [
+        106,
+        204,
+        453,
+        113
+      ],
+      "items": [
+        {
+          "label": "各边的关联变化率",
+          "loc": [
+            123,
+            245,
+            423,
+            56
+          ],
+          "ink": [
+            {
+              "box": [
+                123,
+                245,
+                423,
+                25
+              ],
+              "tex": "a^2+b^2=c^2"
+            },
+            {
+              "box": [
+                123,
+                273,
+                423,
+                25
+              ],
+              "tex": "2a\\frac{da}{dt}+2b\\frac{db}{dt}=2c\\frac{dc}{dt}"
+            }
+          ],
+          "answer": "例如 \\(\\frac{d}{dt}[a(t)^2]=2a(t)a^\\prime(t)\\)。因此三个边长的变化率满足 \\(a a^\\prime+b b^\\prime=c c^\\prime\\)。"
+        }
+      ],
+      "time": 125,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1 · Two cars at a right-angled intersection",
+      "box": [
+        106,
+        329,
+        453,
+        154
+      ],
+      "items": [
+        {
+          "label": "1 · 图示与距离关系",
+          "loc": [
+            125,
+            412,
+            263,
+            30
+          ],
+          "ink": [
+            {
+              "box": [
+                125,
+                410,
+                263,
+                30
+              ],
+              "tex": "x^2+y^2=z^2"
+            },
+            {
+              "box": [
+                487,
+                401,
+                15,
+                15
+              ],
+              "tex": "x"
+            },
+            {
+              "box": [
+                438,
+                378,
+                14,
+                16
+              ],
+              "tex": "y"
+            },
+            {
+              "box": [
+                497,
+                373,
+                16,
+                18
+              ],
+              "tex": "z"
+            }
+          ],
+          "answer": "两条道路互相垂直，因此 \\(z\\) 为斜边，关系式为 \\(x^2+y^2=z^2\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M455.00 410.00 L461.00 410.00 L461.00 416.00",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "1 · 对时间求导",
+          "loc": [
+            120,
+            447,
+            418,
+            30
+          ],
+          "ink": "x\\frac{dx}{dt}+y\\frac{dy}{dt}=z\\frac{dz}{dt}",
+          "answer": "对勾股关系求导，\\(2x\\,dx/dt+2y\\,dy/dt=2z\\,dz/dt\\)。约去公因子 \\(2\\)。"
+        }
+      ],
+      "time": 225,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "Airplane example · A constant altitude",
+      "box": [
+        106,
+        497,
+        453,
+        236
+      ],
+      "items": [
+        {
+          "label": "飞机 · 三角形与恒定高度",
+          "loc": [
+            126,
+            580,
+            254,
+            44
+          ],
+          "ink": [
+            {
+              "box": [
+                126,
+                579,
+                245,
+                35
+              ],
+              "tex": "x^2+h^2=z^2"
+            },
+            {
+              "box": [
+                450,
+                579,
+                18,
+                17
+              ],
+              "tex": "x"
+            },
+            {
+              "box": [
+                521,
+                635,
+                21,
+                17
+              ],
+              "tex": "h"
+            },
+            {
+              "box": [
+                446,
+                644,
+                19,
+                17
+              ],
+              "tex": "z"
+            }
+          ],
+          "answer": "从飞机向观察者正上方画水平边，再向下画竖直边，得到 \\(x^2+h^2=z^2\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M410.00 599.50 L515.00 599.50 L515.00 684.00 L410.00 599.50",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "path",
+              "d": "M509.00 599.50 L509.00 605.50 L515.00 605.50",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "飞机 · 距离之间的变化率",
+          "loc": [
+            125,
+            636,
+            251,
+            74
+          ],
+          "ink": [
+            {
+              "box": [
+                124,
+                635,
+                251,
+                30
+              ],
+              "tex": "\\frac{dh}{dt}=0,\\qquad x\\frac{dx}{dt}=z\\frac{dz}{dt}"
+            },
+            {
+              "box": [
+                124,
+                672,
+                251,
+                26
+              ],
+              "tex": "\\frac{dz}{dt}=\\frac{x}{z}\\frac{dx}{dt}"
+            }
+          ],
+          "answer": "高度恒定，所以 \\(\\frac{d}{dt}(h^2)=0\\)。由 \\(2x\\,dx/dt=2z\\,dz/dt\\) 得 \\(\\frac{dz}{dt}=(x/z)\\frac{dx}{dt}\\)。"
+        }
+      ],
+      "time": 350,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

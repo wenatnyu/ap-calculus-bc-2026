@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>2.6 · Derivative Rules: Constant, Sum, Difference, and Constant Multiple · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 2</a>
+    <span class="topic" lang="en">2.6 · Derivative Rules: Constant, Sum, Difference, and Constant Multiple</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=KzBD9M4ETVs" href="https://www.youtube.com/watch?v=KzBD9M4ETVs" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-2/2.6/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/26-derivative-rules-constant-sum-difference-and-constant-multiple.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 2.6 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="2.6-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 2.6 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-2/2.6/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "2.6",
+  "pages": {
+    "1": 792,
+    "2": 278
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Derivative rules · Constants, multiples, sums",
+      "box": [
+        102,
+        94,
+        456,
+        144
+      ],
+      "time": 30,
+      "items": [
+        {
+          "label": "常数",
+          "loc": [
+            290,
+            124,
+            14,
+            21
+          ],
+          "answer": "常数函数的图像是水平直线，所以 \\(\\frac d{dx}c=0\\)。",
+          "ink": "0"
+        },
+        {
+          "label": "常数倍",
+          "loc": [
+            298,
+            164,
+            29,
+            22
+          ],
+          "answer": "常数可提出导数算子，\\(\\frac d{dx}(cu)=cu^{\\prime}\\)。",
+          "ink": "cu^{\\prime}"
+        },
+        {
+          "label": "和与差",
+          "loc": [
+            327,
+            204,
+            59,
+            24
+          ],
+          "answer": "求导对和与差逐项运算，保留原符号。",
+          "ink": "u^{\\prime}\\pm v^{\\prime}"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1–2 · Differentiate each function",
+      "box": [
+        106,
+        239,
+        452,
+        130
+      ],
+      "time": 240,
+      "items": [
+        {
+          "label": "1 · 多项式与倒数",
+          "loc": [
+            113,
+            289,
+            211,
+            50
+          ],
+          "answer": "\\(-5/x=-5x^{-1}\\)，求导后得 \\(5x^{-2}\\)；常数项导数为零。 得 \\(y^{\\prime}=4x+\\frac5{x^2}\\)。",
+          "ink": "y^{\\prime}=4x+\\frac5{x^2}"
+        },
+        {
+          "label": "2 · 根式与六次幂",
+          "loc": [
+            339,
+            289,
+            211,
+            50
+          ],
+          "answer": "\\(8\\sqrt x=8x^{1/2}\\)，\\(2\\pi^5\\) 是常数。 得 \\(y^{\\prime}=\\frac4{\\sqrt x}-2x^5\\)。",
+          "ink": "y^{\\prime}=\\frac4{\\sqrt x}-2x^5"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "3 · Horizontal tangent lines",
+      "box": [
+        106,
+        375,
+        453,
+        169
+      ],
+      "time": 360,
+      "items": [
+        {
+          "label": "示意图 · 两条水平切线",
+          "loc": [
+            424,
+            390,
+            131,
+            139
+          ],
+          "answer": "示意曲线在局部极大点和局部极小点都与水平线相切。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M464 438.6 H490 M494 481.5 H517",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.5,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "3 · 给定函数的横坐标",
+          "loc": [
+            115,
+            505,
+            294,
+            35
+          ],
+          "answer": "\\(f^{\\prime}(x)=8x+7\\)，令斜率为零。 得 \\(8x+7=0\\quad\\Longrightarrow\\quad x=-\\frac78\\)。",
+          "ink": "8x+7=0\\quad\\Longrightarrow\\quad x=-\\frac78"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "4 · The normal line",
+      "box": [
+        106,
+        557,
+        453,
+        190
+      ],
+      "time": 480,
+      "items": [
+        {
+          "label": "4 · 切点和切线斜率",
+          "loc": [
+            113,
+            655,
+            262,
+            30
+          ],
+          "answer": "\\(f(3)=-3\\)，而 \\(f^{\\prime}(x)=3x^2-8x+1\\)，所以 \\(f^{\\prime}(3)=4\\)。",
+          "ink": "(3,-3),\\qquad m_{\\rm tan}=4",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 531.8,
+              "cy": 722,
+              "r": 2,
+              "fill": "#1554a0"
+            },
+            {
+              "type": "path",
+              "d": "M526.8 738.6 L555 646.1",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              "stroke-dasharray": "3 2"
+            }
+          ]
+        },
+        {
+          "label": "4 · 法线方程",
+          "loc": [
+            113,
+            701,
+            262,
+            31
+          ],
+          "answer": "法线斜率为 \\(-1/4\\)，且经过 \\((3,-3)\\)。",
+          "ink": "y+3=-\\tfrac14(x-3)",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M391.0 693.1 L555.0 726.8",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.5,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        }
+      ],
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "5 · Differentiability at a piecewise junction",
+      "box": [
+        106,
+        34,
+        451,
+        99
+      ],
+      "time": 660,
+      "items": [
+        {
+          "label": "5 · 连续性与可导性",
+          "loc": [
+            114,
+            86,
+            434,
+            39
+          ],
+          "answer": "两段在 \\(x=-1\\) 处的极限与函数值均为 \\(4\\)。左段导数 \\(10x+3\\) 在该处为 \\(-7\\)，与右段导数 \\(-7\\) 相等，故可导。",
+          "ink": "\\begin{gathered}f(-1)=4,\\quad f^{\\prime}_{-}(-1)=f^{\\prime}_{+}(-1)=-7\\\\ \\text{Differentiable at }x=-1.\\end{gathered}"
+        }
+      ],
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "6 · Match the value and slope",
+      "box": [
+        106,
+        134,
+        451,
+        130
+      ],
+      "time": 810,
+      "items": [
+        {
+          "label": "6 · 用左右斜率求 a",
+          "loc": [
+            117,
+            182,
+            428,
+            30
+          ],
+          "answer": "两侧导数是 \\(2x-a\\) 和 \\(1\\)，在 \\(x=3\\) 处相等。 得 \\(6-a=1\\quad\\Longrightarrow\\quad a=5\\)。",
+          "ink": "6-a=1\\quad\\Longrightarrow\\quad a=5"
+        },
+        {
+          "label": "6 · 用连续性求 b",
+          "loc": [
+            117,
+            222,
+            428,
+            30
+          ],
+          "answer": "将 \\(a=5\\) 代入左右函数值相等的方程。 得 \\(11-3a=3+b\\quad\\Longrightarrow\\quad b=-7\\)。",
+          "ink": "11-3a=3+b\\quad\\Longrightarrow\\quad b=-7"
+        }
+      ],
+      "slide": 6
+    }
+  ]
+}</script>
+</body></html>

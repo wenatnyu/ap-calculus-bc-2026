@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>4.6 · Approximating Values of a Function Using Local Linearity and Linearization · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 4</a>
+    <span class="topic" lang="en">4.6 · Approximating Values of a Function Using Local Linearity and Linearization</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=6vCK3l_ob24" href="https://www.youtube.com/watch?v=6vCK3l_ob24" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-4/4.6/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/46-approximating-values-of-a-function-using-local-linearity-and-linearization.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 4.6 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="4.6-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 4.6 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-4/4.6/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "4.6",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "切线图 · 凹凸性与估计方向",
+      "box": [
+        105,
+        90,
+        453,
+        205
+      ],
+      "time": 30,
+      "items": [
+        {
+          "label": "凹向上",
+          "loc": [
+            124,
+            252,
+            192,
+            31
+          ],
+          "answer": "函数在区间内凹向上，切线位于曲线下方。因此 \\(L(x)\\le f(x)\\)，图中切点附近给出低估。",
+          "ink": "\\text{underestimate}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M211.00 254.70 L267.00 194.50",
+              "stroke": "#1d579e",
+              "fill": "none",
+              "stroke-width": 1.4,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 234.5,
+              "cy": 229.4,
+              "r": 2.5,
+              "fill": "#1d579e",
+              "stroke": "#1d579e",
+              "stroke-width": 1.2
+            }
+          ]
+        },
+        {
+          "label": "凹向下",
+          "loc": [
+            350,
+            252,
+            185,
+            31
+          ],
+          "answer": "函数在区间内凹向下，切线位于曲线上方。因此 \\(L(x)\\ge f(x)\\)，图中切点附近给出高估。",
+          "ink": "\\text{overestimate}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M430.30 153.00 L493.30 217.10",
+              "stroke": "#1d579e",
+              "fill": "none",
+              "stroke-width": 1.4,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 459.3,
+              "cy": 182.5,
+              "r": 2.5,
+              "fill": "#1d579e",
+              "stroke": "#1d579e",
+              "stroke-width": 1.2
+            }
+          ]
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1a–b · 用已知函数值和导数估计",
+      "box": [
+        105,
+        300,
+        447,
+        135
+      ],
+      "time": 210,
+      "items": [
+        {
+          "label": "1a · 局部线性估计",
+          "loc": [
+            126,
+            336,
+            412,
+            41
+          ],
+          "answer": "切线是 \\(L(x)=5+3(x-4)\\)。此处 \\(\\Delta x=-0.2\\)，故函数值约为 \\(4.4\\)。",
+          "ink": "L(3.8)=5+3(3.8-4)=4.4"
+        },
+        {
+          "label": "1b · 估计方向",
+          "loc": [
+            126,
+            403,
+            412,
+            25
+          ],
+          "answer": "在两点间函数凹向上，切线在曲线下方，所以 \\(4.4\\) 是低估。",
+          "ink": "L(3.8)\u003c f(3.8):\\quad\\text{underestimate}"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2a–c · 多项式的切线近似",
+      "box": [
+        105,
+        437,
+        449,
+        164
+      ],
+      "time": 386,
+      "items": [
+        {
+          "label": "2a · 切线方程",
+          "loc": [
+            123,
+            474,
+            416,
+            35
+          ],
+          "answer": "\\(f^{\\prime}(x)=5-6x^2\\)。切线为 \\(y-1=-(x-1)\\)，即 \\(y=2-x\\)。",
+          "ink": "f(1)=1,\\quad f^{\\prime}(1)=-1,\\quad L(x)=2-x"
+        },
+        {
+          "label": "2b · 估计 f(1.1)",
+          "loc": [
+            123,
+            533,
+            418,
+            22
+          ],
+          "answer": "\\(f(1.1)\\approx L(1.1)=0.9\\)。",
+          "ink": "f(1.1)\\approx L(1.1)=0.9"
+        },
+        {
+          "label": "2c · 高估或低估",
+          "loc": [
+            123,
+            576,
+            417,
+            23
+          ],
+          "answer": "在 \\([1,1.1]\\) 上 \\(f^{\\prime\\prime}\u003c0\\)，切线在函数图像上方，所以估计偏高。",
+          "ink": "f^{\\prime\\prime}(x)=-12x\u003c0:\\quad\\text{overestimate}"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3a–b · 由微分方程得到切线",
+      "box": [
+        105,
+        601,
+        448,
+        141
+      ],
+      "time": 510,
+      "items": [
+        {
+          "label": "3a · 斜率与切线",
+          "loc": [
+            123,
+            658,
+            416,
+            37
+          ],
+          "answer": "\\(f^{\\prime}(2)=e^0(8-10)=-2,\\quad L(x)=-2(x-2)\\)。",
+          "ink": "f^{\\prime}(2)=e^0(8-10)=-2,\\quad L(x)=-2(x-2)"
+        },
+        {
+          "label": "3b · 估计 f(2.2)",
+          "loc": [
+            124,
+            721,
+            415,
+            19
+          ],
+          "answer": "\\(f(2.2)\\approx L(2.2)=-0.4\\)。",
+          "ink": "f(2.2)\\approx L(2.2)=-0.4"
+        }
+      ],
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

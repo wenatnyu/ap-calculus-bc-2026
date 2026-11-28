@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>2.8 · The Product Rule · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 2</a>
+    <span class="topic" lang="en">2.8 · The Product Rule</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=Qgdm04QqyDs" href="https://www.youtube.com/watch?v=Qgdm04QqyDs" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-2/2.8/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/28-the-product-rule.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 2.8 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="2.8-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 2.8 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-2/2.8/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "2.8",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Product rule",
+      "box": [
+        102,
+        97,
+        456,
+        100
+      ],
+      "time": 25,
+      "items": [
+        {
+          "label": "乘积法则",
+          "loc": [
+            325,
+            151,
+            58,
+            32
+          ],
+          "answer": "若 \\(h=fg\\)，则 \\(h^{\\prime}=f^{\\prime}g+fg^{\\prime}\\)。",
+          "ink": "f^{\\prime}g+fg^{\\prime}"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Apply the product rule",
+      "box": [
+        108,
+        217,
+        148,
+        137
+      ],
+      "time": 125,
+      "items": [
+        {
+          "label": "1 · 两个因子",
+          "loc": [
+            112,
+            246,
+            138,
+            32
+          ],
+          "answer": "\\(u^{\\prime}=8\\)，\\(v^{\\prime}=\\cos x\\)。",
+          "ink": "u=8x,\\quad v=\\sin x"
+        },
+        {
+          "label": "1 · 乘积求导",
+          "loc": [
+            112,
+            299,
+            138,
+            38
+          ],
+          "answer": "将两项相加得到 \\(8\\sin x+8x\\cos x\\)，整理可写成 \\(8\\sin x+8x\\cos x\\)。",
+          "ink": "f^{\\prime}(x)=8\\sin x+8x\\cos x"
+        }
+      ],
+      "context": [
+        106,
+        200,
+        452,
+        17
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · Apply the product rule",
+      "box": [
+        260,
+        217,
+        148,
+        137
+      ],
+      "time": 175,
+      "items": [
+        {
+          "label": "2 · 两个因子",
+          "loc": [
+            264,
+            246,
+            138,
+            32
+          ],
+          "answer": "\\(u^{\\prime}=2e^x,\\ v^{\\prime}=1/(2\\sqrt x)\\)，适用范围 \\(x>0\\)。",
+          "ink": "u=2e^x,\\quad v=\\sqrt x"
+        },
+        {
+          "label": "2 · 乘积求导",
+          "loc": [
+            264,
+            299,
+            138,
+            38
+          ],
+          "answer": "将两项相加得到 \\(2e^x\\sqrt x+\\frac{e^x}{\\sqrt x}\\)，整理可写成 \\(\\frac{e^x(2x+1)}{\\sqrt x}\\)。",
+          "ink": "g^{\\prime}(x)=\\frac{e^x(2x+1)}{\\sqrt x}"
+        }
+      ],
+      "context": [
+        106,
+        200,
+        452,
+        17
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3 · Apply the product rule",
+      "box": [
+        409,
+        217,
+        148,
+        137
+      ],
+      "time": 350,
+      "items": [
+        {
+          "label": "3 · 两个因子",
+          "loc": [
+            413,
+            246,
+            138,
+            32
+          ],
+          "answer": "\\(u^{\\prime}=-1/x^2\\)，\\(v^{\\prime}=4x\\)。",
+          "ink": "u=x^{-1}+1,\\quad v=2x^2-5"
+        },
+        {
+          "label": "3 · 乘积求导",
+          "loc": [
+            413,
+            299,
+            138,
+            38
+          ],
+          "answer": "将两项相加得到 \\(-\\frac{2x^2-5}{x^2}+4x(\\frac1x+1)\\)，整理可写成 \\(4x+2+\\frac5{x^2}\\)。",
+          "ink": "h^{\\prime}(x)=4x+2+\\frac5{x^2}"
+        }
+      ],
+      "context": [
+        106,
+        200,
+        452,
+        17
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "4 · Use the table at x = 2",
+      "box": [
+        107,
+        483,
+        225,
+        123
+      ],
+      "time": 500,
+      "items": [
+        {
+          "label": "4 · 在 2 处的导数",
+          "loc": [
+            114,
+            530,
+            210,
+            43
+          ],
+          "answer": "\\(h^{\\prime}=3(f^{\\prime}g+fg^{\\prime})\\)。 得 \\(h^{\\prime}(2)=3[(-2)(-1)+4(2)]=30\\)。",
+          "ink": "h^{\\prime}(2)=3[(-2)(-1)+4(2)]=30"
+        }
+      ],
+      "context": [
+        106,
+        398,
+        446,
+        75
+      ],
+      "slide": 5
+    },
+    {
+      "page": 1,
+      "label": "5 · Use the table at x = −5",
+      "box": [
+        334,
+        483,
+        223,
+        123
+      ],
+      "time": 625,
+      "items": [
+        {
+          "label": "5 · 在 −5 处的导数",
+          "loc": [
+            340,
+            530,
+            210,
+            43
+          ],
+          "answer": "\\(r^{\\prime}=\\tfrac12 f^{\\prime}(3-g)-(\\tfrac12 f+2)g^{\\prime}\\)；当 \\(x=-5\\) 时 \\(f=3,f^{\\prime}=4,g=-2,g^{\\prime}=5\\)。 得 \\(r^{\\prime}(-5)=2(5)-\\tfrac72(5)=-\\tfrac{15}{2}\\)。",
+          "ink": "r^{\\prime}(-5)=2(5)-\\tfrac72(5)=-\\tfrac{15}{2}"
+        }
+      ],
+      "context": [
+        106,
+        398,
+        446,
+        75
+      ],
+      "slide": 6
+    }
+  ]
+}</script>
+</body></html>

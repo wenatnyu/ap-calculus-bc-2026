@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>5.11 · Solving Optimization Problems · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 5</a>
+    <span class="topic" lang="en">5.11 · Solving Optimization Problems</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=pHSNPkbpcfk" href="https://www.youtube.com/watch?v=pHSNPkbpcfk" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="sheets/5.11/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/511-solving-optimization-problems.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 5.11 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="5.11-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 5.11 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-5/5.11/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "5.11",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "label": "优化策略 · 目标量、约束与可行域",
+      "box": [
+        103,
+        96,
+        449,
+        131
+      ],
+      "items": [
+        {
+          "label": "五步策略",
+          "answer": "标记变量、写目标、代入约束、求候选、检验可行性与绝对最值。求出最优输入后，把它代回原题所问的量并补单位。",
+          "loc": [
+            340,
+            204,
+            197,
+            18
+          ],
+          "ink": "Q=Q(x),\\quad x\\in D"
+        }
+      ],
+      "page": 1,
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "label": "1 · 求最近点的坐标",
+      "box": [
+        106,
+        239,
+        448,
+        106
+      ],
+      "items": [
+        {
+          "label": "距离模型与原图线段",
+          "answer": "移动点到固定点 \\((5,0)\\) 的距离平方为 \\(S(x)=(x-5)^2+x\\)。图中的线段连接固定点和最近点。",
+          "loc": [
+            116,
+            261,
+            271,
+            26
+          ],
+          "ink": "S(x)=(x-5)^2+x",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M511.55 296.20L503.00 261.83",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 2.1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 503,
+              "cy": 261.8346104343338,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 511.55,
+              "cy": 296.2,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            }
+          ]
+        },
+        {
+          "label": "求最近点",
+          "answer": "\\(S'=2x-9\\)，给出 \\(x=9/2\\)。\\(S''=2>0\\)，且 \\(S\\) 是开口向上的二次函数，故这是绝对最小。最近点为 \\((9/2,3\\sqrt2/2)\\)，最短距离为 \\(\\sqrt{19}/2\\)。",
+          "loc": [
+            115,
+            293,
+            275,
+            33
+          ],
+          "ink": "\\left(\\frac92,\\frac{3\\sqrt2}2\\right),\\quad d_{\\min}=\\frac{\\sqrt{19}}2"
+        }
+      ],
+      "page": 1,
+      "time": 45,
+      "slide": 2
+    },
+    {
+      "label": "2 · 求最省线的地钉位置",
+      "box": [
+        106,
+        365,
+        452,
+        159
+      ],
+      "items": [
+        {
+          "label": "塔、地钉与总线长",
+          "answer": "令 \\(0\\le x\\le30\\) 为地钉到 12 英尺塔底的距离。总线长为 \\(L(x)=\\sqrt{x^2+12^2}+\\sqrt{(30-x)^2+28^2}\\)。",
+          "loc": [
+            245,
+            436,
+            302,
+            35
+          ],
+          "ink": "L=\\sqrt{x^2+144}+\\sqrt{(30-x)^2+784}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M136.00 475.00L136.00 499.00L230.00 499.00L230.00 443.00",
+              "stroke": "#147456",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M136.00 475.00L164.20 499.00L230.00 443.00",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 164.2,
+              "cy": 499,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            }
+          ]
+        },
+        {
+          "label": "最短线长与地钉位置",
+          "answer": "由 \\(L'=x/\\sqrt{x^2+144}-(30-x)/\\sqrt{(30-x)^2+784}=0\\)，得 \\(28x=12(30-x)\\)，所以 \\(x=9\\)。两项平方根的二阶导数都为正，此点给出绝对最小。地钉距矮塔 9 英尺、距高塔 21 英尺，线长共 \\(15+35=50\\) 英尺。",
+          "loc": [
+            244,
+            482,
+            303,
+            36
+          ],
+          "ink": "x=9\\ \\mathrm{ft},\\quad 30-x=21\\ \\mathrm{ft},\\quad L_{\\min}=50\\ \\mathrm{ft}"
+        }
+      ],
+      "page": 1,
+      "time": 200,
+      "slide": 3
+    },
+    {
+      "label": "3a–b · 最右位置与最大速率",
+      "box": [
+        105,
+        528,
+        453,
+        212
+      ],
+      "items": [
+        {
+          "label": "3a · 最右位置",
+          "answer": "\\(v=3(t-4)(t-6)\\)，比较 \\(t=3,4,6,9\\)。对应位置为 \\(99,103,99,153\\) 厘米，所以在 \\(t=9\\) 秒时最靠右，位置为 153 厘米。",
+          "loc": [
+            132,
+            591,
+            411,
+            43
+          ],
+          "ink": "(x(3),x(4),x(6),x(9))=(99,103,99,153)"
+        },
+        {
+          "label": "3b · 最大速率",
+          "answer": "\\(a=6t-30=0\\) 得 \\(t=5\\)。在 \\(t=3,4,5,6,9\\) 的速率为 \\(9,0,3,0,45\\)。最大速率为 \\(45\\) 厘米/秒，在 \\(t=9\\) 秒取得。",
+          "loc": [
+            132,
+            664,
+            411,
+            58
+          ],
+          "ink": "\\max_{3\\le t\\le9}|v(t)|=|v(9)|=45\\ \\mathrm{cm/s}"
+        }
+      ],
+      "page": 1,
+      "time": 430,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

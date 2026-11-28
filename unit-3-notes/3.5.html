@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>3.5 · Selecting Procedures for Calculating Derivatives · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 3</a>
+    <span class="topic" lang="en">3.5 · Selecting Procedures for Calculating Derivatives</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=uLEl-CMLC-M" href="https://www.youtube.com/watch?v=uLEl-CMLC-M" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="sheets/3.5/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/35-selecting-procedures-for-calculating-derivatives.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 3.5 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="3.5-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 3.5 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-3/3.5/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "3.5",
+  "pages": {
+    "1": 345
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Unit 2 · 九种求导方法",
+      "box": [
+        105,
+        114,
+        229,
+        227
+      ],
+      "time": 35,
+      "items": [
+        {
+          "label": "第 1 项 · 幂法则",
+          "loc": [
+            149,
+            156,
+            153,
+            16
+          ],
+          "answer": "\\(\\frac{d}{dx}x^n=nx^{n-1}\\)。",
+          "ink": "\\text{Power Rule}"
+        },
+        {
+          "label": "第 2 项 · 常数法则",
+          "loc": [
+            149,
+            175,
+            153,
+            16
+          ],
+          "answer": "常数不随 \\(x\\) 改变，\\(\\frac{d}{dx}c=0\\)。",
+          "ink": "\\text{Constant}"
+        },
+        {
+          "label": "第 3 项 · 常数倍",
+          "loc": [
+            149,
+            193,
+            153,
+            16
+          ],
+          "answer": "\\((cf)^{\\prime}=cf^{\\prime}\\)。",
+          "ink": "\\text{Constant Multiple}"
+        },
+        {
+          "label": "第 4 项 · 和与差",
+          "loc": [
+            149,
+            212,
+            153,
+            16
+          ],
+          "answer": "\\((f\\pm g)^{\\prime}=f^{\\prime}\\pm g^{\\prime}\\)。",
+          "ink": "\\text{Sum / Difference}"
+        },
+        {
+          "label": "第 5 项 · 三角函数",
+          "loc": [
+            149,
+            231,
+            153,
+            16
+          ],
+          "answer": "例如 \\((\\sin x)^{\\prime}=\\cos x\\)；三角函数的角度用弧度表示。",
+          "ink": "\\text{Trig}"
+        },
+        {
+          "label": "第 6 项 · 指数函数",
+          "loc": [
+            149,
+            249,
+            153,
+            16
+          ],
+          "answer": "\\((a^x)^{\\prime}=a^x\\ln a\\)，其中 \\(a>0\\)。",
+          "ink": "\\text{Exponential}"
+        },
+        {
+          "label": "第 7 项 · 对数函数",
+          "loc": [
+            149,
+            268,
+            153,
+            16
+          ],
+          "answer": "\\((\\ln x)^{\\prime}=1/x\\)，其中 \\(x>0\\)。",
+          "ink": "\\text{Logarithm}"
+        },
+        {
+          "label": "第 8 项 · 乘积法则",
+          "loc": [
+            149,
+            286,
+            153,
+            16
+          ],
+          "answer": "\\((fg)^{\\prime}=f^{\\prime}g+fg^{\\prime}\\)。",
+          "ink": "\\text{Product Rule}"
+        },
+        {
+          "label": "第 9 项 · 商法则",
+          "loc": [
+            149,
+            304,
+            153,
+            16
+          ],
+          "answer": "\\((f/g)^{\\prime}=(f^{\\prime}g-fg^{\\prime})/g^2\\)，其中 \\(g\\ne0\\)。",
+          "ink": "\\text{Quotient Rule}"
+        }
+      ],
+      "context": [
+        106,
+        90,
+        450,
+        20
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Unit 3 · 四种求导方法",
+      "box": [
+        333,
+        114,
+        224,
+        227
+      ],
+      "time": 84,
+      "items": [
+        {
+          "label": "第 1 项 · 链式法则",
+          "loc": [
+            374,
+            170,
+            151,
+            16
+          ],
+          "answer": "\\((f\\circ g)^{\\prime}(x)=f^{\\prime}(g(x))g^{\\prime}(x)\\)。",
+          "ink": "\\text{Chain Rule}"
+        },
+        {
+          "label": "第 2 项 · 隐函数求导",
+          "loc": [
+            374,
+            189,
+            151,
+            16
+          ],
+          "answer": "等式两侧对 \\(x\\) 求导，含 \\(y\\) 的项用链式法则，最后解出 \\(dy/dx\\)。",
+          "ink": "\\text{Implicit Differentiation}"
+        },
+        {
+          "label": "第 3 项 · 反函数",
+          "loc": [
+            374,
+            207,
+            151,
+            16
+          ],
+          "answer": "若 \\(f(a)=b\\) 且 \\(f^{\\prime}(a)\\ne0\\)，则 \\((f^{-1})^{\\prime}(b)=1/f^{\\prime}(a)\\)。",
+          "ink": "\\text{Inverse}"
+        },
+        {
+          "label": "第 4 项 · 反三角函数",
+          "loc": [
+            374,
+            226,
+            151,
+            16
+          ],
+          "answer": "例如 \\((\\arctan x)^{\\prime}=1/(1+x^2)\\)。",
+          "ink": "\\text{Inverse Trig}"
+        }
+      ],
+      "context": [
+        106,
+        90,
+        450,
+        20
+      ],
+      "slide": 2
+    }
+  ]
+}</script>
+</body></html>

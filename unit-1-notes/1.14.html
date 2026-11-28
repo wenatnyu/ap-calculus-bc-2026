@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>1.14 · Infinite Limits and Vertical Asymptotes · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 1</a>
+    <span class="topic" lang="en">1.14 · Infinite Limits and Vertical Asymptotes</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=sxbRc50OfwM" href="https://www.youtube.com/watch?v=sxbRc50OfwM" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-1/1.14/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/114-infinite-limits-and-vertical-asymptotes.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 1.14 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="1.14-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 1.14 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-1/1.14/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "1.14",
+  "pages": {
+    "1": 443
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1–3 · A vertical asymptote and its two sides",
+      "box": [
+        107,
+        93,
+        444,
+        157
+      ],
+      "items": [
+        {
+          "label": "1",
+          "loc": [
+            113,
+            149,
+            172,
+            66
+          ],
+          "ink": [
+            {
+              "box": [
+                113,
+                149,
+                172,
+                30
+              ],
+              "tex": "f(x)=\\frac{x-2}{x-3}\\ (x\\ne-4,3)"
+            },
+            {
+              "box": [
+                113,
+                182,
+                172,
+                30
+              ],
+              "tex": "\\text{vertical asymptote }x=3"
+            }
+          ],
+          "answer": "分子为 \\((x+4)(x-2)\\)，分母为 \\((x+4)(x-3)\\)。\\(-4\\) 对应空洞，唯一竖直渐近线为 \\(x=3\\)。"
+        },
+        {
+          "label": "2",
+          "loc": [
+            298,
+            149,
+            117,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                298,
+                149,
+                117,
+                28
+              ],
+              "tex": "\\lim_{x\\to3^-}f(x)=-\\infty"
+            }
+          ],
+          "answer": "当 \\(x\\to3^-\\) 时分子趋于 \\(1>0\\)，分母从负侧趋于零，所以 \\(\\lim_{x\\to3^-}f(x)=-\\infty\\)。"
+        },
+        {
+          "label": "3",
+          "loc": [
+            426,
+            149,
+            118,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                426,
+                149,
+                118,
+                28
+              ],
+              "tex": "\\lim_{x\\to3^+}f(x)=+\\infty"
+            }
+          ],
+          "answer": "当 \\(x\\to3^+\\) 时分子趋于 \\(1>0\\)，分母从正侧趋于零，所以 \\(\\lim_{x\\to3^+}f(x)=+\\infty\\)。"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "4–5 · Signs near a vertical asymptote",
+      "box": [
+        107,
+        250,
+        445,
+        176
+      ],
+      "items": [
+        {
+          "label": "4",
+          "loc": [
+            115,
+            305,
+            207,
+            74
+          ],
+          "ink": [
+            {
+              "box": [
+                115,
+                305,
+                207,
+                34
+              ],
+              "tex": "1-x\\to-2,\\quad x-3\\to0^+"
+            },
+            {
+              "box": [
+                115,
+                342,
+                207,
+                34
+              ],
+              "tex": "\\lim_{x\\to3^+}\\frac{1-x}{x-3}=-\\infty"
+            }
+          ],
+          "answer": "从右侧趋近 \\(3\\) 时，分母为小正数，分子接近 \\(-2\\)，所以函数趋于 \\(-\\infty\\)。"
+        },
+        {
+          "label": "5",
+          "loc": [
+            335,
+            305,
+            209,
+            74
+          ],
+          "ink": [
+            {
+              "box": [
+                335,
+                305,
+                209,
+                34
+              ],
+              "tex": "x-3\\to-2,\\quad(x-1)^2\\to0^+"
+            },
+            {
+              "box": [
+                335,
+                342,
+                209,
+                34
+              ],
+              "tex": "\\lim_{x\\to1}\\frac{x-3}{(x-1)^2}=-\\infty"
+            }
+          ],
+          "answer": "分母 \\((x-1)^2\\) 在两侧均为正。分子趋于 \\(-2\\)，左右极限同为 \\(-\\infty\\)。"
+        }
+      ],
+      "time": 150,
+      "slide": 2
+    }
+  ]
+}</script>
+</body></html>

@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>2.1 · Defining Average and Instantaneous Rate of Change at a Point · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 2</a>
+    <span class="topic" lang="en">2.1 · Defining Average and Instantaneous Rate of Change at a Point</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=565kZuUBNr8" href="https://www.youtube.com/watch?v=565kZuUBNr8" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-2/2.1/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/21-defining-average-and-instantaneous-rate-of-change-at-a-point.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 2.1 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="2.1-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 2.1 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-2/2.1/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "2.1",
+  "pages": {
+    "1": 792,
+    "2": 442
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Recall · Rate of change",
+      "box": [
+        107,
+        92,
+        447,
+        108
+      ],
+      "items": [
+        {
+          "label": "斜率与单位",
+          "loc": [
+            130,
+            113,
+            401,
+            43
+          ],
+          "ink": "m=\\frac{y_2-y_1}{x_2-x_1}=\\frac{\\Delta y}{\\Delta x}",
+          "answer": "斜率的单位为每一个自变量单位所对应的因变量单位。"
+        },
+        {
+          "label": "区间上的平均变化率",
+          "loc": [
+            460,
+            166,
+            88,
+            31
+          ],
+          "ink": "\\frac{f(b)-f(a)}{b-a}",
+          "answer": "在 \\([a,b]\\) 上，平均变化率为 \\((f(b)-f(a))/(b-a)\\)，其中 \\(a\u003cb\\)。"
+        }
+      ],
+      "time": 70,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Average rate · From a formula",
+      "box": [
+        107,
+        205,
+        445,
+        91
+      ],
+      "items": [
+        {
+          "label": "函数解析式",
+          "loc": [
+            128,
+            243,
+            408,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                128,
+                243,
+                408,
+                28
+              ],
+              "tex": "\\frac{\\ln12-\\ln3}{4-1}=\\frac{\\ln4}{3}\\approx0.462"
+            }
+          ],
+          "answer": "题中 \\(f(x)=\\ln(3x)\\)，端点输入为 \\(1,4\\)。平均变化率为 \\(\\ln 4/3\\approx0.462098\\)。"
+        }
+      ],
+      "time": 180,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "Average rate · From a table",
+      "box": [
+        107,
+        302,
+        445,
+        132
+      ],
+      "items": [
+        {
+          "label": "函数值表",
+          "loc": [
+            128,
+            382,
+            405,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                128,
+                382,
+                405,
+                28
+              ],
+              "tex": "\\frac{f(30)-f(2)}{30-2}=\\frac{7-(-2)}{28}=\\frac9{28}"
+            }
+          ],
+          "answer": "表中 \\(f(2)=-2,f(30)=7\\)，故平均变化率为 \\(9/28\\)。"
+        }
+      ],
+      "time": 420,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "Average rate · The secant line",
+      "box": [
+        102,
+        450,
+        451,
+        133
+      ],
+      "items": [
+        {
+          "label": "割线斜率",
+          "loc": [
+            309,
+            543,
+            99,
+            24
+          ],
+          "ink": [
+            {
+              "box": [
+                311,
+                544,
+                29,
+                23
+              ],
+              "tex": "\\text{slope}"
+            },
+            {
+              "box": [
+                368,
+                544,
+                39,
+                23
+              ],
+              "tex": "\\text{secant}"
+            }
+          ],
+          "answer": "\\(\\frac{f(a+h)-f(a)}h=\\frac{f(x)-f(a)}{x-a}\\)，其中 \\(x=a+h\\) 且 \\(h\\ne0\\)。它们都表示割线斜率。"
+        }
+      ],
+      "time": 490,
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "Instantaneous rate · The tangent line",
+      "box": [
+        102,
+        606,
+        451,
+        113
+      ],
+      "items": [
+        {
+          "label": "切线斜率",
+          "loc": [
+            306,
+            691,
+            102,
+            25
+          ],
+          "ink": [
+            {
+              "box": [
+                307,
+                690,
+                31,
+                25
+              ],
+              "tex": "\\text{slope}"
+            },
+            {
+              "box": [
+                367,
+                690,
+                42,
+                25
+              ],
+              "tex": "\\text{tangent}"
+            }
+          ],
+          "answer": "当极限存在时，\\(f^\\prime(a)=\\lim_{h\\to0}\\frac{f(a+h)-f(a)}h=\\lim_{x\\to a}\\frac{f(x)-f(a)}{x-a}\\)，即该点的切线斜率。"
+        }
+      ],
+      "time": 600,
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "Instantaneous rate at −1 · Two definitions",
+      "box": [
+        107,
+        48,
+        451,
+        230
+      ],
+      "items": [
+        {
+          "label": "左栏 · h → 0",
+          "loc": [
+            117,
+            105,
+            207,
+            111
+          ],
+          "ink": [
+            {
+              "box": [
+                117,
+                105,
+                207,
+                34
+              ],
+              "tex": "f(-1)=-2,\\ f(-1+h)=-2+3h-h^2"
+            },
+            {
+              "box": [
+                117,
+                142,
+                207,
+                34
+              ],
+              "tex": "\\lim_{h\\to0}\\frac{3h-h^2}{h}"
+            },
+            {
+              "box": [
+                117,
+                179,
+                207,
+                34
+              ],
+              "tex": "=\\lim_{h\\to0}(3-h)=3"
+            }
+          ],
+          "answer": "展开 \\((-1+h)-(-1+h)^2\\) 后，减去 \\(f(-1)=-2\\) 得 \\(3h-h^2\\)。除以 \\(h\\) 并取极限得 \\(3\\)。"
+        },
+        {
+          "label": "右栏 · x → −1",
+          "loc": [
+            341,
+            105,
+            207,
+            80
+          ],
+          "ink": [
+            {
+              "box": [
+                341,
+                105,
+                207,
+                37
+              ],
+              "tex": "\\lim_{x\\to-1}\\frac{x-x^2+2}{x+1}"
+            },
+            {
+              "box": [
+                341,
+                145,
+                207,
+                37
+              ],
+              "tex": "=\\lim_{x\\to-1}(2-x)=3"
+            }
+          ],
+          "answer": "\\(x-x^2+2=(2-x)(x+1)\\)。在 \\(x\\ne-1\\) 时约去 \\(x+1\\)，再取极限得 \\(3\\)。"
+        }
+      ],
+      "time": 740,
+      "slide": 6
+    },
+    {
+      "page": 2,
+      "label": "1–2 · Identify f and the evaluation point",
+      "box": [
+        107,
+        278,
+        452,
+        149
+      ],
+      "items": [
+        {
+          "label": "1 · 函数",
+          "loc": [
+            201,
+            345,
+            121,
+            30
+          ],
+          "ink": "5\\ln(2/x)",
+          "answer": "\\(4+h\\) 对应 \\(a+h\\)，从 \\(5\\ln(2/(4+h))\\) 读出 \\(f(x)=5\\ln(2/x)\\)。"
+        },
+        {
+          "label": "1 · 求导点",
+          "loc": [
+            237,
+            379,
+            82,
+            28
+          ],
+          "ink": "4",
+          "answer": "\\(a=4\\)，并且 \\(f(4)=5\\ln(1/2)\\)，与分子中的第二项一致。"
+        },
+        {
+          "label": "2 · 函数",
+          "loc": [
+            428,
+            354,
+            118,
+            32
+          ],
+          "ink": "\\sin x",
+          "answer": "分子的第一项直接给出 \\(f(x)=\\sin x\\)。"
+        },
+        {
+          "label": "2 · 求导点",
+          "loc": [
+            461,
+            387,
+            79,
+            27
+          ],
+          "ink": "\\tfrac\\pi2",
+          "answer": "分母为 \\(x-\\pi/2\\)，且 \\(\\sin(\\pi/2)=1\\)，所以 \\(a=\\pi/2\\)。"
+        }
+      ],
+      "time": 980,
+      "slide": 7
+    }
+  ]
+}</script>
+</body></html>

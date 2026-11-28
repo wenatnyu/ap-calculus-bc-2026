@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>5.2 · Extreme Value Theorem, Global Versus Local Extrema, and Critical Points · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 5</a>
+    <span class="topic" lang="en">5.2 · Extreme Value Theorem, Global Versus Local Extrema, and Critical Points</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=ZIqfI2QVLRI" href="https://www.youtube.com/watch?v=ZIqfI2QVLRI" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-5/5.2/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/52-extreme-value-theorem-global-versus-local-extrema-and-critical-points.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 5.2 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="5.2-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 5.2 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-5/5.2/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "5.2",
+  "pages": {
+    "1": 792,
+    "2": 413
+  },
+  "groups": [
+    {
+      "label": "极值定理 · 全局与局部",
+      "box": [
+        103,
+        99,
+        454,
+        249
+      ],
+      "items": [
+        {
+          "label": "闭区间的最值与示意图",
+          "answer": "若 \\(f\\) 在 \\([a,b]\\) 连续，则必取得绝对最大值和绝对最小值。原图中最高的实心点和最左端最低的实心点分别给出全局最大和最小。此图虽有断点，仍可直接读出实际取得的值。",
+          "loc": [
+            111,
+            300,
+            174,
+            34
+          ],
+          "ink": "\\min_{[a,b]}f,\\quad\\max_{[a,b]}f",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 361.6,
+              "cy": 217.9,
+              "r": 3,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 327.9,
+              "cy": 307.8,
+              "r": 3,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            }
+          ]
+        },
+        {
+          "label": "比较局部极值",
+          "answer": "按原视频的一侧端点约定，最右实心端点是局部最大点。图中另外三个标蓝的谷点是局部最小点，其中两个位于跳跃处。最高实心点同时也是局部最大点。",
+          "loc": [
+            111,
+            325,
+            170,
+            18
+          ],
+          "ink": "\\text{local extrema}",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 413.8,
+              "cy": 277.6,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 446.8,
+              "cy": 257.5,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 502.3,
+              "cy": 285.2,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 531.2,
+              "cy": 269,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "label": "1–2 · 从图读取极值",
+      "box": [
+        107,
+        371,
+        451,
+        235
+      ],
+      "items": [
+        {
+          "label": "1 · 极值类型和位置",
+          "answer": "绝对最大值是 \\(5\\)，在 \\(x=0\\) 取得。绝对最小值是 \\(1\\)，在 \\(x=-3\\) 取得。内部点 \\(x=1\\) 的值 \\(2\\) 小于两侧邻近函数值，是局部最小值。内部最高点也是局部最大点。",
+          "loc": [
+            112,
+            540,
+            214,
+            52
+          ],
+          "ink": [
+            {
+              "box": [
+                114,
+                540,
+                210,
+                22
+              ],
+              "tex": "\\max f=f(0)=5,\\quad\\min f=f(-3)=1"
+            },
+            {
+              "box": [
+                114,
+                565,
+                210,
+                22
+              ],
+              "tex": "\\text{local min: } f(1)=2"
+            }
+          ],
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 221.5,
+              "cy": 395.4,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 177.2,
+              "cy": 450,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 236.4,
+              "cy": 436.9,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            }
+          ]
+        },
+        {
+          "label": "2 · 极值类型和位置",
+          "answer": "绝对最大值为 \\(3\\)，在 \\(x=-1\\) 取得。\\(x=1\\) 的实心点给出局部最大值 \\(1\\)。按本讲义的一侧端点约定，\\(x=4\\) 处取得局部最小值 \\(-1\\)。因左支可逼近而取不到 \\(-3\\)，函数无绝对最小值。",
+          "loc": [
+            339,
+            540,
+            212,
+            60
+          ],
+          "ink": [
+            {
+              "box": [
+                339,
+                540,
+                210,
+                18
+              ],
+              "tex": "\\max f=f(-1)=3"
+            },
+            {
+              "box": [
+                339,
+                558,
+                210,
+                19
+              ],
+              "tex": "\\mathrm{local\\ max}:f(1)=1;\\quad \\mathrm{local\\ min}: f(4)=-1"
+            },
+            {
+              "box": [
+                339,
+                580,
+                210,
+                19
+              ],
+              "tex": "\\inf f=-3\\ \\mathrm{(unattained)}"
+            }
+          ],
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 429.7,
+              "cy": 427.1,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 459.5,
+              "cy": 454,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 503.5,
+              "cy": 481.4,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 370,
+      "slide": 2
+    },
+    {
+      "label": "从峰谷到临界点",
+      "box": [
+        107,
+        606,
+        450,
+        143
+      ],
+      "items": [
+        {
+          "label": "五个候选位置",
+          "answer": "原图依次有三个局部最大点和两个局部最小点。前四个转折处光滑，导数为零。最右峰顶是尖角，导数不存在。两端箭头表示图形仍延伸。",
+          "loc": [
+            111,
+            642,
+            117,
+            52
+          ],
+          "ink": "f^{\\prime}=0\\ \\text{or DNE}",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 290.1,
+              "cy": 633.1,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 320.6,
+              "cy": 666,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 336.1,
+              "cy": 645.6,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 360.1,
+              "cy": 683.6,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 376.5,
+              "cy": 640.8,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 555,
+      "slide": 3
+    },
+    {
+      "label": "Critical Point · 临界点的条件",
+      "box": [
+        106,
+        45,
+        450,
+        115
+      ],
+      "items": [
+        {
+          "label": "定义与两个筛选条件",
+          "answer": "对定义域内的 \\(c\\)，若 \\(f'(c)=0\\) 或 \\(f'(c)\\) 不存在，则 \\((c,f(c))\\) 是临界点。临界点需进一步判定是否为极值。",
+          "loc": [
+            116,
+            46,
+            430,
+            105
+          ],
+          "ink": [
+            {
+              "box": [
+                187,
+                45,
+                357,
+                27
+              ],
+              "tex": "c\\in\\operatorname{Dom}f:\\quad f^{\\prime}(c)=0\\ \\text{or DNE}"
+            },
+            {
+              "box": [
+                160,
+                111,
+                250,
+                20
+              ],
+              "tex": "f^{\\prime}(c)\\ \\text{does not exist}"
+            },
+            {
+              "box": [
+                160,
+                130,
+                250,
+                20
+              ],
+              "tex": "f^{\\prime}(c)=0"
+            }
+          ]
+        }
+      ],
+      "page": 2,
+      "time": 570,
+      "slide": 4
+    },
+    {
+      "label": "3–4 · 计算临界点",
+      "box": [
+        106,
+        176,
+        451,
+        229
+      ],
+      "items": [
+        {
+          "label": "3 · 多项式",
+          "answer": "\\(f'=x^2-9=0\\) 给出 \\(x=-3,3\\)。原函数值是 \\(f(-3)=42,f(3)=6\\)，故临界点为 \\((-3,42),(3,6)\\)。",
+          "loc": [
+            114,
+            224,
+            205,
+            139
+          ],
+          "ink": [
+            {
+              "box": [
+                114,
+                231,
+                205,
+                41
+              ],
+              "tex": "f^{\\prime}=x^2-9"
+            },
+            {
+              "box": [
+                114,
+                287,
+                205,
+                49
+              ],
+              "tex": "(-3,42),\\quad(3,6)"
+            }
+          ]
+        },
+        {
+          "label": "4 · 带根式的分母",
+          "answer": "定义域为 \\((-2,2)\\)。\\(g'=x/(4-x^2)^{3/2}\\)，只在 \\(x=0\\) 取零，而 \\(\\pm2\\) 不在定义域中。唯一临界点为 \\((0,1/2)\\)。",
+          "loc": [
+            337,
+            224,
+            209,
+            139
+          ],
+          "ink": [
+            {
+              "box": [
+                337,
+                228,
+                209,
+                43
+              ],
+              "tex": "g^{\\prime}=\\frac{x}{(4-x^2)^{3/2}}"
+            },
+            {
+              "box": [
+                337,
+                285,
+                209,
+                51
+              ],
+              "tex": "\\left(0,\\frac12\\right)"
+            }
+          ]
+        }
+      ],
+      "page": 2,
+      "time": 675,
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>5.8 · Sketching Graphs of Functions and Their Derivatives · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 5</a>
+    <span class="topic" lang="en">5.8 · Sketching Graphs of Functions and Their Derivatives</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=Eiv7ofQ_TeU" href="https://www.youtube.com/watch?v=Eiv7ofQ_TeU" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-5/5.8/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/58-sketching-graphs-of-functions-and-their-derivatives.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 5.8 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="5.8-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 5.8 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-5/5.8/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "5.8",
+  "pages": {
+    "1": 326
+  },
+  "groups": [
+    {
+      "label": "从斜率到导数图的纵坐标",
+      "box": [
+        105,
+        98,
+        450,
+        35
+      ],
+      "items": [
+        {
+          "label": "填空 · 三个关键词",
+          "answer": "关注 \\(f\\) 的斜率。\\(f\\) 在 \\(x\\) 处的斜率，就是 \\(f'\\) 在该处的纵坐标。",
+          "loc": [
+            206,
+            102,
+            281,
+            24
+          ],
+          "ink": [
+            {
+              "box": [
+                207,
+                102,
+                50,
+                22
+              ],
+              "tex": "\\text{slope}"
+            },
+            {
+              "box": [
+                307,
+                102,
+                49,
+                22
+              ],
+              "tex": "\\text{slope}"
+            },
+            {
+              "box": [
+                410,
+                102,
+                75,
+                22
+              ],
+              "tex": "y\\text{-value}"
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "label": "左图 · 由 f 画 f′",
+      "box": [
+        108,
+        134,
+        224,
+        185
+      ],
+      "items": [
+        {
+          "label": "在原坐标轴画导数",
+          "answer": "原函数左侧上升、中间下降、右侧再次上升。因此蓝色导数草图在原图峰、谷的横坐标处穿过横轴，符号顺序为 \\(+,-,+\\)。斜率在中部最负，导数图在这里形成谷底。",
+          "loc": [
+            117,
+            156,
+            204,
+            159
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M173.23 182.77L174.52 186.73L175.81 190.60L177.09 194.36L178.38 198.02L179.67 201.58L180.96 205.05L182.25 208.41L183.53 211.67L184.82 214.83L186.11 217.89L187.40 220.85L188.69 223.71L189.97 226.47L191.26 229.13L192.55 231.69L193.84 234.15L195.13 236.51L196.41 238.76L197.70 240.92L198.99 242.98L200.28 244.94L201.57 246.79L202.85 248.55L204.14 250.20L205.43 251.76L206.72 253.22L208.01 254.57L209.29 255.82L210.58 256.98L211.87 258.03L213.16 258.99L214.45 259.84L215.73 260.59L217.02 261.24L218.31 261.80L219.60 262.25L220.89 262.60L222.17 262.85L223.46 263.00L224.75 263.05L226.04 263.00L227.33 262.85L228.61 262.60L229.90 262.25L231.19 261.80L232.48 261.24L233.77 260.59L235.05 259.84L236.34 258.99L237.63 258.03L238.92 256.98L240.21 255.82L241.49 254.57L242.78 253.22L244.07 251.76L245.36 250.20L246.65 248.55L247.93 246.79L249.22 244.94L250.51 242.98L251.80 240.92L253.09 238.76L254.37 236.51L255.66 234.15L256.95 231.69L258.24 229.13L259.53 226.47L260.81 223.71L262.10 220.85L263.39 217.89L264.68 214.83L265.97 211.67L267.25 208.41L268.54 205.05L269.83 201.58L271.12 198.02L272.41 194.36L273.69 190.60L274.98 186.73L276.27 182.77",
+              "stroke": "#1b5a99",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 201.75,
+              "cy": 247.05,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 247.75,
+              "cy": 247.05,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 25,
+      "slide": 2
+    },
+    {
+      "label": "右图 · 由 f′ 画一个可能的 f",
+      "box": [
+        334,
+        135,
+        224,
+        183
+      ],
+      "items": [
+        {
+          "label": "在原坐标轴画一个原函数",
+          "answer": "导数从左到右的符号是 \\(-,+,-,+\\)。紫色原函数草图依次出现局部最小、局部最大、局部最小。导数图的两个转向处对应原函数的两个拐点。",
+          "loc": [
+            344,
+            157,
+            204,
+            157
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M385.12 197.03L386.69 208.39L388.25 218.50L389.82 227.42L391.38 235.24L392.94 242.02L394.51 247.83L396.07 252.73L397.64 256.80L399.20 260.09L400.77 262.67L402.33 264.60L403.90 265.92L405.46 266.70L407.02 267.00L408.59 266.85L410.15 266.31L411.72 265.44L413.28 264.26L414.85 262.84L416.41 261.20L417.98 259.39L419.54 257.44L421.10 255.40L422.67 253.30L424.23 251.16L425.80 249.02L427.36 246.91L428.93 244.84L430.49 242.86L432.06 240.97L433.62 239.20L435.18 237.56L436.75 236.09L438.31 234.77L439.88 233.64L441.44 232.70L443.01 231.96L444.57 231.43L446.14 231.11L447.70 231.00L449.26 231.11L450.83 231.43L452.39 231.96L453.96 232.70L455.52 233.64L457.09 234.77L458.65 236.09L460.22 237.56L461.78 239.20L463.34 240.97L464.91 242.86L466.47 244.84L468.04 246.91L469.60 249.02L471.17 251.16L472.73 253.30L474.30 255.40L475.86 257.44L477.42 259.39L478.99 261.20L480.55 262.84L482.12 264.26L483.68 265.44L485.25 266.31L486.81 266.85L488.38 267.00L489.94 266.70L491.50 265.92L493.07 264.60L494.63 262.67L496.20 260.09L497.76 256.80L499.33 252.73L500.89 247.83L502.46 242.02L504.02 235.24L505.58 227.42L507.15 218.50L508.71 208.39L510.28 197.03",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 407.2566136432667,
+              "cy": 267,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 447.7,
+              "cy": 231,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 488.1433863567333,
+              "cy": 267,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 220,
+      "slide": 3
+    }
+  ]
+}</script>
+</body></html>

@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>5.9 · Connecting a Function, Its First Derivative, and Its Second Derivative · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 5</a>
+    <span class="topic" lang="en">5.9 · Connecting a Function, Its First Derivative, and Its Second Derivative</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=eckJYWSgUJ4" href="https://www.youtube.com/watch?v=eckJYWSgUJ4" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-5/5.9/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/59-connecting-a-function-its-first-derivative-and-its-second-derivative.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 5.9 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="5.9-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 5.9 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-5/5.9/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "5.9",
+  "pages": {
+    "1": 792,
+    "2": 237
+  },
+  "groups": [
+    {
+      "label": "1 · 分别建立 f′ 与 f″ 的符号表",
+      "box": [
+        106,
+        91,
+        451,
+        183
+      ],
+      "items": [
+        {
+          "label": "1 · 一阶导数表",
+          "answer": "\\(f'=6x^2+8x+2=2(3x+1)(x+1)\\)，零点为 \\(-1,-1/3\\)，分段符号为正、负、正。",
+          "loc": [
+            107,
+            127,
+            203,
+            138
+          ],
+          "ink": [
+            {
+              "box": [
+                109,
+                143,
+                193,
+                40
+              ],
+              "tex": "f^{\\prime}=2(3x+1)(x+1)"
+            },
+            {
+              "box": [
+                146,
+                229,
+                32,
+                16.5
+              ],
+              "tex": "x\u003c-1"
+            },
+            {
+              "box": [
+                178,
+                229,
+                32,
+                16.5
+              ],
+              "tex": "-1"
+            },
+            {
+              "box": [
+                210,
+                229,
+                32,
+                16.5
+              ],
+              "tex": "(-1,-1/3)"
+            },
+            {
+              "box": [
+                242,
+                229,
+                32,
+                16.5
+              ],
+              "tex": "-1/3"
+            },
+            {
+              "box": [
+                274,
+                229,
+                32,
+                16.5
+              ],
+              "tex": "x>-1/3"
+            },
+            {
+              "box": [
+                146,
+                245.5,
+                32,
+                16.5
+              ],
+              "tex": "+"
+            },
+            {
+              "box": [
+                178,
+                245.5,
+                32,
+                16.5
+              ],
+              "tex": "0"
+            },
+            {
+              "box": [
+                210,
+                245.5,
+                32,
+                16.5
+              ],
+              "tex": "-"
+            },
+            {
+              "box": [
+                242,
+                245.5,
+                32,
+                16.5
+              ],
+              "tex": "0"
+            },
+            {
+              "box": [
+                274,
+                245.5,
+                32,
+                16.5
+              ],
+              "tex": "+"
+            }
+          ]
+        },
+        {
+          "label": "1 · 二阶导数表",
+          "answer": "\\(f''=12x+8\\)，在 \\(x=-2/3\\) 处为零，左侧为负，右侧为正。",
+          "loc": [
+            351,
+            127,
+            200,
+            138
+          ],
+          "ink": [
+            {
+              "box": [
+                352,
+                143,
+                198,
+                40
+              ],
+              "tex": "f^{\\prime\\prime}=12x+8"
+            },
+            {
+              "box": [
+                397,
+                229,
+                52.333333333333336,
+                16.5
+              ],
+              "tex": "x\u003c-2/3"
+            },
+            {
+              "box": [
+                449.3333333333333,
+                229,
+                52.333333333333336,
+                16.5
+              ],
+              "tex": "-2/3"
+            },
+            {
+              "box": [
+                501.6666666666667,
+                229,
+                52.333333333333336,
+                16.5
+              ],
+              "tex": "x>-2/3"
+            },
+            {
+              "box": [
+                397,
+                245.5,
+                52.333333333333336,
+                16.5
+              ],
+              "tex": "-"
+            },
+            {
+              "box": [
+                449.3333333333333,
+                245.5,
+                52.333333333333336,
+                16.5
+              ],
+              "tex": "0"
+            },
+            {
+              "box": [
+                501.6666666666667,
+                245.5,
+                52.333333333333336,
+                16.5
+              ],
+              "tex": "+"
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "label": "1 · 同时凹向上并且递减",
+      "box": [
+        112,
+        285,
+        436,
+        112
+      ],
+      "items": [
+        {
+          "label": "合并符号表",
+          "answer": "按 \\(-1,-2/3,-1/3\\) 分段。原函数递减区间为 \\((-1,-1/3)\\)，凹向上区间为 \\((-2/3,\\infty)\\)。",
+          "loc": [
+            226,
+            312,
+            255,
+            59
+          ],
+          "ink": [
+            {
+              "box": [
+                226,
+                314,
+                36.42857142857143,
+                19
+              ],
+              "tex": "\u003c-1"
+            },
+            {
+              "box": [
+                262.42857142857144,
+                314,
+                36.42857142857143,
+                19
+              ],
+              "tex": "-1"
+            },
+            {
+              "box": [
+                298.8571428571429,
+                314,
+                36.42857142857143,
+                19
+              ],
+              "tex": "(-1,-2/3)"
+            },
+            {
+              "box": [
+                335.2857142857143,
+                314,
+                36.42857142857143,
+                19
+              ],
+              "tex": "-2/3"
+            },
+            {
+              "box": [
+                371.7142857142857,
+                314,
+                36.42857142857143,
+                19
+              ],
+              "tex": "(-2/3,-1/3)"
+            },
+            {
+              "box": [
+                408.14285714285717,
+                314,
+                36.42857142857143,
+                19
+              ],
+              "tex": "-1/3"
+            },
+            {
+              "box": [
+                444.57142857142856,
+                314,
+                36.42857142857143,
+                19
+              ],
+              "tex": ">-1/3"
+            },
+            {
+              "box": [
+                226,
+                333,
+                36.42857142857143,
+                19
+              ],
+              "tex": "+"
+            },
+            {
+              "box": [
+                262.42857142857144,
+                333,
+                36.42857142857143,
+                19
+              ],
+              "tex": "0"
+            },
+            {
+              "box": [
+                298.8571428571429,
+                333,
+                36.42857142857143,
+                19
+              ],
+              "tex": "-"
+            },
+            {
+              "box": [
+                335.2857142857143,
+                333,
+                36.42857142857143,
+                19
+              ],
+              "tex": "-"
+            },
+            {
+              "box": [
+                371.7142857142857,
+                333,
+                36.42857142857143,
+                19
+              ],
+              "tex": "-"
+            },
+            {
+              "box": [
+                408.14285714285717,
+                333,
+                36.42857142857143,
+                19
+              ],
+              "tex": "0"
+            },
+            {
+              "box": [
+                444.57142857142856,
+                333,
+                36.42857142857143,
+                19
+              ],
+              "tex": "+"
+            },
+            {
+              "box": [
+                226,
+                352,
+                36.42857142857143,
+                19
+              ],
+              "tex": "-"
+            },
+            {
+              "box": [
+                262.42857142857144,
+                352,
+                36.42857142857143,
+                19
+              ],
+              "tex": "-"
+            },
+            {
+              "box": [
+                298.8571428571429,
+                352,
+                36.42857142857143,
+                19
+              ],
+              "tex": "-"
+            },
+            {
+              "box": [
+                335.2857142857143,
+                352,
+                36.42857142857143,
+                19
+              ],
+              "tex": "0"
+            },
+            {
+              "box": [
+                371.7142857142857,
+                352,
+                36.42857142857143,
+                19
+              ],
+              "tex": "+"
+            },
+            {
+              "box": [
+                408.14285714285717,
+                352,
+                36.42857142857143,
+                19
+              ],
+              "tex": "+"
+            },
+            {
+              "box": [
+                444.57142857142856,
+                352,
+                36.42857142857143,
+                19
+              ],
+              "tex": "+"
+            }
+          ]
+        },
+        {
+          "label": "求交集",
+          "answer": "两个开区间的交集为 \\((-2/3,-1/3)\\)。",
+          "loc": [
+            135,
+            373,
+            397,
+            24
+          ],
+          "ink": "f^{\\prime}\u003c0,\\ f^{\\prime\\prime}>0\\quad\\Longrightarrow\\quad -\\tfrac23\u003cx\u003c-\\tfrac13"
+        }
+      ],
+      "page": 1,
+      "time": 165,
+      "slide": 2
+    },
+    {
+      "label": "速度与加速度 · 速率的增减",
+      "box": [
+        102,
+        418,
+        449,
+        104
+      ],
+      "items": [
+        {
+          "label": "加速",
+          "answer": "\\(v(t)\\) 与 \\(a(t)\\) 同号时 \\(v(t)a(t)>0\\)，速率增加。",
+          "loc": [
+            311,
+            450,
+            83,
+            24
+          ],
+          "ink": "v(t),\\ a(t)"
+        },
+        {
+          "label": "减速",
+          "answer": "\\(v(t)\\) 与 \\(a(t)\\) 异号时 \\(v(t)a(t)\u003c0\\)，速率减少。",
+          "loc": [
+            313,
+            478,
+            83,
+            24
+          ],
+          "ink": "v(t),\\ a(t)"
+        }
+      ],
+      "page": 1,
+      "time": 365,
+      "slide": 3
+    },
+    {
+      "label": "2 · 描述粒子运动",
+      "box": [
+        106,
+        529,
+        452,
+        207
+      ],
+      "items": [
+        {
+          "label": "2 · 速度、加速度与方向",
+          "answer": "\\(v(t)=t^2-8t+12=(t-2)(t-6)\\)，\\(a(t)=2t-8\\)。粒子在 \\(t=2,6\\) 静止并换向。按 \\(t\\ge0\\)，在 \\([0,2)\\) 和 \\((6,\\infty)\\) 向右，在 \\((2,6)\\) 向左。",
+          "loc": [
+            119,
+            571,
+            419,
+            53
+          ],
+          "ink": "v=(t-2)(t-6),\\qquad a=2(t-4)"
+        },
+        {
+          "label": "2 · 加速与减速",
+          "answer": "\\((0,2)\\) 上速度正、加速度负，\\((2,4)\\) 上二者均负，\\((4,6)\\) 上速度负、加速度正，\\((6,\\infty)\\) 上两者均正。因此加速区间为 \\((2,4),(6,\\infty)\\)，减速区间为 \\((0,2),(4,6)\\)。若把数学模型延伸至负时间，\\(t\u003c0\\) 也向右减速。",
+          "loc": [
+            119,
+            635,
+            419,
+            81
+          ],
+          "ink": [
+            {
+              "box": [
+                119,
+                633,
+                419,
+                30
+              ],
+              "tex": "|v|\\nearrow:\\ (2,4),(6,\\infty)"
+            },
+            {
+              "box": [
+                119,
+                673,
+                419,
+                33
+              ],
+              "tex": "|v|\\searrow:\\ (0,2),(4,6)"
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 420,
+      "slide": 4
+    },
+    {
+      "label": "3a–b · 从表格判断趋势",
+      "box": [
+        106,
+        34,
+        451,
+        200
+      ],
+      "items": [
+        {
+          "label": "3a · 增减性",
+          "answer": "从 1 到 2 到 4 到 7，表中函数值增加。因题设 \\(f'\\) 不变号，结合正的平均变化率可判定函数递增。",
+          "loc": [
+            316,
+            146,
+            228,
+            27
+          ],
+          "ink": "1\u003c2\u003c4\u003c7\\quad\\Longrightarrow\\quad f\\nearrow"
+        },
+        {
+          "label": "3b · 凹向",
+          "answer": "在三个单位区间上，平均变化率分别为 \\(1,2,3\\)。导数值由中值定理依次取到这些值，且二阶导数不变号，因此曲线凹向上。",
+          "loc": [
+            330,
+            187,
+            214,
+            29
+          ],
+          "ink": "1\u003c2\u003c3\\quad\\Longrightarrow\\quad\\mathrm{concave\\ up}"
+        }
+      ],
+      "page": 2,
+      "time": 715,
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

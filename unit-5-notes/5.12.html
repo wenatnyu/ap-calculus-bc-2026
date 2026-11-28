@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>5.12 · Exploring Behaviors of Implicit Relations · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 5</a>
+    <span class="topic" lang="en">5.12 · Exploring Behaviors of Implicit Relations</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=vw5AOn6FDzw" href="https://www.youtube.com/watch?v=vw5AOn6FDzw" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-5/5.12/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/512-exploring-behaviors-of-implicit-relations.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 5.12 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="5.12-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 5.12 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-5/5.12/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "5.12",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "label": "隐式关系 · 一阶与二阶导数",
+      "box": [
+        106,
+        92,
+        452,
+        73
+      ],
+      "items": [
+        {
+          "label": "判别依据",
+          "answer": "\\(y'>0\\) 时局部递增，\\(y'\u003c0\\) 时局部递减。\\(y''>0\\) 表示凹向上，\\(y''\u003c0\\) 表示凹向下。临界位置还需检查是否为极值。",
+          "loc": [
+            115,
+            147,
+            427,
+            15
+          ],
+          "ink": "y^{\\prime}\\ \\text{controls slope},\\qquad y^{\\prime\\prime}\\ \\text{controls concavity}"
+        }
+      ],
+      "page": 1,
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "label": "1 · 用隐式导数判定升降",
+      "box": [
+        106,
+        165,
+        452,
+        155
+      ],
+      "items": [
+        {
+          "label": "1 · 隐式求导",
+          "answer": "对 \\(3x^3+3=\\ln(4y^2)\\) 求导，\\(9x^2=(8yy')/(4y^2)=2y'/y\\)，故 \\(y'=9x^2y/2\\)。",
+          "loc": [
+            119,
+            207,
+            423,
+            49
+          ],
+          "ink": "9x^2=\\frac{2y^{\\prime}}y\\quad\\Longrightarrow\\quad y^{\\prime}=\\frac{9x^2y}{2}"
+        },
+        {
+          "label": "1 · 判断增减",
+          "answer": "在 \\((-1,1/2)\\)，\\(y'=9/4>0\\)，所以曲线在该点附近递增。",
+          "loc": [
+            119,
+            270,
+            423,
+            38
+          ],
+          "ink": "\\left.y^{\\prime}\\right|_{(-1,1/2)}=\\frac94>0"
+        }
+      ],
+      "page": 1,
+      "time": 40,
+      "slide": 2
+    },
+    {
+      "label": "2 · 用第二次隐式求导判凹向",
+      "box": [
+        106,
+        335,
+        452,
+        192
+      ],
+      "items": [
+        {
+          "label": "2 · 一阶与二阶导数",
+          "answer": "第一次求导有 \\(e^y y'=2x\\)，在 \\((-2,0)\\) 得 \\(y'=-4\\)。再求导得 \\(e^y[(y')^2+y'']=2\\)。",
+          "loc": [
+            119,
+            376,
+            423,
+            61
+          ],
+          "ink": "e^y y^{\\prime}=2x,\\qquad e^y\\big[(y^{\\prime})^2+y^{\\prime\\prime}\\big]=2"
+        },
+        {
+          "label": "2 · 判定凹向",
+          "answer": "代入 \\(y=0\\)、\\(y'=-4\\)，得到 \\(y''=2-16=-14\u003c0\\)，所以曲线在该点附近凹向下。",
+          "loc": [
+            119,
+            459,
+            422,
+            41
+          ],
+          "ink": "\\left.y^{\\prime\\prime}\\right|_{(-2,0)}=-14\u003c0"
+        }
+      ],
+      "page": 1,
+      "time": 235,
+      "slide": 3
+    },
+    {
+      "label": "3 · 在指定点判定相对极值",
+      "box": [
+        106,
+        546,
+        452,
+        191
+      ],
+      "items": [
+        {
+          "label": "3 · 检查驻点",
+          "answer": "在 \\((0,1)\\) 有 \\(3y^2-1=2\\)，\\(y'=2x/(3y^2-1)=0\\)，而且曲线在此处可局部写作 \\(y(x)\\)。",
+          "loc": [
+            118,
+            614,
+            424,
+            36
+          ],
+          "ink": "y^{\\prime}(0)=\\frac{0}{3(1)^2-1}=0"
+        },
+        {
+          "label": "3 · 二阶检验与讲义勘误",
+          "answer": "由一阶导数重新求导得 \\(y''=2/(3y^2-1)-24x^2y/(3y^2-1)^3\\)。讲义第二项的分母印成二次方。此题 \\(x=0\\)，该项为零，所以 \\(y''(0)=1>0\\)。\\((0,1)\\) 是相对最小点。",
+          "loc": [
+            118,
+            667,
+            424,
+            54
+          ],
+          "ink": "y^{\\prime\\prime}(0)=1>0\\quad\\Longrightarrow\\quad(0,1)\\ \\text{is a local minimum}"
+        }
+      ],
+      "page": 1,
+      "time": 430,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

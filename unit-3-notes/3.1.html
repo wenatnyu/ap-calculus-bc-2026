@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>3.1 · The Chain Rule · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 3</a>
+    <span class="topic" lang="en">3.1 · The Chain Rule</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=1w6t_LkyJFU" href="https://www.youtube.com/watch?v=1w6t_LkyJFU" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-3/3.1/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/31-the-chain-rule.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 3.1 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="3.1-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 3.1 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-3/3.1/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "3.1",
+  "pages": {
+    "1": 792,
+    "2": 395
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Composite functions · Identify the layers",
+      "box": [
+        106,
+        92,
+        451,
+        119
+      ],
+      "time": 30,
+      "items": [
+        {
+          "label": "左 · 平方再取正弦",
+          "loc": [
+            109,
+            163,
+            145,
+            35
+          ],
+          "answer": "内层为 \\(g(x)=x^2\\)，外层为 \\(f(u)=\\sin u\\)。",
+          "ink": "x\\mapsto x^2\\mapsto\\sin(x^2)"
+        },
+        {
+          "label": "中 · 对数再开方",
+          "loc": [
+            261,
+            163,
+            143,
+            35
+          ],
+          "answer": "内层为 \\(\\ln x\\)，外层为平方根。",
+          "ink": "x\\mapsto\\ln x\\mapsto\\sqrt{\\ln x}"
+        },
+        {
+          "label": "右 · 三层复合",
+          "loc": [
+            412,
+            163,
+            138,
+            35
+          ],
+          "answer": "依次乘 \\(5\\)、取正弦、取余弦；最外层是余弦。",
+          "ink": "5x\\mapsto\\sin(5x)\\mapsto\\cos(\\sin(5x))"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "The chain rule",
+      "box": [
+        102,
+        227,
+        455,
+        93
+      ],
+      "time": 120,
+      "items": [
+        {
+          "label": "链式法则",
+          "loc": [
+            327,
+            263,
+            81,
+            36
+          ],
+          "answer": "若 \\(y=f(g(x))\\)，则 \\(\\frac{dy}{dx}=f^{\\prime}(g(x))g^{\\prime}(x)\\)。",
+          "ink": "f^{\\prime}(g(x))\\,g^{\\prime}(x)"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1 · Chain rule by layers",
+      "box": [
+        108,
+        352,
+        148,
+        122
+      ],
+      "time": 150,
+      "items": [
+        {
+          "label": "1 · 导函数",
+          "loc": [
+            112,
+            391,
+            139,
+            47
+          ],
+          "answer": "外层四次幂求导为 \\(4(x^2-5)^3\\)，再乘内层导数 \\(2x\\)。 因此 \\(f^{\\prime}(x)=8x(x^2-5)^3\\)。",
+          "ink": "f^{\\prime}(x)=8x(x^2-5)^3"
+        }
+      ],
+      "context": [
+        106,
+        336,
+        452,
+        17
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "2 · Chain rule by layers",
+      "box": [
+        260,
+        352,
+        148,
+        122
+      ],
+      "time": 240,
+      "items": [
+        {
+          "label": "2 · 导函数",
+          "loc": [
+            264,
+            391,
+            139,
+            47
+          ],
+          "answer": "把根号写成二分之一次幂，求导得 \\(\\frac12(4x-3)^{-1/2}\\cdot4\\)。 因此 \\(g^{\\prime}(x)=\\frac2{\\sqrt{4x-3}}\\)。",
+          "ink": "g^{\\prime}(x)=\\frac2{\\sqrt{4x-3}}"
+        }
+      ],
+      "context": [
+        106,
+        336,
+        452,
+        17
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "3 · Chain rule by layers",
+      "box": [
+        409,
+        352,
+        148,
+        122
+      ],
+      "time": 300,
+      "items": [
+        {
+          "label": "3 · 导函数",
+          "loc": [
+            413,
+            391,
+            139,
+            47
+          ],
+          "answer": "由平方、正弦和 \\(5x\\) 三层得到 \\(2\\sin(5x)\\cdot\\cos(5x)\\cdot5\\)。 因此 \\(h^{\\prime}(x)=10\\sin(5x)\\cos(5x)\\)。",
+          "ink": "h^{\\prime}(x)=10\\sin(5x)\\cos(5x)"
+        }
+      ],
+      "context": [
+        106,
+        336,
+        452,
+        17
+      ],
+      "slide": 5
+    },
+    {
+      "page": 1,
+      "label": "4–5 · Two ways to differentiate the same logarithm",
+      "box": [
+        106,
+        490,
+        451,
+        106
+      ],
+      "time": 390,
+      "items": [
+        {
+          "label": "4 · 使用链式法则",
+          "loc": [
+            112,
+            527,
+            212,
+            43
+          ],
+          "answer": "\\(x>0\\) 时，对 \\(\\ln(x^3)\\) 先求外层导数，再乘 \\(3x^2\\)。 得 \\(y^{\\prime}=\\frac{1}{x^3}\\,3x^2=\\frac3x\\)。",
+          "ink": "y^{\\prime}=\\frac{1}{x^3}\\,3x^2=\\frac3x"
+        },
+        {
+          "label": "5 · 先化简对数",
+          "loc": [
+            338,
+            527,
+            212,
+            43
+          ],
+          "answer": "\\(x>0\\) 时 \\(\\ln(x^3)=3\\ln x\\)。 得 \\(y=3\\ln x\\quad\\Longrightarrow\\quad y^{\\prime}=\\frac3x\\)。",
+          "ink": "y=3\\ln x\\quad\\Longrightarrow\\quad y^{\\prime}=\\frac3x"
+        }
+      ],
+      "slide": 6
+    },
+    {
+      "page": 1,
+      "label": "6 · Compose a power with a quotient",
+      "box": [
+        106,
+        602,
+        451,
+        131
+      ],
+      "time": 450,
+      "items": [
+        {
+          "label": "6 · 内层求导",
+          "loc": [
+            116,
+            628,
+            428,
+            39
+          ],
+          "answer": "令 \\(u=(t^2+1)/(2t-5)\\)，用商法则。 得 \\(u^{\\prime}=\\frac{2t(2t-5)-2(t^2+1)}{(2t-5)^2}\\)。",
+          "ink": "u^{\\prime}=\\frac{2t(2t-5)-2(t^2+1)}{(2t-5)^2}"
+        },
+        {
+          "label": "6 · 合并",
+          "loc": [
+            116,
+            680,
+            428,
+            44
+          ],
+          "answer": "代入 \\(f^{\\prime}=3u^2u^{\\prime}\\)，整理分子并合并分母，\\(t\\ne5/2\\)。 得 \\(f^{\\prime}(t)=\\frac{3(t^2+1)^2(2t^2-10t-2)}{(2t-5)^4}\\)。",
+          "ink": "f^{\\prime}(t)=\\frac{3(t^2+1)^2(2t^2-10t-2)}{(2t-5)^4}"
+        }
+      ],
+      "slide": 7
+    },
+    {
+      "page": 2,
+      "label": "7 · Product and chain rules",
+      "box": [
+        108,
+        35,
+        447,
+        102
+      ],
+      "time": 660,
+      "items": [
+        {
+          "label": "7 · 指定点导数",
+          "loc": [
+            119,
+            66,
+            421,
+            48
+          ],
+          "answer": "\\(g^{\\prime}(x)=2\\sqrt{1-x}-x/\\sqrt{1-x}\\)。 得 \\(g^{\\prime}(-3)=2(2)-\\frac{-3}{2}=\\frac{11}{2}\\)。",
+          "ink": "g^{\\prime}(-3)=2(2)-\\frac{-3}{2}=\\frac{11}{2}"
+        }
+      ],
+      "slide": 8
+    },
+    {
+      "page": 2,
+      "label": "8 · Read three composite derivatives from a table",
+      "box": [
+        108,
+        147,
+        448,
+        211
+      ],
+      "time": 780,
+      "items": [
+        {
+          "label": "8 · 左栏的平方",
+          "loc": [
+            111,
+            277,
+            138,
+            44
+          ],
+          "answer": "\\(g(4)=3,\\ g^{\\prime}(4)=-2\\)。 得 \\(2g(4)g^{\\prime}(4)=-12\\)。",
+          "ink": "2g(4)g^{\\prime}(4)=-12"
+        },
+        {
+          "label": "8 · 中栏的平方根",
+          "loc": [
+            260,
+            277,
+            146,
+            44
+          ],
+          "answer": "\\(h(4)=9,\\ h^{\\prime}(4)=5\\)。 得 \\(\\frac{h^{\\prime}(4)}{2\\sqrt{h(4)}}=\\frac56\\)。",
+          "ink": "\\frac{h^{\\prime}(4)}{2\\sqrt{h(4)}}=\\frac56"
+        },
+        {
+          "label": "8 · 右栏的复合",
+          "loc": [
+            416,
+            277,
+            134,
+            44
+          ],
+          "answer": "\\(g(4)=3\\)，因此在 \\(x=3\\) 的行读取 \\(h^{\\prime}(3)=-3\\)，再乘 \\(g^{\\prime}(4)=-2\\)。 得 \\(h^{\\prime}(3)g^{\\prime}(4)=6\\)。",
+          "ink": "h^{\\prime}(3)g^{\\prime}(4)=6"
+        }
+      ],
+      "slide": 9
+    }
+  ]
+}</script>
+</body></html>

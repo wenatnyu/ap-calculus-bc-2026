@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>2.3 · Estimating Derivatives of a Function at a Point · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 2</a>
+    <span class="topic" lang="en">2.3 · Estimating Derivatives of a Function at a Point</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=NZb2Dk7aoh0" href="https://www.youtube.com/watch?v=NZb2Dk7aoh0" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-2/2.3/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/23-estimating-derivatives-of-a-function-at-a-point.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 2.3 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="2.3-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 2.3 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-2/2.3/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "2.3",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1–2 · Estimate derivatives with a calculator",
+      "box": [
+        106,
+        89,
+        452,
+        89
+      ],
+      "time": 75,
+      "items": [
+        {
+          "label": "1 · 正弦复合函数",
+          "loc": [
+            113,
+            133,
+            211,
+            33
+          ],
+          "answer": "对 \\(f(x)=\\sin(\\sqrt x)\\) 在 \\(x=2\\) 取数值导数，未舍入值为 \\(0.0551344\\ldots\\)。 得 \\(f^{\\prime}(2)\\approx0.055\\)。",
+          "ink": "f^{\\prime}(2)\\approx0.055"
+        },
+        {
+          "label": "2 · 自然对数函数",
+          "loc": [
+            337,
+            133,
+            210,
+            33
+          ],
+          "answer": "对 \\(\\ln(1/(5-x))\\) 在 \\(x=1.3\\) 取数值导数；其精确值为 \\(1/3.7\\)。 得 \\(f^{\\prime}(1.3)\\approx0.270\\)。",
+          "ink": "f^{\\prime}(1.3)\\approx0.270"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "3 · Estimate the tangent line",
+      "box": [
+        106,
+        179,
+        451,
+        113
+      ],
+      "time": 225,
+      "items": [
+        {
+          "label": "3 · 点斜式",
+          "loc": [
+            117,
+            216,
+            424,
+            50
+          ],
+          "answer": "\\(f(1)=1/\\sqrt2\\approx0.707107\\)，\\(f^{\\prime}(1)=-1/(4\\sqrt2)\\approx-0.176777\\)。切线可写成 \\(y-0.707\\approx-0.177(x-1)\\)。",
+          "ink": [
+            {
+              "box": [
+                114,
+                214,
+                428,
+                31
+              ],
+              "tex": "y-0.707\\approx-0.177(x-1)"
+            },
+            {
+              "box": [
+                114,
+                250,
+                428,
+                32
+              ],
+              "tex": "y-\\tfrac1{\\sqrt2}=-\\tfrac1{4\\sqrt2}(x-1)"
+            }
+          ]
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "Table · Estimate the derivative at 3 hours",
+      "box": [
+        106,
+        302,
+        448,
+        196
+      ],
+      "time": 375,
+      "items": [
+        {
+          "label": "表 1 · 变化率",
+          "loc": [
+            117,
+            452,
+            425,
+            37
+          ],
+          "answer": "选 \\(x=2,4\\)，对应路程为 \\(3,10\\) 英里。 得 \\(f^{\\prime}(3)\\approx\\frac{10-3}{4-2}=3.5\\ \\mathrm{mi/h}\\)。",
+          "ink": "f^{\\prime}(3)\\approx\\frac{10-3}{4-2}=3.5\\ \\mathrm{mi/h}"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "Table · Estimate the derivative at 100 seconds",
+      "box": [
+        106,
+        511,
+        448,
+        163
+      ],
+      "time": 475,
+      "items": [
+        {
+          "label": "表 2 · 流量的变化率",
+          "loc": [
+            115,
+            626,
+            430,
+            39
+          ],
+          "answer": "流量由每秒 \\(700\\) 加仑降到 \\(500\\) 加仑，差为 \\(-200\\)，历时 \\(40\\) 秒。 得 \\(w^{\\prime}(100)\\approx\\frac{500-700}{120-80}=-5\\ \\mathrm{gal/s^2}\\)。",
+          "ink": "w^{\\prime}(100)\\approx\\frac{500-700}{120-80}=-5\\ \\mathrm{gal/s^2}"
+        }
+      ],
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

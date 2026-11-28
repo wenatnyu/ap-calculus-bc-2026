@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>3.3 · Differentiating Inverse Functions · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 3</a>
+    <span class="topic" lang="en">3.3 · Differentiating Inverse Functions</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=1dkGdEjXHZc" href="https://www.youtube.com/watch?v=1dkGdEjXHZc" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-3/3.3/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/33-differentiating-inverse-functions.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 3.3 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="3.3-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 3.3 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-3/3.3/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "3.3",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Recall · Reciprocal and inverse function",
+      "box": [
+        106,
+        91,
+        446,
+        102
+      ],
+      "time": 25,
+      "items": [
+        {
+          "label": "倒数",
+          "loc": [
+            294,
+            157,
+            21,
+            28
+          ],
+          "answer": "\\(x^{-1}=1/x\\)（\\(x\\ne0\\)），与 \\(x\\) 相乘为 \\(1\\)。",
+          "ink": "\\frac1x"
+        },
+        {
+          "label": "反函数",
+          "loc": [
+            466,
+            159,
+            79,
+            26
+          ],
+          "answer": "\\(f^{-1}(x)\\) 表示 \\(f\\) 的反函数在 \\(x\\) 处的函数值。",
+          "ink": "\\text{inverse of }f"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Three ways to describe inverse functions",
+      "box": [
+        106,
+        203,
+        449,
+        66
+      ],
+      "time": 75,
+      "items": [
+        {
+          "label": "交换输入与输出",
+          "loc": [
+            369,
+            221,
+            172,
+            32
+          ],
+          "answer": "当 \\(g=f^{-1}\\) 时，\\(f\\) 把 \\(a\\) 映到 \\(b\\)，\\(g\\) 就把 \\(b\\) 映回 \\(a\\)，故 \\(f(g(x))=x\\)、\\(g(f(x))=x\\)（在相应定义域上）。",
+          "ink": "f(a)=b\\ \\Longleftrightarrow\\ g(b)=a"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "Derivative of an inverse function",
+      "box": [
+        103,
+        273,
+        449,
+        75
+      ],
+      "time": 125,
+      "items": [
+        {
+          "label": "反函数导数公式",
+          "loc": [
+            311,
+            297,
+            82,
+            40
+          ],
+          "answer": "由 \\(f^{\\prime}(g(x))g^{\\prime}(x)=1\\)，当 \\(f^{\\prime}(g(x))\\ne0\\) 时，\\((f^{-1})^{\\prime}(x)=1/f^{\\prime}(f^{-1}(x))\\)。",
+          "ink": "\\displaystyle\\frac1{f^{\\prime}(f^{-1}(x))}"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "1 · Inverse derivative from the table",
+      "box": [
+        107,
+        478,
+        225,
+        104
+      ],
+      "time": 175,
+      "items": [
+        {
+          "label": "1 · 在 1 处的反函数导数",
+          "loc": [
+            113,
+            513,
+            212,
+            44
+          ],
+          "answer": "\\(f(2)=1\\)，所以 \\(g(1)=2\\)。 得 \\(g^{\\prime}(1)=\\frac1{f^{\\prime}(2)}=-\\frac12\\)。",
+          "ink": "g^{\\prime}(1)=\\frac1{f^{\\prime}(2)}=-\\frac12"
+        }
+      ],
+      "context": [
+        106,
+        352,
+        447,
+        119
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "2 · Tangent to the inverse",
+      "box": [
+        334,
+        478,
+        221,
+        104
+      ],
+      "time": 300,
+      "items": [
+        {
+          "label": "2 · 反函数的切线方程",
+          "loc": [
+            339,
+            521,
+            210,
+            37
+          ],
+          "answer": "反函数在 \\(x=1\\) 的切点是 \\((1,2)\\)，斜率为 \\(-1/2\\)。 得 \\(y-2=-\\tfrac12(x-1)\\)。",
+          "ink": "y-2=-\\tfrac12(x-1)"
+        }
+      ],
+      "context": [
+        106,
+        352,
+        447,
+        119
+      ],
+      "slide": 5
+    },
+    {
+      "page": 1,
+      "label": "3 · Identify the required inverse input",
+      "box": [
+        108,
+        619,
+        270,
+        123
+      ],
+      "time": 350,
+      "items": [
+        {
+          "label": "3 · h′(6)",
+          "loc": [
+            115,
+            698,
+            255,
+            34
+          ],
+          "answer": "\\(g(3)=6\\)，故 \\(h(6)=3\\)。取 \\(g^{\\prime}(3)=-2\\) 的倒数。 得 \\(h^{\\prime}(6)=\\frac1{g^{\\prime}(3)}=-\\frac12\\)。",
+          "ink": "h^{\\prime}(6)=\\frac1{g^{\\prime}(3)}=-\\frac12"
+        }
+      ],
+      "slide": 6
+    },
+    {
+      "page": 1,
+      "label": "4 · Inverse of a cubic",
+      "box": [
+        379,
+        619,
+        178,
+        123
+      ],
+      "time": 475,
+      "items": [
+        {
+          "label": "4 · g′(25)",
+          "loc": [
+            383,
+            683,
+            169,
+            43
+          ],
+          "answer": "\\(3x^3+1=25\\) 给出 \\(x=2\\)。\\(f^{\\prime}(x)=9x^2\\)，所以 \\(f^{\\prime}(2)=36\\)。 得 \\(g^{\\prime}(25)=\\frac1{36}\\)。",
+          "ink": "g^{\\prime}(25)=\\frac1{36}"
+        }
+      ],
+      "slide": 7
+    }
+  ]
+}</script>
+</body></html>

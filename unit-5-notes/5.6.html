@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>5.6 · Determining Concavity of Functions over Their Domains · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 5</a>
+    <span class="topic" lang="en">5.6 · Determining Concavity of Functions over Their Domains</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=CutK-XSnJew" href="https://www.youtube.com/watch?v=CutK-XSnJew" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-5/5.6/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/56-determining-concavity-of-functions-over-their-domains.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 5.6 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="5.6-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 5.6 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-5/5.6/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "5.6",
+  "pages": {
+    "1": 792,
+    "2": 552
+  },
+  "groups": [
+    {
+      "label": "Concavity · 图形、斜率与二阶导数",
+      "box": [
+        106,
+        92,
+        452,
+        280
+      ],
+      "items": [
+        {
+          "label": "凹向上",
+          "answer": "凹向上时，切线斜率随 \\(x\\) 增加，即 \\(f'\\) 递增。在 \\(f''>0\\) 的区间内原函数凹向上。",
+          "loc": [
+            111,
+            119,
+            213,
+            248
+          ],
+          "ink": [
+            {
+              "box": [
+                242,
+                277,
+                81,
+                25
+              ],
+              "tex": "\\nearrow"
+            },
+            {
+              "box": [
+                235,
+                335,
+                87,
+                28
+              ],
+              "tex": "\\text{concave up}"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M173 129 Q207 207 243 129",
+              "stroke": "#1b5a99",
+              "fill": "none",
+              "stroke-width": 1.8,
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "path",
+              "d": "M463.00 207.00L477.00 242.00",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M488.00 261.00L504.00 261.00",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M517.00 242.00L531.00 207.00",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "凹向下",
+          "answer": "凹向下时，切线斜率随横坐标增大而减小，即 \\(f'\\) 递减。在 \\(f''\u003c0\\) 的区间内原函数凹向下。",
+          "loc": [
+            339,
+            121,
+            211,
+            247
+          ],
+          "ink": [
+            {
+              "box": [
+                482,
+                278,
+                60,
+                25
+              ],
+              "tex": "\\searrow"
+            },
+            {
+              "box": [
+                459,
+                335,
+                89,
+                28
+              ],
+              "tex": "\\text{concave down}"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M397 166 Q435 97 474 166",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 1.8,
+              "stroke-linecap": "round"
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "label": "正弦图 · 从弯曲方向找转折",
+      "box": [
+        108,
+        381,
+        447,
+        128
+      ],
+      "items": [
+        {
+          "label": "凹向上与凹向下",
+          "answer": "在所示完整半周期中，\\((-\\pi,0)\\)、\\((\\pi,2\\pi)\\) 上凹向上（蓝色）。\\((0,\\pi)\\)、\\((2\\pi,3\\pi)\\) 上凹向下（紫色）。这些半周期之间的边界处凹向改变。",
+          "loc": [
+            109,
+            405,
+            80,
+            59
+          ],
+          "ink": "f^{\\prime\\prime}=-\\sin x",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M201.19 444.60L202.98 447.50L204.76 450.38L206.55 453.22L208.34 455.99L210.12 458.67L211.91 461.25L213.70 463.70L215.48 466.00L217.27 468.15L219.06 470.11L220.84 471.88L222.63 473.44L224.41 474.78L226.20 475.89L227.99 476.77L229.77 477.39L231.56 477.77L233.35 477.90L235.13 477.77L236.92 477.39L238.70 476.77L240.49 475.89L242.28 474.78L244.06 473.44L245.85 471.88L247.64 470.11L249.42 468.15L251.21 466.00L253.00 463.70L254.78 461.25L256.57 458.67L258.35 455.99L260.14 453.22L261.93 450.38L263.71 447.50L265.50 444.60",
+              "stroke": "#1b5a99",
+              "fill": "none",
+              "stroke-width": 2.15,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M265.50 444.60L267.29 441.70L269.07 438.82L270.86 435.98L272.65 433.21L274.43 430.53L276.22 427.95L278.00 425.50L279.79 423.20L281.58 421.05L283.36 419.09L285.15 417.32L286.94 415.76L288.72 414.42L290.51 413.31L292.30 412.43L294.08 411.81L295.87 411.43L297.65 411.30L299.44 411.43L301.23 411.81L303.01 412.43L304.80 413.31L306.59 414.42L308.37 415.76L310.16 417.32L311.94 419.09L313.73 421.05L315.52 423.20L317.30 425.50L319.09 427.95L320.88 430.53L322.66 433.21L324.45 435.98L326.24 438.82L328.02 441.70L329.81 444.60",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 2.15,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M329.81 444.60L331.59 447.50L333.38 450.38L335.17 453.22L336.95 455.99L338.74 458.67L340.53 461.25L342.31 463.70L344.10 466.00L345.89 468.15L347.67 470.11L349.46 471.88L351.24 473.44L353.03 474.78L354.82 475.89L356.60 476.77L358.39 477.39L360.18 477.77L361.96 477.90L363.75 477.77L365.54 477.39L367.32 476.77L369.11 475.89L370.89 474.78L372.68 473.44L374.47 471.88L376.25 470.11L378.04 468.15L379.83 466.00L381.61 463.70L383.40 461.25L385.19 458.67L386.97 455.99L388.76 453.22L390.54 450.38L392.33 447.50L394.12 444.60",
+              "stroke": "#1b5a99",
+              "fill": "none",
+              "stroke-width": 2.15,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M394.12 444.60L395.90 441.70L397.69 438.82L399.48 435.98L401.26 433.21L403.05 430.53L404.83 427.95L406.62 425.50L408.41 423.20L410.19 421.05L411.98 419.09L413.77 417.32L415.55 415.76L417.34 414.42L419.13 413.31L420.91 412.43L422.70 411.81L424.48 411.43L426.27 411.30L428.06 411.43L429.84 411.81L431.63 412.43L433.42 413.31L435.20 414.42L436.99 415.76L438.78 417.32L440.56 419.09L442.35 421.05L444.13 423.20L445.92 425.50L447.71 427.95L449.49 430.53L451.28 433.21L453.07 435.98L454.85 438.82L456.64 441.70L458.43 444.60",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 2.15,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 220,
+      "slide": 2
+    },
+    {
+      "label": "1 · 四次函数的凹向",
+      "box": [
+        106,
+        517,
+        452,
+        130
+      ],
+      "items": [
+        {
+          "label": "1 · 二阶导数与区间",
+          "answer": "\\(f'=x^3-12x+1\\)，\\(f''=3x^2-12=3(x-2)(x+2)\\)。在 \\((-\\infty,-2),(2,\\infty)\\) 上为正，凹向上。在 \\((-2,2)\\) 上为负，凹向下。",
+          "loc": [
+            120,
+            549,
+            419,
+            86
+          ],
+          "ink": [
+            {
+              "box": [
+                120,
+                547,
+                419,
+                33
+              ],
+              "tex": "f^{\\prime\\prime}=3(x-2)(x+2)"
+            },
+            {
+              "box": [
+                119,
+                586,
+                421,
+                36
+              ],
+              "tex": "\\mathrm{CU}:\\ (-\\infty,-2),(2,\\infty);\\quad \\mathrm{CD}:\\ (-2,2)"
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 260,
+      "slide": 3
+    },
+    {
+      "label": "Point of inflection · 拐点的定义",
+      "box": [
+        103,
+        655,
+        454,
+        88
+      ],
+      "items": [
+        {
+          "label": "定义填空",
+          "answer": "拐点是原曲线上凹向发生改变的点。典型情形为 \\(f''\\) 在 \\(c\\) 两侧变号，且曲线在 \\((c,f(c))\\) 连续衔接。",
+          "loc": [
+            371,
+            702,
+            172,
+            30
+          ],
+          "ink": "\\text{changes concavity}"
+        }
+      ],
+      "page": 1,
+      "time": 510,
+      "slide": 4
+    },
+    {
+      "label": "拐点的两个常见误判",
+      "box": [
+        107,
+        34,
+        450,
+        77
+      ],
+      "items": [
+        {
+          "label": "误判 1 · 二阶导数为零",
+          "answer": "\\(f(x)=x^4\\) 的 \\(f''(0)=0\\)，两侧却都凹向上。零值只提示检查，不足以保证拐点。",
+          "loc": [
+            225,
+            49,
+            60,
+            20
+          ],
+          "ink": "f^{\\prime\\prime}=0"
+        },
+        {
+          "label": "误判 2 · 二阶导数不存在",
+          "answer": "\\(f(x)=\\sqrt[3]x\\) 在原点处二阶导数不存在，但左侧凹向上、右侧凹向下，原点仍是拐点。",
+          "loc": [
+            225,
+            68,
+            60,
+            20
+          ],
+          "ink": "f^{\\prime\\prime}\\ \\mathrm{DNE}"
+        }
+      ],
+      "page": 2,
+      "time": 660,
+      "slide": 5
+    },
+    {
+      "label": "2–3 · 分清所给的是一阶还是二阶导数图",
+      "box": [
+        106,
+        115,
+        452,
+        309
+      ],
+      "items": [
+        {
+          "label": "2 · 由 f′ 图求凹向",
+          "answer": "\\(f'\\) 在 \\((-4,-1),(1,2)\\) 递减，故 \\(f\\) 凹向下。在 \\((-1,1),(2,3)\\) 递增，故 \\(f\\) 凹向上。拐点横坐标为 \\(-1,1,2\\)。纵坐标需要原函数才能确定。",
+          "loc": [
+            114,
+            337,
+            208,
+            77
+          ],
+          "ink": [
+            {
+              "box": [
+                114,
+                337,
+                207,
+                23
+              ],
+              "tex": "\\mathrm{CU}:\\ (-1,1),(2,3)"
+            },
+            {
+              "box": [
+                114,
+                361,
+                207,
+                23
+              ],
+              "tex": "\\mathrm{CD}:\\ (-4,-1),(1,2)"
+            },
+            {
+              "box": [
+                114,
+                387,
+                207,
+                23
+              ],
+              "tex": "x=-1,1,2"
+            }
+          ],
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 188.9,
+              "cy": 284.5,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 232.1,
+              "cy": 205.2,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 254.3,
+              "cy": 244.9,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            }
+          ]
+        },
+        {
+          "label": "3 · 由 f″ 图求凹向",
+          "answer": "\\(f''>0\\) 在 \\((-\\infty,-3),(1,3)\\)，故凹向上。在 \\((-3,1),(3,\\infty)\\) 为负，故凹向下。拐点横坐标为 \\(-3,1,3\\)。",
+          "loc": [
+            339,
+            337,
+            209,
+            77
+          ],
+          "ink": [
+            {
+              "box": [
+                339,
+                337,
+                208,
+                23
+              ],
+              "tex": "\\mathrm{CU}:\\ (-\\infty,-3),(1,3)"
+            },
+            {
+              "box": [
+                339,
+                361,
+                208,
+                23
+              ],
+              "tex": "\\mathrm{CD}:\\ (-3,1),(3,\\infty)"
+            },
+            {
+              "box": [
+                339,
+                387,
+                208,
+                23
+              ],
+              "tex": "x=-3,1,3"
+            }
+          ],
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 368.7,
+              "cy": 247.5,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 460.3,
+              "cy": 247.5,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 505.7,
+              "cy": 247.5,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            }
+          ]
+        }
+      ],
+      "page": 2,
+      "time": 750,
+      "slide": 6
+    },
+    {
+      "label": "4 · 切线与原图的上下关系",
+      "box": [
+        106,
+        428,
+        452,
+        109
+      ],
+      "items": [
+        {
+          "label": "4 · 切线在上方",
+          "answer": "\\(f'=(1-x)e^{-x}\\)，\\(f''=(x-2)e^{-x}\\)。在 \\(x=1\\)，\\(f''(1)=-1/e\u003c0\\)，曲线凹向下，切线在附近的曲线上方。该切线为 \\(y=1/e\\)。",
+          "loc": [
+            118,
+            463,
+            426,
+            62
+          ],
+          "ink": "f^{\\prime\\prime}(1)=-e^{-1}\u003c0,\\qquad y_{\\mathrm{tan}}=e^{-1}"
+        }
+      ],
+      "page": 2,
+      "time": 980,
+      "slide": 7
+    }
+  ]
+}</script>
+</body></html>

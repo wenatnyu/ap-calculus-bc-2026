@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>1.7 · Selecting Procedures for Determining Limits · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 1</a>
+    <span class="topic" lang="en">1.7 · Selecting Procedures for Determining Limits</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=-j2cEJYD7Zw" href="https://www.youtube.com/watch?v=-j2cEJYD7Zw" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-1/1.7/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/17-selecting-procedures-for-determining-limits.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 1.7 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="1.7-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 1.7 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-1/1.7/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "1.7",
+  "pages": {
+    "1": 482
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1–2 · Rationalize using a conjugate",
+      "box": [
+        107,
+        89,
+        452,
+        179
+      ],
+      "items": [
+        {
+          "label": "1",
+          "loc": [
+            115,
+            143,
+            210,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                115,
+                143,
+                210,
+                28
+              ],
+              "tex": "\\frac{1}{\\sqrt{x+4}+3}"
+            },
+            {
+              "box": [
+                115,
+                174,
+                210,
+                28
+              ],
+              "tex": "\\longrightarrow\\frac16"
+            }
+          ],
+          "answer": "乘以 \\(\\sqrt{x+4}+3\\) 后分子化为 \\(x-5\\)；约分再代入 \\(x=5\\)，得 \\(1/6\\)。"
+        },
+        {
+          "label": "2",
+          "loc": [
+            342,
+            143,
+            207,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                342,
+                143,
+                207,
+                28
+              ],
+              "tex": "\\frac{(x-10)(3+\\sqrt{x-1})}{10-x}"
+            },
+            {
+              "box": [
+                342,
+                174,
+                207,
+                28
+              ],
+              "tex": "\\longrightarrow-6"
+            }
+          ],
+          "answer": "分母与共轭式的积为 \\(9-(x-1)=10-x\\)，与分子差一个负号，故极限为 \\(-(3+3)=-6\\)。"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "3–4 · Simplify complex fractions",
+      "box": [
+        107,
+        269,
+        452,
+        196
+      ],
+      "items": [
+        {
+          "label": "3",
+          "loc": [
+            114,
+            329,
+            211,
+            74
+          ],
+          "ink": [
+            {
+              "box": [
+                114,
+                329,
+                211,
+                34
+              ],
+              "tex": "\\frac1{x-4}+\\frac14=\\frac{x}{4(x-4)}"
+            },
+            {
+              "box": [
+                114,
+                366,
+                211,
+                34
+              ],
+              "tex": "\\frac{x}{x/[4(x-4)]}=4(x-4)\\to-16"
+            }
+          ],
+          "answer": "内层分母通分后为 \\(x/[4(x-4)]\\)。原式在 \\(x\\ne0\\) 时等于 \\(4(x-4)\\)，因此极限是 \\(-16\\)。"
+        },
+        {
+          "label": "4",
+          "loc": [
+            338,
+            329,
+            211,
+            74
+          ],
+          "ink": [
+            {
+              "box": [
+                338,
+                329,
+                211,
+                34
+              ],
+              "tex": "\\frac{9-(x+3)^2}{9x(x+3)^2}"
+            },
+            {
+              "box": [
+                338,
+                366,
+                211,
+                34
+              ],
+              "tex": "=-\\frac{x+6}{9(x+3)^2}\\to-\\frac{2}{27}"
+            }
+          ],
+          "answer": "\\(9-(x+3)^2=-x(x+6)\\)。约去 \\(x\\)，代入 \\(0\\) 得 \\(-6/81=-2/27\\)。"
+        }
+      ],
+      "time": 300,
+      "slide": 2
+    }
+  ]
+}</script>
+</body></html>

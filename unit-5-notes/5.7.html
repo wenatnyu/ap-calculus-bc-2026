@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>5.7 · Using the Second Derivative Test to Determine Extrema · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 5</a>
+    <span class="topic" lang="en">5.7 · Using the Second Derivative Test to Determine Extrema</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=wk6jNAW7JWU" href="https://www.youtube.com/watch?v=wk6jNAW7JWU" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-5/5.7/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/57-using-the-second-derivative-test-to-determine-extrema.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 5.7 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="5.7-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 5.7 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-5/5.7/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "5.7",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "label": "a–c · 从图看驻点与凹向",
+      "box": [
+        105,
+        83,
+        451,
+        179
+      ],
+      "items": [
+        {
+          "label": "a · 标出相对极值",
+          "answer": "左边的峰是局部最大点，右边的谷是局部最小点。",
+          "loc": [
+            143,
+            105,
+            239,
+            18
+          ],
+          "ink": "x_M\u003cx_m",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 445.6,
+              "cy": 135.8,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 501.5,
+              "cy": 186.8,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            }
+          ]
+        },
+        {
+          "label": "b · 一阶导数",
+          "answer": "两处都是图像内部的光滑极值点，故两处的一阶导数都为零。",
+          "loc": [
+            141,
+            152,
+            246,
+            28
+          ],
+          "ink": "f^{\\prime}(x_M)=f^{\\prime}(x_m)=0",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M434.00 135.80L457.00 135.80",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M490.00 186.80L513.00 186.80",
+              "stroke": "#1b5a99",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "c · 二阶导数",
+          "answer": "所示左峰附近凹向下，右谷附近凹向上。图示典型情况对应 \\(f''(x_M)\u003c0\\) 与 \\(f''(x_m)>0\\)。其他极值也可能有二阶导数为零。",
+          "loc": [
+            143,
+            221,
+            245,
+            31
+          ],
+          "ink": "f^{\\prime\\prime}(x_M)\u003c0,\\quad f^{\\prime\\prime}(x_m)>0"
+        }
+      ],
+      "page": 1,
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "label": "The Second Derivative Test · 适用条件",
+      "box": [
+        104,
+        268,
+        449,
+        92
+      ],
+      "items": [
+        {
+          "label": "极小与极大",
+          "answer": "在 \\(f'(c)=0\\) 且二阶导数存在时，\\(f''(c)>0\\) 给出局部最小，\\(f''(c)\u003c0\\) 给出局部最大。\\(f''(c)=0\\) 时二阶判别法无结论。",
+          "loc": [
+            423,
+            288,
+            115,
+            55
+          ],
+          "ink": "\\begin{array}{c|c}+&\\min\\\\-&\\max\\end{array}"
+        }
+      ],
+      "page": 1,
+      "time": 115,
+      "slide": 2
+    },
+    {
+      "label": "1 · 四次函数的相对极值",
+      "box": [
+        106,
+        364,
+        450,
+        109
+      ],
+      "items": [
+        {
+          "label": "1 · 求驻点",
+          "answer": "\\(f'=4x(x^2-1)\\)，驻点横坐标为 \\(-1,0,1\\)。\\(f''=12x^2-4\\)。",
+          "loc": [
+            119,
+            386,
+            418,
+            30
+          ],
+          "ink": "f^{\\prime}=4x(x^2-1),\\quad f^{\\prime\\prime}=12x^2-4"
+        },
+        {
+          "label": "1 · 判定",
+          "answer": "\\(f''(\\pm1)=8>0\\)，两处局部最小值为 \\(-1\\)。\\(f''(0)=-4\u003c0\\)，局部最大值为 \\(0\\)。",
+          "loc": [
+            118,
+            424,
+            419,
+            36
+          ],
+          "ink": "\\min:\\ (-1,-1),(1,-1);\\qquad\\max:\\ (0,0)"
+        }
+      ],
+      "page": 1,
+      "time": 165,
+      "slide": 3
+    },
+    {
+      "label": "2 · 三角函数的驻点",
+      "box": [
+        106,
+        477,
+        451,
+        121
+      ],
+      "items": [
+        {
+          "label": "2 · 驻点与极值",
+          "answer": "\\(\\sin x=-\\sqrt2/2\\) 给出 \\(x=5\\pi/4,7\\pi/4\\)。前者二阶导数为 \\(-\\sqrt2\\)，局部最大值是 \\(\\sqrt2(5\\pi/4+1)\\)。后者二阶导数为 \\(\\sqrt2\\)，局部最小值是 \\(\\sqrt2(7\\pi/4-1)\\)。这里列区间内部的相对极值。",
+          "loc": [
+            119,
+            510,
+            423,
+            77
+          ],
+          "ink": [
+            {
+              "box": [
+                119,
+                512,
+                423,
+                30
+              ],
+              "tex": "f^{\\prime}=0\\iff x=\\tfrac{5\\pi}4,\\tfrac{7\\pi}4"
+            },
+            {
+              "box": [
+                119,
+                548,
+                423,
+                36
+              ],
+              "tex": "\\max:\\ \\sqrt2(5\\pi/4+1),\\qquad \\min:\\ \\sqrt2(7\\pi/4-1)"
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 380,
+      "slide": 4
+    },
+    {
+      "label": "3 · 只有一个临界点时",
+      "box": [
+        106,
+        600,
+        452,
+        139
+      ],
+      "items": [
+        {
+          "label": "句中填空",
+          "answer": "在区间上连续且只有一个内临界点时，若它是局部极值，则也是绝对极值。",
+          "loc": [
+            109,
+            603,
+            214,
+            30
+          ],
+          "ink": [
+            {
+              "box": [
+                180,
+                600,
+                33,
+                18
+              ],
+              "tex": "\\text{one}"
+            },
+            {
+              "box": [
+                108,
+                617,
+                103,
+                18
+              ],
+              "tex": "\\text{absolute}"
+            }
+          ]
+        },
+        {
+          "label": "3 · 指数函数的绝对最大值",
+          "answer": "\\(f'=-e^{x/4}(1+x/4)\\)，唯一零点为 \\(-4\\)。\\(f''(-4)=-1/(4e)\u003c0\\)，且 \\(f'\\) 在左侧为正、右侧为负，故绝对最大值为 \\(f(-4)=4/e\\)。",
+          "loc": [
+            119,
+            657,
+            423,
+            65
+          ],
+          "ink": [
+            {
+              "box": [
+                119,
+                655,
+                423,
+                29
+              ],
+              "tex": "f^{\\prime}=-e^{x/4}(1+x/4)"
+            },
+            {
+              "box": [
+                119,
+                689,
+                423,
+                30
+              ],
+              "tex": "f(-4)=4/e\\quad(\\mathrm{absolute\\ max})"
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 465,
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

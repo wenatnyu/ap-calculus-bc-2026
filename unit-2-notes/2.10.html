@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>2.10 · Derivatives of tan(x), cot(x), sec(x), csc(x) · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 2</a>
+    <span class="topic" lang="en">2.10 · Derivatives of tan(x), cot(x), sec(x), csc(x)</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=fWSKy8sJ5gs" href="https://www.youtube.com/watch?v=fWSKy8sJ5gs" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-2/2.10/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/210-derivatives-of-tanx-cotx-secx-cscx.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 2.10 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="2.10-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 2.10 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-2/2.10/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "2.10",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Trig derivatives · Six formulas",
+      "box": [
+        102,
+        94,
+        456,
+        129
+      ],
+      "time": 30,
+      "items": [
+        {
+          "label": "正弦",
+          "loc": [
+            181,
+            130,
+            39,
+            26
+          ],
+          "answer": "相应导数为 \\(\\cos x\\)。",
+          "ink": "\\cos x"
+        },
+        {
+          "label": "正切",
+          "loc": [
+            321,
+            130,
+            45,
+            26
+          ],
+          "answer": "相应导数为 \\(\\sec^2x\\)。",
+          "ink": "\\sec^2x"
+        },
+        {
+          "label": "正割",
+          "loc": [
+            465,
+            130,
+            68,
+            26
+          ],
+          "answer": "相应导数为 \\(\\sec x\\tan x\\)。",
+          "ink": "\\sec x\\tan x"
+        },
+        {
+          "label": "余弦",
+          "loc": [
+            182,
+            173,
+            48,
+            26
+          ],
+          "answer": "相应导数为 \\(-\\sin x\\)。",
+          "ink": "-\\sin x"
+        },
+        {
+          "label": "余切",
+          "loc": [
+            322,
+            173,
+            50,
+            26
+          ],
+          "answer": "相应导数为 \\(-\\csc^2x\\)。",
+          "ink": "-\\csc^2x"
+        },
+        {
+          "label": "余割",
+          "loc": [
+            464,
+            173,
+            75,
+            26
+          ],
+          "answer": "相应导数为 \\(-\\csc x\\cot x\\)。",
+          "ink": "-\\csc x\\cot x"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Common struggles · Recall before computing",
+      "box": [
+        106,
+        234,
+        451,
+        102
+      ],
+      "time": 210,
+      "items": [
+        {
+          "label": "倒数恒等式",
+          "loc": [
+            119,
+            313,
+            424,
+            21
+          ],
+          "answer": "倒数三角函数与反三角函数含义不同。例如 \\(\\csc x\\) 用 \\(1/\\sin x\\) 输入。",
+          "ink": "\\csc x=\\frac1{\\sin x},\\quad\\sec x=\\frac1{\\cos x},\\quad\\cot x=\\frac1{\\tan x}"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1 · A product of sine and tangent",
+      "box": [
+        106,
+        340,
+        450,
+        128
+      ],
+      "time": 330,
+      "items": [
+        {
+          "label": "1 · 导函数",
+          "loc": [
+            117,
+            378,
+            426,
+            38
+          ],
+          "answer": "第一项对正弦求导，第二项对正切求导。也可利用 \\(\\cos x\\tan x=\\sin x\\) 化简。 得 \\(y^{\\prime}=\\cos x\\tan x+\\sin x\\sec^2x\\)。",
+          "ink": "y^{\\prime}=\\cos x\\tan x+\\sin x\\sec^2x"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "2 · Evaluate at π/6",
+      "box": [
+        107,
+        492,
+        224,
+        170
+      ],
+      "time": 420,
+      "items": [
+        {
+          "label": "2 · 导函数",
+          "loc": [
+            114,
+            533,
+            210,
+            30
+          ],
+          "answer": "由 \\(f(x)=x\\cos x\\) 使用乘积法则。 得 \\(f^{\\prime}(x)=\\cos x-x\\sin x\\)。",
+          "ink": "f^{\\prime}(x)=\\cos x-x\\sin x"
+        },
+        {
+          "label": "2 · 指定点导数",
+          "loc": [
+            114,
+            591,
+            210,
+            37
+          ],
+          "answer": "\\(\\cos(\\pi/6)=\\sqrt3/2\\)，\\(\\sin(\\pi/6)=1/2\\)。 得 \\(f^{\\prime}(\\pi/6)=\\frac{\\sqrt3}2-\\frac{\\pi}{12}\\)。",
+          "ink": "f^{\\prime}(\\pi/6)=\\frac{\\sqrt3}2-\\frac{\\pi}{12}"
+        }
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "3 · Numerical derivative at 2",
+      "box": [
+        334,
+        492,
+        224,
+        170
+      ],
+      "time": 690,
+      "items": [
+        {
+          "label": "3 · 数值导数",
+          "loc": [
+            340,
+            540,
+            211,
+            49
+          ],
+          "answer": "\\(g(x)=1/[\\sin(4x)]^2\\)。计算器数值求导得到 \\(1.201966\\ldots\\)。也可由 \\(g^{\\prime}(2)=-8\\cos8/\\sin^38\\) 核验。",
+          "ink": "g^{\\prime}(2)\\approx1.202"
+        }
+      ],
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

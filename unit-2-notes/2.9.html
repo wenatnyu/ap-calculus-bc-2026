@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>2.9 · The Quotient Rule · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 2</a>
+    <span class="topic" lang="en">2.9 · The Quotient Rule</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=qF96Ayj5mgE" href="https://www.youtube.com/watch?v=qF96Ayj5mgE" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-2/2.9/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/29-the-quotient-rule.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 2.9 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="2.9-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 2.9 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-2/2.9/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "2.9",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Quotient rule",
+      "box": [
+        102,
+        90,
+        456,
+        130
+      ],
+      "time": 25,
+      "items": [
+        {
+          "label": "商法则",
+          "loc": [
+            325,
+            168,
+            63,
+            44
+          ],
+          "answer": "当 \\(g(x)\\ne0\\)，\\((f/g)^{\\prime}=(f^{\\prime}g-fg^{\\prime})/g^2\\)。",
+          "ink": "\\displaystyle\\frac{f^{\\prime}g-fg^{\\prime}}{g^2}"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Differentiate the quotient",
+      "box": [
+        107,
+        250,
+        223,
+        125
+      ],
+      "time": 75,
+      "items": [
+        {
+          "label": "1 · 导函数",
+          "loc": [
+            113,
+            289,
+            211,
+            56
+          ],
+          "answer": "代入商法则得到 \\(\\frac{4x(3x+1)-6x^2}{(3x+1)^2}\\)。在原函数定义域内，导函数为 \\(\\frac{6x^2+4x}{(3x+1)^2}\\)。",
+          "ink": "\\displaystyle y^{\\prime}=\\frac{6x^2+4x}{(3x+1)^2}"
+        }
+      ],
+      "context": [
+        106,
+        233,
+        452,
+        17
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · Differentiate the quotient",
+      "box": [
+        334,
+        250,
+        223,
+        125
+      ],
+      "time": 175,
+      "items": [
+        {
+          "label": "2 · 导函数",
+          "loc": [
+            340,
+            289,
+            211,
+            56
+          ],
+          "answer": "代入商法则得到 \\(\\frac{3e^x(2x)-3e^x(2)}{(2x)^2}\\)。在原函数定义域内，导函数为 \\(\\frac{3e^x(x-1)}{2x^2}\\)。",
+          "ink": "\\displaystyle g^{\\prime}(x)=\\frac{3e^x(x-1)}{2x^2}"
+        }
+      ],
+      "context": [
+        106,
+        233,
+        452,
+        17
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3 · Differentiate the quotient",
+      "box": [
+        107,
+        388,
+        223,
+        125
+      ],
+      "time": 250,
+      "items": [
+        {
+          "label": "3 · 导函数",
+          "loc": [
+            113,
+            427,
+            211,
+            56
+          ],
+          "answer": "代入商法则得到 \\(\\frac{(2x^2-5)\\cos x-4x\\sin x}{(2x^2-5)^2}\\)。在原函数定义域内，导函数为 \\(\\frac{(2x^2-5)\\cos x-4x\\sin x}{(2x^2-5)^2}\\)。",
+          "ink": "\\displaystyle h^{\\prime}(x)=\\frac{(2x^2-5)\\cos x-4x\\sin x}{(2x^2-5)^2}"
+        }
+      ],
+      "context": [
+        106,
+        233,
+        452,
+        17
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "4 · Differentiate the quotient",
+      "box": [
+        334,
+        388,
+        223,
+        125
+      ],
+      "time": 325,
+      "items": [
+        {
+          "label": "4 · 导函数",
+          "loc": [
+            340,
+            427,
+            211,
+            56
+          ],
+          "answer": "代入商法则得到 \\(\\frac{3(2x^2)-4x(3x+1)}{(2x^2)^2}\\)。在原函数定义域内，导函数为 \\(-\\frac{3x+2}{2x^3}\\)。",
+          "ink": "\\displaystyle h^{\\prime}(x)=-\\frac{3x+2}{2x^3}"
+        }
+      ],
+      "context": [
+        106,
+        233,
+        452,
+        17
+      ],
+      "slide": 5
+    },
+    {
+      "page": 1,
+      "label": "5 · Table and constant multiple",
+      "box": [
+        107,
+        594,
+        225,
+        111
+      ],
+      "time": 425,
+      "items": [
+        {
+          "label": "5 · 在 2 处的导数",
+          "loc": [
+            113,
+            641,
+            211,
+            41
+          ],
+          "answer": "\\(h=f/(3g)\\)，先提出 \\(1/3\\)。 得 \\(h^{\\prime}(2)=\\frac{(-2)(-1)-4(2)}{3(-1)^2}=-2\\)。",
+          "ink": "h^{\\prime}(2)=\\frac{(-2)(-1)-4(2)}{3(-1)^2}=-2"
+        }
+      ],
+      "context": [
+        106,
+        534,
+        450,
+        59
+      ],
+      "slide": 6
+    },
+    {
+      "page": 1,
+      "label": "6 · Table and the derivative of 1 − f",
+      "box": [
+        334,
+        594,
+        223,
+        111
+      ],
+      "time": 525,
+      "items": [
+        {
+          "label": "6 · 在 2 处的导数",
+          "loc": [
+            340,
+            641,
+            211,
+            41
+          ],
+          "answer": "分子、分母在 \\(2\\) 处的值是 \\(1,-3\\)，对应导数是 \\(-2,2\\)。 得 \\(r^{\\prime}(2)=\\frac{(-2)(-3)-1(2)}{(-3)^2}=\\frac49\\)。",
+          "ink": "r^{\\prime}(2)=\\frac{(-2)(-3)-1(2)}{(-3)^2}=\\frac49"
+        }
+      ],
+      "context": [
+        106,
+        534,
+        450,
+        59
+      ],
+      "slide": 7
+    }
+  ]
+}</script>
+</body></html>

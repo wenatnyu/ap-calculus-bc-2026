@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>2.5 · Applying the Power Rule · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 2</a>
+    <span class="topic" lang="en">2.5 · Applying the Power Rule</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=j7P7dNbNoME" href="https://www.youtube.com/watch?v=j7P7dNbNoME" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-2/2.5/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/25-applying-the-power-rule.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 2.5 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="2.5-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 2.5 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-2/2.5/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "2.5",
+  "pages": {
+    "1": 792,
+    "2": 300
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Table · A pattern in derivatives of powers",
+      "box": [
+        204,
+        91,
+        254,
+        116
+      ],
+      "time": 25,
+      "items": [
+        {
+          "label": "表格 · x 的 2 次幂",
+          "loc": [
+            402,
+            110,
+            48,
+            19
+          ],
+          "answer": "原指数 2 成为系数，新指数为 1。",
+          "ink": "2x"
+        },
+        {
+          "label": "表格 · x 的 3 次幂",
+          "loc": [
+            402,
+            134.4,
+            48,
+            19
+          ],
+          "answer": "原指数 3 成为系数，新指数为 2。",
+          "ink": "3x^{2}"
+        },
+        {
+          "label": "表格 · x 的 4 次幂",
+          "loc": [
+            402,
+            158.8,
+            48,
+            19
+          ],
+          "answer": "原指数 4 成为系数，新指数为 3。",
+          "ink": "4x^{3}"
+        },
+        {
+          "label": "表格 · x 的 5 次幂",
+          "loc": [
+            402,
+            183.2,
+            48,
+            19
+          ],
+          "answer": "原指数 5 成为系数，新指数为 4。",
+          "ink": "5x^{4}"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "The power rule",
+      "box": [
+        102,
+        221,
+        456,
+        104
+      ],
+      "time": 100,
+      "items": [
+        {
+          "label": "幂法则",
+          "loc": [
+            337,
+            282,
+            45,
+            30
+          ],
+          "answer": "在幂函数的可导范围内，若 \\(f(x)=x^n\\) 则 \\(f^{\\prime}(x)=nx^{n-1}\\)。",
+          "ink": "nx^{n-1}"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1–2 · Easy examples",
+      "box": [
+        106,
+        334,
+        451,
+        70
+      ],
+      "time": 125,
+      "items": [
+        {
+          "label": "1 · 37 次幂",
+          "loc": [
+            118,
+            368,
+            205,
+            31
+          ],
+          "answer": "把 \\(37\\) 移作系数，指数减一。 得 \\(y^{\\prime}=37x^{36}\\)。",
+          "ink": "y^{\\prime}=37x^{36}"
+        },
+        {
+          "label": "2 · 9 次幂",
+          "loc": [
+            340,
+            368,
+            207,
+            31
+          ],
+          "answer": "把 \\(9\\) 移作系数，指数减一。 得 \\(y^{\\prime}=9x^8\\)。",
+          "ink": "y^{\\prime}=9x^8"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3 · Rewrite, differentiate, simplify",
+      "box": [
+        109,
+        423,
+        221,
+        148
+      ],
+      "time": 175,
+      "items": [
+        {
+          "label": "3 · 改写原式",
+          "loc": [
+            209,
+            470,
+            113,
+            28
+          ],
+          "answer": "把倒数写成负一次幂。 得 \\(x^{-1}\\)。",
+          "ink": "x^{-1}"
+        },
+        {
+          "label": "3 · 求导",
+          "loc": [
+            209,
+            502.3,
+            113,
+            28
+          ],
+          "answer": "对幂函数求导，指数减一。 得 \\(-x^{-2}\\)。",
+          "ink": "-x^{-2}"
+        },
+        {
+          "label": "3 · 化简",
+          "loc": [
+            209,
+            534.6,
+            113,
+            28
+          ],
+          "answer": "将负指数移到分母。 得 \\(-\\frac1{x^2}\\)。",
+          "ink": "-\\frac1{x^2}"
+        }
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "4 · Rewrite, differentiate, simplify",
+      "box": [
+        335,
+        423,
+        221,
+        148
+      ],
+      "time": 215,
+      "items": [
+        {
+          "label": "4 · 改写原式",
+          "loc": [
+            434,
+            470,
+            113,
+            28
+          ],
+          "answer": "把分母的四次幂写为负四次幂。 得 \\(x^{-4}\\)。",
+          "ink": "x^{-4}"
+        },
+        {
+          "label": "4 · 求导",
+          "loc": [
+            434,
+            502.3,
+            113,
+            28
+          ],
+          "answer": "对幂函数求导，指数减一。 得 \\(-4x^{-5}\\)。",
+          "ink": "-4x^{-5}"
+        },
+        {
+          "label": "4 · 化简",
+          "loc": [
+            434,
+            534.6,
+            113,
+            28
+          ],
+          "answer": "将负指数移到分母。 得 \\(-\\frac4{x^5}\\)。",
+          "ink": "-\\frac4{x^5}"
+        }
+      ],
+      "slide": 5
+    },
+    {
+      "page": 1,
+      "label": "5 · Rewrite, differentiate, simplify",
+      "box": [
+        109,
+        580,
+        221,
+        148
+      ],
+      "time": 250,
+      "items": [
+        {
+          "label": "5 · 改写原式",
+          "loc": [
+            209,
+            627,
+            113,
+            28
+          ],
+          "answer": "把平方根改写为二分之一次幂。 得 \\(x^{1/2}\\)。",
+          "ink": "x^{1/2}"
+        },
+        {
+          "label": "5 · 求导",
+          "loc": [
+            209,
+            659.3,
+            113,
+            28
+          ],
+          "answer": "对幂函数求导，指数减一。 得 \\(\\frac12x^{-1/2}\\)。",
+          "ink": "\\frac12x^{-1/2}"
+        },
+        {
+          "label": "5 · 化简",
+          "loc": [
+            209,
+            691.6,
+            113,
+            28
+          ],
+          "answer": "将负指数移到分母。 得 \\(\\frac1{2\\sqrt x}\\)。",
+          "ink": "\\frac1{2\\sqrt x}"
+        }
+      ],
+      "slide": 6
+    },
+    {
+      "page": 1,
+      "label": "6 · Rewrite, differentiate, simplify",
+      "box": [
+        335,
+        580,
+        221,
+        148
+      ],
+      "time": 300,
+      "items": [
+        {
+          "label": "6 · 改写原式",
+          "loc": [
+            434,
+            627,
+            113,
+            28
+          ],
+          "answer": "七次根给出分母 7，根号内的 5 次幂给出分子 5。 得 \\(x^{5/7}\\)。",
+          "ink": "x^{5/7}"
+        },
+        {
+          "label": "6 · 求导",
+          "loc": [
+            434,
+            659.3,
+            113,
+            28
+          ],
+          "answer": "对幂函数求导，指数减一。 得 \\(\\frac57x^{-2/7}\\)。",
+          "ink": "\\frac57x^{-2/7}"
+        },
+        {
+          "label": "6 · 化简",
+          "loc": [
+            434,
+            691.6,
+            113,
+            28
+          ],
+          "answer": "将负指数移到分母。 得 \\(\\frac5{7\\sqrt[7]{x^2}}\\)。",
+          "ink": "\\frac5{7\\sqrt[7]{x^2}}"
+        }
+      ],
+      "slide": 7
+    },
+    {
+      "page": 2,
+      "label": "7–8 · Simplify before differentiating",
+      "box": [
+        106,
+        35,
+        450,
+        148
+      ],
+      "time": 350,
+      "items": [
+        {
+          "label": "7 · 在 7 处的导数",
+          "loc": [
+            112,
+            88,
+            212,
+            53
+          ],
+          "answer": "\\(x/\\sqrt x=x^{1/2}\\)（\\(x>0\\)），故 \\(f^{\\prime}(x)=1/(2\\sqrt x)\\)。 得 \\(f^{\\prime}(7)=\\frac1{2\\sqrt7}\\)。",
+          "ink": "f^{\\prime}(7)=\\frac1{2\\sqrt7}"
+        },
+        {
+          "label": "8 · 在 8 处的导数",
+          "loc": [
+            339,
+            88,
+            211,
+            53
+          ],
+          "answer": "\\(\\sqrt[3]{x}\\,x^3=x^{10/3}\\)，故 \\(f^{\\prime}(8)=\\frac{10}{3}\\cdot8^{7/3}\\)。 得 \\(f^{\\prime}(8)=\\frac{1280}{3}\\)。",
+          "ink": "f^{\\prime}(8)=\\frac{1280}{3}"
+        }
+      ],
+      "slide": 8
+    },
+    {
+      "page": 2,
+      "label": "9 · Parallel tangent lines",
+      "box": [
+        106,
+        197,
+        451,
+        100
+      ],
+      "time": 575,
+      "items": [
+        {
+          "label": "9 · 两个横坐标",
+          "loc": [
+            115,
+            247,
+            432,
+            37
+          ],
+          "answer": "由 \\(x^2(4x-3)=0\\) 求解，保留 \\(x=0\\) 这个水平切线情形。 得 \\(4x^3=3x^2\\quad\\Longrightarrow\\quad x=0,\\ \\frac34\\)。",
+          "ink": "4x^3=3x^2\\quad\\Longrightarrow\\quad x=0,\\ \\frac34"
+        }
+      ],
+      "slide": 9
+    }
+  ]
+}</script>
+</body></html>

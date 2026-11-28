@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>1.8 · Determining Limits Using the Squeeze Theorem · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 1</a>
+    <span class="topic" lang="en">1.8 · Determining Limits Using the Squeeze Theorem</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=6IwCydD8IMQ" href="https://www.youtube.com/watch?v=6IwCydD8IMQ" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="sheets/1.8/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/18-determining-limits-using-the-squeeze-theorem.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 1.8 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="1.8-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 1.8 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-1/1.8/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "1.8",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Squeeze theorem · Hypotheses and conclusion",
+      "box": [
+        106,
+        96,
+        451,
+        135
+      ],
+      "items": [
+        {
+          "label": "比较三个函数",
+          "loc": [
+            275,
+            132,
+            106,
+            23
+          ],
+          "ink": [
+            {
+              "box": [
+                277,
+                132,
+                10,
+                18
+              ],
+              "tex": "g"
+            },
+            {
+              "box": [
+                324,
+                132,
+                10,
+                18
+              ],
+              "tex": "f"
+            },
+            {
+              "box": [
+                371,
+                132,
+                10,
+                18
+              ],
+              "tex": "h"
+            }
+          ],
+          "answer": "在 \\(a\\) 的某个去心邻域内需要有 \\(g(x)\\le f(x)\\le h(x)\\)。"
+        },
+        {
+          "label": "上下界的公共极限",
+          "loc": [
+            251,
+            153,
+            193,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                254,
+                172,
+                32,
+                13
+              ],
+              "tex": "x\\to a"
+            },
+            {
+              "box": [
+                325,
+                157,
+                15,
+                21
+              ],
+              "tex": "L"
+            },
+            {
+              "box": [
+                365,
+                172,
+                32,
+                13
+              ],
+              "tex": "x\\to a"
+            },
+            {
+              "box": [
+                431,
+                157,
+                16,
+                21
+              ],
+              "tex": "L"
+            }
+          ],
+          "answer": "要求 \\(\\lim_{x\\to a}g(x)=\\lim_{x\\to a}h(x)=L\\)。"
+        },
+        {
+          "label": "结论",
+          "loc": [
+            307,
+            189,
+            87,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                302,
+                206,
+                32,
+                13
+              ],
+              "tex": "x\\to a"
+            },
+            {
+              "box": [
+                374,
+                190,
+                18,
+                22
+              ],
+              "tex": "L"
+            }
+          ],
+          "answer": "根据夹逼定理，\\(\\lim_{x\\to a}f(x)=L\\)。"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · An oscillating factor",
+      "box": [
+        108,
+        240,
+        450,
+        104
+      ],
+      "items": [
+        {
+          "label": "1",
+          "loc": [
+            130,
+            278,
+            410,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                130,
+                278,
+                410,
+                28
+              ],
+              "tex": "-x^2\\le x^2\\cos(1/x^2)\\le x^2\\quad\\Longrightarrow\\quad\\lim_{x\\to0}x^2\\cos(1/x^2)=0"
+            }
+          ],
+          "answer": "上下界 \\(-x^2\\)、\\(x^2\\) 都趋于 \\(0\\)，因此中间乘积也趋于 \\(0\\)。"
+        }
+      ],
+      "time": 125,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2–3 · Do the bounds meet?",
+      "box": [
+        107,
+        350,
+        451,
+        202
+      ],
+      "items": [
+        {
+          "label": "2",
+          "loc": [
+            117,
+            423,
+            206,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                117,
+                423,
+                206,
+                28
+              ],
+              "tex": "g(2)=-3,\\quad h(2)=5"
+            },
+            {
+              "box": [
+                117,
+                454,
+                206,
+                28
+              ],
+              "tex": "\\text{Cannot determine}"
+            }
+          ],
+          "answer": "上下界的极限分别为 \\(-3\\) 与 \\(5\\)，不相等。仅由这些不等式无法确定 \\(\\lim_{x\\to2}f(x)\\)。"
+        },
+        {
+          "label": "3",
+          "loc": [
+            342,
+            434,
+            205,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                342,
+                434,
+                205,
+                28
+              ],
+              "tex": "g(0)=h(0)=3"
+            },
+            {
+              "box": [
+                342,
+                465,
+                205,
+                28
+              ],
+              "tex": "\\lim_{x\\to0}f(x)=3"
+            }
+          ],
+          "answer": "\\(\\cos(0)+2=3\\)，\\(0^2+3=3\\)。两界相同，故夹逼得到 \\(3\\)。"
+        }
+      ],
+      "time": 325,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "4–6 · Test each proposed inequality",
+      "box": [
+        108,
+        559,
+        450,
+        181
+      ],
+      "items": [
+        {
+          "label": "4",
+          "loc": [
+            113,
+            629,
+            140,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                113,
+                629,
+                140,
+                28
+              ],
+              "tex": "-\\tfrac12\\ne\\tfrac12"
+            },
+            {
+              "box": [
+                113,
+                660,
+                140,
+                28
+              ],
+              "tex": "\\text{No}"
+            }
+          ],
+          "answer": "下界趋于 \\(-1/2\\)，上界趋于 \\(1/2\\)；这组界无法确定极限。"
+        },
+        {
+          "label": "5",
+          "loc": [
+            262,
+            627,
+            140,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                262,
+                627,
+                140,
+                28
+              ],
+              "tex": "-|x^3|,\\ |x^3|\\to0"
+            },
+            {
+              "box": [
+                262,
+                658,
+                140,
+                28
+              ],
+              "tex": "\\lim_{x\\to0}g(x)=0"
+            }
+          ],
+          "answer": "在题给的 \\(-1\\le x\\le1,\\ x\\ne0\\) 上，\\(-|x^3|\\le g(x)\\le |x^3|\\)。两侧的界都趋于 \\(0\\)，所以可以使用夹逼定理，得到 \\(\\lim_{x\\to0}g(x)=0\\)。"
+        },
+        {
+          "label": "6",
+          "loc": [
+            411,
+            627,
+            138,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                411,
+                627,
+                138,
+                28
+              ],
+              "tex": "1-x^2,\\ 1+x^2\\to1"
+            },
+            {
+              "box": [
+                411,
+                658,
+                138,
+                28
+              ],
+              "tex": "\\lim_{x\\to0}h(x)=1"
+            }
+          ],
+          "answer": "在零点附近上下界都趋于 \\(1\\)，可用夹逼定理得到 \\(\\lim_{x\\to0}h(x)=1\\)。"
+        }
+      ],
+      "time": 500,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

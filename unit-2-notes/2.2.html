@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>2.2 · Defining the Derivative of a Function and Using Derivative Notation · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 2</a>
+    <span class="topic" lang="en">2.2 · Defining the Derivative of a Function and Using Derivative Notation</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=tfdPnsp9bck" href="https://www.youtube.com/watch?v=tfdPnsp9bck" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-2/2.2/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/22-defining-the-derivative-of-a-function-and-using-derivative-notation.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 2.2 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="2.2-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 2.2 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-2/2.2/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "2.2",
+  "pages": {
+    "1": 792,
+    "2": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Opening · Slopes of the parabola",
+      "box": [
+        106,
+        91,
+        451,
+        177
+      ],
+      "time": 40,
+      "items": [
+        {
+          "label": "切线 · x = 1",
+          "loc": [
+            475,
+            166,
+            14,
+            19
+          ],
+          "answer": "由 \\(f^{\\prime}(x)=2x\\)，得 \\(f^{\\prime}(1)=2\\)。图中切线经过 \\((1,1)\\)。",
+          "ink": "2",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 214.20 254.80 L 248.02 187.15",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.5,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 230.7,
+              "cy": 221.8,
+              "r": 2,
+              "fill": "#1554a0"
+            }
+          ]
+        },
+        {
+          "label": "切线 · x = 2",
+          "loc": [
+            475,
+            198,
+            14,
+            19
+          ],
+          "answer": "由 \\(f^{\\prime}(x)=2x\\)，得 \\(f^{\\prime}(2)=4\\)。图中切线经过 \\((2,4)\\)。",
+          "ink": "4",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 231.52 235.00 L 252.15 152.50",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.5,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 247.2,
+              "cy": 172.3,
+              "r": 2,
+              "fill": "#1554a0"
+            }
+          ]
+        },
+        {
+          "label": "切线 · x = -2",
+          "loc": [
+            475,
+            230,
+            14,
+            19
+          ],
+          "answer": "由 \\(f^{\\prime}(x)=2x\\)，得 \\(f^{\\prime}(-2)=-4\\)。图中切线经过 \\((-2,4)\\)。",
+          "ink": "-4",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 176.25 152.50 L 196.88 235.00",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.5,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 181.2,
+              "cy": 172.3,
+              "r": 2,
+              "fill": "#1554a0"
+            }
+          ]
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Interpret a derivative value",
+      "box": [
+        106,
+        277,
+        447,
+        61
+      ],
+      "time": 140,
+      "items": [
+        {
+          "label": "1 · 数值与含义",
+          "loc": [
+            113,
+            300,
+            429,
+            36
+          ],
+          "answer": "当 \\(x=2\\) 时，曲线 \\(y=f(x)\\) 的切线斜率为 \\(\\tfrac12\\)，即 \\(f\\) 此时对 \\(x\\) 的瞬时变化率。",
+          "ink": "\\begin{gathered}f^{\\prime}(2)=\\tfrac52-2=\\tfrac12\\\\ \\text{The tangent slope at }x=2\\text{ is }\\tfrac12.\\end{gathered}"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · Distance and instantaneous speed",
+      "box": [
+        106,
+        342,
+        446,
+        112
+      ],
+      "time": 180,
+      "items": [
+        {
+          "label": "2 · 八分钟后的路程",
+          "loc": [
+            112,
+            394,
+            210,
+            40
+          ],
+          "answer": "\\(f(8)=1500\\) 表示跑了 \\(8\\) 分钟后，累计路程是 \\(1500\\) 米。",
+          "ink": "\\begin{gathered}\\text{After 8 minutes, I have}\\\\ \\text{run 1,500 meters.}\\end{gathered}"
+        },
+        {
+          "label": "2 · 第三分钟时的速率",
+          "loc": [
+            335,
+            394,
+            211,
+            40
+          ],
+          "answer": "\\(f^{\\prime}(3)=161\\) 表示在 \\(3\\) 分钟这一时刻，瞬时速率为每分钟 \\(161\\) 米。",
+          "ink": "\\begin{gathered}\\text{At 3 minutes, my speed is}\\\\ \\text{161 meters per minute.}\\end{gathered}"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "Notation for the derivative",
+      "box": [
+        106,
+        455,
+        445,
+        94
+      ],
+      "time": 280,
+      "items": [
+        {
+          "label": "Lagrange · 撇号记法",
+          "loc": [
+            118,
+            498,
+            199,
+            39
+          ],
+          "answer": "若 \\(y=f(x)\\)，拉格朗日记号可写为 \\(f^{\\prime}(x)\\) 或 \\(y^{\\prime}\\)。",
+          "ink": "f^{\\prime}(x),\\quad y^{\\prime}"
+        },
+        {
+          "label": "Leibniz · 微分记法",
+          "loc": [
+            340,
+            498,
+            196,
+            39
+          ],
+          "answer": "莱布尼茨记号 \\(\\dfrac{dy}{dx}\\) 表示 \\(y\\) 对 \\(x\\) 的导数。",
+          "ink": "\\displaystyle\\frac{dy}{dx}"
+        }
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "Definition of the derivative",
+      "box": [
+        103,
+        565,
+        458,
+        141
+      ],
+      "time": 320,
+      "items": [
+        {
+          "label": "定义 · 差商极限",
+          "loc": [
+            123,
+            630,
+            417,
+            57
+          ],
+          "answer": "先对 \\(h\\ne0\\) 计算割线斜率 \\(\\frac{f(x+h)-f(x)}h\\)；若 \\(h\\to0\\) 时有有限极限，便得到切线斜率。",
+          "ink": "\\displaystyle f^{\\prime}(x)=\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}"
+        }
+      ],
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "3 · Definition applied to a polynomial",
+      "box": [
+        106,
+        51,
+        222,
+        178
+      ],
+      "time": 490,
+      "items": [
+        {
+          "label": "3 · 整理差商",
+          "loc": [
+            112,
+            85,
+            210,
+            48
+          ],
+          "answer": "\\(f(x+h)=2(x+h)^2-7(x+h)+1\\)。减去 \\(f(x)\\) 后只剩 \\(4xh+2h^2-7h\\)。 得 \\(\\frac{f(x+h)-f(x)}h=4x+2h-7\\)。",
+          "ink": "\\frac{f(x+h)-f(x)}h=4x+2h-7"
+        },
+        {
+          "label": "3 · 取极限",
+          "loc": [
+            112,
+            163,
+            210,
+            40
+          ],
+          "answer": "令 \\(h\\to0\\)。 得 \\(f^{\\prime}(x)=4x-7\\)。",
+          "ink": "f^{\\prime}(x)=4x-7"
+        }
+      ],
+      "context": [
+        106,
+        34,
+        444,
+        18
+      ],
+      "slide": 6
+    },
+    {
+      "page": 2,
+      "label": "4 · Definition applied to a reciprocal",
+      "box": [
+        330,
+        51,
+        219,
+        178
+      ],
+      "time": 660,
+      "items": [
+        {
+          "label": "4 · 通分约分",
+          "loc": [
+            336,
+            79,
+            206,
+            57
+          ],
+          "answer": "\\(x^2-(x+h)^2=-h(2x+h)\\)。 得 \\(\\frac{(x+h)^{-2}-x^{-2}}h=\\frac{-(2x+h)}{x^2(x+h)^2}\\)。",
+          "ink": "\\frac{(x+h)^{-2}-x^{-2}}h=\\frac{-(2x+h)}{x^2(x+h)^2}"
+        },
+        {
+          "label": "4 · 取极限",
+          "loc": [
+            336,
+            162,
+            206,
+            41
+          ],
+          "answer": "约去 \\(h\\) 后令 \\(h\\to0\\)。 得 \\(y^{\\prime}=-\\frac{2}{x^3},\\quad x\\ne0\\)。",
+          "ink": "y^{\\prime}=-\\frac{2}{x^3},\\quad x\\ne0"
+        }
+      ],
+      "context": [
+        106,
+        34,
+        444,
+        18
+      ],
+      "slide": 7
+    },
+    {
+      "page": 2,
+      "label": "Equation of the tangent line",
+      "box": [
+        103,
+        318,
+        458,
+        119
+      ],
+      "time": 840,
+      "items": [
+        {
+          "label": "切线点斜式",
+          "loc": [
+            117,
+            387,
+            429,
+            37
+          ],
+          "answer": "切点为 \\((a,f(a))\\)，斜率为 \\(f^{\\prime}(a)\\)。",
+          "ink": "y-f(a)=f^{\\prime}(a)(x-a)"
+        }
+      ],
+      "slide": 8
+    },
+    {
+      "page": 2,
+      "label": "5 · Write the tangent line at x = 5",
+      "box": [
+        106,
+        448,
+        448,
+        111
+      ],
+      "time": 910,
+      "items": [
+        {
+          "label": "5 · 切线方程",
+          "loc": [
+            118,
+            506,
+            425,
+            37
+          ],
+          "answer": "切点是 \\((5,-2)\\)，斜率 \\(h^{\\prime}(5)=(125-2)/5=123/5\\)。 得 \\(y+2=\\frac{123}{5}(x-5)\\)。",
+          "ink": "y+2=\\frac{123}{5}(x-5)"
+        }
+      ],
+      "slide": 9
+    },
+    {
+      "page": 2,
+      "label": "6 · Read the slope from the derivative graph",
+      "box": [
+        106,
+        568,
+        459,
+        143
+      ],
+      "time": 1020,
+      "items": [
+        {
+          "label": "6 · 读图与切线",
+          "loc": [
+            117,
+            635,
+            287,
+            46
+          ],
+          "answer": "从 \\(f^{\\prime}\\) 的图像读出 \\(f^{\\prime}(2)=3\\)。原函数的切点为 \\((2,7)\\)，故 \\(y-7=3(x-2)\\)。",
+          "ink": "y-7=3(x-2)",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 522.9,
+              "cy": 614.1,
+              "r": 4.2,
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.1
+            }
+          ]
+        }
+      ],
+      "slide": 10
+    }
+  ]
+}</script>
+</body></html>

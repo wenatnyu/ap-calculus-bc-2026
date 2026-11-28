@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>3.2 · Implicit Differentiation · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 3</a>
+    <span class="topic" lang="en">3.2 · Implicit Differentiation</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=qCkUfBiWeX8" href="https://www.youtube.com/watch?v=qCkUfBiWeX8" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-3/3.2/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/32-implicit-differentiation.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 3.2 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="3.2-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 3.2 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-3/3.2/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "3.2",
+  "pages": {
+    "1": 792,
+    "2": 513
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Recall · Explicit and implicit equations",
+      "box": [
+        106,
+        91,
+        449,
+        66
+      ],
+      "time": 30,
+      "items": [
+        {
+          "label": "显式方程",
+          "loc": [
+            137,
+            130,
+            158,
+            23
+          ],
+          "answer": "显式方程直接将 \\(y\\) 写成 \\(x\\) 的函数，例如 \\(y=x+16\\)。",
+          "ink": "y=x+16"
+        },
+        {
+          "label": "隐式方程",
+          "loc": [
+            365,
+            130,
+            158,
+            23
+          ],
+          "answer": "隐式关系允许 \\(x,y\\) 同时出现在方程中，例如 \\(x^2+y^2=16\\)。",
+          "ink": "x^2+y^2=16"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Chain rule · Compare x-terms and y-terms",
+      "box": [
+        106,
+        157,
+        449,
+        163
+      ],
+      "time": 60,
+      "items": [
+        {
+          "label": "第 1 行 · x",
+          "loc": [
+            221,
+            200,
+            78,
+            30
+          ],
+          "answer": "横坐标对自身的导数为 \\(1\\)。",
+          "ink": "\\dfrac{dx}{dx}=1"
+        },
+        {
+          "label": "第 1 行 · y",
+          "loc": [
+            398,
+            200,
+            34,
+            30
+          ],
+          "answer": "\\(y\\) 随 \\(x\\) 改变，其导数写为 \\(dy/dx\\)。",
+          "ink": "\\dfrac{dy}{dx}"
+        },
+        {
+          "label": "第 2 行 · x²",
+          "loc": [
+            229,
+            241,
+            88,
+            30
+          ],
+          "answer": "幂法则给出 \\(2x\\)。",
+          "ink": "2x\\dfrac{dx}{dx}=2x"
+        },
+        {
+          "label": "第 2 行 · y²",
+          "loc": [
+            405,
+            241,
+            61,
+            30
+          ],
+          "answer": "平方外层求导，再乘 \\(dy/dx\\)。",
+          "ink": "2y\\dfrac{dy}{dx}"
+        },
+        {
+          "label": "第 3 行 · 指数含 x",
+          "loc": [
+            234,
+            282,
+            93,
+            30
+          ],
+          "answer": "内层 \\(5x\\) 的导数为 \\(5\\)。",
+          "ink": "5e^{5x}\\dfrac{dx}{dx}=5e^{5x}"
+        },
+        {
+          "label": "第 3 行 · 指数含 y",
+          "loc": [
+            411,
+            282,
+            86,
+            30
+          ],
+          "answer": "内层 \\(5y\\) 的导数为 \\(5\\,dy/dx\\)。",
+          "ink": "5e^{5y}\\dfrac{dy}{dx}"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "Worked example · Four steps of implicit differentiation",
+      "box": [
+        103,
+        323,
+        450,
+        226
+      ],
+      "time": 180,
+      "items": [
+        {
+          "label": "Step 1 · 两边求导",
+          "loc": [
+            123,
+            374,
+            410,
+            24
+          ],
+          "answer": "对 \\(y^2-5x^3=3y\\) 的两边关于 \\(x\\) 求导。 得 \\(2yy^{\\prime}-15x^2=3y^{\\prime}\\)。",
+          "ink": "2yy^{\\prime}-15x^2=3y^{\\prime}"
+        },
+        {
+          "label": "Step 2 · 移项",
+          "loc": [
+            123,
+            424,
+            410,
+            24
+          ],
+          "answer": "把含 \\(y^{\\prime}\\) 的项移到左侧。 得 \\(2yy^{\\prime}-3y^{\\prime}=15x^2\\)。",
+          "ink": "2yy^{\\prime}-3y^{\\prime}=15x^2"
+        },
+        {
+          "label": "Step 3 · 提公因子",
+          "loc": [
+            123,
+            473,
+            410,
+            24
+          ],
+          "answer": "左侧两项都含 \\(y^{\\prime}\\)。 得 \\(y^{\\prime}(2y-3)=15x^2\\)。",
+          "ink": "y^{\\prime}(2y-3)=15x^2"
+        },
+        {
+          "label": "Step 4 · 解出导数",
+          "loc": [
+            123,
+            515,
+            410,
+            28
+          ],
+          "answer": "在 \\(2y-3\\ne0\\) 时除以这个因子。 得 \\(\\frac{dy}{dx}=\\frac{15x^2}{2y-3}\\)。",
+          "ink": "\\frac{dy}{dx}=\\frac{15x^2}{2y-3}"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "1 · Polynomial relation",
+      "box": [
+        108,
+        554,
+        220,
+        148
+      ],
+      "time": 300,
+      "items": [
+        {
+          "label": "1 · 导数等式",
+          "loc": [
+            114,
+            583,
+            207,
+            35
+          ],
+          "answer": "\\(y^3\\) 求导时要乘 \\(y^{\\prime}\\)。 得 \\(3y^2y^{\\prime}-2=4x^3+2y^{\\prime}\\)。",
+          "ink": "3y^2y^{\\prime}-2=4x^3+2y^{\\prime}"
+        },
+        {
+          "label": "1 · 解出斜率",
+          "loc": [
+            114,
+            638,
+            207,
+            42
+          ],
+          "answer": "移项并提取 \\(y^{\\prime}\\) 后相除。 得 \\(y^{\\prime}=\\frac{4x^3+2}{3y^2-2}\\)。",
+          "ink": "y^{\\prime}=\\frac{4x^3+2}{3y^2-2}"
+        }
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "2 · A sine with a product inside",
+      "box": [
+        331,
+        554,
+        223,
+        148
+      ],
+      "time": 330,
+      "items": [
+        {
+          "label": "2 · 正弦与乘积",
+          "loc": [
+            337,
+            583,
+            212,
+            35
+          ],
+          "answer": "\\((xy)^{\\prime}=y+xy^{\\prime}\\)。 得 \\(\\cos(xy)(y+xy^{\\prime})=10\\)。",
+          "ink": "\\cos(xy)(y+xy^{\\prime})=10"
+        },
+        {
+          "label": "2 · 解出斜率",
+          "loc": [
+            337,
+            638,
+            212,
+            42
+          ],
+          "answer": "展开并收集 \\(y^{\\prime}\\) 项，在分母不为零处求解。 得 \\(y^{\\prime}=\\frac{10-y\\cos(xy)}{x\\cos(xy)}\\)。",
+          "ink": "y^{\\prime}=\\frac{10-y\\cos(xy)}{x\\cos(xy)}"
+        }
+      ],
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "3 · Two tangents to a circle",
+      "box": [
+        106,
+        35,
+        453,
+        168
+      ],
+      "time": 480,
+      "items": [
+        {
+          "label": "3 · 上半圆切线",
+          "loc": [
+            114,
+            83,
+            267,
+            42
+          ],
+          "answer": "由 \\(x^2+y^2=4\\) 得 \\(y=\\pm\\sqrt3\\)；隐式求导得 \\(y^{\\prime}=-x/y\\)。上切点 \\((1,\\sqrt3)\\) 的斜率为 \\(-1/\\sqrt3\\)。",
+          "ink": "y-\\sqrt3=-\\tfrac1{\\sqrt3}(x-1)",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 498.1,
+              "cy": 87.5,
+              "r": 2,
+              "fill": "#1554a0"
+            },
+            {
+              "type": "path",
+              "d": "M454 62.0 L549 116.9",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.5,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "3 · 下半圆切线",
+          "loc": [
+            114,
+            141,
+            267,
+            41
+          ],
+          "answer": "下切点 \\((1,-\\sqrt3)\\) 的斜率为 \\(1/\\sqrt3\\)。",
+          "ink": "y+\\sqrt3=\\tfrac1{\\sqrt3}(x-1)",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 498.1,
+              "cy": 170.1,
+              "r": 2,
+              "fill": "#1554a0"
+            },
+            {
+              "type": "path",
+              "d": "M454 195.6 L549 140.7",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.5,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        }
+      ],
+      "slide": 6
+    },
+    {
+      "page": 2,
+      "label": "Horizontal and vertical tangent lines",
+      "box": [
+        104,
+        203,
+        449,
+        101
+      ],
+      "time": 660,
+      "items": [
+        {
+          "label": "水平切线",
+          "loc": [
+            433,
+            226,
+            16,
+            30
+          ],
+          "answer": "水平切线处斜率为零。导数写成分式时，要求分子为零、分母非零。",
+          "ink": "0"
+        },
+        {
+          "label": "竖直切线",
+          "loc": [
+            417,
+            261,
+            69,
+            28
+          ],
+          "answer": "竖直切线没有有限斜率。对于这里的光滑椭圆，导数分母为零且分子非零即可确定竖直切线。",
+          "ink": "\\text{undefined}"
+        }
+      ],
+      "slide": 7
+    },
+    {
+      "page": 2,
+      "label": "4–5 · Horizontal and vertical tangents of an ellipse",
+      "box": [
+        109,
+        315,
+        446,
+        159
+      ],
+      "time": 720,
+      "items": [
+        {
+          "label": "4 · 两条水平切线",
+          "loc": [
+            115,
+            363,
+            211,
+            56
+          ],
+          "answer": "隐式求导得 \\(y^{\\prime}=-3x/(2y)\\)。水平切线要求 \\(x=0,\\ y\\ne0\\)。代回 \\(3x^2+2y^2=16\\)。 得 \\(y=\\pm2\\sqrt2\\)。",
+          "ink": "y=\\pm2\\sqrt2"
+        },
+        {
+          "label": "5 · 两条竖直切线",
+          "loc": [
+            340,
+            363,
+            207,
+            56
+          ],
+          "answer": "竖直切线要求 \\(y=0,\\ x\\ne0\\)，代回得到 \\(3x^2=16\\)。 得 \\(x=\\pm\\frac4{\\sqrt3}\\)。",
+          "ink": "x=\\pm\\frac4{\\sqrt3}"
+        }
+      ],
+      "slide": 8
+    }
+  ]
+}</script>
+</body></html>

@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>4.5 · Solving Related Rates Problems · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 4</a>
+    <span class="topic" lang="en">4.5 · Solving Related Rates Problems</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=tpQM5-r5pgg" href="https://www.youtube.com/watch?v=tpQM5-r5pgg" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-4/4.5/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/45-solving-related-rates-problems.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 4.5 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="4.5-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 4.5 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-4/4.5/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "4.5",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1 · Differentiate before substituting",
+      "box": [
+        106,
+        93,
+        449,
+        109
+      ],
+      "items": [
+        {
+          "label": "1 · 相关变化率方程",
+          "loc": [
+            111,
+            117,
+            432,
+            24
+          ],
+          "ink": [
+            {
+              "box": [
+                111,
+                117,
+                432,
+                21
+              ],
+              "tex": "2y\\frac{dy}{dt}=(12x^3+6)\\frac{dx}{dt}"
+            }
+          ],
+          "answer": "两边对 \\(t\\) 求导，再代入 \\(x=1,dx/dt=2\\)，得到 \\(2y\\,dy/dt=36\\)。"
+        },
+        {
+          "label": "1 · 两条分支的结果",
+          "loc": [
+            116,
+            146,
+            427,
+            52
+          ],
+          "ink": [
+            {
+              "box": [
+                116,
+                146,
+                427,
+                21
+              ],
+              "tex": "y^2=9:\\quad y=3\\ \\text{or}\\ y=-3"
+            },
+            {
+              "box": [
+                116,
+                172,
+                427,
+                23
+              ],
+              "tex": "y=3\\Rightarrow\\frac{dy}{dt}=6,\\qquad y=-3\\Rightarrow\\frac{dy}{dt}=-6"
+            }
+          ],
+          "answer": "由 \\(y^2=3(1)^4+6(1)=9\\)，故 \\(y=\\pm3\\)。变化率为 \\(18/y\\)，正分支得 \\(6\\)，负分支得 \\(-6\\)。"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Guidelines · Set up, differentiate, substitute",
+      "box": [
+        102,
+        208,
+        451,
+        141
+      ],
+      "items": [
+        {
+          "label": "先求导再代入",
+          "loc": [
+            482,
+            279,
+            57,
+            24
+          ],
+          "ink": "\\frac{d}{dt}",
+          "answer": "用 \\(x(t),y(t)\\) 表示会改变的量。若先将它们替换成某一时刻的具体数，就会丢失链式法则带出的变化率。固定参数可直接当作常数。"
+        }
+      ],
+      "time": 175,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "Rectangle example · Rate of area growth",
+      "box": [
+        106,
+        353,
+        452,
+        157
+      ],
+      "items": [
+        {
+          "label": "长方形 · 距离和变化率",
+          "loc": [
+            122,
+            417,
+            309,
+            35
+          ],
+          "ink": [
+            {
+              "box": [
+                123,
+                413,
+                304,
+                31
+              ],
+              "tex": "W=4,\\quad L=5,\\quad W^\\prime=2,\\quad L^\\prime=3"
+            },
+            {
+              "box": [
+                482,
+                465,
+                18,
+                17
+              ],
+              "tex": "L"
+            },
+            {
+              "box": [
+                439,
+                436,
+                18,
+                17
+              ],
+              "tex": "W"
+            }
+          ],
+          "answer": "瞬时宽 \\(4\\) cm、长 \\(5\\) cm。宽以 \\(2\\) cm/s、长以 \\(3\\) cm/s 增加。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M458.00 426.00 L527.00 426.00 L527.00 461.00 L458.00 461.00 L458.00 426.00",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "长方形 · 面积增长率",
+          "loc": [
+            121,
+            451,
+            314,
+            52
+          ],
+          "ink": [
+            {
+              "box": [
+                122,
+                451,
+                314,
+                22
+              ],
+              "tex": "A^\\prime=L^\\prime W+LW^\\prime"
+            },
+            {
+              "box": [
+                122,
+                477,
+                314,
+                23
+              ],
+              "tex": "=3(4)+5(2)=22\\ \\mathrm{cm^2/s}"
+            }
+          ],
+          "answer": "对 \\(A(t)=L(t)W(t)\\) 用乘积法则，得到 \\(dA/dt=(3)(4)+(5)(2)=22\\,\\mathrm{cm^2/s}\\)。"
+        }
+      ],
+      "time": 275,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "Triangle example · Speed from a radar reading",
+      "box": [
+        106,
+        518,
+        451,
+        224
+      ],
+      "items": [
+        {
+          "label": "三角形 · 位置与已知速率",
+          "loc": [
+            110,
+            662,
+            248,
+            36
+          ],
+          "ink": [
+            {
+              "box": [
+                109,
+                659,
+                248,
+                21
+              ],
+              "tex": "x=0.8,\\quad y=0.6,\\quad z=1\\ \\mathrm{mi}"
+            },
+            {
+              "box": [
+                109,
+                680,
+                248,
+                19
+              ],
+              "tex": "y^\\prime=-60,\\quad z^\\prime=20\\ \\mathrm{mph}"
+            },
+            {
+              "box": [
+                454,
+                642,
+                16,
+                16
+              ],
+              "tex": "x"
+            },
+            {
+              "box": [
+                408,
+                621,
+                15,
+                15
+              ],
+              "tex": "y"
+            },
+            {
+              "box": [
+                469,
+                610,
+                16,
+                16
+              ],
+              "tex": "z"
+            }
+          ],
+          "answer": "\\(z=\\sqrt{0.8^2+0.6^2}=1\\) 英里。警车朝路口行驶使 \\(y^\\prime=-60\\) mph，雷达读数给出 \\(z^\\prime=+20\\) mph。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M428.00 654.00 L434.00 654.00 L434.00 660.00",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "三角形 · 汽车的速率",
+          "loc": [
+            115,
+            705,
+            425,
+            33
+          ],
+          "ink": "0.8x^\\prime+0.6(-60)=1(20)\\quad\\Rightarrow\\quad x^\\prime=70\\ \\mathrm{mph}",
+          "answer": "对 \\(x^2+y^2=z^2\\) 求导并约去 \\(2\\)。代入已知量后 \\(0.8x^\\prime-36=20\\)，故汽车向东的速率为 \\(70\\) 英里/小时。"
+        }
+      ],
+      "time": 475,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>5.4 · Using the First Derivative Test to Determine Relative Local Extrema · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 5</a>
+    <span class="topic" lang="en">5.4 · Using the First Derivative Test to Determine Relative Local Extrema</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=REWoDT08SR4" href="https://www.youtube.com/watch?v=REWoDT08SR4" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-5/5.4/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/54-using-the-first-derivative-test-to-determine-relative-local-extrema.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 5.4 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="5.4-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 5.4 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-5/5.4/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "5.4",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "label": "抛物线与一阶导数判别法",
+      "box": [
+        105,
+        91,
+        453,
+        193
+      ],
+      "items": [
+        {
+          "label": "顶点与斜率变化",
+          "answer": "\\(f=x^2-4x-2=(x-2)^2-6\\)。\\(f'=2(x-2)\\) 在 \\(x=2\\) 两侧从负变正，于是 \\((2,-6)\\) 是最低点。",
+          "loc": [
+            117,
+            214,
+            279,
+            55
+          ],
+          "ink": "f^{\\prime}:\\ -\\longrightarrow+\\quad\\text{at }x=2",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 501.6,
+              "cy": 250.4,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "path",
+              "d": "M489.00 250.40L515.00 250.40",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "label": "Justification statements · 极值理由",
+      "box": [
+        103,
+        295,
+        456,
+        113
+      ],
+      "items": [
+        {
+          "label": "局部最小",
+          "answer": "若 \\(f'\\) 在 \\(c\\) 由负变正，则 \\(f\\) 由减转增，故在 \\(c\\) 有局部最小值。",
+          "loc": [
+            325,
+            338,
+            222,
+            25
+          ],
+          "ink": "f^{\\prime}:\\ -\\to+\\quad\\text{at }c"
+        },
+        {
+          "label": "局部最大",
+          "answer": "若 \\(f'\\) 在 \\(d\\) 由正变负，则 \\(f\\) 由增转减，故在 \\(d\\) 有局部最大值。",
+          "loc": [
+            328,
+            367,
+            219,
+            26
+          ],
+          "ink": "f^{\\prime}:\\ +\\to-\\quad\\text{at }d"
+        }
+      ],
+      "page": 1,
+      "time": 150,
+      "slide": 2
+    },
+    {
+      "label": "1 · 分数次幂与临界点",
+      "box": [
+        106,
+        414,
+        452,
+        156
+      ],
+      "items": [
+        {
+          "label": "1 · 临界数与导数符号",
+          "answer": "\\(f'(x)=4x/[3\\sqrt[3]{x^2-4}]\\)。导数在 0 为零，在 \\(\\pm2\\) 不存在，原函数在这三点都有定义。四段的符号依次为 \\(-,+,-,+\\)。",
+          "loc": [
+            119,
+            449,
+            425,
+            48
+          ],
+          "ink": [
+            {
+              "box": [
+                119,
+                448,
+                425,
+                35
+              ],
+              "tex": "f^{\\prime}=\\frac{4x}{3\\sqrt[3]{x^2-4}},\\qquad x=-2,0,2"
+            },
+            {
+              "box": [
+                119,
+                484,
+                425,
+                33
+              ],
+              "tex": "f^{\\prime}:\\quad -\\ \\big|_{-2}\\ +\\ \\big|_0\\ -\\ \\big|_2\\ +"
+            }
+          ]
+        },
+        {
+          "label": "1 · 局部极值",
+          "answer": "\\(x=-2,2\\) 处导数从负变正，两个局部最小值均为 0。\\(x=0\\) 处从正变负，局部最大值为 \\(\\sqrt[3]{16}\\)。",
+          "loc": [
+            119,
+            520,
+            425,
+            39
+          ],
+          "ink": "\\min:\\ x=\\pm2;\\qquad \\max:\\ x=0"
+        }
+      ],
+      "page": 1,
+      "time": 205,
+      "slide": 3
+    },
+    {
+      "label": "2 · 分母为零与定义域",
+      "box": [
+        106,
+        577,
+        452,
+        169
+      ],
+      "items": [
+        {
+          "label": "2 · 导数与符号",
+          "answer": "\\(h'=x(8-x)/(4-x)^2\\)。在 \\(x=0,8\\) 导数为零，\\(x=4\\) 不在定义域。各段符号依次为 \\(-,+,+,-\\)。",
+          "loc": [
+            120,
+            616,
+            417,
+            44
+          ],
+          "ink": "h^{\\prime}=\\frac{x(8-x)}{(4-x)^2},\\qquad x\\ne4"
+        },
+        {
+          "label": "2 · 极值与位置",
+          "answer": "在 \\(x=0\\) 由减转增，局部最小值 \\(h(0)=0\\)。在 \\(x=8\\) 由增转减，局部最大值 \\(h(8)=-16\\)。两个值属于不同的图像分支。",
+          "loc": [
+            120,
+            669,
+            419,
+            44
+          ],
+          "ink": "h(0)=0\\ (\\mathrm{local\\ min}),\\qquad h(8)=-16\\ (\\mathrm{local\\ max})"
+        }
+      ],
+      "page": 1,
+      "time": 530,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

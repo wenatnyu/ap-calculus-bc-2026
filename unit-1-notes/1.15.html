@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>1.15 · Limits at Infinity and Horizontal Asymptotes · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 1</a>
+    <span class="topic" lang="en">1.15 · Limits at Infinity and Horizontal Asymptotes</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=KWVlHJaDxkg" href="https://www.youtube.com/watch?v=KWVlHJaDxkg" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-1/1.15/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/115-limits-at-infinity-and-horizontal-asymptotes.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 1.15 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="1.15-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 1.15 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-1/1.15/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "1.15",
+  "pages": {
+    "1": 792,
+    "2": 168
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Horizontal asymptotes · End behavior",
+      "box": [
+        107,
+        91,
+        445,
+        63
+      ],
+      "items": [
+        {
+          "label": "水平渐近线",
+          "loc": [
+            118,
+            135,
+            420,
+            18
+          ],
+          "ink": "\\lim_{x\\to+\\infty}f(x)=L\\ \\text{or}\\ \\lim_{x\\to-\\infty}f(x)=L\\quad\\Rightarrow\\quad y=L",
+          "answer": "只要在某一端趋于有限数 \\(L\\)，则 \\(y=L\\) 是该端的水平渐近线。两个方向可给出不同的水平线。"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Rules · Compare numerator and denominator",
+      "box": [
+        102,
+        153,
+        450,
+        141
+      ],
+      "items": [
+        {
+          "label": "分母增长更快",
+          "loc": [
+            111,
+            179,
+            324,
+            28
+          ],
+          "ink": [
+            {
+              "box": [
+                109,
+                179,
+                92,
+                25
+              ],
+              "tex": "\\text{Denominator}"
+            },
+            {
+              "box": [
+                419,
+                178,
+                32,
+                26
+              ],
+              "tex": "0"
+            }
+          ],
+          "answer": "分母增长更快时，分式趋于零，水平渐近线为 \\(y=0\\)。"
+        },
+        {
+          "label": "两者同阶",
+          "loc": [
+            303,
+            216,
+            234,
+            24
+          ],
+          "ink": [
+            {
+              "box": [
+                300,
+                215,
+                59,
+                25
+              ],
+              "tex": "\\text{equally}"
+            },
+            {
+              "box": [
+                525,
+                216,
+                20,
+                24
+              ],
+              "tex": "1"
+            }
+          ],
+          "answer": "讲义这一行以相同主导项相除为例，填 \\(1\\)。一般地，同次多项式之比趋于首项系数比 \\(a_n/b_n\\)。"
+        },
+        {
+          "label": "分子增长更快",
+          "loc": [
+            137,
+            251,
+            407,
+            26
+          ],
+          "ink": [
+            {
+              "box": [
+                136,
+                251,
+                75,
+                25
+              ],
+              "tex": "\\text{numerator}"
+            },
+            {
+              "box": [
+                526,
+                250,
+                21,
+                27
+              ],
+              "tex": "\\infty"
+            }
+          ],
+          "answer": "正的分子增长更快时，比值趋于 \\(+\\infty\\)。一般有理函数的发散方向还要看符号；分子次数较高时没有水平渐近线。"
+        }
+      ],
+      "time": 100,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "Rank seven growth rates",
+      "box": [
+        107,
+        303,
+        445,
+        169
+      ],
+      "items": [
+        {
+          "label": "x² · 排名",
+          "loc": [
+            116,
+            342,
+            46,
+            17
+          ],
+          "ink": "6",
+          "answer": "当 \\(x\\to+\\infty\\) 时，\\(x^2\\) 的增长速度位列第 \\(6\\)。由快到慢为 \\(4^x,e^x,2^x,x^{10},x^3,x^2,\\ln x\\)。"
+        },
+        {
+          "label": "x³ · 排名",
+          "loc": [
+            116,
+            360.2,
+            46,
+            17
+          ],
+          "ink": "5",
+          "answer": "当 \\(x\\to+\\infty\\) 时，\\(x^3\\) 的增长速度位列第 \\(5\\)。由快到慢为 \\(4^x,e^x,2^x,x^{10},x^3,x^2,\\ln x\\)。"
+        },
+        {
+          "label": "x¹⁰ · 排名",
+          "loc": [
+            116,
+            378.4,
+            46,
+            17
+          ],
+          "ink": "4",
+          "answer": "当 \\(x\\to+\\infty\\) 时，\\(x^{10}\\) 的增长速度位列第 \\(4\\)。由快到慢为 \\(4^x,e^x,2^x,x^{10},x^3,x^2,\\ln x\\)。"
+        },
+        {
+          "label": "2ˣ · 排名",
+          "loc": [
+            116,
+            396.6,
+            46,
+            17
+          ],
+          "ink": "3",
+          "answer": "当 \\(x\\to+\\infty\\) 时，\\(2^x\\) 的增长速度位列第 \\(3\\)。由快到慢为 \\(4^x,e^x,2^x,x^{10},x^3,x^2,\\ln x\\)。"
+        },
+        {
+          "label": "eˣ · 排名",
+          "loc": [
+            116,
+            414.8,
+            46,
+            17
+          ],
+          "ink": "2",
+          "answer": "当 \\(x\\to+\\infty\\) 时，\\(e^x\\) 的增长速度位列第 \\(2\\)。由快到慢为 \\(4^x,e^x,2^x,x^{10},x^3,x^2,\\ln x\\)。"
+        },
+        {
+          "label": "4ˣ · 排名",
+          "loc": [
+            116,
+            433,
+            46,
+            17
+          ],
+          "ink": "1",
+          "answer": "当 \\(x\\to+\\infty\\) 时，\\(4^x\\) 的增长速度位列第 \\(1\\)。由快到慢为 \\(4^x,e^x,2^x,x^{10},x^3,x^2,\\ln x\\)。"
+        },
+        {
+          "label": "ln x · 排名",
+          "loc": [
+            116,
+            451.2,
+            46,
+            17
+          ],
+          "ink": "7",
+          "answer": "当 \\(x\\to+\\infty\\) 时，\\(\\ln x\\) 的增长速度位列第 \\(7\\)。由快到慢为 \\(4^x,e^x,2^x,x^{10},x^3,x^2,\\ln x\\)。"
+        }
+      ],
+      "time": 175,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "4–7 · Rational horizontal asymptotes",
+      "box": [
+        107,
+        482,
+        445,
+        132
+      ],
+      "items": [
+        {
+          "label": "4",
+          "loc": [
+            112,
+            535,
+            94,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                112,
+                535,
+                94,
+                28
+              ],
+              "tex": "\\deg N>\\deg D"
+            },
+            {
+              "box": [
+                112,
+                566,
+                94,
+                28
+              ],
+              "tex": "\\text{No H.A.}"
+            }
+          ],
+          "answer": "分子二次、分母一次，末端没有有限极限，因此没有水平渐近线。"
+        },
+        {
+          "label": "5",
+          "loc": [
+            215,
+            535,
+            97,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                215,
+                535,
+                97,
+                28
+              ],
+              "tex": "y=\\tfrac13"
+            }
+          ],
+          "answer": "同为一次，首项系数之比为 \\(1/3\\)。"
+        },
+        {
+          "label": "6",
+          "loc": [
+            318,
+            535,
+            96,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                318,
+                535,
+                96,
+                28
+              ],
+              "tex": "y=0"
+            }
+          ],
+          "answer": "分母次数 \\(2\\) 大于分子次数 \\(1\\)，比值趋于 \\(0\\)。"
+        },
+        {
+          "label": "7",
+          "loc": [
+            422,
+            535,
+            123,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                422,
+                535,
+                123,
+                28
+              ],
+              "tex": "y=\\tfrac1{16}"
+            }
+          ],
+          "answer": "分子首项为 \\(x^2\\)，分母首项为 \\(16x^2\\)，因此两端极限均为 \\(1/16\\)。"
+        }
+      ],
+      "time": 250,
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "8–9 · Radicals at both ends",
+      "box": [
+        107,
+        615,
+        207,
+        129
+      ],
+      "items": [
+        {
+          "label": "8",
+          "loc": [
+            111,
+            650,
+            97,
+            66
+          ],
+          "ink": [
+            {
+              "box": [
+                111,
+                650,
+                97,
+                30
+              ],
+              "tex": "x\\to+\\infty:\\ y=\\tfrac23"
+            },
+            {
+              "box": [
+                111,
+                683,
+                97,
+                30
+              ],
+              "tex": "x\\to-\\infty:\\ y=-\\tfrac23"
+            }
+          ],
+          "answer": "分子与 \\(2|x|\\) 同阶，分母与 \\(3x\\) 同阶。右端极限为 \\(2/3\\)，左端极限为 \\(-2/3\\)。"
+        },
+        {
+          "label": "9",
+          "loc": [
+            216,
+            650,
+            95,
+            66
+          ],
+          "ink": [
+            {
+              "box": [
+                216,
+                650,
+                95,
+                30
+              ],
+              "tex": "\\sqrt{x^4}=x^2"
+            },
+            {
+              "box": [
+                216,
+                683,
+                95,
+                30
+              ],
+              "tex": "y=\\tfrac23"
+            }
+          ],
+          "answer": "正负两端的主导项比均为 \\(2x^2/(3x^2)=2/3\\)，只有一条水平渐近线。"
+        }
+      ],
+      "time": 400,
+      "slide": 5
+    },
+    {
+      "page": 1,
+      "label": "10–11 · Exponential limits",
+      "box": [
+        314,
+        615,
+        236,
+        129
+      ],
+      "items": [
+        {
+          "label": "10",
+          "loc": [
+            320,
+            661,
+            111,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                320,
+                661,
+                111,
+                28
+              ],
+              "tex": "-4e^0=-4"
+            }
+          ],
+          "answer": "\\(1/x\\to0\\)，故 \\(-4e^{1/x}\\to-4e^0=-4\\)。"
+        },
+        {
+          "label": "11",
+          "loc": [
+            445,
+            661,
+            99,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                445,
+                661,
+                99,
+                28
+              ],
+              "tex": "5/e^x\\to0"
+            }
+          ],
+          "answer": "当 \\(x\\to+\\infty\\) 时指数函数 \\(e^x\\) 无界增长，故 \\(5e^{-x}\\to0\\)。"
+        }
+      ],
+      "time": 575,
+      "slide": 6
+    },
+    {
+      "page": 2,
+      "label": "12–15 · Trigonometric end behavior",
+      "box": [
+        107,
+        36,
+        444,
+        125
+      ],
+      "items": [
+        {
+          "label": "12",
+          "loc": [
+            112,
+            101,
+            101,
+            54
+          ],
+          "ink": [
+            {
+              "box": [
+                112,
+                101,
+                101,
+                24
+              ],
+              "tex": "\\left|\\frac{\\sin x}{x}\\right|\\le\\frac1{|x|}"
+            },
+            {
+              "box": [
+                112,
+                128,
+                101,
+                24
+              ],
+              "tex": "\\longrightarrow0"
+            }
+          ],
+          "answer": "\\(|\\sin x|\\le1\\)，当 \\(x\\to-\\infty\\) 时极限为 \\(0\\)。"
+        },
+        {
+          "label": "13",
+          "loc": [
+            223,
+            101,
+            100,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                223,
+                101,
+                100,
+                28
+              ],
+              "tex": "-3\\cos0=-3"
+            }
+          ],
+          "answer": "\\(1/x\\to0\\)，余弦连续，所以极限为 \\(-3\\)。"
+        },
+        {
+          "label": "14",
+          "loc": [
+            333,
+            101,
+            100,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                333,
+                101,
+                100,
+                28
+              ],
+              "tex": "\\text{DNE}"
+            }
+          ],
+          "answer": "\\(\\sin x\\) 在向正无穷移动时反复取 \\(1\\) 和 \\(-1\\)，没有极限。"
+        },
+        {
+          "label": "15",
+          "loc": [
+            444,
+            101,
+            99,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                444,
+                101,
+                99,
+                28
+              ],
+              "tex": "\\text{DNE}"
+            }
+          ],
+          "answer": "沿 \\(x=2n\\pi\\) 取越来越大的正值，沿 \\(x=(2n+1)\\pi\\) 取越来越小的负值，所以 \\(5x\\cos x\\) 不收敛。"
+        }
+      ],
+      "time": 650,
+      "slide": 7
+    }
+  ]
+}</script>
+</body></html>

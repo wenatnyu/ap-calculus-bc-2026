@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>1.6 · Determining Limits Using Algebraic Manipulation · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 1</a>
+    <span class="topic" lang="en">1.6 · Determining Limits Using Algebraic Manipulation</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=b1jrYrWHVfw" href="https://www.youtube.com/watch?v=b1jrYrWHVfw" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-1/1.6/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/16-determining-limits-using-algebraic-manipulation.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 1.6 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="1.6-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 1.6 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-1/1.6/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "1.6",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1–2 · Direct substitution",
+      "box": [
+        107,
+        97,
+        222,
+        171
+      ],
+      "items": [
+        {
+          "label": "1",
+          "loc": [
+            112,
+            144,
+            123,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                112,
+                144,
+                123,
+                28
+              ],
+              "tex": "(-1)^2+2(-1)-4"
+            },
+            {
+              "box": [
+                112,
+                175,
+                123,
+                28
+              ],
+              "tex": "=-5"
+            }
+          ],
+          "answer": "直接代入 \\(x=-1\\) 得 \\(1-2-4=-5\\)。"
+        },
+        {
+          "label": "2",
+          "loc": [
+            247,
+            145,
+            77,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                247,
+                145,
+                77,
+                28
+              ],
+              "tex": "6"
+            }
+          ],
+          "answer": "常数函数在每一点都取 \\(6\\)，因此其极限为 \\(6\\)。"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "3–4 · Factor and cancel",
+      "box": [
+        329,
+        97,
+        222,
+        176
+      ],
+      "items": [
+        {
+          "label": "3",
+          "loc": [
+            333,
+            149,
+            101,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                333,
+                149,
+                101,
+                28
+              ],
+              "tex": "\\frac{x(4x-5)}x=4x-5"
+            },
+            {
+              "box": [
+                333,
+                180,
+                101,
+                28
+              ],
+              "tex": "\\longrightarrow-5"
+            }
+          ],
+          "answer": "对 \\(x\\ne0\\)，原式等于 \\(4x-5\\)，从而极限是 \\(-5\\)。"
+        },
+        {
+          "label": "4",
+          "loc": [
+            441,
+            148,
+            105,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                441,
+                148,
+                105,
+                28
+              ],
+              "tex": "\\frac{(x+7)(2x-1)}{x+7}"
+            },
+            {
+              "box": [
+                441,
+                179,
+                105,
+                28
+              ],
+              "tex": "\\longrightarrow-15"
+            }
+          ],
+          "answer": "\\(2x^2+13x-7=(x+7)(2x-1)\\)，故所求极限等于 \\(2(-7)-1=-15\\)。"
+        }
+      ],
+      "time": 100,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "5 · A two-sided limit that does not exist",
+      "box": [
+        107,
+        297,
+        451,
+        106
+      ],
+      "items": [
+        {
+          "label": "5",
+          "loc": [
+            126,
+            341,
+            410,
+            52
+          ],
+          "ink": [
+            {
+              "box": [
+                126,
+                341,
+                410,
+                23
+              ],
+              "tex": "x\\to-6^-:\\ -\\infty,\\qquad x\\to-6^+:\\ +\\infty"
+            },
+            {
+              "box": [
+                126,
+                367,
+                410,
+                23
+              ],
+              "tex": "\\text{Two-sided limit: DNE}"
+            }
+          ],
+          "answer": "分子趋于 \\(36-24+3=15>0\\)，分母从左右分别趋于 \\(0^-\\) 与 \\(0^+\\)。两个单侧极限不同，所以双侧极限不存在。"
+        }
+      ],
+      "time": 275,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "Special trigonometric limits",
+      "box": [
+        101,
+        411,
+        451,
+        169
+      ],
+      "items": [
+        {
+          "label": "正弦除以角度",
+          "loc": [
+            242,
+            440,
+            29,
+            33
+          ],
+          "ink": "1",
+          "answer": "在弧度制下 \\(\\lim_{x\\to0}\\frac{\\sin x}{x}=1\\)。"
+        },
+        {
+          "label": "角度除以正弦",
+          "loc": [
+            392,
+            440,
+            36,
+            33
+          ],
+          "ink": "1",
+          "answer": "前一个极限非零，因此可取倒数，\\(\\lim_{x\\to0}\\frac{x}{\\sin x}=1\\)。"
+        },
+        {
+          "label": "1 − cos x",
+          "loc": [
+            247,
+            503,
+            28,
+            34
+          ],
+          "ink": "0",
+          "answer": "利用 \\(1-\\cos x=2\\sin^2(x/2)\\) 得 \\(\\lim_{x\\to0}(1-\\cos x)/x=0\\)。"
+        },
+        {
+          "label": "cos x − 1",
+          "loc": [
+            419,
+            503,
+            38,
+            34
+          ],
+          "ink": "0",
+          "answer": "改变分子的符号后，\\(\\lim_{x\\to0}(\\cos x-1)/x=0\\)。"
+        }
+      ],
+      "time": 375,
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "6–8 · Apply the special limits",
+      "box": [
+        107,
+        595,
+        445,
+        123
+      ],
+      "items": [
+        {
+          "label": "6",
+          "loc": [
+            113,
+            635,
+            136,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                113,
+                635,
+                136,
+                28
+              ],
+              "tex": "3\\frac{\\sin 3x}{3x}\\to3"
+            }
+          ],
+          "answer": "补出分母 \\(3x\\) 后，极限为 \\(3\\cdot1=3\\)。"
+        },
+        {
+          "label": "7",
+          "loc": [
+            260,
+            635,
+            136,
+            60
+          ],
+          "ink": [
+            {
+              "box": [
+                260,
+                635,
+                136,
+                27
+              ],
+              "tex": "\\frac79\\frac{\\sin7x}{7x}\\frac{9x}{\\sin9x}"
+            },
+            {
+              "box": [
+                260,
+                665,
+                136,
+                27
+              ],
+              "tex": "\\longrightarrow\\frac79"
+            }
+          ],
+          "answer": "写成 \\(\\frac79(\\sin7x/7x)(9x/\\sin9x)\\)，后两因子极限均为 \\(1\\)。"
+        },
+        {
+          "label": "8",
+          "loc": [
+            407,
+            635,
+            139,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                407,
+                635,
+                139,
+                28
+              ],
+              "tex": "\\frac{\\cos x-1}{x}\\to0"
+            }
+          ],
+          "answer": "将 \\(\\cos^2x-1\\) 分解为 \\((\\cos x-1)(\\cos x+1)\\)，约去第二个因子后得极限 \\(0\\)。"
+        }
+      ],
+      "time": 450,
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

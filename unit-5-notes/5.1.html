@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>5.1 · Using the Mean Value Theorem · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 5</a>
+    <span class="topic" lang="en">5.1 · Using the Mean Value Theorem</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=1Hz2h-AAeM8" href="https://www.youtube.com/watch?v=1Hz2h-AAeM8" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="sheets/5.1/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/51-using-the-mean-value-theorem.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 5.1 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="5.1-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 5.1 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-5/5.1/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "5.1",
+  "pages": {
+    "1": 792,
+    "2": 386
+  },
+  "groups": [
+    {
+      "label": "Mean Value Theorem · 条件与几何图像",
+      "box": [
+        103,
+        92,
+        449,
+        196
+      ],
+      "items": [
+        {
+          "label": "连续、可导与内部点",
+          "answer": "若 \\(f\\) 在 \\([a,b]\\) 上连续，在 \\((a,b)\\) 上可导，则至少存在 \\(c\\in(a,b)\\)，使 \\(f'(c)=[f(b)-f(a)]/(b-a)\\)。",
+          "loc": [
+            120,
+            152,
+            283,
+            111
+          ],
+          "ink": [
+            {
+              "box": [
+                340,
+                151,
+                37,
+                16
+              ],
+              "tex": "[a,b]"
+            },
+            {
+              "box": [
+                268,
+                166,
+                42,
+                15
+              ],
+              "tex": "(a,b)"
+            },
+            {
+              "box": [
+                149,
+                181,
+                15,
+                15
+              ],
+              "tex": "c"
+            },
+            {
+              "box": [
+                130,
+                226,
+                274,
+                39
+              ],
+              "tex": "f'(c)=\\frac{f(b)-f(a)}{b-a}"
+            }
+          ]
+        },
+        {
+          "label": "平行的割线与切线",
+          "answer": "蓝色割线连接两个端点。紫色切线经过内部点，斜率与割线相同。定理只保证至少有一个这样的内部点。",
+          "loc": [
+            448,
+            175,
+            89,
+            52
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M452 215 Q490 154 530 172",
+              "stroke": "#147456",
+              "fill": "none",
+              "stroke-width": 1.8,
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "path",
+              "d": "M452.00 215.00L530.00 172.00",
+              "stroke": "#1b5a99",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M469.00 185.60L512.00 161.90",
+              "stroke": "#87468e",
+              "fill": "none",
+              "stroke-width": 1.7,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 452,
+              "cy": 215,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 530,
+              "cy": 172,
+              "r": 2.5,
+              "fill": "#1b5a99",
+              "stroke": "#1b5a99",
+              "stroke-width": 1.4
+            },
+            {
+              "type": "circle",
+              "cx": 490.5,
+              "cy": 173.75,
+              "r": 2.5,
+              "fill": "#87468e",
+              "stroke": "#87468e",
+              "stroke-width": 1.4
+            }
+          ]
+        }
+      ],
+      "page": 1,
+      "time": 150,
+      "slide": 1
+    },
+    {
+      "label": "1a–b · 二次函数的平均与瞬时变化率",
+      "box": [
+        106,
+        309,
+        449,
+        218
+      ],
+      "items": [
+        {
+          "label": "1a · 平均变化率",
+          "answer": "\\(f(2)=12\\)，\\(f(6)=-8\\)。平均变化率为 \\((-8-12)/(6-2)=-5\\)。",
+          "loc": [
+            150,
+            350,
+            391,
+            49
+          ],
+          "ink": "\\frac{f(6)-f(2)}{6-2}=\\frac{-8-12}{4}=-5"
+        },
+        {
+          "label": "1b · 瞬时变化率",
+          "answer": "多项式满足中值定理的条件。解 \\(f'(c)=-2c+3=-5\\)，得 \\(c=4\\in(2,6)\\)。",
+          "loc": [
+            149,
+            457,
+            395,
+            56
+          ],
+          "ink": "f^{\\prime}(c)=-2c+3=-5\\quad\\Longrightarrow\\quad c=4"
+        }
+      ],
+      "page": 1,
+      "time": 305,
+      "slide": 2
+    },
+    {
+      "label": "MVT vs IVT · 区别两种存在性结论",
+      "box": [
+        107,
+        534,
+        451,
+        182
+      ],
+      "items": [
+        {
+          "label": "MVT · 斜率",
+          "answer": "存在 \\(c\\in(a,b)\\)，使 \\(f'(c)=[f(b)-f(a)]/(b-a)\\)。",
+          "loc": [
+            111,
+            656,
+            217,
+            48
+          ],
+          "ink": "f^{\\prime}(c)=\\frac{f(b)-f(a)}{b-a}"
+        },
+        {
+          "label": "IVT · 高度",
+          "answer": "若 \\(L\\) 位于端点函数值之间，且 \\(f\\) 在闭区间连续，则有 \\(c\\in[a,b]\\) 使 \\(f(c)=L\\)。严格介于两端点值时可取内点。",
+          "loc": [
+            337,
+            656,
+            213,
+            48
+          ],
+          "ink": "f(c)=L"
+        }
+      ],
+      "page": 1,
+      "time": 425,
+      "slide": 3
+    },
+    {
+      "label": "2a–b · 热气球数据",
+      "box": [
+        107,
+        38,
+        446,
+        346
+      ],
+      "items": [
+        {
+          "label": "2a · 高度 50 英尺",
+          "answer": "\\(h\\) 可导，故在 \\([5,20]\\) 连续。由于 \\(h(5)=40\u003c50\u003c65=h(20)\\)，介值定理保证存在 \\(c\\in(5,20)\\) 使 \\(h(c)=50\\) 英尺。",
+          "loc": [
+            144,
+            249,
+            399,
+            40
+          ],
+          "ink": "40=h(5)\u003c50\u003ch(20)=65\\quad\\Longrightarrow\\quad h(c)=50"
+        },
+        {
+          "label": "2b · 速度 1.5 英尺/分钟",
+          "answer": "\\(h\\) 在 \\([20,30]\\) 连续且在内部可导。由中值定理，有 \\(c\\in(20,30)\\) 使 \\(h'(c)=(80-65)/(30-20)=1.5\\) 英尺/分钟。",
+          "loc": [
+            145,
+            328,
+            399,
+            45
+          ],
+          "ink": "h^{\\prime}(c)=\\frac{80-65}{30-20}=1.5\\ \\mathrm{ft/min}"
+        }
+      ],
+      "page": 2,
+      "time": 480,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

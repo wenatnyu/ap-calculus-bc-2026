@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>2.4 · Connecting Differentiability and Continuity · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 2</a>
+    <span class="topic" lang="en">2.4 · Connecting Differentiability and Continuity</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=W3xgy5OrwtA" href="https://www.youtube.com/watch?v=W3xgy5OrwtA" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-2/2.4/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/24-connecting-differentiability-and-continuity.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 2.4 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="2.4-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 2.4 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-2/2.4/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "2.4",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1–3 · Zooming in on a graph",
+      "box": [
+        106,
+        92,
+        449,
+        131
+      ],
+      "time": 25,
+      "items": [
+        {
+          "label": "1 · 按单位刻度读图",
+          "loc": [
+            289,
+            117,
+            125,
+            17
+          ],
+          "answer": "按单位刻度读图，截距为 \\(1\\)，斜率为 \\(2\\)，故 \\(y=2x+1\\)。",
+          "ink": "2x+1"
+        },
+        {
+          "label": "2 · 改变刻度",
+          "loc": [
+            289,
+            147,
+            125,
+            17
+          ],
+          "answer": "若每格代表 \\(0.001\\)，横纵刻度同时缩小，斜率仍为 \\(2\\)，截距为 \\(0.001\\)。",
+          "ink": "2x+0.001"
+        },
+        {
+          "label": "3 · 局部直线状的曲线",
+          "loc": [
+            286,
+            177,
+            130,
+            18
+          ],
+          "answer": "视频再画 \\(y=\\sin(2x)+0.001\\)。在原点附近 \\(\\sin(2x)\\approx2x\\)，放大后局部图像接近第二条直线。",
+          "ink": "\\sin(2x)+0.001"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Three ways differentiability can fail",
+      "box": [
+        102,
+        240,
+        460,
+        237
+      ],
+      "time": 175,
+      "items": [
+        {
+          "label": "1 · 间断",
+          "loc": [
+            124,
+            352,
+            119,
+            26
+          ],
+          "answer": "函数在一点可导必在该点连续。图示的空心点使函数在该处有孔，故不可导。",
+          "ink": "\\text{discontinuity}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M136 433 L178 404 M186 398 L233 371",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.5,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 182,
+              "cy": 401,
+              "r": 3.5,
+              "stroke": "#1554a0",
+              "fill": "white",
+              "stroke-width": 1.5
+            }
+          ]
+        },
+        {
+          "label": "2 · 折角或尖点",
+          "loc": [
+            272,
+            352,
+            125,
+            26
+          ],
+          "answer": "折角两侧的斜率不同；尖点也没有有限的双侧导数。",
+          "ink": "\\text{corner or cusp}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M278 387 L331 433 L387 387",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.5,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "3 · 竖直切线",
+          "loc": [
+            423,
+            352,
+            121,
+            26
+          ],
+          "answer": "曲线在该处有竖直切线，斜率不能取有限实数值。",
+          "ink": "\\text{vertical tangent}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M427 435 C469 434 484 418 484 403 C484 388 500 379 537 379",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.5,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M484 380 L484 437",
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 0.8,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              "stroke-dasharray": "3 2"
+            }
+          ]
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "Identify discontinuities and nondifferentiable points",
+      "box": [
+        106,
+        497,
+        455,
+        151
+      ],
+      "time": 325,
+      "items": [
+        {
+          "label": "间断点",
+          "loc": [
+            110,
+            527,
+            199,
+            32
+          ],
+          "answer": "\\(x=-3\\) 处有孔，\\(x=4\\) 处左右极限不同。",
+          "ink": "\\begin{gathered}\\text{Discontinuous}\\\\ x=-3,\\ 4\\end{gathered}",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 355.1,
+              "cy": 570.3,
+              "r": 5,
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.1
+            },
+            {
+              "type": "circle",
+              "cx": 490.6,
+              "cy": 551.1,
+              "r": 5,
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.1
+            },
+            {
+              "type": "circle",
+              "cx": 490.6,
+              "cy": 570.4,
+              "r": 5,
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.1
+            }
+          ]
+        },
+        {
+          "label": "不可导点",
+          "loc": [
+            110,
+            572,
+            202,
+            31
+          ],
+          "answer": "两处间断必不可导。\\(x=-2,2\\) 是半圆与线段的拼接点，单侧斜率不匹配；\\(x=0\\) 处是光滑的水平切线。",
+          "ink": "\\begin{gathered}\\text{Not differentiable}\\\\ x=-3,\\ -2,\\ 2,\\ 4\\end{gathered}",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 374.7,
+              "cy": 609.4,
+              "r": 5,
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.1
+            },
+            {
+              "type": "circle",
+              "cx": 452.1,
+              "cy": 609.4,
+              "r": 5,
+              "fill": "none",
+              "stroke": "#1554a0",
+              "stroke-width": 1.1
+            }
+          ]
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "True or false · Continuity and differentiability",
+      "box": [
+        106,
+        670,
+        450,
+        73
+      ],
+      "time": 400,
+      "items": [
+        {
+          "label": "左 · 可导推出连续",
+          "loc": [
+            111,
+            717,
+            213,
+            21
+          ],
+          "answer": "若导数存在，差商有有限极限，因此 \\(f(x)-f(a)\\to0\\)，函数在 \\(a\\) 连续。",
+          "ink": "\\mathrm{True}"
+        },
+        {
+          "label": "右 · 连续推出可导",
+          "loc": [
+            334,
+            717,
+            214,
+            21
+          ],
+          "answer": "例如 \\(f(x)=|x|\\) 在 \\(0\\) 连续，左右导数分别为 \\(-1\\) 与 \\(1\\)，在该点不可导。",
+          "ink": "\\mathrm{False}"
+        }
+      ],
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

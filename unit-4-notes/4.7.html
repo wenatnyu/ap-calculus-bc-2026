@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>4.7 · Using L'Hopital's Rule for Determining Limits of Indeterminate Forms · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 4</a>
+    <span class="topic" lang="en">4.7 · Using L'Hopital's Rule for Determining Limits of Indeterminate Forms</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=kQOQH0ki6hY" href="https://www.youtube.com/watch?v=kQOQH0ki6hY" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-4/4.7/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/47-using-lhopitals-rule-for-determining-limits-of-indeterminate-forms.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 4.7 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="4.7-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 4.7 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-4/4.7/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "4.7",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Recall 与第 1 题 · 代入和因式分解",
+      "box": [
+        104,
+        91,
+        447,
+        108
+      ],
+      "time": 49,
+      "items": [
+        {
+          "label": "Recall · 可直接代入",
+          "loc": [
+            457,
+            89,
+            79,
+            31
+          ],
+          "answer": "\\(\\frac{2(3)-5}{3}=\\frac13\\)。",
+          "ink": "\\frac{2(3)-5}{3}=\\frac13"
+        },
+        {
+          "label": "1 · 约去公因子",
+          "loc": [
+            197,
+            126,
+            342,
+            46
+          ],
+          "answer": "直接代入给出 \\(0/0\\)。在 \\(x\\ne2\\) 时约去 \\(x-2\\)，所以极限等于 \\(-3\\)。",
+          "ink": "\\lim_{x\\to2}\\frac{(x-2)(x-5)}{x-2}=\\lim_{x\\to2}(x-5)=-3"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "洛必达法则 · 使用条件",
+      "box": [
+        101,
+        204,
+        450,
+        104
+      ],
+      "time": 103,
+      "items": [
+        {
+          "label": "法则的结论",
+          "loc": [
+            117,
+            267,
+            418,
+            35
+          ],
+          "answer": "右边仍然要取极限。若导数之比可以直接代入或据连续性求值，再做这一步。",
+          "ink": "\\displaystyle\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\lim_{x\\to a}\\frac{f^{\\prime}(x)}{g^{\\prime}(x)}"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2–3 · 一次求导即可求值",
+      "box": [
+        106,
+        324,
+        445,
+        153
+      ],
+      "time": 176,
+      "items": [
+        {
+          "label": "2 · 有理函数",
+          "loc": [
+            109,
+            370,
+            214,
+            79
+          ],
+          "answer": "原分子分母均趋于零。对分子、分母各自求导，分母在 2 处等于 \\(36-24+1=13\\)。",
+          "ink": "\\displaystyle\\lim_{x\\to2}\\frac1{9x^2-12x+1}=\\frac1{13}"
+        },
+        {
+          "label": "3 · 三角极限",
+          "loc": [
+            332,
+            370,
+            213,
+            79
+          ],
+          "answer": "角度用弧度表示。\\(\\sin(6x)\\) 对 \\(x\\) 的导数为 \\(6\\cos(6x)\\)。",
+          "ink": "\\displaystyle\\lim_{x\\to0}\\frac{6\\cos(6x)}{1}=6"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "4–5 · 连续使用洛必达法则",
+      "box": [
+        106,
+        482,
+        445,
+        128
+      ],
+      "time": 334,
+      "items": [
+        {
+          "label": "4 · 三角极限",
+          "loc": [
+            109,
+            519,
+            214,
+            73
+          ],
+          "answer": "第一次分别求导仍是 \\(0/0\\)，第二次求导后直接代入。",
+          "ink": "\\lim_{x\\to0}\\frac{\\sin x}{2x}=\\lim_{x\\to0}\\frac{\\cos x}{2}=\\frac12"
+        },
+        {
+          "label": "5 · 指数与多项式",
+          "loc": [
+            332,
+            519,
+            213,
+            73
+          ],
+          "answer": "分子分母起初都趋向正无穷，第一次分别求导后仍是无穷比无穷，第二次求导后极限为零。",
+          "ink": "\\lim_{x\\to\\infty}\\frac{4x}{2e^{2x}}=\\lim_{x\\to\\infty}\\frac4{4e^{2x}}=0"
+        }
+      ],
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "6 · 对一个商求导",
+      "box": [
+        105,
+        619,
+        446,
+        104
+      ],
+      "time": 526,
+      "items": [
+        {
+          "label": "6 · 商法则",
+          "loc": [
+            141,
+            664,
+            382,
+            54
+          ],
+          "answer": "分子是分子导数乘原分母，再减原分子乘分母导数；分母是原分母的平方。",
+          "ink": "\\frac{6x\\cos(6x)-\\sin(6x)}{x^2},\\quad x\\ne0"
+        }
+      ],
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

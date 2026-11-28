@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>1.10 · Exploring Types of Discontinuities · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 1</a>
+    <span class="topic" lang="en">1.10 · Exploring Types of Discontinuities</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=F6ydE70SeeU" href="https://www.youtube.com/watch?v=F6ydE70SeeU" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-1/1.10/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/110-exploring-types-of-discontinuities.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 1.10 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="1.10-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 1.10 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-1/1.10/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "1.10",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Continuity · Compare two graphs",
+      "box": [
+        107,
+        92,
+        448,
+        108
+      ],
+      "items": [
+        {
+          "label": "左图",
+          "loc": [
+            171,
+            186,
+            95,
+            15
+          ],
+          "ink": "\\text{continuous}",
+          "answer": "左图为一条连续曲线；在所示区间内没有空洞、跳跃或竖直渐近线。"
+        },
+        {
+          "label": "右图",
+          "loc": [
+            390,
+            186,
+            97,
+            15
+          ],
+          "ink": "\\text{discontinuous}",
+          "answer": "右图在竖直渐近线处分成两支，在该处不连续。"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Three types of discontinuities",
+      "box": [
+        102,
+        201,
+        452,
+        184
+      ],
+      "items": [
+        {
+          "label": "1 · 空洞",
+          "loc": [
+            158,
+            244,
+            212,
+            26
+          ],
+          "ink": "\\text{Hole (removable)}",
+          "answer": "左右极限为同一有限值，而点值缺失或不同。补上正确点值即可使函数连续。"
+        },
+        {
+          "label": "2 · 无穷间断",
+          "loc": [
+            158,
+            286,
+            219,
+            26
+          ],
+          "ink": "\\text{Infinite (vertical asymptote)}",
+          "answer": "至少一个单侧极限为 \\(+\\infty\\) 或 \\(-\\infty\\)，图像出现竖直渐近线。"
+        },
+        {
+          "label": "3 · 跳跃间断",
+          "loc": [
+            158,
+            328,
+            209,
+            26
+          ],
+          "ink": "\\text{Jump}",
+          "answer": "左右单侧极限都存在且有限，但取不同的数值。"
+        }
+      ],
+      "time": 75,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1–2 · Rational functions",
+      "box": [
+        107,
+        404,
+        445,
+        185
+      ],
+      "items": [
+        {
+          "label": "1",
+          "loc": [
+            116,
+            453,
+            204,
+            108
+          ],
+          "ink": [
+            {
+              "box": [
+                116,
+                453,
+                204,
+                33
+              ],
+              "tex": "f(x)=\\frac{x-6}{x+5}\\quad(x\\ne2,-5)"
+            },
+            {
+              "box": [
+                116,
+                489,
+                204,
+                33
+              ],
+              "tex": "\\text{hole }(2,-4/7)"
+            },
+            {
+              "box": [
+                116,
+                525,
+                204,
+                33
+              ],
+              "tex": "\\text{vertical asymptote }x=-5"
+            }
+          ],
+          "answer": "分解为 \\((x-2)(x-6)/[(x+5)(x-2)]\\)。\\(x=2\\) 有可去间断，空洞纵坐标为 \\(-4/7\\)；\\(x=-5\\) 有无穷间断。"
+        },
+        {
+          "label": "2",
+          "loc": [
+            336,
+            453,
+            205,
+            108
+          ],
+          "ink": [
+            {
+              "box": [
+                336,
+                453,
+                205,
+                33
+              ],
+              "tex": "g(x)=\\frac{1}{(x-1)(x^2+1)}"
+            },
+            {
+              "box": [
+                336,
+                489,
+                205,
+                33
+              ],
+              "tex": "\\text{hole }(-1,-1/4)"
+            },
+            {
+              "box": [
+                336,
+                525,
+                205,
+                33
+              ],
+              "tex": "\\text{vertical asymptote }x=1"
+            }
+          ],
+          "answer": "\\(x^4-1=(x-1)(x+1)(x^2+1)\\)。\\(x=-1\\) 有空洞，极限为 \\(-1/4\\)；\\(x=1\\) 为竖直渐近线。"
+        }
+      ],
+      "time": 150,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3–4 · Trigonometric and polynomial functions",
+      "box": [
+        107,
+        592,
+        446,
+        145
+      ],
+      "items": [
+        {
+          "label": "3",
+          "loc": [
+            115,
+            623,
+            206,
+            64
+          ],
+          "ink": [
+            {
+              "box": [
+                115,
+                623,
+                206,
+                29
+              ],
+              "tex": "2x=\\tfrac{\\pi}{2}+k\\pi"
+            },
+            {
+              "box": [
+                115,
+                655,
+                206,
+                29
+              ],
+              "tex": "x=\\tfrac\\pi4,\\tfrac{3\\pi}4,\\tfrac{5\\pi}4,\\tfrac{7\\pi}4"
+            }
+          ],
+          "answer": "在 \\([0,2\\pi]\\) 内，\\(\\cos(2x)=0\\) 的四个解为 \\(\\pi/4,3\\pi/4,5\\pi/4,7\\pi/4\\)，均为无穷间断。"
+        },
+        {
+          "label": "4",
+          "loc": [
+            337,
+            624,
+            204,
+            31
+          ],
+          "ink": [
+            {
+              "box": [
+                337,
+                624,
+                204,
+                28
+              ],
+              "tex": "\\text{Continuous on }\\mathbb R"
+            }
+          ],
+          "answer": "\\(x^2-1\\) 是多项式，对所有实数连续，没有间断点。"
+        }
+      ],
+      "time": 375,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>4.2 · Straight-Line Motion: Connecting Position, Velocity, and Acceleration · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 4</a>
+    <span class="topic" lang="en">4.2 · Straight-Line Motion: Connecting Position, Velocity, and Acceleration</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=3NTNoy1bdHI" href="https://www.youtube.com/watch?v=3NTNoy1bdHI" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-4/4.2/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/42-straight-line-motion-connecting-position-velocity-and-acceleration.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 4.2 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="4.2-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 4.2 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-4/4.2/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "4.2",
+  "pages": {
+    "1": 792,
+    "2": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "网球运动 · 从位置图画出速度与加速度",
+      "box": [
+        106,
+        92,
+        453,
+        303
+      ],
+      "time": 34,
+      "items": [
+        {
+          "label": "速度函数与图线",
+          "loc": [
+            387,
+            344,
+            155,
+            25
+          ],
+          "answer": "\\(v(t)=s^{\\prime}(t)=18-9.8t\\)（米/秒）。速度随时间线性下降，在 \\(t=18/9.8\\) 时过零，球到达最高点。",
+          "ink": "s^{\\prime}(t)=18-9.8t",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M281.00 162.70 L407.67 300.04",
+              "stroke": "#1d579e",
+              "fill": "none",
+              "stroke-width": 1.4,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "加速度函数与图线",
+          "loc": [
+            389,
+            365,
+            145,
+            27
+          ],
+          "answer": "\\(a(t)=v^{\\prime}(t)=-9.8\\) 米/秒\\(^2\\)，着地前始终指向下方。",
+          "ink": "v^{\\prime}(t)=-9.8",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M431.00 269.73 L558.04 269.73",
+              "stroke": "#1d579e",
+              "fill": "none",
+              "stroke-width": 1.4,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "速度的符号、平均速度与速率",
+      "box": [
+        105,
+        399,
+        453,
+        133
+      ],
+      "time": 190,
+      "items": [
+        {
+          "label": "速度为负",
+          "loc": [
+            319,
+            414,
+            226,
+            17
+          ],
+          "answer": "沿坐标轴负方向运动。",
+          "ink": "\\text{moving in the negative direction}"
+        },
+        {
+          "label": "速度为正",
+          "loc": [
+            319,
+            431,
+            226,
+            18
+          ],
+          "answer": "沿坐标轴正方向运动。",
+          "ink": "\\text{moving in the positive direction}"
+        },
+        {
+          "label": "速度为零",
+          "loc": [
+            319,
+            447,
+            89,
+            18
+          ],
+          "answer": "这一时刻静止。",
+          "ink": "\\text{at rest}"
+        },
+        {
+          "label": "平均速度",
+          "loc": [
+            255,
+            463,
+            175,
+            34
+          ],
+          "answer": "用末位置减初位置，再除以对应时间差。",
+          "ink": "\\dfrac{s(b)-s(a)}{b-a}"
+        },
+        {
+          "label": "速率",
+          "loc": [
+            328,
+            500,
+            77,
+            25
+          ],
+          "answer": "一维运动的速率是速度的绝对值。",
+          "ink": "|v(t)|"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "加速还是减速 · 比较速度和加速度",
+      "box": [
+        106,
+        538,
+        453,
+        163
+      ],
+      "time": 288,
+      "items": [
+        {
+          "label": "同号",
+          "loc": [
+            410,
+            551,
+            143,
+            17
+          ],
+          "answer": "速度与加速度同号，速率增加。",
+          "ink": "\\text{speeding up}"
+        },
+        {
+          "label": "异号",
+          "loc": [
+            415,
+            581,
+            121,
+            18
+          ],
+          "answer": "速度与加速度异号，速率减小。",
+          "ink": "\\text{slowing down}"
+        },
+        {
+          "label": "表格 · −5",
+          "loc": [
+            210,
+            662,
+            84,
+            31
+          ],
+          "answer": "\\(v=3>0\\)，\\(a=-4\u003c0\\)，异号，减速。",
+          "ink": "\\text{slowing down}"
+        },
+        {
+          "label": "表格 · 1",
+          "loc": [
+            299,
+            662,
+            81,
+            31
+          ],
+          "answer": "\\(v=-2\u003c0\\)，\\(a=7>0\\)，异号，减速。",
+          "ink": "\\text{slowing down}"
+        },
+        {
+          "label": "表格 · 2",
+          "loc": [
+            385,
+            662,
+            84,
+            31
+          ],
+          "answer": "\\(v=1>0\\)，\\(a=0.1>0\\)，同号，加速。",
+          "ink": "\\text{speeding up}"
+        },
+        {
+          "label": "表格 · 4",
+          "loc": [
+            476,
+            662,
+            78,
+            31
+          ],
+          "answer": "\\(v=-1\u003c0\\)，\\(a=-1\u003c0\\)，同号，加速。",
+          "ink": "\\text{speeding up}"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "位移 · 末位置与初位置",
+      "box": [
+        105,
+        699,
+        453,
+        40
+      ],
+      "time": 495,
+      "items": [
+        {
+          "label": "位移",
+          "loc": [
+            304,
+            701,
+            217,
+            32
+          ],
+          "answer": "位移是位置的净变化，等于末位置减初位置。",
+          "ink": "\\Delta s=s(b)-s(a)"
+        }
+      ],
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "1–2 · 位移与平均速度",
+      "box": [
+        105,
+        97,
+        453,
+        97
+      ],
+      "time": 549,
+      "items": [
+        {
+          "label": "1 · 位移",
+          "loc": [
+            122,
+            112,
+            415,
+            32
+          ],
+          "answer": "\\(x(2)-x(0)=-5-3=-8\\ \\mathrm{cm}\\)。",
+          "ink": "x(2)-x(0)=-5-3=-8\\ \\mathrm{cm}"
+        },
+        {
+          "label": "2 · 平均速度",
+          "loc": [
+            122,
+            164,
+            414,
+            29
+          ],
+          "answer": "\\(\\bar v=\\frac{-8}{2}=-4\\ \\mathrm{cm/min}\\)。",
+          "ink": "\\bar v=\\frac{-8}{2}=-4\\ \\mathrm{cm/min}"
+        }
+      ],
+      "context": [
+        105,
+        34,
+        453,
+        63
+      ],
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "3–5 · 指定时刻的速度、加速度与速率变化",
+      "box": [
+        105,
+        201,
+        453,
+        128
+      ],
+      "time": 626,
+      "items": [
+        {
+          "label": "3 · 速度",
+          "loc": [
+            119,
+            216,
+            420,
+            29
+          ],
+          "answer": "\\(v(t)=3t^2-8t,\\quad v(4)=16\\ \\mathrm{cm/min}\\)。",
+          "ink": "v(t)=3t^2-8t,\\quad v(4)=16\\ \\mathrm{cm/min}"
+        },
+        {
+          "label": "4 · 加速度",
+          "loc": [
+            119,
+            263,
+            420,
+            25
+          ],
+          "answer": "\\(a(t)=6t-8,\\quad a(4)=16\\ \\mathrm{cm/min^2}\\)。",
+          "ink": "a(t)=6t-8,\\quad a(4)=16\\ \\mathrm{cm/min^2}"
+        },
+        {
+          "label": "5 · 速率变化",
+          "loc": [
+            119,
+            307,
+            420,
+            21
+          ],
+          "answer": "速度和加速度均为正，所以粒子向正方向运动且速率正在增加。",
+          "ink": "v(4)>0,\\;a(4)>0:\\quad\\text{speeding up}"
+        }
+      ],
+      "context": [
+        105,
+        34,
+        453,
+        63
+      ],
+      "slide": 6
+    },
+    {
+      "page": 2,
+      "label": "6–8 · 从速度图读出方向与加速度",
+      "box": [
+        105,
+        499,
+        450,
+        117
+      ],
+      "time": 798,
+      "items": [
+        {
+          "label": "6 · 向右",
+          "loc": [
+            118,
+            511,
+            421,
+            28
+          ],
+          "answer": "当 \\(v>0\\) 时向右。中段从 \\((2,-2)\\) 到 \\((6,1)\\)，斜率为 \\(3/4\\)，所以在 \\(t=2+2/(3/4)=14/3\\) 再次过零。",
+          "ink": "0\\le t\u003c1\\quad\\text{or}\\quad\\tfrac{14}{3}\u003ct\u003c7"
+        },
+        {
+          "label": "7 · 向左",
+          "loc": [
+            118,
+            555,
+            421,
+            23
+          ],
+          "answer": "这一区间内速度图在横轴下方。",
+          "ink": "1\u003ct\u003c\\tfrac{14}{3}"
+        },
+        {
+          "label": "8 · 加速度的符号",
+          "loc": [
+            111,
+            593,
+            440,
+            23
+          ],
+          "answer": "图线在 \\((2,6)\\) 上升，在 \\((0,2)\\) 及 \\((6,7)\\) 下降，没有水平线段。折点 \\(t=2,6\\) 处加速度不存在。",
+          "ink": "a>0:(2,6);\\quad a\u003c0:(0,2)\\cup(6,7);\\quad a=0:\\varnothing"
+        }
+      ],
+      "context": [
+        106,
+        333,
+        446,
+        165
+      ],
+      "slide": 7
+    },
+    {
+      "page": 2,
+      "label": "9–11 · 最大速率与加减速区间",
+      "box": [
+        105,
+        621,
+        450,
+        120
+      ],
+      "time": 998,
+      "items": [
+        {
+          "label": "9 · 最大速率",
+          "loc": [
+            119,
+            636,
+            417,
+            26
+          ],
+          "answer": "两个点的速度分别为 \\(2\\) 与 \\(-2\\)，它们的绝对值同为 2。",
+          "ink": "|v|_{\\max}=2,\\quad t=0,\\;2",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 244.3,
+              "cy": 373.1,
+              "r": 2.5,
+              "fill": "#1d579e",
+              "stroke": "#1d579e",
+              "stroke-width": 1.2
+            },
+            {
+              "type": "circle",
+              "cx": 288.3,
+              "cy": 493.2,
+              "r": 2.5,
+              "fill": "#1d579e",
+              "stroke": "#1d579e",
+              "stroke-width": 1.2
+            }
+          ]
+        },
+        {
+          "label": "10 · 加速",
+          "loc": [
+            117,
+            685,
+            421,
+            24
+          ],
+          "answer": "在 \\((1,2)\\) 速度为负且斜率为负，在 \\((14/3,6)\\) 二者均为正。",
+          "ink": "(1,2)\\cup(14/3,6)"
+        },
+        {
+          "label": "11 · 减速",
+          "loc": [
+            119,
+            723,
+            420,
+            18
+          ],
+          "answer": "这些区间内速度与加速度异号，速度的绝对值减小。",
+          "ink": "(0,1)\\cup(2,14/3)\\cup(6,7)"
+        }
+      ],
+      "context": [
+        106,
+        333,
+        446,
+        165
+      ],
+      "slide": 8
+    }
+  ]
+}</script>
+</body></html>

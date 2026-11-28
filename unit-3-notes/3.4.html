@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>3.4 · Differentiating Inverse Trigonometric Functions · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 3</a>
+    <span class="topic" lang="en">3.4 · Differentiating Inverse Trigonometric Functions</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=OGRiQbphPfU" href="https://www.youtube.com/watch?v=OGRiQbphPfU" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-3/3.4/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/34-differentiating-inverse-trigonometric-functions.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 3.4 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="3.4-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 3.4 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-3/3.4/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "3.4",
+  "pages": {
+    "1": 792,
+    "2": 147
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "反三角函数 · 六个导数",
+      "box": [
+        101,
+        89,
+        453,
+        214
+      ],
+      "time": 35,
+      "items": [
+        {
+          "label": "arcsin",
+          "loc": [
+            185,
+            167,
+            86,
+            39
+          ],
+          "answer": "在 \\(|x|\u003c1\\) 上，\\(\\dfrac{d}{dx}\\operatorname{arcsin}x=\\frac1{\\sqrt{1-x^2}}\\)。",
+          "ink": "\\displaystyle \\frac1{\\sqrt{1-x^2}}"
+        },
+        {
+          "label": "arccos",
+          "loc": [
+            409,
+            167,
+            86,
+            39
+          ],
+          "answer": "在 \\(|x|\u003c1\\) 上，\\(\\dfrac{d}{dx}\\operatorname{arccos}x=-\\frac1{\\sqrt{1-x^2}}\\)。",
+          "ink": "\\displaystyle -\\frac1{\\sqrt{1-x^2}}"
+        },
+        {
+          "label": "arcsec",
+          "loc": [
+            186,
+            211,
+            86,
+            39
+          ],
+          "answer": "在 \\(|x|>1\\) 上，\\(\\dfrac{d}{dx}\\operatorname{arcsec}x=\\frac1{|x|\\sqrt{x^2-1}}\\)。",
+          "ink": "\\displaystyle \\frac1{|x|\\sqrt{x^2-1}}"
+        },
+        {
+          "label": "arccsc",
+          "loc": [
+            409,
+            211,
+            86,
+            39
+          ],
+          "answer": "在 \\(|x|>1\\) 上，\\(\\dfrac{d}{dx}\\operatorname{arccsc}x=-\\frac1{|x|\\sqrt{x^2-1}}\\)。",
+          "ink": "\\displaystyle -\\frac1{|x|\\sqrt{x^2-1}}"
+        },
+        {
+          "label": "arctan",
+          "loc": [
+            186,
+            254,
+            86,
+            39
+          ],
+          "answer": "在 \\(x\\in\\mathbb R\\) 上，\\(\\dfrac{d}{dx}\\operatorname{arctan}x=\\frac1{1+x^2}\\)。",
+          "ink": "\\displaystyle \\frac1{1+x^2}"
+        },
+        {
+          "label": "arccot",
+          "loc": [
+            406,
+            254,
+            86,
+            39
+          ],
+          "answer": "在 \\(x\\in\\mathbb R\\) 上，\\(\\dfrac{d}{dx}\\operatorname{arccot}x=-\\frac1{1+x^2}\\)。",
+          "ink": "\\displaystyle -\\frac1{1+x^2}"
+        }
+      ],
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1–3 · 用链式法则求导",
+      "box": [
+        106,
+        305,
+        444,
+        105
+      ],
+      "time": 245,
+      "items": [
+        {
+          "label": "1 · 反正弦",
+          "loc": [
+            109,
+            349,
+            142,
+            47
+          ],
+          "answer": "取 \\(u=3x\\)，\\(u^{\\prime}=3\\)。代入 \\(u^{\\prime}/\\sqrt{1-u^2}\\)，得 \\(3/\\sqrt{1-9x^2}\\)。",
+          "ink": "\\frac3{\\sqrt{1-9x^2}}"
+        },
+        {
+          "label": "2 · 反正切",
+          "loc": [
+            258,
+            349,
+            140,
+            47
+          ],
+          "answer": "\\(u=2x^2\\)，\\(u^{\\prime}=4x\\)，因此导数是 \\(4x/(1+4x^4)\\)。",
+          "ink": "\\frac{4x}{1+4x^4}"
+        },
+        {
+          "label": "3 · 反正割",
+          "loc": [
+            404,
+            349,
+            142,
+            47
+          ],
+          "answer": "导数为 \\(5/(|5x|\\sqrt{25x^2-1})\\)。约去正因子 5，分母保留 \\(|x|\\)。",
+          "ink": "\\frac{1}{|x|\\sqrt{25x^2-1}}"
+        }
+      ],
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "4–5 · 绝对值与化简",
+      "box": [
+        105,
+        416,
+        444,
+        116
+      ],
+      "time": 452,
+      "items": [
+        {
+          "label": "4",
+          "loc": [
+            109,
+            478,
+            214,
+            38
+          ],
+          "answer": "\\(|3x^3|=3x^2|x|\\)。在原式定义域内约去 \\(3x^2\\)，得到 \\(3/(|x|\\sqrt{9x^6-1})\\)。",
+          "ink": "\\frac3{|x|\\sqrt{9x^6-1}}"
+        },
+        {
+          "label": "5",
+          "loc": [
+            333,
+            478,
+            212,
+            38
+          ],
+          "answer": "\\(|2x^2|=2x^2\\)，因此 \\(4x/|2x^2|=2/x\\)，根式仍为 \\(\\sqrt{4x^2-1}\\)。",
+          "ink": "\\frac2{x\\sqrt{4x^2-1}}"
+        }
+      ],
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "主值范围 · 三张单位圆",
+      "box": [
+        105,
+        534,
+        444,
+        212
+      ],
+      "time": 590,
+      "items": [
+        {
+          "label": "反正弦 · 右半圆",
+          "loc": [
+            113,
+            567,
+            132,
+            142
+          ],
+          "answer": "\\(x\\in[-1,1]\\)，\\(\\arcsin x\\in[-\\pi/2,\\pi/2]\\)。两个端点都包含。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M181.20 694.10 L185.63 693.93 L190.04 693.40 L194.39 692.54 L198.66 691.33 L202.82 689.80 L206.85 687.94 L210.72 685.77 L214.41 683.31 L217.89 680.56 L221.15 677.55 L224.16 674.29 L226.91 670.81 L229.37 667.12 L231.54 663.25 L233.40 659.22 L234.93 655.06 L236.14 650.79 L237.00 646.44 L237.53 642.03 L237.70 637.60 L237.53 633.17 L237.00 628.76 L236.14 624.41 L234.93 620.14 L233.40 615.98 L231.54 611.95 L229.37 608.08 L226.91 604.39 L224.16 600.91 L221.15 597.65 L217.89 594.64 L214.41 591.89 L210.72 589.43 L206.85 587.26 L202.82 585.40 L198.66 583.87 L194.39 582.66 L190.04 581.80 L185.63 581.27 L181.20 581.10",
+              "stroke": "#1d579e",
+              "fill": "none",
+              "stroke-width": 2.3,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 181.2,
+              "cy": 694.1,
+              "r": 2.5,
+              "fill": "#1d579e",
+              "stroke": "#1d579e",
+              "stroke-width": 1.2
+            },
+            {
+              "type": "circle",
+              "cx": 181.2,
+              "cy": 581.1,
+              "r": 2.5,
+              "fill": "#1d579e",
+              "stroke": "#1d579e",
+              "stroke-width": 1.2
+            }
+          ],
+          "masks": [
+            [
+              170,
+              710,
+              67,
+              15
+            ],
+            [
+              170,
+              725,
+              67,
+              20
+            ]
+          ]
+        },
+        {
+          "label": "反余弦 · 上半圆",
+          "loc": [
+            257,
+            567,
+            138,
+            142
+          ],
+          "answer": "\\(x\\in[-1,1]\\)，\\(\\arccos x\\in[0,\\pi]\\)。两个端点都包含。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M384.80 637.60 L384.63 633.17 L384.11 628.78 L383.24 624.43 L382.04 620.17 L380.51 616.02 L378.65 611.99 L376.49 608.13 L374.03 604.45 L371.29 600.97 L368.28 597.72 L365.03 594.71 L361.55 591.97 L357.87 589.51 L354.01 587.35 L349.98 585.49 L345.83 583.96 L341.57 582.76 L337.22 581.89 L332.83 581.37 L328.40 581.20 L323.97 581.37 L319.58 581.89 L315.23 582.76 L310.97 583.96 L306.82 585.49 L302.79 587.35 L298.93 589.51 L295.25 591.97 L291.77 594.71 L288.52 597.72 L285.51 600.97 L282.77 604.45 L280.31 608.13 L278.15 611.99 L276.29 616.02 L274.76 620.17 L273.56 624.43 L272.69 628.78 L272.17 633.17 L272.00 637.60",
+              "stroke": "#1d579e",
+              "fill": "none",
+              "stroke-width": 2.3,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 384.79999999999995,
+              "cy": 637.6,
+              "r": 2.5,
+              "fill": "#1d579e",
+              "stroke": "#1d579e",
+              "stroke-width": 1.2
+            },
+            {
+              "type": "circle",
+              "cx": 272,
+              "cy": 637.6,
+              "r": 2.5,
+              "fill": "#1d579e",
+              "stroke": "#1d579e",
+              "stroke-width": 1.2
+            }
+          ],
+          "masks": [
+            [
+              319,
+              710,
+              67,
+              15
+            ],
+            [
+              319,
+              725,
+              67,
+              20
+            ]
+          ]
+        },
+        {
+          "label": "反正切 · 开右半圆",
+          "loc": [
+            406,
+            567,
+            139,
+            142
+          ],
+          "answer": "\\(x\\in\\mathbb R\\)，\\(\\arctan x\\in(-\\pi/2,\\pi/2)\\)。端点处正切没有定义。",
+          "draw": [
+            {
+              "type": "rect",
+              "x": 463,
+              "y": 710,
+              "width": 78,
+              "height": 15,
+              "fill": "white"
+            },
+            {
+              "type": "path",
+              "d": "M474.90 694.10 L479.33 693.93 L483.74 693.40 L488.09 692.54 L492.36 691.33 L496.52 689.80 L500.55 687.94 L504.42 685.77 L508.11 683.31 L511.59 680.56 L514.85 677.55 L517.86 674.29 L520.61 670.81 L523.07 667.12 L525.24 663.25 L527.10 659.22 L528.63 655.06 L529.84 650.79 L530.70 646.44 L531.23 642.03 L531.40 637.60 L531.23 633.17 L530.70 628.76 L529.84 624.41 L528.63 620.14 L527.10 615.98 L525.24 611.95 L523.07 608.08 L520.61 604.39 L517.86 600.91 L514.85 597.65 L511.59 594.64 L508.11 591.89 L504.42 589.43 L500.55 587.26 L496.52 585.40 L492.36 583.87 L488.09 582.66 L483.74 581.80 L479.33 581.27 L474.90 581.10",
+              "stroke": "#1d579e",
+              "fill": "none",
+              "stroke-width": 2.3,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 474.9,
+              "cy": 694.1,
+              "r": 2.5,
+              "fill": "white",
+              "stroke": "#1d579e",
+              "stroke-width": 1.2
+            },
+            {
+              "type": "circle",
+              "cx": 474.9,
+              "cy": 581.1,
+              "r": 2.5,
+              "fill": "white",
+              "stroke": "#1d579e",
+              "stroke-width": 1.2
+            }
+          ],
+          "masks": [
+            [
+              463,
+              710,
+              78,
+              15
+            ],
+            [
+              463,
+              725,
+              67,
+              20
+            ]
+          ],
+          "ink": [
+            {
+              "box": [
+                463,
+                710,
+                60,
+                15
+              ],
+              "tex": "x\\in\\mathbb{R}"
+            }
+          ]
+        }
+      ],
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "6–8 · 求主值角",
+      "box": [
+        105,
+        33,
+        456,
+        111
+      ],
+      "time": 758,
+      "items": [
+        {
+          "label": "6",
+          "loc": [
+            110,
+            91,
+            145,
+            40
+          ],
+          "answer": "\\(\\arcsin(\\sqrt3/2)=\\pi/3\\)。",
+          "ink": "\\arcsin(\\sqrt3/2)=\\pi/3"
+        },
+        {
+          "label": "7",
+          "loc": [
+            261,
+            91,
+            144,
+            40
+          ],
+          "answer": "\\(\\arccos(-1/2)=2\\pi/3\\)。",
+          "ink": "\\arccos(-1/2)=2\\pi/3"
+        },
+        {
+          "label": "8",
+          "loc": [
+            409,
+            91,
+            146,
+            40
+          ],
+          "answer": "\\(\\arctan(1/\\sqrt3)=\\pi/6\\)。",
+          "ink": "\\arctan(1/\\sqrt3)=\\pi/6"
+        }
+      ],
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>
