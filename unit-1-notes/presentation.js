@@ -8,6 +8,9 @@
   const fullscreen = document.getElementById('fullscreen');
   const sources = document.querySelector('.sources');
   let current = 0;
+  const returnLink = document.querySelector('.return-paper');
+  const group = new URLSearchParams(location.search).get('notes');
+  if (returnLink && /^[1-9]\d*$/.test(group)) returnLink.hash = 'q-' + group;
 
   function pageFromUrl() {
     const requested = Number(location.hash.slice(1));
