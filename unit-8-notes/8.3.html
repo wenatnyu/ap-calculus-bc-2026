@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>8.3 · Using Accumulation Functions and Definite Integrals in Applied Contexts · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 8</a>
+    <span class="topic" lang="en">8.3 · Using Accumulation Functions and Definite Integrals in Applied Contexts</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=NWmYQ-_0EHc" href="https://www.youtube.com/watch?v=NWmYQ-_0EHc" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="sheets/8.3/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/83-using-accumulation-functions-and-definite-integrals-in-applied-contexts.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 8.3 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="8.3-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 8.3 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-8/8.3/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "8.3",
+  "pages": {
+    "1": 792,
+    "2": 277
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Accumulation · Rate and net change",
+      "box": [
+        102,
+        93,
+        454,
+        108
+      ],
+      "items": [
+        {
+          "label": "净变化",
+          "loc": [
+            361,
+            127,
+            174,
+            39
+          ],
+          "ink": "\\text{net change}",
+          "answer": "当 \\(Q^\\prime=R\\) 时，\\(\\int_a^bR(t)\\,dt=Q(b)-Q(a)\\)，因此 \\(Q(b)=Q(a)+\\int_a^bR(t)\\,dt\\)。"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Distance to the water",
+      "box": [
+        106,
+        214,
+        451,
+        113
+      ],
+      "items": [
+        {
+          "label": "1 · 暴风雨过后的距离",
+          "loc": [
+            126,
+            287,
+            419,
+            33
+          ],
+          "ink": "200-\\int_0^4 e^{-\\sin t}\\,dt\\approx196.937\\ \\mathrm{ft}",
+          "answer": "四小时内距离缩短 \\(\\int_0^4e^{-\\sin t}\\,dt\\approx3.063\\) 英尺。结合初始距离 \\(200\\) 英尺，终值约为 \\(196.937\\) 英尺。"
+        }
+      ],
+      "time": 100,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · Shoppers during a sale",
+      "box": [
+        106,
+        332,
+        452,
+        111
+      ],
+      "items": [
+        {
+          "label": "2 · 建立方程",
+          "loc": [
+            126,
+            402,
+            417,
+            34
+          ],
+          "ink": "70+\\int_0^x E(t)\\,dt=200,\\qquad 0\\le x\\le5",
+          "answer": "设开卖后 \\(x\\) 小时达到 \\(200\\) 人，则 \\(70+\\int_0^x E(t)\\,dt=200\\)，等价于 \\(\\int_0^x E(t)\\,dt=130\\)。"
+        }
+      ],
+      "time": 200,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3a–c · A table of pumping rates",
+      "box": [
+        106,
+        449,
+        452,
+        292
+      ],
+      "items": [
+        {
+          "label": "3a · 积分的含义",
+          "loc": [
+            132,
+            592,
+            410,
+            24
+          ],
+          "ink": "\\text{liters pumped in during the first 8 hours}",
+          "answer": "\\(\\int_0^8R(t)\\,dt\\) 表示最初 \\(8\\) 小时内泵入水箱的水量，单位为升。"
+        },
+        {
+          "label": "3b · 左端点估计",
+          "loc": [
+            130,
+            645,
+            414,
+            37
+          ],
+          "ink": "3000(1)+2500(2)+2100(3)+1500(2)=17{,}300\\ \\mathrm{L}",
+          "answer": "区间宽度依次为 \\(1,2,3,2\\)。左端点给出 \\(\\int_0^8R(t)\\,dt\\approx17{,}300\\) 升。"
+        },
+        {
+          "label": "3c · 8 小时后的水量",
+          "loc": [
+            131,
+            706,
+            412,
+            30
+          ],
+          "ink": "5{,}000+17{,}300=22{,}300\\ \\mathrm{L}",
+          "answer": "将估计流入量加到原有的 \\(5{,}000\\) 升上，得到 \\(22{,}300\\) 升。"
+        }
+      ],
+      "time": 325,
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "4a–b · A table of water amounts",
+      "box": [
+        106,
+        34,
+        452,
+        226
+      ],
+      "items": [
+        {
+          "label": "4a · 积分的含义",
+          "loc": [
+            132,
+            158,
+            411,
+            30
+          ],
+          "ink": "W(8)-W(0)\\quad\\text{(net change in liters)}",
+          "answer": "\\(\\int_0^8W^\\prime(t)\\,dt\\) 表示前 \\(8\\) 小时水箱中水量的净增加量，单位为升。"
+        },
+        {
+          "label": "4b · 精确值",
+          "loc": [
+            132,
+            212,
+            412,
+            32
+          ],
+          "ink": "22{,}000-5{,}000=17{,}000\\ \\mathrm{L}",
+          "answer": "微积分基本定理给出 \\(W(8)-W(0)=22{,}000-5{,}000=17{,}000\\) 升。"
+        }
+      ],
+      "time": 475,
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

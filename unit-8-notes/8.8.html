@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>8.8 · Volumes with Cross Sections: Triangles and Semicircles · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 8</a>
+    <span class="topic" lang="en">8.8 · Volumes with Cross Sections: Triangles and Semicircles</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=eivHCSggrNg" href="https://www.youtube.com/watch?v=eivHCSggrNg" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-8/8.8/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/88-volumes-with-cross-sections-triangles-and-semicircles.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 8.8 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="8.8-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 8.8 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-8/8.8/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "8.8",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "底面与截面 · 先确定公共边长",
+      "box": [
+        105,
+        102,
+        453,
+        194
+      ],
+      "items": [
+        {
+          "label": "交点、截宽与切片",
+          "answer": "在 \\(x\\ge0\\) 上解 \\(x=x^4\\) 得 \\(x=0,1\\)。对 \\(0\\le x\\le1\\)，上边界为 \\(\\sqrt{x}\\)，下边界为 \\(x^2\\)，截宽为 \\(s(x)=\\sqrt{x}-x^2\\)。沿 \\(x\\) 方向叠加。\\(V=\\int_0^1A(x)\\,dx\\)。",
+          "loc": [
+            143,
+            254,
+            365,
+            16
+          ],
+          "ink": "0\\le x\\le1,\\qquad s(x)=\\sqrt{x}-x^2",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M510.02 158.53L510.02 140.41",
+              "stroke": "#85458a",
+              "stroke-width": 2.8,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            }
+          ]
+        }
+      ],
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "截面公式 · 两种三角形",
+      "box": [
+        107,
+        296,
+        451,
+        101
+      ],
+      "items": [
+        {
+          "label": "等边三角形",
+          "answer": "面积为 \\(\\tfrac12s(\\sqrt3s/2)=\\sqrt3s^2/4\\)。因此 \\(V=\\int_a^b \\sqrt3s(x)^2/4\\,dx\\)，其中 \\(s=f(x)-g(x)\\) 是上、下边界的距离。",
+          "loc": [
+            111,
+            328,
+            213,
+            61
+          ],
+          "ink": [
+            {
+              "box": [
+                215,
+                328,
+                66,
+                37
+              ],
+              "tex": "\\frac{\\sqrt3}{4}s^2\\,dx"
+            },
+            {
+              "box": [
+                211,
+                367,
+                109,
+                23
+              ],
+              "tex": "f(x)-g(x)"
+            }
+          ]
+        },
+        {
+          "label": "等腰直角三角形",
+          "answer": "以截宽作为直角边，面积为 \\(s^2/2\\)。因此 \\(V=\\int_a^b s(x)^2/2\\,dx\\)，其中 \\(s=f(x)-g(x)\\)。",
+          "loc": [
+            338,
+            328,
+            211,
+            62
+          ],
+          "ink": [
+            {
+              "box": [
+                448,
+                328,
+                58,
+                37
+              ],
+              "tex": "\\frac12s^2\\,dx"
+            },
+            {
+              "box": [
+                421,
+                367,
+                124,
+                23
+              ],
+              "tex": "f(x)-g(x)"
+            }
+          ]
+        }
+      ],
+      "time": 145,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "截面公式 · 半圆",
+      "box": [
+        107,
+        398,
+        451,
+        94
+      ],
+      "items": [
+        {
+          "label": "半圆面积与半径",
+          "answer": "设截面直径为 \\(s=f(x)-g(x)\\)。半径为 \\(r=s/2\\)，面积为 \\(\\pi r^2/2=\\pi s^2/8\\)，故 \\(V=\\int_a^b \\pi r^2/2\\,dx\\)。",
+          "loc": [
+            115,
+            416,
+            430,
+            73
+          ],
+          "ink": [
+            {
+              "box": [
+                330,
+                416,
+                77,
+                40
+              ],
+              "tex": "\\frac12\\pi r^2\\,dx"
+            },
+            {
+              "box": [
+                339,
+                462,
+                143,
+                28
+              ],
+              "tex": "\\frac{f(x)-g(x)}{2}"
+            }
+          ]
+        }
+      ],
+      "time": 250,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "a–c · 同一底面的三种体积",
+      "box": [
+        107,
+        500,
+        451,
+        235
+      ],
+      "items": [
+        {
+          "label": "a · 等边三角形",
+          "answer": "截面面积为 \\(\\sqrt3s^2/4\\)。因此 \\(V=\\tfrac{\\sqrt3}{4}J=9\\sqrt3/280\\)。",
+          "loc": [
+            111,
+            537,
+            142,
+            173
+          ],
+          "ink": [
+            {
+              "box": [
+                112,
+                604,
+                142,
+                45
+              ],
+              "tex": "\\frac{\\sqrt3}{4}\\int_0^1(\\sqrt{x}-x^2)^2\\,dx"
+            },
+            {
+              "box": [
+                112,
+                660,
+                142,
+                37
+              ],
+              "tex": "V=\\frac{9\\sqrt3}{280}"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M155.50 588.00L208.50 588.00L182.00 542.10Z",
+              "stroke": "#125b98",
+              "stroke-width": 1.5,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "#125b98",
+              "fill-opacity": 0.12
+            },
+            {
+              "type": "path",
+              "d": "M182.00 588.00L182.00 542.10",
+              "stroke": "#85458a",
+              "stroke-width": 1,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none",
+              "stroke-dasharray": "2 2"
+            }
+          ]
+        },
+        {
+          "label": "b · 等腰直角三角形",
+          "answer": "两条直角边均为 \\(s\\)，所以 \\(V=\\tfrac12 J=9/140\\)。",
+          "loc": [
+            262,
+            537,
+            142,
+            173
+          ],
+          "ink": [
+            {
+              "box": [
+                261,
+                604,
+                142,
+                45
+              ],
+              "tex": "\\frac12\\int_0^1(\\sqrt{x}-x^2)^2\\,dx"
+            },
+            {
+              "box": [
+                261,
+                660,
+                142,
+                37
+              ],
+              "tex": "V=\\frac9{140}"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M310.00 588.00L356.00 588.00L310.00 542.00Z",
+              "stroke": "#125b98",
+              "stroke-width": 1.5,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "#125b98",
+              "fill-opacity": 0.12
+            },
+            {
+              "type": "path",
+              "d": "M310.00 583.00L315.00 583.00L315.00 588.00",
+              "stroke": "#85458a",
+              "stroke-width": 1,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            }
+          ]
+        },
+        {
+          "label": "c · 半圆",
+          "answer": "直径为 \\(s\\)，半径为 \\(s/2\\)，故 \\(V=\\tfrac{\\pi}{8}J=9\\pi/560\\)。",
+          "loc": [
+            410,
+            537,
+            142,
+            173
+          ],
+          "ink": [
+            {
+              "box": [
+                410,
+                604,
+                142,
+                45
+              ],
+              "tex": "\\frac{\\pi}{8}\\int_0^1(\\sqrt{x}-x^2)^2\\,dx"
+            },
+            {
+              "box": [
+                410,
+                660,
+                142,
+                37
+              ],
+              "tex": "V=\\frac{9\\pi}{560}"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M508.00 584.00L507.92 581.96L507.68 579.93L507.28 577.93L506.73 575.97L506.02 574.05L505.17 572.20L504.17 570.42L503.03 568.72L501.77 567.11L500.38 565.62L498.89 564.23L497.28 562.97L495.58 561.83L493.80 560.83L491.95 559.98L490.03 559.27L488.07 558.72L486.07 558.32L484.04 558.08L482.00 558.00L479.96 558.08L477.93 558.32L475.93 558.72L473.97 559.27L472.05 559.98L470.20 560.83L468.42 561.83L466.72 562.97L465.11 564.23L463.62 565.62L462.23 567.11L460.97 568.72L459.83 570.42L458.83 572.20L457.98 574.05L457.27 575.97L456.72 577.93L456.32 579.93L456.08 581.96L456.00 584.00Z",
+              "stroke": "#125b98",
+              "stroke-width": 1.4,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "#125b98",
+              "fill-opacity": 0.12
+            },
+            {
+              "type": "circle",
+              "cx": 482,
+              "cy": 584,
+              "r": 1.5,
+              "fill": "#125b98"
+            },
+            {
+              "type": "path",
+              "d": "M482.00 584.00L508.00 584.00",
+              "stroke": "#85458a",
+              "stroke-width": 1.6,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            }
+          ]
+        }
+      ],
+      "context": [
+        106,
+        102,
+        452,
+        84
+      ],
+      "time": 315,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

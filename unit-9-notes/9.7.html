@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>9.7 · Defining Polar Coordinates and Differentiating in Polar Form · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 9</a>
+    <span class="topic" lang="en">9.7 · Defining Polar Coordinates and Differentiating in Polar Form</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=66-wUer6cm8" href="https://www.youtube.com/watch?v=66-wUer6cm8" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-9/9.7/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/97-defining-polar-coordinates-and-differentiating-in-polar-form.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 9.7 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="9.7-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 9.7 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-9/9.7/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "9.7",
+  "pages": {
+    "1": 792,
+    "2": 382
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Polar coordinates · 有向半径和极角",
+      "box": [
+        105,
+        82,
+        454,
+        131
+      ],
+      "items": [
+        {
+          "label": "标出极角与极径",
+          "answer": "从正 \\(x\\) 轴逆时针旋转 \\(\\theta\\)。若 \\(r>0\\)，沿该方向取长度 \\(r\\)；若 \\(r\u003c0\\)，沿相反方向取长度 \\(|r|\\)。",
+          "loc": [
+            427,
+            88,
+            123,
+            99
+          ],
+          "ink": [
+            {
+              "box": [
+                460,
+                123,
+                18,
+                17
+              ],
+              "tex": "r"
+            },
+            {
+              "box": [
+                455,
+                148,
+                18,
+                15
+              ],
+              "tex": "\\theta"
+            },
+            {
+              "box": [
+                505,
+                105,
+                38,
+                15
+              ],
+              "tex": "P(r,\\theta)"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M431.50 174.00 L501.00 117.00",
+              "fill": "none",
+              "stroke": "#1c5594",
+              "stroke-width": 1.1,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 501,
+              "cy": 117,
+              "r": 2,
+              "fill": "#1c5594"
+            },
+            {
+              "type": "path",
+              "d": "M455.50 174.00 L455.44 172.37 L455.28 170.75 L455.00 169.14 L454.62 167.55 L454.13 166.00 L453.53 164.48 L452.83 163.00 L452.04 161.58 L451.14 160.21 L450.16 158.91",
+              "fill": "none",
+              "stroke": "#1c5594",
+              "stroke-width": 1.1,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        }
+      ],
+      "time": 40,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Polar ↔ Rectangular · 坐标换算",
+      "box": [
+        106,
+        216,
+        454,
+        94
+      ],
+      "items": [
+        {
+          "label": "极坐标 → 直角坐标",
+          "answer": "把有向半径投影到两轴，得到 \\(x=r\\cos\\theta\\)、\\(y=r\\sin\\theta\\)。",
+          "loc": [
+            181,
+            250,
+            90,
+            52
+          ],
+          "masks": [
+            [
+              181,
+              250,
+              90,
+              52
+            ]
+          ]
+        },
+        {
+          "label": "直角坐标 → 极坐标",
+          "answer": "由 \\(r^2=x^2+y^2\\) 得到半径的大小。若 \\(x\\ne0\\)，有 \\(\\tan\\theta=y/x\\)。选择 \\(r>0\\) 时，要用原点到 \\((x,y)\\) 的方向来确定象限。",
+          "loc": [
+            400,
+            247,
+            96,
+            59
+          ],
+          "masks": [
+            [
+              400,
+              247,
+              96,
+              59
+            ]
+          ]
+        }
+      ],
+      "time": 285,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1–3 · 极坐标方程化为直角坐标方程",
+      "box": [
+        106,
+        373,
+        453,
+        193
+      ],
+      "items": [
+        {
+          "label": "1 · 竖直直线",
+          "answer": "直接用 \\(x=r\\cos\\theta\\)，即 \\(x=-4\\)。",
+          "loc": [
+            111,
+            425,
+            142,
+            36
+          ],
+          "ink": [
+            {
+              "box": [
+                112,
+                425,
+                140,
+                36
+              ],
+              "tex": "x=-4"
+            },
+            {
+              "box": [
+                152,
+                539,
+                24,
+                15
+              ],
+              "tex": "-4"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M154.00 538.00 L225.00 538.00",
+              "fill": "none",
+              "stroke": "#516471",
+              "stroke-width": 0.65,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M201.00 550.00 L201.00 473.00",
+              "fill": "none",
+              "stroke": "#516471",
+              "stroke-width": 0.65,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M167.00 545.00 L167.00 477.00",
+              "fill": "none",
+              "stroke": "#1c5594",
+              "stroke-width": 1.4,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 167,
+              "cy": 538,
+              "r": 1.4,
+              "fill": "#1c5594"
+            }
+          ]
+        },
+        {
+          "label": "2 · 圆",
+          "answer": "\\(4x=x^2+y^2\\)。配方得到 \\((x-2)^2+y^2=4\\)，圆心为 \\((2,0)\\)，半径为 \\(2\\)。",
+          "loc": [
+            260,
+            424,
+            145,
+            71
+          ],
+          "ink": [
+            {
+              "box": [
+                260,
+                421,
+                145,
+                31
+              ],
+              "tex": "4x=x^2+y^2"
+            },
+            {
+              "box": [
+                260,
+                460,
+                145,
+                30
+              ],
+              "tex": "(x-2)^2+y^2=4"
+            }
+          ]
+        },
+        {
+          "label": "3 · 斜直线",
+          "answer": "清除分母得到 \\(2r\\cos\\theta-r\\sin\\theta=4\\)，所以 \\(2x-y=4\\)，即 \\(y=2x-4\\)。",
+          "loc": [
+            410,
+            420,
+            145,
+            73
+          ],
+          "ink": [
+            {
+              "box": [
+                410,
+                421,
+                143,
+                31
+              ],
+              "tex": "2x-y=4"
+            },
+            {
+              "box": [
+                410,
+                460,
+                143,
+                30
+              ],
+              "tex": "y=2x-4"
+            }
+          ]
+        }
+      ],
+      "time": 325,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "Polar slope · 极坐标切线斜率",
+      "box": [
+        101,
+        591,
+        460,
+        144
+      ],
+      "items": [
+        {
+          "label": "斜率公式",
+          "answer": "若 \\(r=f(\\theta)\\) 且 \\(x^{\\prime}(\\theta)\\ne0\\)，则 \\(\\displaystyle\\frac{dy}{dx}=\\frac{f^{\\prime}(\\theta)\\sin\\theta+f(\\theta)\\cos\\theta}{f^{\\prime}(\\theta)\\cos\\theta-f(\\theta)\\sin\\theta}\\)。",
+          "loc": [
+            187,
+            672,
+            185,
+            53
+          ],
+          "ink": "\\displaystyle\\frac{y^{\\prime}(\\theta)}{x^{\\prime}(\\theta)}=\\frac{f^{\\prime}(\\theta)\\sin\\theta+f(\\theta)\\cos\\theta}{f^{\\prime}(\\theta)\\cos\\theta-f(\\theta)\\sin\\theta}"
+        }
+      ],
+      "time": 535,
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "4 · 指定极角处的切线斜率",
+      "box": [
+        105,
+        34,
+        451,
+        146
+      ],
+      "items": [
+        {
+          "label": "半径与参数导数",
+          "answer": "\\(r=1+2\\sin\\theta\\)，故 \\(r(0)=1\\)、\\(r^{\\prime}(0)=2\\)。于是 \\(x^{\\prime}(0)=2\\)，\\(y^{\\prime}(0)=1\\)。",
+          "loc": [
+            115,
+            70,
+            425,
+            42
+          ],
+          "ink": "r(0)=1,\\quad r^{\\prime}(0)=2,\\quad x^{\\prime}(0)=2,\\quad y^{\\prime}(0)=1"
+        },
+        {
+          "label": "切线斜率",
+          "answer": "\\(\\displaystyle\\left.\\frac{dy}{dx}\\right|_{\\theta=0}=\\frac{1}{2}\\)，切点为 \\((1,0)\\)。",
+          "loc": [
+            115,
+            117,
+            425,
+            45
+          ],
+          "ink": "\\displaystyle\\left.\\frac{dy}{dx}\\right|_{\\theta=0}=\\frac12"
+        }
+      ],
+      "time": 690,
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "5 · 水平切线、竖直切线与尖点",
+      "box": [
+        105,
+        186,
+        453,
+        181
+      ],
+      "items": [
+        {
+          "label": "水平切线",
+          "answer": "令 \\(y^{\\prime}=0\\) 且 \\(x^{\\prime}\\ne0\\)，得到 \\(\\theta=\\pi/6,\\,5\\pi/6,\\,3\\pi/2\\)。",
+          "loc": [
+            112,
+            223,
+            298,
+            34
+          ],
+          "ink": "\\text{H: }\\theta=\\tfrac{\\pi}{6},\\;\\tfrac{5\\pi}{6},\\;\\tfrac{3\\pi}{2}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M495.74 238.90 L509.74 238.90",
+              "fill": "none",
+              "stroke": "#1c5594",
+              "stroke-width": 1.1,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 502.74108521228277,
+              "cy": 238.9,
+              "r": 1.5,
+              "fill": "#1c5594"
+            },
+            {
+              "type": "path",
+              "d": "M462.66 238.90 L476.66 238.90",
+              "fill": "none",
+              "stroke": "#1c5594",
+              "stroke-width": 1.1,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 469.6589147877172,
+              "cy": 238.9,
+              "r": 1.5,
+              "fill": "#1c5594"
+            },
+            {
+              "type": "path",
+              "d": "M479.20 320.80 L493.20 320.80",
+              "fill": "none",
+              "stroke": "#1c5594",
+              "stroke-width": 1.1,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 486.2,
+              "cy": 320.8,
+              "r": 1.5,
+              "fill": "#1c5594"
+            }
+          ]
+        },
+        {
+          "label": "普通竖直切线",
+          "answer": "\\(x^{\\prime}=0\\) 且 \\(y^{\\prime}\\ne0\\) 时，\\(\\sin\\theta=-\\tfrac12\\)，所以 \\(\\theta=7\\pi/6,\\,11\\pi/6\\)。",
+          "loc": [
+            112,
+            267,
+            298,
+            32
+          ],
+          "ink": "\\text{V: }\\theta=\\tfrac{7\\pi}{6},\\;\\tfrac{11\\pi}{6}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M436.58 267.30 L436.58 283.30",
+              "fill": "none",
+              "stroke": "#1c5594",
+              "stroke-width": 1.1,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 436.57674436315165,
+              "cy": 275.29999999999995,
+              "r": 1.5,
+              "fill": "#1c5594"
+            },
+            {
+              "type": "path",
+              "d": "M535.82 267.30 L535.82 283.30",
+              "fill": "none",
+              "stroke": "#1c5594",
+              "stroke-width": 1.1,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 535.8232556368483,
+              "cy": 275.3,
+              "r": 1.5,
+              "fill": "#1c5594"
+            }
+          ]
+        },
+        {
+          "label": "极点处的竖直切线",
+          "answer": "\\(\\theta=\\pi/2\\) 时 \\(r=0\\)，两个参数导数同时为零。过极点与曲线上邻点的割线满足 \\(x/y=\\cot\\theta\\to0\\)，故尖点的切线是 \\(x=0\\)。",
+          "loc": [
+            111,
+            307,
+            299,
+            36
+          ],
+          "ink": "\\theta=\\tfrac{\\pi}{2}:\\quad x=0",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M486.20 240.00 L486.20 256.00",
+              "fill": "none",
+              "stroke": "#1c5594",
+              "stroke-width": 1.1,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 486.2,
+              "cy": 248,
+              "r": 1.5,
+              "fill": "#1c5594"
+            }
+          ]
+        }
+      ],
+      "time": 890,
+      "slide": 6
+    }
+  ]
+}</script>
+</body></html>

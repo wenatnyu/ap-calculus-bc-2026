@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>8.6 · Finding the Area Between Curves That Intersect at More Than Two Points · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 8</a>
+    <span class="topic" lang="en">8.6 · Finding the Area Between Curves That Intersect at More Than Two Points</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=Jc_vGvs_ksE" href="https://www.youtube.com/watch?v=Jc_vGvs_ksE" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-8/8.6/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/86-finding-the-area-between-curves-that-intersect-at-more-than-two-points.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 8.6 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="8.6-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 8.6 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-8/8.6/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "8.6",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1a · Locate and label three intersections",
+      "box": [
+        106,
+        93,
+        452,
+        231
+      ],
+      "items": [
+        {
+          "label": "1a · A",
+          "loc": [
+            187,
+            240,
+            73,
+            25
+          ],
+          "ink": [
+            {
+              "box": [
+                189,
+                239,
+                60,
+                27
+              ],
+              "tex": "-2"
+            },
+            {
+              "box": [
+                394,
+                256,
+                16,
+                15
+              ],
+              "tex": "A"
+            }
+          ],
+          "answer": "\\(f-g=3x^3-12x=3x(x-2)(x+2)\\)。最左交点横坐标 \\(A=-2\\)，点在 \\((-2,-8)\\)。",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 413.6,
+              "cy": 259.9,
+              "r": 2.1,
+              "fill": "#175e96"
+            }
+          ]
+        },
+        {
+          "label": "1a · B",
+          "loc": [
+            187,
+            268,
+            73,
+            25
+          ],
+          "ink": [
+            {
+              "box": [
+                189,
+                269,
+                60,
+                25
+              ],
+              "tex": "0"
+            },
+            {
+              "box": [
+                440,
+                175,
+                14,
+                14
+              ],
+              "tex": "B"
+            }
+          ],
+          "answer": "中间的解为 \\(B=0\\)，对应原点 \\((0,0)\\)。",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 461.6,
+              "cy": 196.3,
+              "r": 2.1,
+              "fill": "#175e96"
+            }
+          ]
+        },
+        {
+          "label": "1a · C",
+          "loc": [
+            187,
+            296,
+            73,
+            26
+          ],
+          "ink": [
+            {
+              "box": [
+                189,
+                296,
+                60,
+                26
+              ],
+              "tex": "2"
+            },
+            {
+              "box": [
+                513,
+                177,
+                15,
+                16
+              ],
+              "tex": "C"
+            }
+          ],
+          "answer": "最右交点横坐标 \\(C=2\\)；代入 \\(g(x)\\) 得点 \\((2,0)\\)。",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 509.6,
+              "cy": 196.3,
+              "r": 2.1,
+              "fill": "#175e96"
+            }
+          ]
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1b · Sum before and after the crossover",
+      "box": [
+        106,
+        326,
+        451,
+        77
+      ],
+      "items": [
+        {
+          "label": "1b · 两段积分",
+          "loc": [
+            124,
+            351,
+            413,
+            37
+          ],
+          "ink": "A=\\int_{-2}^0(3x^3-12x)\\,dx+\\int_0^2(12x-3x^3)\\,dx",
+          "answer": "在 \\((-2,0)\\) 上 \\(f>g\\)，在 \\((0,2)\\) 上 \\(g>f\\)，两块面积分别为 \\(12\\)，总计 \\(24\\)。"
+        }
+      ],
+      "context": [
+        388,
+        136,
+        170,
+        139
+      ],
+      "time": 125,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1b · Absolute-value alternative",
+      "box": [
+        106,
+        409,
+        451,
+        97
+      ],
+      "items": [
+        {
+          "label": "1b · 绝对值形式",
+          "loc": [
+            124,
+            438,
+            415,
+            45
+          ],
+          "ink": "A=\\int_{-2}^2|f(x)-g(x)|\\,dx=\\int_{-2}^2|3x^3-12x|\\,dx",
+          "answer": "绝对值将负差翻为正差，因此 \\(\\int_{-2}^2|3x^3-12x|\\,dx=24\\)。"
+        }
+      ],
+      "context": [
+        388,
+        136,
+        170,
+        139
+      ],
+      "time": 275,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "2 · Three shaded regions",
+      "box": [
+        106,
+        529,
+        452,
+        203
+      ],
+      "items": [
+        {
+          "label": "2 · 分界点",
+          "loc": [
+            126,
+            582,
+            250,
+            35
+          ],
+          "ink": "2-\\tfrac12x^2=1\\ \\Longrightarrow\\ x=\\pm\\sqrt2",
+          "answer": "联立得到两个分界点 \\(x=\\pm\\sqrt2\\)。在其间抛物线在上，在两端直线在上。",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 426.02,
+              "cy": 601.1,
+              "r": 2.1,
+              "fill": "#175e96"
+            },
+            {
+              "type": "circle",
+              "cx": 513.98,
+              "cy": 601.1,
+              "r": 2.1,
+              "fill": "#175e96"
+            }
+          ]
+        },
+        {
+          "label": "2 · 三段面积",
+          "loc": [
+            121,
+            670,
+            426,
+            57
+          ],
+          "ink": [
+            {
+              "box": [
+                121,
+                667,
+                426,
+                25
+              ],
+              "tex": "A=\\int_{-2}^{-\\sqrt2}\\!(x^2/2-1)\\,dx+\\int_{-\\sqrt2}^{\\sqrt2}\\!(1-x^2/2)\\,dx"
+            },
+            {
+              "box": [
+                121,
+                699,
+                426,
+                25
+              ],
+              "tex": "{}+\\int_{\\sqrt2}^2\\!(x^2/2-1)\\,dx"
+            }
+          ],
+          "answer": "由对称性也可写为 \\(2\\int_0^{\\sqrt2}(1-x^2/2)\\,dx+2\\int_{\\sqrt2}^2(x^2/2-1)\\,dx\\)。若求值，面积为 \\((8\\sqrt2-4)/3\\)。"
+        }
+      ],
+      "time": 325,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

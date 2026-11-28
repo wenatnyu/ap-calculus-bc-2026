@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>8.12 · Volume with Washer Method: Revolving Around Other Axes · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 8</a>
+    <span class="topic" lang="en">8.12 · Volume with Washer Method: Revolving Around Other Axes</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=-syuzvTJV4o" href="https://www.youtube.com/watch?v=-syuzvTJV4o" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-8/8.12/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/812-volume-with-washer-method-revolving-around-other-axes.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 8.12 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="8.12-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 8.12 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-8/8.12/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "8.12",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "复习 · 圆环法",
+      "box": [
+        106,
+        116,
+        451,
+        74
+      ],
+      "items": [
+        {
+          "label": "圆环的体积",
+          "answer": "对水平轴，\\(V=\\pi\\int_a^b(R(x)^2-r(x)^2)\\,dx\\)。对竖直轴，把半径与范围都用 \\(y\\) 表示，积分微元相应改为 \\(dy\\)。",
+          "loc": [
+            301,
+            142,
+            138,
+            40
+          ],
+          "ink": "\\bigl(R(x)^2-r(x)^2\\bigr)\\,dx",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M493 160a17 17 0 1 0 34 0a17 17 0 1 0 -34 0Z M502 160a8 8 0 1 0 16 0a8 8 0 1 0 -16 0Z",
+              "fill": "#125b98",
+              "fill-opacity": 0.2,
+              "fill-rule": "evenodd",
+              "stroke": "#125b98",
+              "stroke-width": 1
+            }
+          ]
+        }
+      ],
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · 原区域绕 y = 2",
+      "box": [
+        105,
+        206,
+        454,
+        240
+      ],
+      "items": [
+        {
+          "label": "1 · 标出旋转轴与半径",
+          "answer": "两曲线仍在 \\(x=0,1\\) 相交。旋转轴为 \\(y=2\\)（虚线），外半径为 \\(R=2-x^2\\)（蓝色），内半径为 \\(r=2-\\sqrt{x}\\)（紫色）。",
+          "loc": [
+            116,
+            254,
+            285,
+            57
+          ],
+          "ink": [
+            {
+              "box": [
+                116,
+                248,
+                286,
+                28
+              ],
+              "tex": "0\\le x\\le1"
+            },
+            {
+              "box": [
+                116,
+                281,
+                286,
+                34
+              ],
+              "tex": "R=2-x^2,\\qquad r=2-\\sqrt{x}"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M413.71 331.45L554.68 331.45",
+              "stroke": "#85458a",
+              "stroke-width": 1.25,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none",
+              "stroke-dasharray": "4 2"
+            },
+            {
+              "type": "path",
+              "d": "M447.75 407.35L448.80 401.19L449.86 398.64L450.91 396.69L451.97 395.04L453.02 393.58L454.07 392.27L455.13 391.06L456.18 389.94L457.24 388.88L458.29 387.88L459.34 386.93L460.40 386.02L461.45 385.15L462.51 384.32L463.56 383.51L464.61 382.72L465.67 381.97L466.72 381.23L467.77 380.52L468.83 379.82L469.88 379.14L470.94 378.47L471.99 377.83L473.04 377.19L474.10 376.57L475.15 375.96L476.21 375.36L477.26 374.77L478.31 374.20L479.37 373.63L480.42 373.07L481.48 372.52L482.53 371.98L483.58 371.45L484.64 370.93L485.69 370.41L486.75 369.90L487.80 369.40L487.80 369.40L486.75 371.37L485.69 373.29L484.64 375.16L483.58 376.97L482.53 378.73L481.48 380.44L480.42 382.09L479.37 383.70L478.31 385.25L477.26 386.75L476.21 388.19L475.15 389.58L474.10 390.92L473.04 392.21L471.99 393.45L470.94 394.63L469.88 395.76L468.83 396.84L467.77 397.86L466.72 398.83L465.67 399.75L464.61 400.62L463.56 401.44L462.51 402.20L461.45 402.91L460.40 403.57L459.34 404.17L458.29 404.72L457.24 405.22L456.18 405.67L455.13 406.06L454.07 406.40L453.02 406.69L451.97 406.93L450.91 407.11L449.86 407.24L448.80 407.32L447.75 407.35Z",
+              "stroke": "#147556",
+              "stroke-width": 0.7,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "#147556",
+              "fill-opacity": 0.18
+            },
+            {
+              "type": "path",
+              "d": "M467.37 331.45L467.37 398.24",
+              "stroke": "#125b98",
+              "stroke-width": 1.8,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            },
+            {
+              "type": "path",
+              "d": "M471.38 331.45L471.38 378.20",
+              "stroke": "#85458a",
+              "stroke-width": 1.8,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            }
+          ]
+        },
+        {
+          "label": "1 · 积分与体积",
+          "answer": "\\(V=\\pi\\int_0^1[(2-x^2)^2-(2-\\sqrt{x})^2]\\,dx\\)。展开得 \\(\\pi\\int_0^1(x^4-4x^2-x+4\\sqrt{x})\\,dx=\\pi(1/5-4/3-1/2+8/3)=31\\pi/30\\)。",
+          "loc": [
+            114,
+            326,
+            291,
+            94
+          ],
+          "ink": [
+            {
+              "box": [
+                115,
+                326,
+                288,
+                40
+              ],
+              "tex": "V=\\pi\\int_0^1\\!\\big[(2-x^2)^2-(2-\\sqrt{x})^2\\big]\\,dx"
+            },
+            {
+              "box": [
+                116,
+                375,
+                286,
+                40
+              ],
+              "tex": "V=\\frac{31\\pi}{30}"
+            }
+          ]
+        }
+      ],
+      "time": 50,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · 原区域绕 x = −1",
+      "box": [
+        105,
+        483,
+        453,
+        178
+      ],
+      "items": [
+        {
+          "label": "2 · 标出旋转轴与半径",
+          "answer": "由 \\(x^2+1=2x+1\\) 得高度范围 \\(1\\le y\\le5\\)。旋转轴为 \\(x=-1\\)，外半径 \\(R=1+\\sqrt{y-1}\\)，内半径 \\(r=1+(y-1)/2\\)。",
+          "loc": [
+            111,
+            522,
+            288,
+            46
+          ],
+          "ink": "R=1+\\sqrt{y-1},\\qquad r=1+\\frac{y-1}{2}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M479.70 615.59L479.70 487.25",
+              "stroke": "#85458a",
+              "stroke-width": 1.25,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none",
+              "stroke-dasharray": "4 2"
+            },
+            {
+              "type": "path",
+              "d": "M499.90 584.90L506.45 582.94L509.17 580.98L511.25 579.03L513.01 577.07L514.55 575.11L515.95 573.15L517.24 571.19L518.44 569.24L519.56 567.28L520.62 565.32L521.64 563.36L522.60 561.41L523.53 559.45L524.42 557.49L525.28 555.53L526.11 553.57L526.92 551.62L527.71 549.66L528.47 547.70L529.21 545.74L529.93 543.78L530.64 541.83L531.33 539.87L532.01 537.91L532.67 535.95L533.32 533.99L533.95 532.04L534.58 530.08L535.19 528.12L535.80 526.16L536.39 524.21L536.97 522.25L537.55 520.29L538.11 518.33L538.67 516.37L539.22 514.42L539.76 512.46L540.30 510.50L540.30 510.50L539.24 512.46L538.17 514.42L537.11 516.37L536.05 518.33L534.98 520.29L533.92 522.25L532.86 524.21L531.79 526.16L530.73 528.12L529.67 530.08L528.61 532.04L527.54 533.99L526.48 535.95L525.42 537.91L524.35 539.87L523.29 541.83L522.23 543.78L521.16 545.74L520.10 547.70L519.04 549.66L517.97 551.62L516.91 553.57L515.85 555.53L514.78 557.49L513.72 559.45L512.66 561.41L511.59 563.36L510.53 565.32L509.47 567.28L508.41 569.24L507.34 571.19L506.28 573.15L505.22 575.11L504.15 577.07L503.09 579.03L502.03 580.98L500.96 582.94L499.90 584.90Z",
+              "stroke": "#147556",
+              "stroke-width": 0.7,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "#147556",
+              "fill-opacity": 0.18
+            },
+            {
+              "type": "path",
+              "d": "M479.70 555.14L525.45 555.14",
+              "stroke": "#125b98",
+              "stroke-width": 1.8,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            },
+            {
+              "type": "path",
+              "d": "M479.70 548.82L519.49 548.82",
+              "stroke": "#85458a",
+              "stroke-width": 1.8,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            }
+          ]
+        },
+        {
+          "label": "2 · 积分与体积",
+          "answer": "令 \\(u=y-1\\)，则 \\(0\\le u\\le4\\)。圆环面积为 \\(\\pi[(1+\\sqrt u)^2-(1+u/2)^2]=\\pi(2\\sqrt u-u^2/4)\\)。积分得 \\(V=\\pi[4u^{3/2}/3-u^3/12]_0^4=16\\pi/3\\)。",
+          "loc": [
+            111,
+            571,
+            288,
+            80
+          ],
+          "ink": [
+            {
+              "box": [
+                112,
+                568,
+                289,
+                42
+              ],
+              "tex": "V=\\pi\\int_0^4\\left(2\\sqrt u-\\frac{u^2}{4}\\right)du"
+            },
+            {
+              "box": [
+                112,
+                615,
+                289,
+                33
+              ],
+              "tex": "V=\\frac{16\\pi}{3}"
+            }
+          ]
+        }
+      ],
+      "time": 370,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "课末复习 · 怎样选择体积模型",
+      "box": [
+        106,
+        663,
+        450,
+        83
+      ],
+      "items": [
+        {
+          "label": "复习 · 检查截面与半径",
+          "answer": "已知截面形状时，由其尺寸求 \\(A\\)。旋转体取垂直旋转轴的切片。切片碰到轴时内半径为 \\(0\\)，不碰到轴时要减去孔的面积。用 \\(R\\ge r\\ge0\\) 和积分变量检查列式。",
+          "loc": [
+            119,
+            697,
+            425,
+            42
+          ],
+          "ink": "V=\\int_a^b A(x)\\,dx,\\qquad A_{\\mathrm{washer}}=\\pi(R^2-r^2)"
+        }
+      ],
+      "time": 680,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

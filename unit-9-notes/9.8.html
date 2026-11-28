@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>9.8 · Find the Area of a Polar Region or the Area Bounded by a Single Polar Curve · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 9</a>
+    <span class="topic" lang="en">9.8 · Find the Area of a Polar Region or the Area Bounded by a Single Polar Curve</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=iPCbEOCPjIc" href="https://www.youtube.com/watch?v=iPCbEOCPjIc" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-9/9.8/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/98-find-the-area-of-a-polar-region-or-the-area-bounded-by-a-single-polar-curve.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 9.8 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="9.8-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 9.8 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-9/9.8/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "9.8",
+  "pages": {
+    "1": 792,
+    "2": 400
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Sector area · 从扇形到面积和",
+      "box": [
+        105,
+        89,
+        450,
+        182
+      ],
+      "items": [
+        {
+          "label": "扇形面积",
+          "answer": "圆心角用弧度表示时，扇形面积为 \\(\\frac12\\theta r^2\\)。",
+          "loc": [
+            416,
+            90,
+            54,
+            29
+          ],
+          "ink": "\\tfrac12\\theta r^2"
+        },
+        {
+          "label": "半径与圆心角",
+          "answer": "第 \\(i\\) 片的近似半径是 \\(f(\\theta_i)\\)，每片的圆心角为 \\(\\Delta\\theta=(\\beta-\\alpha)/n\\)。",
+          "loc": [
+            460,
+            185,
+            90,
+            45
+          ],
+          "ink": [
+            {
+              "box": [
+                480,
+                187,
+                56,
+                27
+              ],
+              "tex": "f(\\theta_i)"
+            },
+            {
+              "box": [
+                454,
+                211,
+                97,
+                22
+              ],
+              "tex": "\\Delta\\theta=\\tfrac{\\beta-\\alpha}{n}"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M132.00 238.00 L201.00 185.00",
+              "fill": "none",
+              "stroke": "#007a82",
+              "stroke-width": 0.85,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M132.00 238.00 L178.00 190.00",
+              "fill": "none",
+              "stroke": "#007a82",
+              "stroke-width": 0.85,
+              "fill-opacity": 1,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "面积和",
+          "answer": "相加 \\(n\\) 个窄扇形面积，得到 \\(\\displaystyle A\\approx\\frac12\\sum_{i=1}^{n} [f(\\theta_i)]^2\\Delta\\theta\\)。",
+          "loc": [
+            396,
+            230,
+            155,
+            37
+          ],
+          "ink": "\\displaystyle\\frac12\\sum_{i=1}^n[f(\\theta_i)]^2\\,\\Delta\\theta"
+        }
+      ],
+      "time": 23,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Polar area · 黎曼和的极限",
+      "box": [
+        101,
+        269,
+        457,
+        194
+      ],
+      "items": [
+        {
+          "label": "极限形式",
+          "answer": "\\(\\displaystyle A=\\lim_{n\\to\\infty}\\frac12\\sum_{i=1}^{n}[f(\\theta_i)]^2\\Delta\\theta\\)。",
+          "loc": [
+            292,
+            282,
+            125,
+            44
+          ],
+          "ink": "\\displaystyle\\lim_{n\\to\\infty}\\frac12\\sum_{i=1}^n [f(\\theta_i)]^2\\,\\Delta\\theta"
+        },
+        {
+          "label": "极坐标面积公式",
+          "answer": "\\(\\displaystyle A=\\frac12\\int_{\\alpha}^{\\beta}[f(\\theta)]^2\\,d\\theta\\)。本页的定理先取连续非负的半径，后面的内环例题会用到负半径描线。",
+          "loc": [
+            310,
+            400,
+            89,
+            52
+          ],
+          "ink": "\\displaystyle\\frac12\\int_{\\alpha}^{\\beta}r^2\\,d\\theta"
+        }
+      ],
+      "time": 207,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1 · 圆的描线区间与面积",
+      "box": [
+        104,
+        473,
+        449,
+        130
+      ],
+      "items": [
+        {
+          "label": "一次描线",
+          "answer": "\\(r=5\\sin\\theta\\) 在 \\(0\\) 与 \\(\\pi\\) 为零。\\(\\theta\\) 从 \\(0\\) 到 \\(\\pi\\) 时，从极点出发经圆顶再回到极点，恰好绕圆一次。",
+          "loc": [
+            112,
+            522,
+            281,
+            31
+          ],
+          "ink": "0\\le\\theta\\le\\pi",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M454.30 574.40 L457.00 574.30 L459.68 574.00 L462.32 573.50 L464.92 572.80 L467.45 571.91 L469.91 570.83 L472.26 569.57 L474.51 568.15 L476.62 566.55 L478.61 564.81 L480.44 562.92 L482.11 560.90 L483.61 558.76 L484.93 556.52 L486.06 554.18 L486.99 551.77 L487.73 549.30 L488.25 546.77 L488.57 544.22 L488.68 541.65 L488.57 539.08 L488.25 536.53 L487.73 534.00 L486.99 531.53 L486.06 529.12 L484.93 526.78 L483.61 524.54 L482.11 522.40 L480.44 520.38 L478.61 518.49 L476.62 516.75 L474.51 515.15 L472.26 513.73 L469.91 512.47 L467.45 511.39 L464.92 510.50 L462.32 509.80 L459.68 509.30 L457.00 509.00 L454.30 508.90 L451.60 509.00 L448.92 509.30 L446.28 509.80 L443.68 510.50 L441.15 511.39 L438.69 512.47 L436.34 513.73 L434.09 515.15 L431.98 516.75 L429.99 518.49 L428.16 520.38 L426.49 522.40 L424.99 524.54 L423.67 526.78 L422.54 529.12 L421.61 531.53 L420.87 534.00 L420.35 536.53 L420.03 539.08 L419.93 541.65 L420.03 544.22 L420.35 546.77 L420.87 549.30 L421.61 551.77 L422.54 554.18 L423.67 556.52 L424.99 558.76 L426.49 560.90 L428.16 562.92 L429.99 564.81 L431.98 566.55 L434.09 568.15 L436.34 569.57 L438.69 570.83 L441.15 571.91 L443.68 572.80 L446.28 573.50 L448.92 574.00 L451.60 574.30 L454.30 574.40 Z",
+              "fill": "#007a82",
+              "stroke": "#007a82",
+              "stroke-width": 0.8,
+              "fill-opacity": 0.22,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "圆的面积",
+          "answer": "\\(\\displaystyle A=\\tfrac12\\int_0^\\pi25\\sin^2\\theta\\,d\\theta=\\tfrac{25\\pi}{4}\\)。这个圆的半径为 \\(5/2\\)。",
+          "loc": [
+            110,
+            552,
+            285,
+            44
+          ],
+          "ink": "\\displaystyle\\frac12\\int_0^\\pi 25\\sin^2\\theta\\,d\\theta=\\frac{25\\pi}{4}"
+        }
+      ],
+      "time": 290,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "2 · 图中阴影的上瓣",
+      "box": [
+        104,
+        605,
+        453,
+        132
+      ],
+      "items": [
+        {
+          "label": "积分区间",
+          "answer": "\\(r=0\\) 对应 \\(\\theta=k\\pi\\)。从 \\(0\\) 到 \\(\\pi\\)，点位于上半平面，且在 \\(\\theta=\\pi/2\\) 处达到 \\(r=2\\)。",
+          "loc": [
+            113,
+            629,
+            333,
+            34
+          ],
+          "ink": "0\\le\\theta\\le\\pi",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M505.70 677.20 L505.77 677.20 L505.96 677.18 L506.29 677.14 L506.73 677.05 L507.30 676.90 L507.97 676.69 L508.74 676.40 L509.59 676.02 L510.51 675.54 L511.49 674.96 L512.51 674.26 L513.56 673.46 L514.62 672.53 L515.66 671.49 L516.68 670.34 L517.66 669.08 L518.58 667.71 L519.43 666.24 L520.18 664.69 L520.83 663.06 L521.37 661.36 L521.77 659.61 L522.04 657.83 L522.17 656.02 L522.14 654.21 L521.96 652.41 L521.62 650.63 L521.13 648.91 L520.48 647.24 L519.68 645.66 L518.74 644.17 L517.66 642.79 L516.46 641.54 L515.15 640.42 L513.73 639.46 L512.23 638.66 L510.66 638.03 L509.04 637.57 L507.38 637.29 L505.70 637.20 L504.02 637.29 L502.36 637.57 L500.74 638.03 L499.17 638.66 L497.67 639.46 L496.25 640.42 L494.94 641.54 L493.74 642.79 L492.66 644.17 L491.72 645.66 L490.92 647.24 L490.27 648.91 L489.78 650.63 L489.44 652.41 L489.26 654.21 L489.23 656.02 L489.36 657.83 L489.63 659.61 L490.03 661.36 L490.57 663.06 L491.22 664.69 L491.97 666.24 L492.82 667.71 L493.74 669.08 L494.72 670.34 L495.74 671.49 L496.78 672.53 L497.84 673.46 L498.89 674.26 L499.91 674.96 L500.89 675.54 L501.81 676.02 L502.66 676.40 L503.43 676.69 L504.10 676.90 L504.67 677.05 L505.11 677.14 L505.44 677.18 L505.63 677.20 L505.70 677.20 Z",
+              "fill": "#007a82",
+              "stroke": "#007a82",
+              "stroke-width": 0.8,
+              "fill-opacity": 0.22,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "上瓣面积",
+          "answer": "\\(\\displaystyle A=\\frac12\\int_0^\\pi(1-\\cos 2\\theta)^2\\,d\\theta=\\frac{3\\pi}{4}\\approx2.356\\)。其中 \\(\\cos^2 2\\theta=(1+\\cos4\\theta)/2\\)。",
+          "loc": [
+            110,
+            671,
+            340,
+            50
+          ],
+          "ink": "\\displaystyle\\frac12\\int_0^\\pi(1-\\cos2\\theta)^2\\,d\\theta=\\frac{3\\pi}{4}"
+        }
+      ],
+      "time": 473,
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "3 · 蜗线的内环",
+      "box": [
+        104,
+        35,
+        453,
+        161
+      ],
+      "items": [
+        {
+          "label": "内环对应的角区间",
+          "answer": "\\(2\\cos\\theta+1=0\\) 给出 \\(\\theta=2\\pi/3,4\\pi/3\\)。在两者之间 \\(r\u003c0\\)，例如 \\(\\theta=\\pi\\) 时 \\(r=-1\\)，对应点 \\((1,0)\\)，位于右侧小环。",
+          "loc": [
+            112,
+            58,
+            255,
+            35
+          ],
+          "ink": "\\tfrac{2\\pi}{3}\\le\\theta\\le\\tfrac{4\\pi}{3}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M425.30 114.90 L425.96 115.92 L426.67 116.89 L427.41 117.81 L428.20 118.68 L429.02 119.49 L429.87 120.25 L430.75 120.95 L431.66 121.59 L432.59 122.17 L433.53 122.69 L434.49 123.15 L435.45 123.56 L436.43 123.90 L437.40 124.18 L438.38 124.40 L439.35 124.56 L440.31 124.67 L441.26 124.71 L442.20 124.70 L443.11 124.64 L444.01 124.52 L444.88 124.34 L445.72 124.12 L446.53 123.85 L447.31 123.53 L448.05 123.17 L448.75 122.76 L449.41 122.32 L450.02 121.83 L450.59 121.32 L451.11 120.77 L451.58 120.19 L452.00 119.59 L452.37 118.96 L452.68 118.31 L452.94 117.65 L453.14 116.97 L453.28 116.29 L453.37 115.60 L453.40 114.90 L453.37 114.20 L453.28 113.51 L453.14 112.83 L452.94 112.15 L452.68 111.49 L452.37 110.84 L452.00 110.21 L451.58 109.61 L451.11 109.03 L450.59 108.48 L450.02 107.97 L449.41 107.48 L448.75 107.04 L448.05 106.63 L447.31 106.27 L446.53 105.95 L445.72 105.68 L444.88 105.46 L444.01 105.28 L443.11 105.16 L442.20 105.10 L441.26 105.09 L440.31 105.13 L439.35 105.24 L438.38 105.40 L437.40 105.62 L436.43 105.90 L435.45 106.24 L434.49 106.65 L433.53 107.11 L432.59 107.63 L431.66 108.21 L430.75 108.85 L429.87 109.55 L429.02 110.31 L428.20 111.12 L427.41 111.99 L426.67 112.91 L425.96 113.88 L425.30 114.90 Z",
+              "fill": "#007a82",
+              "stroke": "#007a82",
+              "stroke-width": 0.8,
+              "fill-opacity": 0.22,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "内环面积",
+          "answer": "\\(\\displaystyle A=\\frac12\\int_{2\\pi/3}^{4\\pi/3}(1+2\\cos\\theta)^2\\,d\\theta\\)。展开后原函数为 \\(\\tfrac32\\theta+2\\sin\\theta+\\tfrac12\\sin 2\\theta\\)，代入得到 \\(\\pi-\\tfrac{3\\sqrt3}{2}\\approx0.544\\)。",
+          "loc": [
+            110,
+            100,
+            260,
+            84
+          ],
+          "ink": [
+            {
+              "box": [
+                110,
+                93,
+                258,
+                46
+              ],
+              "tex": "\\displaystyle A=\\frac12\\int_{2\\pi/3}^{4\\pi/3}(1+2\\cos\\theta)^2\\,d\\theta"
+            },
+            {
+              "box": [
+                110,
+                145,
+                256,
+                31
+              ],
+              "tex": "=\\pi-\\tfrac{3\\sqrt3}{2}\\approx0.544"
+            }
+          ]
+        }
+      ],
+      "time": 616,
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "4 · 玫瑰线的一片花瓣",
+      "box": [
+        104,
+        201,
+        453,
+        183
+      ],
+      "items": [
+        {
+          "label": "花瓣与边界",
+          "answer": "取相邻零点 \\(\\theta=\\pi/6,\\pi/2\\)。在中点 \\(\\theta=\\pi/3\\) 有 \\(r=-3\\)，因此描出视频中指向左下方的花瓣。",
+          "loc": [
+            111,
+            224,
+            291,
+            42
+          ],
+          "ink": "\\tfrac{\\pi}{6}\\le\\theta\\le\\tfrac{\\pi}{2}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M483.00 282.90 L480.88 284.10 L478.81 285.36 L476.77 286.66 L474.77 288.01 L472.83 289.40 L470.94 290.83 L469.10 292.30 L467.32 293.80 L465.61 295.33 L463.96 296.88 L462.39 298.45 L460.88 300.04 L459.45 301.65 L458.09 303.26 L456.81 304.88 L455.61 306.50 L454.50 308.11 L453.46 309.72 L452.51 311.32 L451.65 312.90 L450.87 314.46 L450.18 315.99 L449.58 317.50 L449.06 318.97 L448.63 320.41 L448.28 321.80 L448.02 323.15 L447.84 324.45 L447.75 325.69 L447.74 326.88 L447.80 328.00 L447.95 329.07 L448.17 330.06 L448.47 330.98 L448.84 331.83 L449.27 332.60 L449.77 333.29 L450.34 333.90 L450.97 334.42 L451.65 334.86 L452.39 335.21 L453.17 335.47 L454.01 335.63 L454.89 335.70 L455.80 335.68 L456.75 335.56 L457.74 335.34 L458.75 335.03 L459.78 334.62 L460.83 334.11 L461.90 333.51 L462.98 332.81 L464.07 332.01 L465.15 331.12 L466.24 330.14 L467.32 329.07 L468.40 327.90 L469.46 326.65 L470.50 325.31 L471.53 323.88 L472.52 322.37 L473.49 320.79 L474.43 319.13 L475.34 317.40 L476.20 315.59 L477.03 313.72 L477.81 311.79 L478.55 309.80 L479.23 307.76 L479.87 305.66 L480.45 303.52 L480.97 301.34 L481.44 299.12 L481.85 296.86 L482.20 294.58 L482.49 292.27 L482.71 289.95 L482.87 287.61 L482.97 285.26 L483.00 282.90 Z",
+              "fill": "#007a82",
+              "stroke": "#007a82",
+              "stroke-width": 0.8,
+              "fill-opacity": 0.22,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        },
+        {
+          "label": "一瓣面积",
+          "answer": "利用 \\(\\cos^2 3\\theta=(1+\\cos6\\theta)/2\\)，有 \\(\\displaystyle A=\\frac12\\int_{\\pi/6}^{\\pi/2}9\\cos^2(3\\theta)\\,d\\theta=\\frac{3\\pi}{4}\\)。",
+          "loc": [
+            110,
+            287,
+            291,
+            56
+          ],
+          "ink": "\\displaystyle\\frac12\\int_{\\pi/6}^{\\pi/2}9\\cos^2(3\\theta)\\,d\\theta=\\frac{3\\pi}{4}"
+        }
+      ],
+      "time": 715,
+      "slide": 6
+    }
+  ]
+}</script>
+</body></html>

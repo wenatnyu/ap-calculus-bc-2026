@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>9.2 · Second Derivatives of Parametric Equations · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 9</a>
+    <span class="topic" lang="en">9.2 · Second Derivatives of Parametric Equations</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=RhhMq_nsvgQ" href="https://www.youtube.com/watch?v=RhhMq_nsvgQ" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-9/9.2/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/92-second-derivatives-of-parametric-equations.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 9.2 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="9.2-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 9.2 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-9/9.2/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "9.2",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Second derivative of a parametric equation",
+      "box": [
+        102,
+        99,
+        456,
+        118
+      ],
+      "items": [
+        {
+          "label": "二阶导数公式",
+          "answer": "在 \\(x^{\\prime}(t)\\ne0\\) 时，\\(\\dfrac{d}{dx}=\\dfrac{1}{x^{\\prime}(t)}\\dfrac{d}{dt}\\)。将它作用在斜率 \\(\\dfrac{dy}{dx}\\) 上，就得到二阶导数。",
+          "loc": [
+            124,
+            143,
+            409,
+            60
+          ],
+          "ink": "\\displaystyle\\frac{d^2y}{dx^2}=\\frac{d}{dx}\\!\\left(\\frac{dy}{dx}\\right)=\\frac{\\dfrac{d}{dt}\\!\\left(\\dfrac{dy}{dx}\\right)}{dx/dt}"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · A square-root parametrization",
+      "box": [
+        107,
+        255,
+        225,
+        203
+      ],
+      "items": [
+        {
+          "label": "1 · 一阶导数",
+          "answer": "\\(x^{\\prime}(t)=\\dfrac{1}{2\\sqrt t}\\)，\\(y^{\\prime}(t)=t\\)，故 \\(\\dfrac{dy}{dx}=2t^{3/2}\\)（\\(t>0\\)）。",
+          "loc": [
+            113,
+            297,
+            212,
+            60
+          ],
+          "ink": "\\frac{dy}{dx}=\\frac{t}{1/(2\\sqrt t)}=2t^{3/2}"
+        },
+        {
+          "label": "1 · 二阶导数",
+          "answer": "斜率对 \\(t\\) 的导数为 \\(3\\sqrt t\\)。再除以 \\(x^{\\prime}(t)\\) 即得 \\(\\frac{d^2y}{dx^2}=6t\\)（\\(t>0\\)）。在端点 \\(t=0\\)，由 \\(y=x^4/2-1\\) 得右侧二阶导数为 \\(0\\)。",
+          "loc": [
+            113,
+            389,
+            212,
+            62
+          ],
+          "ink": "\\frac{d^2y}{dx^2}=\\frac{3\\sqrt t}{1/(2\\sqrt t)}=6t"
+        }
+      ],
+      "context": [
+        106,
+        229,
+        452,
+        27
+      ],
+      "time": 125,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · A trigonometric parametrization",
+      "box": [
+        334,
+        255,
+        222,
+        203
+      ],
+      "items": [
+        {
+          "label": "2 · 一阶导数",
+          "answer": "\\(x^{\\prime}(t)=-3\\sin t,\\ y^{\\prime}(t)=4\\cos t\\)，因此 \\(\\dfrac{dy}{dx}=-\\dfrac43\\cot t\\)，其中 \\(\\sin t\\ne0\\)。",
+          "loc": [
+            339,
+            298,
+            208,
+            60
+          ],
+          "ink": "\\frac{dy}{dx}=\\frac{4\\cos t}{-3\\sin t}=-\\frac43\\cot t"
+        },
+        {
+          "label": "2 · 二阶导数",
+          "answer": "\\(\\dfrac d{dt}(-\\frac43\\cot t)=\\frac43\\csc^2t\\)。除以 \\(-3\\sin t\\) 得 \\(\\dfrac{d^2y}{dx^2}=-\\dfrac{4}{9\\sin^3t}\\)。",
+          "loc": [
+            339,
+            390,
+            208,
+            62
+          ],
+          "ink": "\\frac{d^2y}{dx^2}=\\frac{(4/3)\\csc^2 t}{-3\\sin t}=-\\frac{4}{9\\sin^3 t}"
+        }
+      ],
+      "context": [
+        106,
+        229,
+        452,
+        27
+      ],
+      "time": 300,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3 · Concavity at t = 1",
+      "box": [
+        106,
+        539,
+        451,
+        192
+      ],
+      "items": [
+        {
+          "label": "3 · 写出斜率",
+          "answer": "\\(\\dfrac{dy}{dx}=\\dfrac{4t^3+1}{3t^2}=\\dfrac43t+\\dfrac{1}{3t^2}\\)。",
+          "loc": [
+            120,
+            573,
+            419,
+            37
+          ],
+          "ink": "\\frac{dy}{dx}=\\frac{4t^3+1}{3t^2}=\\frac43t+\\frac{1}{3t^2}"
+        },
+        {
+          "label": "3 · 判定凹向",
+          "answer": "\\(\\dfrac{d^2y}{dx^2}=\\dfrac{\\frac43-\\frac{2}{3t^3}}{3t^2}\\)，在 \\(t=1\\) 处等于 \\(\\frac29>0\\)，故曲线在此处凹向上。",
+          "loc": [
+            120,
+            641,
+            418,
+            48
+          ],
+          "ink": "\\left.\\frac{d^2y}{dx^2}\\right|_{t=1}=\\frac{4/3-2/3}{3}=\\frac29>0\\quad\\text{(concave up)}"
+        }
+      ],
+      "time": 450,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

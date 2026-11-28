@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>9.4 · Defining and Differentiating Vector-Valued Functions · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 9</a>
+    <span class="topic" lang="en">9.4 · Defining and Differentiating Vector-Valued Functions</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=iZyFv-eBWDc" href="https://www.youtube.com/watch?v=iZyFv-eBWDc" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-9/9.4/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/94-defining-and-differentiating-vector-valued-functions.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 9.4 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="9.4-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 9.4 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-9/9.4/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "9.4",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Vector basics · Magnitude and direction",
+      "box": [
+        106,
+        77,
+        452,
+        99
+      ],
+      "items": [
+        {
+          "label": "向量的方向与模",
+          "answer": "向量由方向与模长决定。两个方向和长度都相同的箭头表示相等的向量。分量形式为 \\(\\mathbf v=\\langle v_x,v_y\\rangle\\)。",
+          "loc": [
+            442,
+            90,
+            108,
+            76
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 457 135 L 496 111",
+              "fill": "none",
+              "stroke": "#1757a2",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M 493.00 115.66 L 496.00 111.00 L 490.48 111.58",
+              "fill": "none",
+              "stroke": "#1757a2",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M 489 153 L 528 129",
+              "fill": "none",
+              "stroke": "#1757a2",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M 525.00 133.66 L 528.00 129.00 L 522.48 129.58",
+              "fill": "none",
+              "stroke": "#1757a2",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Component form and magnitude",
+      "box": [
+        106,
+        175,
+        452,
+        79
+      ],
+      "items": [
+        {
+          "label": "1 · 分量形式",
+          "answer": "由初始点 \\((1,2)\\) 到终点 \\((5,4)\\)，水平位移为 \\(5-1=4\\)，竖直位移为 \\(4-2=2\\)。向量为 \\(\\langle4,2\\rangle\\)。",
+          "loc": [
+            262,
+            201,
+            115,
+            22
+          ],
+          "ink": "\\langle5-1,4-2\\rangle=\\langle4,2\\rangle",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 464 239 L 522 239 L 522 210",
+              "fill": "none",
+              "stroke": "#1757a2",
+              "stroke-width": 0.9,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              "stroke-dasharray": "3 2"
+            },
+            {
+              "type": "path",
+              "d": "M 464 239 L 522 210",
+              "fill": "none",
+              "stroke": "#1757a2",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M 518.60 214.38 L 522.00 210.00 L 516.45 210.09",
+              "fill": "none",
+              "stroke": "#1757a2",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 464,
+              "cy": 239,
+              "r": 1.6,
+              "fill": "#1757a2"
+            }
+          ]
+        },
+        {
+          "label": "1 · 向量的模",
+          "answer": "\\(\\|\\mathbf v\\|=\\sqrt{4^2+2^2}=\\sqrt{20}=2\\sqrt5\\)。",
+          "loc": [
+            234,
+            226,
+            125,
+            24
+          ],
+          "ink": "\\|\\mathbf v\\|=\\sqrt{4^2+2^2}=2\\sqrt5"
+        }
+      ],
+      "time": 175,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "Differentiation of vector-valued functions",
+      "box": [
+        103,
+        255,
+        455,
+        116
+      ],
+      "items": [
+        {
+          "label": "逐分量求导",
+          "answer": "当 \\(\\mathbf r(t)=\\langle f(t),g(t)\\rangle\\) 时，\\(\\mathbf r^{\\prime}(t)=\\langle f^{\\prime}(t),g^{\\prime}(t)\\rangle\\)。",
+          "loc": [
+            113,
+            328,
+            430,
+            33
+          ],
+          "ink": "\\mathbf r^{\\prime}(t)=\\langle f^{\\prime}(t),g^{\\prime}(t)\\rangle"
+        }
+      ],
+      "time": 375,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "Properties of vector derivatives",
+      "box": [
+        106,
+        375,
+        451,
+        79
+      ],
+      "items": [
+        {
+          "label": "常数倍法则",
+          "answer": "\\(c\\) 为常数时，\\(\\dfrac{d}{dt}[c\\mathbf r(t)]=c\\mathbf r^{\\prime}(t)\\)。",
+          "loc": [
+            216,
+            392,
+            44,
+            22
+          ],
+          "ink": "c\\,\\mathbf r^{\\prime}(t)",
+          "draw": [
+            {
+              "type": "rect",
+              "x": 216,
+              "y": 393,
+              "width": 44,
+              "height": 19,
+              "fill": "white"
+            }
+          ],
+          "masks": [
+            [
+              216,
+              393,
+              44,
+              19
+            ]
+          ]
+        },
+        {
+          "label": "点积的乘积法则",
+          "answer": "\\(\\dfrac d{dt}[\\mathbf r(t)\\cdot\\mathbf s(t)]=\\mathbf r^{\\prime}(t)\\cdot\\mathbf s(t)+\\mathbf r(t)\\cdot\\mathbf s^{\\prime}(t)\\)。点积的每一项都是标量。",
+          "loc": [
+            432,
+            393,
+            121,
+            21
+          ],
+          "ink": "\\mathbf r^{\\prime}(t)\\!\\cdot\\!\\mathbf s(t)+\\mathbf r(t)\\!\\cdot\\!\\mathbf s^{\\prime}(t)",
+          "draw": [
+            {
+              "type": "rect",
+              "x": 432,
+              "y": 394,
+              "width": 118,
+              "height": 19,
+              "fill": "white"
+            }
+          ],
+          "masks": [
+            [
+              432,
+              394,
+              118,
+              19
+            ]
+          ]
+        },
+        {
+          "label": "和差法则",
+          "answer": "\\(\\dfrac d{dt}[\\mathbf r(t)\\pm\\mathbf s(t)]=\\mathbf r^{\\prime}(t)\\pm\\mathbf s^{\\prime}(t)\\)。",
+          "loc": [
+            233,
+            426,
+            85,
+            23
+          ],
+          "ink": "\\mathbf r^{\\prime}(t)\\pm\\mathbf s^{\\prime}(t)",
+          "draw": [
+            {
+              "type": "rect",
+              "x": 234,
+              "y": 426,
+              "width": 85,
+              "height": 22,
+              "fill": "white"
+            }
+          ],
+          "masks": [
+            [
+              234,
+              426,
+              85,
+              22
+            ]
+          ]
+        },
+        {
+          "label": "复合函数的链式法则",
+          "answer": "内层 \\(s(t)\\) 为标量时，\\(\\dfrac d{dt}\\mathbf r(s(t))=\\mathbf r^{\\prime}(s(t))\\,s^{\\prime}(t)\\)，外层导数是向量，内层导数是标量。",
+          "loc": [
+            421,
+            426,
+            102,
+            23
+          ],
+          "ink": "\\mathbf r^{\\prime}(s(t))\\,s^{\\prime}(t)",
+          "draw": [
+            {
+              "type": "rect",
+              "x": 422,
+              "y": 426,
+              "width": 101,
+              "height": 21,
+              "fill": "white"
+            }
+          ],
+          "masks": [
+            [
+              422,
+              426,
+              101,
+              21
+            ]
+          ]
+        }
+      ],
+      "time": 400,
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "Derivatives · 1. Differentiate each component",
+      "box": [
+        106,
+        467,
+        225,
+        141
+      ],
+      "items": [
+        {
+          "label": "1 · 一阶导向量",
+          "answer": "\\((2t^2+4t+1)^{\\prime}=4t+4\\)，\\((3t^3-4t)^{\\prime}=9t^2-4\\)。于是 \\(\\mathbf r^{\\prime}(t)=\\langle4t+4,9t^2-4\\rangle\\)。",
+          "loc": [
+            166,
+            481,
+            85,
+            24
+          ],
+          "ink": "\\langle4t+4,9t^2-4\\rangle"
+        }
+      ],
+      "time": 425,
+      "slide": 5
+    },
+    {
+      "page": 1,
+      "label": "2 · Differentiate a reparametrization",
+      "box": [
+        334,
+        467,
+        222,
+        141
+      ],
+      "items": [
+        {
+          "label": "2 · 外层导数",
+          "answer": "写 \\(\\mathbf r(u)=\\langle u^3+5,2u\\rangle\\)，得 \\(\\mathbf r^{\\prime}(u)=\\langle3u^2,2\\rangle\\)，从而 \\(\\mathbf r^{\\prime}(2t)=\\langle12t^2,2\\rangle\\)。",
+          "loc": [
+            341,
+            501,
+            206,
+            32
+          ],
+          "ink": "\\mathbf r^{\\prime}(2t)=\\langle12t^2,2\\rangle"
+        },
+        {
+          "label": "2 · 对时间求导",
+          "answer": "\\(\\dfrac d{dt}\\mathbf r(2t)=2\\mathbf r^{\\prime}(2t)=\\langle24t^2,4\\rangle\\)。",
+          "loc": [
+            341,
+            554,
+            206,
+            34
+          ],
+          "ink": "\\frac{d}{dt}\\mathbf r(2t)=\\langle24t^2,4\\rangle"
+        }
+      ],
+      "time": 450,
+      "slide": 6
+    },
+    {
+      "page": 1,
+      "label": "3 · The slope of a vector-defined path",
+      "box": [
+        106,
+        611,
+        451,
+        121
+      ],
+      "items": [
+        {
+          "label": "3 · 从导向量到斜率",
+          "answer": "\\(\\mathbf f(t)=\\langle t^2,\\sin t\\rangle\\)，所以 \\(\\mathbf f^{\\prime}(t)=\\langle2t,\\cos t\\rangle\\)，曲线斜率为 \\(\\dfrac{dy}{dx}=\\dfrac{\\cos t}{2t}\\)。",
+          "loc": [
+            113,
+            646,
+            432,
+            29
+          ],
+          "ink": "\\mathbf f^{\\prime}(t)=\\langle 2t,\\cos t\\rangle,\\qquad \\frac{dy}{dx}=\\frac{\\cos t}{2t}"
+        },
+        {
+          "label": "3 · 指定时刻斜率",
+          "answer": "代入 \\(t=\\dfrac{3\\pi}{4}\\)，有 \\(\\cos t=-\\dfrac{\\sqrt2}{2}\\)、\\(2t=\\dfrac{3\\pi}{2}\\)，故斜率为 \\(-\\dfrac{\\sqrt2}{3\\pi}\\)。",
+          "loc": [
+            113,
+            687,
+            432,
+            35
+          ],
+          "ink": "m=\\frac{-\\sqrt2/2}{3\\pi/2}=-\\frac{\\sqrt2}{3\\pi}"
+        }
+      ],
+      "time": 550,
+      "slide": 7
+    }
+  ]
+}</script>
+</body></html>

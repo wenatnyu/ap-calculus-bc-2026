@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>8.13 · The Arc Length of a Smooth, Planar Curve and Distance Traveled · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 8</a>
+    <span class="topic" lang="en">8.13 · The Arc Length of a Smooth, Planar Curve and Distance Traveled</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=t_F7Ug23zbw" href="https://www.youtube.com/watch?v=t_F7Ug23zbw" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-8/8.13/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/813-the-arc-length-of-a-smooth-planar-curve-and-distance-traveled.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 8.13 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="8.13-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 8.13 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-8/8.13/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "8.13",
+  "pages": {
+    "1": 792,
+    "2": 548
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "距离公式与折线近似",
+      "box": [
+        106,
+        92,
+        452,
+        321
+      ],
+      "items": [
+        {
+          "label": "距离公式",
+          "answer": "若端点为 \\((x_1,y_1)\\)、\\((x_2,y_2)\\)，两点之间的直线距离为 \\(d=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\\)。",
+          "loc": [
+            282,
+            143,
+            172,
+            34
+          ],
+          "ink": "\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}"
+        },
+        {
+          "label": "原图 · 用弦拼成折线",
+          "answer": "以 \\(a=x_0\u003c\\cdots\u003cx_n=b\\) 分割横轴，再连接曲线上相邻两点。折线长为 \\(\\sum_{i=1}^n\\sqrt{(\\Delta x_i)^2+(\\Delta y_i)^2}\\)。分割越细，折线越贴近曲线。图中 \\(\\ell_i\\) 表示第 \\(i\\) 段弦的长度。",
+          "loc": [
+            138,
+            274,
+            93,
+            57
+          ],
+          "ink": "\\ell_i=\\sqrt{(\\Delta x_i)^2+(\\Delta y_i)^2}",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M265.30 339.60L300.90 339.50L337.20 354.20L374.20 342.70L409.40 258.70",
+              "stroke": "#125b98",
+              "stroke-width": 1.55,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            },
+            {
+              "type": "circle",
+              "cx": 265.3,
+              "cy": 339.6,
+              "r": 1.8,
+              "fill": "#125b98"
+            },
+            {
+              "type": "circle",
+              "cx": 300.9,
+              "cy": 339.5,
+              "r": 1.8,
+              "fill": "#125b98"
+            },
+            {
+              "type": "circle",
+              "cx": 337.2,
+              "cy": 354.2,
+              "r": 1.8,
+              "fill": "#125b98"
+            },
+            {
+              "type": "circle",
+              "cx": 374.2,
+              "cy": 342.7,
+              "r": 1.8,
+              "fill": "#125b98"
+            },
+            {
+              "type": "circle",
+              "cx": 409.4,
+              "cy": 258.7,
+              "r": 1.8,
+              "fill": "#125b98"
+            }
+          ]
+        }
+      ],
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "公式 · 光滑函数图像的弧长",
+      "box": [
+        102,
+        428,
+        456,
+        117
+      ],
+      "items": [
+        {
+          "label": "弧长公式",
+          "answer": "若 \\(f\\) 在 \\([a,b]\\) 上光滑，弧长为 \\(L=\\int_a^b\\sqrt{1+[f^{\\prime}(x)]^2}\\,dx\\)。根号内平方的是一阶导数。",
+          "loc": [
+            120,
+            483,
+            421,
+            49
+          ],
+          "ink": "L=\\int_a^b\\sqrt{1+[f^{\\prime}(x)]^2}\\,dx"
+        }
+      ],
+      "time": 260,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1 · 能精确计算的弧长",
+      "box": [
+        105,
+        557,
+        453,
+        180
+      ],
+      "items": [
+        {
+          "label": "1 · 导数与弧长微元",
+          "answer": "\\(y=\\tfrac1{12}(x^2+8)^{3/2}\\) 给出 \\(y^{\\prime}=x\\sqrt{x^2+8}/4\\)。于是 \\(1+(y^{\\prime})^2=(x^4+8x^2+16)/16=(x^2+4)^2/16\\)，故 \\(ds=(x^2+4)\\,dx/4\\)。",
+          "loc": [
+            116,
+            584,
+            427,
+            64
+          ],
+          "ink": [
+            {
+              "box": [
+                116,
+                583,
+                427,
+                32
+              ],
+              "tex": "y^{\\prime}=\\frac{x}{4}\\sqrt{x^2+8}"
+            },
+            {
+              "box": [
+                116,
+                619,
+                427,
+                32
+              ],
+              "tex": "\\sqrt{1+(y^{\\prime})^2}=\\frac{x^2+4}{4}"
+            }
+          ]
+        },
+        {
+          "label": "1 · 精确弧长",
+          "answer": "\\(L=\\int_1^4(x^2/4+1)\\,dx=[x^3/12+x]_1^4=33/4\\)。",
+          "loc": [
+            116,
+            665,
+            428,
+            50
+          ],
+          "ink": "L=\\left[\\frac{x^3}{12}+x\\right]_1^4=\\frac{33}{4}"
+        }
+      ],
+      "time": 310,
+      "slide": 3
+    },
+    {
+      "page": 2,
+      "label": "2 · 正弦曲线的弧长",
+      "box": [
+        105,
+        34,
+        452,
+        158
+      ],
+      "items": [
+        {
+          "label": "2 · 建立积分",
+          "answer": "由 \\(y=\\sin x\\) 得 \\(y^{\\prime}=\\cos x\\)。所求长度为 \\(\\int_0^\\pi\\sqrt{1+\\cos^2x}\\,dx\\)。",
+          "loc": [
+            114,
+            111,
+            428,
+            33
+          ],
+          "ink": "L=\\int_0^\\pi\\sqrt{1+\\cos^2x}\\,dx"
+        },
+        {
+          "label": "2 · 数值近似",
+          "answer": "在弧度模式下数值积分得 \\(L\\approx3.820197789\\)，保留三位小数为 \\(3.820\\)。由于曲线不水平，弧长确实大于横向距离 \\(\\pi\\)。",
+          "loc": [
+            114,
+            153,
+            428,
+            30
+          ],
+          "ink": "L\\approx3.820"
+        }
+      ],
+      "time": 560,
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "Proof · 原讲义步骤 1–6",
+      "box": [
+        107,
+        202,
+        225,
+        338
+      ],
+      "items": [
+        {
+          "label": "1 · 对相邻点的距离求和",
+          "answer": "把曲线上第 \\(i-1\\) 个点与第 \\(i\\) 个点连接，相邻点距离之和为 \\(\\sum_{i=1}^n\\sqrt{(x_i-x_{i-1})^2+(y_i-y_{i-1})^2}\\)。它给出弧长的折线近似。",
+          "loc": [
+            146,
+            214,
+            179,
+            41
+          ],
+          "masks": [
+            [
+              146,
+              214,
+              179,
+              41
+            ]
+          ]
+        },
+        {
+          "label": "2 · 用坐标增量简写",
+          "answer": "定义 \\(\\Delta x_i=x_i-x_{i-1}\\)、\\(\\Delta y_i=y_i-y_{i-1}\\)，得到 \\(\\sum_i\\sqrt{(\\Delta x_i)^2+(\\Delta y_i)^2}\\)。",
+          "loc": [
+            171,
+            293,
+            129,
+            43
+          ],
+          "masks": [
+            [
+              171,
+              293,
+              129,
+              43
+            ]
+          ]
+        },
+        {
+          "label": "3 · 乘以 1",
+          "answer": "在 \\((\\Delta y_i)^2\\) 前乘 \\((\\Delta x_i/\\Delta x_i)^2=1\\)，保持每一项的值不变。",
+          "loc": [
+            153,
+            357,
+            169,
+            41
+          ],
+          "masks": [
+            [
+              153,
+              357,
+              169,
+              41
+            ]
+          ]
+        },
+        {
+          "label": "4 · 重排因子",
+          "answer": "将后一项写成 \\((\\Delta y_i/\\Delta x_i)^2(\\Delta x_i)^2\\)，把割线斜率的平方单独显出。",
+          "loc": [
+            153,
+            399,
+            169,
+            41
+          ],
+          "masks": [
+            [
+              153,
+              399,
+              169,
+              41
+            ]
+          ]
+        },
+        {
+          "label": "5 · 提公因子",
+          "answer": "根号内两项共有 \\((\\Delta x_i)^2\\)。提取后为 \\([1+(\\Delta y_i/\\Delta x_i)^2](\\Delta x_i)^2\\)。",
+          "loc": [
+            156,
+            447,
+            165,
+            44
+          ],
+          "masks": [
+            [
+              156,
+              447,
+              165,
+              44
+            ]
+          ]
+        },
+        {
+          "label": "6 · 从根号提出区间宽度",
+          "answer": "因为 \\(\\Delta x_i>0\\)，每段的弦长就是 \\(\\sqrt{1+(\\Delta y_i/\\Delta x_i)^2}\\,\\Delta x_i\\)。",
+          "loc": [
+            168,
+            500,
+            134,
+            40
+          ],
+          "masks": [
+            [
+              168,
+              500,
+              134,
+              40
+            ]
+          ]
+        }
+      ],
+      "time": 670,
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "Proof · 原讲义步骤 7–11",
+      "box": [
+        334,
+        212,
+        224,
+        329
+      ],
+      "items": [
+        {
+          "label": "7 · 加密分割并取极限",
+          "answer": "让分割的最大区间宽度趋于零，弧长等于折线长度的极限 \\(\\lim\\sum_i\\sqrt{1+(\\Delta y_i/\\Delta x_i)^2}\\,\\Delta x_i\\)。",
+          "loc": [
+            358,
+            241,
+            176,
+            48
+          ],
+          "masks": [
+            [
+              358,
+              241,
+              176,
+              48
+            ]
+          ]
+        },
+        {
+          "label": "8 · 应用中值定理",
+          "answer": "函数在每个闭子区间上连续、内部可导，故存在 \\(c_i\\in(x_{i-1},x_i)\\)，使 \\((f(x_i)-f(x_{i-1}))/(x_i-x_{i-1})=f^{\\prime}(c_i)\\)。",
+          "loc": [
+            397,
+            330,
+            126,
+            31
+          ],
+          "masks": [
+            [
+              397,
+              330,
+              126,
+              31
+            ]
+          ]
+        },
+        {
+          "label": "9 · 认出导数值",
+          "answer": "用增量简写上述等式，得到 \\(f^{\\prime}(c_i)=\\Delta y_i/\\Delta x_i\\)。",
+          "loc": [
+            360,
+            360,
+            72,
+            24
+          ],
+          "masks": [
+            [
+              360,
+              360,
+              72,
+              24
+            ]
+          ]
+        },
+        {
+          "label": "10 · 形成黎曼和",
+          "answer": "把割线斜率替换后，和式成为 \\(\\sum_i\\sqrt{1+[f^{\\prime}(c_i)]^2}\\,\\Delta x_i\\)，即连续函数 \\(\\sqrt{1+[f^{\\prime}]^2}\\) 的黎曼和。",
+          "loc": [
+            360,
+            397,
+            166,
+            41
+          ],
+          "masks": [
+            [
+              360,
+              397,
+              166,
+              41
+            ]
+          ]
+        },
+        {
+          "label": "11 · 得到弧长积分",
+          "answer": "由定积分定义，极限为 \\(L=\\int_a^b\\sqrt{1+[f^{\\prime}(x)]^2}\\,dx\\)。",
+          "loc": [
+            408,
+            477,
+            109,
+            38
+          ],
+          "masks": [
+            [
+              408,
+              477,
+              109,
+              38
+            ]
+          ]
+        }
+      ],
+      "time": 790,
+      "slide": 6
+    }
+  ]
+}</script>
+</body></html>

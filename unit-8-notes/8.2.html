@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>8.2 · Connecting Position, Velocity, and Acceleration of Functions Using Integrals · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 8</a>
+    <span class="topic" lang="en">8.2 · Connecting Position, Velocity, and Acceleration of Functions Using Integrals</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=V2GyKVCysHk" href="https://www.youtube.com/watch?v=V2GyKVCysHk" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-8/8.2/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/82-connecting-position-velocity-and-acceleration-of-functions-using-integrals.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 8.2 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="8.2-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 8.2 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-8/8.2/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "8.2",
+  "pages": {
+    "1": 792,
+    "2": 385
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1 · Recover position from acceleration",
+      "box": [
+        106,
+        92,
+        450,
+        149
+      ],
+      "items": [
+        {
+          "label": "1 · 速度",
+          "loc": [
+            123,
+            147,
+            417,
+            31
+          ],
+          "ink": "v(t)=6t^2-4t+2",
+          "answer": "一次积分得 \\(v(t)=6t^2-4t+C\\)；由 \\(v(2)=18\\) 得 \\(C=2\\)。"
+        },
+        {
+          "label": "1 · 位置",
+          "loc": [
+            123,
+            193,
+            417,
+            32
+          ],
+          "ink": "x(t)=2t^3-2t^2+2t+8",
+          "answer": "再积分得 \\(x(t)=2t^3-2t^2+2t+D\\)；初始位置为 \\(8\\) 厘米，故 \\(D=8\\)。"
+        }
+      ],
+      "time": 40,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "2a–b · Distance from home",
+      "box": [
+        107,
+        244,
+        452,
+        257
+      ],
+      "items": [
+        {
+          "label": "2a · 10 分钟",
+          "loc": [
+            132,
+            386,
+            218,
+            34
+          ],
+          "ink": "\\left|\\int_0^{10}v(t)\\,dt\\right|\\approx3.010\\ \\mathrm{mi}",
+          "answer": "从家出发，\\(x(10)-x(0)=\\int_0^{10}[\\sin(0.3t)+\\ln(t+1)-2]\\,dt\\approx3.010\\)，距家约 \\(3.010\\) 英里。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M358.70 446.45 L359.13 444.71 L359.57 443.04 L360.00 441.45 L360.44 439.92 L360.87 438.45 L361.31 437.02 L361.74 435.65 L362.18 434.32 L362.61 433.03 L363.05 431.78 L363.48 430.57 L363.92 429.38 L364.35 428.23 L364.79 427.10 L365.22 426.00 L365.66 424.92 L366.09 423.87 L366.53 422.85 L366.96 421.84 L367.40 420.86 L367.83 419.89 L368.27 418.95 L368.70 418.02 L369.14 417.11 L369.57 416.22 L370.01 415.34 L370.44 414.48 L370.88 413.64 L371.31 412.81 L371.75 412.00 L372.18 411.20 L372.62 410.42 L373.05 409.65 L373.49 408.90 L373.92 408.16 L374.36 407.43 L374.79 406.72 L375.23 406.01 L375.66 405.33 L376.10 404.65 L376.10 404.65 L358.70 404.65 Z",
+              "stroke": "none",
+              "fill": "#b9586f",
+              "stroke-width": 0,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill-opacity": ".17"
+            },
+            {
+              "type": "path",
+              "d": "M376.10 404.65 L377.32 402.83 L378.53 401.10 L379.75 399.47 L380.97 397.93 L382.19 396.48 L383.40 395.12 L384.62 393.85 L385.84 392.66 L387.06 391.57 L388.27 390.56 L389.49 389.64 L390.71 388.80 L391.93 388.05 L393.14 387.38 L394.36 386.79 L395.58 386.29 L396.80 385.86 L398.01 385.51 L399.23 385.24 L400.45 385.05 L401.67 384.92 L402.88 384.87 L404.10 384.89 L405.32 384.98 L406.54 385.13 L407.75 385.35 L408.97 385.63 L410.19 385.96 L411.41 386.35 L412.62 386.79 L413.84 387.28 L415.06 387.82 L416.28 388.40 L417.49 389.02 L418.71 389.68 L419.93 390.37 L421.15 391.09 L422.36 391.83 L423.58 392.60 L424.80 393.38 L424.80 404.65 L376.10 404.65 Z",
+              "stroke": "none",
+              "fill": "#4a83ad",
+              "stroke-width": 0,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill-opacity": ".17"
+            },
+            {
+              "type": "path",
+              "d": "M424.80 404.65 L424.80 393.38",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "stroke-dasharray": "2.5 2"
+            }
+          ]
+        },
+        {
+          "label": "2b · 15 分钟",
+          "loc": [
+            132,
+            470,
+            218,
+            25
+          ],
+          "ink": "\\left|\\int_0^{15}v(t)\\,dt\\right|\\approx3.397\\ \\mathrm{mi}",
+          "answer": "按相同的位置基准，\\(\\int_0^{15}v(t)\\,dt\\approx3.397\\)，距家约 \\(3.397\\) 英里。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M358.70 446.45 L359.13 444.71 L359.57 443.04 L360.00 441.45 L360.44 439.92 L360.87 438.45 L361.31 437.02 L361.74 435.65 L362.18 434.32 L362.61 433.03 L363.05 431.78 L363.48 430.57 L363.92 429.38 L364.35 428.23 L364.79 427.10 L365.22 426.00 L365.66 424.92 L366.09 423.87 L366.53 422.85 L366.96 421.84 L367.40 420.86 L367.83 419.89 L368.27 418.95 L368.70 418.02 L369.14 417.11 L369.57 416.22 L370.01 415.34 L370.44 414.48 L370.88 413.64 L371.31 412.81 L371.75 412.00 L372.18 411.20 L372.62 410.42 L373.05 409.65 L373.49 408.90 L373.92 408.16 L374.36 407.43 L374.79 406.72 L375.23 406.01 L375.66 405.33 L376.10 404.65 L376.10 404.65 L358.70 404.65 Z",
+              "stroke": "none",
+              "fill": "#b9586f",
+              "stroke-width": 0,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill-opacity": ".17"
+            },
+            {
+              "type": "path",
+              "d": "M376.10 404.65 L377.76 402.19 L379.42 399.90 L381.08 397.79 L382.74 395.84 L384.41 394.07 L386.07 392.45 L387.73 391.00 L389.39 389.71 L391.05 388.58 L392.71 387.61 L394.37 386.79 L396.04 386.12 L397.70 385.60 L399.36 385.22 L401.02 384.98 L402.68 384.88 L404.34 384.90 L406.00 385.06 L407.66 385.33 L409.33 385.72 L410.99 386.21 L412.65 386.80 L414.31 387.49 L415.97 388.25 L417.63 389.10 L419.29 390.00 L420.95 390.97 L422.62 391.99 L424.28 393.05 L425.94 394.13 L427.60 395.24 L429.26 396.36 L430.92 397.48 L432.58 398.60 L434.25 399.70 L435.91 400.77 L437.57 401.82 L439.23 402.81 L440.89 403.76 L442.55 404.65 L442.55 404.65 L376.10 404.65 Z",
+              "stroke": "none",
+              "fill": "#4a83ad",
+              "stroke-width": 0,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill-opacity": ".17"
+            },
+            {
+              "type": "path",
+              "d": "M442.55 404.65 L442.93 404.85 L443.32 405.04 L443.70 405.23 L444.08 405.41 L444.46 405.59 L444.85 405.77 L445.23 405.94 L445.61 406.11 L445.99 406.27 L446.38 406.43 L446.76 406.59 L447.14 406.74 L447.52 406.89 L447.91 407.03 L448.29 407.17 L448.67 407.30 L449.05 407.43 L449.44 407.55 L449.82 407.67 L450.20 407.78 L450.58 407.89 L450.97 408.00 L451.35 408.10 L451.73 408.19 L452.11 408.28 L452.50 408.36 L452.88 408.44 L453.26 408.51 L453.64 408.57 L454.03 408.64 L454.41 408.69 L454.79 408.74 L455.17 408.78 L455.56 408.82 L455.94 408.86 L456.32 408.88 L456.70 408.90 L457.09 408.92 L457.47 408.93 L457.85 408.93 L457.85 404.65 L442.55 404.65 Z",
+              "stroke": "none",
+              "fill": "#b9586f",
+              "stroke-width": 0,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill-opacity": ".17"
+            },
+            {
+              "type": "path",
+              "d": "M457.85 404.65 L457.85 408.93",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "stroke-dasharray": "2.5 2"
+            }
+          ]
+        }
+      ],
+      "time": 240,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2c–d · Displacement and total distance",
+      "box": [
+        122,
+        522,
+        435,
+        136
+      ],
+      "items": [
+        {
+          "label": "2c · 两家的距离",
+          "loc": [
+            130,
+            553,
+            410,
+            33
+          ],
+          "ink": "\\left|\\int_0^{30}v(t)\\,dt\\right|\\approx22.824\\ \\mathrm{mi}",
+          "answer": "30 分钟时到达另一家。两家距离为 \\(\\left|\\int_0^{30}v(t)\\,dt\\right|\\approx22.824\\) 英里。"
+        },
+        {
+          "label": "2d · 总里程",
+          "loc": [
+            130,
+            616,
+            410,
+            32
+          ],
+          "ink": "\\int_0^{30}|v(t)|\\,dt\\approx28.497\\ \\mathrm{mi}",
+          "answer": "在 \\(t\\approx2.632,12.686,17.200\\) 分钟处速度变号。将四段位移的绝对值相加，得到 \\(\\int_0^{30}|v(t)|\\,dt\\approx28.497\\) 英里。"
+        }
+      ],
+      "context": [
+        356,
+        319,
+        203,
+        151
+      ],
+      "time": 440,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "Motion vocabulary",
+      "box": [
+        102,
+        663,
+        453,
+        90
+      ],
+      "items": [
+        {
+          "label": "速度的积分",
+          "loc": [
+            215,
+            674,
+            104,
+            34
+          ],
+          "ink": "\\text{displacement}",
+          "answer": "\\(\\int_a^b v(t)\\,dt=x(b)-x(a)\\) 是有方向的位移。"
+        },
+        {
+          "label": "速率的积分",
+          "loc": [
+            442,
+            674,
+            102,
+            34
+          ],
+          "ink": "\\text{total distance}",
+          "answer": "\\(\\int_a^b|v(t)|\\,dt\\) 是从 \\(a\\) 到 \\(b\\) 行走的总路程。"
+        },
+        {
+          "label": "速度的绝对值",
+          "loc": [
+            438,
+            719,
+            101,
+            27
+          ],
+          "ink": "\\text{speed}",
+          "answer": "时刻 \\(t\\) 的速率为 \\(|v(t)|\\)。"
+        }
+      ],
+      "time": 640,
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "3a–b · Using a specified initial position",
+      "box": [
+        106,
+        36,
+        452,
+        179
+      ],
+      "items": [
+        {
+          "label": "3a",
+          "loc": [
+            135,
+            86,
+            411,
+            34
+          ],
+          "ink": "x(3)=5+\\int_0^3v(t)\\,dt=35",
+          "answer": "\\(F(3)=30\\)、\\(F(0)=0\\)，所以 \\(x(3)=5+30=35\\)。"
+        },
+        {
+          "label": "3b",
+          "loc": [
+            135,
+            161,
+            411,
+            34
+          ],
+          "ink": "x(2)=-2+\\int_1^2v(t)\\,dt=0",
+          "answer": "\\(F(2)=2\\)、\\(F(1)=0\\)，所以 \\(x(2)=-2+2=0\\)。"
+        }
+      ],
+      "time": 720,
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "4 · Total distance from a linear velocity",
+      "box": [
+        106,
+        220,
+        452,
+        149
+      ],
+      "items": [
+        {
+          "label": "4 · 分段并求总路程",
+          "loc": [
+            128,
+            275,
+            286,
+            76
+          ],
+          "ink": [
+            {
+              "box": [
+                128,
+                276,
+                286,
+                29
+              ],
+              "tex": "\\int_0^2(3-1.5t)\\,dt+\\int_2^4(1.5t-3)\\,dt"
+            },
+            {
+              "box": [
+                128,
+                317,
+                286,
+                27
+              ],
+              "tex": "=3+3=6"
+            }
+          ],
+          "answer": "\\(v(t)=0\\) 时 \\(t=2\\)。两个三角形的底均为 \\(2\\)、高均为 \\(3\\)，总路程等于 \\(2(\\frac12\\cdot2\\cdot3)=6\\) 个长度单位。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M457.30 286.30 L457.30 242.80 L488.70 286.30 Z",
+              "stroke": "none",
+              "fill": "#175e96",
+              "stroke-width": 0,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill-opacity": ".2"
+            },
+            {
+              "type": "path",
+              "d": "M488.70 286.30 L520.10 329.80 L520.10 286.30 Z",
+              "stroke": "none",
+              "fill": "#ac5368",
+              "stroke-width": 0,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill-opacity": ".2"
+            }
+          ]
+        }
+      ],
+      "time": 960,
+      "slide": 6
+    }
+  ]
+}</script>
+</body></html>

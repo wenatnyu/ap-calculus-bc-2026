@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>8.1 · Average Value of a Function on an Interval · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 8</a>
+    <span class="topic" lang="en">8.1 · Average Value of a Function on an Interval</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=jG8rlgtO-HM" href="https://www.youtube.com/watch?v=jG8rlgtO-HM" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-8/8.1/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/81-average-value-of-a-function-on-an-interval.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 8.1 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="8.1-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 8.1 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-8/8.1/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "8.1",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Recall · IVT, average rate, and MVT",
+      "box": [
+        107,
+        93,
+        448,
+        121
+      ],
+      "items": [
+        {
+          "label": "介值定理",
+          "loc": [
+            113,
+            130,
+            211,
+            68
+          ],
+          "ink": [
+            {
+              "box": [
+                112,
+                128,
+                215,
+                20
+              ],
+              "tex": "f\\text{ continuous on }[a,b]"
+            },
+            {
+              "box": [
+                112,
+                149,
+                215,
+                19
+              ],
+              "tex": "k\\text{ between }f(a)\\text{ and }f(b)"
+            },
+            {
+              "box": [
+                112,
+                170,
+                215,
+                25
+              ],
+              "tex": "\\Longrightarrow\\exists\\,c\\in[a,b]:\\ f(c)=k"
+            }
+          ],
+          "answer": "若 \\(f\\) 在 \\([a,b]\\) 上连续，介于 \\(f(a)\\) 与 \\(f(b)\\) 之间的每个数 \\(k\\) 都等于某个 \\(f(c)\\)，其中 \\(c\\in[a,b]\\)。"
+        },
+        {
+          "label": "平均变化率与微分中值定理",
+          "loc": [
+            340,
+            198,
+            209,
+            15
+          ],
+          "ink": "c\\in(a,b)",
+          "answer": "平均变化率为 \\(\\frac{f(b)-f(a)}{b-a}\\)。若 \\(f\\) 在 \\([a,b]\\) 上连续且在 \\((a,b)\\) 上可导，存在 \\(c\\) 使 \\(f^\\prime(c)=\\frac{f(b)-f(a)}{b-a}\\)。"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Average value of a function",
+      "box": [
+        102,
+        221,
+        458,
+        75
+      ],
+      "items": [
+        {
+          "label": "函数平均值",
+          "loc": [
+            124,
+            248,
+            409,
+            36
+          ],
+          "ink": "f_{\\mathrm{avg}}=\\frac{1}{b-a}\\int_a^b f(x)\\,dx",
+          "answer": "区间长度为 \\(b-a\\)，因此 \\(f_{\\mathrm{avg}}=\\frac1{b-a}\\int_a^b f(x)\\,dx\\)；平均值与 \\(f\\) 的单位相同。"
+        }
+      ],
+      "time": 150,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1 · Average height of a parabola",
+      "box": [
+        107,
+        301,
+        448,
+        145
+      ],
+      "items": [
+        {
+          "label": "1 · 平均值",
+          "loc": [
+            111,
+            331,
+            283,
+            51
+          ],
+          "ink": "\\frac14\\left[6x-\\frac{x^3}{3}\\right]_{-1}^3=\\frac{11}{3}",
+          "answer": "\\(\\int_{-1}^3(6-x^2)\\,dx=44/3\\)，区间长 \\(4\\)，所以平均值是 \\(11/3\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M453.80 349.88 L522.60 349.88",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "stroke-dasharray": "2.5 2"
+            }
+          ]
+        },
+        {
+          "label": "1 · 何时取到平均值",
+          "loc": [
+            112,
+            412,
+            281,
+            31
+          ],
+          "ink": "x=\\sqrt{\\frac73}\\approx1.528",
+          "answer": "解 \\(6-x^2=11/3\\) 得 \\(x=\\pm\\sqrt{7/3}\\)。负根小于 \\(-1\\)，只有 \\(x=\\sqrt{7/3}\\) 落在区间内。",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 497.27,
+              "cy": 349.88,
+              "r": 2.1,
+              "fill": "#175e96"
+            }
+          ]
+        }
+      ],
+      "time": 200,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "2a–b · Height and velocity",
+      "box": [
+        107,
+        473,
+        448,
+        122
+      ],
+      "items": [
+        {
+          "label": "2a · 平均高度",
+          "loc": [
+            132,
+            528,
+            406,
+            23
+          ],
+          "ink": "\\frac13\\int_0^3h(t)\\,dt=23.5\\ \\mathrm{ft}",
+          "answer": "\\(\\frac13\\int_0^3(-16t^2+41t+10)\\,dt=\\frac{47}{2}\\,\\mathrm{ft}\\)。"
+        },
+        {
+          "label": "2b · 平均速度",
+          "loc": [
+            132,
+            566,
+            406,
+            27
+          ],
+          "ink": "\\frac{h(3)-h(0)}{3}=\\frac{-11-10}{3}=-7\\ \\mathrm{ft/s}",
+          "answer": "端点高度分别为 \\(10\\) 和 \\(-11\\) 英尺，所以平均速度为 \\((-11-10)/3=-7\\,\\mathrm{ft/s}\\)。"
+        }
+      ],
+      "time": 400,
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "3a–b · A rate and its rate of change",
+      "box": [
+        107,
+        600,
+        449,
+        141
+      ],
+      "items": [
+        {
+          "label": "3a · 腰围的平均变化率",
+          "loc": [
+            133,
+            653,
+            415,
+            30
+          ],
+          "ink": "\\frac12\\int_{10}^{12}(2\\sin x-1)\\,dx\\approx-2.683\\ \\mathrm{in/month}",
+          "answer": "腰围在两个月内的净变化为 \\(\\int_{10}^{12}r(x)\\,dx\\)。除以 \\(2\\) 得 \\(\\cos10-\\cos12-1\\approx-2.683\\) 英寸/月，三角函数使用弧度。"
+        },
+        {
+          "label": "3b · 变化率的平均变化率",
+          "loc": [
+            133,
+            706,
+            415,
+            30
+          ],
+          "ink": "\\frac{r(5)-r(0)}5=\\frac{2\\sin5}{5}\\approx-0.384\\ \\mathrm{in/month^2}",
+          "answer": "这里考察 \\(r\\) 本身的变化，所以用端点差商 \\(\\frac{r(5)-r(0)}5=\\frac{2\\sin5}{5}\\approx-0.384\\) 英寸/月²。"
+        }
+      ],
+      "time": 625,
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

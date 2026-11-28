@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>8.5 · Finding Area Between Curves Expressed as Functions of y · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 8</a>
+    <span class="topic" lang="en">8.5 · Finding Area Between Curves Expressed as Functions of y</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=YuP1GocyG0o" href="https://www.youtube.com/watch?v=YuP1GocyG0o" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-8/8.5/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/85-finding-area-between-curves-expressed-as-functions-of-y.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 8.5 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="8.5-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 8.5 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-8/8.5/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "8.5",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1 · A horizontal slice in the first quadrant",
+      "box": [
+        106,
+        93,
+        450,
+        151
+      ],
+      "items": [
+        {
+          "label": "1 · 关于 y 的积分",
+          "loc": [
+            126,
+            185,
+            415,
+            45
+          ],
+          "ink": "A=\\int_0^3\\big[(y+6)-y^2\\big]\\,dy",
+          "answer": "在 \\(0\\le y\\le3\\) 上，\\(y=\\sqrt{x}\\) 给出左边界 \\(x=y^2\\)，直线给出右边界 \\(x=y+6\\)。因此只需一次积分。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M434.81 140.25 L510.55 140.25",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "2 · A sideways parabola and a line",
+      "box": [
+        106,
+        256,
+        452,
+        142
+      ],
+      "items": [
+        {
+          "label": "2 · 积分限与宽度",
+          "loc": [
+            125,
+            282,
+            291,
+            94
+          ],
+          "ink": [
+            {
+              "box": [
+                125,
+                282,
+                291,
+                33
+              ],
+              "tex": "3-y^2=y+1\\ \\Longrightarrow\\ y=-2,\\ 1"
+            },
+            {
+              "box": [
+                125,
+                339,
+                291,
+                32
+              ],
+              "tex": "A=\\int_{-2}^1[(3-y^2)-(y+1)]\\,dy"
+            }
+          ],
+          "answer": "联立得到 \\((y+2)(y-1)=0\\)。当 \\(y=0\\) 时抛物线给出 \\(x=3\\)，直线给出 \\(x=1\\)，所以截面宽度为 \\(2-y-y^2\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M468.20 336.28 L522.45 336.28",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        }
+      ],
+      "time": 275,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "3 · One region, two integration directions",
+      "box": [
+        106,
+        424,
+        452,
+        311
+      ],
+      "items": [
+        {
+          "label": "3 · 交点与分段点",
+          "loc": [
+            338,
+            476,
+            208,
+            79
+          ],
+          "ink": [
+            {
+              "box": [
+                338,
+                476,
+                208,
+                23
+              ],
+              "tex": "(0,1),\\quad(\\tfrac12,\\tfrac74)"
+            },
+            {
+              "box": [
+                338,
+                505,
+                208,
+                21
+              ],
+              "tex": "(a,h),\\ a=\\tfrac{1+\\sqrt3}{2}\\approx1.366"
+            },
+            {
+              "box": [
+                338,
+                532,
+                208,
+                20
+              ],
+              "tex": "h=1-\\tfrac{\\sqrt3}{2}\\approx0.134"
+            }
+          ],
+          "answer": "直线与两条抛物线确定 \\((0,1)\\)、\\((1/2,7/4)\\)。两条抛物线在阴影右端的交点为 \\((a,h)\\)，其中 \\(a=(1+\\sqrt3)/2\\)，\\(h=1-\\sqrt3/2\\)。",
+          "draw": [
+            {
+              "type": "circle",
+              "cx": 415.8,
+              "cy": 640.9,
+              "r": 2.1,
+              "fill": "#175e96"
+            },
+            {
+              "type": "circle",
+              "cx": 442.38,
+              "cy": 609.1,
+              "r": 2.1,
+              "fill": "#175e96"
+            },
+            {
+              "type": "circle",
+              "cx": 488.4,
+              "cy": 677.62,
+              "r": 2.1,
+              "fill": "#175e96"
+            }
+          ]
+        },
+        {
+          "label": "3 · 关于 x 的积分",
+          "loc": [
+            112,
+            461,
+            220,
+            91
+          ],
+          "ink": [
+            {
+              "box": [
+                112,
+                462,
+                220,
+                33
+              ],
+              "tex": "\\int_0^{1/2}\\!\\left[\\tfrac32x+1-(x-1)^2\\right]\\,dx"
+            },
+            {
+              "box": [
+                112,
+                505,
+                220,
+                32
+              ],
+              "tex": "{}+\\int_{1/2}^{a}\\!\\left[2-x^2-(x-1)^2\\right]\\,dx"
+            }
+          ],
+          "answer": "下边界始终为 \\((x-1)^2\\)。上边界在 \\(x=1/2\\) 从直线 \\(3x/2+1\\) 改为 \\(2-x^2\\)，积分至 \\(x=a\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M433.87 664.83 L433.87 619.28",
+              "stroke": "#268fbd",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "path",
+              "d": "M463.63 682.88 L463.63 632.84",
+              "stroke": "#268fbd",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "3 · 关于 y 的积分",
+          "loc": [
+            110,
+            599,
+            231,
+            119
+          ],
+          "ink": [
+            {
+              "box": [
+                110,
+                598,
+                231,
+                31
+              ],
+              "tex": "\\int_0^h[(1+\\sqrt y)-(1-\\sqrt y)]\\,dy"
+            },
+            {
+              "box": [
+                110,
+                637,
+                231,
+                31
+              ],
+              "tex": "{}+\\int_h^1[\\sqrt{2-y}-(1-\\sqrt y)]\\,dy"
+            },
+            {
+              "box": [
+                110,
+                678,
+                231,
+                31
+              ],
+              "tex": "{}+\\int_1^{7/4}[\\sqrt{2-y}-\\tfrac23(y-1)]\\,dy"
+            }
+          ],
+          "answer": "当 \\(0\\le y\\le h\\) 时左右端点均属 \\(x=1\\pm\\sqrt y\\)。当 \\(h\\le y\\le1\\) 时右边界改为 \\(x=\\sqrt{2-y}\\)。当 \\(1\\le y\\le7/4\\) 时左边界改为 \\(x=\\tfrac23(y-1)\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M453.92 679.91 L483.98 679.91",
+              "stroke": "#e89a38",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "path",
+              "d": "M424.48 653.62 L476.40 653.62",
+              "stroke": "#e89a38",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "path",
+              "d": "M431.75 621.82 L455.22 621.82",
+              "stroke": "#e89a38",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        }
+      ],
+      "time": 350,
+      "slide": 3
+    }
+  ]
+}</script>
+</body></html>

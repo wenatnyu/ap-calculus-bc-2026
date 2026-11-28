@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>9.6 · Solving Motion Problems using Parametric and Vector-Valued Functions · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 9</a>
+    <span class="topic" lang="en">9.6 · Solving Motion Problems using Parametric and Vector-Valued Functions</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=2GQjDXn1uBw" href="https://www.youtube.com/watch?v=2GQjDXn1uBw" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-9/9.6/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/96-solving-motion-problems-using-parametric-and-vector-valued-functions.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 9.6 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="9.6-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 9.6 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-9/9.6/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "9.6",
+  "pages": {
+    "1": 792,
+    "2": 475
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Position, velocity, acceleration and speed",
+      "box": [
+        106,
+        91,
+        451,
+        157
+      ],
+      "items": [
+        {
+          "label": "速率公式",
+          "answer": "\\(\\mathbf v=\\mathbf r^{\\prime}\\)，\\(\\mathbf a=\\mathbf r^{\\prime\\prime}\\)，速率是非负实数 \\(\\|\\mathbf v\\|=\\sqrt{[x^{\\prime}(t)]^2+[y^{\\prime}(t)]^2}\\)。",
+          "loc": [
+            280,
+            207,
+            100,
+            35
+          ],
+          "ink": "\\sqrt{[x^{\\prime}(t)]^2+[y^{\\prime}(t)]^2}"
+        }
+      ],
+      "time": 30,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Motion on a circle",
+      "box": [
+        106,
+        264,
+        451,
+        119
+      ],
+      "items": [
+        {
+          "label": "1 · 速度向量",
+          "answer": "对两个分量分别求导，内层导数 \\(1/5\\) 与系数 \\(5\\) 抵消，故 \\(\\mathbf v(t)=\\langle\\cos(t/5),-\\sin(t/5)\\rangle\\)。",
+          "loc": [
+            116,
+            298,
+            429,
+            24
+          ],
+          "ink": "\\mathbf v(t)=\\langle\\cos(t/5),-\\sin(t/5)\\rangle"
+        },
+        {
+          "label": "1 · 速率",
+          "answer": "\\(\\|\\mathbf v(t)\\|=\\sqrt{\\cos^2(t/5)+\\sin^2(t/5)}=1\\)。",
+          "loc": [
+            116,
+            327,
+            428,
+            22
+          ],
+          "ink": "\\|\\mathbf v(t)\\|=1"
+        },
+        {
+          "label": "1 · 加速度向量",
+          "answer": "对速度再求导，得 \\(\\mathbf a(t)=\\langle-\\tfrac15\\sin(t/5),-\\tfrac15\\cos(t/5)\\rangle\\)。",
+          "loc": [
+            116,
+            353,
+            429,
+            26
+          ],
+          "ink": "\\mathbf a(t)=\\langle-\\tfrac15\\sin(t/5),-\\tfrac15\\cos(t/5)\\rangle"
+        }
+      ],
+      "time": 90,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "Quick review · Speeding up or slowing down",
+      "box": [
+        106,
+        386,
+        451,
+        92
+      ],
+      "items": [
+        {
+          "label": "加速 · 直线运动",
+          "answer": "一维运动中，速度与加速度同号时速率增大。平面运动中，当 \\(\\|\\mathbf v\\|>0\\) 时，\\(\\dfrac{d}{dt}\\|\\mathbf v\\|=\\dfrac{\\mathbf v\\cdot\\mathbf a}{\\|\\mathbf v\\|}\\)，因此 \\(\\mathbf v\\cdot\\mathbf a>0\\) 表示速率正在增大。",
+          "loc": [
+            291,
+            412,
+            101,
+            22
+          ],
+          "ink": "\\text{the same sign (1D)}"
+        },
+        {
+          "label": "减速 · 直线运动",
+          "answer": "一维运动中，速度与加速度异号时速率减小。平面运动中，若 \\(\\mathbf v\\cdot\\mathbf a\u003c0\\)，则速率正在减小。",
+          "loc": [
+            291,
+            452,
+            104,
+            22
+          ],
+          "ink": "\\text{different signs (1D)}"
+        }
+      ],
+      "time": 270,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "2 · Velocity and acceleration",
+      "box": [
+        106,
+        480,
+        451,
+        77
+      ],
+      "items": [
+        {
+          "label": "2 · 速度",
+          "answer": "对 \\(\\mathbf r(t)=\\langle2t^3+t,t^2\\rangle\\) 求导，得到 \\(\\mathbf v(t)=\\langle6t^2+1,2t\\rangle\\)。",
+          "loc": [
+            116,
+            500,
+            429,
+            21
+          ],
+          "ink": "\\mathbf v(t)=\\langle6t^2+1,2t\\rangle"
+        },
+        {
+          "label": "2 · 加速度",
+          "answer": "再求导，\\(\\mathbf a(t)=\\langle12t,2\\rangle\\)。",
+          "loc": [
+            116,
+            527,
+            429,
+            22
+          ],
+          "ink": "\\mathbf a(t)=\\langle12t,2\\rangle"
+        }
+      ],
+      "time": 330,
+      "slide": 4
+    },
+    {
+      "page": 1,
+      "label": "3 · Speed at t = 2",
+      "box": [
+        106,
+        560,
+        451,
+        84
+      ],
+      "items": [
+        {
+          "label": "3 · 指定时刻的速度向量",
+          "answer": "\\(\\mathbf v(t)=\\langle3,-2te^{-t^2}\\rangle\\)，因此 \\(\\mathbf v(2)=\\langle3,-4e^{-4}\\rangle\\)。",
+          "loc": [
+            116,
+            579,
+            429,
+            25
+          ],
+          "ink": "\\mathbf v(2)=\\langle3,-4e^{-4}\\rangle"
+        },
+        {
+          "label": "3 · 速率",
+          "answer": "\\(\\|\\mathbf v(2)\\|=\\sqrt{3^2+(-4e^{-4})^2}=\\sqrt{9+16e^{-8}}\\approx3.000894\\)。",
+          "loc": [
+            116,
+            611,
+            429,
+            28
+          ],
+          "ink": "\\|\\mathbf v(2)\\|=\\sqrt{9+16e^{-8}}\\approx3.0009"
+        }
+      ],
+      "time": 360,
+      "slide": 5
+    },
+    {
+      "page": 1,
+      "label": "Total distance traveled on [a, b]",
+      "box": [
+        102,
+        652,
+        455,
+        87
+      ],
+      "items": [
+        {
+          "label": "路程公式",
+          "answer": "从 \\(t=a\\) 到 \\(t=b\\) 的总路程为 \\(\\displaystyle\\int_a^b\\|\\mathbf v(t)\\|\\,dt=\\int_a^b\\sqrt{[x^{\\prime}(t)]^2+[y^{\\prime}(t)]^2}\\,dt\\)。",
+          "loc": [
+            291,
+            679,
+            133,
+            53
+          ],
+          "ink": "\\displaystyle\\int_a^b\\sqrt{[x^{\\prime}(t)]^2+[y^{\\prime}(t)]^2}\\,dt"
+        }
+      ],
+      "time": 480,
+      "slide": 6
+    },
+    {
+      "page": 2,
+      "label": "4 · Position at t = 3 and total distance",
+      "box": [
+        106,
+        33,
+        451,
+        212
+      ],
+      "items": [
+        {
+          "label": "4 · 用积分常数找位置",
+          "answer": "逐分量积分得 \\(\\mathbf r(t)=\\langle t^2+t+C_1,5t+C_2\\rangle\\)。初始点 \\((1,2)\\) 给出 \\(C_1=1,\\ C_2=2\\)，故 \\(\\mathbf r(3)=\\langle13,17\\rangle\\)。",
+          "loc": [
+            116,
+            85,
+            430,
+            35
+          ],
+          "ink": "\\mathbf r(t)=\\langle t^2+t+1,5t+2\\rangle,\\qquad \\mathbf r(3)=\\langle13,17\\rangle"
+        },
+        {
+          "label": "4 · 用定积分找位置",
+          "answer": "位置也等于初始位置加位移，\\(\\mathbf r(3)=\\langle1,2\\rangle+\\int_0^3\\langle2t+1,5\\rangle\\,dt=\\langle1,2\\rangle+\\langle12,15\\rangle=\\langle13,17\\rangle\\)。",
+          "loc": [
+            116,
+            142,
+            430,
+            35
+          ],
+          "ink": "\\displaystyle\\mathbf r(3)=\\langle1,2\\rangle+\\int_0^3\\langle2t+1,5\\rangle\\,dt=\\langle13,17\\rangle"
+        },
+        {
+          "label": "4 · 总路程",
+          "answer": "对速率积分得 \\(\\displaystyle D=\\int_0^3\\sqrt{(2t+1)^2+25}\\,dt\\approx19.649889\\)，取三位小数为 \\(19.650\\)。",
+          "loc": [
+            116,
+            194,
+            430,
+            36
+          ],
+          "ink": "\\displaystyle D=\\int_0^3\\sqrt{(2t+1)^2+25}\\,dt\\approx19.650"
+        }
+      ],
+      "time": 540,
+      "slide": 7
+    },
+    {
+      "page": 2,
+      "label": "5a · Moving to the right",
+      "box": [
+        106,
+        251,
+        451,
+        109
+      ],
+      "items": [
+        {
+          "label": "5a · 向右的时刻",
+          "answer": "横向速度 \\(x^{\\prime}(t)=2e^{-t/4}>0\\)，因此粒子在所有 \\(t\\ge0\\) 的时刻都向右运动。",
+          "loc": [
+            116,
+            300,
+            428,
+            40
+          ],
+          "ink": "x^{\\prime}(t)=2e^{-t/4}>0\\quad(t\\ge0)"
+        }
+      ],
+      "time": 810,
+      "slide": 8
+    },
+    {
+      "page": 2,
+      "label": "5b · Moving upward",
+      "box": [
+        119,
+        370,
+        438,
+        86
+      ],
+      "items": [
+        {
+          "label": "5b · 向上的时刻",
+          "answer": "在 \\(t\\ge0\\) 时分母 \\(t+5>0\\)，所以 \\(y^{\\prime}(t)=\\dfrac{t-4}{t+5}>0\\) 当且仅当 \\(t>4\\)。在 \\(t=4\\) 处纵向速度为零。",
+          "loc": [
+            128,
+            402,
+            417,
+            38
+          ],
+          "ink": "y^{\\prime}(t)=\\frac{t-4}{t+5}>0\\quad\\Longleftrightarrow\\quad t>4"
+        }
+      ],
+      "context": [
+        105,
+        250,
+        450,
+        22
+      ],
+      "time": 840,
+      "slide": 9
+    }
+  ]
+}</script>
+</body></html>

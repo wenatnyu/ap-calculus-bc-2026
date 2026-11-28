@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>9.3 · Finding Arc Lengths of Curves Given by Parametric Equations · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 9</a>
+    <span class="topic" lang="en">9.3 · Finding Arc Lengths of Curves Given by Parametric Equations</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=EB6ZwRPsjXY" href="https://www.youtube.com/watch?v=EB6ZwRPsjXY" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-9/9.3/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/93-finding-arc-lengths-of-curves-given-by-parametric-equations.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 9.3 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="9.3-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 9.3 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-9/9.3/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "9.3",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Recall · From Cartesian to parametric arc length",
+      "box": [
+        105,
+        90,
+        451,
+        156
+      ],
+      "items": [
+        {
+          "label": "回顾 · 弧长微元",
+          "answer": "相邻点的弦长为 \\(\\sqrt{(\\Delta x)^2+(\\Delta y)^2}\\)。对于光滑曲线，令参数增量趋于零，得到 \\(ds=\\sqrt{(x^{\\prime}(t))^2+(y^{\\prime}(t))^2}\\,dt\\)（按 \\(t\\) 递增）。",
+          "loc": [
+            116,
+            153,
+            424,
+            44
+          ],
+          "ink": "\\Delta s\\ \\approx\\sqrt{(\\Delta x)^2+(\\Delta y)^2}"
+        },
+        {
+          "label": "回顾 · 将公式改写为参数形式",
+          "answer": "在 \\(x^{\\prime}(t)\\ne0\\) 处代入 \\(\\dfrac{dy}{dx}=\\dfrac{y^{\\prime}}{x^{\\prime}}\\)。把横向长度的因子 \\(|x^{\\prime}|\\) 并入根号，得到 \\(\\sqrt{1+(y^{\\prime}/x^{\\prime})^2}\\,|x^{\\prime}|=\\sqrt{(x^{\\prime})^2+(y^{\\prime})^2}\\)。这一表达式也适用于光滑曲线的竖直切线处。",
+          "loc": [
+            116,
+            198,
+            424,
+            40
+          ],
+          "ink": "\\sqrt{1+\\left(\\frac{y^{\\prime}}{x^{\\prime}}\\right)^2}\\,|x^{\\prime}|=\\sqrt{(x^{\\prime})^2+(y^{\\prime})^2}"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Arc length in parametric form",
+      "box": [
+        103,
+        256,
+        455,
+        91
+      ],
+      "items": [
+        {
+          "label": "参数曲线弧长",
+          "answer": "若参数曲线在 \\([a,b]\\) 上光滑（或分段光滑），其走过的长度为 \\(\\displaystyle L=\\int_a^b\\sqrt{\\left(\\frac{dx}{dt}\\right)^2+\\left(\\frac{dy}{dt}\\right)^2}\\,dt\\)。积分按参数行进累计，重复走过的部分会重复计长。",
+          "loc": [
+            116,
+            284,
+            428,
+            53
+          ],
+          "ink": "\\displaystyle L=\\int_a^b\\sqrt{\\left(\\frac{dx}{dt}\\right)^2+\\left(\\frac{dy}{dt}\\right)^2}\\,dt"
+        }
+      ],
+      "time": 225,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "1 · Around the unit circle",
+      "box": [
+        107,
+        372,
+        225,
+        186
+      ],
+      "items": [
+        {
+          "label": "1 · 速率",
+          "answer": "\\(x^{\\prime}=-\\sin t,\\ y^{\\prime}=\\cos t\\)，速率为 \\(\\sqrt{\\sin^2t+\\cos^2t}=1\\)。两个导数在整个区间不会同时为零，曲线光滑。",
+          "loc": [
+            113,
+            416,
+            211,
+            44
+          ],
+          "ink": "\\sqrt{(-\\sin t)^2+\\cos^2t}=1"
+        },
+        {
+          "label": "1 · 弧长",
+          "answer": "在 \\(0\\le t\\le2\\pi\\) 上正好绕单位圆一周，\\(\\displaystyle L=\\int_0^{2\\pi}1\\,dt=2\\pi\\)。",
+          "loc": [
+            113,
+            505,
+            211,
+            44
+          ],
+          "ink": "\\displaystyle L=\\int_0^{2\\pi}1\\,dt=2\\pi"
+        }
+      ],
+      "context": [
+        106,
+        355,
+        452,
+        17
+      ],
+      "time": 300,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "2 · Along a straight line",
+      "box": [
+        334,
+        372,
+        222,
+        186
+      ],
+      "items": [
+        {
+          "label": "2 · 速率",
+          "answer": "分量导数为 \\(-4\\) 和 \\(7\\)，因此速率恒为 \\(\\sqrt{(-4)^2+7^2}=\\sqrt{65}\\)。",
+          "loc": [
+            341,
+            416,
+            209,
+            44
+          ],
+          "ink": "\\sqrt{(-4)^2+7^2}=\\sqrt{65}"
+        },
+        {
+          "label": "2 · 弧长",
+          "answer": "\\(\\displaystyle L=\\int_0^2\\sqrt{65}\\,dt=2\\sqrt{65}\\)。端点为 \\((1,0)\\)、\\((-7,14)\\)，其距离也为 \\(\\sqrt{(-8)^2+14^2}=2\\sqrt{65}\\)。",
+          "loc": [
+            341,
+            506,
+            209,
+            45
+          ],
+          "ink": "\\displaystyle L=\\int_0^2\\sqrt{65}\\,dt=2\\sqrt{65}"
+        }
+      ],
+      "context": [
+        106,
+        355,
+        452,
+        17
+      ],
+      "time": 400,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>

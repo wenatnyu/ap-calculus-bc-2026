@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>9.1 · Defining and Differentiating Parametric Equations · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 9</a>
+    <span class="topic" lang="en">9.1 · Defining and Differentiating Parametric Equations</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=T1jyGI9kKeY" href="https://www.youtube.com/watch?v=T1jyGI9kKeY" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-9/9.1/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/91-defining-and-differentiating-parametric-equations.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 9.1 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="9.1-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 9.1 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-9/9.1/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "9.1",
+  "pages": {
+    "1": 792,
+    "2": 422
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Opening · Parametric equations",
+      "box": [
+        104,
+        92,
+        453,
+        167
+      ],
+      "items": [
+        {
+          "label": "参数与位置",
+          "answer": "一个参数 \\(t\\) 同时确定两个坐标，位置为 \\((x,y)=(f(t),g(t))\\)。沿参数区间由小到大取值，还能追踪运动的方向。",
+          "loc": [
+            174,
+            242,
+            312,
+            14
+          ],
+          "ink": "t\\longmapsto (f(t),g(t))"
+        }
+      ],
+      "time": 30,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Table and directed curve",
+      "box": [
+        106,
+        265,
+        450,
+        274
+      ],
+      "items": [
+        {
+          "label": "1 · 横坐标一行",
+          "answer": "由 \\(x=2t\\)，七个横坐标依次为 \\(-2,-1,0,1,2,3,4\\)。",
+          "loc": [
+            185,
+            336,
+            344,
+            27
+          ],
+          "ink": [
+            {
+              "box": [
+                185,
+                337,
+                48,
+                25
+              ],
+              "tex": "-2"
+            },
+            {
+              "box": [
+                234.2,
+                337,
+                48,
+                25
+              ],
+              "tex": "-1"
+            },
+            {
+              "box": [
+                283.4,
+                337,
+                48,
+                25
+              ],
+              "tex": "0"
+            },
+            {
+              "box": [
+                332.6,
+                337,
+                48,
+                25
+              ],
+              "tex": "1"
+            },
+            {
+              "box": [
+                381.8,
+                337,
+                48,
+                25
+              ],
+              "tex": "2"
+            },
+            {
+              "box": [
+                431,
+                337,
+                48,
+                25
+              ],
+              "tex": "3"
+            },
+            {
+              "box": [
+                480.20000000000005,
+                337,
+                48,
+                25
+              ],
+              "tex": "4"
+            }
+          ]
+        },
+        {
+          "label": "1 · 纵坐标一行",
+          "answer": "由 \\(y=t^2-1\\)，七个纵坐标依次为 \\(0,-\\tfrac34,-1,-\\tfrac34,0,\\tfrac54,3\\)。",
+          "loc": [
+            185,
+            365,
+            344,
+            27
+          ],
+          "ink": [
+            {
+              "box": [
+                185,
+                365,
+                48,
+                26
+              ],
+              "tex": "0"
+            },
+            {
+              "box": [
+                234.2,
+                365,
+                48,
+                26
+              ],
+              "tex": "-\\frac34"
+            },
+            {
+              "box": [
+                283.4,
+                365,
+                48,
+                26
+              ],
+              "tex": "-1"
+            },
+            {
+              "box": [
+                332.6,
+                365,
+                48,
+                26
+              ],
+              "tex": "-\\frac34"
+            },
+            {
+              "box": [
+                381.8,
+                365,
+                48,
+                26
+              ],
+              "tex": "0"
+            },
+            {
+              "box": [
+                431,
+                365,
+                48,
+                26
+              ],
+              "tex": "\\frac54"
+            },
+            {
+              "box": [
+                480.20000000000005,
+                365,
+                48,
+                26
+              ],
+              "tex": "3"
+            }
+          ]
+        },
+        {
+          "label": "1 · 曲线及方向",
+          "answer": "从 \\((-2,0)\\) 出发，经过最低点 \\((0,-1)\\)，到 \\((4,3)\\) 结束。因为 \\(x=2t\\) 随 \\(t\\) 增大，整段曲线均由左向右描出。",
+          "loc": [
+            232,
+            406,
+            202,
+            130
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M 268.60 493.99 L 270.79 495.73 L 272.98 497.39 L 275.16 498.97 L 277.35 500.46 L 279.54 501.86 L 281.73 503.19 L 283.92 504.43 L 286.10 505.59 L 288.29 506.66 L 290.48 507.65 L 292.67 508.56 L 294.86 509.38 L 297.05 510.12 L 299.23 510.77 L 301.42 511.34 L 303.61 511.83 L 305.80 512.23 L 307.99 512.56 L 310.17 512.79 L 312.36 512.95 L 314.55 513.02 L 316.74 513.00 L 318.93 512.90 L 321.11 512.72 L 323.30 512.46 L 325.49 512.11 L 327.68 511.68 L 329.87 511.16 L 332.06 510.56 L 334.24 509.88 L 336.43 509.11 L 338.62 508.26 L 340.81 507.33 L 343.00 506.31 L 345.18 505.21 L 347.37 504.03 L 349.56 502.76 L 351.75 501.41 L 353.94 499.97 L 356.12 498.45 L 358.31 496.85 L 360.50 495.16 L 362.69 493.39 L 364.88 491.54 L 367.07 489.60 L 369.25 487.58 L 371.44 485.47 L 373.63 483.29 L 375.82 481.01 L 378.01 478.66 L 380.19 476.22 L 382.38 473.70 L 384.57 471.09 L 386.76 468.40 L 388.95 465.63 L 391.13 462.77 L 393.32 459.83 L 395.51 456.80 L 397.70 453.70 L 399.89 450.50 L 402.08 447.23 L 404.26 443.87 L 406.45 440.43 L 408.64 436.90",
+              "fill": "none",
+              "stroke": "#1757a2",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 268.6,
+              "cy": 493.99,
+              "r": 1.9,
+              "fill": "#1757a2"
+            },
+            {
+              "type": "circle",
+              "cx": 291.94,
+              "cy": 508.26,
+              "r": 1.9,
+              "fill": "#1757a2"
+            },
+            {
+              "type": "circle",
+              "cx": 315.28,
+              "cy": 513.02,
+              "r": 1.9,
+              "fill": "#1757a2"
+            },
+            {
+              "type": "circle",
+              "cx": 338.62,
+              "cy": 508.26,
+              "r": 1.9,
+              "fill": "#1757a2"
+            },
+            {
+              "type": "circle",
+              "cx": 361.96,
+              "cy": 493.99,
+              "r": 1.9,
+              "fill": "#1757a2"
+            },
+            {
+              "type": "circle",
+              "cx": 385.3,
+              "cy": 470.2,
+              "r": 1.9,
+              "fill": "#1757a2"
+            },
+            {
+              "type": "circle",
+              "cx": 408.64,
+              "cy": 436.9,
+              "r": 1.9,
+              "fill": "#1757a2"
+            },
+            {
+              "type": "path",
+              "d": "M 293.48 511.62 L 298.94 510.69 L 294.79 507.01",
+              "fill": "none",
+              "stroke": "#1757a2",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            },
+            {
+              "type": "path",
+              "d": "M 374.77 485.65 L 376.43 480.36 L 371.26 482.37",
+              "fill": "none",
+              "stroke": "#1757a2",
+              "stroke-width": 1.65,
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round"
+            }
+          ]
+        }
+      ],
+      "time": 120,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · Eliminate the parameter",
+      "box": [
+        106,
+        548,
+        451,
+        96
+      ],
+      "items": [
+        {
+          "label": "2 · 直角坐标方程",
+          "answer": "由 \\(x=2t\\) 得 \\(t=x/2\\)，代入 \\(y=t^2-1\\) 得 \\(y=\\dfrac{x^2}{4}-1\\)。若沿用第 1 题的 \\(-1\\le t\\le2\\)，对应 \\(-2\\le x\\le4\\)。",
+          "loc": [
+            116,
+            595,
+            425,
+            37
+          ],
+          "ink": "t=\\frac x2\\quad\\Longrightarrow\\quad y=\\frac{x^2}{4}-1"
+        }
+      ],
+      "time": 360,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3 · Eliminate a trigonometric parameter",
+      "box": [
+        106,
+        646,
+        451,
+        88
+      ],
+      "items": [
+        {
+          "label": "3 · 消去参数",
+          "answer": "由 \\(\\cos t=x/2,\\ \\sin t=y/2\\) 得 \\((x/2)^2+(y/2)^2=1\\)。故直角坐标方程为 \\(x^2+y^2=4\\)，对应以原点为圆心、半径为 \\(2\\) 的圆。",
+          "loc": [
+            116,
+            676,
+            423,
+            35
+          ],
+          "ink": "\\left(\\frac{x}{2}\\right)^2+\\left(\\frac{y}{2}\\right)^2=1\\quad\\Longrightarrow\\quad x^2+y^2=4"
+        }
+      ],
+      "time": 420,
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "Derivative of a parametric equation",
+      "box": [
+        103,
+        40,
+        455,
+        123
+      ],
+      "items": [
+        {
+          "label": "斜率公式与条件",
+          "answer": "由 \\(\\dfrac{dy}{dt}=\\dfrac{dy}{dx}\\dfrac{dx}{dt}\\)，当 \\(\\dfrac{dx}{dt}\\ne0\\) 时，\\(\\dfrac{dy}{dx}=\\dfrac{dy/dt}{dx/dt}\\)。",
+          "loc": [
+            126,
+            89,
+            403,
+            61
+          ],
+          "ink": "\\displaystyle\\frac{dy}{dx}=\\frac{dy/dt}{dx/dt},\\qquad \\frac{dx}{dt}\\ne0"
+        }
+      ],
+      "time": 540,
+      "slide": 5
+    },
+    {
+      "page": 2,
+      "label": "4 · Compute the slope",
+      "box": [
+        106,
+        166,
+        451,
+        83
+      ],
+      "items": [
+        {
+          "label": "4 · 分量导数",
+          "answer": "对 \\(y=\\frac14(t^2-4)\\) 和 \\(x=\\sqrt t\\) 求导，得 \\(\\dfrac{dy}{dt}=\\dfrac t2,\\ \\dfrac{dx}{dt}=\\dfrac{1}{2\\sqrt t}\\)（\\(t>0\\)）。",
+          "loc": [
+            119,
+            189,
+            420,
+            23
+          ],
+          "ink": "\\frac{dy}{dt}=\\frac t2,\\qquad \\frac{dx}{dt}=\\frac{1}{2\\sqrt t}"
+        },
+        {
+          "label": "4 · 化简斜率",
+          "answer": "对于 \\(t>0\\)，相除得到 \\(\\dfrac{dy}{dx}=t\\sqrt t=t^{3/2}\\)。在端点 \\(t=0\\)，由 \\(y=x^4/4-1\\)（\\(x\\ge0\\)）可知右侧切线斜率为 \\(0\\)。",
+          "loc": [
+            119,
+            219,
+            420,
+            26
+          ],
+          "ink": "\\frac{dy}{dx}=\\frac{t/2}{1/(2\\sqrt t)}=t^{3/2}"
+        }
+      ],
+      "time": 630,
+      "slide": 6
+    },
+    {
+      "page": 2,
+      "label": "5 · A tangent line",
+      "box": [
+        106,
+        255,
+        451,
+        148
+      ],
+      "items": [
+        {
+          "label": "5 · 切点和斜率",
+          "answer": "令 \\(t=\\pi/2\\)，得 \\((x_0,y_0)=(e^\\pi,0)\\)。斜率为 \\(\\left.\\dfrac{-\\sin t}{2e^{2t}}\\right|_{t=\\pi/2}=-\\dfrac1{2e^\\pi}\\)。",
+          "loc": [
+            118,
+            283,
+            425,
+            39
+          ],
+          "ink": "(x_0,y_0)=(e^\\pi,0),\\qquad m=-\\frac{1}{2e^\\pi}"
+        },
+        {
+          "label": "5 · 切线方程",
+          "answer": "将切点与斜率代入 \\(y-y_0=m(x-x_0)\\)，得到 \\(y=-\\dfrac{x-e^\\pi}{2e^\\pi}\\)。",
+          "loc": [
+            118,
+            345,
+            425,
+            35
+          ],
+          "ink": "y=-\\frac{1}{2e^\\pi}\\left(x-e^\\pi\\right)"
+        }
+      ],
+      "time": 720,
+      "slide": 7
+    }
+  ]
+}</script>
+</body></html>

@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>8.7 · Volumes with Cross Sections: Squares and Rectangles · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 8</a>
+    <span class="topic" lang="en">8.7 · Volumes with Cross Sections: Squares and Rectangles</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=ehb2Ykjr0hU" href="https://www.youtube.com/watch?v=ehb2Ykjr0hU" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-8/8.7/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/87-volumes-with-cross-sections-squares-and-rectangles.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 8.7 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="8.7-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 8.7 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-8/8.7/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "8.7",
+  "pages": {
+    "1": 792,
+    "2": 241
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1 · Square sections perpendicular to the x-axis",
+      "box": [
+        106,
+        103,
+        452,
+        107
+      ],
+      "items": [
+        {
+          "label": "1 · 正方形边长与体积",
+          "loc": [
+            111,
+            147,
+            348,
+            54
+          ],
+          "ink": [
+            {
+              "box": [
+                112,
+                146,
+                347,
+                21
+              ],
+              "tex": "s=\\sqrt{x}-x^2,\\quad 0\\le x\\le1"
+            },
+            {
+              "box": [
+                112,
+                171,
+                347,
+                29
+              ],
+              "tex": "V=\\int_0^1(\\sqrt{x}-x^2)^2\\,dx=\\tfrac9{70}"
+            }
+          ],
+          "answer": "两曲线交于 \\(x=0,1\\)。将截面面积展开得 \\(A(x)=x-2x^{5/2}+x^4\\)，因此 \\(V=\\frac12-\\frac47+\\frac15=\\frac9{70}\\approx0.129\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M506.87 163.96 L506.87 144.34",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        }
+      ],
+      "time": 30,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "Volume formulas · Known cross sections",
+      "box": [
+        102,
+        217,
+        456,
+        208
+      ],
+      "items": [
+        {
+          "label": "已知截面面积",
+          "loc": [
+            192,
+            245,
+            237,
+            75
+          ],
+          "ink": [
+            {
+              "box": [
+                316,
+                249,
+                118,
+                39
+              ],
+              "tex": "\\int_a^b A(x)\\,dx"
+            },
+            {
+              "box": [
+                192,
+                299,
+                32,
+                20
+              ],
+              "tex": "A(x)"
+            },
+            {
+              "box": [
+                253,
+                298,
+                34,
+                21
+              ],
+              "tex": "\\text{area}"
+            }
+          ],
+          "answer": "\\(V=\\int_a^bA(x)\\,dx\\)，其中 \\(A(x)\\) 是垂直于 \\(x\\) 轴的截面的面积。"
+        },
+        {
+          "label": "正方形截面",
+          "loc": [
+            206,
+            342,
+            120,
+            70
+          ],
+          "ink": [
+            {
+              "box": [
+                226,
+                343,
+                88,
+                36
+              ],
+              "tex": "s^2\\,dx"
+            },
+            {
+              "box": [
+                216,
+                384,
+                106,
+                22
+              ],
+              "tex": "f(x)-g(x)"
+            }
+          ],
+          "answer": "若竖直底边上端为 \\(f(x)\\)、下端为 \\(g(x)\\)，则 \\(s=f(x)-g(x)\\)，体积为 \\(\\int_a^b s^2\\,dx\\)。"
+        },
+        {
+          "label": "长方形截面",
+          "loc": [
+            412,
+            342,
+            143,
+            70
+          ],
+          "ink": [
+            {
+              "box": [
+                412,
+                343,
+                143,
+                36
+              ],
+              "tex": "(\\text{width}\\cdot\\text{height})\\,dx"
+            },
+            {
+              "box": [
+                439,
+                385,
+                111,
+                22
+              ],
+              "tex": "f(x)-g(x)"
+            }
+          ],
+          "answer": "宽为 \\(f(x)-g(x)\\)，高由题意确定，面积为宽乘高；体积为 \\(\\int_a^b(\\mathrm{width})(\\mathrm{height})\\,dx\\)。"
+        }
+      ],
+      "time": 330,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · Square sections perpendicular to the y-axis",
+      "box": [
+        106,
+        436,
+        452,
+        110
+      ],
+      "items": [
+        {
+          "label": "2 · 水平边长与体积",
+          "loc": [
+            113,
+            462,
+            343,
+            74
+          ],
+          "ink": [
+            {
+              "box": [
+                113,
+                462,
+                343,
+                26
+              ],
+              "tex": "s=\\sqrt y-y^2,\\quad0\\le y\\le1"
+            },
+            {
+              "box": [
+                113,
+                494,
+                343,
+                31
+              ],
+              "tex": "V=\\int_0^1(\\sqrt y-y^2)^2\\,dy=\\tfrac9{70}"
+            }
+          ],
+          "answer": "在 \\([0,1]\\) 上，\\(x=\\sqrt y\\) 是右边界，\\(x=y^2\\) 是左边界。该底面关于 \\(y=x\\) 对称，故体积也为 \\(9/70\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M495.79 506.10 L517.16 506.10",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        }
+      ],
+      "time": 390,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3a–b · Rectangles with different heights",
+      "box": [
+        106,
+        562,
+        458,
+        174
+      ],
+      "items": [
+        {
+          "label": "3a · 垂直于 x 轴",
+          "loc": [
+            125,
+            606,
+            299,
+            39
+          ],
+          "ink": "V=\\int_0^2 (x^3)(2x^3)\\,dx=\\tfrac{256}{7}",
+          "answer": "对 \\(0\\le x\\le2\\)，宽为 \\(x^3\\)，高为 \\(2x^3\\)，所以 \\(V=\\int_0^2 2x^6\\,dx=256/7\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M519.90 667.50 L519.90 628.01",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "3b · 垂直于 y 轴",
+          "loc": [
+            125,
+            685,
+            415,
+            39
+          ],
+          "ink": "V=\\int_0^8 6(2-\\sqrt[3]{y})\\,dy=24",
+          "answer": "对 \\(0\\le y\\le8\\)，水平宽度为 \\(2-\\sqrt[3]y\\)，高为 \\(6\\)。故 \\(V=6[2y-\\frac34y^{4/3}]_0^8=24\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M515.76 638.25 L534.40 638.25",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        }
+      ],
+      "time": 510,
+      "slide": 4
+    },
+    {
+      "page": 2,
+      "label": "4 · Two parabolas and square cross sections",
+      "box": [
+        106,
+        63,
+        451,
+        161
+      ],
+      "items": [
+        {
+          "label": "4 · 界点与边长",
+          "loc": [
+            126,
+            112,
+            303,
+            43
+          ],
+          "ink": [
+            {
+              "box": [
+                126,
+                111,
+                303,
+                20
+              ],
+              "tex": "x^2-4=2x-x^2\\ \\Longrightarrow\\ x=-1,\\ 2"
+            },
+            {
+              "box": [
+                126,
+                135,
+                303,
+                22
+              ],
+              "tex": "s(x)=(2x-x^2)-(x^2-4)"
+            }
+          ],
+          "answer": "交点横坐标为 \\(-1,2\\)。在 \\(x=0\\) 处，\\(2x-x^2\\) 的值为 \\(0\\)，在 \\(x^2-4\\) 的上方，所以边长为 \\(-2x^2+2x+4\\)。",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M441.00 156.00 L533.00 156.00",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "path",
+              "d": "M475.00 200.00 L475.00 121.00",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "path",
+              "d": "M455.00 182.70 L456.50 180.08 L458.00 177.56 L459.50 175.14 L461.00 172.82 L462.50 170.60 L464.00 168.48 L465.50 166.46 L467.00 164.54 L468.50 162.73 L470.00 161.01 L471.50 159.39 L473.00 157.87 L474.50 156.45 L476.00 155.13 L477.50 153.91 L479.00 152.80 L480.50 151.78 L482.00 150.86 L483.50 150.04 L485.00 149.32 L486.50 148.71 L488.00 148.19 L489.50 147.77 L491.00 147.46 L492.50 147.24 L494.00 147.12 L495.50 147.11 L497.00 147.19 L498.50 147.37 L500.00 147.66 L501.50 148.04 L503.00 148.52 L504.50 149.11 L506.00 149.79 L507.50 150.58 L509.00 151.46 L510.50 152.45 L512.00 153.53 L513.50 154.72 L515.00 156.00 L515.00 156.00 L513.50 158.62 L512.00 161.14 L510.50 163.56 L509.00 165.88 L507.50 168.10 L506.00 170.22 L504.50 172.24 L503.00 174.16 L501.50 175.97 L500.00 177.69 L498.50 179.31 L497.00 180.83 L495.50 182.25 L494.00 183.57 L492.50 184.79 L491.00 185.90 L489.50 186.92 L488.00 187.84 L486.50 188.66 L485.00 189.38 L483.50 189.99 L482.00 190.51 L480.50 190.93 L479.00 191.24 L477.50 191.46 L476.00 191.58 L474.50 191.59 L473.00 191.51 L471.50 191.33 L470.00 191.04 L468.50 190.66 L467.00 190.18 L465.50 189.59 L464.00 188.91 L462.50 188.12 L461.00 187.24 L459.50 186.25 L458.00 185.17 L456.50 183.98 L455.00 182.70 Z",
+              "stroke": "none",
+              "fill": "#175e96",
+              "stroke-width": 0,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill-opacity": ".2"
+            },
+            {
+              "type": "path",
+              "d": "M452.00 188.24 L453.67 185.12 L455.33 182.12 L457.00 179.24 L458.66 176.48 L460.32 173.85 L461.99 171.34 L463.66 168.96 L465.32 166.70 L466.99 164.56 L468.65 162.55 L470.31 160.66 L471.98 158.89 L473.64 157.25 L475.31 155.73 L476.98 154.33 L478.64 153.06 L480.31 151.90 L481.97 150.88 L483.63 149.97 L485.30 149.19 L486.97 148.54 L488.63 148.00 L490.30 147.59 L491.96 147.31 L493.62 147.14 L495.29 147.10 L496.95 147.19 L498.62 147.39 L500.29 147.72 L501.95 148.17 L503.62 148.75 L505.28 149.45 L506.94 150.27 L508.61 151.22 L510.27 152.29 L511.94 153.48 L513.61 154.80 L515.27 156.24 L516.93 157.81 L518.60 159.49",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "path",
+              "d": "M452.00 179.83 L453.66 181.47 L455.32 182.98 L456.98 184.37 L458.64 185.64 L460.30 186.79 L461.96 187.82 L463.62 188.72 L465.28 189.50 L466.94 190.15 L468.60 190.69 L470.26 191.10 L471.92 191.39 L473.58 191.56 L475.24 191.60 L476.90 191.52 L478.56 191.32 L480.22 190.99 L481.88 190.55 L483.54 189.98 L485.20 189.29 L486.86 188.47 L488.52 187.53 L490.18 186.47 L491.84 185.29 L493.50 183.98 L495.16 182.56 L496.82 181.01 L498.48 179.33 L500.14 177.54 L501.80 175.62 L503.46 173.58 L505.12 171.41 L506.78 169.13 L508.44 166.72 L510.10 164.19 L511.76 161.53 L513.42 158.76 L515.08 155.86 L516.74 152.84 L518.40 149.69",
+              "stroke": "#9a6733",
+              "fill": "none",
+              "stroke-width": 1.2,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            },
+            {
+              "type": "circle",
+              "cx": 455,
+              "cy": 182.7,
+              "r": 2.1,
+              "fill": "#175e96"
+            },
+            {
+              "type": "circle",
+              "cx": 515,
+              "cy": 156,
+              "r": 2.1,
+              "fill": "#175e96"
+            },
+            {
+              "type": "path",
+              "d": "M487.00 188.40 L487.00 148.52",
+              "stroke": "#175e96",
+              "fill": "none",
+              "stroke-width": 1.9,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round"
+            }
+          ]
+        },
+        {
+          "label": "4 · 正方形截面的体积",
+          "loc": [
+            125,
+            164,
+            307,
+            40
+          ],
+          "ink": "V=\\int_{-1}^2(-2x^2+2x+4)^2\\,dx=\\tfrac{162}{5}",
+          "answer": "正方形面积是边长的平方。展开后逐项积分，得到 \\(\\int_{-1}^2(4x^4-8x^3-12x^2+16x+16)\\,dx=162/5\\)。"
+        }
+      ],
+      "time": 720,
+      "slide": 5
+    }
+  ]
+}</script>
+</body></html>

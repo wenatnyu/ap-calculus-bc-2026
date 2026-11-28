@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>8.11 · Volume with Washer Method: Revolving Around the x- or y-axis · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 8</a>
+    <span class="topic" lang="en">8.11 · Volume with Washer Method: Revolving Around the x- or y-axis</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=dN7mS08yrc8" href="https://www.youtube.com/watch?v=dN7mS08yrc8" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-8/8.11/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/811-volume-with-washer-method-revolving-around-the-x--or-y-axis.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 8.11 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="8.11-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 8.11 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-8/8.11/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "8.11",
+  "pages": {
+    "1": 792
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "1 · 两条曲线之间的区域绕 x 轴",
+      "box": [
+        105,
+        90,
+        453,
+        166
+      ],
+      "items": [
+        {
+          "label": "1 · 区域、外半径和内半径",
+          "answer": "交点为 \\((0,0)\\)、\\((1,1)\\)。对 \\(0\\le x\\le1\\)，外半径为 \\(R=\\sqrt{x}\\)（蓝色），内半径为 \\(r=x^2\\)（紫色）。",
+          "loc": [
+            116,
+            133,
+            290,
+            41
+          ],
+          "ink": "0\\le x\\le1,\\quad R=\\sqrt{x},\\quad r=x^2",
+          "draw": [
+            {
+              "type": "path",
+              "d": "M488.20 151.20L489.35 145.51L490.51 143.15L491.66 141.34L492.81 139.81L493.96 138.47L495.12 137.25L496.27 136.14L497.42 135.10L498.57 134.12L499.73 133.19L500.88 132.32L502.03 131.48L503.18 130.67L504.34 129.90L505.49 129.15L506.64 128.42L507.79 127.72L508.95 127.04L510.10 126.38L511.25 125.74L512.41 125.11L513.56 124.49L514.71 123.89L515.86 123.31L517.02 122.73L518.17 122.17L519.32 121.61L520.47 121.07L521.63 120.54L522.78 120.01L523.93 119.50L525.08 118.99L526.24 118.49L527.39 118.00L528.54 117.51L529.69 117.04L530.85 116.56L532.00 116.10L532.00 116.10L530.85 117.92L529.69 119.70L528.54 121.42L527.39 123.10L526.24 124.73L525.08 126.31L523.93 127.84L522.78 129.32L521.63 130.76L520.47 132.14L519.32 133.48L518.17 134.77L517.02 136.01L515.86 137.20L514.71 138.34L513.56 139.44L512.41 140.48L511.25 141.48L510.10 142.42L508.95 143.32L507.79 144.18L506.64 144.98L505.49 145.73L504.34 146.44L503.18 147.09L502.03 147.70L500.88 148.26L499.73 148.77L498.57 149.23L497.42 149.64L496.27 150.01L495.12 150.32L493.96 150.59L492.81 150.81L491.66 150.98L490.51 151.10L489.35 151.18L488.20 151.20Z",
+              "stroke": "#147556",
+              "stroke-width": 0.7,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "#147556",
+              "fill-opacity": 0.18
+            },
+            {
+              "type": "path",
+              "d": "M509.66 151.20L509.66 126.63",
+              "stroke": "#125b98",
+              "stroke-width": 1.8,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            },
+            {
+              "type": "path",
+              "d": "M514.04 151.20L514.04 138.98",
+              "stroke": "#85458a",
+              "stroke-width": 1.8,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            },
+            {
+              "type": "path",
+              "d": "M470 226a19 19 0 1 0 38 0a19 19 0 1 0 -38 0Z M482 226a7 7 0 1 0 14 0a7 7 0 1 0 -14 0Z",
+              "fill": "#125b98",
+              "fill-opacity": 0.2,
+              "fill-rule": "evenodd",
+              "stroke": "#125b98",
+              "stroke-width": 1
+            }
+          ]
+        },
+        {
+          "label": "1 · 积分与体积",
+          "answer": "\\(V=\\pi\\int_0^1[(\\sqrt{x})^2-(x^2)^2]\\,dx=\\pi[x^2/2-x^5/5]_0^1=3\\pi/10\\)。",
+          "loc": [
+            117,
+            192,
+            290,
+            52
+          ],
+          "ink": "V=\\pi\\int_0^1(x-x^4)\\,dx=\\frac{3\\pi}{10}"
+        }
+      ],
+      "time": 10,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "公式 · 圆环法的两种写法",
+      "box": [
+        102,
+        265,
+        456,
+        176
+      ],
+      "items": [
+        {
+          "label": "先分别求外、内圆盘的体积",
+          "answer": "取相同的积分区间，写为 \\(V=\\int_a^b\\pi[R(x)]^2\\,dx-\\int_a^b\\pi[r(x)]^2\\,dx\\)。",
+          "loc": [
+            266,
+            295,
+            167,
+            42
+          ],
+          "ink": "\\pi R(x)^2\\,dx-\\int_a^b\\pi r(x)^2\\,dx"
+        },
+        {
+          "label": "合成一个积分",
+          "answer": "将 \\(\\pi\\) 提出，用一个积分写成 \\(V=\\pi\\int_a^b([R(x)]^2-[r(x)]^2)\\,dx\\)。",
+          "loc": [
+            299,
+            345,
+            138,
+            37
+          ],
+          "ink": "\\bigl(R(x)^2-r(x)^2\\bigr)\\,dx"
+        },
+        {
+          "label": "外半径与内半径",
+          "answer": "两项都从旋转轴量起。\\(R(x)\\) 到立体外缘，\\(r(x)\\) 到孔的边缘，且 \\(R(x)\\ge r(x)\\ge0\\)。",
+          "loc": [
+            176,
+            389,
+            315,
+            45
+          ],
+          "ink": [
+            {
+              "box": [
+                215,
+                390,
+                30,
+                21
+              ],
+              "tex": "R(x)"
+            },
+            {
+              "box": [
+                333,
+                390,
+                64,
+                21
+              ],
+              "tex": "\\text{outside}"
+            },
+            {
+              "box": [
+                213,
+                404,
+                31,
+                22
+              ],
+              "tex": "r(x)"
+            },
+            {
+              "box": [
+                334,
+                404,
+                54,
+                22
+              ],
+              "tex": "\\text{inside}"
+            }
+          ]
+        }
+      ],
+      "time": 325,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · 抛物线与直线之间的区域绕 y 轴",
+      "box": [
+        105,
+        477,
+        453,
+        266
+      ],
+      "items": [
+        {
+          "label": "2 · 积分范围和半径",
+          "answer": "横坐标交点为 \\(0,2\\)，对应高度 \\(1,5\\)。在这一区域，右边界给出 \\(R(y)=\\sqrt{y-1}\\)（蓝色），左边界给出 \\(r(y)=(y-1)/2\\)（紫色）。",
+          "loc": [
+            115,
+            527,
+            290,
+            77
+          ],
+          "ink": [
+            {
+              "box": [
+                115,
+                528,
+                289,
+                30
+              ],
+              "tex": "1\\le y\\le5"
+            },
+            {
+              "box": [
+                115,
+                567,
+                289,
+                34
+              ],
+              "tex": "R=\\sqrt{y-1},\\qquad r=\\frac{y-1}{2}"
+            }
+          ],
+          "draw": [
+            {
+              "type": "path",
+              "d": "M488.20 573.15L495.81 570.90L498.96 568.66L501.38 566.41L503.42 564.16L505.21 561.91L506.84 559.67L508.33 557.42L509.72 555.17L511.02 552.92L512.26 550.68L513.43 548.43L514.56 546.18L515.63 543.93L516.67 541.69L517.67 539.44L518.63 537.19L519.57 534.94L520.48 532.70L521.36 530.45L522.22 528.20L523.07 525.96L523.89 523.71L524.69 521.46L525.47 519.21L526.24 516.97L526.99 514.72L527.73 512.47L528.46 510.22L529.17 507.98L529.87 505.73L530.56 503.48L531.24 501.23L531.91 498.99L532.56 496.74L533.21 494.49L533.85 492.24L534.48 490.00L535.10 487.75L535.10 487.75L533.87 490.00L532.63 492.24L531.40 494.49L530.16 496.74L528.93 498.99L527.69 501.23L526.46 503.48L525.23 505.73L523.99 507.98L522.76 510.22L521.52 512.47L520.29 514.72L519.06 516.97L517.82 519.21L516.59 521.46L515.35 523.71L514.12 525.96L512.88 528.20L511.65 530.45L510.42 532.70L509.18 534.94L507.95 537.19L506.71 539.44L505.48 541.69L504.24 543.93L503.01 546.18L501.78 548.43L500.54 550.68L499.31 552.92L498.07 555.17L496.84 557.42L495.61 559.67L494.37 561.91L493.14 564.16L491.90 566.41L490.67 568.66L489.43 570.90L488.20 573.15Z",
+              "stroke": "#147556",
+              "stroke-width": 0.7,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "#147556",
+              "fill-opacity": 0.18
+            },
+            {
+              "type": "path",
+              "d": "M488.20 538.99L517.86 538.99",
+              "stroke": "#125b98",
+              "stroke-width": 1.8,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            },
+            {
+              "type": "path",
+              "d": "M488.20 531.73L510.95 531.73",
+              "stroke": "#85458a",
+              "stroke-width": 1.8,
+              "stroke-linejoin": "round",
+              "stroke-linecap": "round",
+              "fill": "none"
+            },
+            {
+              "type": "path",
+              "d": "M467 616a14 14 0 1 0 28 0a14 14 0 1 0 -28 0Z M474 616a7 7 0 1 0 14 0a7 7 0 1 0 -14 0Z",
+              "fill": "#125b98",
+              "fill-opacity": 0.2,
+              "fill-rule": "evenodd",
+              "stroke": "#125b98",
+              "stroke-width": 1
+            }
+          ]
+        },
+        {
+          "label": "2 · 积分与体积",
+          "answer": "代入圆环公式，\\(V=\\pi\\int_1^5[(y-1)-(y-1)^2/4]\\,dy\\)。令 \\(u=y-1\\)，得 \\(\\pi[u^2/2-u^3/12]_0^4=8\\pi/3\\)。",
+          "loc": [
+            118,
+            627,
+            419,
+            84
+          ],
+          "ink": [
+            {
+              "box": [
+                118,
+                624,
+                419,
+                39
+              ],
+              "tex": "V=\\pi\\int_1^5\\left((y-1)-\\frac{(y-1)^2}{4}\\right)dy"
+            },
+            {
+              "box": [
+                118,
+                673,
+                419,
+                38
+              ],
+              "tex": "V=\\frac{8\\pi}{3}"
+            }
+          ]
+        }
+      ],
+      "time": 420,
+      "slide": 3
+    }
+  ]
+}</script>
+</body></html>

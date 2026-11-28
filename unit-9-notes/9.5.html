@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6">
+  <title>9.5 · Integrating Vector-Valued Functions · Notes 原题放映</title>
+  <link rel="stylesheet" href="../unit-1-notes/presentation.css">
+  <link rel="stylesheet" href="../unit-1-notes/math/katex.css">
+  <link rel="stylesheet" href="../unit-1-notes/paper.css">
+  <script defer src="../unit-1-notes/math/katex.min.js"></script>
+  <script defer src="../unit-1-notes/paper.js?v=multi-page"></script>
+</head>
+<body class="paper-viewer">
+  <header class="top">
+    <a class="back" href="index.html">← Unit 9</a>
+    <span class="topic" lang="en">9.5 · Integrating Vector-Valued Functions</span><span class="spacer"></span>
+    <details class="sources"><summary>配套资料</summary><nav><a id="video" data-url="https://www.youtube.com/watch?v=LHIQfNu5fT8" href="https://www.youtube.com/watch?v=LHIQfNu5fT8" target="_blank" rel="noopener">本节视频 ↗</a><a id="packet" href="../resources/unit-9/9.5/packet.pdf#page=1" target="_blank" rel="noopener">Packet · Notes p. 1 ↗</a><a href="https://calculus.flippedmath.com/95-integrating-vector-valued-functions.html" target="_blank" rel="noopener">FlippedMath 原课 ↗</a></nav></details>
+    <button id="fullscreen" hidden>全屏</button>
+  </header>
+  <main class="workbench">
+    <div class="question-head">
+      <div><p class="paper-ref">FlippedMath · 9.5 Notes · PDF 第 1 页</p><h1 id="group-title"></h1></div>
+      <div class="question-tools"><button id="zoom-question" type="button" aria-pressed="false" aria-controls="paper-stage">放大题面</button><button id="locate" aria-haspopup="dialog">整页定位</button></div>
+    </div>
+    <div class="spread">
+      <figure class="sheet-board"><div id="paper-stage"></div></figure>
+      <aside class="answer-panel" aria-labelledby="answers-heading">
+        <div class="answer-head"><h2 id="answers-heading">参考答案</h2><button id="toggle-all" type="button">全部显示</button></div>
+        <div id="answer-list"></div>
+        <a id="lesson-link" href="9.5-lesson.html">本题讲解 →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="controls">
+    <div id="progress"></div>
+    <label for="question-picker" class="picker-label">讲义题目</label>
+    <select id="question-picker" aria-label="按原讲义题号跳转"></select><span class="spacer"></span>
+    <button id="previous" aria-label="上一组题目">←</button><span id="counter" aria-live="polite"></span><button id="next" aria-label="下一组题目">→</button>
+  </footer>
+  <dialog id="whole-sheet" aria-labelledby="map-title">
+    <div class="map-head"><div><small>FlippedMath · 9.5 Notes · p. 1</small><h2 id="map-title">整页定位</h2></div><button id="dismiss" autofocus>关闭</button></div>
+    <div id="map-stage"></div>
+  </dialog>
+  <noscript>请启用 JavaScript 以按题显示答案。<a href="../resources/unit-9/9.5/packet.pdf#page=1">打开 Notes 原 PDF</a></noscript>
+  <script type="application/json" id="sheet-data">{
+  "topic": "9.5",
+  "pages": {
+    "1": 508
+  },
+  "groups": [
+    {
+      "page": 1,
+      "label": "Integration of vector-valued functions",
+      "box": [
+        102,
+        96,
+        456,
+        86
+      ],
+      "items": [
+        {
+          "label": "逐分量积分",
+          "answer": "若 \\(F^{\\prime}=f,\\ G^{\\prime}=g\\)，则 \\(\\displaystyle\\int\\langle f(t),g(t)\\rangle\\,dt=\\langle F(t)+C_1,G(t)+C_2\\rangle\\)。也可写作 \\(\\langle F(t),G(t)\\rangle+\\mathbf C\\)，其中 \\(\\mathbf C=\\langle C_1,C_2\\rangle\\)。",
+          "loc": [
+            111,
+            135,
+            437,
+            37
+          ],
+          "ink": "\\displaystyle\\int\\mathbf r(t)\\,dt=\\left\\langle\\int f(t)\\,dt,\\ \\int g(t)\\,dt\\right\\rangle"
+        }
+      ],
+      "time": 25,
+      "slide": 1
+    },
+    {
+      "page": 1,
+      "label": "1 · Recover a vector function from an initial value",
+      "box": [
+        106,
+        194,
+        226,
+        190
+      ],
+      "items": [
+        {
+          "label": "1 · 先求原函数",
+          "answer": "\\(\\int 4e^{2t}\\,dt=2e^{2t}+C_1\\) 且 \\(\\int2e^t\\,dt=2e^t+C_2\\)。",
+          "loc": [
+            112,
+            237,
+            214,
+            29
+          ],
+          "ink": "\\mathbf r(t)=\\langle2e^{2t}+C_1,2e^t+C_2\\rangle"
+        },
+        {
+          "label": "1 · 代入初值",
+          "answer": "\\(\\langle2+C_1,2+C_2\\rangle=\\langle2,0\\rangle\\)，所以 \\(C_1=0,\\ C_2=-2\\)。",
+          "loc": [
+            112,
+            286,
+            214,
+            29
+          ],
+          "ink": "C_1=0,\\qquad C_2=-2"
+        },
+        {
+          "label": "1 · 特解",
+          "answer": "将常数写回得到 \\(\\mathbf r(t)=\\langle2e^{2t},2e^t-2\\rangle\\)。代入 \\(t=0\\) 可还原初始位置。",
+          "loc": [
+            112,
+            337,
+            214,
+            29
+          ],
+          "ink": "\\mathbf r(t)=\\langle2e^{2t},2e^t-2\\rangle"
+        }
+      ],
+      "time": 50,
+      "slide": 2
+    },
+    {
+      "page": 1,
+      "label": "2 · A family of antiderivatives",
+      "box": [
+        334,
+        194,
+        222,
+        190
+      ],
+      "items": [
+        {
+          "label": "2 · 两个独立常数",
+          "answer": "由 \\((\\tan t)^{\\prime}=\\sec^2t\\) 和 \\((\\arctan t)^{\\prime}=1/(1+t^2)\\) 得 \\(\\mathbf r(t)=\\langle\\tan t+C_1,\\arctan t+C_2\\rangle\\)（在 \\(\\cos t\\ne0\\) 的连续区间上）。",
+          "loc": [
+            340,
+            248,
+            210,
+            36
+          ],
+          "ink": "\\langle\\tan t+C_1,\\arctan t+C_2\\rangle"
+        },
+        {
+          "label": "2 · 常向量写法",
+          "answer": "令 \\(\\mathbf C=\\langle C_1,C_2\\rangle\\)，即可写成 \\(\\mathbf r(t)=\\langle\\tan t,\\arctan t\\rangle+\\mathbf C\\)。",
+          "loc": [
+            340,
+            315,
+            210,
+            36
+          ],
+          "ink": "\\mathbf r(t)=\\langle\\tan t,\\arctan t\\rangle+\\mathbf C"
+        }
+      ],
+      "time": 325,
+      "slide": 3
+    },
+    {
+      "page": 1,
+      "label": "3 · A definite vector integral",
+      "box": [
+        106,
+        389,
+        451,
+        115
+      ],
+      "items": [
+        {
+          "label": "3 · 两个分量积分",
+          "answer": "\\(\\displaystyle\\int_{-1}^{1}t^3\\,dt=0\\)。实数的五次根 \\(\\sqrt[5]{t}\\) 也是奇函数，故 \\(\\displaystyle\\int_{-1}^{1}\\sqrt[5]{t}\\,dt=0\\)。",
+          "loc": [
+            115,
+            419,
+            429,
+            36
+          ],
+          "ink": "\\displaystyle\\int_{-1}^1 t^3\\,dt=0,\\qquad\\int_{-1}^1\\sqrt[5]{t}\\,dt=0"
+        },
+        {
+          "label": "3 · 最终向量",
+          "answer": "把两个定积分依次写作向量分量，原向量积分为 \\(\\langle0,0\\rangle\\)。",
+          "loc": [
+            115,
+            468,
+            429,
+            24
+          ],
+          "ink": "\\langle0,0\\rangle"
+        }
+      ],
+      "time": 400,
+      "slide": 4
+    }
+  ]
+}</script>
+</body></html>
